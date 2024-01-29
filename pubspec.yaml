@@ -1,0 +1,84 @@
+name: trip_tally
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.18.0 <3.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+
+  # auto_route
+  auto_route: ^7.8.4
+
+  # immutable_classes
+  freezed: ^2.4.6
+  freezed_annotation: ^2.4.1
+
+  # serialization
+  json_serializable: ^6.7.1
+  json_annotation: ^4.8.1
+
+  # http client
+  dio: ^5.4.0
+  retrofit: ^4.0.3
+
+  #logger
+  pretty_dio_logger: ^1.3.1
+
+  # dependency injection
+  get_it: ^7.6.7
+  injectable: ^2.3.2
+
+  # internationalization and localization
+  intl: ^0.18.1
+  intl_utils: ^2.8.5
+  flutter_localizations:
+    sdk: flutter
+
+  # ephemeral state
+  flutter_hooks: ^0.20.4
+
+  # ui
+  flutter_svg: ^2.0.9
+
+  # functional programming
+  dartz: ^0.10.1
+
+  # business logic
+  flutter_bloc: ^8.1.3
+
+  # testing
+  mockito: ^5.4.4
+  bloc_test: ^9.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.1
+  auto_route_generator: ^7.3.2
+  retrofit_generator: ^8.0.6
+  injectable_generator: ^2.4.1
+  build_runner: ^2.4.8
+  analyzer: ^5.13.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/presentation/assets/png/
+    - lib/presentation/assets/svg/
+
+flutter_intl:
+  enabled: true
+  class_name: Translation
+  main_locale: pl
+  arb_dir: lib/presentation/utils/translation/l10n
+  output_dir: lib/presentation/utils/translation/generated
