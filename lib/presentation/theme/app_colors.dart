@@ -6,6 +6,7 @@ class AppColors {
   const AppColors._();
 
   static const Color black = Colors.black;
+  static const Color white = Colors.white;
   static const Color kobi = Color(0xFFECB1C4);
   static const Color cello = Color(0xFF1E385E);
   static const Color linkWater = Color(0xFFE4EDFA);

@@ -49,6 +49,10 @@ dependencies:
   # ui
   flutter_svg: ^2.0.9
 
+  #fonts
+  google_fonts: ^6.1.0
+
+
   # functional programming
   dartz: ^0.10.1
 
@@ -58,6 +62,7 @@ dependencies:
   # testing
   mockito: ^5.4.4
   bloc_test: ^9.1.5
+  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:
