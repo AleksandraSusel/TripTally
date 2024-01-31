@@ -93,7 +93,7 @@ flutter:
     - family: Nunito
       fonts:
         - asset: lib/presentation/assets/fonts/NunitoSans_10pt_Expanded-SemiBold.ttf
-          weight: 300
+          weight: 700
 
 flutter_intl:
   enabled: true

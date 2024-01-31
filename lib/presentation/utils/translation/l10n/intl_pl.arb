@@ -3,5 +3,10 @@
   "welcomeText_trip": "Trip",
   "welcomeText_tally": "Tally!",
   "welcomeSubtitle_theAppForReportingAllExpenses": "The app for reporting all expenses",
-  "welcomeSubtitle_whileTravelling": "while travelling"
+  "welcomeSubtitle_whileTravelling": "while travelling",
+  "login": "Login",
+  "registration": "Registration",
+  "email": "E-mail",
+  "password": "Password",
+  "repeatPassword": "Repeat password"
 }
