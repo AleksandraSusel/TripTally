@@ -48,6 +48,56 @@ class Translation {
   static Translation? maybeOf(BuildContext context) {
     return Localizations.of<Translation>(context, Translation);
   }
+
+  /// `Welcome in \n`
+  String get welcomeText_welcomeIn {
+    return Intl.message(
+      'Welcome in \n',
+      name: 'welcomeText_welcomeIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trip`
+  String get welcomeText_trip {
+    return Intl.message(
+      'Trip',
+      name: 'welcomeText_trip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tally!`
+  String get welcomeText_tally {
+    return Intl.message(
+      'Tally!',
+      name: 'welcomeText_tally',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The app for reporting all expenses`
+  String get welcomeSubtitle_theAppForReportingAllExpenses {
+    return Intl.message(
+      'The app for reporting all expenses',
+      name: 'welcomeSubtitle_theAppForReportingAllExpenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `while travelling`
+  String get welcomeSubtitle_whileTravelling {
+    return Intl.message(
+      'while travelling',
+      name: 'welcomeSubtitle_whileTravelling',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {

@@ -81,6 +81,20 @@ flutter:
     - lib/presentation/assets/png/
     - lib/presentation/assets/svg/
 
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: lib/presentation/assets/fonts/NunitoSans_10pt_Expanded-ExtraBold.ttf
+          weight: 800
+    - family: Nunito
+      fonts:
+        - asset: lib/presentation/assets/fonts/NunitoSans_10pt_Expanded-Light.ttf
+          weight: 400
+    - family: Nunito
+      fonts:
+        - asset: lib/presentation/assets/fonts/NunitoSans_10pt_Expanded-SemiBold.ttf
+          weight: 300
+
 flutter_intl:
   enabled: true
   class_name: Translation

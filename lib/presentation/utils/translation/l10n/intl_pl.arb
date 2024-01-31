@@ -1,1 +1,7 @@
-{}
+{
+  "welcomeText_welcomeIn": "Welcome in \n",
+  "welcomeText_trip": "Trip",
+  "welcomeText_tally": "Tally!",
+  "welcomeSubtitle_theAppForReportingAllExpenses": "The app for reporting all expenses",
+  "welcomeSubtitle_whileTravelling": "while travelling"
+}

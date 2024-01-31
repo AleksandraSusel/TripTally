@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:injectable/injectable.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 
@@ -11,13 +10,13 @@ class ThemeManager {
     brightness: Brightness.light,
     scaffoldBackgroundColor: AppColors.linkWater,
     primaryColor: AppColors.cello,
-    textTheme: TextTheme(
-      displayLarge: GoogleFonts.nunito(fontSize: AppDimensions.d40, color: AppColors.cello),
-      displayMedium: GoogleFonts.nunito(fontSize: AppDimensions.d30, color: AppColors.cello),
-      displaySmall: GoogleFonts.nunito(fontSize: AppDimensions.d20, color: AppColors.cello),
-      headlineLarge: GoogleFonts.nunito(fontSize: AppDimensions.d40, color: AppColors.kobi),
-      headlineMedium: GoogleFonts.nunito(fontSize: AppDimensions.d30, color: AppColors.kobi),
-      headlineSmall: GoogleFonts.nunito(fontSize: AppDimensions.d20, color: AppColors.kobi),
+    textTheme: const TextTheme(
+      displayLarge: TextStyle(fontSize: AppDimensions.d40, color: AppColors.cello, fontWeight: FontWeight.w800),
+      displayMedium: TextStyle(fontSize: AppDimensions.d30, color: AppColors.cello, fontWeight: FontWeight.w400),
+      displaySmall: TextStyle(fontSize: AppDimensions.d14, color: AppColors.cello, fontWeight: FontWeight.w300),
+      headlineLarge: TextStyle(fontSize: AppDimensions.d40, color: AppColors.kobi, fontWeight: FontWeight.w800),
+      headlineMedium: TextStyle(fontSize: AppDimensions.d30, color: AppColors.kobi, fontWeight: FontWeight.w400),
+      headlineSmall: TextStyle(fontSize: AppDimensions.d20, color: AppColors.kobi, fontWeight: FontWeight.w300),
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
