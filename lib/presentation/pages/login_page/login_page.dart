@@ -30,9 +30,12 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: AppDimensions.d40),
             CustomTextField(
               hintText: context.tr.email,
+              controller: '',
             ),
             CustomTextField(
               hintText: context.tr.password,
+              controller: '',
+              hasPassword: true,
             ),
             const SizedBox(height: AppDimensions.d100),
             CustomFloatingActionButton(
