@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            const SizedBox(height: AppDimensions.d100),
+            const SizedBox(height: AppDimensions.d76),
             const WelcomeText(),
             const SizedBox(height: AppDimensions.d50),
             const WelcomeSubtitle(),
@@ -27,20 +27,20 @@ class LoginPage extends StatelessWidget {
               context.tr.login,
               style: context.tht.displayMedium,
             ),
-            const SizedBox(height: AppDimensions.d50),
+            const SizedBox(height: AppDimensions.d40),
             CustomTextField(
               hintText: context.tr.email,
             ),
             CustomTextField(
               hintText: context.tr.password,
             ),
-            const SizedBox(height: AppDimensions.d130),
+            const SizedBox(height: AppDimensions.d100),
             CustomFloatingActionButton(
               text: context.tr.login,
               onPressed: () {},
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20.0),
+              padding: const EdgeInsets.only(top: AppDimensions.d20),
               child: Text(
                 'or',
                 style: context.tht.headlineSmall,
