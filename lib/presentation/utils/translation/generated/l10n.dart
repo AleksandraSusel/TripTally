@@ -48,6 +48,106 @@ class Translation {
   static Translation? maybeOf(BuildContext context) {
     return Localizations.of<Translation>(context, Translation);
   }
+
+  /// `Welcome in \n`
+  String get welcomeText_welcomeIn {
+    return Intl.message(
+      'Welcome in \n',
+      name: 'welcomeText_welcomeIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trip`
+  String get welcomeText_trip {
+    return Intl.message(
+      'Trip',
+      name: 'welcomeText_trip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tally!`
+  String get welcomeText_tally {
+    return Intl.message(
+      'Tally!',
+      name: 'welcomeText_tally',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The app for reporting all expenses`
+  String get welcomeSubtitle_theAppForReportingAllExpenses {
+    return Intl.message(
+      'The app for reporting all expenses',
+      name: 'welcomeSubtitle_theAppForReportingAllExpenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `while travelling`
+  String get welcomeSubtitle_whileTravelling {
+    return Intl.message(
+      'while travelling',
+      name: 'welcomeSubtitle_whileTravelling',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registration`
+  String get registration {
+    return Intl.message(
+      'Registration',
+      name: 'registration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `E-mail`
+  String get email {
+    return Intl.message(
+      'E-mail',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Repeat password`
+  String get repeatPassword {
+    return Intl.message(
+      'Repeat password',
+      name: 'repeatPassword',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {

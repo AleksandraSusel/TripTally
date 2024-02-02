@@ -1,9 +1,8 @@
 class AppPaths {
   const AppPaths._();
 
-  static const pngPath = 'lib/presentation/assets/images/png';
-  static const svgPath = 'lib/presentation/assets/images/svg';
+  static const pngPath = 'lib/presentation/assets/png';
+  static const svgPath = 'lib/presentation/assets/svg';
 
-  ///ADD YOU PATHS HERE EXAMPLE:
-  ///static const logo = '$pngPath/logo.png';
+  static const String airplane = '$svgPath/airplane.svg';
 }

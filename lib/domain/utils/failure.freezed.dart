@@ -35,12 +35,15 @@ class _$FailureCopyWithImpl<$Res, $Val extends Failure> implements $FailureCopyW
 
 /// @nodoc
 abstract class _$$FailureImplCopyWith<$Res> {
-  factory _$$FailureImplCopyWith(_$FailureImpl value, $Res Function(_$FailureImpl) then) = __$$FailureImplCopyWithImpl<$Res>;
+  factory _$$FailureImplCopyWith(_$FailureImpl value, $Res Function(_$FailureImpl) then) =
+  __$$FailureImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FailureImplCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res, _$FailureImpl> implements _$$FailureImplCopyWith<$Res> {
-  __$$FailureImplCopyWithImpl(_$FailureImpl _value, $Res Function(_$FailureImpl) _then) : super(_value, _then);
+class __$$FailureImplCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res, _$FailureImpl>
+    implements _$$FailureImplCopyWith<$Res> {
+  __$$FailureImplCopyWithImpl(_$FailureImpl _value, $Res Function(_$FailureImpl) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -55,7 +58,8 @@ class _$FailureImpl implements _Failure {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$FailureImpl);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$FailureImpl);
   }
 
   @override
