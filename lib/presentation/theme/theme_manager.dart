@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:injectable/injectable.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 
@@ -11,50 +10,58 @@ class ThemeManager {
     brightness: Brightness.light,
     scaffoldBackgroundColor: AppColors.linkWater,
     primaryColor: AppColors.cello,
-    textTheme: TextTheme(
-      displayLarge: GoogleFonts.nunitoSans(
+    textTheme: const TextTheme(
+      displayLarge: TextStyle(
+        fontFamily: 'NunitoSans',
         fontSize: AppDimensions.d35,
         color: AppColors.cello,
         fontWeight: FontWeight.w900,
         letterSpacing: 3,
       ),
-      displayMedium: GoogleFonts.nunitoSans(
-        fontSize: AppDimensions.d26,
+      displayMedium: TextStyle(
+        fontFamily: 'NunitoSans',
+        fontSize: AppDimensions.d24,
         color: AppColors.cello,
-        fontWeight: FontWeight.w800,
+        fontWeight: FontWeight.w700,
         letterSpacing: 1.05,
       ),
-      displaySmall: GoogleFonts.nunitoSans(
-        fontSize: AppDimensions.d16,
+      displaySmall: TextStyle(
+        fontFamily: 'NunitoSans',
+        fontSize: AppDimensions.d14,
         color: AppColors.cello,
-        fontWeight: FontWeight.w300,
+        fontWeight: FontWeight.w100,
         letterSpacing: 2,
       ),
-      labelSmall: GoogleFonts.nunitoSans(
+      labelSmall: TextStyle(
+        fontFamily: 'NunitoSans',
         fontSize: AppDimensions.d12,
         color: AppColors.cello,
         fontWeight: FontWeight.w400,
         letterSpacing: 2,
       ),
-      labelMedium: GoogleFonts.nunitoSans(
+      labelMedium: TextStyle(
+        fontFamily: 'NunitoSans',
         fontSize: AppDimensions.d20,
         color: AppColors.cello,
         fontWeight: FontWeight.w800,
         letterSpacing: 1.05,
       ),
-      headlineLarge: GoogleFonts.nunitoSans(
-        fontSize: AppDimensions.d40,
+      headlineLarge: TextStyle(
+        fontFamily: 'NunitoSans',
+        fontSize: AppDimensions.d35,
         color: AppColors.kobi,
-        fontWeight: FontWeight.w800,
+        fontWeight: FontWeight.w900,
         letterSpacing: 1.05,
       ),
-      headlineMedium: GoogleFonts.nunitoSans(
+      headlineMedium: TextStyle(
+        fontFamily: 'NunitoSans',
         fontSize: AppDimensions.d24,
         color: AppColors.kobi,
         fontWeight: FontWeight.w700,
         letterSpacing: 1.05,
       ),
-      headlineSmall: GoogleFonts.nunitoSans(
+      headlineSmall: TextStyle(
+        fontFamily: 'NunitoSans',
         fontSize: AppDimensions.d14,
         color: AppColors.kobi,
         fontWeight: FontWeight.w400,
@@ -74,8 +81,8 @@ class ThemeManager {
         fontWeight: FontWeight.w400,
       ),
       hintStyle: TextStyle(
-        fontFamily: 'nunito',
-        fontSize: AppDimensions.d12,
+        fontFamily: 'nunitoSans',
+        fontSize: AppDimensions.d10,
         color: AppColors.cello,
         fontWeight: FontWeight.w400,
         letterSpacing: 2,
@@ -87,9 +94,9 @@ class ThemeManager {
         foregroundColor: MaterialStateProperty.all<Color>(AppColors.cello),
         textStyle: MaterialStateProperty.all<TextStyle>(
           const TextStyle(
-            fontSize: AppDimensions.d22,
+            fontSize: AppDimensions.d20,
             fontWeight: FontWeight.w700,
-            fontFamily: 'nunito',
+            fontFamily: 'nunitoSans',
             letterSpacing: 2,
           ),
         ),
@@ -98,7 +105,7 @@ class ThemeManager {
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: AppColors.wePeep,
       splashColor: AppColors.white,
-      elevation: AppDimensions.d16,
+      elevation: AppDimensions.d14,
       hoverColor: AppColors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(

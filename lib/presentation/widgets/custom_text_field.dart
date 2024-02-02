@@ -50,9 +50,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             suffixIcon: widget.hasPassword
                 ? IconButton(
                     onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
-                    icon: Icon(
-                      _obscurePassword ? Icons.visibility_off_outlined : Icons.remove_red_eye_outlined,
-                    ),
+                    icon: Icon(_obscurePassword ? Icons.visibility_off_outlined : Icons.remove_red_eye_outlined),
                     color: AppColors.cello,
                   )
                 : widget.suffixIcon,

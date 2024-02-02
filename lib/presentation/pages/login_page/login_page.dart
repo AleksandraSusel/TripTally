@@ -18,16 +18,16 @@ class LoginPage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            const SizedBox(height: AppDimensions.d76),
+            const SizedBox(height: AppDimensions.d68),
             const WelcomeText(),
-            const SizedBox(height: AppDimensions.d50),
+            const SizedBox(height: AppDimensions.d40),
             const WelcomeSubtitle(),
-            const SizedBox(height: AppDimensions.d50),
+            const SizedBox(height: AppDimensions.d100),
             Text(
               context.tr.login,
               style: context.tht.displayMedium,
             ),
-            const SizedBox(height: AppDimensions.d40),
+            const SizedBox(height: AppDimensions.d20),
             CustomTextField(
               hintText: context.tr.email,
               controller: '',

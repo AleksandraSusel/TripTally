@@ -49,8 +49,6 @@ dependencies:
   # ui
   flutter_svg: ^2.0.9
 
-  #fonts
-  google_fonts: ^6.1.0
 
 
   # functional programming
@@ -82,6 +80,28 @@ flutter:
   assets:
     - lib/presentation/assets/png/
     - lib/presentation/assets/svg/
+
+  fonts:
+    - family: NunitoSans
+      fonts:
+        - asset: lib//presentation/assets/fonts/NunitoSans_7pt-Regular.ttf
+          weight: 100
+    - family: NunitoSans
+      fonts:
+        - asset: lib//presentation/assets/fonts/NunitoSans_7pt-ExtraBold.ttf
+          weight: 900
+    - family: NunitoSans
+      fonts:
+        - asset: lib//presentation/assets/fonts/NunitoSans_7pt-Bold.ttf
+          weight: 700
+    - family: NunitoSans
+      fonts:
+        - asset: lib//presentation/assets/fonts/NunitoSans_7pt-Bold.ttf
+          weight: 800
+    - family: NunitoSans
+      fonts:
+        - asset: lib//presentation/assets/fonts/NunitoSans_7pt-Regular.ttf
+          weight: 400
 
 flutter_intl:
   enabled: true
