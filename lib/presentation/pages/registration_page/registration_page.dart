@@ -2,16 +2,16 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
-import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
 
 import '../../theme/app_dimensions.dart';
 import '../../widgets/custom_floating_action_button.dart';
+import '../../widgets/custom_text_field.dart';
 import '../../widgets/welcome_subtitle.dart';
 import '../../widgets/welcome_text.dart';
 
 @RoutePage()
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class RegistrationPage extends StatelessWidget {
+  const RegistrationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class LoginPage extends StatelessWidget {
             const WelcomeSubtitle(),
             const SizedBox(height: AppDimensions.d100),
             Text(
-              context.tr.login,
+              context.tr.registration,
               style: context.tht.displayMedium,
             ),
             const SizedBox(height: AppDimensions.d20),
@@ -38,22 +38,27 @@ class LoginPage extends StatelessWidget {
               controller: '',
               hasPassword: true,
             ),
-            const SizedBox(height: AppDimensions.d120),
+            CustomTextField(
+              hintText: context.tr.repeatPassword,
+              controller: '',
+              hasPassword: true,
+            ),
+            const SizedBox(height: AppDimensions.d50),
             CustomFloatingActionButton(
-              text: context.tr.login,
+              text: context.tr.registration,
               onPressed: () {},
             ),
             Padding(
               padding: const EdgeInsets.only(top: AppDimensions.d20),
               child: Text(
-                context.tr.or,
+                'or',
                 style: context.tht.headlineSmall,
               ),
             ),
             TextButton(
-              onPressed: () => context.router.push(const RegistrationRoute()),
+              onPressed: () => context.router.push(const LoginRoute()),
               child: Text(
-                context.tr.registration,
+                context.tr.login,
               ),
             ),
           ],
