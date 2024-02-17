@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "904678013897",
+    "project_id": "triptallyapp",
+    "storage_bucket": "triptallyapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904678013897:android:ce0707311bc67e29700618",
+        "android_client_info": {
+          "package_name": "com.example.trip_tally"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW7amS5txPvzwHH6nby3q5Fun3cK43HKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
