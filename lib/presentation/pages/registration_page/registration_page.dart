@@ -51,7 +51,7 @@ class RegistrationPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: AppDimensions.d20),
               child: Text(
-                'or',
+                context.tr.or,
                 style: context.tht.headlineSmall,
               ),
             ),
