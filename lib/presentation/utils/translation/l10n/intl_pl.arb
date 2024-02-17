@@ -8,5 +8,6 @@
   "registration": "Registration",
   "email": "E-mail",
   "password": "Password",
-  "repeatPassword": "Repeat password"
+  "repeatPassword": "Repeat password",
+  "or": "or"
 }
