@@ -1,5 +1,7 @@
-class ApiException implements Exception {
-  ApiException();
+import '../../presentation/utils/enums/errors.dart';
 
-//TODO(u): ADD YOUR ERRORS ENUM HERE
+class ApiException implements Exception {
+  ApiException(this.failure);
+
+  Errors failure;
 }

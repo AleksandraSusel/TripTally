@@ -23,6 +23,15 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "email": MessageLookupByLibrary.simpleMessage("E-mail"),
+        "errors_emailInUse": MessageLookupByLibrary.simpleMessage("Email in use"),
+        "errors_fieldCantBeEmpty": MessageLookupByLibrary.simpleMessage("Field cant be empty"),
+        "errors_invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
+        "errors_operationNotAllowed": MessageLookupByLibrary.simpleMessage("Operation not allowed"),
+        "errors_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
+        "errors_somethingWentWrong": MessageLookupByLibrary.simpleMessage("Something went wrong"),
+        "errors_unknownError": MessageLookupByLibrary.simpleMessage("Unknown error"),
+        "errors_weakPassword": MessageLookupByLibrary.simpleMessage("Weak password"),
+        "errors_wrongPassword": MessageLookupByLibrary.simpleMessage("Wrong password"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),

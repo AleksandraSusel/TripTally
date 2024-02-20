@@ -9,5 +9,14 @@
   "email": "E-mail",
   "password": "Password",
   "repeatPassword": "Repeat password",
-  "or": "or"
+  "or": "or",
+  "errors_unknownError": "Unknown error",
+  "errors_somethingWentWrong": "Something went wrong",
+  "errors_wrongPassword": "Wrong password",
+  "errors_emailInUse": "Email in use",
+  "errors_invalidEmail": "Invalid email",
+  "errors_fieldCantBeEmpty": "Field cant be empty",
+  "errors_passwordDontMatch": "Password don't match",
+  "errors_operationNotAllowed": "Operation not allowed",
+  "errors_weakPassword": "Weak password"
 }

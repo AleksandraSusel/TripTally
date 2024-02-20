@@ -158,6 +158,96 @@ class Translation {
       args: [],
     );
   }
+
+  /// `Unknown error`
+  String get errors_unknownError {
+    return Intl.message(
+      'Unknown error',
+      name: 'errors_unknownError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong`
+  String get errors_somethingWentWrong {
+    return Intl.message(
+      'Something went wrong',
+      name: 'errors_somethingWentWrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wrong password`
+  String get errors_wrongPassword {
+    return Intl.message(
+      'Wrong password',
+      name: 'errors_wrongPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email in use`
+  String get errors_emailInUse {
+    return Intl.message(
+      'Email in use',
+      name: 'errors_emailInUse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email`
+  String get errors_invalidEmail {
+    return Intl.message(
+      'Invalid email',
+      name: 'errors_invalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Field cant be empty`
+  String get errors_fieldCantBeEmpty {
+    return Intl.message(
+      'Field cant be empty',
+      name: 'errors_fieldCantBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password don't match`
+  String get errors_passwordDontMatch {
+    return Intl.message(
+      'Password don\'t match',
+      name: 'errors_passwordDontMatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Operation not allowed`
+  String get errors_operationNotAllowed {
+    return Intl.message(
+      'Operation not allowed',
+      name: 'errors_operationNotAllowed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weak password`
+  String get errors_weakPassword {
+    return Intl.message(
+      'Weak password',
+      name: 'errors_weakPassword',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {
