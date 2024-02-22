@@ -11,7 +11,10 @@ import '../../widgets/welcome_text.dart';
 
 @RoutePage()
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
+
+  final email = TextEditingController();
+  final password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +34,11 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: AppDimensions.d20),
             CustomTextField(
               hintText: context.tr.email,
-              controller: '',
+              controller: email,
             ),
             CustomTextField(
               hintText: context.tr.password,
-              controller: '',
+              controller: password,
               hasPassword: true,
             ),
             const SizedBox(height: AppDimensions.d120),

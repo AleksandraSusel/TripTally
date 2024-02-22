@@ -10,7 +10,8 @@ enum Errors {
   fieldCantBeEmpty,
   passwordDontMatch,
   weakPassword,
-  operationNotAllowed
+  operationNotAllowed,
+  fieldCanNotBeEmpty
 }
 
 extension ErrorsExtension on Errors {
@@ -34,6 +35,8 @@ extension ErrorsExtension on Errors {
         return context.tr.errors_weakPassword;
       case Errors.operationNotAllowed:
         return context.tr.errors_weakPassword;
+      case Errors.fieldCanNotBeEmpty:
+        return context.tr.errors_fieldCanNotBeEmpty;
       default:
         return context.tr.errors_operationNotAllowed;
     }

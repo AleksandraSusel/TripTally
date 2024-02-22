@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:trip_tally/presentation/pages/home_page/home_page.dart';
 import 'package:trip_tally/presentation/pages/login_page/login_page.dart';
 import 'package:trip_tally/presentation/pages/registration_page/registration_page.dart';

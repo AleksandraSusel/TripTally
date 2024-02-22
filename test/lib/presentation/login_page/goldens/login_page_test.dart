@@ -8,6 +8,6 @@ void main() {
 
   runGoldenTest(
     'LoginPage-Initial',
-    builder: () => const LoginPage(),
+    builder: () => LoginPage(),
   );
 }

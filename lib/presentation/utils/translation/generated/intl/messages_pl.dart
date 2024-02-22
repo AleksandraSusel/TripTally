@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "email": MessageLookupByLibrary.simpleMessage("E-mail"),
         "errors_emailInUse": MessageLookupByLibrary.simpleMessage("Email in use"),
+        "errors_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
         "errors_fieldCantBeEmpty": MessageLookupByLibrary.simpleMessage("Field cant be empty"),
         "errors_invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
         "errors_operationNotAllowed": MessageLookupByLibrary.simpleMessage("Operation not allowed"),

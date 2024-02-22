@@ -18,5 +18,6 @@
   "errors_fieldCantBeEmpty": "Field cant be empty",
   "errors_passwordDontMatch": "Password don't match",
   "errors_operationNotAllowed": "Operation not allowed",
-  "errors_weakPassword": "Weak password"
+  "errors_weakPassword": "Weak password",
+  "errors_fieldCanNotBeEmpty": "Field can't be empty"
 }

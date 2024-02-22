@@ -37,11 +37,11 @@ class MyApp extends StatelessWidget {
     create: (context) => getIt<AppBloc>(),
     child: BlocListener<AppBloc, AppState>(
       listener: (context, state) => state.whenOrNull(
-        initial: () => getIt<AppRouter>().push(const LoginRoute()),
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
-        ),
-      ),
+        initial: () => getIt<AppRouter>().push(LoginRoute()),
+            loading: () => const Center(
+              child: CircularProgressIndicator(),
+            ),
+          ),
       child: MaterialApp.router(
         routerConfig: getIt<AppRouter>().config(),
         localizationsDelegates: const [
