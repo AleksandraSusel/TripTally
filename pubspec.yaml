@@ -59,7 +59,7 @@ dependencies:
 
   # testing
   mockito: ^5.4.4
-  bloc_test: ^9.1.5
+  bloc_test: ^9.1.6
   equatable: ^2.0.5
   golden_toolkit: ^0.15.0
   alchemist: ^0.7.0

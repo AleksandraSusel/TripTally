@@ -29,9 +29,14 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     RegistrationRoute.name: (routeData) {
+      final args = routeData.argsAs<RegistrationRouteArgs>(orElse: () => const RegistrationRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const RegistrationPage(),
+        child: RegistrationPage(
+          key: args.key,
+          // ignore: invalid_use_of_visible_for_testing_member
+          bloc: args.bloc,
+        ),
       );
     },
   };
@@ -81,14 +86,37 @@ class LoginRouteArgs {
 
 /// generated route for
 /// [RegistrationPage]
-class RegistrationRoute extends PageRouteInfo<void> {
-  const RegistrationRoute({List<PageRouteInfo>? children})
-      : super(
+class RegistrationRoute extends PageRouteInfo<RegistrationRouteArgs> {
+  RegistrationRoute({
+    Key? key,
+    RegistrationBloc? bloc,
+    List<PageRouteInfo>? children,
+  }) : super(
           RegistrationRoute.name,
+          args: RegistrationRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'RegistrationRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<RegistrationRouteArgs> page = PageInfo<RegistrationRouteArgs>(name);
+}
+
+class RegistrationRouteArgs {
+  const RegistrationRouteArgs({
+    this.key,
+    this.bloc,
+  });
+
+  final Key? key;
+
+  final RegistrationBloc? bloc;
+
+  @override
+  String toString() {
+    return 'RegistrationRouteArgs{key: $key, bloc: $bloc}';
+  }
 }

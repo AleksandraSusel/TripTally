@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
 import 'package:trip_tally/domain/data_source/authentication_remote_source.dart';
 
@@ -34,8 +35,9 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
         default:
           rethrow;
       }
-    } on ApiException catch (e) {
-      throw ApiException(e.failure);
+    } catch (e) {
+      debugPrint('The error was: $e');
+      throw ApiException(Errors.unknownError);
     }
   }
 }

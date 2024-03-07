@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
             const WelcomeText(),
             const SizedBox(height: AppDimensions.d40),
             const WelcomeSubtitle(),
-            const SizedBox(height: AppDimensions.d100),
+            const SizedBox(height: AppDimensions.d80),
             Text(
               context.tr.login,
               style: context.tht.displayMedium,
@@ -54,7 +54,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             TextButton(
-              onPressed: () => context.router.push(const RegistrationRoute()),
+              onPressed: () => context.router.push(RegistrationRoute()),
               child: Text(
                 context.tr.registration,
               ),

@@ -16,12 +16,14 @@ import 'bloc/registration_bloc.dart';
 
 @RoutePage()
 class RegistrationPage extends StatelessWidget {
-  const RegistrationPage({super.key});
+  const RegistrationPage({super.key, @visibleForTesting this.bloc});
+
+  final RegistrationBloc? bloc;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<RegistrationBloc>(),
+      create: (context) => bloc ?? getIt<RegistrationBloc>(),
       child: BlocConsumer<RegistrationBloc, RegistrationState>(
         listener: (context, state) => state.maybeWhen(
           orElse: () => const SizedBox.shrink(),
@@ -46,66 +48,73 @@ class RegistrationPage extends StatelessWidget {
   }
 }
 
-class _Body extends StatelessWidget {
-  _Body();
+class _Body extends StatefulWidget {
+  @override
+  State<_Body> createState() => _BodyState();
+}
 
+class _BodyState extends State<_Body> {
   final email = TextEditingController();
+
   final password = TextEditingController();
+
   final repeatPassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            const SizedBox(height: AppDimensions.d68),
-            const WelcomeText(),
-            const SizedBox(height: AppDimensions.d40),
-            const WelcomeSubtitle(),
-            const SizedBox(height: AppDimensions.d100),
-            Text(
-              context.tr.registration,
-              style: context.tht.displayMedium,
-            ),
-            const SizedBox(height: AppDimensions.d20),
-            CustomTextField(
-              hintText: context.tr.email,
-              controller: email,
-            ),
-            CustomTextField(
-              hintText: context.tr.password,
-              controller: password,
-              hasPassword: true,
-            ),
-            CustomTextField(
-              hintText: context.tr.repeatPassword,
-              controller: repeatPassword,
-              hasPassword: true,
-            ),
-            const SizedBox(height: AppDimensions.d50),
-            CustomFloatingActionButton(
-              text: context.tr.registration,
-              onPressed: () => context.read<RegistrationBloc>().add(OnTapRegistrationEvent(
-                    email.text,
-                    password.text,
-                    repeatPassword.text,
-                  )),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: AppDimensions.d20),
-              child: Text(
-                context.tr.or,
-                style: context.tht.headlineSmall,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              const SizedBox(height: AppDimensions.d3),
+              const WelcomeText(),
+              const SizedBox(height: AppDimensions.d40),
+              const WelcomeSubtitle(),
+              const SizedBox(height: AppDimensions.d80),
+              Text(
+                context.tr.registration,
+                style: context.tht.displayMedium,
               ),
-            ),
-            TextButton(
-              onPressed: () => context.router.push(LoginRoute()),
-              child: Text(
-                context.tr.login,
+              const SizedBox(height: AppDimensions.d20),
+              CustomTextField(
+                hintText: context.tr.email,
+                controller: email,
               ),
-            ),
-          ],
+              CustomTextField(
+                hintText: context.tr.password,
+                controller: password,
+                hasPassword: true,
+              ),
+              CustomTextField(
+                hintText: context.tr.repeatPassword,
+                controller: repeatPassword,
+                hasPassword: true,
+              ),
+              const SizedBox(height: AppDimensions.d50),
+              CustomFloatingActionButton(
+                text: context.tr.registration,
+                onPressed: () => context.read<RegistrationBloc>().add(OnTapRegistrationEvent(
+                      email.text,
+                      password.text,
+                      repeatPassword.text,
+                    )),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: AppDimensions.d20),
+                child: Text(
+                  context.tr.or,
+                  style: context.tht.headlineSmall,
+                ),
+              ),
+              TextButton(
+                onPressed: () => context.router.push(LoginRoute()),
+                child: Text(
+                  context.tr.login,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

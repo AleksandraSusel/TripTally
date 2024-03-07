@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
     create: (context) => getIt<AppBloc>(),
     child: BlocListener<AppBloc, AppState>(
       listener: (context, state) => state.whenOrNull(
-        initial: () => getIt<AppRouter>().push(LoginRoute()),
+        initial: () => getIt<AppRouter>().push(RegistrationRoute()),
             loading: () => const Center(
               child: CircularProgressIndicator(),
             ),

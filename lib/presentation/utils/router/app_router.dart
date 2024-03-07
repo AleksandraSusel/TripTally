@@ -4,6 +4,8 @@ import 'package:trip_tally/presentation/pages/home_page/home_page.dart';
 import 'package:trip_tally/presentation/pages/login_page/login_page.dart';
 import 'package:trip_tally/presentation/pages/registration_page/registration_page.dart';
 
+import '../../pages/registration_page/bloc/registration_bloc.dart';
+
 part 'app_router.gr.dart';
 
 @AutoRouterConfig(
@@ -12,7 +14,7 @@ part 'app_router.gr.dart';
 class AppRouter extends _$AppRouter {
   @override
   RouteType get defaultRouteType => const RouteType.custom(
-    transitionsBuilder: TransitionsBuilders.fadeIn,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
         durationInMilliseconds: 400,
       );
 
