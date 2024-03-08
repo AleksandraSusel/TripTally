@@ -19,5 +19,8 @@
   "errors_passwordDontMatch": "Password don't match",
   "errors_operationNotAllowed": "Operation not allowed",
   "errors_weakPassword": "Weak password",
-  "errors_fieldCanNotBeEmpty": "Field can't be empty"
+  "errors_fieldCanNotBeEmpty": "Field can't be empty",
+  "registration_page_fieldCanNotBeEmpty": "Field can't be empty",
+  "registration_page_passwordDontMatch": "Password don't match",
+  "registration_page_yourEmailIsIncorrect": "Your email is incorrect"
 }

@@ -10,6 +10,7 @@ class CustomTextField extends StatefulWidget {
     this.error,
     this.suffixIcon,
     this.hasPassword = false,
+    required this.validator,
   });
 
   final String hintText;
@@ -17,6 +18,7 @@ class CustomTextField extends StatefulWidget {
   final String? error;
   final Widget? suffixIcon;
   final bool hasPassword;
+  final String? Function(String?)? validator;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -37,7 +39,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
       padding: const EdgeInsets.all(AppDimensions.d10),
       child: SizedBox(
         width: AppDimensions.d300,
-        child: TextField(
+        child: TextFormField(
+          validator: widget.validator,
           controller: widget.controller,
           obscureText: _obscurePassword,
           decoration: InputDecoration(

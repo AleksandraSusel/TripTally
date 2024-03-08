@@ -7,9 +7,7 @@ import 'package:trip_tally/domain/use_case/create_user_use_case.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 part 'registration_bloc.freezed.dart';
-
 part 'registration_event.dart';
-
 part 'registration_state.dart';
 
 @injectable
@@ -21,26 +19,16 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
   final CreateUserUseCase _createUserUseCase;
 
   Future<void> _onTapRegistrationEvent(OnTapRegistrationEvent event, Emitter<RegistrationState> emit) async {
-    if (event.email.isNotEmpty && event.password.isNotEmpty && event.repeatPassword.isNotEmpty) {
-      if (event.repeatPassword != event.password) {
-        emit(const RegistrationState.failure(Errors.passwordDontMatch));
+    final registration = await _createUserUseCase(CreateUserEntity(email: event.email, password: event.password));
+    registration.fold(
+      (l) {
+        emit(const RegistrationState.failure(Errors.somethingWentWrong));
         emit(const RegistrationState.initial());
-      } else {
-        final registration = await _createUserUseCase(CreateUserEntity(email: event.email, password: event.password));
-        registration.fold(
-          (l) {
-            emit(const RegistrationState.failure(Errors.somethingWentWrong));
-            emit(const RegistrationState.initial());
-          },
-          (r) {
-            emit(const RegistrationState.initial());
-            emit(const RegistrationState.success());
-          },
-        );
-      }
-    } else {
-      emit(const RegistrationState.failure(Errors.fieldCanNotBeEmpty));
-      emit(const RegistrationState.initial());
-    }
+      },
+      (r) {
+        emit(const RegistrationState.initial());
+        emit(const RegistrationState.success());
+      },
+    );
   }
 }

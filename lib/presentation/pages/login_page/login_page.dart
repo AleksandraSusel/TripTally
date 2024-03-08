@@ -10,56 +10,73 @@ import '../../widgets/welcome_subtitle.dart';
 import '../../widgets/welcome_text.dart';
 
 @RoutePage()
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
-  final email = TextEditingController();
-  final password = TextEditingController();
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            const SizedBox(height: AppDimensions.d68),
-            const WelcomeText(),
-            const SizedBox(height: AppDimensions.d40),
-            const WelcomeSubtitle(),
-            const SizedBox(height: AppDimensions.d80),
-            Text(
-              context.tr.login,
-              style: context.tht.displayMedium,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              children: [
+                const SizedBox(height: AppDimensions.d68),
+                const WelcomeText(),
+                const SizedBox(height: AppDimensions.d40),
+                const WelcomeSubtitle(),
+                const SizedBox(height: AppDimensions.d80),
+                Text(
+                  context.tr.login,
+                  style: context.tht.displayMedium,
+                ),
+                const SizedBox(height: AppDimensions.d20),
+                CustomTextField(
+                  hintText: context.tr.email,
+                  controller: emailController,
+                  validator: (String? emailController) {
+                    return (emailController == null && emailController == '') ? context.tr.registration_page_fieldCanNotBeEmpty : null;
+                  },
+                ),
+                CustomTextField(
+                  hintText: context.tr.password,
+                  controller: passwordController,
+                  hasPassword: true,
+                  validator: (String? passwordController) {
+                    return (passwordController == null && passwordController == '')
+                        ? context.tr.registration_page_fieldCanNotBeEmpty
+                        : null;
+                  },
+                ),
+                const SizedBox(height: AppDimensions.d120),
+                CustomFloatingActionButton(
+                  text: context.tr.login,
+                  onPressed: () {},
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: AppDimensions.d20),
+                  child: Text(
+                    context.tr.or,
+                    style: context.tht.headlineSmall,
+                  ),
+                ),
+                TextButton(
+                  onPressed: () => context.router.push(RegistrationRoute()),
+                  child: Text(
+                    context.tr.registration,
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: AppDimensions.d20),
-            CustomTextField(
-              hintText: context.tr.email,
-              controller: email,
-            ),
-            CustomTextField(
-              hintText: context.tr.password,
-              controller: password,
-              hasPassword: true,
-            ),
-            const SizedBox(height: AppDimensions.d120),
-            CustomFloatingActionButton(
-              text: context.tr.login,
-              onPressed: () {},
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: AppDimensions.d20),
-              child: Text(
-                context.tr.or,
-                style: context.tht.headlineSmall,
-              ),
-            ),
-            TextButton(
-              onPressed: () => context.router.push(RegistrationRoute()),
-              child: Text(
-                context.tr.registration,
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

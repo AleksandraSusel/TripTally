@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
+import 'package:trip_tally/presentation/utils/enums/string_extensions.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 
 import '../../../injectable/injectable.dart';
@@ -25,8 +26,7 @@ class RegistrationPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => bloc ?? getIt<RegistrationBloc>(),
       child: BlocConsumer<RegistrationBloc, RegistrationState>(
-        listener: (context, state) => state.maybeWhen(
-          orElse: () => const SizedBox.shrink(),
+        listener: (context, state) => state.whenOrNull(
           loading: () => const Center(
             child: CircularProgressIndicator(),
           ),
@@ -37,10 +37,7 @@ class RegistrationPage extends StatelessWidget {
           success: () => customSnackBar(context, 'Zostałeś zarejestrowany'), //TODO: push to HomePage
         ),
         builder: (context, state) => state.maybeWhen(
-          orElse: () => const SizedBox.shrink(),
-          failure: (_) => _Body(),
-          success: () => _Body(),
-          initial: () => _Body(),
+          orElse: () => const _Body(),
           loading: () => Container(color: Colors.white),
         ),
       ),
@@ -49,71 +46,108 @@ class RegistrationPage extends StatelessWidget {
 }
 
 class _Body extends StatefulWidget {
+  const _Body();
+
   @override
   State<_Body> createState() => _BodyState();
 }
 
 class _BodyState extends State<_Body> {
-  final email = TextEditingController();
+  final emailController = TextEditingController();
 
-  final password = TextEditingController();
+  final passwordController = TextEditingController();
 
   final repeatPassword = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              const SizedBox(height: AppDimensions.d40),
-              const WelcomeText(),
-              const SizedBox(height: AppDimensions.d40),
-              const WelcomeSubtitle(),
-              const SizedBox(height: AppDimensions.d80),
-              Text(
-                context.tr.registration,
-                style: context.tht.displayMedium,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Form(
+              key: _formKey,
+              autovalidateMode: AutovalidateMode.always,
+              child: Column(
+                children: [
+                  const SizedBox(height: AppDimensions.d40),
+                  const WelcomeText(),
+                  const SizedBox(height: AppDimensions.d40),
+                  const WelcomeSubtitle(),
+                  const SizedBox(height: AppDimensions.d80),
+                  Text(
+                    context.tr.registration,
+                    style: context.tht.displayMedium,
+                  ),
+                  const SizedBox(height: AppDimensions.d20),
+                  CustomTextField(
+                    hintText: context.tr.email,
+                    controller: emailController,
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return context.tr.registration_page_fieldCanNotBeEmpty;
+                      }
+                      if (!value.isValidEmail) {
+                        return context.tr.registration_page_yourEmailIsIncorrect;
+                      }
+                      return null;
+                    },
+                  ),
+                  CustomTextField(
+                    hintText: context.tr.password,
+                    controller: passwordController,
+                    hasPassword: true,
+                    validator: (String? value) {
+                      return (value == null && value == '') ? context.tr.registration_page_fieldCanNotBeEmpty : null;
+                    },
+                  ),
+                  CustomTextField(
+                    hintText: context.tr.repeatPassword,
+                    controller: repeatPassword,
+                    hasPassword: true,
+                    validator: (String? repeatPasswordController) {
+                      if (repeatPasswordController == null && repeatPasswordController == '') {
+                        return context.tr.registration_page_fieldCanNotBeEmpty;
+                      }
+                      if (repeatPasswordController != passwordController.text) {
+                        return context.tr.registration_page_passwordDontMatch;
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                  const SizedBox(height: AppDimensions.d50),
+                  CustomFloatingActionButton(
+                    text: context.tr.registration,
+                    onPressed: () {
+                      if (_formKey.currentState?.validate() ?? false) {
+                        context.read<RegistrationBloc>().add(
+                              OnTapRegistrationEvent(
+                                emailController.text,
+                                passwordController.text,
+                                repeatPassword.text,
+                              ),
+                            );
+                      }
+                    },
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: AppDimensions.d20),
+                    child: Text(
+                      context.tr.or,
+                      style: context.tht.headlineSmall,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => context.router.push(LoginRoute()),
+                    child: Text(
+                      context.tr.login,
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(height: AppDimensions.d20),
-              CustomTextField(
-                hintText: context.tr.email,
-                controller: email,
-              ),
-              CustomTextField(
-                hintText: context.tr.password,
-                controller: password,
-                hasPassword: true,
-              ),
-              CustomTextField(
-                hintText: context.tr.repeatPassword,
-                controller: repeatPassword,
-                hasPassword: true,
-              ),
-              const SizedBox(height: AppDimensions.d50),
-              CustomFloatingActionButton(
-                text: context.tr.registration,
-                onPressed: () => context.read<RegistrationBloc>().add(OnTapRegistrationEvent(
-                      email.text,
-                      password.text,
-                      repeatPassword.text,
-                    )),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: AppDimensions.d20),
-                child: Text(
-                  context.tr.or,
-                  style: context.tht.headlineSmall,
-                ),
-              ),
-              TextButton(
-                onPressed: () => context.router.push(LoginRoute()),
-                child: Text(
-                  context.tr.login,
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),

@@ -258,6 +258,36 @@ class Translation {
       args: [],
     );
   }
+
+  /// `Field can't be empty`
+  String get registration_page_fieldCanNotBeEmpty {
+    return Intl.message(
+      'Field can\'t be empty',
+      name: 'registration_page_fieldCanNotBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password don't match`
+  String get registration_page_passwordDontMatch {
+    return Intl.message(
+      'Password don\'t match',
+      name: 'registration_page_passwordDontMatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your email is incorrect`
+  String get registration_page_yourEmailIsIncorrect {
+    return Intl.message(
+      'Your email is incorrect',
+      name: 'registration_page_yourEmailIsIncorrect',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {
