@@ -67,7 +67,7 @@ class _BodyState extends State<_Body> {
         child: Center(
           child: Column(
             children: [
-              const SizedBox(height: AppDimensions.d3),
+              const SizedBox(height: AppDimensions.d40),
               const WelcomeText(),
               const SizedBox(height: AppDimensions.d40),
               const WelcomeSubtitle(),

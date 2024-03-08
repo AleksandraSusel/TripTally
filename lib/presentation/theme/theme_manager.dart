@@ -81,7 +81,7 @@ class ThemeManager {
         fontWeight: FontWeight.w400,
       ),
       hintStyle: TextStyle(
-        fontFamily: 'nunitoSans',
+        fontFamily: 'NunitoSans',
         fontSize: AppDimensions.d10,
         color: AppColors.cello,
         fontWeight: FontWeight.w400,
@@ -96,7 +96,7 @@ class ThemeManager {
           const TextStyle(
             fontSize: AppDimensions.d20,
             fontWeight: FontWeight.w700,
-            fontFamily: 'nunitoSans',
+            fontFamily: 'NunitoSans',
             letterSpacing: 2,
           ),
         ),
