@@ -23,28 +23,46 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "email": MessageLookupByLibrary.simpleMessage("E-mail"),
-        "errors_emailInUse": MessageLookupByLibrary.simpleMessage("Email in use"),
-        "errors_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
-        "errors_fieldCantBeEmpty": MessageLookupByLibrary.simpleMessage("Field cant be empty"),
-        "errors_invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
-        "errors_operationNotAllowed": MessageLookupByLibrary.simpleMessage("Operation not allowed"),
-        "errors_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
-        "errors_somethingWentWrong": MessageLookupByLibrary.simpleMessage("Something went wrong"),
-        "errors_unknownError": MessageLookupByLibrary.simpleMessage("Unknown error"),
-        "errors_weakPassword": MessageLookupByLibrary.simpleMessage("Weak password"),
-        "errors_wrongPassword": MessageLookupByLibrary.simpleMessage("Wrong password"),
+        "errors_emailInUse":
+            MessageLookupByLibrary.simpleMessage("Email in use"),
+        "errors_fieldCanNotBeEmpty":
+            MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
+        "errors_fieldCantBeEmpty":
+            MessageLookupByLibrary.simpleMessage("Field cant be empty"),
+        "errors_invalidEmail":
+            MessageLookupByLibrary.simpleMessage("Invalid email"),
+        "errors_operationNotAllowed":
+            MessageLookupByLibrary.simpleMessage("Operation not allowed"),
+        "errors_passwordDontMatch":
+            MessageLookupByLibrary.simpleMessage("Password don\'t match"),
+        "errors_somethingWentWrong":
+            MessageLookupByLibrary.simpleMessage("Something went wrong"),
+        "errors_unknownError":
+            MessageLookupByLibrary.simpleMessage("Unknown error"),
+        "errors_weakPassword":
+            MessageLookupByLibrary.simpleMessage("Weak password"),
+        "errors_wrongPassword":
+            MessageLookupByLibrary.simpleMessage("Wrong password"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
-        "registration_page_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
-        "registration_page_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
-        "registration_page_yourEmailIsIncorrect": MessageLookupByLibrary.simpleMessage("Your email is incorrect"),
-        "repeatPassword": MessageLookupByLibrary.simpleMessage("Repeat password"),
-        "welcomeSubtitle_theAppForReportingAllExpenses": MessageLookupByLibrary.simpleMessage("The app for reporting all expenses"),
-        "welcomeSubtitle_whileTravelling": MessageLookupByLibrary.simpleMessage("while travelling"),
+        "registration_page_fieldCanNotBeEmpty":
+            MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
+        "registration_page_passwordDontMatch":
+            MessageLookupByLibrary.simpleMessage("Password don\'t match"),
+        "registration_page_yourEmailIsIncorrect":
+            MessageLookupByLibrary.simpleMessage("Your email is incorrect"),
+        "repeatPassword":
+            MessageLookupByLibrary.simpleMessage("Repeat password"),
+        "welcomeSubtitle_theAppForReportingAllExpenses":
+            MessageLookupByLibrary.simpleMessage(
+                "The app for reporting all expenses"),
+        "welcomeSubtitle_whileTravelling":
+            MessageLookupByLibrary.simpleMessage("while travelling"),
         "welcomeText_tally": MessageLookupByLibrary.simpleMessage("Tally!"),
         "welcomeText_trip": MessageLookupByLibrary.simpleMessage("Trip"),
-        "welcomeText_welcomeIn": MessageLookupByLibrary.simpleMessage("Welcome in \n")
+        "welcomeText_welcomeIn":
+            MessageLookupByLibrary.simpleMessage("Welcome in \n")
       };
 }
