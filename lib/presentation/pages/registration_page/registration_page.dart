@@ -1,14 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
-import 'package:trip_tally/presentation/utils/enums/string_extensions.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
+import 'package:trip_tally/presentation/utils/validators.dart';
 
 import '../../../injectable/injectable.dart';
 import '../../theme/app_dimensions.dart';
+import '../../widgets/custom_circular_progress_indicator.dart';
 import '../../widgets/custom_floating_action_button.dart';
 import '../../widgets/custom_snack_bar.dart';
 import '../../widgets/custom_text_field.dart';
@@ -38,10 +38,8 @@ class RegistrationPage extends StatelessWidget {
           builder: (context, state) => state.maybeWhen(
             orElse: () => const _Body(),
             loading: () => const Center(
-                child: CircularProgressIndicator(
-              color: AppColors.kobi,
-              backgroundColor: AppColors.cello,
-            )),
+              child: CustomCircularProgressIndicator(),
+            ),
           ),
         ),
       ),
@@ -72,7 +70,6 @@ class _BodyState extends State<_Body> {
           child: Center(
             child: Form(
               key: _formKey,
-              autovalidateMode: AutovalidateMode.always,
               child: Column(
                 children: [
                   const SizedBox(height: AppDimensions.d40),
@@ -89,13 +86,7 @@ class _BodyState extends State<_Body> {
                     hintText: context.tr.email,
                     controller: emailController,
                     validator: (String? value) {
-                      if (value == null || value.isEmpty) {
-                        return context.tr.registration_page_fieldCanNotBeEmpty;
-                      }
-                      if (!value.isValidEmail) {
-                        return context.tr.registration_page_yourEmailIsIncorrect;
-                      }
-                      return null;
+                      return Validator.validateEmail(value, context);
                     },
                   ),
                   CustomTextField(
@@ -103,7 +94,7 @@ class _BodyState extends State<_Body> {
                     controller: passwordController,
                     hasPassword: true,
                     validator: (String? value) {
-                      return (value == null && value == '') ? context.tr.registration_page_fieldCanNotBeEmpty : null;
+                      return Validator.isFieldEmpty(value, context);
                     },
                   ),
                   CustomTextField(
@@ -111,14 +102,11 @@ class _BodyState extends State<_Body> {
                     controller: repeatPassword,
                     hasPassword: true,
                     validator: (String? repeatPasswordController) {
-                      if (repeatPasswordController == null && repeatPasswordController == '') {
-                        return context.tr.registration_page_fieldCanNotBeEmpty;
-                      }
-                      if (repeatPasswordController != passwordController.text) {
-                        return context.tr.registration_page_passwordDontMatch;
-                      } else {
-                        return null;
-                      }
+                      return Validator.validatePasswords(
+                        passwordController.text,
+                        repeatPasswordController,
+                        context,
+                      );
                     },
                   ),
                   const SizedBox(height: AppDimensions.d50),

@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/enums/string_extensions.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
 
 import '../../theme/app_dimensions.dart';
+import '../../utils/validators.dart';
 import '../../widgets/custom_floating_action_button.dart';
 import '../../widgets/welcome_subtitle.dart';
 import '../../widgets/welcome_text.dart';
@@ -47,13 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: context.tr.email,
                     controller: emailController,
                     validator: (String? value) {
-                      if (value == null || value.isEmpty) {
-                        return context.tr.login_page_fieldCanNotBeEmpty;
-                      }
-                      if (!value.isValidEmail) {
-                        return context.tr.login_page_yourEmailIsIncorrect;
-                      }
-                      return null;
+                      return Validator.validateEmail(value, context);
                     },
                   ),
                   CustomTextField(
@@ -61,13 +55,17 @@ class _LoginPageState extends State<LoginPage> {
                     controller: passwordController,
                     hasPassword: true,
                     validator: (String? value) {
-                      return (value == null && value == '') ? context.tr.login_page_fieldCanNotBeEmpty : null;
+                      return Validator.isFieldEmpty(value, context);
                     },
                   ),
                   const SizedBox(height: AppDimensions.d126),
                   CustomFloatingActionButton(
                     text: context.tr.login,
-                    onPressed: () {},
+                    onPressed: () {
+                      if (_formKey.currentState?.validate() ?? false) {
+                        () {};
+                      }
+                    },
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: AppDimensions.d20),
