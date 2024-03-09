@@ -33,28 +33,21 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Invalid email"),
         "errors_operationNotAllowed":
             MessageLookupByLibrary.simpleMessage("Operation not allowed"),
-        "errors_passwordDontMatch":
-            MessageLookupByLibrary.simpleMessage("Password don\'t match"),
-        "errors_somethingWentWrong":
-            MessageLookupByLibrary.simpleMessage("Something went wrong"),
-        "errors_unknownError":
-            MessageLookupByLibrary.simpleMessage("Unknown error"),
-        "errors_weakPassword":
-            MessageLookupByLibrary.simpleMessage("Weak password"),
-        "errors_wrongPassword":
-            MessageLookupByLibrary.simpleMessage("Wrong password"),
+        "errors_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
+        "errors_somethingWentWrong": MessageLookupByLibrary.simpleMessage("Something went wrong"),
+        "errors_unknownError": MessageLookupByLibrary.simpleMessage("Unknown error"),
+        "errors_weakPassword": MessageLookupByLibrary.simpleMessage("Weak password"),
+        "errors_wrongPassword": MessageLookupByLibrary.simpleMessage("Wrong password"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "login_page_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
+        "login_page_yourEmailIsIncorrect": MessageLookupByLibrary.simpleMessage("Your email is incorrect"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
-        "registration_page_fieldCanNotBeEmpty":
-            MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
-        "registration_page_passwordDontMatch":
-            MessageLookupByLibrary.simpleMessage("Password don\'t match"),
-        "registration_page_yourEmailIsIncorrect":
-            MessageLookupByLibrary.simpleMessage("Your email is incorrect"),
-        "repeatPassword":
-            MessageLookupByLibrary.simpleMessage("Repeat password"),
+        "registration_page_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
+        "registration_page_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
+        "registration_page_yourEmailIsIncorrect": MessageLookupByLibrary.simpleMessage("Your email is incorrect"),
+        "repeatPassword": MessageLookupByLibrary.simpleMessage("Repeat password"),
         "welcomeSubtitle_theAppForReportingAllExpenses":
             MessageLookupByLibrary.simpleMessage(
                 "The app for reporting all expenses"),

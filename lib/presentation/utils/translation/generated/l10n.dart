@@ -269,6 +269,16 @@ class Translation {
     );
   }
 
+  /// `Field can't be empty`
+  String get login_page_fieldCanNotBeEmpty {
+    return Intl.message(
+      'Field can\'t be empty',
+      name: 'login_page_fieldCanNotBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Password don't match`
   String get registration_page_passwordDontMatch {
     return Intl.message(
@@ -284,6 +294,16 @@ class Translation {
     return Intl.message(
       'Your email is incorrect',
       name: 'registration_page_yourEmailIsIncorrect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your email is incorrect`
+  String get login_page_yourEmailIsIncorrect {
+    return Intl.message(
+      'Your email is incorrect',
+      name: 'login_page_yourEmailIsIncorrect',
       desc: '',
       args: [],
     );
