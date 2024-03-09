@@ -112,17 +112,7 @@ class _BodyState extends State<_Body> {
                   const SizedBox(height: AppDimensions.d50),
                   CustomFloatingActionButton(
                     text: context.tr.registration,
-                    onPressed: () {
-                      if (_formKey.currentState?.validate() ?? false) {
-                        context.read<RegistrationBloc>().add(
-                              OnTapRegistrationEvent(
-                                emailController.text,
-                                passwordController.text,
-                                repeatPassword.text,
-                              ),
-                            );
-                      }
-                    },
+                    onPressed: onPressed,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: AppDimensions.d20),
@@ -144,5 +134,17 @@ class _BodyState extends State<_Body> {
         ),
       ),
     );
+  }
+
+  void onPressed() {
+    if (_formKey.currentState?.validate() ?? false) {
+      context.read<RegistrationBloc>().add(
+            OnTapRegistrationEvent(
+              emailController.text,
+              passwordController.text,
+              repeatPassword.text,
+            ),
+          );
+    }
   }
 }

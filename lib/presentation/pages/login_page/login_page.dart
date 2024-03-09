@@ -61,11 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: AppDimensions.d126),
                   CustomFloatingActionButton(
                     text: context.tr.login,
-                    onPressed: () {
-                      if (_formKey.currentState?.validate() ?? false) {
-                        () {};
-                      }
-                    },
+                    onPressed: onPressed,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: AppDimensions.d20),
@@ -87,5 +83,11 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void onPressed() {
+    if (_formKey.currentState?.validate() ?? false) {
+      () {};
+    }
   }
 }

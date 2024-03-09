@@ -260,50 +260,30 @@ class Translation {
   }
 
   /// `Field can't be empty`
-  String get registration_page_fieldCanNotBeEmpty {
+  String get validators_fieldCanNotBeEmpty {
     return Intl.message(
       'Field can\'t be empty',
-      name: 'registration_page_fieldCanNotBeEmpty',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Field can't be empty`
-  String get login_page_fieldCanNotBeEmpty {
-    return Intl.message(
-      'Field can\'t be empty',
-      name: 'login_page_fieldCanNotBeEmpty',
+      name: 'validators_fieldCanNotBeEmpty',
       desc: '',
       args: [],
     );
   }
 
   /// `Password don't match`
-  String get registration_page_passwordDontMatch {
+  String get validators_passwordDontMatch {
     return Intl.message(
       'Password don\'t match',
-      name: 'registration_page_passwordDontMatch',
+      name: 'validators_passwordDontMatch',
       desc: '',
       args: [],
     );
   }
 
   /// `Your email is incorrect`
-  String get registration_page_yourEmailIsIncorrect {
+  String get validators_yourEmailIsIncorrect {
     return Intl.message(
       'Your email is incorrect',
-      name: 'registration_page_yourEmailIsIncorrect',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Your email is incorrect`
-  String get login_page_yourEmailIsIncorrect {
-    return Intl.message(
-      'Your email is incorrect',
-      name: 'login_page_yourEmailIsIncorrect',
+      name: 'validators_yourEmailIsIncorrect',
       desc: '',
       args: [],
     );
