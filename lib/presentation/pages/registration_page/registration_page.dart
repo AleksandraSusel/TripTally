@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/enums/string_extensions.dart';
@@ -23,22 +24,25 @@ class RegistrationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => bloc ?? getIt<RegistrationBloc>(),
-      child: BlocConsumer<RegistrationBloc, RegistrationState>(
-        listener: (context, state) => state.whenOrNull(
-          loading: () => const Center(
-            child: CircularProgressIndicator(),
+    return Scaffold(
+      body: BlocProvider(
+        create: (context) => bloc ?? getIt<RegistrationBloc>(),
+        child: BlocConsumer<RegistrationBloc, RegistrationState>(
+          listener: (context, state) => state.whenOrNull(
+            failure: (error) => customSnackBar(
+              context,
+              error.errorText(context),
+            ),
+            success: () => customSnackBar(context, 'Zostałeś zarejestrowany'), //TODO: push to HomePage
           ),
-          failure: (error) => customSnackBar(
-            context,
-            error.errorText(context),
+          builder: (context, state) => state.maybeWhen(
+            orElse: () => const _Body(),
+            loading: () => const Center(
+                child: CircularProgressIndicator(
+              color: AppColors.kobi,
+              backgroundColor: AppColors.cello,
+            )),
           ),
-          success: () => customSnackBar(context, 'Zostałeś zarejestrowany'), //TODO: push to HomePage
-        ),
-        builder: (context, state) => state.maybeWhen(
-          orElse: () => const _Body(),
-          loading: () => Container(color: Colors.white),
         ),
       ),
     );

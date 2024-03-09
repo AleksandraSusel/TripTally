@@ -26,7 +26,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
         emit(const RegistrationState.initial());
       },
       (r) {
-        emit(const RegistrationState.initial());
+        emit(const RegistrationState.loading());
         emit(const RegistrationState.success());
       },
     );

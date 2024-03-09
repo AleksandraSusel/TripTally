@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                       return (value == null && value == '') ? context.tr.login_page_fieldCanNotBeEmpty : null;
                     },
                   ),
-                  const SizedBox(height: AppDimensions.d120),
+                  const SizedBox(height: AppDimensions.d126),
                   CustomFloatingActionButton(
                     text: context.tr.login,
                     onPressed: () {},
