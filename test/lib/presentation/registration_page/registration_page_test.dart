@@ -3,6 +3,8 @@ import 'package:mockito/mockito.dart';
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart';
 import 'package:trip_tally/presentation/pages/registration_page/registration_page.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
+import 'package:trip_tally/presentation/widgets/custom_floating_action_button.dart';
+import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
 
 import '../../../golden_test_runner.dart';
 import '../../../mocks.mocks.dart';
@@ -28,6 +30,33 @@ void main() {
     when(mockRegistrationBloc.stream)
         .thenAnswer((realInvocation) => Stream.value(const RegistrationState.failure(Errors.somethingWentWrong)));
 
+    return RegistrationPage(bloc: mockRegistrationBloc);
+  });
+
+  runGoldenTest('RegistrationBloc - validation of empty fields', whilePerforming: (tester) async {
+    await tester.tap(find.byType(CustomFloatingActionButton));
+    return;
+  }, builder: () {
+    when(mockRegistrationBloc.stream).thenAnswer((realInvocation) => Stream.value(const RegistrationState.initial()));
+    return RegistrationPage(bloc: mockRegistrationBloc);
+  });
+
+  runGoldenTest('RegistrationBloc - validation of invalid email', whilePerforming: (tester) async {
+    await tester.enterText(find.byType(CustomTextField).first, 'invalidEmail');
+    await tester.tap(find.byType(CustomFloatingActionButton));
+    return;
+  }, builder: () {
+    when(mockRegistrationBloc.stream).thenAnswer((realInvocation) => Stream.value(const RegistrationState.initial()));
+    return RegistrationPage(bloc: mockRegistrationBloc);
+  });
+
+  runGoldenTest('RegistrationBloc - validation of incompatible passwords', whilePerforming: (tester) async {
+    await tester.enterText(find.byType(CustomTextField).at(1), 'password');
+    await tester.enterText(find.byType(CustomTextField).last, 'password1');
+    await tester.tap(find.byType(CustomFloatingActionButton));
+    return;
+  }, builder: () {
+    when(mockRegistrationBloc.stream).thenAnswer((realInvocation) => Stream.value(const RegistrationState.initial()));
     return RegistrationPage(bloc: mockRegistrationBloc);
   });
 }
