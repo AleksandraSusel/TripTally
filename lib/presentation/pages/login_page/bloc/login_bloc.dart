@@ -7,9 +7,7 @@ import 'package:trip_tally/domain/use_case/login_use_case.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 part 'login_bloc.freezed.dart';
-
 part 'login_event.dart';
-
 part 'login_state.dart';
 
 @injectable
@@ -21,23 +19,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final LoginUseCase _loginUseCase;
 
   Future<void> _onTapLogin(OnTapLoginEvent event, Emitter<LoginState> emit) async {
-    final login = await _loginUseCase.call(LoginEntity(email: event.email, password: event.password));
-    login.fold(
+    emit(const LoginState.loading());
+    final result = await _loginUseCase.call(LoginEntity(email: event.email, password: event.password));
+    result.fold(
       (l) {
-        emit(
-          const LoginState.failure(Errors.somethingWentWrong),
-        );
-        emit(
-          const LoginState.initial(),
-        );
+        emit(LoginState.failure(l.error));
       },
       (r) {
-        emit(
-          const LoginState.loading(),
-        );
-        emit(
-          const LoginState.success(),
-        );
+        emit(const LoginState.success());
       },
     );
   }

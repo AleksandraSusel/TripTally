@@ -63,7 +63,7 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
         default:
           rethrow;
       }
-    } on ApiException catch (e) {
+    } catch (e) {
       debugPrint('The error was: $e');
       throw ApiException(Errors.unknownError);
     }
