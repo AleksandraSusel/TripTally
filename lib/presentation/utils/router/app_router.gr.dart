@@ -4,7 +4,7 @@
 // AutoRouterGenerator
 // **************************************************************************
 
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, invalid_use_of_visible_for_testing_member
 // coverage:ignore-file
 
 part of 'app_router.dart';
@@ -25,7 +25,10 @@ abstract class _$AppRouter extends RootStackRouter {
       final args = routeData.argsAs<LoginRouteArgs>(orElse: () => const LoginRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: LoginPage(key: args.key),
+        child: LoginPage(
+          key: args.key,
+          bloc: args.bloc,
+        ),
       );
     },
     RegistrationRoute.name: (routeData) {
@@ -34,7 +37,6 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: RegistrationPage(
           key: args.key,
-          // ignore: invalid_use_of_visible_for_testing_member
           bloc: args.bloc,
         ),
       );
@@ -61,10 +63,14 @@ class HomeRoute extends PageRouteInfo<void> {
 class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
   LoginRoute({
     Key? key,
+    LoginBloc? bloc,
     List<PageRouteInfo>? children,
   }) : super(
           LoginRoute.name,
-          args: LoginRouteArgs(key: key),
+          args: LoginRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
           initialChildren: children,
         );
 
@@ -74,13 +80,18 @@ class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
 }
 
 class LoginRouteArgs {
-  const LoginRouteArgs({this.key});
+  const LoginRouteArgs({
+    this.key,
+    this.bloc,
+  });
 
   final Key? key;
 
+  final LoginBloc? bloc;
+
   @override
   String toString() {
-    return 'LoginRouteArgs{key: $key}';
+    return 'LoginRouteArgs{key: $key, bloc: $bloc}';
   }
 }
 

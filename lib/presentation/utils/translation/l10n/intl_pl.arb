@@ -11,6 +11,8 @@
   "repeatPassword": "Repeat password",
   "or": "or",
   "errors_unknownError": "Unknown error",
+  "errors_userNotFound": "User not found:",
+  "errors_userDisabled": "User disabled",
   "errors_somethingWentWrong": "Something went wrong",
   "errors_wrongPassword": "Wrong password",
   "errors_emailInUse": "Email in use",

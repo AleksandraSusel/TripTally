@@ -31,6 +31,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "errors_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
         "errors_somethingWentWrong": MessageLookupByLibrary.simpleMessage("Something went wrong"),
         "errors_unknownError": MessageLookupByLibrary.simpleMessage("Unknown error"),
+        "errors_userDisabled": MessageLookupByLibrary.simpleMessage("User disabled"),
+        "errors_userNotFound": MessageLookupByLibrary.simpleMessage("User not found:"),
         "errors_weakPassword": MessageLookupByLibrary.simpleMessage("Weak password"),
         "errors_wrongPassword": MessageLookupByLibrary.simpleMessage("Wrong password"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),

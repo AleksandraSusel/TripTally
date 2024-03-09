@@ -169,6 +169,26 @@ class Translation {
     );
   }
 
+  /// `User not found:`
+  String get errors_userNotFound {
+    return Intl.message(
+      'User not found:',
+      name: 'errors_userNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User disabled`
+  String get errors_userDisabled {
+    return Intl.message(
+      'User disabled',
+      name: 'errors_userDisabled',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Something went wrong`
   String get errors_somethingWentWrong {
     return Intl.message(
