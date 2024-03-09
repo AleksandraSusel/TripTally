@@ -4,7 +4,7 @@
 // AutoRouterGenerator
 // **************************************************************************
 
-// ignore_for_file: type=lint, invalid_use_of_visible_for_testing_member
+// ignore_for_file: type=lint
 // coverage:ignore-file
 
 part of 'app_router.dart';
@@ -27,6 +27,7 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: LoginPage(
           key: args.key,
+          // ignore: invalid_use_of_visible_for_testing_member
           bloc: args.bloc,
         ),
       );
@@ -37,6 +38,7 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: RegistrationPage(
           key: args.key,
+          // ignore: invalid_use_of_visible_for_testing_member
           bloc: args.bloc,
         ),
       );
