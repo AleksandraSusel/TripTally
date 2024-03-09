@@ -1,69 +1,150 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
+import 'package:trip_tally/presentation/utils/validators.dart';
 
+import '../../../injectable/injectable.dart';
 import '../../theme/app_dimensions.dart';
+import '../../widgets/custom_circular_progress_indicator.dart';
 import '../../widgets/custom_floating_action_button.dart';
+import '../../widgets/custom_snack_bar.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/welcome_subtitle.dart';
 import '../../widgets/welcome_text.dart';
+import 'bloc/registration_bloc.dart';
 
 @RoutePage()
 class RegistrationPage extends StatelessWidget {
-  const RegistrationPage({super.key});
+  const RegistrationPage({super.key, @visibleForTesting this.bloc});
+
+  final RegistrationBloc? bloc;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            const SizedBox(height: AppDimensions.d68),
-            const WelcomeText(),
-            const SizedBox(height: AppDimensions.d40),
-            const WelcomeSubtitle(),
-            const SizedBox(height: AppDimensions.d100),
-            Text(
-              context.tr.registration,
-              style: context.tht.displayMedium,
+      body: BlocProvider(
+        create: (context) => bloc ?? getIt<RegistrationBloc>(),
+        child: BlocConsumer<RegistrationBloc, RegistrationState>(
+          listener: (context, state) => state.whenOrNull(
+            failure: (error) => customSnackBar(
+              context,
+              error.errorText(context),
             ),
-            const SizedBox(height: AppDimensions.d20),
-            CustomTextField(
-              hintText: context.tr.email,
-              controller: '',
+            success: () => customSnackBar(context, 'Zostałeś zarejestrowany'), //TODO: push to HomePage
+          ),
+          builder: (context, state) => state.maybeWhen(
+            orElse: () => const _Body(),
+            loading: () => const Center(
+              child: CustomCircularProgressIndicator(),
             ),
-            CustomTextField(
-              hintText: context.tr.password,
-              controller: '',
-              hasPassword: true,
-            ),
-            CustomTextField(
-              hintText: context.tr.repeatPassword,
-              controller: '',
-              hasPassword: true,
-            ),
-            const SizedBox(height: AppDimensions.d50),
-            CustomFloatingActionButton(
-              text: context.tr.registration,
-              onPressed: () {},
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: AppDimensions.d20),
-              child: Text(
-                context.tr.or,
-                style: context.tht.headlineSmall,
-              ),
-            ),
-            TextButton(
-              onPressed: () => context.router.push(const LoginRoute()),
-              child: Text(
-                context.tr.login,
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
+  }
+}
+
+class _Body extends StatefulWidget {
+  const _Body();
+
+  @override
+  State<_Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<_Body> {
+  final emailController = TextEditingController();
+
+  final passwordController = TextEditingController();
+
+  final repeatPassword = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Center(
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  const SizedBox(height: AppDimensions.d40),
+                  const WelcomeText(),
+                  const SizedBox(height: AppDimensions.d40),
+                  const WelcomeSubtitle(),
+                  const SizedBox(height: AppDimensions.d80),
+                  Text(
+                    context.tr.registration,
+                    style: context.tht.displayMedium,
+                  ),
+                  const SizedBox(height: AppDimensions.d20),
+                  CustomTextField(
+                    hintText: context.tr.email,
+                    controller: emailController,
+                    validator: (String? value) {
+                      return Validator.validateEmail(value, context);
+                    },
+                  ),
+                  CustomTextField(
+                    hintText: context.tr.password,
+                    controller: passwordController,
+                    hasPassword: true,
+                    validator: (String? value) {
+                      return Validator.isFieldEmpty(value, context);
+                    },
+                  ),
+                  CustomTextField(
+                    hintText: context.tr.repeatPassword,
+                    controller: repeatPassword,
+                    hasPassword: true,
+                    validator: (String? repeatPasswordController) {
+                      return Validator.validatePasswords(
+                        passwordController.text,
+                        repeatPasswordController,
+                        context,
+                      );
+                    },
+                  ),
+                  const SizedBox(height: AppDimensions.d50),
+                  CustomFloatingActionButton(
+                    text: context.tr.registration,
+                    onPressed: onPressed,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: AppDimensions.d20),
+                    child: Text(
+                      context.tr.or,
+                      style: context.tht.headlineSmall,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => context.router.push(LoginRoute()),
+                    child: Text(
+                      context.tr.login,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void onPressed() {
+    if (_formKey.currentState?.validate() ?? false) {
+      context.read<RegistrationBloc>().add(
+            OnTapRegistrationEvent(
+              emailController.text,
+              passwordController.text,
+              repeatPassword.text,
+            ),
+          );
+    }
   }
 }

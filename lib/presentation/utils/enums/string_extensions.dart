@@ -1,6 +1,11 @@
 extension CapitalizeString on String {
-  String capitalize() {
-    return "${this[0].toUpperCase()}${substring(1).toLowerCase()}";
+  String get capitalize => "${this[0].toUpperCase()}${substring(1).toLowerCase()}";
+}
+
+extension IsValidEmail on String {
+  bool get isValidEmail {
+    final regex = RegExp(r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+');
+    return regex.hasMatch(this);
   }
 }
 

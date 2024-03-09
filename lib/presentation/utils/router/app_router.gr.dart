@@ -22,15 +22,21 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     LoginRoute.name: (routeData) {
+      final args = routeData.argsAs<LoginRouteArgs>(orElse: () => const LoginRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const LoginPage(),
+        child: LoginPage(key: args.key),
       );
     },
     RegistrationRoute.name: (routeData) {
+      final args = routeData.argsAs<RegistrationRouteArgs>(orElse: () => const RegistrationRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const RegistrationPage(),
+        child: RegistrationPage(
+          key: args.key,
+          // ignore: invalid_use_of_visible_for_testing_member
+          bloc: args.bloc,
+        ),
       );
     },
   };
@@ -52,28 +58,65 @@ class HomeRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [LoginPage]
-class LoginRoute extends PageRouteInfo<void> {
-  const LoginRoute({List<PageRouteInfo>? children})
-      : super(
+class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
+  LoginRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
           LoginRoute.name,
+          args: LoginRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'LoginRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<LoginRouteArgs> page = PageInfo<LoginRouteArgs>(name);
+}
+
+class LoginRouteArgs {
+  const LoginRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'LoginRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for
 /// [RegistrationPage]
-class RegistrationRoute extends PageRouteInfo<void> {
-  const RegistrationRoute({List<PageRouteInfo>? children})
-      : super(
+class RegistrationRoute extends PageRouteInfo<RegistrationRouteArgs> {
+  RegistrationRoute({
+    Key? key,
+    RegistrationBloc? bloc,
+    List<PageRouteInfo>? children,
+  }) : super(
           RegistrationRoute.name,
+          args: RegistrationRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'RegistrationRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<RegistrationRouteArgs> page = PageInfo<RegistrationRouteArgs>(name);
+}
+
+class RegistrationRouteArgs {
+  const RegistrationRouteArgs({
+    this.key,
+    this.bloc,
+  });
+
+  final Key? key;
+
+  final RegistrationBloc? bloc;
+
+  @override
+  String toString() {
+    return 'RegistrationRouteArgs{key: $key, bloc: $bloc}';
+  }
 }

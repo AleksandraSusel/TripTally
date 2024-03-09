@@ -6,62 +6,64 @@ import 'app_colors.dart';
 
 @singleton
 class ThemeManager {
+  static const _fontName = 'NunitoSans';
+
   final _themeData = ThemeData(
     brightness: Brightness.light,
     scaffoldBackgroundColor: AppColors.linkWater,
     primaryColor: AppColors.cello,
     textTheme: const TextTheme(
       displayLarge: TextStyle(
-        fontFamily: 'NunitoSans',
+        fontFamily: _fontName,
         fontSize: AppDimensions.d35,
         color: AppColors.cello,
         fontWeight: FontWeight.w900,
         letterSpacing: 3,
       ),
       displayMedium: TextStyle(
-        fontFamily: 'NunitoSans',
+        fontFamily: _fontName,
         fontSize: AppDimensions.d24,
         color: AppColors.cello,
         fontWeight: FontWeight.w700,
         letterSpacing: 1.05,
       ),
       displaySmall: TextStyle(
-        fontFamily: 'NunitoSans',
+        fontFamily: _fontName,
         fontSize: AppDimensions.d14,
         color: AppColors.cello,
         fontWeight: FontWeight.w100,
         letterSpacing: 2,
       ),
       labelSmall: TextStyle(
-        fontFamily: 'NunitoSans',
+        fontFamily: _fontName,
         fontSize: AppDimensions.d12,
         color: AppColors.cello,
         fontWeight: FontWeight.w400,
         letterSpacing: 2,
       ),
       labelMedium: TextStyle(
-        fontFamily: 'NunitoSans',
+        fontFamily: _fontName,
         fontSize: AppDimensions.d20,
         color: AppColors.cello,
         fontWeight: FontWeight.w800,
         letterSpacing: 1.05,
       ),
       headlineLarge: TextStyle(
-        fontFamily: 'NunitoSans',
+        fontFamily: _fontName,
         fontSize: AppDimensions.d35,
         color: AppColors.kobi,
         fontWeight: FontWeight.w900,
         letterSpacing: 1.05,
       ),
       headlineMedium: TextStyle(
-        fontFamily: 'NunitoSans',
+        fontFamily: _fontName,
         fontSize: AppDimensions.d24,
         color: AppColors.kobi,
         fontWeight: FontWeight.w700,
         letterSpacing: 1.05,
       ),
       headlineSmall: TextStyle(
-        fontFamily: 'NunitoSans',
+        fontFamily: _fontName,
         fontSize: AppDimensions.d14,
         color: AppColors.kobi,
         fontWeight: FontWeight.w400,
@@ -81,7 +83,7 @@ class ThemeManager {
         fontWeight: FontWeight.w400,
       ),
       hintStyle: TextStyle(
-        fontFamily: 'nunitoSans',
+        fontFamily: _fontName,
         fontSize: AppDimensions.d10,
         color: AppColors.cello,
         fontWeight: FontWeight.w400,
@@ -96,7 +98,7 @@ class ThemeManager {
           const TextStyle(
             fontSize: AppDimensions.d20,
             fontWeight: FontWeight.w700,
-            fontFamily: 'nunitoSans',
+            fontFamily: _fontName,
             letterSpacing: 2,
           ),
         ),

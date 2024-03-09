@@ -1,18 +1,33 @@
 import 'dart:async';
-import 'dart:io';
 
-import 'package:golden_toolkit/golden_toolkit.dart';
+import 'package:alchemist/alchemist.dart';
+import 'package:file/local.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+const testFileSystem = LocalFileSystem();
 
 Future<void> testExecutable(FutureOr<void> Function() testMain) async {
-  return GoldenToolkit.runWithConfiguration(
-    () async {
-      await loadAppFonts();
+  return AlchemistConfig.runWithConfig(
+    run: () async {
+      TestWidgetsFlutterBinding.ensureInitialized();
+      await _loadAppFonts();
       await testMain();
     },
-    config: GoldenToolkitConfiguration(
-      skipGoldenAssertion: () => !Platform.isMacOS,
-      defaultDevices: const [Device.iphone11],
-      enableRealShadows: true,
-    ),
+    config: const AlchemistConfig(ciGoldensConfig: CiGoldensConfig(enabled: false)),
   );
+}
+
+Future<void> _loadAppFonts() async {
+  final fontLoader = FontLoader('NunitoSans')
+    ..addFont(_loadFont('lib/presentation/assets/fonts/NunitoSans_7pt-Bold.ttf'))
+    ..addFont(_loadFont('lib/presentation/assets/fonts/NunitoSans_7pt-ExtraBold.ttf'))
+    ..addFont(_loadFont('lib/presentation/assets/fonts/NunitoSans_7pt-Regular.ttf'));
+  await fontLoader.load();
+  await loadFonts();
+}
+
+Future<ByteData> _loadFont(String path) async {
+  final bytes = await testFileSystem.file(path).readAsBytes();
+  return ByteData.view(bytes.buffer);
 }

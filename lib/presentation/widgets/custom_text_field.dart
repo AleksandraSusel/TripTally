@@ -10,13 +10,15 @@ class CustomTextField extends StatefulWidget {
     this.error,
     this.suffixIcon,
     this.hasPassword = false,
+    required this.validator,
   });
 
   final String hintText;
-  final String controller;
+  final TextEditingController controller;
   final String? error;
   final Widget? suffixIcon;
   final bool hasPassword;
+  final String? Function(String?)? validator;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -37,7 +39,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
       padding: const EdgeInsets.all(AppDimensions.d10),
       child: SizedBox(
         width: AppDimensions.d300,
-        child: TextField(
+        child: TextFormField(
+          validator: widget.validator,
+          controller: widget.controller,
           obscureText: _obscurePassword,
           decoration: InputDecoration(
             errorText: widget.error,
@@ -49,10 +53,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
             ),
             suffixIcon: widget.hasPassword
                 ? IconButton(
-                    onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
-                    icon: Icon(_obscurePassword ? Icons.visibility_off_outlined : Icons.remove_red_eye_outlined),
-                    color: AppColors.cello,
-                  )
+              onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
+              icon: Icon(_obscurePassword ? Icons.visibility_off_outlined : Icons.remove_red_eye_outlined),
+              color: AppColors.cello,
+            )
                 : widget.suffixIcon,
             hintText: widget.hintText,
           ),
