@@ -35,7 +35,7 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
         case 'unknown':
           throw ApiException(Errors.unknownError);
         default:
-          rethrow;
+          throw Errors.somethingWentWrong;
       }
     } catch (e) {
       debugPrint('The error was: $e');
@@ -61,7 +61,7 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
         case 'unknown':
           throw ApiException(Errors.unknownError);
         default:
-          rethrow;
+          throw Errors.somethingWentWrong;
       }
     } catch (e) {
       debugPrint('The error was: $e');

@@ -22,23 +22,23 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>(orElse: () => const LoginRouteArgs());
+      final args = routeData.argsAs<LoginRouteArgs>(
+          orElse: () => const LoginRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: LoginPage(
           key: args.key,
-          // ignore: invalid_use_of_visible_for_testing_member
           bloc: args.bloc,
         ),
       );
     },
     RegistrationRoute.name: (routeData) {
-      final args = routeData.argsAs<RegistrationRouteArgs>(orElse: () => const RegistrationRouteArgs());
+      final args = routeData.argsAs<RegistrationRouteArgs>(
+          orElse: () => const RegistrationRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: RegistrationPage(
           key: args.key,
-          // ignore: invalid_use_of_visible_for_testing_member
           bloc: args.bloc,
         ),
       );
@@ -115,7 +115,8 @@ class RegistrationRoute extends PageRouteInfo<RegistrationRouteArgs> {
 
   static const String name = 'RegistrationRoute';
 
-  static const PageInfo<RegistrationRouteArgs> page = PageInfo<RegistrationRouteArgs>(name);
+  static const PageInfo<RegistrationRouteArgs> page =
+      PageInfo<RegistrationRouteArgs>(name);
 }
 
 class RegistrationRouteArgs {

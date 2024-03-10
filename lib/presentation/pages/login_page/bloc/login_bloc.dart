@@ -22,12 +22,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(const LoginState.loading());
     final result = await _loginUseCase.call(LoginEntity(email: event.email, password: event.password));
     result.fold(
-      (l) {
-        emit(LoginState.failure(l.error));
-      },
-      (r) {
-        emit(const LoginState.success());
-      },
+      (l) => emit(LoginState.failure(l.error)),
+      (r) => emit(const LoginState.success()),
     );
   }
 }
