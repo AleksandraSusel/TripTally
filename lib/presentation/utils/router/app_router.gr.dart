@@ -22,19 +22,23 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>(orElse: () => const LoginRouteArgs());
+      final args = routeData.argsAs<LoginRouteArgs>(
+          orElse: () => const LoginRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: LoginPage(key: args.key),
+        child: LoginPage(
+          key: args.key,
+          bloc: args.bloc,
+        ),
       );
     },
     RegistrationRoute.name: (routeData) {
-      final args = routeData.argsAs<RegistrationRouteArgs>(orElse: () => const RegistrationRouteArgs());
+      final args = routeData.argsAs<RegistrationRouteArgs>(
+          orElse: () => const RegistrationRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: RegistrationPage(
           key: args.key,
-          // ignore: invalid_use_of_visible_for_testing_member
           bloc: args.bloc,
         ),
       );
@@ -61,10 +65,14 @@ class HomeRoute extends PageRouteInfo<void> {
 class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
   LoginRoute({
     Key? key,
+    LoginBloc? bloc,
     List<PageRouteInfo>? children,
   }) : super(
           LoginRoute.name,
-          args: LoginRouteArgs(key: key),
+          args: LoginRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
           initialChildren: children,
         );
 
@@ -74,13 +82,18 @@ class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
 }
 
 class LoginRouteArgs {
-  const LoginRouteArgs({this.key});
+  const LoginRouteArgs({
+    this.key,
+    this.bloc,
+  });
 
   final Key? key;
 
+  final LoginBloc? bloc;
+
   @override
   String toString() {
-    return 'LoginRouteArgs{key: $key}';
+    return 'LoginRouteArgs{key: $key, bloc: $bloc}';
   }
 }
 
@@ -102,7 +115,8 @@ class RegistrationRoute extends PageRouteInfo<RegistrationRouteArgs> {
 
   static const String name = 'RegistrationRoute';
 
-  static const PageInfo<RegistrationRouteArgs> page = PageInfo<RegistrationRouteArgs>(name);
+  static const PageInfo<RegistrationRouteArgs> page =
+      PageInfo<RegistrationRouteArgs>(name);
 }
 
 class RegistrationRouteArgs {

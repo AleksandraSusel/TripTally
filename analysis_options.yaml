@@ -8,6 +8,15 @@
 # The following line activates a set of recommended lints for Flutter apps,
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
+analyzer:
+  exclude:
+    - lib/**/*.g.dart
+    - lib/**/*.gr.dart
+    - lib/**/*.freezed.dart
+    - lib/**/generated/
+    - lib/**/injectable.config.dart
+    - test/**/*.mocks.dart
+    - test/generate_mocks.mocks.dart
 
 linter:
   # The lint rules applied to this project can be customized in the

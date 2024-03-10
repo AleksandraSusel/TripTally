@@ -11,12 +11,18 @@ enum Errors {
   passwordDontMatch,
   weakPassword,
   operationNotAllowed,
-  fieldCanNotBeEmpty
+  fieldCanNotBeEmpty,
+  userDisabled,
+  userNotFound
 }
 
 extension ErrorsExtension on Errors {
   String errorText(BuildContext context) {
     switch (this) {
+      case Errors.userDisabled:
+        return context.tr.errors_userDisabled;
+      case Errors.userNotFound:
+        return context.tr.errors_userNotFound;
       case Errors.unknownError:
         return context.tr.errors_unknownError;
       case Errors.somethingWentWrong:

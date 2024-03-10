@@ -3,8 +3,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:trip_tally/data/data_source/authentication_remote_source_impl.dart';
 import 'package:trip_tally/data/dto/user/create_user_dto.dart';
+import 'package:trip_tally/data/dto/user/login_dto.dart';
 import 'package:trip_tally/domain/data_source/authentication_remote_source.dart';
 import 'package:trip_tally/domain/utils/exception.dart';
+import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 import '../../mocked_data.dart';
@@ -70,6 +72,54 @@ void main() {
       );
 
       verify(mockFirebaseAuth.createUserWithEmailAndPassword(email: mockedCreateUserDto.email, password: mockedCreateUserDto.password));
+      verifyNoMoreInteractions(mockFirebaseAuth);
+    },
+  );
+
+  test(
+    "Login logs user successful",
+    () async {
+      final dto = LoginDto(email: mockedLoginDto.email, password: mockedLoginDto.password);
+
+      when(mockFirebaseAuth.signInWithEmailAndPassword(email: dto.email, password: dto.password))
+          .thenAnswer((_) async => mockUserCredential);
+
+      final result = await authenticationDataSource.login(mockedLoginDto);
+
+      expect(result, const Success());
+
+      verify(mockFirebaseAuth.signInWithEmailAndPassword(email: mockedLoginDto.email, password: mockedLoginDto.password));
+      verifyNoMoreInteractions(mockFirebaseAuth);
+    },
+  );
+
+  test(
+    "Login throws ApiException on catch",
+    () async {
+      final dto = LoginDto(email: mockedLoginDto.email, password: mockedLoginDto.password);
+      when(mockFirebaseAuth.signInWithEmailAndPassword(email: dto.email, password: dto.password)).thenThrow(Exception());
+      await expectLater(
+        authenticationDataSource.login(dto),
+        throwsA(isA<ApiException>().having((e) => e.failure, 'Unknown Error', Errors.unknownError)),
+      );
+
+      verify(mockFirebaseAuth.signInWithEmailAndPassword(email: mockedLoginDto.email, password: mockedLoginDto.password));
+      verifyNoMoreInteractions(mockFirebaseAuth);
+    },
+  );
+
+  test(
+    "Login throws FirebaseException",
+    () async {
+      final dto = LoginDto(email: mockedLoginDto.email, password: mockedLoginDto.password);
+      when(mockFirebaseAuth.signInWithEmailAndPassword(email: dto.email, password: dto.password))
+          .thenThrow(MockFirebaseException('invalid-email'));
+      await expectLater(
+        authenticationDataSource.login(dto),
+        throwsA(isA<ApiException>().having((e) => e.failure, 'Invalid Email', Errors.invalidEmail)),
+      );
+
+      verify(mockFirebaseAuth.signInWithEmailAndPassword(email: mockedLoginDto.email, password: mockedLoginDto.password));
       verifyNoMoreInteractions(mockFirebaseAuth);
     },
   );

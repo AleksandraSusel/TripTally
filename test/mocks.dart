@@ -4,6 +4,8 @@ import 'package:mockito/mockito.dart';
 import 'package:trip_tally/domain/data_source/authentication_remote_source.dart';
 import 'package:trip_tally/domain/repositories/authentication_repo.dart';
 import 'package:trip_tally/domain/use_case/create_user_use_case.dart';
+import 'package:trip_tally/domain/use_case/login_use_case.dart';
+import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart';
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart';
 
 @GenerateMocks([
@@ -11,7 +13,9 @@ import 'package:trip_tally/presentation/pages/registration_page/bloc/registratio
   AuthenticationRepo,
   AuthenticationRemoteSource,
   CreateUserUseCase,
+  LoginUseCase,
   RegistrationBloc,
+  LoginBloc,
 ])
 void main() {}
 

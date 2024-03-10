@@ -64,71 +64,69 @@ class _BodyState extends State<_Body> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Center(
-            child: Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  const SizedBox(height: AppDimensions.d40),
-                  const WelcomeText(),
-                  const SizedBox(height: AppDimensions.d40),
-                  const WelcomeSubtitle(),
-                  const SizedBox(height: AppDimensions.d80),
-                  Text(
-                    context.tr.registration,
-                    style: context.tht.displayMedium,
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Center(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                const SizedBox(height: AppDimensions.d40),
+                const WelcomeText(),
+                const SizedBox(height: AppDimensions.d40),
+                const WelcomeSubtitle(),
+                const SizedBox(height: AppDimensions.d80),
+                Text(
+                  context.tr.registration,
+                  style: context.tht.displayMedium,
+                ),
+                const SizedBox(height: AppDimensions.d20),
+                CustomTextField(
+                  hintText: context.tr.email,
+                  controller: emailController,
+                  validator: (String? value) {
+                    return Validator.validateEmail(value, context);
+                  },
+                ),
+                CustomTextField(
+                  hintText: context.tr.password,
+                  controller: passwordController,
+                  hasPassword: true,
+                  validator: (String? value) {
+                    return Validator.isFieldEmpty(value, context);
+                  },
+                ),
+                CustomTextField(
+                  hintText: context.tr.repeatPassword,
+                  controller: repeatPassword,
+                  hasPassword: true,
+                  validator: (String? repeatPasswordController) {
+                    return Validator.validatePasswords(
+                      passwordController.text,
+                      repeatPasswordController,
+                      context,
+                    );
+                  },
+                ),
+                const SizedBox(height: AppDimensions.d50),
+                CustomFloatingActionButton(
+                  text: context.tr.registration,
+                  onPressed: onPressed,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: AppDimensions.d20),
+                  child: Text(
+                    context.tr.or,
+                    style: context.tht.headlineSmall,
                   ),
-                  const SizedBox(height: AppDimensions.d20),
-                  CustomTextField(
-                    hintText: context.tr.email,
-                    controller: emailController,
-                    validator: (String? value) {
-                      return Validator.validateEmail(value, context);
-                    },
+                ),
+                TextButton(
+                  onPressed: () => context.router.push(LoginRoute()),
+                  child: Text(
+                    context.tr.login,
                   ),
-                  CustomTextField(
-                    hintText: context.tr.password,
-                    controller: passwordController,
-                    hasPassword: true,
-                    validator: (String? value) {
-                      return Validator.isFieldEmpty(value, context);
-                    },
-                  ),
-                  CustomTextField(
-                    hintText: context.tr.repeatPassword,
-                    controller: repeatPassword,
-                    hasPassword: true,
-                    validator: (String? repeatPasswordController) {
-                      return Validator.validatePasswords(
-                        passwordController.text,
-                        repeatPasswordController,
-                        context,
-                      );
-                    },
-                  ),
-                  const SizedBox(height: AppDimensions.d50),
-                  CustomFloatingActionButton(
-                    text: context.tr.registration,
-                    onPressed: onPressed,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: AppDimensions.d20),
-                    child: Text(
-                      context.tr.or,
-                      style: context.tht.headlineSmall,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () => context.router.push(LoginRoute()),
-                    child: Text(
-                      context.tr.login,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
