@@ -68,4 +68,14 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
       throw ApiException(Errors.unknownError);
     }
   }
+
+  @override
+  Future<Success> signOut() async {
+    try {
+      await firebaseAuth.signOut();
+      return const Success();
+    } catch (e) {
+      throw ApiException(Errors.somethingWentWrong);
+    }
+  }
 }
