@@ -123,4 +123,28 @@ void main() {
       verifyNoMoreInteractions(mockFirebaseAuth);
     },
   );
+
+  test(
+    "SignOut logs user out success",
+    () async {
+      when(mockFirebaseAuth.signOut()).thenAnswer((_) async => const Success());
+      final result = await authenticationDataSource.signOut();
+      expect(result, const Success());
+      verify(mockFirebaseAuth.signOut());
+      verifyNoMoreInteractions(mockFirebaseAuth);
+    },
+  );
+
+  test(
+    "SignOut throws ApiException on catch",
+    () async {
+      when(mockFirebaseAuth.signOut()).thenThrow(Exception());
+      await expectLater(
+        authenticationDataSource.signOut(),
+        throwsA(isA<ApiException>().having((e) => e.failure, 'Something went wrong', Errors.somethingWentWrong)),
+      );
+      verify(mockFirebaseAuth.signOut());
+      verifyNoMoreInteractions(mockFirebaseAuth);
+    },
+  );
 }
