@@ -69,6 +69,34 @@ class ThemeManager {
         fontWeight: FontWeight.w400,
         letterSpacing: 1.05,
       ),
+      titleSmall: TextStyle(
+        fontFamily: _fontName,
+        fontSize: AppDimensions.d14,
+        color: AppColors.cello,
+        fontWeight: FontWeight.w900,
+        letterSpacing: 1.05,
+      ),
+      bodySmall: TextStyle(
+        fontFamily: _fontName,
+        fontSize: AppDimensions.d14,
+        color: AppColors.kobi,
+        fontWeight: FontWeight.w900,
+        letterSpacing: 1.05,
+      ),
+      titleMedium: TextStyle(
+        fontFamily: _fontName,
+        fontSize: AppDimensions.d24,
+        color: AppColors.cello,
+        fontWeight: FontWeight.w100,
+        letterSpacing: 1.05,
+      ),
+      titleLarge: TextStyle(
+        fontFamily: _fontName,
+        fontSize: AppDimensions.d24,
+        color: AppColors.cello,
+        fontWeight: FontWeight.w700,
+        letterSpacing: 1.05,
+      ),
     ),
     inputDecorationTheme: const InputDecorationTheme(
       enabledBorder: UnderlineInputBorder(

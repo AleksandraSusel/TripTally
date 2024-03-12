@@ -24,5 +24,11 @@
   "errors_fieldCanNotBeEmpty": "Field can't be empty",
   "validators_fieldCanNotBeEmpty": "Field can't be empty",
   "validators_passwordDontMatch": "Password don't match",
-  "validators_yourEmailIsIncorrect": "Your email is incorrect"
+  "validators_yourEmailIsIncorrect": "Your email is incorrect",
+  "currentTripInformation_youAreIn": "You are in:",
+  "homePage_addNewTrip": "Add a new trip",
+  "homePage_goToYourTrip": "Go to your trip",
+  "homePage_planNewTrip": "Plan a new trip",
+  "summaryRectangle_youHaveSpent": "You have spent: ",
+  "summaryRectangle_youAreStillInYourBudget": "You are still in your budget: "
 }
