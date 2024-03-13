@@ -42,4 +42,14 @@ class AuthenticationRepoImpl implements AuthenticationRepo {
       return const Left(Failure(error: Errors.unknownError));
     }
   }
+
+  @override
+  Future<Either<Failure, Success>> signOut() async {
+    try {
+      await _remoteSource.signOut();
+      return const Right(Success());
+    } catch (e) {
+      return const Left(Failure(error: Errors.somethingWentWrong));
+    }
+  }
 }

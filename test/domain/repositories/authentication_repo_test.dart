@@ -9,9 +9,9 @@ import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
-import '../../../mocked_data.dart';
-import '../../../mocks.dart';
-import '../../../mocks.mocks.dart';
+import '../../mocked_data.dart';
+import '../../mocks.dart';
+import '../../mocks.mocks.dart';
 
 void main() {
   late MockAuthenticationRemoteSource mockedAuthenticationRemoteSource;
@@ -89,6 +89,26 @@ void main() {
     result.fold((l) => error = l.error, (r) => null);
     expect(error, Errors.somethingWentWrong);
     verify(mockedAuthenticationRemoteSource.login(mockedLoginDto));
+    verifyNoMoreInteractions(mockedAuthenticationRemoteSource);
+  });
+
+  test('SignOut logs user out success', () async {
+    when(mockedAuthenticationRemoteSource.signOut()).thenAnswer((_) async => const Success());
+    final result = await repository.signOut();
+    Success? success;
+    result.fold((l) => null, (r) => success = r);
+    expect(success, const Success());
+    verify(mockedAuthenticationRemoteSource.signOut());
+    verifyNoMoreInteractions(mockedAuthenticationRemoteSource);
+  });
+
+  test('SignOut logs user out failure', () async {
+    when(mockedAuthenticationRemoteSource.signOut()).thenThrow(const Left(Failure(error: Errors.somethingWentWrong)));
+    final result = await repository.signOut();
+    Errors? error;
+    result.fold((l) => error = l.error, (r) => null);
+    expect(error, Errors.somethingWentWrong);
+    verify(mockedAuthenticationRemoteSource.signOut());
     verifyNoMoreInteractions(mockedAuthenticationRemoteSource);
   });
 }

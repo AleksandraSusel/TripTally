@@ -710,12 +710,26 @@ class MockAuthenticationRepo extends _i1.Mock
           #login,
           [entity],
         ),
-        returnValue: _i9.Future<_i5.Either<_i12.Failure, _i6.Success>>.value(
-            _FakeEither_4<_i12.Failure, _i6.Success>(
+        returnValue: _i9.Future<_i5.Either<_i12.Failure, _i6.Success>>.value(_FakeEither_4<_i12.Failure, _i6.Success>(
           this,
           Invocation.method(
             #login,
             [entity],
+          ),
+        )),
+      ) as _i9.Future<_i5.Either<_i12.Failure, _i6.Success>>);
+
+  @override
+  _i9.Future<_i5.Either<_i12.Failure, _i6.Success>> signOut() => (super.noSuchMethod(
+        Invocation.method(
+          #signOut,
+          [],
+        ),
+        returnValue: _i9.Future<_i5.Either<_i12.Failure, _i6.Success>>.value(_FakeEither_4<_i12.Failure, _i6.Success>(
+          this,
+          Invocation.method(
+            #signOut,
+            [],
           ),
         )),
       ) as _i9.Future<_i5.Either<_i12.Failure, _i6.Success>>);
@@ -758,6 +772,21 @@ class MockAuthenticationRemoteSource extends _i1.Mock
           Invocation.method(
             #login,
             [loginDto],
+          ),
+        )),
+      ) as _i9.Future<_i6.Success>);
+
+  @override
+  _i9.Future<_i6.Success> signOut() => (super.noSuchMethod(
+        Invocation.method(
+          #signOut,
+          [],
+        ),
+        returnValue: _i9.Future<_i6.Success>.value(_FakeSuccess_5(
+          this,
+          Invocation.method(
+            #signOut,
+            [],
           ),
         )),
       ) as _i9.Future<_i6.Success>);

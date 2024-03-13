@@ -6,8 +6,8 @@ import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
-import '../../../mocked_data.dart';
-import '../../../mocks.mocks.dart';
+import '../../mocked_data.dart';
+import '../../mocks.mocks.dart';
 
 void main() {
   late MockAuthenticationRepo mockAuthenticationRepo;

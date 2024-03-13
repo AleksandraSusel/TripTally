@@ -8,4 +8,6 @@ abstract class AuthenticationRemoteSource {
   Future<UserCredential> createUser(CreateUserDto createUserDto);
 
   Future<Success> login(LoginDto loginDto);
+
+  Future<Success> signOut();
 }
