@@ -9,6 +9,17 @@ class ThemeManager {
   static const _fontName = 'NunitoSans';
 
   final _themeData = ThemeData(
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppColors.linkWater,
+    ),
+    elevatedButtonTheme: const ElevatedButtonThemeData(
+      style: ButtonStyle(
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        backgroundColor: MaterialStatePropertyAll<Color>(Colors.transparent),
+        surfaceTintColor: MaterialStatePropertyAll<Color>(Colors.transparent),
+        overlayColor: MaterialStatePropertyAll<Color>(AppColors.wePeep),
+      ),
+    ),
     brightness: Brightness.light,
     scaffoldBackgroundColor: AppColors.linkWater,
     primaryColor: AppColors.cello,
@@ -144,6 +155,38 @@ class ThemeManager {
       ),
     ),
   );
+
+  BoxDecoration get mainShadow => BoxDecoration(
+        color: AppColors.linkWater,
+        borderRadius: BorderRadius.circular(AppDimensions.d40),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.white.withOpacity(0.8),
+            offset: const Offset(2, 2),
+            blurRadius: AppDimensions.d10,
+            spreadRadius: AppDimensions.d10,
+          ),
+        ],
+      );
+
+  BoxDecoration get sideShadow => BoxDecoration(
+        color: AppColors.linkWater,
+        borderRadius: BorderRadius.circular(AppDimensions.d20),
+        boxShadow: const [
+          BoxShadow(
+            color: AppColors.osloGray,
+            offset: Offset(3, 2),
+            blurRadius: AppDimensions.d5,
+            spreadRadius: 1,
+          ),
+          BoxShadow(
+            color: AppColors.porcelain,
+            offset: Offset(-1, -1),
+            blurRadius: 6,
+            spreadRadius: 4,
+          ),
+        ],
+      );
 
   ThemeData getTheme() => _themeData;
 }

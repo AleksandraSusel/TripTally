@@ -7,11 +7,11 @@ import '../theme/app_dimensions.dart';
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton({
     super.key,
-    required this.icon,
+    required this.svgPath,
     required this.onTap,
   });
 
-  final String icon;
+  final String svgPath;
   final VoidCallback onTap;
 
   @override
@@ -32,18 +32,14 @@ class CustomIconButton extends StatelessWidget {
       ),
       child: ElevatedButton(
         style: ButtonStyle(
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            padding: MaterialStateProperty.all(const EdgeInsets.all(10)),
+            padding: MaterialStateProperty.all(const EdgeInsets.all(AppDimensions.d12)),
             shape: MaterialStateProperty.all(const CircleBorder()),
-            backgroundColor: const MaterialStatePropertyAll<Color>(Colors.transparent),
-            surfaceTintColor: const MaterialStatePropertyAll<Color>(Colors.transparent),
-            overlayColor: const MaterialStatePropertyAll<Color>(AppColors.wePeep),
             elevation: MaterialStateProperty.all(0)),
         onPressed: onTap,
         child: SvgPicture.asset(
-          icon,
-          height: 30,
-          width: 30,
+          svgPath,
+          height: AppDimensions.d26,
+          width: AppDimensions.d26,
         ),
       ),
     );

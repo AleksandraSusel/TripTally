@@ -9,8 +9,8 @@ import 'package:trip_tally/presentation/widgets/welcome_text.dart';
 import '../../theme/app_dimensions.dart';
 import '../../theme/app_paths.dart';
 import '../../widgets/app_scaffold.dart';
+import '../../widgets/circle_svg_button.dart';
 import '../../widgets/current_trip_information.dart';
-import '../../widgets/custom_icon_button.dart';
 import '../../widgets/custom_rectangle_button.dart';
 import '../../widgets/summary_rectangle.dart';
 
@@ -23,20 +23,20 @@ class HomePage extends StatelessWidget {
     return AppScaffold(
       actions: [
         CustomIconButton(
-          icon: AppPaths.settings,
+          svgPath: AppPaths.settings,
           onTap: () {},
         ),
         const Spacer(),
         CustomIconButton(
-          icon: AppPaths.callendar,
+          svgPath: AppPaths.callendar,
           onTap: () {},
         ),
         CustomIconButton(
-          icon: AppPaths.package,
+          svgPath: AppPaths.package,
           onTap: () {},
         ),
         CustomIconButton(
-          icon: AppPaths.person,
+          svgPath: AppPaths.person,
           onTap: () {},
         ),
       ],
@@ -82,7 +82,7 @@ class HomePage extends StatelessWidget {
                           budgetMoney: '100',
                         ),
                         const SizedBox(height: AppDimensions.d50),
-                        CustomFloatingActionButton(onPressed: () {}, text: context.tr.homePage_goToYourTrip),
+                        CircleSvgButton(onPressed: () {}, text: context.tr.homePage_goToYourTrip),
                       ],
                     ),
                   ],

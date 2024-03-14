@@ -63,17 +63,15 @@ class CustomRectangleButton extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
-          child: text != null
-              ? Padding(
-                  padding: const EdgeInsets.all(AppDimensions.d8),
-                  child: Text(
-                    text!,
-                    style: context.tht.labelSmall,
-                  ),
-                )
-              : null,
-        ),
+        if (text != null)
+          SizedBox(
+              child: Padding(
+            padding: const EdgeInsets.all(AppDimensions.d8),
+            child: Text(
+              text!,
+              style: context.tht.labelSmall,
+            ),
+          )),
       ],
     );
   }

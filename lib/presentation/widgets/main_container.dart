@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/theme_manager.dart';
 
-import '../theme/app_colors.dart';
+import '../../injectable/injectable.dart';
 
 class MainContainer extends StatelessWidget {
   const MainContainer({super.key, required this.child});
@@ -11,20 +13,8 @@ class MainContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      width: 430,
-      height: 520,
-      decoration: BoxDecoration(
-        color: AppColors.linkWater,
-        borderRadius: BorderRadius.circular(40),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.white.withOpacity(0.8),
-            offset: const Offset(2, 2),
-            blurRadius: 9,
-            spreadRadius: 10,
-          ),
-        ],
-      ),
+      height: AppDimensions.d520,
+      decoration: getIt<ThemeManager>().mainShadow,
       child: child,
     );
   }
