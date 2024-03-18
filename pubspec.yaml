@@ -66,6 +66,8 @@ dependencies:
   firebase_core: ^2.24.2
   firebase_auth: ^4.16.0
   file: ^7.0.0
+  inner_shadow_widget: ^0.0.3
+  country_flags: ^2.2.0
 
 dev_dependencies:
   flutter_test:

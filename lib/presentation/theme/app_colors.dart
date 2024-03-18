@@ -11,5 +11,8 @@ class AppColors {
   static const Color cello = Color(0xFF1E385E);
   static const Color linkWater = Color(0xFFE4EDFA);
   static const Color wePeep = Color(0xFFF6D4DF);
+  static const Color osloGray = Color(0xFF939495);
+  static const Color porcelain = Color(0xFFF0F3F4);
+  static const Color poloBlue = Color(0xFF9CB2D3);
   static const Color red = Colors.red;
 }

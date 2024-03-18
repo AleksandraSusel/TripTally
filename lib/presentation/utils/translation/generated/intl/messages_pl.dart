@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "currentTripInformation_youAreIn": MessageLookupByLibrary.simpleMessage("You are in:"),
         "email": MessageLookupByLibrary.simpleMessage("E-mail"),
         "errors_emailInUse": MessageLookupByLibrary.simpleMessage("Email in use"),
         "errors_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
@@ -35,11 +36,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "errors_userNotFound": MessageLookupByLibrary.simpleMessage("User not found:"),
         "errors_weakPassword": MessageLookupByLibrary.simpleMessage("Weak password"),
         "errors_wrongPassword": MessageLookupByLibrary.simpleMessage("Wrong password"),
+        "homePage_addNewTrip": MessageLookupByLibrary.simpleMessage("Add a new trip"),
+        "homePage_goToYourTrip": MessageLookupByLibrary.simpleMessage("Go to your trip"),
+        "homePage_planNewTrip": MessageLookupByLibrary.simpleMessage("Plan a new trip"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
         "repeatPassword": MessageLookupByLibrary.simpleMessage("Repeat password"),
+        "summaryRectangle_youAreStillInYourBudget": MessageLookupByLibrary.simpleMessage("You are still in your budget: "),
+        "summaryRectangle_youHaveSpent": MessageLookupByLibrary.simpleMessage("You have spent: "),
         "validators_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
         "validators_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
         "validators_yourEmailIsIncorrect": MessageLookupByLibrary.simpleMessage("Your email is incorrect"),

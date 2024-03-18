@@ -77,4 +77,6 @@ class AppDimensions {
   static const double d300 = 300;
   static const double d339 = 339;
   static const double d343 = 343;
+  static const double d400 = 400;
+  static const double d520 = 520;
 }

@@ -7,6 +7,7 @@ import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
 
+import '../../../environment.cofig.dart';
 import '../../../injectable/injectable.dart';
 import '../../theme/app_dimensions.dart';
 import '../../utils/validators.dart';
@@ -27,20 +28,15 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: BlocProvider(
         create: (context) => bloc ?? getIt<LoginBloc>(),
-        child: BlocConsumer<LoginBloc, LoginState>(
+        child: BlocListener<LoginBloc, LoginState>(
           listener: (context, state) => state.whenOrNull(
             failure: (error) => customSnackBar(
               context,
               error.errorText(context),
             ),
-            success: () => customSnackBar(context, 'Zostałeś zalogowany'), //TODO: push to HomePage
+            success: () => context.router.replaceAll([const HomeRoute()]),
           ),
-          builder: (context, state) => state.maybeWhen(
-            orElse: () => const _Body(),
-            loading: () => const Center(
-              child: CustomCircularProgressIndicator(),
-            ),
-          ),
+          child: const _Body(),
         ),
       ),
     );
@@ -94,21 +90,36 @@ class _BodyState extends State<_Body> {
                   },
                 ),
                 const SizedBox(height: AppDimensions.d126),
-                CustomFloatingActionButton(
-                  text: context.tr.login,
-                  onPressed: onPressed,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: AppDimensions.d20),
-                  child: Text(
-                    context.tr.or,
-                    style: context.tht.headlineSmall,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () => context.router.push(RegistrationRoute()),
-                  child: Text(
-                    context.tr.registration,
+                BlocBuilder<LoginBloc, LoginState>(
+                  builder: (context, state) => state.maybeWhen(
+                    orElse: () => Column(
+                      children: [
+                        GestureDetector(
+                          onLongPress: () {
+                            emailController.text = EnvConfig.email;
+                            passwordController.text = EnvConfig.password;
+                          },
+                          child: CircleSvgButton(
+                            text: context.tr.login,
+                            onPressed: onPressed,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: AppDimensions.d20),
+                          child: Text(
+                            context.tr.or,
+                            style: context.tht.headlineSmall,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () => context.router.push(RegistrationRoute()),
+                          child: Text(
+                            context.tr.registration,
+                          ),
+                        ),
+                      ],
+                    ),
+                    loading: () => const CustomCircularProgressIndicator(),
                   ),
                 ),
               ],

@@ -308,6 +308,66 @@ class Translation {
       args: [],
     );
   }
+
+  /// `You are in:`
+  String get currentTripInformation_youAreIn {
+    return Intl.message(
+      'You are in:',
+      name: 'currentTripInformation_youAreIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add a new trip`
+  String get homePage_addNewTrip {
+    return Intl.message(
+      'Add a new trip',
+      name: 'homePage_addNewTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go to your trip`
+  String get homePage_goToYourTrip {
+    return Intl.message(
+      'Go to your trip',
+      name: 'homePage_goToYourTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plan a new trip`
+  String get homePage_planNewTrip {
+    return Intl.message(
+      'Plan a new trip',
+      name: 'homePage_planNewTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have spent: `
+  String get summaryRectangle_youHaveSpent {
+    return Intl.message(
+      'You have spent: ',
+      name: 'summaryRectangle_youHaveSpent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You are still in your budget: `
+  String get summaryRectangle_youAreStillInYourBudget {
+    return Intl.message(
+      'You are still in your budget: ',
+      name: 'summaryRectangle_youAreStillInYourBudget',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {
