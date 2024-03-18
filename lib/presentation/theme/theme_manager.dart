@@ -177,15 +177,26 @@ class ThemeManager {
             color: AppColors.osloGray,
             offset: Offset(3, 2),
             blurRadius: AppDimensions.d5,
-            spreadRadius: 1,
+            spreadRadius: AppDimensions.d1,
           ),
           BoxShadow(
             color: AppColors.porcelain,
             offset: Offset(-1, -1),
-            blurRadius: 6,
-            spreadRadius: 4,
+            blurRadius: AppDimensions.d6,
+            spreadRadius: AppDimensions.d4,
           ),
         ],
+      );
+
+  ButtonStyle get rectangleButtonStyle => ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+        foregroundColor: MaterialStateProperty.all<Color>(AppColors.cello),
+        elevation: MaterialStateProperty.all(0),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppDimensions.d20),
+          ),
+        ),
       );
 
   ThemeData getTheme() => _themeData;
