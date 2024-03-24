@@ -368,6 +368,76 @@ class Translation {
       args: [],
     );
   }
+
+  /// `Hi `
+  String get hiTravellerText_hi {
+    return Intl.message(
+      'Hi ',
+      name: 'hiTravellerText_hi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `traveller`
+  String get hiTravellerText_traveller {
+    return Intl.message(
+      'traveller',
+      name: 'hiTravellerText_traveller',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add new journey`
+  String get hiTravellerSubtitle_addNewJourney {
+    return Intl.message(
+      'Add new journey',
+      name: 'hiTravellerSubtitle_addNewJourney',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit!`
+  String get newTripPage_submit {
+    return Intl.message(
+      'Submit!',
+      name: 'newTripPage_submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Where are you going`
+  String get newTripPage_whereAreYouGoing {
+    return Intl.message(
+      'Where are you going',
+      name: 'newTripPage_whereAreYouGoing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select your transport`
+  String get newTripPage_selectYourTransport {
+    return Intl.message(
+      'Select your transport',
+      name: 'newTripPage_selectYourTransport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select dates`
+  String get newTripPage_selectDates {
+    return Intl.message(
+      'Select dates',
+      name: 'newTripPage_selectDates',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {
@@ -376,6 +446,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'pl'),
+      Locale.fromSubtags(languageCode: 'en'),
     ];
   }
 

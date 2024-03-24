@@ -30,5 +30,12 @@
   "homePage_goToYourTrip": "Go to your trip",
   "homePage_planNewTrip": "Plan a new trip",
   "summaryRectangle_youHaveSpent": "You have spent: ",
-  "summaryRectangle_youAreStillInYourBudget": "You are still in your budget: "
+  "summaryRectangle_youAreStillInYourBudget": "You are still in your budget: ",
+  "hiTravellerText_hi": "Hi ",
+  "hiTravellerText_traveller": "traveller",
+  "hiTravellerSubtitle_addNewJourney": "Add new journey",
+  "newTripPage_submit": "Submit!",
+  "newTripPage_whereAreYouGoing": "Where are you going",
+  "newTripPage_selectYourTransport": "Select your transport",
+  "newTripPage_selectDates": "Select dates"
 }

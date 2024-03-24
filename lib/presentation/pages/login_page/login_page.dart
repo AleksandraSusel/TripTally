@@ -99,7 +99,7 @@ class _BodyState extends State<_Body> {
                             emailController.text = EnvConfig.email;
                             passwordController.text = EnvConfig.password;
                           },
-                          child: CircleSvgButton(
+                          child: CustomFloatingActionButton(
                             text: context.tr.login,
                             onPressed: onPressed,
                           ),
