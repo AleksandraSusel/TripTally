@@ -38,7 +38,7 @@ void main() {
   );
 
   runGoldenTest('LoginPage- validation of empty fields', whilePerforming: (tester) async {
-    await tester.tap(find.byType(CircleSvgButton));
+    await tester.tap(find.byType(CustomFloatingActionButton));
     return;
   }, builder: () {
     when(mockLoginBloc.stream).thenAnswer((realInvocation) => Stream.value(const LoginState.initial()));
@@ -47,7 +47,7 @@ void main() {
 
   runGoldenTest('LoginPage- validation of invalid email', whilePerforming: (tester) async {
     await tester.enterText(find.byType(CustomTextField).first, 'invalidEmail');
-    await tester.tap(find.byType(CircleSvgButton));
+    await tester.tap(find.byType(CustomFloatingActionButton));
     return;
   }, builder: () {
     when(mockLoginBloc.stream).thenAnswer((realInvocation) => Stream.value(const LoginState.initial()));

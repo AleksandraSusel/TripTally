@@ -22,8 +22,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>(
-          orElse: () => const LoginRouteArgs());
+      final args = routeData.argsAs<LoginRouteArgs>(orElse: () => const LoginRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: LoginPage(
@@ -32,9 +31,14 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    NewTripRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const NewTripPage(),
+      );
+    },
     RegistrationRoute.name: (routeData) {
-      final args = routeData.argsAs<RegistrationRouteArgs>(
-          orElse: () => const RegistrationRouteArgs());
+      final args = routeData.argsAs<RegistrationRouteArgs>(orElse: () => const RegistrationRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: RegistrationPage(
@@ -95,6 +99,20 @@ class LoginRouteArgs {
   String toString() {
     return 'LoginRouteArgs{key: $key, bloc: $bloc}';
   }
+}
+
+/// generated route for
+/// [NewTripPage]
+class NewTripRoute extends PageRouteInfo<void> {
+  const NewTripRoute({List<PageRouteInfo>? children})
+      : super(
+          NewTripRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NewTripRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

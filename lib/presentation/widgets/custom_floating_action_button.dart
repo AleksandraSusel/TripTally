@@ -3,8 +3,8 @@ import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
-class CircleSvgButton extends StatelessWidget {
-  const CircleSvgButton({
+class CustomFloatingActionButton extends StatelessWidget {
+  const CustomFloatingActionButton({
     super.key,
     required this.onPressed,
     required this.text,

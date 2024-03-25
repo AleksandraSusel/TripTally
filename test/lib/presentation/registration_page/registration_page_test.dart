@@ -34,7 +34,7 @@ void main() {
   });
 
   runGoldenTest('RegistrationBloc - validation of empty fields', whilePerforming: (tester) async {
-    await tester.tap(find.byType(CircleSvgButton));
+    await tester.tap(find.byType(CustomFloatingActionButton));
     return;
   }, builder: () {
     when(mockRegistrationBloc.stream).thenAnswer((realInvocation) => Stream.value(const RegistrationState.initial()));
@@ -43,7 +43,7 @@ void main() {
 
   runGoldenTest('RegistrationBloc - validation of invalid email', whilePerforming: (tester) async {
     await tester.enterText(find.byType(CustomTextField).first, 'invalidEmail');
-    await tester.tap(find.byType(CircleSvgButton));
+    await tester.tap(find.byType(CustomFloatingActionButton));
     return;
   }, builder: () {
     when(mockRegistrationBloc.stream).thenAnswer((realInvocation) => Stream.value(const RegistrationState.initial()));
@@ -53,7 +53,7 @@ void main() {
   runGoldenTest('RegistrationBloc - validation of incompatible passwords', whilePerforming: (tester) async {
     await tester.enterText(find.byType(CustomTextField).at(1), 'password');
     await tester.enterText(find.byType(CustomTextField).last, 'password1');
-    await tester.tap(find.byType(CircleSvgButton));
+    await tester.tap(find.byType(CustomFloatingActionButton));
     return;
   }, builder: () {
     when(mockRegistrationBloc.stream).thenAnswer((realInvocation) => Stream.value(const RegistrationState.initial()));

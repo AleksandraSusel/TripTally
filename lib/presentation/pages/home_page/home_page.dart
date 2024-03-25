@@ -22,20 +22,20 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       actions: [
-        CustomIconButton(
+        CustomSvgButton(
           svgPath: AppPaths.settings,
           onTap: () {},
         ),
         const Spacer(),
-        CustomIconButton(
+        CustomSvgButton(
           svgPath: AppPaths.callendar,
           onTap: () {},
         ),
-        CustomIconButton(
+        CustomSvgButton(
           svgPath: AppPaths.package,
           onTap: () {},
         ),
-        CustomIconButton(
+        CustomSvgButton(
           svgPath: AppPaths.person,
           onTap: () {},
         ),
@@ -60,12 +60,16 @@ class HomePage extends StatelessWidget {
                           icon: AppPaths.plus,
                           text: context.tr.homePage_addNewTrip,
                           onTap: () {},
+                          height: AppDimensions.d50,
+                          width: AppDimensions.d50,
                         ),
                         const SizedBox(width: AppDimensions.d40),
                         CustomRectangleButton(
                           icon: AppPaths.pen,
                           text: context.tr.homePage_planNewTrip,
                           onTap: () {},
+                          height: AppDimensions.d50,
+                          width: AppDimensions.d50,
                         ),
                       ],
                     ),
@@ -81,8 +85,8 @@ class HomePage extends StatelessWidget {
                           spendMoney: '3000',
                           budgetMoney: '100',
                         ),
-                        const SizedBox(height: AppDimensions.d50),
-                        CircleSvgButton(onPressed: () {}, text: context.tr.homePage_goToYourTrip),
+                        const SizedBox(height: AppDimensions.d20),
+                        CustomFloatingActionButton(onPressed: () {}, text: context.tr.homePage_goToYourTrip),
                       ],
                     ),
                   ],

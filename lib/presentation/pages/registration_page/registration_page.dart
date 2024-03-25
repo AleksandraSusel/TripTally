@@ -109,7 +109,7 @@ class _BodyState extends State<_Body> {
                   },
                 ),
                 const SizedBox(height: AppDimensions.d50),
-                CircleSvgButton(
+                CustomFloatingActionButton(
                   text: context.tr.registration,
                   onPressed: onPressed,
                 ),
