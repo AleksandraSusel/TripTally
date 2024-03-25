@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
-import '../../injectable/injectable.dart';
 import '../theme/theme_manager.dart';
 
 class CustomRectangleButton extends StatefulWidget {
@@ -36,15 +35,14 @@ class _CustomRectangleButtonState extends State<CustomRectangleButton> {
         Container(
           width: AppDimensions.d90,
           height: AppDimensions.d90,
-          decoration: getIt<ThemeManager>().sideShadow,
+          decoration: ThemeManager().sideShadow,
           child: ElevatedButton(
             onPressed: () {
               setState(() {
                 _isSelected = !_isSelected;
               });
             },
-            style:
-                _isSelected ? getIt<ThemeManager>().rectangleButtonStyleSelected : getIt<ThemeManager>().rectangleButtonStyleUnselected,
+            style: _isSelected ? ThemeManager().rectangleButtonStyleSelected : ThemeManager().rectangleButtonStyleUnselected,
             child: SvgPicture.asset(
               widget.icon,
               height: widget.height,

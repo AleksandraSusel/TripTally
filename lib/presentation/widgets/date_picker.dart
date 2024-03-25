@@ -61,7 +61,7 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(AppDimensions.d8),
+                  padding: const EdgeInsets.only(top: AppDimensions.d18),
                   child: GestureDetector(
                     onTap: () => _pickDateTimeRange(context),
                     child: isSelected == false

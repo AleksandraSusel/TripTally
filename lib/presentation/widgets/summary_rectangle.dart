@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
-import '../../injectable/injectable.dart';
 import '../theme/app_dimensions.dart';
 import '../theme/theme_manager.dart';
 
@@ -23,7 +22,7 @@ class SummaryRectangle extends StatelessWidget {
           padding: const EdgeInsets.all(AppDimensions.d8),
           child: Container(
             height: AppDimensions.d100,
-            decoration: getIt<ThemeManager>().sideShadow,
+            decoration: ThemeManager().sideShadow,
             child: Padding(
               padding: const EdgeInsets.all(AppDimensions.d8),
               child: Column(

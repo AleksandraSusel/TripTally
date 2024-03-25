@@ -31,7 +31,7 @@ mixin _$CreateUserDto {
 /// @nodoc
 abstract class $CreateUserDtoCopyWith<$Res> {
   factory $CreateUserDtoCopyWith(CreateUserDto value, $Res Function(CreateUserDto) then) =
-  _$CreateUserDtoCopyWithImpl<$Res, CreateUserDto>;
+      _$CreateUserDtoCopyWithImpl<$Res, CreateUserDto>;
 
   @useResult
   $Res call({String email, String password});
@@ -44,7 +44,6 @@ class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto>
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -71,7 +70,7 @@ class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto>
 abstract class _$$CreateUserDtoImplCopyWith<$Res>
     implements $CreateUserDtoCopyWith<$Res> {
   factory _$$CreateUserDtoImplCopyWith(_$CreateUserDtoImpl value, $Res Function(_$CreateUserDtoImpl) then) =
-  __$$CreateUserDtoImplCopyWithImpl<$Res>;
+      __$$CreateUserDtoImplCopyWithImpl<$Res>;
 
   @override
   @useResult
@@ -81,8 +80,7 @@ abstract class _$$CreateUserDtoImplCopyWith<$Res>
 /// @nodoc
 class __$$CreateUserDtoImplCopyWithImpl<$Res> extends _$CreateUserDtoCopyWithImpl<$Res, _$CreateUserDtoImpl>
     implements _$$CreateUserDtoImplCopyWith<$Res> {
-  __$$CreateUserDtoImplCopyWithImpl(_$CreateUserDtoImpl _value, $Res Function(_$CreateUserDtoImpl) _then)
-      : super(_value, _then);
+  __$$CreateUserDtoImplCopyWithImpl(_$CreateUserDtoImpl _value, $Res Function(_$CreateUserDtoImpl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -150,11 +148,9 @@ class _$CreateUserDtoImpl implements _CreateUserDto {
 }
 
 abstract class _CreateUserDto implements CreateUserDto {
-  const factory _CreateUserDto({required final String email,
-    required final String password}) = _$CreateUserDtoImpl;
+  const factory _CreateUserDto({required final String email, required final String password}) = _$CreateUserDtoImpl;
 
-  factory _CreateUserDto.fromJson(Map<String, dynamic> json) =
-  _$CreateUserDtoImpl.fromJson;
+  factory _CreateUserDto.fromJson(Map<String, dynamic> json) = _$CreateUserDtoImpl.fromJson;
 
   @override
   String get email;

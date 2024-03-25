@@ -15,17 +15,14 @@ class CustomFloatingActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(AppDimensions.d30),
-      child: SizedBox(
-        width: AppDimensions.d300,
-        child: FloatingActionButton(
-          splashColor: AppColors.linkWater,
-          onPressed: onPressed,
-          child: Text(
-            text,
-            style: context.tht.labelMedium,
-          ),
+    return SizedBox(
+      width: AppDimensions.d300,
+      child: FloatingActionButton(
+        splashColor: AppColors.linkWater,
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: context.tht.labelMedium,
         ),
       ),
     );

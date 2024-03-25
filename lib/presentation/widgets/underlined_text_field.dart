@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../injectable/injectable.dart';
 import '../theme/app_dimensions.dart';
 import '../theme/theme_manager.dart';
 
@@ -16,7 +15,7 @@ class UnderlinedTextField extends StatelessWidget {
       padding: const EdgeInsets.all(AppDimensions.d26),
       child: TextField(
         textAlign: TextAlign.center,
-        decoration: getIt<ThemeManager>().underlinedTextField(
+        decoration: ThemeManager().underlinedTextField(
           hintText: hintText,
           suffixIcon: svgPath,
         ),

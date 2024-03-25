@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
                           spendMoney: '3000',
                           budgetMoney: '100',
                         ),
-                        const SizedBox(height: AppDimensions.d50),
+                        const SizedBox(height: AppDimensions.d20),
                         CustomFloatingActionButton(onPressed: () {}, text: context.tr.homePage_goToYourTrip),
                       ],
                     ),
