@@ -1,17 +1,17 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/widgets/hi_traveller_subtitle.dart';
+import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/underlined_text_field.dart';
 
 import '../../theme/app_dimensions.dart';
 import '../../theme/app_paths.dart';
 import '../../widgets/app_scaffold.dart';
 import '../../widgets/circle_svg_button.dart';
-import '../../widgets/custom_floating_action_button.dart';
+import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/date_picker.dart';
-import '../../widgets/hi_traveller_text.dart';
+import '../../widgets/hi_traveller_title_widget.dart';
 import '../../widgets/main_container.dart';
 import '../../widgets/transport_method_list.dart';
 
@@ -22,14 +22,10 @@ class NewTripPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      floatingActionButton: CustomFloatingActionButton(
-        onPressed: () {},
-        text: context.tr.newTripPage_submit,
-      ),
       actions: [
         CustomSvgButton(
           svgPath: AppPaths.arrowBack,
-          onTap: () {},
+          onTap: () => context.router.push(const HomeRoute()),
         ),
         const Spacer(),
         CustomSvgButton(
@@ -37,7 +33,7 @@ class NewTripPage extends StatelessWidget {
           onTap: () {},
         ),
         CustomSvgButton(
-          svgPath: AppPaths.home,
+          svgPath: AppPaths.package,
           onTap: () {},
         ),
         CustomSvgButton(
@@ -49,10 +45,9 @@ class NewTripPage extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              const HiTravellerText(),
-              const SizedBox(height: AppDimensions.d40),
-              const HiTravellerSubtitle(),
-              const SizedBox(height: AppDimensions.d80),
+              HiTravellerTitleWidget(
+                text: context.tr.hiTravellerSubtitle_addNewJourney,
+              ),
               MainContainer(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -80,7 +75,11 @@ class NewTripPage extends StatelessWidget {
                     const SizedBox(height: AppDimensions.d20),
                     const SizedBox(
                       height: AppDimensions.d152,
-                      child: DatePickerDemo(),
+                      child: DatePicker(),
+                    ),
+                    CustomElevatedButton(
+                      onPressed: () {},
+                      text: context.tr.newTripPage_submit,
                     ),
                   ],
                 ),

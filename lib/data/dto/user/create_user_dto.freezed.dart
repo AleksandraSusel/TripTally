@@ -160,6 +160,5 @@ abstract class _CreateUserDto implements CreateUserDto {
 
   @override
   @JsonKey(ignore: true)
-  _$$CreateUserDtoImplCopyWith<_$CreateUserDtoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CreateUserDtoImplCopyWith<_$CreateUserDtoImpl> get copyWith => throw _privateConstructorUsedError;
 }

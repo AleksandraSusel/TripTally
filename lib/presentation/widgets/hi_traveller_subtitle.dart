@@ -6,7 +6,9 @@ import '../theme/app_dimensions.dart';
 import '../theme/app_paths.dart';
 
 class HiTravellerSubtitle extends StatelessWidget {
-  const HiTravellerSubtitle({super.key});
+  const HiTravellerSubtitle({super.key, required this.text});
+
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class HiTravellerSubtitle extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              context.tr.hiTravellerSubtitle_addNewJourney,
+              text,
               style: context.tht.displaySmall,
               textAlign: TextAlign.center,
             ),

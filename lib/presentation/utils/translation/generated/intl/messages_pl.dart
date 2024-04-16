@@ -43,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "homePage_goToYourTrip": MessageLookupByLibrary.simpleMessage("Go to your trip"),
         "homePage_planNewTrip": MessageLookupByLibrary.simpleMessage("Plan a new trip"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "newTripPage_PickTheEndDate": MessageLookupByLibrary.simpleMessage("Pick the end date"),
+        "newTripPage_PickTheStartDate": MessageLookupByLibrary.simpleMessage("Pick the start date"),
         "newTripPage_selectDates": MessageLookupByLibrary.simpleMessage("Select dates"),
         "newTripPage_selectYourTransport": MessageLookupByLibrary.simpleMessage("Select your transport"),
         "newTripPage_submit": MessageLookupByLibrary.simpleMessage("Submit!"),

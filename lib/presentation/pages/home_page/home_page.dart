@@ -1,16 +1,16 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/widgets/custom_floating_action_button.dart';
 import 'package:trip_tally/presentation/widgets/main_container.dart';
-import 'package:trip_tally/presentation/widgets/welcome_subtitle.dart';
-import 'package:trip_tally/presentation/widgets/welcome_text.dart';
+import 'package:trip_tally/presentation/widgets/welcome_title_widget.dart';
 
 import '../../theme/app_dimensions.dart';
 import '../../theme/app_paths.dart';
+import '../../utils/router/app_router.dart';
 import '../../widgets/app_scaffold.dart';
 import '../../widgets/circle_svg_button.dart';
 import '../../widgets/current_trip_information.dart';
+import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_rectangle_button.dart';
 import '../../widgets/summary_rectangle.dart';
 
@@ -44,10 +44,7 @@ class HomePage extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              const WelcomeText(),
-              const SizedBox(height: AppDimensions.d40),
-              const WelcomeSubtitle(),
-              const SizedBox(height: AppDimensions.d80),
+              const WelcomeTittleWidget(),
               MainContainer(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -85,8 +82,11 @@ class HomePage extends StatelessWidget {
                           spendMoney: '3000',
                           budgetMoney: '100',
                         ),
-                        const SizedBox(height: AppDimensions.d20),
-                        CustomFloatingActionButton(onPressed: () {}, text: context.tr.homePage_goToYourTrip),
+                        const SizedBox(height: AppDimensions.d24),
+                        CustomElevatedButton(
+                          onPressed: () => context.router.push(const NewTripRoute()),
+                          text: context.tr.homePage_goToYourTrip,
+                        ),
                       ],
                     ),
                   ],

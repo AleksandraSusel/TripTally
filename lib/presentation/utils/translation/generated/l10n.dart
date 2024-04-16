@@ -438,6 +438,26 @@ class Translation {
       args: [],
     );
   }
+
+  /// `Pick the start date`
+  String get newTripPage_PickTheStartDate {
+    return Intl.message(
+      'Pick the start date',
+      name: 'newTripPage_PickTheStartDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pick the end date`
+  String get newTripPage_PickTheEndDate {
+    return Intl.message(
+      'Pick the end date',
+      name: 'newTripPage_PickTheEndDate',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {

@@ -37,5 +37,7 @@
   "newTripPage_submit": "Submit!",
   "newTripPage_whereAreYouGoing": "Where are you going",
   "newTripPage_selectYourTransport": "Select your transport",
-  "newTripPage_selectDates": "Select dates"
+  "newTripPage_selectDates": "Select dates",
+  "newTripPage_PickTheStartDate": "Pick the start date",
+  "newTripPage_PickTheEndDate": "Pick the end date"
 }

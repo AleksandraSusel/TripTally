@@ -19,12 +19,14 @@ class ThemeManager {
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.linkWater,
     ),
-    elevatedButtonTheme: const ElevatedButtonThemeData(
+    elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        backgroundColor: MaterialStatePropertyAll<Color>(Colors.transparent),
-        surfaceTintColor: MaterialStatePropertyAll<Color>(Colors.transparent),
-        overlayColor: MaterialStatePropertyAll<Color>(AppColors.wePeep),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppDimensions.d20),
+          ),
+        ),
+        backgroundColor: const MaterialStatePropertyAll<Color>(AppColors.wePeep),
       ),
     ),
     brightness: Brightness.light,
@@ -97,8 +99,8 @@ class ThemeManager {
       bodySmall: TextStyle(
         fontFamily: _fontName,
         fontSize: AppDimensions.d14,
-        color: AppColors.kobi,
-        fontWeight: FontWeight.w900,
+        color: AppColors.red,
+        fontWeight: FontWeight.w100,
         letterSpacing: 1.05,
       ),
       titleMedium: TextStyle(
@@ -151,10 +153,9 @@ class ThemeManager {
       ),
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: AppColors.wePeep,
-      splashColor: AppColors.white,
+      backgroundColor: AppColors.linkWater,
+      splashColor: AppColors.wePeep,
       elevation: AppDimensions.d14,
-      hoverColor: AppColors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(AppDimensions.d20),

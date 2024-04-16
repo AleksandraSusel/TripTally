@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
+import 'package:trip_tally/presentation/utils/date_format.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
 import '../theme/app_dimensions.dart';
 import '../theme/app_paths.dart';
 
-class DatePickerDemo extends StatefulWidget {
-  const DatePickerDemo({super.key});
+class DatePicker extends StatefulWidget {
+  const DatePicker({super.key});
 
   @override
-  State<DatePickerDemo> createState() => _DatePickerDemoState();
+  State<DatePicker> createState() => _DatePickerState();
 }
 
-class _DatePickerDemoState extends State<DatePickerDemo> {
+class _DatePickerState extends State<DatePicker> {
   DateTime? startDate;
   TimeOfDay? startTime;
   DateTime? endDate;
@@ -22,7 +23,7 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
 
   Future<void> _pickDateTimeRange(BuildContext context) async {
     final pickedStartDate = await showDatePicker(
-      helpText: 'Pick the start date',
+      helpText: context.tr.newTripPage_PickTheStartDate,
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(2024),
@@ -32,7 +33,7 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
     if (pickedStartDate == null) return;
     if (mounted) {
       final pickedEndDate = await showDatePicker(
-        helpText: 'Pick the end date',
+        helpText: context.tr.newTripPage_PickTheEndDate,
         context: context,
         initialDate: pickedStartDate.add(const Duration(days: 1)),
         firstDate: pickedStartDate,
@@ -69,7 +70,7 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
                             padding: const EdgeInsets.all(AppDimensions.d8),
                             child: SvgPicture.asset(
                               AppPaths.callendar,
-                              height: 40,
+                              height: AppDimensions.d40,
                             ),
                           )
                         : Row(
@@ -78,7 +79,7 @@ class _DatePickerDemoState extends State<DatePickerDemo> {
                               SvgPicture.asset(AppPaths.flyStart),
                               const SizedBox(width: AppDimensions.d10),
                               Text(
-                                DateFormat('dd-MM-yyy').format(startDate!),
+                                dateFormat.format(startDate!),
                                 style: context.tht.headlineSmall,
                               ),
                             ],
