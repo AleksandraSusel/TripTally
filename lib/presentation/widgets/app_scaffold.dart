@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
-
 class AppScaffold extends StatelessWidget {
-  const AppScaffold({super.key, required this.actions, required this.body});
+  const AppScaffold({
+    super.key,
+    required this.actions,
+    required this.body,
+  });
 
   final List<Widget> actions;
   final Widget body;
@@ -10,6 +13,7 @@ class AppScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
         toolbarHeight: 100,
         actions: actions,

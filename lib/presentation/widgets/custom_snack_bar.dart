@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
 void customSnackBar(
   BuildContext context,
@@ -9,6 +10,9 @@ void customSnackBar(
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     duration: Duration(seconds: seconds),
     backgroundColor: color,
-    content: Text(text),
+    content: Text(
+      text,
+      style: context.tht.bodySmall,
+    ),
   ));
 }

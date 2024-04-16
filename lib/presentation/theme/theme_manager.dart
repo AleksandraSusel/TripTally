@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:injectable/injectable.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 
@@ -9,15 +10,23 @@ class ThemeManager {
   static const _fontName = 'NunitoSans';
 
   final _themeData = ThemeData(
+    colorScheme: const ColorScheme.light(
+      primary: AppColors.wePeep,
+      onPrimary: AppColors.black,
+      surface: AppColors.linkWater,
+      onSurface: AppColors.cello,
+    ),
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.linkWater,
     ),
-    elevatedButtonTheme: const ElevatedButtonThemeData(
+    elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        backgroundColor: MaterialStatePropertyAll<Color>(Colors.transparent),
-        surfaceTintColor: MaterialStatePropertyAll<Color>(Colors.transparent),
-        overlayColor: MaterialStatePropertyAll<Color>(AppColors.wePeep),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppDimensions.d20),
+          ),
+        ),
+        backgroundColor: const MaterialStatePropertyAll<Color>(AppColors.wePeep),
       ),
     ),
     brightness: Brightness.light,
@@ -76,7 +85,7 @@ class ThemeManager {
       headlineSmall: TextStyle(
         fontFamily: _fontName,
         fontSize: AppDimensions.d14,
-        color: AppColors.kobi,
+        color: AppColors.cello,
         fontWeight: FontWeight.w400,
         letterSpacing: 1.05,
       ),
@@ -90,8 +99,8 @@ class ThemeManager {
       bodySmall: TextStyle(
         fontFamily: _fontName,
         fontSize: AppDimensions.d14,
-        color: AppColors.kobi,
-        fontWeight: FontWeight.w900,
+        color: AppColors.red,
+        fontWeight: FontWeight.w100,
         letterSpacing: 1.05,
       ),
       titleMedium: TextStyle(
@@ -144,10 +153,9 @@ class ThemeManager {
       ),
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: AppColors.wePeep,
-      splashColor: AppColors.white,
+      backgroundColor: AppColors.linkWater,
+      splashColor: AppColors.wePeep,
       elevation: AppDimensions.d14,
-      hoverColor: AppColors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(AppDimensions.d20),
@@ -188,7 +196,7 @@ class ThemeManager {
         ],
       );
 
-  ButtonStyle get rectangleButtonStyle => ButtonStyle(
+  ButtonStyle get rectangleButtonStyleUnselected => ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
         foregroundColor: MaterialStateProperty.all<Color>(AppColors.cello),
         elevation: MaterialStateProperty.all(0),
@@ -198,6 +206,37 @@ class ThemeManager {
           ),
         ),
       );
+
+  ButtonStyle get rectangleButtonStyleSelected => ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(AppColors.wePeep),
+        foregroundColor: MaterialStateProperty.all<Color>(AppColors.wePeep),
+        elevation: MaterialStateProperty.all(0),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppDimensions.d20),
+          ),
+        ),
+      );
+
+  InputDecoration underlinedTextField({required String hintText, required String suffixIcon}) {
+    return InputDecoration(
+      hintText: hintText,
+      suffixIcon: SvgPicture.asset(fit: BoxFit.scaleDown, suffixIcon),
+      hintStyle: const TextStyle(
+        fontFamily: _fontName,
+        fontSize: AppDimensions.d14,
+        color: AppColors.poloBlue,
+        fontWeight: FontWeight.w400,
+        letterSpacing: 1.05,
+      ),
+      enabledBorder: const UnderlineInputBorder(
+        borderSide: BorderSide(
+          width: AppDimensions.d2,
+          color: AppColors.cello,
+        ),
+      ),
+    );
+  }
 
   ThemeData getTheme() => _themeData;
 }

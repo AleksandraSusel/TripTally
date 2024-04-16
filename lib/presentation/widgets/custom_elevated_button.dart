@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
-class CircleSvgButton extends StatelessWidget {
-  const CircleSvgButton({
+import '../theme/theme_manager.dart';
+
+class CustomElevatedButton extends StatelessWidget {
+  const CustomElevatedButton({
     super.key,
     required this.onPressed,
     required this.text,
@@ -15,10 +16,11 @@ class CircleSvgButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      decoration: ThemeManager().sideShadow,
       width: AppDimensions.d300,
-      child: FloatingActionButton(
-        splashColor: AppColors.linkWater,
+      height: AppDimensions.d56,
+      child: ElevatedButton(
         onPressed: onPressed,
         child: Text(
           text,

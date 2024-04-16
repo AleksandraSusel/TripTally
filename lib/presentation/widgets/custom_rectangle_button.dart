@@ -3,20 +3,30 @@ import 'package:flutter_svg/svg.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
-import '../../injectable/injectable.dart';
 import '../theme/theme_manager.dart';
 
-class CustomRectangleButton extends StatelessWidget {
+class CustomRectangleButton extends StatefulWidget {
   const CustomRectangleButton({
     super.key,
     required this.icon,
     this.text,
     required this.onTap,
+    required this.height,
+    required this.width,
   });
 
   final String icon;
   final VoidCallback onTap;
   final String? text;
+  final double height;
+  final double width;
+
+  @override
+  State<CustomRectangleButton> createState() => _CustomRectangleButtonState();
+}
+
+class _CustomRectangleButtonState extends State<CustomRectangleButton> {
+  bool _isSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -25,26 +35,31 @@ class CustomRectangleButton extends StatelessWidget {
         Container(
           width: AppDimensions.d90,
           height: AppDimensions.d90,
-          decoration: getIt<ThemeManager>().sideShadow,
+          decoration: ThemeManager().sideShadow,
           child: ElevatedButton(
-            style: getIt<ThemeManager>().rectangleButtonStyle,
-            onPressed: () {},
+            onPressed: () {
+              setState(() {
+                _isSelected = !_isSelected;
+              });
+            },
+            style: _isSelected ? ThemeManager().rectangleButtonStyleSelected : ThemeManager().rectangleButtonStyleUnselected,
             child: SvgPicture.asset(
-              icon,
-              height: AppDimensions.d50,
-              width: AppDimensions.d50,
+              widget.icon,
+              height: widget.height,
+              width: widget.width,
             ),
           ),
         ),
-        if (text != null)
+        if (widget.text != null)
           SizedBox(
-              child: Padding(
-            padding: const EdgeInsets.all(AppDimensions.d8),
-            child: Text(
-              text!,
-              style: context.tht.labelSmall,
+            child: Padding(
+              padding: const EdgeInsets.all(AppDimensions.d8),
+              child: Text(
+                widget.text!,
+                style: context.tht.labelSmall,
+              ),
             ),
-          )),
+          ),
       ],
     );
   }

@@ -12,10 +12,9 @@ import '../../../injectable/injectable.dart';
 import '../../theme/app_dimensions.dart';
 import '../../utils/validators.dart';
 import '../../widgets/custom_circular_progress_indicator.dart';
-import '../../widgets/custom_floating_action_button.dart';
+import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_snack_bar.dart';
-import '../../widgets/welcome_subtitle.dart';
-import '../../widgets/welcome_text.dart';
+import '../../widgets/welcome_title_widget.dart';
 
 @RoutePage()
 class LoginPage extends StatelessWidget {
@@ -65,10 +64,7 @@ class _BodyState extends State<_Body> {
             child: Column(
               children: [
                 const SizedBox(height: AppDimensions.d40),
-                const WelcomeText(),
-                const SizedBox(height: AppDimensions.d40),
-                const WelcomeSubtitle(),
-                const SizedBox(height: AppDimensions.d80),
+                const WelcomeTittleWidget(),
                 Text(
                   context.tr.login,
                   style: context.tht.displayMedium,
@@ -99,7 +95,7 @@ class _BodyState extends State<_Body> {
                             emailController.text = EnvConfig.email;
                             passwordController.text = EnvConfig.password;
                           },
-                          child: CircleSvgButton(
+                          child: CustomElevatedButton(
                             text: context.tr.login,
                             onPressed: onPressed,
                           ),

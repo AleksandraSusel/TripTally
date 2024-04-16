@@ -38,12 +38,12 @@ abstract class $CreateUserDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto> implements $CreateUserDtoCopyWith<$Res> {
+class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto>
+    implements $CreateUserDtoCopyWith<$Res> {
   _$CreateUserDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -67,7 +67,8 @@ class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto> implements $
 }
 
 /// @nodoc
-abstract class _$$CreateUserDtoImplCopyWith<$Res> implements $CreateUserDtoCopyWith<$Res> {
+abstract class _$$CreateUserDtoImplCopyWith<$Res>
+    implements $CreateUserDtoCopyWith<$Res> {
   factory _$$CreateUserDtoImplCopyWith(_$CreateUserDtoImpl value, $Res Function(_$CreateUserDtoImpl) then) =
       __$$CreateUserDtoImplCopyWithImpl<$Res>;
 
@@ -105,7 +106,8 @@ class __$$CreateUserDtoImplCopyWithImpl<$Res> extends _$CreateUserDtoCopyWithImp
 class _$CreateUserDtoImpl implements _CreateUserDto {
   const _$CreateUserDtoImpl({required this.email, required this.password});
 
-  factory _$CreateUserDtoImpl.fromJson(Map<String, dynamic> json) => _$$CreateUserDtoImplFromJson(json);
+  factory _$CreateUserDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CreateUserDtoImplFromJson(json);
 
   @override
   final String email;
@@ -123,7 +125,8 @@ class _$CreateUserDtoImpl implements _CreateUserDto {
         (other.runtimeType == runtimeType &&
             other is _$CreateUserDtoImpl &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) || other.password == password));
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)

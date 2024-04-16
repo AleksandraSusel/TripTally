@@ -9,11 +9,10 @@ import 'package:trip_tally/presentation/utils/validators.dart';
 import '../../../injectable/injectable.dart';
 import '../../theme/app_dimensions.dart';
 import '../../widgets/custom_circular_progress_indicator.dart';
-import '../../widgets/custom_floating_action_button.dart';
+import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_snack_bar.dart';
 import '../../widgets/custom_text_field.dart';
-import '../../widgets/welcome_subtitle.dart';
-import '../../widgets/welcome_text.dart';
+import '../../widgets/welcome_title_widget.dart';
 import 'bloc/registration_bloc.dart';
 
 @RoutePage()
@@ -72,10 +71,7 @@ class _BodyState extends State<_Body> {
             child: Column(
               children: [
                 const SizedBox(height: AppDimensions.d40),
-                const WelcomeText(),
-                const SizedBox(height: AppDimensions.d40),
-                const WelcomeSubtitle(),
-                const SizedBox(height: AppDimensions.d80),
+                const WelcomeTittleWidget(),
                 Text(
                   context.tr.registration,
                   style: context.tht.displayMedium,
@@ -109,7 +105,7 @@ class _BodyState extends State<_Body> {
                   },
                 ),
                 const SizedBox(height: AppDimensions.d50),
-                CircleSvgButton(
+                CustomElevatedButton(
                   text: context.tr.registration,
                   onPressed: onPressed,
                 ),
