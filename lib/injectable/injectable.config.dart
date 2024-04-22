@@ -45,9 +45,9 @@ extension GetItInjectableX on _i1.GetIt {
     final firebaseAuthModule = _$FirebaseAuthModule();
     gh.factory<_i3.AppBloc>(() => _i3.AppBloc());
     gh.lazySingleton<_i4.AppRouter>(() => appRouterModule.instance);
-    gh.singleton<_i5.Dio>(apiModule.client);
+    gh.singleton<_i5.Dio>(() => apiModule.client);
     gh.factory<_i6.FirebaseAuth>(() => firebaseAuthModule.instance);
-    gh.singleton<_i7.ThemeManager>(_i7.ThemeManager());
+    gh.singleton<_i7.ThemeManager>(() => _i7.ThemeManager());
     gh.factory<_i8.ApiClient>(() => _i8.ApiClient(gh<_i5.Dio>()));
     gh.factory<_i9.AuthenticationRemoteSource>(() => _i10.AuthenticationRemoteSourceImpl(gh<_i6.FirebaseAuth>()));
     gh.factory<_i11.AuthenticationRepo>(() => _i12.AuthenticationRepoImpl(gh<_i9.AuthenticationRemoteSource>()));

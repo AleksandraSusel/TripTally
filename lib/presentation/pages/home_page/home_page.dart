@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
         ),
         const Spacer(),
         CustomSvgButton(
-          svgPath: AppPaths.callendar,
+          svgPath: AppPaths.calendar,
           onTap: () {},
         ),
         CustomSvgButton(
@@ -54,19 +54,23 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CustomRectangleButton(
+                          containerHeight: AppDimensions.d90,
+                          containerWidth: AppDimensions.d90,
                           icon: AppPaths.plus,
                           text: context.tr.homePage_addNewTrip,
                           onTap: () {},
-                          height: AppDimensions.d50,
-                          width: AppDimensions.d50,
+                          iconHeight: AppDimensions.d50,
+                          iconWidth: AppDimensions.d50,
                         ),
                         const SizedBox(width: AppDimensions.d40),
                         CustomRectangleButton(
+                          containerHeight: AppDimensions.d90,
+                          containerWidth: AppDimensions.d90,
                           icon: AppPaths.pen,
                           text: context.tr.homePage_planNewTrip,
-                          onTap: () {},
-                          height: AppDimensions.d50,
-                          width: AppDimensions.d50,
+                          onTap: () => context.router.push(const PlanNewTripRoute()),
+                          iconHeight: AppDimensions.d50,
+                          iconWidth: AppDimensions.d50,
                         ),
                       ],
                     ),

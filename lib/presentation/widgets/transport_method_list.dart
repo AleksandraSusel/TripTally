@@ -20,8 +20,10 @@ class TransportMethodList extends StatelessWidget {
           child: CustomRectangleButton(
             icon: icon[index],
             onTap: () {},
-            height: AppDimensions.d30,
-            width: AppDimensions.d30,
+            iconHeight: AppDimensions.d30,
+            iconWidth: AppDimensions.d30,
+            containerHeight: AppDimensions.d90,
+            containerWidth: AppDimensions.d90,
           ),
         ),
       ),
