@@ -64,7 +64,7 @@ class HomePage extends StatelessWidget {
                         CustomRectangleButton(
                           icon: AppPaths.pen,
                           text: context.tr.homePage_planNewTrip,
-                          onTap: () {},
+                          onTap: () => context.router.push(const NewTripRoute()),
                           height: AppDimensions.d50,
                           width: AppDimensions.d50,
                         ),

@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../theme/app_dimensions.dart';
+import 'money_rich_text.dart';
+
+class PlannedExpenses extends StatelessWidget {
+  const PlannedExpenses({
+    super.key,
+    required this.expense,
+    required this.money,
+    required this.currency,
+    required this.icon,
+  });
+
+  final String expense;
+  final String money;
+  final String currency;
+  final String icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SvgPicture.asset(icon),
+        const SizedBox(width: AppDimensions.d40),
+        Text(expense),
+        const SizedBox(width: AppDimensions.d40),
+        MoneyRichText(money: money, currency: currency)
+      ],
+    );
+  }
+}

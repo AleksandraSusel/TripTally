@@ -458,6 +458,16 @@ class Translation {
       args: [],
     );
   }
+
+  /// `You have planned:`
+  String get resumeOfTripPage_YouHavePlanned {
+    return Intl.message(
+      'You have planned:',
+      name: 'resumeOfTripPage_YouHavePlanned',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {

@@ -77,15 +77,15 @@ class ThemeManager {
       ),
       headlineMedium: TextStyle(
         fontFamily: _fontName,
-        fontSize: AppDimensions.d24,
+        fontSize: AppDimensions.d20,
         color: AppColors.kobi,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w400,
         letterSpacing: 1.05,
       ),
       headlineSmall: TextStyle(
         fontFamily: _fontName,
         fontSize: AppDimensions.d14,
-        color: AppColors.cello,
+        color: AppColors.kobi,
         fontWeight: FontWeight.w400,
         letterSpacing: 1.05,
       ),
@@ -192,6 +192,28 @@ class ThemeManager {
             offset: Offset(-1, -1),
             blurRadius: AppDimensions.d6,
             spreadRadius: AppDimensions.d4,
+          ),
+        ],
+      );
+
+  BoxDecoration get topContainerShadow => const BoxDecoration(
+        color: AppColors.linkWater,
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(AppDimensions.d40),
+          bottomLeft: Radius.circular(AppDimensions.d40),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.black,
+            offset: Offset(1, 1),
+            blurRadius: AppDimensions.d6,
+            spreadRadius: AppDimensions.d1,
+          ),
+          BoxShadow(
+            color: AppColors.porcelain,
+            offset: Offset(-1, -1),
+            blurRadius: AppDimensions.d3,
+            spreadRadius: AppDimensions.d3,
           ),
         ],
       );
