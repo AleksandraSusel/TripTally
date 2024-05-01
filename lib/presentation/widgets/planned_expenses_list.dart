@@ -9,15 +9,21 @@ class PlannedExpensesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(AppDimensions.d8),
-      child: Column(
-        children: [
-          PlannedExpenses(expense: 'Shopping', money: '300', currency: '\$', icon: AppPaths.package),
-          PlannedExpenses(expense: 'Tickets', money: '100', currency: '\$', icon: AppPaths.callendar),
-          PlannedExpenses(expense: 'Ship', money: '1000', currency: '\$', icon: AppPaths.ship),
-          PlannedExpenses(expense: 'Flying', money: '200', currency: '\$', icon: AppPaths.flyStart),
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(AppDimensions.d30),
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: 1,
+        itemBuilder: (BuildContext context, int index) {
+          return const Column(
+            children: [
+              PlannedExpenses(expense: 'Shopping', money: '300', currency: '\$', icon: AppPaths.package),
+              PlannedExpenses(expense: 'Tickets', money: '100', currency: '\$', icon: AppPaths.callendar),
+              PlannedExpenses(expense: 'Ship', money: '1000', currency: '\$', icon: AppPaths.ship),
+              PlannedExpenses(expense: 'Flying', money: '200', currency: '\$', icon: AppPaths.flyStart),
+            ],
+          );
+        },
       ),
     );
   }

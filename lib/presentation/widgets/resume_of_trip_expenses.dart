@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
 class ResumeOfTripExpensesList extends StatelessWidget {
   const ResumeOfTripExpensesList({super.key, required this.expensesList});
 
-  final List<Widget> expensesList;
+  final List<Widget>? expensesList;
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +15,15 @@ class ResumeOfTripExpensesList extends StatelessWidget {
           padding: EdgeInsets.only(top: AppDimensions.d38, left: AppDimensions.d8),
           child: Text('You have planned:'),
         ),
-        ListView.builder(
-          scrollDirection: Axis.vertical,
-          itemCount: expensesList.length,
-          // ignore: body_might_complete_normally_nullable
-          itemBuilder: (BuildContext context, int index) {
-            expensesList[index];
-          },
-        ),
+        expensesList == null
+            ? Text(context.tr.resumeOfTripExpenses_YouDontHaveAnyTrips)
+            : ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: expensesList!.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return expensesList![index];
+                },
+              ),
       ],
     );
   }

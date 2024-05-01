@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
 import '../theme/app_dimensions.dart';
 import 'money_rich_text.dart';
@@ -21,11 +22,14 @@ class PlannedExpenses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SvgPicture.asset(icon),
+        Padding(
+          padding: const EdgeInsets.all(AppDimensions.d8),
+          child: SvgPicture.asset(icon),
+        ),
         const SizedBox(width: AppDimensions.d40),
-        Text(expense),
+        Text(expense, style: context.tht.labelSmall),
         const SizedBox(width: AppDimensions.d40),
         MoneyRichText(money: money, currency: currency)
       ],

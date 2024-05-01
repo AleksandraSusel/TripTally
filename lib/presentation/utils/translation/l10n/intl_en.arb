@@ -40,5 +40,6 @@
   "newTripPage_selectDates": "Select dates",
   "newTripPage_PickTheStartDate": "Pick the start date",
   "newTripPage_PickTheEndDate": "Pick the end date",
-  "resumeOfTripPage_YouHavePlanned": "You have planned:"
+  "resumeOfTripPage_YouHavePlanned": "You have planned:",
+  "resumeOfTripExpenses_YouDontHaveAnyTrips": "You don\\'t have any trips yet!"
 }
