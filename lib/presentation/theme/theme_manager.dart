@@ -238,7 +238,11 @@ class ThemeManager {
     );
   }
 
-  InputDecoration iconButtonTextField({required String hintText, required String suffixIcon, required VoidCallback onPressed}) {
+  InputDecoration iconButtonTextField({
+    required String hintText,
+    required String suffixIcon,
+    required VoidCallback onPressed,
+  }) {
     return InputDecoration(
       hintText: hintText,
       suffixIcon: IconButton(

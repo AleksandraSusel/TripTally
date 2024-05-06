@@ -29,7 +29,7 @@ class _CustomIconButtonState extends State<CustomIconButton> {
         widget.icon,
       ),
       onPressed: () {
-        widget.onPressed;
+        widget.onPressed();
         setState(() {
           _isSelected = !_isSelected;
         });

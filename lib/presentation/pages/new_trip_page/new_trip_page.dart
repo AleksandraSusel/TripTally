@@ -2,18 +2,21 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/suffix_icon_text_field.dart';
 
 import '../../theme/app_dimensions.dart';
 import '../../theme/app_paths.dart';
 import '../../widgets/app_scaffold.dart';
-import '../../widgets/circle_svg_button.dart';
+import '../../widgets/arrow_back_button.dart';
+import '../../widgets/calendar_button.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/date_picker.dart';
 import '../../widgets/hi_traveller_title_widget.dart';
+import '../../widgets/icon_list.dart';
 import '../../widgets/main_container.dart';
-import '../../widgets/transport_method_list.dart';
+import '../../widgets/package_button.dart';
+import '../../widgets/person_button.dart';
+import '../../widgets/transport_icons.dart';
 
 @RoutePage()
 class NewTripPage extends StatelessWidget {
@@ -23,23 +26,11 @@ class NewTripPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       actions: [
-        CustomSvgButton(
-          svgPath: AppPaths.arrowBack,
-          onTap: () => context.router.push(const HomeRoute()),
-        ),
+        ArrowBackButton(onTap: () {}),
         const Spacer(),
-        CustomSvgButton(
-          svgPath: AppPaths.calendar,
-          onTap: () {},
-        ),
-        CustomSvgButton(
-          svgPath: AppPaths.package,
-          onTap: () {},
-        ),
-        CustomSvgButton(
-          svgPath: AppPaths.person,
-          onTap: () {},
-        ),
+        CalendarButton(onTap: () {}),
+        PackageButton(onTap: () {}),
+        PersonButton(onTap: () {}),
       ],
       body: SingleChildScrollView(
         child: SafeArea(
@@ -62,14 +53,8 @@ class NewTripPage extends StatelessWidget {
                       style: context.tht.headlineSmall,
                     ),
                     const SizedBox(height: AppDimensions.d20),
-                    const TransportMethodList(
-                      icon: [
-                        AppPaths.biggerAirplane,
-                        AppPaths.cycle,
-                        AppPaths.car,
-                        AppPaths.bus,
-                        AppPaths.ship,
-                      ],
+                    IconList(
+                      icons: transportIcons,
                     ),
                     SvgPicture.asset(AppPaths.dots),
                     const SizedBox(height: AppDimensions.d20),

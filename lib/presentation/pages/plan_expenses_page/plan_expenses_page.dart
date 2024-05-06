@@ -3,16 +3,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
+import 'package:trip_tally/presentation/widgets/calendar_button.dart';
+import 'package:trip_tally/presentation/widgets/expenses_icons.dart';
 import 'package:trip_tally/presentation/widgets/icon_button_text_field.dart';
+import 'package:trip_tally/presentation/widgets/package_button.dart';
+import 'package:trip_tally/presentation/widgets/person_button.dart';
 
 import '../../theme/app_dimensions.dart';
 import '../../theme/app_paths.dart';
-import '../../utils/router/app_router.dart';
 import '../../widgets/app_scaffold.dart';
-import '../../widgets/circle_svg_button.dart';
 import '../../widgets/custom_elevated_button.dart';
-import '../../widgets/expanses_icon_list.dart';
 import '../../widgets/expense_icon_contaner.dart';
+import '../../widgets/icon_list.dart';
 import '../../widgets/main_container.dart';
 import '../../widgets/suffix_icon_text_field.dart';
 
@@ -24,23 +27,11 @@ class PlanExpensesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       actions: [
-        CustomSvgButton(
-          svgPath: AppPaths.arrowBack,
-          onTap: () => context.router.push(const HomeRoute()),
-        ),
+        ArrowBackButton(onTap: () {}),
         const Spacer(),
-        CustomSvgButton(
-          svgPath: AppPaths.calendar,
-          onTap: () {},
-        ),
-        CustomSvgButton(
-          svgPath: AppPaths.package,
-          onTap: () {},
-        ),
-        CustomSvgButton(
-          svgPath: AppPaths.person,
-          onTap: () {},
-        ),
+        CalendarButton(onTap: () {}),
+        PackageButton(onTap: () {}),
+        PersonButton(onTap: () {}),
       ],
       body: SingleChildScrollView(
         child: SafeArea(
@@ -57,42 +48,42 @@ class PlanExpensesPage extends StatelessWidget {
                       child: Wrap(
                         spacing: 10, direction: Axis.horizontal,
                         children: [
-                          ExpenseIconContainer(
+                          ExpenseTile(
                             svgPath: AppPaths.airplane,
                             name: 'Fly tickets',
                             quantity: 1000.5,
                           ),
-                          ExpenseIconContainer(
+                          ExpenseTile(
                             svgPath: AppPaths.package,
                             name: 'backpack',
                             quantity: 300.54,
                           ),
-                          ExpenseIconContainer(
+                          ExpenseTile(
                             svgPath: AppPaths.car,
                             name: 'rent a car',
                             quantity: 270,
                           ),
-                          ExpenseIconContainer(
+                          ExpenseTile(
                             svgPath: AppPaths.cutlery,
                             name: 'restaurants',
                             quantity: 100.4,
                           ),
-                          ExpenseIconContainer(
+                          ExpenseTile(
                             svgPath: AppPaths.car,
                             name: 'taxi',
                             quantity: 305,
                           ),
-                          ExpenseIconContainer(
+                          ExpenseTile(
                             svgPath: AppPaths.cycle,
                             name: 'bicycle',
                             quantity: 104,
                           ),
-                          ExpenseIconContainer(
+                          ExpenseTile(
                             svgPath: AppPaths.person,
                             name: 'service',
                             quantity: 500.45,
                           ),
-                          ExpenseIconContainer(
+                          ExpenseTile(
                             svgPath: AppPaths.package,
                             name: 'backpack',
                             quantity: 300.54,
@@ -121,22 +112,8 @@ class PlanExpensesPage extends StatelessWidget {
                       style: context.tht.headlineSmall,
                     ),
                     const SizedBox(height: AppDimensions.d20),
-                    const ExpensesIconList(
-                      icon: [
-                        AppPaths.biggerAirplane,
-                        AppPaths.cycle,
-                        AppPaths.cutlery,
-                        AppPaths.food,
-                        AppPaths.hotel,
-                        AppPaths.taxi,
-                        AppPaths.ticket,
-                        AppPaths.car,
-                        AppPaths.bus,
-                        AppPaths.ship,
-                        AppPaths.car,
-                        AppPaths.bus,
-                        AppPaths.ship,
-                      ],
+                    IconList(
+                      icons: expensesIcons,
                     ),
                     SvgPicture.asset(AppPaths.dots),
                     const SizedBox(height: AppDimensions.d20),

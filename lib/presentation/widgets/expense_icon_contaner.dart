@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 
 import '../theme/app_dimensions.dart';
 
-class ExpenseIconContainer extends StatelessWidget {
-  const ExpenseIconContainer({
+class ExpenseTile extends StatelessWidget {
+  const ExpenseTile({
     super.key,
     required this.svgPath,
     required this.name,
