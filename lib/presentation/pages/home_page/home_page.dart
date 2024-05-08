@@ -27,9 +27,9 @@ class HomePage extends StatelessWidget {
       actions: [
         SettingsButton(onTap: () {}),
         const Spacer(),
-        CalendarButton(onTap: () {}),
-        PackageButton(onTap: () {}),
-        PersonButton(onTap: () {}),
+        const CalendarButton(),
+        const PackageButton(),
+        const PersonButton(),
       ],
       body: SingleChildScrollView(
         child: SafeArea(

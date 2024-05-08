@@ -25,12 +25,12 @@ class NewTripPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      actions: [
-        ArrowBackButton(onTap: () {}),
-        const Spacer(),
-        CalendarButton(onTap: () {}),
-        PackageButton(onTap: () {}),
-        PersonButton(onTap: () {}),
+      actions: const [
+        ArrowBackButton(),
+        Spacer(),
+        CalendarButton(),
+        PackageButton(),
+        PersonButton(),
       ],
       body: SingleChildScrollView(
         child: SafeArea(
