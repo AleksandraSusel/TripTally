@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
-import 'package:trip_tally/presentation/widgets/planned_expenses.dart';
+import 'package:trip_tally/presentation/widgets/planned_expense.dart';
 
 import '../theme/app_paths.dart';
 
@@ -11,19 +11,13 @@ class PlannedExpensesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(AppDimensions.d30),
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: 1,
-        itemBuilder: (BuildContext context, int index) {
-          return const Column(
-            children: [
-              PlannedExpenses(expense: 'Shopping', money: '300', currency: '\$', icon: AppPaths.package),
-              PlannedExpenses(expense: 'Tickets', money: '100', currency: '\$', icon: AppPaths.callendar),
-              PlannedExpenses(expense: 'Ship', money: '1000', currency: '\$', icon: AppPaths.ship),
-              PlannedExpenses(expense: 'Flying', money: '200', currency: '\$', icon: AppPaths.flyStart),
-            ],
-          );
-        },
+      child: SizedBox(
+        height: 400,
+        child: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (BuildContext context, int index) =>
+              const PlannedExpense(expense: 'Shopping', money: '300', currency: '\$', icon: AppPaths.package),
+        ),
       ),
     );
   }

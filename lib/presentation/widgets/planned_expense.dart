@@ -5,8 +5,8 @@ import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import '../theme/app_dimensions.dart';
 import 'money_rich_text.dart';
 
-class PlannedExpenses extends StatelessWidget {
-  const PlannedExpenses({
+class PlannedExpense extends StatelessWidget {
+  const PlannedExpense({
     super.key,
     required this.expense,
     required this.money,
