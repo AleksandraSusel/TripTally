@@ -14,17 +14,18 @@ class IconList extends StatelessWidget {
       height: AppDimensions.d60,
       width: AppDimensions.d300,
       child: Center(
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: icons.length,
-          itemBuilder: (context, index) => Padding(
-            padding: const EdgeInsets.only(left: AppDimensions.d8),
-            child: Align(
-                alignment: Alignment.center,
-                child: CustomIconButton(
-                  icon: icons[index],
-                  onPressed: () {},
-                )),
+        child: Align(
+          alignment: Alignment.center,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: icons.length,
+            itemBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.only(left: AppDimensions.d8),
+              child: CustomIconButton(
+                icon: icons[index],
+                onPressed: () {},
+              ),
+            ),
           ),
         ),
       ),

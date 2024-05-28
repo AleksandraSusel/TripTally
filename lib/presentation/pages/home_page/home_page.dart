@@ -24,12 +24,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      actions: [
-        SettingsButton(onTap: () {}),
-        const Spacer(),
-        const CalendarButton(),
-        const PackageButton(),
-        const PersonButton(),
+      actions: const [
+        SettingsButton(),
+        Spacer(),
+        CalendarButton(),
+        PackageButton(),
+        PersonButton(),
       ],
       body: SingleChildScrollView(
         child: SafeArea(

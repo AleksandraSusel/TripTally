@@ -6,10 +6,8 @@ import 'app_bar_rounded_button.dart';
 class SettingsButton extends StatelessWidget {
   const SettingsButton({
     super.key,
-    required this.onTap,
   });
 
-  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
