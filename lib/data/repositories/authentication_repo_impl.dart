@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
 import 'package:trip_tally/domain/data_source/authentication_remote_source.dart';
@@ -20,26 +19,22 @@ class AuthenticationRepoImpl implements AuthenticationRepo {
   final AuthenticationRemoteSource _remoteSource;
 
   @override
-  Future<Either<Failure, UserCredential>> createUser(CreateUserEntity entity) async {
-    try {
-      final createUser = await _remoteSource.createUser(CreateUserDto.fromEntity(entity));
-      return Right(createUser);
-    } on ApiException catch (e) {
-      return Left(Failure(error: e.failure));
-    } catch (e) {
-      return const Left(Failure(error: Errors.unknownError));
-    }
-  }
-
-  @override
   Future<Either<Failure, Success>> login(LoginEntity loginEntity) async {
     try {
       final result = await _remoteSource.login(LoginDto.fromEntity(loginEntity));
       return Right(result);
     } on ApiException catch (e) {
       return Left(Failure(error: e.failure));
-    } catch (e) {
-      return const Left(Failure(error: Errors.unknownError));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Success>> createAccount(CreateUserEntity entity) async {
+    try {
+      final result = await _remoteSource.createAccount(CreateUserDto.fromEntity(entity));
+      return Right(result);
+    } on ApiException catch (e) {
+      return Left(Failure(error: e.failure));
     }
   }
 

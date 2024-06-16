@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:trip_tally/data/api/api_client.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
 import 'package:trip_tally/domain/data_source/authentication_remote_source.dart';
+import 'package:trip_tally/domain/utils/shared_prefs_keys.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 
 import '../../domain/utils/exception.dart';
@@ -11,61 +13,41 @@ import '../dto/user/create_user_dto.dart';
 
 @Injectable(as: AuthenticationRemoteSource)
 class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
-  AuthenticationRemoteSourceImpl(this.firebaseAuth);
+  AuthenticationRemoteSourceImpl(this.firebaseAuth, this.client, this.prefs);
 
   final FirebaseAuth firebaseAuth;
+  final ApiClient client;
+  final SharedPreferences prefs;
 
   String? get userId => firebaseAuth.currentUser?.uid;
 
   @override
-  Future<UserCredential> createUser(CreateUserDto dto) async {
+  Future<Success> login(LoginDto loginDto) async {
     try {
-      final user = await firebaseAuth.createUserWithEmailAndPassword(email: dto.email, password: dto.password);
-      return user;
-    } on FirebaseAuthException catch (e) {
-      switch (e.code) {
-        case 'weak-password':
-          throw ApiException(Errors.weakPassword);
-        case 'email-already-in-use':
-          throw ApiException(Errors.emailInUse);
-        case 'invalid-email':
-          throw ApiException(Errors.invalidEmail);
-        case 'operation-not-allowed':
-          throw ApiException(Errors.operationNotAllowed);
-        case 'unknown':
-          throw ApiException(Errors.unknownError);
-        default:
-          throw Errors.somethingWentWrong;
-      }
+      final token = await client.login(loginDto);
+      await saveToken(token);
+      return const Success();
     } catch (e) {
-      debugPrint('The error was: $e');
-      throw ApiException(Errors.unknownError);
+      throw ApiException(Errors.somethingWentWrong);
     }
   }
 
+  Future<void> saveToken(String token) async {
+    await prefs.setString(SharedPrefsKeys.token, token);
+  }
+
+  Future<String?> getToken(LoginDto dto) async {
+    return prefs.getString('token');
+  }
+
   @override
-  Future<Success> login(LoginDto loginDto) async {
+  Future<Success> createAccount(CreateUserDto createUserDto) async {
     try {
-      await firebaseAuth.signInWithEmailAndPassword(email: loginDto.email, password: loginDto.password);
+      final String token = await client.createAccount(createUserDto);
+      await saveToken(token);
       return const Success();
-    } on FirebaseAuthException catch (e) {
-      switch (e.code) {
-        case 'user-disabled':
-          throw ApiException(Errors.userDisabled);
-        case 'user-not-found':
-          throw ApiException(Errors.userNotFound);
-        case 'invalid-email':
-          throw ApiException(Errors.invalidEmail);
-        case 'wrong-password':
-          throw ApiException(Errors.wrongPassword);
-        case 'unknown':
-          throw ApiException(Errors.unknownError);
-        default:
-          throw Errors.somethingWentWrong;
-      }
     } catch (e) {
-      debugPrint('The error was: $e');
-      throw ApiException(Errors.unknownError);
+      throw ApiException(Errors.somethingWentWrong);
     }
   }
 

@@ -19,35 +19,10 @@ class _ApiClient implements ApiClient {
   String? baseUrl;
 
   @override
-  Future<String> exampleGet() async {
+  Future<String> login(LoginDto dto) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
-      method: 'GET',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          '',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
-    final value = _result.data!;
-    return value;
-  }
-
-  @override
-  Future<String> examplePost() async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(dto.toJson());
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
@@ -57,7 +32,7 @@ class _ApiClient implements ApiClient {
     )
         .compose(
           _dio.options,
-          '',
+          'users/log_in',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -71,19 +46,20 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<String> examplePut() async {
+  Future<String> createAccount(CreateUserDto dto) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(dto.toJson());
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
-      method: 'PUT',
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          '',
+          'users/register',
           queryParameters: queryParameters,
           data: _data,
         )

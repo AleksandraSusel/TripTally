@@ -4,18 +4,19 @@ import 'package:trip_tally/domain/entities/user/create_user_entity.dart';
 import 'package:trip_tally/domain/entities/user/login_entity.dart';
 
 const mockedCreateUserDto = CreateUserDto(
-  email: 'email',
-  password: 'password',
+  email: 'example@example.com',
+  password: 'Password1!',
 );
 const mockedCreateUserEntity = CreateUserEntity(
-  email: 'email',
-  password: 'password',
+  email: 'example@example.com',
+  password: 'Password1!',
 );
 const mockedLoginEntity = LoginEntity(
-  email: 'email',
-  password: 'password',
+  email: 'example@example.com',
+  password: 'Password1!',
 );
 const mockedLoginDto = LoginDto(
-  email: 'email',
-  password: 'password',
+  email: 'example@example.com',
+  password: 'Password1!',
 );
+const testToken = 'eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ';
