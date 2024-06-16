@@ -4,6 +4,7 @@ import 'package:trip_tally/presentation/pages/home_page/home_page.dart';
 import 'package:trip_tally/presentation/pages/login_page/login_page.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/new_trip_page.dart';
 import 'package:trip_tally/presentation/pages/registration_page/registration_page.dart';
+import 'package:trip_tally/presentation/pages/settings_page/settings_page.dart';
 
 import '../../pages/login_page/bloc/login_bloc.dart';
 import '../../pages/registration_page/bloc/registration_bloc.dart';
@@ -24,8 +25,9 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes =>
       [
         AutoRoute(page: HomeRoute.page),
-        AutoRoute(page: LoginRoute.page, initial: true),
+        AutoRoute(page: LoginRoute.page),
         AutoRoute(page: RegistrationRoute.page),
         AutoRoute(page: NewTripRoute.page),
+        AutoRoute(page: SettingsRoute.page, initial: true),
       ];
 }

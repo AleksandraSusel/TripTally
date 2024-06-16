@@ -34,10 +34,15 @@
   "hiTravellerText_hi": "Hi ",
   "hiTravellerText_traveller": "traveller",
   "hiTravellerSubtitle_addNewJourney": "Add new journey",
+  "hiTravellerSubtitle_yourProfileSettings": "Your profile settings",
   "newTripPage_submit": "Submit!",
   "newTripPage_whereAreYouGoing": "Where are you going",
   "newTripPage_selectYourTransport": "Select your transport",
   "newTripPage_selectDates": "Select dates",
   "newTripPage_PickTheStartDate": "Pick the start date",
-  "newTripPage_PickTheEndDate": "Pick the end date"
+  "newTripPage_PickTheEndDate": "Pick the end date",
+  "settingsPage_HistoryOfYourTrips": "History of your trips",
+  "settingsPage_ChangeYourEmail": "Change on your email",
+  "settingsPage_ChangeYourPassword": "Change on your password",
+  "settingsPage_DeleteYourAccount": "Delete your account"
 }
