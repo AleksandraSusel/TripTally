@@ -14,7 +14,7 @@ class AppPaths {
   static const String flyEnd = '$svgPath/fly_end.svg';
   static const String package = '$svgPath/package.svg';
   static const String person = '$svgPath/person.svg';
-  static const String callendar = '$svgPath/callendar.svg';
+  static const String calendar = '$svgPath/calendar.svg';
   static const String home = '$svgPath/home.svg';
   static const String settings = '$svgPath/settings.svg';
   static const String arrowBack = '$svgPath/arrow_back.svg';
@@ -24,4 +24,9 @@ class AppPaths {
   static const String cycle = '$svgPath/cycle.svg';
   static const String dots = '$svgPath/dots.svg';
   static const String datePicker = '$svgPath/date_picker.svg';
+  static const String cutlery = '$svgPath/cutlery.svg';
+  static const String ticket = '$svgPath/ticket.svg';
+  static const String food = '$svgPath/food.svg';
+  static const String taxi = '$svgPath/taxi.svg';
+  static const String hotel = '$svgPath/hotel.svg';
 }
