@@ -78,8 +78,8 @@ class ThemeManager {
       headlineMedium: TextStyle(
         fontFamily: _fontName,
         fontSize: AppDimensions.d24,
-        color: AppColors.kobi,
-        fontWeight: FontWeight.w700,
+        color: AppColors.cello,
+        fontWeight: FontWeight.w400,
         letterSpacing: 1.05,
       ),
       headlineSmall: TextStyle(
@@ -218,10 +218,37 @@ class ThemeManager {
         ),
       );
 
-  InputDecoration underlinedTextField({required String hintText, required String suffixIcon}) {
+  InputDecoration suffixIconTextField({required String hintText, required String suffixIcon}) {
     return InputDecoration(
       hintText: hintText,
       suffixIcon: SvgPicture.asset(fit: BoxFit.scaleDown, suffixIcon),
+      hintStyle: const TextStyle(
+        fontFamily: _fontName,
+        fontSize: AppDimensions.d14,
+        color: AppColors.poloBlue,
+        fontWeight: FontWeight.w400,
+        letterSpacing: 1.05,
+      ),
+      enabledBorder: const UnderlineInputBorder(
+        borderSide: BorderSide(
+          width: AppDimensions.d2,
+          color: AppColors.cello,
+        ),
+      ),
+    );
+  }
+
+  InputDecoration iconButtonTextField({
+    required String hintText,
+    required String suffixIcon,
+    required VoidCallback onPressed,
+  }) {
+    return InputDecoration(
+      hintText: hintText,
+      suffixIcon: IconButton(
+        icon: SvgPicture.asset(fit: BoxFit.scaleDown, suffixIcon),
+        onPressed: onPressed,
+      ),
       hintStyle: const TextStyle(
         fontFamily: _fontName,
         fontSize: AppDimensions.d14,

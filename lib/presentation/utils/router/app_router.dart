@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:trip_tally/presentation/pages/home_page/home_page.dart';
 import 'package:trip_tally/presentation/pages/login_page/login_page.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/new_trip_page.dart';
+import 'package:trip_tally/presentation/pages/plan_expenses_page/plan_expenses_page.dart';
+import 'package:trip_tally/presentation/pages/plan_new_trip_page/plan_new_trip_page.dart';
 import 'package:trip_tally/presentation/pages/registration_page/registration_page.dart';
 
 import '../../pages/login_page/bloc/login_bloc.dart';
@@ -26,6 +28,8 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: LoginRoute.page),
         AutoRoute(page: RegistrationRoute.page),
-        AutoRoute(page: NewTripRoute.page, initial: true),
+        AutoRoute(page: NewTripRoute.page),
+        AutoRoute(page: PlanNewTripRoute.page, initial: true),
+        AutoRoute(page: PlanExpensesRoute.page),
       ];
 }
