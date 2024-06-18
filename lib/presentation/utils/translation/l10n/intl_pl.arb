@@ -45,6 +45,8 @@
   "settingsPage_ChangeYourPassword": "Change on your password",
   "settingsPage_DeleteYourAccount": "Delete your account",
   "newTripPage_PickTheEndDate": "Pick the end date",
+  "resumeOfTripPage_YouHavePlanned": "You have planned:",
+  "resumeOfTripExpenses_YouDontHaveAnyTrips": "You don\\'t have any trips yet!",
   "hiTravellerSubtitle_planNewJourney": "Plan a new journey",
   "planNewTripPage_next": "Next",
   "planExpensesPage_planExpenses": "Plan expenses",

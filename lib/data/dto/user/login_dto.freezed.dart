@@ -25,6 +25,7 @@ mixin _$LoginDto {
   String get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $LoginDtoCopyWith<LoginDto> get copyWith => throw _privateConstructorUsedError;
 }

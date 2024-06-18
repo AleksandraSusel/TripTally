@@ -61,6 +61,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "planNewTripPage_next": MessageLookupByLibrary.simpleMessage("Next"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
         "repeatPassword": MessageLookupByLibrary.simpleMessage("Repeat password"),
+        "resumeOfTripExpenses_YouDontHaveAnyTrips": MessageLookupByLibrary.simpleMessage("You don\\\'t have any trips yet!"),
+        "resumeOfTripPage_YouHavePlanned": MessageLookupByLibrary.simpleMessage("You have planned:"),
         "settingsPage_ChangeYourEmail": MessageLookupByLibrary.simpleMessage("Change on your email"),
         "settingsPage_ChangeYourPassword": MessageLookupByLibrary.simpleMessage("Change on your password"),
         "settingsPage_DeleteYourAccount": MessageLookupByLibrary.simpleMessage("Delete your account"),

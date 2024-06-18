@@ -42,6 +42,7 @@ class _CustomRectangleButtonState extends State<CustomRectangleButton> {
           decoration: ThemeManager().sideShadow,
           child: ElevatedButton(
             onPressed: () {
+              widget.onTap;
               setState(() {
                 _isSelected = !_isSelected;
               });

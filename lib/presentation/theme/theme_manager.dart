@@ -78,8 +78,8 @@ class ThemeManager {
       headlineMedium: TextStyle(
         fontFamily: _fontName,
         fontSize: AppDimensions.d24,
-        color: AppColors.cello,
-        fontWeight: FontWeight.w400,
+        color: AppColors.kobi,
+        fontWeight: FontWeight.w700,
         letterSpacing: 1.05,
       ),
       headlineSmall: TextStyle(
@@ -218,7 +218,7 @@ class ThemeManager {
         ),
       );
 
-  InputDecoration suffixIconTextField({required String hintText, required String suffixIcon}) {
+  InputDecoration underlinedTextField({required String hintText, required String suffixIcon}) {
     return InputDecoration(
       hintText: hintText,
       suffixIcon: SvgPicture.asset(fit: BoxFit.scaleDown, suffixIcon),
@@ -235,6 +235,35 @@ class ThemeManager {
           color: AppColors.cello,
         ),
       ),
+    );
+  }
+
+  BoxDecoration get topContainerShadow => const BoxDecoration(
+        color: AppColors.linkWater,
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(AppDimensions.d40),
+          bottomLeft: Radius.circular(AppDimensions.d40),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.black,
+            offset: Offset(1, 1),
+            blurRadius: AppDimensions.d6,
+            spreadRadius: AppDimensions.d1,
+          ),
+          BoxShadow(
+            color: AppColors.porcelain,
+            offset: Offset(-1, -1),
+            blurRadius: AppDimensions.d3,
+            spreadRadius: AppDimensions.d3,
+          ),
+        ],
+      );
+
+  InputDecoration suffixIconTextField({required String hintText, required String suffixIcon}) {
+    return InputDecoration(
+      hintText: hintText,
+      suffixIcon: SvgPicture.asset(fit: BoxFit.scaleDown, suffixIcon),
     );
   }
 

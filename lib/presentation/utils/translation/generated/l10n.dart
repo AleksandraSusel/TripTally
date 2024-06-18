@@ -578,6 +578,26 @@ class Translation {
       args: [],
     );
   }
+
+  /// `You have planned:`
+  String get resumeOfTripPage_YouHavePlanned {
+    return Intl.message(
+      'You have planned:',
+      name: 'resumeOfTripPage_YouHavePlanned',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You don\'t have any trips yet!`
+  String get resumeOfTripExpenses_YouDontHaveAnyTrips {
+    return Intl.message(
+      'You don\\\'t have any trips yet!',
+      name: 'resumeOfTripExpenses_YouDontHaveAnyTrips',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {
