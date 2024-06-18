@@ -69,7 +69,7 @@ class _DatePickerState extends State<DatePicker> {
                         ? Padding(
                             padding: const EdgeInsets.all(AppDimensions.d8),
                             child: SvgPicture.asset(
-                              AppPaths.callendar,
+                              AppPaths.calendar,
                               height: AppDimensions.d40,
                             ),
                           )

@@ -67,6 +67,19 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i16.RegistrationBloc>(() => _i16.RegistrationBloc(gh<_i14.CreateAccountUseCase>()));
     gh.factory<_i17.SignOutUseCase>(() => _i17.SignOutUseCase(gh<_i12.AuthenticationRepo>()));
     gh.factory<_i18.LoginBloc>(() => _i18.LoginBloc(gh<_i15.LoginUseCase>()));
+    gh.factory<_i3.AppBloc>(() => _i3.AppBloc());
+    gh.lazySingleton<_i4.AppRouter>(() => appRouterModule.instance);
+    gh.singleton<_i5.Dio>(() => apiModule.client);
+    gh.factory<_i6.FirebaseAuth>(() => firebaseAuthModule.instance);
+    gh.singleton<_i7.ThemeManager>(() => _i7.ThemeManager());
+    gh.factory<_i8.ApiClient>(() => _i8.ApiClient(gh<_i5.Dio>()));
+    gh.factory<_i9.AuthenticationRemoteSource>(() => _i10.AuthenticationRemoteSourceImpl(gh<_i6.FirebaseAuth>()));
+    gh.factory<_i11.AuthenticationRepo>(() => _i12.AuthenticationRepoImpl(gh<_i9.AuthenticationRemoteSource>()));
+    gh.factory<_i13.CreateUserUseCase>(() => _i13.CreateUserUseCase(gh<_i11.AuthenticationRepo>()));
+    gh.factory<_i14.LoginUseCase>(() => _i14.LoginUseCase(gh<_i11.AuthenticationRepo>()));
+    gh.factory<_i15.RegistrationBloc>(() => _i15.RegistrationBloc(gh<_i13.CreateUserUseCase>()));
+    gh.factory<_i16.SignOutUseCase>(() => _i16.SignOutUseCase(gh<_i11.AuthenticationRepo>()));
+    gh.factory<_i17.LoginBloc>(() => _i17.LoginBloc(gh<_i14.LoginUseCase>()));
     return this;
   }
 }

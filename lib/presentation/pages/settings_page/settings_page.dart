@@ -23,7 +23,7 @@ class SettingsPage extends StatelessWidget {
         ),
         const Spacer(),
         CustomSvgButton(
-          svgPath: AppPaths.callendar,
+          svgPath: AppPaths.calendar,
           onTap: () {},
         ),
         CustomSvgButton(

@@ -40,9 +40,16 @@
   "newTripPage_selectYourTransport": "Select your transport",
   "newTripPage_selectDates": "Select dates",
   "newTripPage_PickTheStartDate": "Pick the start date",
-  "newTripPage_PickTheEndDate": "Pick the end date",
   "settingsPage_HistoryOfYourTrips": "History of your trips",
   "settingsPage_ChangeYourEmail": "Change on your email",
   "settingsPage_ChangeYourPassword": "Change on your password",
-  "settingsPage_DeleteYourAccount": "Delete your account"
+  "settingsPage_DeleteYourAccount": "Delete your account",
+  "newTripPage_PickTheEndDate": "Pick the end date",
+  "hiTravellerSubtitle_planNewJourney": "Plan a new journey",
+  "planNewTripPage_next": "Next",
+  "planExpensesPage_planExpenses": "Plan expenses",
+  "planExpensesPage_nameTheExpense": "Name the expense",
+  "planExpensesPage_howMuch": "How much?",
+  "planExpensesPage_choseIcon": "Chose a icon",
+  "planExpensesPage_safe": "Safe!"
 }

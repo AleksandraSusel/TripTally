@@ -9,8 +9,7 @@ part of 'api_client.dart';
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
 class _ApiClient implements ApiClient {
-  _ApiClient(
-    this._dio, {
+  _ApiClient(this._dio, {
     this.baseUrl,
   });
 
@@ -19,25 +18,24 @@ class _ApiClient implements ApiClient {
   String? baseUrl;
 
   @override
-  Future<String> login(LoginDto dto) async {
-    const _extra = <String, dynamic>{};
+  Future<String> exampleGet() async {
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.addAll(dto.toJson());
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
-      method: 'POST',
+      method: 'GET',
       headers: _headers,
       extra: _extra,
     )
         .compose(
-          _dio.options,
-          'users/log_in',
-          queryParameters: queryParameters,
-          data: _data,
-        )
+      _dio.options,
+      '',
+      queryParameters: queryParameters,
+      data: _data,
+    )
         .copyWith(
-            baseUrl: _combineBaseUrls(
+        baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
         ))));
@@ -46,83 +44,115 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<String> createAccount(CreateUserDto dto) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    queryParameters.addAll(dto.toJson());
-    final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
+  Future<String> examplePost() async {
+    final _extra = <String, dynamic>{};
+    Future<String> login(LoginDto dto) async {
+      const _extra = <String, dynamic>{};
+      final queryParameters = <String, dynamic>{};
+      queryParameters.addAll(dto.toJson());
+      final _headers = <String, dynamic>{};
+      const Map<String, dynamic>? _data = null;
+      final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
+        method: 'POST',
+        headers: _headers,
+        extra: _extra,
+      )
+          .compose(
+        _dio.options,
+        'users/log_in',
+        queryParameters: queryParameters,
+        data: _data,
+      )
+          .copyWith(
+          baseUrl: _combineBaseUrls(
+            _dio.options.baseUrl,
+            baseUrl,
+          ))));
+      final value = _result.data!;
+      return value;
+    }
+
+    @override
+    Future<String> examplePut() async {
+      final _extra = <String, dynamic>{};
+      Future<String> createAccount(CreateUserDto dto) async {
+        const _extra = <String, dynamic>{};
+        final queryParameters = <String, dynamic>{};
+        queryParameters.addAll(dto.toJson());
+        final _headers = <String, dynamic>{};
+        const Map<String, dynamic>? _data = null;
+        final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
+          method: 'POST',
+          headers: _headers,
+          extra: _extra,
+        )
+            .compose(
           _dio.options,
           'users/register',
           queryParameters: queryParameters,
           data: _data,
         )
-        .copyWith(
+            .copyWith(
             baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
-    final value = _result.data!;
-    return value;
-  }
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+        final value = _result.data!;
+        return value;
+      }
 
-  @override
-  Future<String> exampleDelete() async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
-      method: 'DELETE',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
+      @override
+      Future<String> exampleDelete() async {
+        final _extra = <String, dynamic>{};
+        final queryParameters = <String, dynamic>{};
+        final _headers = <String, dynamic>{};
+        const Map<String, dynamic>? _data = null;
+        final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
+          method: 'DELETE',
+          headers: _headers,
+          extra: _extra,
+        )
+            .compose(
           _dio.options,
           '',
           queryParameters: queryParameters,
           data: _data,
         )
-        .copyWith(
+            .copyWith(
             baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
-    final value = _result.data!;
-    return value;
-  }
-
-  RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
-    if (T != dynamic && !(requestOptions.responseType == ResponseType.bytes || requestOptions.responseType == ResponseType.stream)) {
-      if (T == String) {
-        requestOptions.responseType = ResponseType.plain;
-      } else {
-        requestOptions.responseType = ResponseType.json;
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+        final value = _result.data!;
+        return value;
       }
-    }
-    return requestOptions;
-  }
 
-  String _combineBaseUrls(
-    String dioBaseUrl,
-    String? baseUrl,
-  ) {
-    if (baseUrl == null || baseUrl.trim().isEmpty) {
-      return dioBaseUrl;
-    }
+      RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
+        if (T != dynamic &&
+            !(requestOptions.responseType == ResponseType.bytes || requestOptions.responseType == ResponseType.stream)) {
+          if (T == String) {
+            requestOptions.responseType = ResponseType.plain;
+          } else {
+            requestOptions.responseType = ResponseType.json;
+          }
+        }
+        return requestOptions;
+      }
 
-    final url = Uri.parse(baseUrl);
+      String _combineBaseUrls(String dioBaseUrl,
+          String? baseUrl,) {
+        if (baseUrl == null || baseUrl
+            .trim()
+            .isEmpty) {
+          return dioBaseUrl;
+        }
 
-    if (url.isAbsolute) {
-      return url.toString();
-    }
+        final url = Uri.parse(baseUrl);
 
-    return Uri.parse(dioBaseUrl).resolveUri(url).toString();
-  }
+        if (url.isAbsolute) {
+          return url.toString();
+        }
+
+        return Uri.parse(dioBaseUrl).resolveUri(url).toString();
+      }
 }

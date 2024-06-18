@@ -459,16 +459,6 @@ class Translation {
     );
   }
 
-  /// `Pick the end date`
-  String get newTripPage_PickTheEndDate {
-    return Intl.message(
-      'Pick the end date',
-      name: 'newTripPage_PickTheEndDate',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `History of your trips`
   String get settingsPage_HistoryOfYourTrips {
     return Intl.message(
@@ -504,6 +494,86 @@ class Translation {
     return Intl.message(
       'Delete your account',
       name: 'settingsPage_DeleteYourAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pick the end date`
+  String get newTripPage_PickTheEndDate {
+    return Intl.message(
+      'Pick the end date',
+      name: 'newTripPage_PickTheEndDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plan a new journey`
+  String get hiTravellerSubtitle_planNewJourney {
+    return Intl.message(
+      'Plan a new journey',
+      name: 'hiTravellerSubtitle_planNewJourney',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get planNewTripPage_next {
+    return Intl.message(
+      'Next',
+      name: 'planNewTripPage_next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plan expenses`
+  String get planExpensesPage_planExpenses {
+    return Intl.message(
+      'Plan expenses',
+      name: 'planExpensesPage_planExpenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name the expense`
+  String get planExpensesPage_nameTheExpense {
+    return Intl.message(
+      'Name the expense',
+      name: 'planExpensesPage_nameTheExpense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How much?`
+  String get planExpensesPage_howMuch {
+    return Intl.message(
+      'How much?',
+      name: 'planExpensesPage_howMuch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chose a icon`
+  String get planExpensesPage_choseIcon {
+    return Intl.message(
+      'Chose a icon',
+      name: 'planExpensesPage_choseIcon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Safe!`
+  String get planExpensesPage_safe {
+    return Intl.message(
+      'Safe!',
+      name: 'planExpensesPage_safe',
       desc: '',
       args: [],
     );
