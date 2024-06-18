@@ -1,4 +1,3 @@
-
 import '../theme/app_paths.dart';
 
 final transportIcons = [

@@ -60,6 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "planNewTripPage_next": MessageLookupByLibrary.simpleMessage("Next"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
         "repeatPassword": MessageLookupByLibrary.simpleMessage("Repeat password"),
+        "resumeOfTripExpenses_YouDontHaveAnyTrips": MessageLookupByLibrary.simpleMessage("You don\\\'t have any trips yet!"),
+        "resumeOfTripPage_YouHavePlanned": MessageLookupByLibrary.simpleMessage("You have planned:"),
         "summaryRectangle_youAreStillInYourBudget": MessageLookupByLibrary.simpleMessage("You are still in your budget: "),
         "summaryRectangle_youHaveSpent": MessageLookupByLibrary.simpleMessage("You have spent: "),
         "validators_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),

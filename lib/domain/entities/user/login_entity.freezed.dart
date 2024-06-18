@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$LoginEntity {
   String get email => throw _privateConstructorUsedError;
+
   String get password => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
