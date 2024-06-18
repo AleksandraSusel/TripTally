@@ -3,8 +3,8 @@ import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 
 import 'circle_svg_button.dart';
 
-class SettingsTale extends StatelessWidget {
-  const SettingsTale({
+class SettingsTile extends StatelessWidget {
+  const SettingsTile({
     super.key,
     required this.svgPath,
     required this.onTap,

@@ -48,22 +48,22 @@ class SettingsPage extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    SettingsTale(
+                    SettingsTile(
                       svgPath: AppPaths.history,
                       onTap: () {},
                       text: context.tr.settingsPage_HistoryOfYourTrips,
                     ),
-                    SettingsTale(
+                    SettingsTile(
                       svgPath: AppPaths.email,
                       onTap: () {},
                       text: context.tr.settingsPage_ChangeYourEmail,
                     ),
-                    SettingsTale(
+                    SettingsTile(
                       svgPath: AppPaths.lock,
                       onTap: () {},
                       text: context.tr.settingsPage_ChangeYourPassword,
                     ),
-                    SettingsTale(
+                    SettingsTile(
                       svgPath: AppPaths.bin,
                       onTap: () {},
                       text: context.tr.settingsPage_DeleteYourAccount,
