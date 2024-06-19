@@ -14,5 +14,5 @@ abstract class AuthenticationRepo {
     CreateAccountEntity entity,
   );
 
-// Future<Either<Failure, Success>> signOut();
+Future<Either<Failure, Success>> signOut();
 }

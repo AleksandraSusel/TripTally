@@ -37,5 +37,3 @@ class MockUserCredential extends Mock implements UserCredential {
   @override
   final User? user;
 }
-
-

@@ -41,13 +41,12 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
     }
   }
 
-// @override
-// Future<Success> signOut() async {
-//   try {
-//     await firebaseAuth.signOut();
-//     return const Success();
-//   } catch (e) {
-//     throw ApiException(Errors.somethingWentWrong);
-//   }
-// }
+  @override
+  Future<Success> signOut() async {
+    if (await prefs.removeToken) {
+      return const Success();
+    } else {
+      throw ApiException(Errors.somethingWentWrong);
+    }
+  }
 }

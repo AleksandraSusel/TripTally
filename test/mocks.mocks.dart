@@ -125,6 +125,21 @@ class MockAuthenticationRepo extends _i1.Mock implements _i7.AuthenticationRepo 
           ),
         )),
       ) as _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>);
+
+  @override
+  _i8.Future<_i2.Either<_i9.Failure, _i3.Success>> signOut() => (super.noSuchMethod(
+        Invocation.method(
+          #signOut,
+          [],
+        ),
+        returnValue: _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>.value(_FakeEither_0<_i9.Failure, _i3.Success>(
+          this,
+          Invocation.method(
+            #signOut,
+            [],
+          ),
+        )),
+      ) as _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>);
 }
 
 /// A class which mocks [AuthenticationRemoteSource].
@@ -161,6 +176,21 @@ class MockAuthenticationRemoteSource extends _i1.Mock implements _i12.Authentica
           Invocation.method(
             #createAccount,
             [createUserDto],
+          ),
+        )),
+      ) as _i8.Future<_i3.Success>);
+
+  @override
+  _i8.Future<_i3.Success> signOut() => (super.noSuchMethod(
+        Invocation.method(
+          #signOut,
+          [],
+        ),
+        returnValue: _i8.Future<_i3.Success>.value(_FakeSuccess_1(
+          this,
+          Invocation.method(
+            #signOut,
+            [],
           ),
         )),
       ) as _i8.Future<_i3.Success>);
@@ -728,10 +758,10 @@ class MockSharedPrefsUtils extends _i1.Mock implements _i20.SharedPrefsUtils {
       ) as _i6.SharedPreferences);
 
   @override
-  _i8.Future<String?> get getToken => (super.noSuchMethod(
-        Invocation.getter(#getToken),
-        returnValue: _i8.Future<String?>.value(),
-      ) as _i8.Future<String?>);
+  _i8.Future<bool> get removeToken => (super.noSuchMethod(
+        Invocation.getter(#removeToken),
+        returnValue: _i8.Future<bool>.value(false),
+      ) as _i8.Future<bool>);
 
   @override
   _i8.Future<void> saveToken(String? token) => (super.noSuchMethod(

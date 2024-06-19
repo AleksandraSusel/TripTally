@@ -88,27 +88,27 @@ void main() {
     },
   );
 
-  // test(
-  //   "SignOut logs user out success",
-  //   () async {
-  //     when(mockFirebaseAuth.signOut()).thenAnswer((_) async => const Success());
-  //     final result = await authenticationDataSource.signOut();
-  //     expect(result, const Success());
-  //     verify(mockFirebaseAuth.signOut());
-  //     verifyNoMoreInteractions(mockFirebaseAuth);
-  //   },
-  // );
-  //
-  // test(
-  //   "SignOut throws ApiException on catch",
-  //   () async {
-  //     when(mockFirebaseAuth.signOut()).thenThrow(Exception());
-  //     await expectLater(
-  //       authenticationDataSource.signOut(),
-  //       throwsA(isA<ApiException>().having((e) => e.failure, 'Something went wrong', Errors.somethingWentWrong)),
-  //     );
-  //     verify(mockFirebaseAuth.signOut());
-  //     verifyNoMoreInteractions(mockFirebaseAuth);
-  //   },
-  // );
+  test(
+    "SignOut remove users token success",
+    () async {
+      when(mockSharedPrefsUtils.removeToken).thenAnswer((_) async => true);
+      final result = await authenticationDataSource.signOut();
+      expect(result, const Success());
+      verify(mockSharedPrefsUtils.removeToken);
+      verifyNoMoreInteractions(mockSharedPrefsUtils);
+    },
+  );
+
+  test(
+    "SignOut remove users token throws ApiException on catch",
+    () async {
+      when(mockSharedPrefsUtils.removeToken).thenAnswer((_) async => false);
+      await expectLater(
+        authenticationDataSource.signOut(),
+        throwsA(isA<ApiException>().having((e) => e.failure, 'Something went wrong', Errors.somethingWentWrong)),
+      );
+      verify(mockSharedPrefsUtils.removeToken);
+      verifyNoMoreInteractions(mockSharedPrefsUtils);
+    },
+  );
 }

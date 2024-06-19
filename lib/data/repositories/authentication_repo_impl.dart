@@ -9,6 +9,7 @@ import 'package:trip_tally/domain/utils/exception.dart';
 import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 
+import '../../presentation/utils/enums/errors.dart';
 import '../dto/user/create_account_dto.dart';
 
 @Injectable(as: AuthenticationRepo)
@@ -37,13 +38,13 @@ class AuthenticationRepoImpl implements AuthenticationRepo {
     }
   }
 
-// @override
-// Future<Either<Failure, Success>> signOut() async {
-//   try {
-//     await _remoteSource.signOut();
-//     return const Right(Success());
-//   } catch (e) {
-//     return const Left(Failure(error: Errors.somethingWentWrong));
-//   }
-// }
+  @override
+  Future<Either<Failure, Success>> signOut() async {
+    try {
+      await _remoteSource.signOut();
+      return const Right(Success());
+    } catch (e) {
+      return const Left(Failure(error: Errors.somethingWentWrong));
+    }
+  }
 }

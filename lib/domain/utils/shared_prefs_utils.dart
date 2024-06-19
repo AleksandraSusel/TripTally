@@ -9,7 +9,9 @@ class SharedPrefsUtils {
 
   Future<void> saveToken(String token) async => prefs.setString(SharedPrefsKeys.token, token);
 
-  Future<String?> get getToken async => prefs.getString(SharedPrefsKeys.token);
+  Future<bool> get removeToken async => prefs.remove(SharedPrefsKeys.token);
+
+  String? get getToken => prefs.getString(SharedPrefsKeys.token);
 }
 
 class SharedPrefsKeys {
