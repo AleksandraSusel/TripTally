@@ -24,7 +24,6 @@ mixin _$AppState {
     required TResult Function() toLoginPage,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,

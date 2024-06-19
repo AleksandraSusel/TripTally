@@ -21,11 +21,9 @@ CreateUserDto _$CreateUserDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CreateUserDto {
   String get email => throw _privateConstructorUsedError;
-
   String get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $CreateUserDtoCopyWith<CreateUserDto> get copyWith => throw _privateConstructorUsedError;
 }

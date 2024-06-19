@@ -4,7 +4,7 @@ import '../../../golden_test_runner.dart';
 
 void main() {
   runGoldenTest(
-    'HomePage-initial',
+    'SettingsPage-initial',
     builder: () {
       return const SettingsPage();
     },
