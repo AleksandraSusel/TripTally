@@ -19,23 +19,23 @@ void main() {
   });
 
   test('CreateAccountUseCase creates user success', () async {
-    when(mockAuthenticationRepo.createAccount(mockedCreateUserEntity)).thenAnswer((_) async => const Right(Success()));
-    final result = await createAccountUseCase.call(mockedCreateUserEntity);
+    when(mockAuthenticationRepo.createAccount(mockedCreateAccountEntity)).thenAnswer((_) async => const Right(Success()));
+    final result = await createAccountUseCase.call(mockedCreateAccountEntity);
     Success? success;
     result.fold((l) => null, (r) => success = r);
     expect(success, const Success());
-    verify(mockAuthenticationRepo.createAccount(mockedCreateUserEntity));
+    verify(mockAuthenticationRepo.createAccount(mockedCreateAccountEntity));
     verifyNoMoreInteractions(mockAuthenticationRepo);
   });
 
   test('CreateAccountUseCase creates user failure', () async {
-    when(mockAuthenticationRepo.createAccount(mockedCreateUserEntity))
+    when(mockAuthenticationRepo.createAccount(mockedCreateAccountEntity))
         .thenAnswer((_) async => const Left(Failure(error: Errors.somethingWentWrong)));
-    final result = await createAccountUseCase.call(mockedCreateUserEntity);
+    final result = await createAccountUseCase.call(mockedCreateAccountEntity);
     Errors? error;
     result.fold((l) => error = l.error, (r) => null);
     expect(error, Errors.somethingWentWrong);
-    verify(mockAuthenticationRepo.createAccount(mockedCreateUserEntity));
+    verify(mockAuthenticationRepo.createAccount(mockedCreateAccountEntity));
     verifyNoMoreInteractions(mockAuthenticationRepo);
   });
 }

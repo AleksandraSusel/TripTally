@@ -46,7 +46,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<String> createAccount(CreateUserDto dto) async {
+  Future<String> createAccount(CreateAccountDto dto) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(dto.toJson());

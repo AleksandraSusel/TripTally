@@ -20,23 +20,23 @@ void main() {
 
   blocTest<RegistrationBloc, RegistrationState>('RegistrationBloc sends the email and the passwords success',
       setUp: () {
-        when(mockCreateAccountUseCase.call(mockedCreateUserEntity)).thenAnswer((_) async => const Right(Success()));
+        when(mockCreateAccountUseCase.call(mockedCreateAccountEntity)).thenAnswer((_) async => const Right(Success()));
       },
       build: createBloc,
       expect: () => const [
             RegistrationState.loading(),
             RegistrationState.success(),
           ],
-      act: (bloc) => bloc
-          .add(OnTapRegistrationEvent(mockedCreateUserEntity.email, mockedCreateUserEntity.password, mockedCreateUserEntity.password)),
+      act: (bloc) => bloc.add(OnTapRegistrationEvent(
+          mockedCreateAccountEntity.email, mockedCreateAccountEntity.password, mockedCreateAccountEntity.password)),
       verify: (_) {
-        verify(mockCreateAccountUseCase.call(mockedCreateUserEntity));
+        verify(mockCreateAccountUseCase.call(mockedCreateAccountEntity));
         verifyNoMoreInteractions(mockCreateAccountUseCase);
       });
 
   blocTest<RegistrationBloc, RegistrationState>('RegistrationBloc sends the email and the passwords failure',
       setUp: () {
-        when(mockCreateAccountUseCase.call(mockedCreateUserEntity))
+        when(mockCreateAccountUseCase.call(mockedCreateAccountEntity))
             .thenAnswer((_) async => const Left(Failure(error: Errors.somethingWentWrong)));
       },
       build: createBloc,
@@ -44,10 +44,15 @@ void main() {
             RegistrationState.loading(),
             RegistrationState.failure(Errors.somethingWentWrong),
           ],
-      act: (bloc) => bloc
-          .add(OnTapRegistrationEvent(mockedCreateUserEntity.email, mockedCreateUserEntity.password, mockedCreateUserEntity.password)),
+      act: (bloc) => bloc.add(
+            OnTapRegistrationEvent(
+              mockedCreateAccountEntity.email,
+              mockedCreateAccountEntity.password,
+              mockedCreateAccountEntity.password,
+            ),
+          ),
       verify: (_) {
-        verify(mockCreateAccountUseCase.call(mockedCreateUserEntity));
+        verify(mockCreateAccountUseCase.call(mockedCreateAccountEntity));
         verifyNoMoreInteractions(mockCreateAccountUseCase);
       });
 }
