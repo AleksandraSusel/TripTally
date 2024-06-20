@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/widgets/welcome_subtitle.dart';
 import 'package:trip_tally/presentation/widgets/welcome_text.dart';
-
-import '../theme/app_dimensions.dart';
 
 class WelcomeTittleWidget extends StatelessWidget {
   const WelcomeTittleWidget({super.key});

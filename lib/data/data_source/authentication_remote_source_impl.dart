@@ -1,13 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
+import 'package:trip_tally/data/dto/user/create_user_dto.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
 import 'package:trip_tally/domain/data_source/authentication_remote_source.dart';
+import 'package:trip_tally/domain/utils/exception.dart';
 import 'package:trip_tally/domain/utils/success.dart';
-
-import '../../domain/utils/exception.dart';
-import '../../presentation/utils/enums/errors.dart';
-import '../dto/user/create_user_dto.dart';
+import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 @Injectable(as: AuthenticationRemoteSource)
 class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
@@ -20,7 +19,10 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
   @override
   Future<UserCredential> createUser(CreateUserDto dto) async {
     try {
-      final user = await firebaseAuth.createUserWithEmailAndPassword(email: dto.email, password: dto.password);
+      final user = await firebaseAuth.createUserWithEmailAndPassword(
+        email: dto.email,
+        password: dto.password,
+      );
       return user;
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
@@ -35,7 +37,7 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
         case 'unknown':
           throw ApiException(Errors.unknownError);
         default:
-          throw Errors.somethingWentWrong;
+          throw ApiException(Errors.somethingWentWrong);
       }
     } catch (e) {
       debugPrint('The error was: $e');
@@ -46,7 +48,10 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
   @override
   Future<Success> login(LoginDto loginDto) async {
     try {
-      await firebaseAuth.signInWithEmailAndPassword(email: loginDto.email, password: loginDto.password);
+      await firebaseAuth.signInWithEmailAndPassword(
+        email: loginDto.email,
+        password: loginDto.password,
+      );
       return const Success();
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
@@ -61,7 +66,7 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
         case 'unknown':
           throw ApiException(Errors.unknownError);
         default:
-          throw Errors.somethingWentWrong;
+          throw ApiException(Errors.somethingWentWrong);
       }
     } catch (e) {
       debugPrint('The error was: $e');

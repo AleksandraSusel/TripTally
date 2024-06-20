@@ -22,7 +22,8 @@ void main() {
   });
 
   test('CreateUserUseCase creates user success', () async {
-    when(mockAuthenticationRepo.createUser(mockedCreateUserEntity)).thenAnswer((_) async => Right(mockedUserCredential));
+    when(mockAuthenticationRepo.createUser(mockedCreateUserEntity))
+        .thenAnswer((_) async => Right(mockedUserCredential));
     final result = await createUserUseCase.call(mockedCreateUserEntity);
     Success? success;
     result.fold((l) => null, (r) => success = r);
@@ -32,8 +33,9 @@ void main() {
   });
 
   test('CreateUserUseCase creates user failure', () async {
-    when(mockAuthenticationRepo.createUser(mockedCreateUserEntity))
-        .thenAnswer((_) async => const Left(Failure(error: Errors.somethingWentWrong)));
+    when(mockAuthenticationRepo.createUser(mockedCreateUserEntity)).thenAnswer(
+      (_) async => const Left(Failure(error: Errors.somethingWentWrong)),
+    );
     final result = await createUserUseCase.call(mockedCreateUserEntity);
     Errors? error;
     result.fold((l) => error = l.error, (r) => null);

@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../presentation/utils/enums/errors.dart';
+import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 part 'failure.freezed.dart';
 

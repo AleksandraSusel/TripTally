@@ -3,7 +3,7 @@ import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/theme_manager.dart';
 
 class MainContainer extends StatelessWidget {
-  const MainContainer({super.key, required this.child});
+  const MainContainer({required this.child, super.key});
 
   final Widget child;
 

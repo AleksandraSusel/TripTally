@@ -18,36 +18,51 @@ void main() {
 
   RegistrationBloc createBloc() => RegistrationBloc(mockCreateUserUseCase);
 
-  blocTest<RegistrationBloc, RegistrationState>('RegistrationBloc sends the email and the passwords success',
-      setUp: () {
-        when(mockCreateUserUseCase.call(mockedCreateUserEntity)).thenAnswer((_) async => const Right(Success()));
-      },
-      build: createBloc,
-      expect: () => const [
-            RegistrationState.loading(),
-            RegistrationState.success(),
-          ],
-      act: (bloc) => bloc
-          .add(OnTapRegistrationEvent(mockedCreateUserEntity.email, mockedCreateUserEntity.password, mockedCreateUserEntity.password)),
-      verify: (_) {
-        verify(mockCreateUserUseCase.call(mockedCreateUserEntity));
-        verifyNoMoreInteractions(mockCreateUserUseCase);
-      });
+  blocTest<RegistrationBloc, RegistrationState>(
+    'RegistrationBloc sends the email and the passwords success',
+    setUp: () {
+      when(mockCreateUserUseCase.call(mockedCreateUserEntity)).thenAnswer((_) async => const Right(Success()));
+    },
+    build: createBloc,
+    expect: () => const [
+      RegistrationState.loading(),
+      RegistrationState.success(),
+    ],
+    act: (bloc) => bloc.add(
+      OnTapRegistrationEvent(
+        mockedCreateUserEntity.email,
+        mockedCreateUserEntity.password,
+        mockedCreateUserEntity.password,
+      ),
+    ),
+    verify: (_) {
+      verify(mockCreateUserUseCase.call(mockedCreateUserEntity));
+      verifyNoMoreInteractions(mockCreateUserUseCase);
+    },
+  );
 
-  blocTest<RegistrationBloc, RegistrationState>('RegistrationBloc sends the email and the passwords failure',
-      setUp: () {
-        when(mockCreateUserUseCase.call(mockedCreateUserEntity))
-            .thenAnswer((_) async => const Left(Failure(error: Errors.somethingWentWrong)));
-      },
-      build: createBloc,
-      expect: () => const [
-            RegistrationState.loading(),
-            RegistrationState.failure(Errors.somethingWentWrong),
-          ],
-      act: (bloc) => bloc
-          .add(OnTapRegistrationEvent(mockedCreateUserEntity.email, mockedCreateUserEntity.password, mockedCreateUserEntity.password)),
-      verify: (_) {
-        verify(mockCreateUserUseCase.call(mockedCreateUserEntity));
-        verifyNoMoreInteractions(mockCreateUserUseCase);
-      });
+  blocTest<RegistrationBloc, RegistrationState>(
+    'RegistrationBloc sends the email and the passwords failure',
+    setUp: () {
+      when(mockCreateUserUseCase.call(mockedCreateUserEntity)).thenAnswer(
+        (_) async => const Left(Failure(error: Errors.somethingWentWrong)),
+      );
+    },
+    build: createBloc,
+    expect: () => const [
+      RegistrationState.loading(),
+      RegistrationState.failure(Errors.somethingWentWrong),
+    ],
+    act: (bloc) => bloc.add(
+      OnTapRegistrationEvent(
+        mockedCreateUserEntity.email,
+        mockedCreateUserEntity.password,
+        mockedCreateUserEntity.password,
+      ),
+    ),
+    verify: (_) {
+      verify(mockCreateUserUseCase.call(mockedCreateUserEntity));
+      verifyNoMoreInteractions(mockCreateUserUseCase);
+    },
+  );
 }

@@ -15,7 +15,10 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<OnInitializeAppEvent>(_onInitializeAppEvent);
   }
 
-  Future<void> _onInitializeAppEvent(OnInitializeAppEvent event, Emitter<AppState> emit) async {
+  Future<void> _onInitializeAppEvent(
+    OnInitializeAppEvent event,
+    Emitter<AppState> emit,
+  ) async {
     emit(const AppState.initial());
   }
 }

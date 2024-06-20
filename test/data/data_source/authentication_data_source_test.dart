@@ -26,106 +26,187 @@ void main() {
     mockUserCredential = MockUserCredential(user: mockedUser);
   });
   test(
-    "CreateUser creates user successful",
+    'CreateUser creates user successful',
     () async {
-      final dto = CreateUserDto(email: mockedCreateUserDto.email, password: mockedCreateUserDto.password);
+      final dto = CreateUserDto(
+        email: mockedCreateUserDto.email,
+        password: mockedCreateUserDto.password,
+      );
 
-      when(mockFirebaseAuth.createUserWithEmailAndPassword(email: dto.email, password: dto.password))
-          .thenAnswer((_) async => mockUserCredential);
+      when(
+        mockFirebaseAuth.createUserWithEmailAndPassword(
+          email: dto.email,
+          password: dto.password,
+        ),
+      ).thenAnswer((_) async => mockUserCredential);
 
       final result = await authenticationDataSource.createUser(mockedCreateUserDto);
 
       expect(result, mockUserCredential);
 
-      verify(mockFirebaseAuth.createUserWithEmailAndPassword(email: mockedCreateUserDto.email, password: mockedCreateUserDto.password));
+      verify(
+        mockFirebaseAuth.createUserWithEmailAndPassword(
+          email: mockedCreateUserDto.email,
+          password: mockedCreateUserDto.password,
+        ),
+      );
       verifyNoMoreInteractions(mockFirebaseAuth);
     },
   );
 
   test(
-    "CreateUser throws FirebaseAuthException",
+    'CreateUser throws FirebaseAuthException',
     () async {
-      final dto = CreateUserDto(email: mockedCreateUserDto.email, password: mockedCreateUserDto.password);
+      final dto = CreateUserDto(
+        email: mockedCreateUserDto.email,
+        password: mockedCreateUserDto.password,
+      );
 
-      when(mockFirebaseAuth.createUserWithEmailAndPassword(email: mockedCreateUserDto.email, password: mockedCreateUserDto.password))
-          .thenThrow(MockFirebaseException('weak-password'));
+      when(
+        mockFirebaseAuth.createUserWithEmailAndPassword(
+          email: mockedCreateUserDto.email,
+          password: mockedCreateUserDto.password,
+        ),
+      ).thenThrow(MockFirebaseException('weak-password'));
 
       await expectLater(
         authenticationDataSource.createUser(dto),
-        throwsA(isA<ApiException>().having((e) => e.failure, "error", Errors.weakPassword)),
+        throwsA(
+          isA<ApiException>().having((e) => e.failure, 'error', Errors.weakPassword),
+        ),
       );
-      verify(mockFirebaseAuth.createUserWithEmailAndPassword(email: mockedCreateUserDto.email, password: mockedCreateUserDto.password));
+      verify(
+        mockFirebaseAuth.createUserWithEmailAndPassword(
+          email: mockedCreateUserDto.email,
+          password: mockedCreateUserDto.password,
+        ),
+      );
       verifyNoMoreInteractions(mockFirebaseAuth);
     },
   );
 
   test(
-    "CreateUser throws ApiException on catch",
+    'CreateUser throws ApiException on catch',
     () async {
-      final dto = CreateUserDto(email: mockedCreateUserDto.email, password: mockedCreateUserDto.password);
-      when(mockFirebaseAuth.createUserWithEmailAndPassword(email: mockedCreateUserDto.email, password: mockedCreateUserDto.password))
-          .thenThrow(Exception());
+      final dto = CreateUserDto(
+        email: mockedCreateUserDto.email,
+        password: mockedCreateUserDto.password,
+      );
+      when(
+        mockFirebaseAuth.createUserWithEmailAndPassword(
+          email: mockedCreateUserDto.email,
+          password: mockedCreateUserDto.password,
+        ),
+      ).thenThrow(Exception());
 
       await expectLater(
         authenticationDataSource.createUser(dto),
-        throwsA(isA<ApiException>().having((e) => e.failure, 'Unknown Error', Errors.unknownError)),
+        throwsA(
+          isA<ApiException>().having((e) => e.failure, 'Unknown Error', Errors.unknownError),
+        ),
       );
 
-      verify(mockFirebaseAuth.createUserWithEmailAndPassword(email: mockedCreateUserDto.email, password: mockedCreateUserDto.password));
+      verify(
+        mockFirebaseAuth.createUserWithEmailAndPassword(
+          email: mockedCreateUserDto.email,
+          password: mockedCreateUserDto.password,
+        ),
+      );
       verifyNoMoreInteractions(mockFirebaseAuth);
     },
   );
 
   test(
-    "Login logs user successful",
+    'Login logs user successful',
     () async {
-      final dto = LoginDto(email: mockedLoginDto.email, password: mockedLoginDto.password);
+      final dto = LoginDto(
+        email: mockedLoginDto.email,
+        password: mockedLoginDto.password,
+      );
 
-      when(mockFirebaseAuth.signInWithEmailAndPassword(email: dto.email, password: dto.password))
-          .thenAnswer((_) async => mockUserCredential);
+      when(
+        mockFirebaseAuth.signInWithEmailAndPassword(
+          email: dto.email,
+          password: dto.password,
+        ),
+      ).thenAnswer((_) async => mockUserCredential);
 
       final result = await authenticationDataSource.login(mockedLoginDto);
 
       expect(result, const Success());
 
-      verify(mockFirebaseAuth.signInWithEmailAndPassword(email: mockedLoginDto.email, password: mockedLoginDto.password));
+      verify(
+        mockFirebaseAuth.signInWithEmailAndPassword(
+          email: mockedLoginDto.email,
+          password: mockedLoginDto.password,
+        ),
+      );
       verifyNoMoreInteractions(mockFirebaseAuth);
     },
   );
 
   test(
-    "Login throws ApiException on catch",
+    'Login throws ApiException on catch',
     () async {
-      final dto = LoginDto(email: mockedLoginDto.email, password: mockedLoginDto.password);
-      when(mockFirebaseAuth.signInWithEmailAndPassword(email: dto.email, password: dto.password)).thenThrow(Exception());
+      final dto = LoginDto(
+        email: mockedLoginDto.email,
+        password: mockedLoginDto.password,
+      );
+      when(
+        mockFirebaseAuth.signInWithEmailAndPassword(
+          email: dto.email,
+          password: dto.password,
+        ),
+      ).thenThrow(Exception());
       await expectLater(
         authenticationDataSource.login(dto),
-        throwsA(isA<ApiException>().having((e) => e.failure, 'Unknown Error', Errors.unknownError)),
+        throwsA(
+          isA<ApiException>().having((e) => e.failure, 'Unknown Error', Errors.unknownError),
+        ),
       );
 
-      verify(mockFirebaseAuth.signInWithEmailAndPassword(email: mockedLoginDto.email, password: mockedLoginDto.password));
+      verify(
+        mockFirebaseAuth.signInWithEmailAndPassword(
+          email: mockedLoginDto.email,
+          password: mockedLoginDto.password,
+        ),
+      );
       verifyNoMoreInteractions(mockFirebaseAuth);
     },
   );
 
   test(
-    "Login throws FirebaseException",
+    'Login throws FirebaseException',
     () async {
-      final dto = LoginDto(email: mockedLoginDto.email, password: mockedLoginDto.password);
-      when(mockFirebaseAuth.signInWithEmailAndPassword(email: dto.email, password: dto.password))
-          .thenThrow(MockFirebaseException('invalid-email'));
+      final dto = LoginDto(
+        email: mockedLoginDto.email,
+        password: mockedLoginDto.password,
+      );
+      when(
+        mockFirebaseAuth.signInWithEmailAndPassword(
+          email: dto.email,
+          password: dto.password,
+        ),
+      ).thenThrow(MockFirebaseException('invalid-email'));
       await expectLater(
         authenticationDataSource.login(dto),
-        throwsA(isA<ApiException>().having((e) => e.failure, 'Invalid Email', Errors.invalidEmail)),
+        throwsA(
+          isA<ApiException>().having((e) => e.failure, 'Invalid Email', Errors.invalidEmail),
+        ),
       );
 
-      verify(mockFirebaseAuth.signInWithEmailAndPassword(email: mockedLoginDto.email, password: mockedLoginDto.password));
+      verify(
+        mockFirebaseAuth.signInWithEmailAndPassword(
+          email: mockedLoginDto.email,
+          password: mockedLoginDto.password,
+        ),
+      );
       verifyNoMoreInteractions(mockFirebaseAuth);
     },
   );
 
   test(
-    "SignOut logs user out success",
+    'SignOut logs user out success',
     () async {
       when(mockFirebaseAuth.signOut()).thenAnswer((_) async => const Success());
       final result = await authenticationDataSource.signOut();
@@ -136,12 +217,18 @@ void main() {
   );
 
   test(
-    "SignOut throws ApiException on catch",
+    'SignOut throws ApiException on catch',
     () async {
       when(mockFirebaseAuth.signOut()).thenThrow(Exception());
       await expectLater(
         authenticationDataSource.signOut(),
-        throwsA(isA<ApiException>().having((e) => e.failure, 'Something went wrong', Errors.somethingWentWrong)),
+        throwsA(
+          isA<ApiException>().having(
+            (e) => e.failure,
+            'Something went wrong',
+            Errors.somethingWentWrong,
+          ),
+        ),
       );
       verify(mockFirebaseAuth.signOut());
       verifyNoMoreInteractions(mockFirebaseAuth);

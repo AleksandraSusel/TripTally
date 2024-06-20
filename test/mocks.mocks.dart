@@ -164,20 +164,19 @@ class MockFirebaseAuth extends _i1.Mock implements _i4.FirebaseAuth {
       );
 
   @override
+  set customAuthDomain(String? customAuthDomain) => super.noSuchMethod(
+        Invocation.setter(
+          #customAuthDomain,
+          customAuthDomain,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
   Map<dynamic, dynamic> get pluginConstants => (super.noSuchMethod(
         Invocation.getter(#pluginConstants),
         returnValue: <dynamic, dynamic>{},
       ) as Map<dynamic, dynamic>);
-
-  @override
-  _i9.Future<void> useEmulator(String? origin) => (super.noSuchMethod(
-        Invocation.method(
-          #useEmulator,
-          [origin],
-        ),
-        returnValue: _i9.Future<void>.value(),
-        returnValueForMissingStub: _i9.Future<void>.value(),
-      ) as _i9.Future<void>);
 
   @override
   _i9.Future<void> useAuthEmulator(
@@ -515,23 +514,6 @@ class MockFirebaseAuth extends _i1.Mock implements _i4.FirebaseAuth {
       ) as _i9.Future<_i4.UserCredential>);
 
   @override
-  _i9.Future<_i4.UserCredential> signInWithAuthProvider(
-          _i3.AuthProvider? provider) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #signInWithAuthProvider,
-          [provider],
-        ),
-        returnValue: _i9.Future<_i4.UserCredential>.value(_FakeUserCredential_2(
-          this,
-          Invocation.method(
-            #signInWithAuthProvider,
-            [provider],
-          ),
-        )),
-      ) as _i9.Future<_i4.UserCredential>);
-
-  @override
   _i9.Future<_i4.UserCredential> signInWithProvider(
           _i3.AuthProvider? provider) =>
       (super.noSuchMethod(
@@ -710,7 +692,8 @@ class MockAuthenticationRepo extends _i1.Mock
           #login,
           [entity],
         ),
-        returnValue: _i9.Future<_i5.Either<_i12.Failure, _i6.Success>>.value(_FakeEither_4<_i12.Failure, _i6.Success>(
+        returnValue: _i9.Future<_i5.Either<_i12.Failure, _i6.Success>>.value(
+            _FakeEither_4<_i12.Failure, _i6.Success>(
           this,
           Invocation.method(
             #login,
@@ -720,12 +703,14 @@ class MockAuthenticationRepo extends _i1.Mock
       ) as _i9.Future<_i5.Either<_i12.Failure, _i6.Success>>);
 
   @override
-  _i9.Future<_i5.Either<_i12.Failure, _i6.Success>> signOut() => (super.noSuchMethod(
+  _i9.Future<_i5.Either<_i12.Failure, _i6.Success>> signOut() =>
+      (super.noSuchMethod(
         Invocation.method(
           #signOut,
           [],
         ),
-        returnValue: _i9.Future<_i5.Either<_i12.Failure, _i6.Success>>.value(_FakeEither_4<_i12.Failure, _i6.Success>(
+        returnValue: _i9.Future<_i5.Either<_i12.Failure, _i6.Success>>.value(
+            _FakeEither_4<_i12.Failure, _i6.Success>(
           this,
           Invocation.method(
             #signOut,

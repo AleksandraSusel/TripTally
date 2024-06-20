@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/theme_manager.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-
-import '../theme/theme_manager.dart';
 
 class CustomRectangleButton extends StatefulWidget {
   const CustomRectangleButton({
-    super.key,
     required this.icon,
-    this.text,
     required this.onTap,
     required this.iconHeight,
     required this.iconWidth,
     required this.containerHeight,
     required this.containerWidth,
+    super.key,
+    this.text,
   });
 
   final String icon;
@@ -42,13 +41,14 @@ class _CustomRectangleButtonState extends State<CustomRectangleButton> {
           decoration: ThemeManager().sideShadow,
           child: ElevatedButton(
             onPressed: () {
-              widget.onTap;
               setState(() {
                 _isSelected = !_isSelected;
               });
               widget.onTap();
             },
-            style: _isSelected ? ThemeManager().rectangleButtonStyleSelected : ThemeManager().rectangleButtonStyleUnselected,
+            style: _isSelected
+                ? ThemeManager().rectangleButtonStyleSelected
+                : ThemeManager().rectangleButtonStyleUnselected,
             child: SvgPicture.asset(
               widget.icon,
               height: widget.iconHeight,

@@ -13,7 +13,11 @@ class Validator {
     }
   }
 
-  static String? validatePasswords(String? password, String? repeatPassword, BuildContext context) {
+  static String? validatePasswords(
+    String? password,
+    String? repeatPassword,
+    BuildContext context,
+  ) {
     if (password == null || password.isEmpty) {
       return context.tr.validators_fieldCanNotBeEmpty;
     } else if (password != repeatPassword) {

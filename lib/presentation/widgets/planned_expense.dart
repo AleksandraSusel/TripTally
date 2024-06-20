@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-
-import '../theme/app_dimensions.dart';
-import 'money_rich_text.dart';
+import 'package:trip_tally/presentation/widgets/money_rich_text.dart';
 
 class PlannedExpense extends StatelessWidget {
   const PlannedExpense({
-    super.key,
     required this.expense,
     required this.money,
     required this.currency,
     required this.icon,
+    super.key,
   });
 
   final String expense;
@@ -31,7 +30,7 @@ class PlannedExpense extends StatelessWidget {
         const SizedBox(width: AppDimensions.d40),
         Text(expense, style: context.tht.labelSmall),
         const SizedBox(width: AppDimensions.d40),
-        MoneyRichText(money: money, currency: currency)
+        MoneyRichText(money: money, currency: currency),
       ],
     );
   }

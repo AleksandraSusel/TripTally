@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:trip_tally/presentation/theme/app_colors.dart';
 
-import '../theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 
 class CustomSvgButton extends StatelessWidget {
   const CustomSvgButton({
-    super.key,
     required this.svgPath,
     required this.onTap,
+    super.key,
   });
 
   final String svgPath;

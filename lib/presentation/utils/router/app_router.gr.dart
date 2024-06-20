@@ -22,7 +22,8 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>(orElse: () => const LoginRouteArgs());
+      final args = routeData.argsAs<LoginRouteArgs>(
+          orElse: () => const LoginRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: LoginPage(
@@ -56,7 +57,8 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     RegistrationRoute.name: (routeData) {
-      final args = routeData.argsAs<RegistrationRouteArgs>(orElse: () => const RegistrationRouteArgs());
+      final args = routeData.argsAs<RegistrationRouteArgs>(
+          orElse: () => const RegistrationRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: RegistrationPage(

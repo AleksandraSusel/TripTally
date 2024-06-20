@@ -7,12 +7,14 @@ void customSnackBar(
   Color color = Colors.red,
   int seconds = 2,
 }) {
-  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    duration: Duration(seconds: seconds),
-    backgroundColor: color,
-    content: Text(
-      text,
-      style: context.tht.bodySmall,
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      duration: Duration(seconds: seconds),
+      backgroundColor: color,
+      content: Text(
+        text,
+        style: context.tht.bodySmall,
+      ),
     ),
-  ));
+  );
 }

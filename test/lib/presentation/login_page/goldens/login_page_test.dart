@@ -24,7 +24,9 @@ void main() {
   runGoldenTest(
     'LoginPage-initial',
     builder: () {
-      when(mockLoginBloc.stream).thenAnswer((realInvocation) => Stream.value(const LoginState.initial()));
+      when(mockLoginBloc.stream).thenAnswer(
+        (realInvocation) => Stream.value(const LoginState.initial()),
+      );
       return LoginPage(bloc: mockLoginBloc);
     },
   );
@@ -32,27 +34,44 @@ void main() {
   runGoldenTest(
     'LoginPage-failure',
     builder: () {
-      when(mockLoginBloc.stream).thenAnswer((realInvocation) => Stream.value(const LoginState.failure(Errors.somethingWentWrong)));
+      when(mockLoginBloc.stream).thenAnswer(
+        (realInvocation) => Stream.value(const LoginState.failure(Errors.somethingWentWrong)),
+      );
       return LoginPage(bloc: mockLoginBloc);
     },
   );
 
-  runGoldenTest('LoginPage- validation of empty fields', whilePerforming: (tester) async {
-    await tester.tap(find.byType(CustomElevatedButton));
-    return;
-  }, builder: () {
-    when(mockLoginBloc.stream).thenAnswer((realInvocation) => Stream.value(const LoginState.initial()));
-    return LoginPage(bloc: mockLoginBloc);
-  });
+  runGoldenTest(
+    'LoginPage- validation of empty fields',
+    whilePerforming: (tester) async {
+      await tester.tap(find.byType(CustomElevatedButton));
+      return;
+    },
+    builder: () {
+      when(mockLoginBloc.stream).thenAnswer(
+        (realInvocation) => Stream.value(const LoginState.initial()),
+      );
+      return LoginPage(bloc: mockLoginBloc);
+    },
+  );
 
-  runGoldenTest('LoginPage- validation of invalid email', whilePerforming: (tester) async {
-    await tester.enterText(find.byType(CustomTextField).first, 'invalidEmail');
-    await tester.tap(find.byType(CustomElevatedButton));
-    return;
-  }, builder: () {
-    when(mockLoginBloc.stream).thenAnswer((realInvocation) => Stream.value(const LoginState.initial()));
-    return LoginPage(
-      bloc: mockLoginBloc,
-    );
-  });
+  runGoldenTest(
+    'LoginPage- validation of invalid email',
+    whilePerforming: (tester) async {
+      await tester.enterText(
+        find.byType(CustomTextField).first,
+        'invalidEmail',
+      );
+      await tester.tap(find.byType(CustomElevatedButton));
+      return;
+    },
+    builder: () {
+      when(mockLoginBloc.stream).thenAnswer(
+        (realInvocation) => Stream.value(const LoginState.initial()),
+      );
+      return LoginPage(
+        bloc: mockLoginBloc,
+      );
+    },
+  );
 }

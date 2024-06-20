@@ -14,8 +14,8 @@ class SignOutUseCase implements NoParamsUseCaseWithFailure<Success> {
   @override
   Future<Either<Failure, Success>> call() async {
     return (await _authenticationRepo.signOut()).fold(
-      (l) => Left(l),
-      (r) => Right(r),
+      Left.new,
+      Right.new,
     );
   }
 }

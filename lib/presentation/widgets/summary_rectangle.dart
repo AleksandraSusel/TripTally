@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/theme_manager.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-
-import '../theme/app_dimensions.dart';
-import '../theme/theme_manager.dart';
 
 class SummaryRectangle extends StatelessWidget {
   const SummaryRectangle({
-    super.key,
     required this.spendMoney,
     required this.budgetMoney,
+    super.key,
   });
 
   final String spendMoney;
@@ -29,9 +28,15 @@ class SummaryRectangle extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('${context.tr.summaryRectangle_youHaveSpent} $spendMoney \$', style: context.tht.labelSmall),
+                  Text(
+                    '${context.tr.summaryRectangle_youHaveSpent} $spendMoney \$',
+                    style: context.tht.labelSmall,
+                  ),
                   const SizedBox(height: AppDimensions.d10),
-                  Text('${context.tr.summaryRectangle_youAreStillInYourBudget} $budgetMoney \$', style: context.tht.labelSmall),
+                  Text(
+                    '${context.tr.summaryRectangle_youAreStillInYourBudget} $budgetMoney \$',
+                    style: context.tht.labelSmall,
+                  ),
                 ],
               ),
             ),

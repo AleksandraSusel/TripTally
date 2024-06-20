@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../theme/app_dimensions.dart';
-import '../theme/theme_manager.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/theme_manager.dart';
 
 class CustomIconButton extends StatefulWidget {
   const CustomIconButton({
-    super.key,
     required this.icon,
     required this.onPressed,
+    super.key,
   });
 
   final String icon;

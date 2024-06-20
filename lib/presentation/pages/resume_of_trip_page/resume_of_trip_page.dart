@@ -1,14 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
-
-import '../../theme/app_paths.dart';
-import '../../widgets/circle_svg_button.dart';
-import '../../widgets/planned_expenses_list.dart';
-import '../../widgets/resume_trip_information.dart';
-import '../../widgets/top_container.dart';
+import 'package:trip_tally/presentation/widgets/circle_svg_button.dart';
+import 'package:trip_tally/presentation/widgets/planned_expenses_list.dart';
+import 'package:trip_tally/presentation/widgets/resume_trip_information.dart';
+import 'package:trip_tally/presentation/widgets/top_container.dart';
 
 @RoutePage()
 class ResumeOfTripPage extends StatelessWidget {

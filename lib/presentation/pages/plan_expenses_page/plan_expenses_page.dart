@@ -2,22 +2,21 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
 import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
 import 'package:trip_tally/presentation/widgets/calendar_button.dart';
+import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
+import 'package:trip_tally/presentation/widgets/expense_icon_contaner.dart';
 import 'package:trip_tally/presentation/widgets/expenses_icons.dart';
 import 'package:trip_tally/presentation/widgets/icon_button_text_field.dart';
+import 'package:trip_tally/presentation/widgets/icon_list.dart';
+import 'package:trip_tally/presentation/widgets/main_container.dart';
 import 'package:trip_tally/presentation/widgets/package_button.dart';
 import 'package:trip_tally/presentation/widgets/person_button.dart';
-
-import '../../theme/app_dimensions.dart';
-import '../../theme/app_paths.dart';
-import '../../widgets/app_scaffold.dart';
-import '../../widgets/custom_elevated_button.dart';
-import '../../widgets/expense_icon_contaner.dart';
-import '../../widgets/icon_list.dart';
-import '../../widgets/main_container.dart';
-import '../../widgets/suffix_icon_text_field.dart';
+import 'package:trip_tally/presentation/widgets/suffix_icon_text_field.dart';
 
 @RoutePage()
 class PlanExpensesPage extends StatelessWidget {
@@ -44,9 +43,8 @@ class PlanExpensesPage extends StatelessWidget {
                   width: AppDimensions.d400,
                   child: Center(
                     child: SingleChildScrollView(
-                      scrollDirection: Axis.vertical,
                       child: Wrap(
-                        spacing: 10, direction: Axis.horizontal,
+                        spacing: 10,
                         children: [
                           ExpenseTile(
                             svgPath: AppPaths.airplane,
@@ -96,7 +94,6 @@ class PlanExpensesPage extends StatelessWidget {
               ),
               MainContainer(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       context.tr.planExpensesPage_planExpenses,

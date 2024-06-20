@@ -18,9 +18,14 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
 
   final CreateUserUseCase _createUserUseCase;
 
-  Future<void> _onTapRegistrationEvent(OnTapRegistrationEvent event, Emitter<RegistrationState> emit) async {
+  Future<void> _onTapRegistrationEvent(
+    OnTapRegistrationEvent event,
+    Emitter<RegistrationState> emit,
+  ) async {
     emit(const RegistrationState.loading());
-    final registration = await _createUserUseCase(CreateUserEntity(email: event.email, password: event.password));
+    final registration = await _createUserUseCase(
+      CreateUserEntity(email: event.email, password: event.password),
+    );
     registration.fold(
       (l) {
         emit(const RegistrationState.failure(Errors.somethingWentWrong));

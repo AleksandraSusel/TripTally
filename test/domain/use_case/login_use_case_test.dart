@@ -29,8 +29,9 @@ void main() {
   });
 
   test('LoginUserUseCase logs the user failure', () async {
-    when(mockAuthenticationRepo.login(mockedLoginEntity))
-        .thenAnswer((_) async => const Left(Failure(error: Errors.somethingWentWrong)));
+    when(mockAuthenticationRepo.login(mockedLoginEntity)).thenAnswer(
+      (_) async => const Left(Failure(error: Errors.somethingWentWrong)),
+    );
     final result = await loginUseCase.call(mockedLoginEntity);
     Errors? error;
     result.fold((l) => error = l.error, (r) => null);

@@ -17,28 +17,29 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$LoginEntity {
   String get email => throw _privateConstructorUsedError;
-
   String get password => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $LoginEntityCopyWith<LoginEntity> get copyWith => throw _privateConstructorUsedError;
+  $LoginEntityCopyWith<LoginEntity> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $LoginEntityCopyWith<$Res> {
-  factory $LoginEntityCopyWith(LoginEntity value, $Res Function(LoginEntity) then) = _$LoginEntityCopyWithImpl<$Res, LoginEntity>;
-
+  factory $LoginEntityCopyWith(
+          LoginEntity value, $Res Function(LoginEntity) then) =
+      _$LoginEntityCopyWithImpl<$Res, LoginEntity>;
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class _$LoginEntityCopyWithImpl<$Res, $Val extends LoginEntity> implements $LoginEntityCopyWith<$Res> {
+class _$LoginEntityCopyWithImpl<$Res, $Val extends LoginEntity>
+    implements $LoginEntityCopyWith<$Res> {
   _$LoginEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -62,19 +63,23 @@ class _$LoginEntityCopyWithImpl<$Res, $Val extends LoginEntity> implements $Logi
 }
 
 /// @nodoc
-abstract class _$$LoginEntityImplCopyWith<$Res> implements $LoginEntityCopyWith<$Res> {
-  factory _$$LoginEntityImplCopyWith(_$LoginEntityImpl value, $Res Function(_$LoginEntityImpl) then) =
+abstract class _$$LoginEntityImplCopyWith<$Res>
+    implements $LoginEntityCopyWith<$Res> {
+  factory _$$LoginEntityImplCopyWith(
+          _$LoginEntityImpl value, $Res Function(_$LoginEntityImpl) then) =
       __$$LoginEntityImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class __$$LoginEntityImplCopyWithImpl<$Res> extends _$LoginEntityCopyWithImpl<$Res, _$LoginEntityImpl>
+class __$$LoginEntityImplCopyWithImpl<$Res>
+    extends _$LoginEntityCopyWithImpl<$Res, _$LoginEntityImpl>
     implements _$$LoginEntityImplCopyWith<$Res> {
-  __$$LoginEntityImplCopyWithImpl(_$LoginEntityImpl _value, $Res Function(_$LoginEntityImpl) _then) : super(_value, _then);
+  __$$LoginEntityImplCopyWithImpl(
+      _$LoginEntityImpl _value, $Res Function(_$LoginEntityImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -116,7 +121,8 @@ class _$LoginEntityImpl implements _LoginEntity {
         (other.runtimeType == runtimeType &&
             other is _$LoginEntityImpl &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) || other.password == password));
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @override
@@ -125,19 +131,21 @@ class _$LoginEntityImpl implements _LoginEntity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginEntityImplCopyWith<_$LoginEntityImpl> get copyWith => __$$LoginEntityImplCopyWithImpl<_$LoginEntityImpl>(this, _$identity);
+  _$$LoginEntityImplCopyWith<_$LoginEntityImpl> get copyWith =>
+      __$$LoginEntityImplCopyWithImpl<_$LoginEntityImpl>(this, _$identity);
 }
 
 abstract class _LoginEntity implements LoginEntity {
-  const factory _LoginEntity({required final String email, required final String password}) = _$LoginEntityImpl;
+  const factory _LoginEntity(
+      {required final String email,
+      required final String password}) = _$LoginEntityImpl;
 
   @override
   String get email;
-
   @override
   String get password;
-
   @override
   @JsonKey(ignore: true)
-  _$$LoginEntityImplCopyWith<_$LoginEntityImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$LoginEntityImplCopyWith<_$LoginEntityImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -5,7 +5,7 @@ import 'package:trip_tally/domain/repositories/authentication_repo.dart';
 import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 
-import '../utils/use_case.dart';
+import 'package:trip_tally/domain/utils/use_case.dart';
 
 @injectable
 class LoginUseCase implements UseCase<Success, LoginEntity> {
@@ -16,8 +16,8 @@ class LoginUseCase implements UseCase<Success, LoginEntity> {
   @override
   Future<Either<Failure, Success>> call(LoginEntity loginEntity) async {
     return (await _authenticationRepo.login(loginEntity)).fold(
-      (failure) => Left(failure),
-      (success) => Right(success),
+      Left.new,
+      Right.new,
     );
   }
 }

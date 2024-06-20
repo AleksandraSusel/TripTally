@@ -1,19 +1,18 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_tally/injectable/injectable.dart';
+import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/utils/validators.dart';
-
-import '../../../injectable/injectable.dart';
-import '../../theme/app_dimensions.dart';
-import '../../widgets/custom_circular_progress_indicator.dart';
-import '../../widgets/custom_elevated_button.dart';
-import '../../widgets/custom_snack_bar.dart';
-import '../../widgets/custom_text_field.dart';
-import '../../widgets/welcome_title_widget.dart';
-import 'bloc/registration_bloc.dart';
+import 'package:trip_tally/presentation/widgets/custom_circular_progress_indicator.dart';
+import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
+import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
+import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
+import 'package:trip_tally/presentation/widgets/welcome_title_widget.dart';
 
 @RoutePage()
 class RegistrationPage extends StatelessWidget {
@@ -32,7 +31,10 @@ class RegistrationPage extends StatelessWidget {
               context,
               error.errorText(context),
             ),
-            success: () => customSnackBar(context, 'Zostałeś zarejestrowany'), //TODO: push to HomePage
+            success: () => customSnackBar(
+              context,
+              'Zostałeś zarejestrowany',
+            ), //TODO: push to HomePage
           ),
           builder: (context, state) => state.maybeWhen(
             orElse: () => const _Body(),

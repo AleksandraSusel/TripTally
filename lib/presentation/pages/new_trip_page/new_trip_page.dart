@@ -1,22 +1,21 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
+import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
+import 'package:trip_tally/presentation/widgets/calendar_button.dart';
+import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
+import 'package:trip_tally/presentation/widgets/date_picker.dart';
+import 'package:trip_tally/presentation/widgets/hi_traveller_title_widget.dart';
+import 'package:trip_tally/presentation/widgets/icon_list.dart';
+import 'package:trip_tally/presentation/widgets/main_container.dart';
+import 'package:trip_tally/presentation/widgets/package_button.dart';
+import 'package:trip_tally/presentation/widgets/person_button.dart';
 import 'package:trip_tally/presentation/widgets/suffix_icon_text_field.dart';
-
-import '../../theme/app_dimensions.dart';
-import '../../theme/app_paths.dart';
-import '../../widgets/app_scaffold.dart';
-import '../../widgets/arrow_back_button.dart';
-import '../../widgets/calendar_button.dart';
-import '../../widgets/custom_elevated_button.dart';
-import '../../widgets/date_picker.dart';
-import '../../widgets/hi_traveller_title_widget.dart';
-import '../../widgets/icon_list.dart';
-import '../../widgets/main_container.dart';
-import '../../widgets/package_button.dart';
-import '../../widgets/person_button.dart';
-import '../../widgets/transport_icons.dart';
+import 'package:trip_tally/presentation/widgets/transport_icons.dart';
 
 @RoutePage()
 class NewTripPage extends StatelessWidget {
@@ -41,7 +40,6 @@ class NewTripPage extends StatelessWidget {
               ),
               MainContainer(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const SizedBox(height: AppDimensions.d10),
                     SuffixIconTextField(

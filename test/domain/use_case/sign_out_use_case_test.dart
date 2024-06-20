@@ -28,7 +28,9 @@ void main() {
   });
 
   test('SignOutUseCase logs user out failure', () async {
-    when(mockAuthenticationRepo.signOut()).thenAnswer((_) async => const Left(Failure(error: Errors.somethingWentWrong)));
+    when(mockAuthenticationRepo.signOut()).thenAnswer(
+      (_) async => const Left(Failure(error: Errors.somethingWentWrong)),
+    );
     final result = await signOutUseCase.call();
     Errors? error;
     result.fold((l) => error = l.error, (r) => null);

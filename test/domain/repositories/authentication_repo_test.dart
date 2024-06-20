@@ -50,7 +50,7 @@ void main() {
   });
 
   test('CreateUser creates user failure', () async {
-    when(mockedAuthenticationRemoteSource.createUser(any)).thenThrow(const Left(Errors.unknownError));
+    when(mockedAuthenticationRemoteSource.createUser(any)).thenThrow(const Left<Errors, dynamic>(Errors.unknownError));
     final result = await repository.createUser(mockedCreateUserEntity);
     Errors? failure;
     result.fold(
@@ -73,7 +73,8 @@ void main() {
   });
 
   test('Login logs user failure', () async {
-    when(mockedAuthenticationRemoteSource.login(any)).thenThrow(const Left(Failure(error: Errors.unknownError)));
+    when(mockedAuthenticationRemoteSource.login(any))
+        .thenThrow(const Left<Failure, dynamic>(Failure(error: Errors.unknownError)));
     final result = await repository.login(mockedLoginEntity);
     Errors? error;
     result.fold((l) => error = l.error, (r) => null);
@@ -103,7 +104,8 @@ void main() {
   });
 
   test('SignOut logs user out failure', () async {
-    when(mockedAuthenticationRemoteSource.signOut()).thenThrow(const Left(Failure(error: Errors.somethingWentWrong)));
+    when(mockedAuthenticationRemoteSource.signOut())
+        .thenThrow(const Left<Failure, dynamic>(Failure(error: Errors.somethingWentWrong)));
     final result = await repository.signOut();
     Errors? error;
     result.fold((l) => error = l.error, (r) => null);

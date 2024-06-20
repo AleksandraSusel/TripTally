@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../theme/app_dimensions.dart';
-import '../theme/theme_manager.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/theme_manager.dart';
 
 class SuffixIconTextField extends StatelessWidget {
   const SuffixIconTextField({
-    super.key,
     required this.svgPath,
     required this.hintText,
+    super.key,
   });
 
   final String svgPath;

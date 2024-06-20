@@ -16,7 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.6
 
   # auto_route
-  auto_route: ^7.8.4
+  auto_route: ^8.1.4
 
   # immutable_classes
   freezed: ^2.4.6
@@ -38,8 +38,8 @@ dependencies:
   injectable: ^2.3.2
 
   # internationalization and localization
-  intl: ^0.18.1
-  intl_utils: ^2.8.5
+  intl: ^0.19.0
+  intl_utils: ^2.8.7
   flutter_localizations:
     sdk: flutter
 
@@ -63,27 +63,27 @@ dependencies:
   equatable: ^2.0.5
   golden_toolkit: ^0.15.0
   alchemist: ^0.7.0
-  firebase_core: ^2.24.2
-  firebase_auth: ^4.16.0
+  firebase_core: ^3.1.0
+  firebase_auth: ^5.1.0
   file: ^7.0.0
   inner_shadow_widget: ^0.0.3
-  country_flags: ^2.2.0
+  country_flags: ^3.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^3.0.1
-  auto_route_generator: ^7.3.2
+  flutter_lints: ^4.0.0
+  auto_route_generator: ^8.0.0
   retrofit_generator: ^8.0.6
   injectable_generator: ^2.4.1
   build_runner: ^2.4.8
-  analyzer: ^5.13.0
+  analyzer: ^6.4.1
+  very_good_analysis: ^5.1.0
 
 flutter:
   uses-material-design: true
   assets:
-    - lib/presentation/assets/png/
     - lib/presentation/assets/svg/
 
   fonts:

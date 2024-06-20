@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/entities/user/login_entity.dart';
+import 'package:trip_tally/domain/entities/user/login_entity.dart';
 
 part 'login_dto.freezed.dart';
 

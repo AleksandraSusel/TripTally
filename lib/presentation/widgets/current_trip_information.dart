@@ -1,11 +1,14 @@
 import 'package:country_flags/country_flags.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
-import '../theme/app_dimensions.dart';
-
 class CurrentTripInformation extends StatelessWidget {
-  const CurrentTripInformation({super.key, required this.country, required this.countryCode});
+  const CurrentTripInformation({
+    required this.country,
+    required this.countryCode,
+    super.key,
+  });
 
   final String country;
   final String countryCode;
