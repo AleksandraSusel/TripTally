@@ -7,7 +7,7 @@ import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
 
-import '../../../environment.cofig.dart';
+import '../../../environment.config.dart';
 import '../../../injectable/injectable.dart';
 import '../../theme/app_dimensions.dart';
 import '../../utils/validators.dart';

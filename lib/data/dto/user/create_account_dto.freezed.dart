@@ -126,7 +126,8 @@ class _$CreateAccountDtoImpl implements _CreateAccountDto {
         (other.runtimeType == runtimeType &&
             other is _$CreateAccountDtoImpl &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) || other.password == password));
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)

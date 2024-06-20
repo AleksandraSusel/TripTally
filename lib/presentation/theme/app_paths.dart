@@ -24,6 +24,10 @@ class AppPaths {
   static const String cycle = '$svgPath/cycle.svg';
   static const String dots = '$svgPath/dots.svg';
   static const String datePicker = '$svgPath/date_picker.svg';
+  static const String bin = '$svgPath/bin.svg';
+  static const String email = '$svgPath/email.svg';
+  static const String history = '$svgPath/history.svg';
+  static const String lock = '$svgPath/lock.svg';
   static const String cutlery = '$svgPath/cutlery.svg';
   static const String ticket = '$svgPath/ticket.svg';
   static const String food = '$svgPath/food.svg';
