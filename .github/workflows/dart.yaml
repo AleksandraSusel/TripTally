@@ -18,7 +18,7 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y jq
           FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
-          echo "::set-output name=flutter_version::$FLUTTER_VERSION"
+          echo "flutter_version=$FLUTTER_VERSION" >> $GITHUB_OUTPUT
 
   install_dependencies:
     runs-on: ubuntu-latest
