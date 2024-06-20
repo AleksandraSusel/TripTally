@@ -53,5 +53,9 @@
   "planExpensesPage_choseIcon": "Chose a icon",
   "planExpensesPage_safe": "Safe!",
   "resumeOfTripPage_YouHavePlanned": "You have planned:",
-  "resumeOfTripExpenses_YouDontHaveAnyTrips": "You don\\'t have any trips yet!"
+  "resumeOfTripExpenses_YouDontHaveAnyTrips": "You don\\'t have any trips yet!",
+  "summaryAfterClosingPage_congrats": "Congrats",
+  "summaryAfterClosingPage_youHaveSpentGreatMomentsIn": "You have spent great moments in:",
+  "summaryAfterClosingPage_totalCostOfTheTrip": "Total cost of the trip",
+  "summaryAfterClosingPage_close": "Close"
 }

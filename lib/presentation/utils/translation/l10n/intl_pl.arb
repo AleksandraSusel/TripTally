@@ -53,5 +53,9 @@
   "planExpensesPage_nameTheExpense": "Name the expense",
   "planExpensesPage_howMuch": "How much?",
   "planExpensesPage_choseIcon": "Chose a icon",
-  "planExpensesPage_safe": "Safe!"
+  "planExpensesPage_safe": "Safe!",
+  "summaryAfterClosingPage_congrats": "Congrats",
+  "summaryAfterClosingPage_youHaveSpentGreatMomentsIn": "You have spent great moments in:",
+  "summaryAfterClosingPage_totalCostOfTheTrip": "Total cost of the trip",
+  "summaryAfterClosingPage_close": "Close"
 }

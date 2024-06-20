@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'intl/messages_all.dart';
+import 'package:trip_tally/presentation/utils/translation/generated/intl/messages_all.dart';
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -18,8 +18,10 @@ class Translation {
   static Translation? _current;
 
   static Translation get current {
-    assert(_current != null,
-        'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.');
+    assert(
+      _current != null,
+      'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.',
+    );
     return _current!;
   }
 
@@ -39,8 +41,10 @@ class Translation {
 
   static Translation of(BuildContext context) {
     final instance = Translation.maybeOf(context);
-    assert(instance != null,
-        'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -593,6 +597,46 @@ class Translation {
     return Intl.message(
       'Safe!',
       name: 'planExpensesPage_safe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Congrats`
+  String get summaryAfterClosingPage_congrats {
+    return Intl.message(
+      'Congrats',
+      name: 'summaryAfterClosingPage_congrats',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have spent great moments in:`
+  String get summaryAfterClosingPage_youHaveSpentGreatMomentsIn {
+    return Intl.message(
+      'You have spent great moments in:',
+      name: 'summaryAfterClosingPage_youHaveSpentGreatMomentsIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total cost of the trip`
+  String get summaryAfterClosingPage_totalCostOfTheTrip {
+    return Intl.message(
+      'Total cost of the trip',
+      name: 'summaryAfterClosingPage_totalCostOfTheTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get summaryAfterClosingPage_close {
+    return Intl.message(
+      'Close',
+      name: 'summaryAfterClosingPage_close',
       desc: '',
       args: [],
     );
