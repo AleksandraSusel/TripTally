@@ -20,19 +20,24 @@ mixin _$AppState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function() toLoginPage,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function()? toLoginPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function()? toLoginPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +45,24 @@ mixin _$AppState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_ToLoginPage value) toLoginPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_ToLoginPage value)? toLoginPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_ToLoginPage value)? toLoginPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -105,6 +116,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function() toLoginPage,
   }) {
     return initial();
   }
@@ -114,6 +127,8 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function()? toLoginPage,
   }) {
     return initial?.call();
   }
@@ -123,6 +138,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function()? toLoginPage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -136,6 +153,8 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_ToLoginPage value) toLoginPage,
   }) {
     return initial(this);
   }
@@ -145,6 +164,8 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_ToLoginPage value)? toLoginPage,
   }) {
     return initial?.call(this);
   }
@@ -154,6 +175,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_ToLoginPage value)? toLoginPage,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -200,6 +223,8 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function() toLoginPage,
   }) {
     return loading();
   }
@@ -209,6 +234,8 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function()? toLoginPage,
   }) {
     return loading?.call();
   }
@@ -218,6 +245,8 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function()? toLoginPage,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -231,6 +260,8 @@ class _$LoadingImpl implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_ToLoginPage value) toLoginPage,
   }) {
     return loading(this);
   }
@@ -240,6 +271,8 @@ class _$LoadingImpl implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_ToLoginPage value)? toLoginPage,
   }) {
     return loading?.call(this);
   }
@@ -249,6 +282,8 @@ class _$LoadingImpl implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_ToLoginPage value)? toLoginPage,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -260,4 +295,220 @@ class _$LoadingImpl implements _Loading {
 
 abstract class _Loading implements AppState {
   const factory _Loading() = _$LoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(_$SuccessImpl value, $Res Function(_$SuccessImpl) then) = __$$SuccessImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SuccessImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$SuccessImpl> implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(_$SuccessImpl _value, $Res Function(_$SuccessImpl) _then) : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl();
+
+  @override
+  String toString() {
+    return 'AppState.success()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$SuccessImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function() toLoginPage,
+  }) {
+    return success();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function()? toLoginPage,
+  }) {
+    return success?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function()? toLoginPage,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_ToLoginPage value) toLoginPage,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_ToLoginPage value)? toLoginPage,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_ToLoginPage value)? toLoginPage,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Success implements AppState {
+  const factory _Success() = _$SuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$ToLoginPageImplCopyWith<$Res> {
+  factory _$$ToLoginPageImplCopyWith(_$ToLoginPageImpl value, $Res Function(_$ToLoginPageImpl) then) =
+      __$$ToLoginPageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ToLoginPageImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$ToLoginPageImpl>
+    implements _$$ToLoginPageImplCopyWith<$Res> {
+  __$$ToLoginPageImplCopyWithImpl(_$ToLoginPageImpl _value, $Res Function(_$ToLoginPageImpl) _then) : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ToLoginPageImpl implements _ToLoginPage {
+  const _$ToLoginPageImpl();
+
+  @override
+  String toString() {
+    return 'AppState.toLoginPage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$ToLoginPageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function() toLoginPage,
+  }) {
+    return toLoginPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function()? toLoginPage,
+  }) {
+    return toLoginPage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function()? toLoginPage,
+    required TResult orElse(),
+  }) {
+    if (toLoginPage != null) {
+      return toLoginPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_ToLoginPage value) toLoginPage,
+  }) {
+    return toLoginPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_ToLoginPage value)? toLoginPage,
+  }) {
+    return toLoginPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_ToLoginPage value)? toLoginPage,
+    required TResult orElse(),
+  }) {
+    if (toLoginPage != null) {
+      return toLoginPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToLoginPage implements AppState {
+  const factory _ToLoginPage() = _$ToLoginPageImpl;
 }

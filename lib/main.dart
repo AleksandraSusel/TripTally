@@ -14,7 +14,7 @@ import 'injectable/injectable.dart';
 Future<void> main() async {
   await _configureSystemUIOverlays();
   await _configureServices();
-  configureDependencies();
+  await configureDependencies();
   runApp(const MyApp());
 }
 
@@ -34,38 +34,40 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (context) => getIt<AppBloc>(),
-    child: BlocListener<AppBloc, AppState>(
-      listener: (context, state) => state.whenOrNull(
-        initial: () => getIt<AppRouter>().push(RegistrationRoute()),
+        create: (context) => getIt<AppBloc>(),
+        child: BlocListener<AppBloc, AppState>(
+          listener: (context, state) => state.whenOrNull(
+            initial: () => getIt<AppRouter>().push(RegistrationRoute()),
+            success: () => getIt<AppRouter>().push(const NewTripRoute()),
+            toLoginPage: () => getIt<AppRouter>().push(LoginRoute()),
             loading: () => const Center(
               child: CircularProgressIndicator(),
             ),
           ),
-      child: MaterialApp.router(
-        routerConfig: getIt<AppRouter>().config(),
-        localizationsDelegates: const [
-          Translation.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: const [
+          child: MaterialApp.router(
+            routerConfig: getIt<AppRouter>().config(),
+            localizationsDelegates: const [
+              Translation.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: const [
               Locale('en', 'EN'),
             ],
-        localeResolutionCallback: (locale, supportedLocales) {
-          if (locale == null) return supportedLocales.first;
+            localeResolutionCallback: (locale, supportedLocales) {
+              if (locale == null) return supportedLocales.first;
 
-          return supportedLocales.firstWhere(
+              return supportedLocales.firstWhere(
                 (e) => e.languageCode == locale.languageCode && e.countryCode == locale.countryCode,
-            orElse: () => supportedLocales.firstWhere(
+                orElse: () => supportedLocales.firstWhere(
                   (c) => c.languageCode == locale.languageCode,
-              orElse: () => supportedLocales.first,
-            ),
-          );
-        },
-        theme: getIt<ThemeManager>().getTheme(),
-      ),
-    ),
-  );
+                  orElse: () => supportedLocales.first,
+                ),
+              );
+            },
+            theme: getIt<ThemeManager>().getTheme(),
+          ),
+        ),
+      );
 }

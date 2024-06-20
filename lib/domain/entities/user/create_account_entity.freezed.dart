@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'create_user_entity.dart';
+part of 'create_account_entity.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,27 +15,27 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CreateUserEntity {
+mixin _$CreateAccountEntity {
   String get email => throw _privateConstructorUsedError;
 
   String get password => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CreateUserEntityCopyWith<CreateUserEntity> get copyWith => throw _privateConstructorUsedError;
+  $CreateAccountEntityCopyWith<CreateAccountEntity> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CreateUserEntityCopyWith<$Res> {
-  factory $CreateUserEntityCopyWith(CreateUserEntity value, $Res Function(CreateUserEntity) then) =
-      _$CreateUserEntityCopyWithImpl<$Res, CreateUserEntity>;
+abstract class $CreateAccountEntityCopyWith<$Res> {
+  factory $CreateAccountEntityCopyWith(CreateAccountEntity value, $Res Function(CreateAccountEntity) then) =
+      _$CreateAccountEntityCopyWithImpl<$Res, CreateAccountEntity>;
 
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class _$CreateUserEntityCopyWithImpl<$Res, $Val extends CreateUserEntity> implements $CreateUserEntityCopyWith<$Res> {
-  _$CreateUserEntityCopyWithImpl(this._value, this._then);
+class _$CreateAccountEntityCopyWithImpl<$Res, $Val extends CreateAccountEntity> implements $CreateAccountEntityCopyWith<$Res> {
+  _$CreateAccountEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -63,9 +63,9 @@ class _$CreateUserEntityCopyWithImpl<$Res, $Val extends CreateUserEntity> implem
 }
 
 /// @nodoc
-abstract class _$$CreateUserEntityImplCopyWith<$Res> implements $CreateUserEntityCopyWith<$Res> {
-  factory _$$CreateUserEntityImplCopyWith(_$CreateUserEntityImpl value, $Res Function(_$CreateUserEntityImpl) then) =
-      __$$CreateUserEntityImplCopyWithImpl<$Res>;
+abstract class _$$CreateAccountEntityImplCopyWith<$Res> implements $CreateAccountEntityCopyWith<$Res> {
+  factory _$$CreateAccountEntityImplCopyWith(_$CreateAccountEntityImpl value, $Res Function(_$CreateAccountEntityImpl) then) =
+      __$$CreateAccountEntityImplCopyWithImpl<$Res>;
 
   @override
   @useResult
@@ -73,9 +73,9 @@ abstract class _$$CreateUserEntityImplCopyWith<$Res> implements $CreateUserEntit
 }
 
 /// @nodoc
-class __$$CreateUserEntityImplCopyWithImpl<$Res> extends _$CreateUserEntityCopyWithImpl<$Res, _$CreateUserEntityImpl>
-    implements _$$CreateUserEntityImplCopyWith<$Res> {
-  __$$CreateUserEntityImplCopyWithImpl(_$CreateUserEntityImpl _value, $Res Function(_$CreateUserEntityImpl) _then)
+class __$$CreateAccountEntityImplCopyWithImpl<$Res> extends _$CreateAccountEntityCopyWithImpl<$Res, _$CreateAccountEntityImpl>
+    implements _$$CreateAccountEntityImplCopyWith<$Res> {
+  __$$CreateAccountEntityImplCopyWithImpl(_$CreateAccountEntityImpl _value, $Res Function(_$CreateAccountEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -84,7 +84,7 @@ class __$$CreateUserEntityImplCopyWithImpl<$Res> extends _$CreateUserEntityCopyW
     Object? email = null,
     Object? password = null,
   }) {
-    return _then(_$CreateUserEntityImpl(
+    return _then(_$CreateAccountEntityImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -99,8 +99,8 @@ class __$$CreateUserEntityImplCopyWithImpl<$Res> extends _$CreateUserEntityCopyW
 
 /// @nodoc
 
-class _$CreateUserEntityImpl implements _CreateUserEntity {
-  const _$CreateUserEntityImpl({required this.email, required this.password});
+class _$CreateAccountEntityImpl implements _CreateAccountEntity {
+  const _$CreateAccountEntityImpl({required this.email, required this.password});
 
   @override
   final String email;
@@ -109,14 +109,14 @@ class _$CreateUserEntityImpl implements _CreateUserEntity {
 
   @override
   String toString() {
-    return 'CreateUserEntity(email: $email, password: $password)';
+    return 'CreateAccountEntity(email: $email, password: $password)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateUserEntityImpl &&
+            other is _$CreateAccountEntityImpl &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) || other.password == password));
   }
@@ -127,12 +127,12 @@ class _$CreateUserEntityImpl implements _CreateUserEntity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateUserEntityImplCopyWith<_$CreateUserEntityImpl> get copyWith =>
-      __$$CreateUserEntityImplCopyWithImpl<_$CreateUserEntityImpl>(this, _$identity);
+  _$$CreateAccountEntityImplCopyWith<_$CreateAccountEntityImpl> get copyWith =>
+      __$$CreateAccountEntityImplCopyWithImpl<_$CreateAccountEntityImpl>(this, _$identity);
 }
 
-abstract class _CreateUserEntity implements CreateUserEntity {
-  const factory _CreateUserEntity({required final String email, required final String password}) = _$CreateUserEntityImpl;
+abstract class _CreateAccountEntity implements CreateAccountEntity {
+  const factory _CreateAccountEntity({required final String email, required final String password}) = _$CreateAccountEntityImpl;
 
   @override
   String get email;
@@ -142,5 +142,5 @@ abstract class _CreateUserEntity implements CreateUserEntity {
 
   @override
   @JsonKey(ignore: true)
-  _$$CreateUserEntityImplCopyWith<_$CreateUserEntityImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$CreateAccountEntityImplCopyWith<_$CreateAccountEntityImpl> get copyWith => throw _privateConstructorUsedError;
 }

@@ -459,6 +459,26 @@ class Translation {
     );
   }
 
+  /// `You have planned:`
+  String get resumeOfTripPage_YouHavePlanned {
+    return Intl.message(
+      'You have planned:',
+      name: 'resumeOfTripPage_YouHavePlanned',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You don\'t have any trips yet!`
+  String get resumeOfTripExpenses_YouDontHaveAnyTrips {
+    return Intl.message(
+      'You don\\\'t have any trips yet!',
+      name: 'resumeOfTripExpenses_YouDontHaveAnyTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Plan a new journey`
   String get hiTravellerSubtitle_planNewJourney {
     return Intl.message(
@@ -524,26 +544,6 @@ class Translation {
     return Intl.message(
       'Safe!',
       name: 'planExpensesPage_safe',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `You have planned:`
-  String get resumeOfTripPage_YouHavePlanned {
-    return Intl.message(
-      'You have planned:',
-      name: 'resumeOfTripPage_YouHavePlanned',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `You don\'t have any trips yet!`
-  String get resumeOfTripExpenses_YouDontHaveAnyTrips {
-    return Intl.message(
-      'You don\\\'t have any trips yet!',
-      name: 'resumeOfTripExpenses_YouDontHaveAnyTrips',
       desc: '',
       args: [],
     );
