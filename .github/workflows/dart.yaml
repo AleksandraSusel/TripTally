@@ -1,0 +1,42 @@
+name: Dart and Flutter CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Flutter from fvm config
+        run: |
+          sudo apt-get update && sudo apt-get install -y jq
+
+          FLUTTER_VERSION=$(cat fvm/fvm_config.json | jq -r '.flutterSdkVersion')
+          
+          git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
+          
+          echo "$PWD/flutter/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run build runner
+        run: flutter pub run build_runner build -d
+
+      - name: Update golden tests
+        run: flutter test --update-goldens --tags=golden
+
+      - name: Verify formatting
+        run: flutter format . --line-length 120
+
+      - name: Analyze project source
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test
