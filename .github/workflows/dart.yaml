@@ -24,6 +24,12 @@ jobs:
     needs: setup
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Flutter from fvm config
+        run: |
+          sudo apt-get update && sudo apt-get install -y jq
+          FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
+          git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
+          echo "$PWD/flutter/bin" >> $GITHUB_PATH
       - name: Install dependencies
         run: flutter pub get
 
@@ -32,6 +38,12 @@ jobs:
     needs: install_dependencies
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Flutter from fvm config
+        run: |
+          sudo apt-get update && sudo apt-get install -y jq
+          FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
+          git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
+          echo "$PWD/flutter/bin" >> $GITHUB_PATH
       - name: Run build runner
         run: flutter pub run build_runner build -d
 
@@ -40,6 +52,12 @@ jobs:
     needs: install_dependencies
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Flutter from fvm config
+        run: |
+          sudo apt-get update && sudo apt-get install -y jq
+          FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
+          git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
+          echo "$PWD/flutter/bin" >> $GITHUB_PATH
       - name: Update golden tests
         run: flutter test --update-goldens --tags=golden
 
@@ -48,6 +66,12 @@ jobs:
     needs: install_dependencies
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Flutter from fvm config
+        run: |
+          sudo apt-get update && sudo apt-get install -y jq
+          FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
+          git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
+          echo "$PWD/flutter/bin" >> $GITHUB_PATH
       - name: Verify formatting
         run: dart format lib test --line-length 120
 
@@ -56,6 +80,12 @@ jobs:
     needs: install_dependencies
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Flutter from fvm config
+        run: |
+          sudo apt-get update && sudo apt-get install -y jq
+          FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
+          git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
+          echo "$PWD/flutter/bin" >> $GITHUB_PATH
       - name: Analyze project source
         run: flutter analyze
 
@@ -64,5 +94,11 @@ jobs:
     needs: install_dependencies
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Flutter from fvm config
+        run: |
+          sudo apt-get update && sudo apt-get install -y jq
+          FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
+          git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
+          echo "$PWD/flutter/bin" >> $GITHUB_PATH
       - name: Run tests
         run: flutter test
