@@ -53,5 +53,6 @@
   "planExpensesPage_nameTheExpense": "Name the expense",
   "planExpensesPage_howMuch": "How much?",
   "planExpensesPage_choseIcon": "Chose a icon",
-  "planExpensesPage_safe": "Safe!"
+  "planExpensesPage_safe": "Safe!",
+  "addExpensesPage_addExpenses": "Add expenses"
 }
