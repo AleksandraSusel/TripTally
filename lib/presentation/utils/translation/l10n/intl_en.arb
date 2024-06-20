@@ -53,5 +53,7 @@
   "planExpensesPage_choseIcon": "Chose a icon",
   "planExpensesPage_safe": "Safe!",
   "resumeOfTripPage_YouHavePlanned": "You have planned:",
-  "resumeOfTripExpenses_YouDontHaveAnyTrips": "You don\\'t have any trips yet!"
+  "resumeOfTripExpenses_YouDontHaveAnyTrips": "You don\\'t have any trips yet!",
+  "viewOfCurrentExpenses_yourCurrentExpenses": "Your current expenses",
+  "viewOfCurrentExpenses_youHaveSpent": "You have spent"
 }

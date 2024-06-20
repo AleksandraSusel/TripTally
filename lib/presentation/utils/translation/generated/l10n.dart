@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'intl/messages_all.dart';
+import 'package:trip_tally/presentation/utils/translation/generated/intl/messages_all.dart';
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -18,8 +18,10 @@ class Translation {
   static Translation? _current;
 
   static Translation get current {
-    assert(_current != null,
-        'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.');
+    assert(
+      _current != null,
+      'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.',
+    );
     return _current!;
   }
 
@@ -39,8 +41,10 @@ class Translation {
 
   static Translation of(BuildContext context) {
     final instance = Translation.maybeOf(context);
-    assert(instance != null,
-        'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -593,6 +597,26 @@ class Translation {
     return Intl.message(
       'Safe!',
       name: 'planExpensesPage_safe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your current expenses`
+  String get viewOfCurrentExpenses_yourCurrentExpenses {
+    return Intl.message(
+      'Your current expenses',
+      name: 'viewOfCurrentExpenses_yourCurrentExpenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have spent`
+  String get viewOfCurrentExpenses_youHaveSpent {
+    return Intl.message(
+      'You have spent',
+      name: 'viewOfCurrentExpenses_youHaveSpent',
       desc: '',
       args: [],
     );
