@@ -53,5 +53,10 @@
   "planExpensesPage_nameTheExpense": "Name the expense",
   "planExpensesPage_howMuch": "How much?",
   "planExpensesPage_choseIcon": "Chose a icon",
-  "planExpensesPage_safe": "Safe!"
+  "planExpensesPage_safe": "Safe!",
+  "editCurrentTrip_editYourTrip": "Edit your trip",
+  "editCurrentTrip_submit": "Submit",
+  "editCurrentTrip_changeACity": "Change a city",
+  "editCurrentTrip_changeADate": "Change a date",
+  "editCurrentTrip_changeYourTransport": "change your transport"
 }
