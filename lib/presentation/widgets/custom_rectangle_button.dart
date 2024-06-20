@@ -11,15 +11,19 @@ class CustomRectangleButton extends StatefulWidget {
     required this.icon,
     this.text,
     required this.onTap,
-    required this.height,
-    required this.width,
+    required this.iconHeight,
+    required this.iconWidth,
+    required this.containerHeight,
+    required this.containerWidth,
   });
 
   final String icon;
   final VoidCallback onTap;
   final String? text;
-  final double height;
-  final double width;
+  final double iconHeight;
+  final double containerHeight;
+  final double iconWidth;
+  final double containerWidth;
 
   @override
   State<CustomRectangleButton> createState() => _CustomRectangleButtonState();
@@ -33,20 +37,22 @@ class _CustomRectangleButtonState extends State<CustomRectangleButton> {
     return Column(
       children: [
         Container(
-          width: AppDimensions.d90,
-          height: AppDimensions.d90,
+          width: widget.containerWidth,
+          height: widget.containerHeight,
           decoration: ThemeManager().sideShadow,
           child: ElevatedButton(
             onPressed: () {
+              widget.onTap;
               setState(() {
                 _isSelected = !_isSelected;
               });
+              widget.onTap();
             },
             style: _isSelected ? ThemeManager().rectangleButtonStyleSelected : ThemeManager().rectangleButtonStyleUnselected,
             child: SvgPicture.asset(
               widget.icon,
-              height: widget.height,
-              width: widget.width,
+              height: widget.iconHeight,
+              width: widget.iconWidth,
             ),
           ),
         ),

@@ -37,6 +37,24 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const NewTripPage(),
       );
     },
+    PlanExpensesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PlanExpensesPage(),
+      );
+    },
+    PlanNewTripRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PlanNewTripPage(),
+      );
+    },
+    PlannedTripsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PlannedTripsPage(),
+      );
+    },
     RegistrationRoute.name: (routeData) {
       final args = routeData.argsAs<RegistrationRouteArgs>(orElse: () => const RegistrationRouteArgs());
       return AutoRoutePage<dynamic>(
@@ -45,6 +63,12 @@ abstract class _$AppRouter extends RootStackRouter {
           key: args.key,
           bloc: args.bloc,
         ),
+      );
+    },
+    ResumeOfTripRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ResumeOfTripPage(),
       );
     },
   };
@@ -116,6 +140,48 @@ class NewTripRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [PlanExpensesPage]
+class PlanExpensesRoute extends PageRouteInfo<void> {
+  const PlanExpensesRoute({List<PageRouteInfo>? children})
+      : super(
+          PlanExpensesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PlanExpensesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PlanNewTripPage]
+class PlanNewTripRoute extends PageRouteInfo<void> {
+  const PlanNewTripRoute({List<PageRouteInfo>? children})
+      : super(
+          PlanNewTripRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PlanNewTripRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PlannedTripsPage]
+class PlannedTripsRoute extends PageRouteInfo<void> {
+  const PlannedTripsRoute({List<PageRouteInfo>? children})
+      : super(
+          PlannedTripsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PlannedTripsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [RegistrationPage]
 class RegistrationRoute extends PageRouteInfo<RegistrationRouteArgs> {
   RegistrationRoute({
@@ -151,4 +217,18 @@ class RegistrationRouteArgs {
   String toString() {
     return 'RegistrationRouteArgs{key: $key, bloc: $bloc}';
   }
+}
+
+/// generated route for
+/// [ResumeOfTripPage]
+class ResumeOfTripRoute extends PageRouteInfo<void> {
+  const ResumeOfTripRoute({List<PageRouteInfo>? children})
+      : super(
+          ResumeOfTripRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ResumeOfTripRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

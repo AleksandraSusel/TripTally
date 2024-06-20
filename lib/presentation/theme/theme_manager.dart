@@ -238,5 +238,61 @@ class ThemeManager {
     );
   }
 
+  BoxDecoration get topContainerShadow => const BoxDecoration(
+        color: AppColors.linkWater,
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(AppDimensions.d40),
+          bottomLeft: Radius.circular(AppDimensions.d40),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.black,
+            offset: Offset(1, 1),
+            blurRadius: AppDimensions.d6,
+            spreadRadius: AppDimensions.d1,
+          ),
+          BoxShadow(
+            color: AppColors.porcelain,
+            offset: Offset(-1, -1),
+            blurRadius: AppDimensions.d3,
+            spreadRadius: AppDimensions.d3,
+          ),
+        ],
+      );
+
+  InputDecoration suffixIconTextField({required String hintText, required String suffixIcon}) {
+    return InputDecoration(
+      hintText: hintText,
+      suffixIcon: SvgPicture.asset(fit: BoxFit.scaleDown, suffixIcon),
+    );
+  }
+
+  InputDecoration iconButtonTextField({
+    required String hintText,
+    required String suffixIcon,
+    required VoidCallback onPressed,
+  }) {
+    return InputDecoration(
+      hintText: hintText,
+      suffixIcon: IconButton(
+        icon: SvgPicture.asset(fit: BoxFit.scaleDown, suffixIcon),
+        onPressed: onPressed,
+      ),
+      hintStyle: const TextStyle(
+        fontFamily: _fontName,
+        fontSize: AppDimensions.d14,
+        color: AppColors.poloBlue,
+        fontWeight: FontWeight.w400,
+        letterSpacing: 1.05,
+      ),
+      enabledBorder: const UnderlineInputBorder(
+        borderSide: BorderSide(
+          width: AppDimensions.d2,
+          color: AppColors.cello,
+        ),
+      ),
+    );
+  }
+
   ThemeData getTheme() => _themeData;
 }

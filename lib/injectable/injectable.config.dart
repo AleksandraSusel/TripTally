@@ -48,14 +48,14 @@ extension GetItInjectableX on _i1.GetIt {
     final firebaseAuthModule = _$FirebaseAuthModule();
     final sharedPreferencesModule = _$SharedPreferencesModule();
     gh.lazySingleton<_i3.AppRouter>(() => appRouterModule.instance);
-    gh.singleton<_i4.Dio>(apiModule.client);
+    gh.singleton<_i4.Dio>(() => apiModule.client);
     gh.factory<_i5.FirebaseAuth>(() => firebaseAuthModule.instance);
     await gh.factoryAsync<_i6.SharedPreferences>(
       () => sharedPreferencesModule.prefs,
       preResolve: true,
     );
     gh.factory<_i7.SharedPrefsUtils>(() => _i7.SharedPrefsUtils(gh<_i6.SharedPreferences>()));
-    gh.singleton<_i8.ThemeManager>(_i8.ThemeManager());
+    gh.singleton<_i8.ThemeManager>(() => _i8.ThemeManager());
     gh.factory<_i9.ApiClient>(() => _i9.ApiClient(gh<_i4.Dio>()));
     gh.factory<_i10.AppBloc>(() => _i10.AppBloc(gh<_i7.SharedPrefsUtils>()));
     gh.factory<_i11.AuthenticationRemoteSource>(() => _i12.AuthenticationRemoteSourceImpl(

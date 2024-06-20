@@ -20,11 +20,11 @@ class _ApiClient implements ApiClient {
 
   @override
   Future<String> login(LoginDto dto) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(dto.toJson());
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
       method: 'POST',
       headers: _headers,
@@ -47,11 +47,11 @@ class _ApiClient implements ApiClient {
 
   @override
   Future<String> createAccount(CreateAccountDto dto) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(dto.toJson());
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
       method: 'POST',
       headers: _headers,
@@ -74,10 +74,10 @@ class _ApiClient implements ApiClient {
 
   @override
   Future<String> exampleDelete() async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final Map<String, dynamic>? _data = null;
+    const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
       method: 'DELETE',
       headers: _headers,
