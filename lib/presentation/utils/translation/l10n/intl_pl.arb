@@ -53,5 +53,7 @@
   "planExpensesPage_nameTheExpense": "Name the expense",
   "planExpensesPage_howMuch": "How much?",
   "planExpensesPage_choseIcon": "Chose a icon",
-  "planExpensesPage_safe": "Safe!"
+  "planExpensesPage_safe": "Safe!",
+  "plannedTripsPage_yourPlannedTrips": "Your planned trips",
+  "plannedTripsPage_youHavePlanned": "You have planned"
 }
