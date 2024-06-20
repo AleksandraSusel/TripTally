@@ -53,5 +53,8 @@
   "planExpensesPage_nameTheExpense": "Name the expense",
   "planExpensesPage_howMuch": "How much?",
   "planExpensesPage_choseIcon": "Chose a icon",
-  "planExpensesPage_safe": "Safe!"
+  "planExpensesPage_safe": "Safe!",
+  "removeCurrentTripPage_removeYourTrip": "Remove your trip",
+  "removeCurrentTripPage_doYouWantToRemoveThisTrip": "Do you want to remove the trip?",
+  "removeCurrentTripPage_deleteTheTrip": "Delete"
 }
