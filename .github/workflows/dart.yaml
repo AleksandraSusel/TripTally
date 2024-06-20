@@ -18,6 +18,8 @@ jobs:
           FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
           git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
           echo "$PWD/flutter/bin" >> $GITHUB_PATH
+      - name: Flutter version
+        run: flutter --version
 
   install_dependencies:
     runs-on: ubuntu-latest
@@ -33,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-  build_runner:
+  run_build_runner_and_analyze:
     runs-on: ubuntu-latest
     needs: install_dependencies
     steps:
@@ -48,6 +50,8 @@ jobs:
         run: flutter pub get
       - name: Run build runner
         run: flutter pub run build_runner build -d
+      - name: Analyze project source
+        run: flutter analyze
 
   verify_formatting:
     runs-on: ubuntu-latest
@@ -64,22 +68,6 @@ jobs:
         run: flutter pub get
       - name: Verify formatting
         run: dart format lib test --line-length 120
-
-  analyze:
-    runs-on: ubuntu-latest
-    needs: install_dependencies
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Flutter from fvm config
-        run: |
-          sudo apt-get update && sudo apt-get install -y jq
-          FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
-          git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
-          echo "$PWD/flutter/bin" >> $GITHUB_PATH
-      - name: Install dependencies
-        run: flutter pub get
-      - name: Analyze project source
-        run: flutter analyze
 
   run_tests:
     runs-on: ubuntu-latest
