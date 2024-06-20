@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'create_user_dto.dart';
+part of 'create_account_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,36 +14,38 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-CreateUserDto _$CreateUserDtoFromJson(Map<String, dynamic> json) {
-  return _CreateUserDto.fromJson(json);
+CreateAccountDto _$CreateAccountDtoFromJson(Map<String, dynamic> json) {
+  return _CreateAccountDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CreateUserDto {
+mixin _$CreateAccountDto {
   String get email => throw _privateConstructorUsedError;
+
   String get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
-  $CreateUserDtoCopyWith<CreateUserDto> get copyWith => throw _privateConstructorUsedError;
+  $CreateAccountDtoCopyWith<CreateAccountDto> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CreateUserDtoCopyWith<$Res> {
-  factory $CreateUserDtoCopyWith(CreateUserDto value, $Res Function(CreateUserDto) then) =
-      _$CreateUserDtoCopyWithImpl<$Res, CreateUserDto>;
+abstract class $CreateAccountDtoCopyWith<$Res> {
+  factory $CreateAccountDtoCopyWith(CreateAccountDto value, $Res Function(CreateAccountDto) then) =
+      _$CreateAccountDtoCopyWithImpl<$Res, CreateAccountDto>;
 
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto>
-    implements $CreateUserDtoCopyWith<$Res> {
-  _$CreateUserDtoCopyWithImpl(this._value, this._then);
+class _$CreateAccountDtoCopyWithImpl<$Res, $Val extends CreateAccountDto> implements $CreateAccountDtoCopyWith<$Res> {
+  _$CreateAccountDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -67,10 +69,9 @@ class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto>
 }
 
 /// @nodoc
-abstract class _$$CreateUserDtoImplCopyWith<$Res>
-    implements $CreateUserDtoCopyWith<$Res> {
-  factory _$$CreateUserDtoImplCopyWith(_$CreateUserDtoImpl value, $Res Function(_$CreateUserDtoImpl) then) =
-      __$$CreateUserDtoImplCopyWithImpl<$Res>;
+abstract class _$$CreateAccountDtoImplCopyWith<$Res> implements $CreateAccountDtoCopyWith<$Res> {
+  factory _$$CreateAccountDtoImplCopyWith(_$CreateAccountDtoImpl value, $Res Function(_$CreateAccountDtoImpl) then) =
+      __$$CreateAccountDtoImplCopyWithImpl<$Res>;
 
   @override
   @useResult
@@ -78,9 +79,10 @@ abstract class _$$CreateUserDtoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CreateUserDtoImplCopyWithImpl<$Res> extends _$CreateUserDtoCopyWithImpl<$Res, _$CreateUserDtoImpl>
-    implements _$$CreateUserDtoImplCopyWith<$Res> {
-  __$$CreateUserDtoImplCopyWithImpl(_$CreateUserDtoImpl _value, $Res Function(_$CreateUserDtoImpl) _then) : super(_value, _then);
+class __$$CreateAccountDtoImplCopyWithImpl<$Res> extends _$CreateAccountDtoCopyWithImpl<$Res, _$CreateAccountDtoImpl>
+    implements _$$CreateAccountDtoImplCopyWith<$Res> {
+  __$$CreateAccountDtoImplCopyWithImpl(_$CreateAccountDtoImpl _value, $Res Function(_$CreateAccountDtoImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -88,7 +90,7 @@ class __$$CreateUserDtoImplCopyWithImpl<$Res> extends _$CreateUserDtoCopyWithImp
     Object? email = null,
     Object? password = null,
   }) {
-    return _then(_$CreateUserDtoImpl(
+    return _then(_$CreateAccountDtoImpl(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -103,11 +105,10 @@ class __$$CreateUserDtoImplCopyWithImpl<$Res> extends _$CreateUserDtoCopyWithImp
 
 /// @nodoc
 @JsonSerializable()
-class _$CreateUserDtoImpl implements _CreateUserDto {
-  const _$CreateUserDtoImpl({required this.email, required this.password});
+class _$CreateAccountDtoImpl implements _CreateAccountDto {
+  const _$CreateAccountDtoImpl({required this.email, required this.password});
 
-  factory _$CreateUserDtoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreateUserDtoImplFromJson(json);
+  factory _$CreateAccountDtoImpl.fromJson(Map<String, dynamic> json) => _$$CreateAccountDtoImplFromJson(json);
 
   @override
   final String email;
@@ -116,14 +117,14 @@ class _$CreateUserDtoImpl implements _CreateUserDto {
 
   @override
   String toString() {
-    return 'CreateUserDto(email: $email, password: $password)';
+    return 'CreateAccountDto(email: $email, password: $password)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateUserDtoImpl &&
+            other is _$CreateAccountDtoImpl &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password));
@@ -136,21 +137,21 @@ class _$CreateUserDtoImpl implements _CreateUserDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateUserDtoImplCopyWith<_$CreateUserDtoImpl> get copyWith =>
-      __$$CreateUserDtoImplCopyWithImpl<_$CreateUserDtoImpl>(this, _$identity);
+  _$$CreateAccountDtoImplCopyWith<_$CreateAccountDtoImpl> get copyWith =>
+      __$$CreateAccountDtoImplCopyWithImpl<_$CreateAccountDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CreateUserDtoImplToJson(
+    return _$$CreateAccountDtoImplToJson(
       this,
     );
   }
 }
 
-abstract class _CreateUserDto implements CreateUserDto {
-  const factory _CreateUserDto({required final String email, required final String password}) = _$CreateUserDtoImpl;
+abstract class _CreateAccountDto implements CreateAccountDto {
+  const factory _CreateAccountDto({required final String email, required final String password}) = _$CreateAccountDtoImpl;
 
-  factory _CreateUserDto.fromJson(Map<String, dynamic> json) = _$CreateUserDtoImpl.fromJson;
+  factory _CreateAccountDto.fromJson(Map<String, dynamic> json) = _$CreateAccountDtoImpl.fromJson;
 
   @override
   String get email;
@@ -160,5 +161,5 @@ abstract class _CreateUserDto implements CreateUserDto {
 
   @override
   @JsonKey(ignore: true)
-  _$$CreateUserDtoImplCopyWith<_$CreateUserDtoImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$CreateAccountDtoImplCopyWith<_$CreateAccountDtoImpl> get copyWith => throw _privateConstructorUsedError;
 }

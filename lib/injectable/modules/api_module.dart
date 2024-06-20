@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:trip_tally/environment.config.dart';
 
+import '../../environment.config.dart';
 import 'auth_interceptor.dart';
 
 @module

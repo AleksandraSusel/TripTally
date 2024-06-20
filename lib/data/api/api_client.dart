@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:trip_tally/data/dto/user/create_user_dto.dart';
+import 'package:trip_tally/data/dto/user/create_account_dto.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
 
 part 'api_client.g.dart';
@@ -17,7 +17,7 @@ abstract class ApiClient {
   Future<String> login(@Queries() LoginDto dto);
 
   @POST('users/register')
-  Future<String> createAccount(@Queries() CreateUserDto dto);
+  Future<String> createAccount(@Queries() CreateAccountDto dto);
 
   ///Delete
   @DELETE('')

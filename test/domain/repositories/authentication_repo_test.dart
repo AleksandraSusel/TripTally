@@ -19,27 +19,27 @@ void main() {
   });
   test('CreateAccount creates user success', () async {
     when(mockedAuthenticationRemoteSource.createAccount(any)).thenAnswer((_) async => const Success());
-    final result = await repository.createAccount(mockedCreateUserEntity);
+    final result = await repository.createAccount(mockedCreateAccountEntity);
     Success? success;
     result.fold(
       (l) => null,
       (r) => success = r,
     );
     expect(success, const Success());
-    verify(mockedAuthenticationRemoteSource.createAccount(mockedCreateUserDto));
+    verify(mockedAuthenticationRemoteSource.createAccount(mockedCreateAccountDto));
     verifyNoMoreInteractions(mockedAuthenticationRemoteSource);
   });
 
   test('CreateAccount creates user with catch ApiException', () async {
     when(mockedAuthenticationRemoteSource.createAccount(any)).thenThrow(ApiException(Errors.emailInUse));
-    final result = await repository.createAccount(mockedCreateUserEntity);
+    final result = await repository.createAccount(mockedCreateAccountEntity);
     Errors? failure;
     result.fold(
       (l) => failure = l.error,
       (r) => null,
     );
     expect(failure, Errors.emailInUse);
-    verify(mockedAuthenticationRemoteSource.createAccount(mockedCreateUserDto));
+    verify(mockedAuthenticationRemoteSource.createAccount(mockedCreateAccountDto));
     verifyNoMoreInteractions(mockedAuthenticationRemoteSource);
   });
 
