@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
-import '../theme/app_dimensions.dart';
-import 'hi_traveller_subtitle.dart';
-import 'hi_traveller_text.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/widgets/hi_traveller_subtitle.dart';
+import 'package:trip_tally/presentation/widgets/hi_traveller_text.dart';
 
 class HiTravellerTitleWidget extends StatelessWidget {
-  const HiTravellerTitleWidget({super.key, required this.text});
+  const HiTravellerTitleWidget({required this.text, super.key});
 
   final String text;
 

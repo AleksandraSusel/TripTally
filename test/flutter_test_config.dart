@@ -20,9 +20,15 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
 
 Future<void> _loadAppFonts() async {
   final fontLoader = FontLoader('NunitoSans')
-    ..addFont(_loadFont('lib/presentation/assets/fonts/NunitoSans_7pt-Bold.ttf'))
-    ..addFont(_loadFont('lib/presentation/assets/fonts/NunitoSans_7pt-ExtraBold.ttf'))
-    ..addFont(_loadFont('lib/presentation/assets/fonts/NunitoSans_7pt-Regular.ttf'));
+    ..addFont(
+      _loadFont('lib/presentation/assets/fonts/NunitoSans_7pt-Bold.ttf'),
+    )
+    ..addFont(
+      _loadFont('lib/presentation/assets/fonts/NunitoSans_7pt-ExtraBold.ttf'),
+    )
+    ..addFont(
+      _loadFont('lib/presentation/assets/fonts/NunitoSans_7pt-Regular.ttf'),
+    );
   await fontLoader.load();
   await loadFonts();
 }

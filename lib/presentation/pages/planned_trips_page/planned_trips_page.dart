@@ -1,12 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
+import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
+import 'package:trip_tally/presentation/widgets/circle_svg_button.dart';
+import 'package:trip_tally/presentation/widgets/resume_trip_information.dart';
+import 'package:trip_tally/presentation/widgets/top_container.dart';
 import 'package:trip_tally/presentation/widgets/trip_tile_list.dart';
-
-import '../../theme/app_paths.dart';
-import '../../widgets/app_scaffold.dart';
-import '../../widgets/circle_svg_button.dart';
-import '../../widgets/resume_trip_information.dart';
-import '../../widgets/top_container.dart';
 
 @RoutePage()
 class PlannedTripsPage extends StatelessWidget {
@@ -39,7 +38,6 @@ class PlannedTripsPage extends StatelessWidget {
       body: const SingleChildScrollView(
         child: SafeArea(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               TopContainer(
                 child: ResumeTripInformation(

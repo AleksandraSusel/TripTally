@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 
 class ExpenseTile extends StatelessWidget {
   const ExpenseTile({
-    super.key,
     required this.svgPath,
     required this.name,
     required this.quantity,
+    super.key,
   });
 
   final String svgPath;

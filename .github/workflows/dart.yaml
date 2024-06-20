@@ -1,0 +1,85 @@
+name: Dart and Flutter CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      flutter_version: ${{ steps.setup.outputs.flutter_version }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Flutter from fvm config
+        id: setup
+        run: |
+          sudo apt-get update && sudo apt-get install -y jq
+          FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
+          echo "flutter_version=$FLUTTER_VERSION" >> $GITHUB_OUTPUT
+
+  install_dependencies:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ needs.setup.outputs.flutter_version }}
+      - name: Cache Flutter dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.pub-cache
+          key: ${{ runner.os }}-pub-cache-${{ hashFiles('**/pubspec.yaml') }}
+      - name: Install dependencies
+        run: flutter pub get
+
+  run_build_runner_and_analyze:
+    runs-on: ubuntu-latest
+    needs: install_dependencies
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ needs.setup.outputs.flutter_version }}
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Run build runner
+        run: flutter pub run build_runner build -d
+      - name: Analyze project source
+        run: flutter analyze
+
+  verify_formatting:
+    runs-on: ubuntu-latest
+    needs: install_dependencies
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ needs.setup.outputs.flutter_version }}
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Verify formatting
+        run: dart format lib test --line-length 120
+
+  run_tests:
+    runs-on: ubuntu-latest
+    needs: install_dependencies
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ needs.setup.outputs.flutter_version }}
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Update golden tests
+        run: flutter test --update-goldens --tags=golden
+      - name: Run tests
+        run: flutter test

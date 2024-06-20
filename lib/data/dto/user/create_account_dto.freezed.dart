@@ -21,11 +21,9 @@ CreateAccountDto _$CreateAccountDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CreateAccountDto {
   String get email => throw _privateConstructorUsedError;
-
   String get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $CreateAccountDtoCopyWith<CreateAccountDto> get copyWith => throw _privateConstructorUsedError;
 }
@@ -34,7 +32,6 @@ mixin _$CreateAccountDto {
 abstract class $CreateAccountDtoCopyWith<$Res> {
   factory $CreateAccountDtoCopyWith(CreateAccountDto value, $Res Function(CreateAccountDto) then) =
       _$CreateAccountDtoCopyWithImpl<$Res, CreateAccountDto>;
-
   @useResult
   $Res call({String email, String password});
 }
@@ -45,7 +42,6 @@ class _$CreateAccountDtoCopyWithImpl<$Res, $Val extends CreateAccountDto> implem
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -72,7 +68,6 @@ class _$CreateAccountDtoCopyWithImpl<$Res, $Val extends CreateAccountDto> implem
 abstract class _$$CreateAccountDtoImplCopyWith<$Res> implements $CreateAccountDtoCopyWith<$Res> {
   factory _$$CreateAccountDtoImplCopyWith(_$CreateAccountDtoImpl value, $Res Function(_$CreateAccountDtoImpl) then) =
       __$$CreateAccountDtoImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({String email, String password});
@@ -126,8 +121,7 @@ class _$CreateAccountDtoImpl implements _CreateAccountDto {
         (other.runtimeType == runtimeType &&
             other is _$CreateAccountDtoImpl &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password));
+            (identical(other.password, password) || other.password == password));
   }
 
   @JsonKey(ignore: true)
@@ -149,16 +143,15 @@ class _$CreateAccountDtoImpl implements _CreateAccountDto {
 }
 
 abstract class _CreateAccountDto implements CreateAccountDto {
-  const factory _CreateAccountDto({required final String email, required final String password}) = _$CreateAccountDtoImpl;
+  const factory _CreateAccountDto({required final String email, required final String password}) =
+      _$CreateAccountDtoImpl;
 
   factory _CreateAccountDto.fromJson(Map<String, dynamic> json) = _$CreateAccountDtoImpl.fromJson;
 
   @override
   String get email;
-
   @override
   String get password;
-
   @override
   @JsonKey(ignore: true)
   _$$CreateAccountDtoImplCopyWith<_$CreateAccountDtoImpl> get copyWith => throw _privateConstructorUsedError;

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../theme/app_colors.dart';
-import '../theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_colors.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 
 class AppBarRoundedButton extends StatelessWidget {
-  const AppBarRoundedButton({super.key, required this.svgPicture});
+  const AppBarRoundedButton({required this.svgPicture, super.key});
 
   final String svgPicture;
 

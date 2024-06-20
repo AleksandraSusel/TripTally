@@ -18,7 +18,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   final LoginUseCase _loginUseCase;
 
-  Future<void> _onTapLogin(OnTapLoginEvent event, Emitter<LoginState> emit) async {
+  Future<void> _onTapLogin(
+    OnTapLoginEvent event,
+    Emitter<LoginState> emit,
+  ) async {
     emit(const LoginState.loading());
     final result = await _loginUseCase.call(LoginEntity(email: event.email, password: event.password));
     result.fold(

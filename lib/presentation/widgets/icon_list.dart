@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/widgets/custom_icon_button.dart';
 
-import '../theme/app_dimensions.dart';
-
 class IconList extends StatelessWidget {
-  const IconList({super.key, required this.icons});
+  const IconList({required this.icons, super.key});
 
   final List<String> icons;
 
@@ -15,7 +14,6 @@ class IconList extends StatelessWidget {
       width: AppDimensions.d300,
       child: Center(
         child: Align(
-          alignment: Alignment.center,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: icons.length,

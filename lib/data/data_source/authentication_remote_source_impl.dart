@@ -1,13 +1,12 @@
 import 'package:injectable/injectable.dart';
 import 'package:trip_tally/data/api/api_client.dart';
+import 'package:trip_tally/data/dto/user/create_account_dto.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
 import 'package:trip_tally/domain/data_source/authentication_remote_source.dart';
+import 'package:trip_tally/domain/utils/exception.dart';
+import 'package:trip_tally/domain/utils/shared_prefs_utils.dart';
 import 'package:trip_tally/domain/utils/success.dart';
-
-import '../../domain/utils/exception.dart';
-import '../../domain/utils/shared_prefs_utils.dart';
-import '../../presentation/utils/enums/errors.dart';
-import '../dto/user/create_account_dto.dart';
+import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 @Injectable(as: AuthenticationRemoteSource)
 class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
@@ -29,7 +28,6 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
       throw ApiException(Errors.somethingWentWrong);
     }
   }
-
 
   @override
   Future<Success> createAccount(CreateAccountDto createUserDto) async {

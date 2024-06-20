@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
-import '../theme/app_dimensions.dart';
-
 class OrdinaryTitleWidget extends StatelessWidget {
-  const OrdinaryTitleWidget({super.key, required this.titleText, required this.subtitleText});
+  const OrdinaryTitleWidget({
+    required this.titleText,
+    required this.subtitleText,
+    super.key,
+  });
 
   final String titleText;
   final String subtitleText;

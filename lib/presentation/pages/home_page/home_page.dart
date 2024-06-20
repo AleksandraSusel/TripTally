@@ -1,21 +1,20 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/router/app_router.dart';
+import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
+import 'package:trip_tally/presentation/widgets/calendar_button.dart';
+import 'package:trip_tally/presentation/widgets/current_trip_information.dart';
+import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
+import 'package:trip_tally/presentation/widgets/custom_rectangle_button.dart';
 import 'package:trip_tally/presentation/widgets/main_container.dart';
+import 'package:trip_tally/presentation/widgets/package_button.dart';
+import 'package:trip_tally/presentation/widgets/person_button.dart';
+import 'package:trip_tally/presentation/widgets/settings_button.dart';
+import 'package:trip_tally/presentation/widgets/summary_rectangle.dart';
 import 'package:trip_tally/presentation/widgets/welcome_title_widget.dart';
-
-import '../../theme/app_dimensions.dart';
-import '../../theme/app_paths.dart';
-import '../../utils/router/app_router.dart';
-import '../../widgets/app_scaffold.dart';
-import '../../widgets/calendar_button.dart';
-import '../../widgets/current_trip_information.dart';
-import '../../widgets/custom_elevated_button.dart';
-import '../../widgets/custom_rectangle_button.dart';
-import '../../widgets/package_button.dart';
-import '../../widgets/person_button.dart';
-import '../../widgets/settings_button.dart';
-import '../../widgets/summary_rectangle.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -38,7 +37,6 @@ class HomePage extends StatelessWidget {
               const WelcomeTittleWidget(),
               MainContainer(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const SizedBox(height: AppDimensions.d20),
                     Row(

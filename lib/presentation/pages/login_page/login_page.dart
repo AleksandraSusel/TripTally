@@ -1,20 +1,19 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_tally/environment.config.dart';
+import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
+import 'package:trip_tally/presentation/utils/validators.dart';
+import 'package:trip_tally/presentation/widgets/custom_circular_progress_indicator.dart';
+import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
+import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
-
-import '../../../environment.config.dart';
-import '../../../injectable/injectable.dart';
-import '../../theme/app_dimensions.dart';
-import '../../utils/validators.dart';
-import '../../widgets/custom_circular_progress_indicator.dart';
-import '../../widgets/custom_elevated_button.dart';
-import '../../widgets/custom_snack_bar.dart';
-import '../../widgets/welcome_title_widget.dart';
+import 'package:trip_tally/presentation/widgets/welcome_title_widget.dart';
 
 @RoutePage()
 class LoginPage extends StatelessWidget {

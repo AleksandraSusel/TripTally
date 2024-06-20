@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../theme/app_dimensions.dart';
-import '../theme/theme_manager.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/theme_manager.dart';
 
 class IconButtonTextField extends StatelessWidget {
   const IconButtonTextField({
-    super.key,
     required this.svgPath,
     required this.hintText,
     required this.onPressed,
+    super.key,
   });
 
   final String svgPath;

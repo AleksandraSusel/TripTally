@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
-import '../theme/app_dimensions.dart';
-import '../theme/theme_manager.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/theme_manager.dart';
 
 class TopContainer extends StatelessWidget {
-  const TopContainer({super.key, required this.child});
+  const TopContainer({required this.child, super.key});
 
   final Widget child;
 

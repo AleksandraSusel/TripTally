@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/widgets/money_rich_text.dart';
 
-import '../theme/app_paths.dart';
-
 class ResumeTripInformation extends StatelessWidget {
   const ResumeTripInformation({
-    super.key,
     required this.country,
     required this.data,
+    super.key,
   });
 
   final String country;
@@ -44,7 +43,7 @@ class ResumeTripInformation extends StatelessWidget {
             ),
           ],
         ),
-        const MoneyRichText(money: '300', currency: '\$')
+        const MoneyRichText(money: '300', currency: r'$'),
       ],
     );
   }

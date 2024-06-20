@@ -4,13 +4,13 @@ import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
-    super.key,
     required this.hintText,
     required this.controller,
+    required this.validator,
+    super.key,
     this.error,
     this.suffixIcon,
     this.hasPassword = false,
-    required this.validator,
   });
 
   final String hintText;
@@ -48,15 +48,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
             focusedErrorBorder: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: AppColors.red,
-                width: 1,
               ),
             ),
             suffixIcon: widget.hasPassword
                 ? IconButton(
-              onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
-              icon: Icon(_obscurePassword ? Icons.visibility_off_outlined : Icons.remove_red_eye_outlined),
-              color: AppColors.cello,
-            )
+                    onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
+                    icon: Icon(
+                      _obscurePassword ? Icons.visibility_off_outlined : Icons.remove_red_eye_outlined,
+                    ),
+                    color: AppColors.cello,
+                  )
                 : widget.suffixIcon,
             hintText: widget.hintText,
           ),

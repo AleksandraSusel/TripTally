@@ -23,9 +23,12 @@ void main() {
   });
 
   test(
-    "Login logs user successful",
+    'Login logs user successful',
     () async {
-      final dto = LoginDto(email: mockedLoginDto.email, password: mockedLoginDto.password);
+      final dto = LoginDto(
+        email: mockedLoginDto.email,
+        password: mockedLoginDto.password,
+      );
 
       when(mockApiClient.login(any)).thenAnswer((_) async => testToken);
       when(mockSharedPrefsUtils.saveToken(testToken)).thenAnswer((_) async => const Success());
@@ -42,13 +45,15 @@ void main() {
   );
 
   test(
-    "Login throws ApiException on catch",
+    'Login throws ApiException on catch',
     () async {
       final dto = LoginDto(email: mockedLoginDto.email, password: mockedLoginDto.password);
       when(mockApiClient.login(any)).thenThrow(Exception());
       await expectLater(
         authenticationDataSource.login(dto),
-        throwsA(isA<ApiException>().having((e) => e.failure, 'Something went wrong', Errors.somethingWentWrong)),
+        throwsA(
+          isA<ApiException>().having((e) => e.failure, 'Something went wrong', Errors.somethingWentWrong),
+        ),
       );
       verify(mockApiClient.login(dto));
       verifyNoMoreInteractions(mockApiClient);
@@ -56,7 +61,7 @@ void main() {
   );
 
   test(
-    "CreateAccount creates new account successful",
+    'CreateAccount creates new account successful',
     () async {
       final dto = CreateAccountDto(email: mockedCreateAccountDto.email, password: mockedCreateAccountDto.password);
 
@@ -75,13 +80,15 @@ void main() {
   );
 
   test(
-    "CreateAccount throws ApiException on catch",
+    'CreateAccount throws ApiException on catch',
     () async {
       final dto = CreateAccountDto(email: mockedCreateAccountDto.email, password: mockedCreateAccountDto.password);
       when(mockApiClient.createAccount(any)).thenThrow(Exception());
       await expectLater(
         authenticationDataSource.createAccount(dto),
-        throwsA(isA<ApiException>().having((e) => e.failure, 'Something went wrong', Errors.somethingWentWrong)),
+        throwsA(
+          isA<ApiException>().having((e) => e.failure, 'Something went wrong', Errors.somethingWentWrong),
+        ),
       );
       verify(mockApiClient.createAccount(dto));
       verifyNoMoreInteractions(mockApiClient);
@@ -89,7 +96,7 @@ void main() {
   );
 
   test(
-    "SignOut remove users token success",
+    'SignOut remove users token success',
     () async {
       when(mockSharedPrefsUtils.removeToken).thenAnswer((_) async => true);
       final result = await authenticationDataSource.signOut();
@@ -100,12 +107,18 @@ void main() {
   );
 
   test(
-    "SignOut remove users token throws ApiException on catch",
+    'SignOut remove users token throws ApiException on catch',
     () async {
       when(mockSharedPrefsUtils.removeToken).thenAnswer((_) async => false);
       await expectLater(
         authenticationDataSource.signOut(),
-        throwsA(isA<ApiException>().having((e) => e.failure, 'Something went wrong', Errors.somethingWentWrong)),
+        throwsA(
+          isA<ApiException>().having(
+            (e) => e.failure,
+            'Something went wrong',
+            Errors.somethingWentWrong,
+          ),
+        ),
       );
       verify(mockSharedPrefsUtils.removeToken);
       verifyNoMoreInteractions(mockSharedPrefsUtils);

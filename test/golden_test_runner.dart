@@ -16,26 +16,28 @@ Future<void> runGoldenTest(
   BoxConstraints constrains = defaultConstraints,
   double textScaleFactor = 1.0,
 }) async {
-  goldenTest(name,
-      fileName: name.toSnakeCase,
-      builder: () => MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: ThemeManager().getTheme(),
-            localizationsDelegates: const [
-              Translation.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: Translation.delegate.supportedLocales,
-            builder: (_, child) => builder(),
-          ),
-      constraints: constrains,
-      textScaleFactor: textScaleFactor,
-      pumpBeforeTest: precacheImages,
-      whilePerforming: (tester) async {
-        await whilePerforming?.call(tester);
-        await tester.pumpAndSettle();
-        return;
-      });
+  await goldenTest(
+    name,
+    fileName: name.toSnakeCase,
+    builder: () => MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeManager().getTheme(),
+      localizationsDelegates: const [
+        Translation.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: Translation.delegate.supportedLocales,
+      builder: (_, child) => builder(),
+    ),
+    constraints: constrains,
+    textScaleFactor: textScaleFactor,
+    pumpBeforeTest: precacheImages,
+    whilePerforming: (tester) async {
+      await whilePerforming?.call(tester);
+      await tester.pumpAndSettle();
+      return;
+    },
+  );
 }

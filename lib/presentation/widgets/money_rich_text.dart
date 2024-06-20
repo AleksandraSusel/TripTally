@@ -3,9 +3,9 @@ import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
 class MoneyRichText extends StatelessWidget {
   const MoneyRichText({
-    super.key,
     required this.money,
     required this.currency,
+    super.key,
   });
 
   final String money;
@@ -23,7 +23,7 @@ class MoneyRichText extends StatelessWidget {
           TextSpan(
             text: currency,
             style: context.tht.headlineMedium,
-          )
+          ),
         ],
       ),
     );

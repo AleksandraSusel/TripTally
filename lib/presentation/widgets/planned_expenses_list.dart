@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/widgets/planned_expense.dart';
-
-import '../theme/app_paths.dart';
 
 class PlannedExpensesList extends StatelessWidget {
   const PlannedExpensesList({super.key});
@@ -15,8 +14,12 @@ class PlannedExpensesList extends StatelessWidget {
         height: 400,
         child: ListView.builder(
           itemCount: 10,
-          itemBuilder: (BuildContext context, int index) =>
-              const PlannedExpense(expense: 'Shopping', money: '300', currency: '\$', icon: AppPaths.package),
+          itemBuilder: (BuildContext context, int index) => const PlannedExpense(
+            expense: 'Shopping',
+            money: '300',
+            currency: r'$',
+            icon: AppPaths.package,
+          ),
         ),
       ),
     );

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/theme_manager.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-
-import '../theme/theme_manager.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({
-    super.key,
     required this.onPressed,
     required this.text,
+    super.key,
   });
 
   final VoidCallback onPressed;

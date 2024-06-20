@@ -1,4 +1,4 @@
-import '../theme/app_paths.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
 
 final transportIcons = [
   AppPaths.biggerAirplane,

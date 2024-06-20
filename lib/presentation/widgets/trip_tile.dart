@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/theme_manager.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-
-import '../theme/app_dimensions.dart';
-import '../theme/theme_manager.dart';
 
 class TripTile extends StatelessWidget {
   const TripTile({
-    super.key,
     required this.city,
     required this.expense,
     required this.date,
+    super.key,
   });
 
   final String city;
@@ -29,7 +28,6 @@ class TripTile extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(AppDimensions.d8),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(city, style: context.tht.labelMedium),
                   const SizedBox(height: AppDimensions.d5),

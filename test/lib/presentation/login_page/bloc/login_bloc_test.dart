@@ -25,7 +25,10 @@ void main() {
     },
     build: createBloc,
     act: (bloc) => bloc.add(
-      OnTapLoginEvent(email: mockedLoginEntity.email, password: mockedLoginEntity.password),
+      OnTapLoginEvent(
+        email: mockedLoginEntity.email,
+        password: mockedLoginEntity.password,
+      ),
     ),
     expect: () => const [
       LoginState.loading(),
@@ -40,11 +43,16 @@ void main() {
   blocTest<LoginBloc, LoginState>(
     'OnTapLoginEvent logs the user failure',
     setUp: () {
-      when(mockLoginUseCase.call(mockedLoginEntity)).thenAnswer((_) async => const Left(Failure(error: Errors.somethingWentWrong)));
+      when(mockLoginUseCase.call(mockedLoginEntity)).thenAnswer(
+        (_) async => const Left(Failure(error: Errors.somethingWentWrong)),
+      );
     },
     build: createBloc,
     act: (bloc) => bloc.add(
-      OnTapLoginEvent(email: mockedLoginEntity.email, password: mockedLoginEntity.password),
+      OnTapLoginEvent(
+        email: mockedLoginEntity.email,
+        password: mockedLoginEntity.password,
+      ),
     ),
     expect: () => const [
       LoginState.loading(),

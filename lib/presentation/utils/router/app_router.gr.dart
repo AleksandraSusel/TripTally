@@ -205,8 +205,7 @@ class RegistrationRoute extends PageRouteInfo<RegistrationRouteArgs> {
 
   static const String name = 'RegistrationRoute';
 
-  static const PageInfo<RegistrationRouteArgs> page =
-      PageInfo<RegistrationRouteArgs>(name);
+  static const PageInfo<RegistrationRouteArgs> page = PageInfo<RegistrationRouteArgs>(name);
 }
 
 class RegistrationRouteArgs {

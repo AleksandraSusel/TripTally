@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class AppScaffold extends StatelessWidget {
   const AppScaffold({
-    super.key,
     required this.actions,
     required this.body,
+    super.key,
   });
 
   final List<Widget> actions;

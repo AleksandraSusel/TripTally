@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:trip_tally/firebase_options.dart';
+import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart';
 import 'package:trip_tally/presentation/theme/theme_manager.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/utils/translation/generated/l10n.dart';
-
-import 'firebase_options.dart';
-import 'injectable/injectable.dart';
 
 Future<void> main() async {
   await _configureSystemUIOverlays();

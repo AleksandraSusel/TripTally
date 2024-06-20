@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:injectable/injectable.dart';
+import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
-
-import 'app_colors.dart';
 
 @singleton
 class ThemeManager {
@@ -21,12 +20,12 @@ class ThemeManager {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppDimensions.d20),
           ),
         ),
-        backgroundColor: const MaterialStatePropertyAll<Color>(AppColors.wePeep),
+        backgroundColor: const WidgetStatePropertyAll<Color>(AppColors.wePeep),
       ),
     ),
     brightness: Brightness.light,
@@ -140,9 +139,9 @@ class ThemeManager {
     ),
     textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
-        foregroundColor: MaterialStateProperty.all<Color>(AppColors.cello),
-        textStyle: MaterialStateProperty.all<TextStyle>(
+        backgroundColor: WidgetStateProperty.all<Color>(Colors.transparent),
+        foregroundColor: WidgetStateProperty.all<Color>(AppColors.cello),
+        textStyle: WidgetStateProperty.all<TextStyle>(
           const TextStyle(
             fontSize: AppDimensions.d20,
             fontWeight: FontWeight.w700,
@@ -197,10 +196,10 @@ class ThemeManager {
       );
 
   ButtonStyle get rectangleButtonStyleUnselected => ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
-        foregroundColor: MaterialStateProperty.all<Color>(AppColors.cello),
-        elevation: MaterialStateProperty.all(0),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        backgroundColor: WidgetStateProperty.all<Color>(Colors.transparent),
+        foregroundColor: WidgetStateProperty.all<Color>(AppColors.cello),
+        elevation: WidgetStateProperty.all(0),
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppDimensions.d20),
           ),
@@ -208,17 +207,20 @@ class ThemeManager {
       );
 
   ButtonStyle get rectangleButtonStyleSelected => ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(AppColors.wePeep),
-        foregroundColor: MaterialStateProperty.all<Color>(AppColors.wePeep),
-        elevation: MaterialStateProperty.all(0),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        backgroundColor: WidgetStateProperty.all<Color>(AppColors.wePeep),
+        foregroundColor: WidgetStateProperty.all<Color>(AppColors.wePeep),
+        elevation: WidgetStateProperty.all(0),
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppDimensions.d20),
           ),
         ),
       );
 
-  InputDecoration underlinedTextField({required String hintText, required String suffixIcon}) {
+  InputDecoration underlinedTextField({
+    required String hintText,
+    required String suffixIcon,
+  }) {
     return InputDecoration(
       hintText: hintText,
       suffixIcon: SvgPicture.asset(fit: BoxFit.scaleDown, suffixIcon),
@@ -246,7 +248,6 @@ class ThemeManager {
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.black,
             offset: Offset(1, 1),
             blurRadius: AppDimensions.d6,
             spreadRadius: AppDimensions.d1,
@@ -260,7 +261,10 @@ class ThemeManager {
         ],
       );
 
-  InputDecoration suffixIconTextField({required String hintText, required String suffixIcon}) {
+  InputDecoration suffixIconTextField({
+    required String hintText,
+    required String suffixIcon,
+  }) {
     return InputDecoration(
       hintText: hintText,
       suffixIcon: SvgPicture.asset(fit: BoxFit.scaleDown, suffixIcon),

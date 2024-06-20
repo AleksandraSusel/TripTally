@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../theme/app_paths.dart';
-import 'app_bar_rounded_button.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
+import 'package:trip_tally/presentation/widgets/app_bar_rounded_button.dart';
 
 class CalendarButton extends StatelessWidget {
   const CalendarButton({

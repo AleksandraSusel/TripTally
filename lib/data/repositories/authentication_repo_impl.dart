@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
+import 'package:trip_tally/data/dto/user/create_account_dto.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
 import 'package:trip_tally/domain/data_source/authentication_remote_source.dart';
 import 'package:trip_tally/domain/entities/user/create_account_entity.dart';
@@ -8,9 +9,7 @@ import 'package:trip_tally/domain/repositories/authentication_repo.dart';
 import 'package:trip_tally/domain/utils/exception.dart';
 import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
-
-import '../../presentation/utils/enums/errors.dart';
-import '../dto/user/create_account_dto.dart';
+import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 @Injectable(as: AuthenticationRepo)
 class AuthenticationRepoImpl implements AuthenticationRepo {

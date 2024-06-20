@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/date_format.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-
-import '../theme/app_dimensions.dart';
-import '../theme/app_paths.dart';
 
 class DatePicker extends StatefulWidget {
   const DatePicker({super.key});
@@ -31,7 +30,7 @@ class _DatePickerState extends State<DatePicker> {
     );
 
     if (pickedStartDate == null) return;
-    if (mounted) {
+    if (context.mounted) {
       final pickedEndDate = await showDatePicker(
         helpText: context.tr.newTripPage_PickTheEndDate,
         context: context,

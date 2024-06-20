@@ -112,7 +112,8 @@ class MockAuthenticationRepo extends _i1.Mock implements _i7.AuthenticationRepo 
       ) as _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>);
 
   @override
-  _i8.Future<_i2.Either<_i9.Failure, _i3.Success>> createAccount(_i11.CreateAccountEntity? entity) => (super.noSuchMethod(
+  _i8.Future<_i2.Either<_i9.Failure, _i3.Success>> createAccount(_i11.CreateAccountEntity? entity) =>
+      (super.noSuchMethod(
         Invocation.method(
           #createAccount,
           [entity],

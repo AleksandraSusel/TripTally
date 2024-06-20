@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
-import '../theme/app_dimensions.dart';
-import '../theme/app_paths.dart';
-
 class HiTravellerSubtitle extends StatelessWidget {
-  const HiTravellerSubtitle({super.key, required this.text});
+  const HiTravellerSubtitle({required this.text, super.key});
 
   final String text;
 
