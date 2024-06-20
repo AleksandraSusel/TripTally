@@ -20,22 +20,19 @@ mixin _$CreateUserEntity {
   String get password => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CreateUserEntityCopyWith<CreateUserEntity> get copyWith =>
-      throw _privateConstructorUsedError;
+  $CreateUserEntityCopyWith<CreateUserEntity> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CreateUserEntityCopyWith<$Res> {
-  factory $CreateUserEntityCopyWith(
-          CreateUserEntity value, $Res Function(CreateUserEntity) then) =
+  factory $CreateUserEntityCopyWith(CreateUserEntity value, $Res Function(CreateUserEntity) then) =
       _$CreateUserEntityCopyWithImpl<$Res, CreateUserEntity>;
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class _$CreateUserEntityCopyWithImpl<$Res, $Val extends CreateUserEntity>
-    implements $CreateUserEntityCopyWith<$Res> {
+class _$CreateUserEntityCopyWithImpl<$Res, $Val extends CreateUserEntity> implements $CreateUserEntityCopyWith<$Res> {
   _$CreateUserEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -63,10 +60,8 @@ class _$CreateUserEntityCopyWithImpl<$Res, $Val extends CreateUserEntity>
 }
 
 /// @nodoc
-abstract class _$$CreateUserEntityImplCopyWith<$Res>
-    implements $CreateUserEntityCopyWith<$Res> {
-  factory _$$CreateUserEntityImplCopyWith(_$CreateUserEntityImpl value,
-          $Res Function(_$CreateUserEntityImpl) then) =
+abstract class _$$CreateUserEntityImplCopyWith<$Res> implements $CreateUserEntityCopyWith<$Res> {
+  factory _$$CreateUserEntityImplCopyWith(_$CreateUserEntityImpl value, $Res Function(_$CreateUserEntityImpl) then) =
       __$$CreateUserEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -74,11 +69,9 @@ abstract class _$$CreateUserEntityImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CreateUserEntityImplCopyWithImpl<$Res>
-    extends _$CreateUserEntityCopyWithImpl<$Res, _$CreateUserEntityImpl>
+class __$$CreateUserEntityImplCopyWithImpl<$Res> extends _$CreateUserEntityCopyWithImpl<$Res, _$CreateUserEntityImpl>
     implements _$$CreateUserEntityImplCopyWith<$Res> {
-  __$$CreateUserEntityImplCopyWithImpl(_$CreateUserEntityImpl _value,
-      $Res Function(_$CreateUserEntityImpl) _then)
+  __$$CreateUserEntityImplCopyWithImpl(_$CreateUserEntityImpl _value, $Res Function(_$CreateUserEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -121,8 +114,7 @@ class _$CreateUserEntityImpl implements _CreateUserEntity {
         (other.runtimeType == runtimeType &&
             other is _$CreateUserEntityImpl &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password));
+            (identical(other.password, password) || other.password == password));
   }
 
   @override
@@ -132,14 +124,12 @@ class _$CreateUserEntityImpl implements _CreateUserEntity {
   @override
   @pragma('vm:prefer-inline')
   _$$CreateUserEntityImplCopyWith<_$CreateUserEntityImpl> get copyWith =>
-      __$$CreateUserEntityImplCopyWithImpl<_$CreateUserEntityImpl>(
-          this, _$identity);
+      __$$CreateUserEntityImplCopyWithImpl<_$CreateUserEntityImpl>(this, _$identity);
 }
 
 abstract class _CreateUserEntity implements CreateUserEntity {
-  const factory _CreateUserEntity(
-      {required final String email,
-      required final String password}) = _$CreateUserEntityImpl;
+  const factory _CreateUserEntity({required final String email, required final String password}) =
+      _$CreateUserEntityImpl;
 
   @override
   String get email;
@@ -147,6 +137,5 @@ abstract class _CreateUserEntity implements CreateUserEntity {
   String get password;
   @override
   @JsonKey(ignore: true)
-  _$$CreateUserEntityImplCopyWith<_$CreateUserEntityImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CreateUserEntityImplCopyWith<_$CreateUserEntityImpl> get copyWith => throw _privateConstructorUsedError;
 }

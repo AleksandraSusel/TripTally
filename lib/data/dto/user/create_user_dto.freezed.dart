@@ -25,22 +25,19 @@ mixin _$CreateUserDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CreateUserDtoCopyWith<CreateUserDto> get copyWith =>
-      throw _privateConstructorUsedError;
+  $CreateUserDtoCopyWith<CreateUserDto> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CreateUserDtoCopyWith<$Res> {
-  factory $CreateUserDtoCopyWith(
-          CreateUserDto value, $Res Function(CreateUserDto) then) =
+  factory $CreateUserDtoCopyWith(CreateUserDto value, $Res Function(CreateUserDto) then) =
       _$CreateUserDtoCopyWithImpl<$Res, CreateUserDto>;
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto>
-    implements $CreateUserDtoCopyWith<$Res> {
+class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto> implements $CreateUserDtoCopyWith<$Res> {
   _$CreateUserDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -68,10 +65,8 @@ class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto>
 }
 
 /// @nodoc
-abstract class _$$CreateUserDtoImplCopyWith<$Res>
-    implements $CreateUserDtoCopyWith<$Res> {
-  factory _$$CreateUserDtoImplCopyWith(
-          _$CreateUserDtoImpl value, $Res Function(_$CreateUserDtoImpl) then) =
+abstract class _$$CreateUserDtoImplCopyWith<$Res> implements $CreateUserDtoCopyWith<$Res> {
+  factory _$$CreateUserDtoImplCopyWith(_$CreateUserDtoImpl value, $Res Function(_$CreateUserDtoImpl) then) =
       __$$CreateUserDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -79,11 +74,9 @@ abstract class _$$CreateUserDtoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CreateUserDtoImplCopyWithImpl<$Res>
-    extends _$CreateUserDtoCopyWithImpl<$Res, _$CreateUserDtoImpl>
+class __$$CreateUserDtoImplCopyWithImpl<$Res> extends _$CreateUserDtoCopyWithImpl<$Res, _$CreateUserDtoImpl>
     implements _$$CreateUserDtoImplCopyWith<$Res> {
-  __$$CreateUserDtoImplCopyWithImpl(
-      _$CreateUserDtoImpl _value, $Res Function(_$CreateUserDtoImpl) _then)
+  __$$CreateUserDtoImplCopyWithImpl(_$CreateUserDtoImpl _value, $Res Function(_$CreateUserDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,8 +103,7 @@ class __$$CreateUserDtoImplCopyWithImpl<$Res>
 class _$CreateUserDtoImpl implements _CreateUserDto {
   const _$CreateUserDtoImpl({required this.email, required this.password});
 
-  factory _$CreateUserDtoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreateUserDtoImplFromJson(json);
+  factory _$CreateUserDtoImpl.fromJson(Map<String, dynamic> json) => _$$CreateUserDtoImplFromJson(json);
 
   @override
   final String email;
@@ -129,8 +121,7 @@ class _$CreateUserDtoImpl implements _CreateUserDto {
         (other.runtimeType == runtimeType &&
             other is _$CreateUserDtoImpl &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) ||
-                other.password == password));
+            (identical(other.password, password) || other.password == password));
   }
 
   @JsonKey(ignore: true)
@@ -152,12 +143,9 @@ class _$CreateUserDtoImpl implements _CreateUserDto {
 }
 
 abstract class _CreateUserDto implements CreateUserDto {
-  const factory _CreateUserDto(
-      {required final String email,
-      required final String password}) = _$CreateUserDtoImpl;
+  const factory _CreateUserDto({required final String email, required final String password}) = _$CreateUserDtoImpl;
 
-  factory _CreateUserDto.fromJson(Map<String, dynamic> json) =
-      _$CreateUserDtoImpl.fromJson;
+  factory _CreateUserDto.fromJson(Map<String, dynamic> json) = _$CreateUserDtoImpl.fromJson;
 
   @override
   String get email;
@@ -165,6 +153,5 @@ abstract class _CreateUserDto implements CreateUserDto {
   String get password;
   @override
   @JsonKey(ignore: true)
-  _$$CreateUserDtoImplCopyWith<_$CreateUserDtoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CreateUserDtoImplCopyWith<_$CreateUserDtoImpl> get copyWith => throw _privateConstructorUsedError;
 }
