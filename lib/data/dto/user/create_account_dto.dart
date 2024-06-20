@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/entities/user/create_account_entity.dart';
+import 'package:trip_tally/domain/entities/user/create_account_entity.dart';
 
 part 'create_account_dto.freezed.dart';
 

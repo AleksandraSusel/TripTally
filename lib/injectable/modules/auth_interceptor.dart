@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trip_tally/domain/utils/shared_prefs_keys.dart';
 
-import '../injectable.dart';
+import 'package:trip_tally/injectable/injectable.dart';
 
 class AuthInterceptor extends Interceptor {
   AuthInterceptor();

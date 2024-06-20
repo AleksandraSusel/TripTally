@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../entities/user/create_account_entity.dart';
-import '../repositories/authentication_repo.dart';
-import '../utils/failure.dart';
-import '../utils/success.dart';
-import '../utils/use_case.dart';
+import 'package:trip_tally/domain/entities/user/create_account_entity.dart';
+import 'package:trip_tally/domain/repositories/authentication_repo.dart';
+import 'package:trip_tally/domain/utils/failure.dart';
+import 'package:trip_tally/domain/utils/success.dart';
+import 'package:trip_tally/domain/utils/use_case.dart';
 
 @injectable
 class CreateAccountUseCase implements UseCase<Success, CreateAccountEntity> {
@@ -16,8 +16,8 @@ class CreateAccountUseCase implements UseCase<Success, CreateAccountEntity> {
   @override
   Future<Either<Failure, Success>> call(CreateAccountEntity entity) async {
     return (await _authenticationRepo.createAccount(entity)).fold(
-      (failure) => Left(failure),
-      (success) => Right(success),
+      Left.new,
+      Right.new,
     );
   }
 }

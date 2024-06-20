@@ -20,7 +20,7 @@ import 'package:trip_tally/presentation/pages/registration_page/bloc/registratio
   ApiClient,
   SharedPreferences,
   CreateAccountUseCase,
-  SharedPrefsUtils
+  SharedPrefsUtils,
 ])
 void main() {}
 

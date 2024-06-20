@@ -32,7 +32,8 @@ abstract class $CreateAccountEntityCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CreateAccountEntityCopyWithImpl<$Res, $Val extends CreateAccountEntity> implements $CreateAccountEntityCopyWith<$Res> {
+class _$CreateAccountEntityCopyWithImpl<$Res, $Val extends CreateAccountEntity>
+    implements $CreateAccountEntityCopyWith<$Res> {
   _$CreateAccountEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -61,7 +62,8 @@ class _$CreateAccountEntityCopyWithImpl<$Res, $Val extends CreateAccountEntity> 
 
 /// @nodoc
 abstract class _$$CreateAccountEntityImplCopyWith<$Res> implements $CreateAccountEntityCopyWith<$Res> {
-  factory _$$CreateAccountEntityImplCopyWith(_$CreateAccountEntityImpl value, $Res Function(_$CreateAccountEntityImpl) then) =
+  factory _$$CreateAccountEntityImplCopyWith(
+          _$CreateAccountEntityImpl value, $Res Function(_$CreateAccountEntityImpl) then) =
       __$$CreateAccountEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -69,9 +71,11 @@ abstract class _$$CreateAccountEntityImplCopyWith<$Res> implements $CreateAccoun
 }
 
 /// @nodoc
-class __$$CreateAccountEntityImplCopyWithImpl<$Res> extends _$CreateAccountEntityCopyWithImpl<$Res, _$CreateAccountEntityImpl>
+class __$$CreateAccountEntityImplCopyWithImpl<$Res>
+    extends _$CreateAccountEntityCopyWithImpl<$Res, _$CreateAccountEntityImpl>
     implements _$$CreateAccountEntityImplCopyWith<$Res> {
-  __$$CreateAccountEntityImplCopyWithImpl(_$CreateAccountEntityImpl _value, $Res Function(_$CreateAccountEntityImpl) _then)
+  __$$CreateAccountEntityImplCopyWithImpl(
+      _$CreateAccountEntityImpl _value, $Res Function(_$CreateAccountEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')

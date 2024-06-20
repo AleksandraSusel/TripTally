@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 
-import 'circle_svg_button.dart';
+import 'package:trip_tally/presentation/widgets/circle_svg_button.dart';
 
 class SettingsTile extends StatelessWidget {
   const SettingsTile({
-    super.key,
     required this.svgPath,
     required this.onTap,
     required this.text,
+    super.key,
   });
 
   final String svgPath;

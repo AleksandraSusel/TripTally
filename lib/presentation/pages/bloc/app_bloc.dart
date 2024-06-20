@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/utils/shared_prefs_utils.dart';
+import 'package:trip_tally/domain/utils/shared_prefs_utils.dart';
 
 part 'app_bloc.freezed.dart';
 

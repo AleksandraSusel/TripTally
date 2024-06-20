@@ -58,7 +58,7 @@ void main() {
         mockedCreateAccountEntity.email,
         mockedCreateAccountEntity.password,
         mockedCreateAccountEntity.password,
-            ),
+      ),
     ),
     verify: (_) {
       verify(mockCreateAccountUseCase.call(mockedCreateAccountEntity));

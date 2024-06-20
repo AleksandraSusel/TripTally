@@ -61,7 +61,7 @@ void main() {
   );
 
   test(
-    "CreateAccount creates new account successful",
+    'CreateAccount creates new account successful',
     () async {
       final dto = CreateAccountDto(email: mockedCreateAccountDto.email, password: mockedCreateAccountDto.password);
 
@@ -80,7 +80,7 @@ void main() {
   );
 
   test(
-    "CreateAccount throws ApiException on catch",
+    'CreateAccount throws ApiException on catch',
     () async {
       final dto = CreateAccountDto(email: mockedCreateAccountDto.email, password: mockedCreateAccountDto.password);
       when(mockApiClient.createAccount(any)).thenThrow(Exception());

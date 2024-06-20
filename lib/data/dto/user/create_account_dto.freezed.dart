@@ -42,7 +42,6 @@ class _$CreateAccountDtoCopyWithImpl<$Res, $Val extends CreateAccountDto> implem
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -144,7 +143,8 @@ class _$CreateAccountDtoImpl implements _CreateAccountDto {
 }
 
 abstract class _CreateAccountDto implements CreateAccountDto {
-  const factory _CreateAccountDto({required final String email, required final String password}) = _$CreateAccountDtoImpl;
+  const factory _CreateAccountDto({required final String email, required final String password}) =
+      _$CreateAccountDtoImpl;
 
   factory _CreateAccountDto.fromJson(Map<String, dynamic> json) = _$CreateAccountDtoImpl.fromJson;
 
