@@ -16,8 +16,13 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y jq
           FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
-          git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
-          echo "$PWD/flutter/bin" >> $GITHUB_PATH
+          echo "FLUTTER_VERSION=$FLUTTER_VERSION" >> $GITHUB_ENV
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
       - name: Flutter version
         run: flutter --version
 
@@ -30,8 +35,13 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y jq
           FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
-          git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
-          echo "$PWD/flutter/bin" >> $GITHUB_PATH
+          echo "FLUTTER_VERSION=$FLUTTER_VERSION" >> $GITHUB_ENV
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
       - name: Install dependencies
         run: flutter pub get
 
@@ -44,8 +54,13 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y jq
           FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
-          git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
-          echo "$PWD/flutter/bin" >> $GITHUB_PATH
+          echo "FLUTTER_VERSION=$FLUTTER_VERSION" >> $GITHUB_ENV
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
       - name: Install dependencies
         run: flutter pub get
       - name: Run build runner
@@ -62,8 +77,13 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y jq
           FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
-          git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
-          echo "$PWD/flutter/bin" >> $GITHUB_PATH
+          echo "FLUTTER_VERSION=$FLUTTER_VERSION" >> $GITHUB_ENV
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
       - name: Install dependencies
         run: flutter pub get
       - name: Verify formatting
@@ -78,8 +98,13 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y jq
           FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
-          git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
-          echo "$PWD/flutter/bin" >> $GITHUB_PATH
+          echo "FLUTTER_VERSION=$FLUTTER_VERSION" >> $GITHUB_ENV
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
       - name: Install dependencies
         run: flutter pub get
       - name: Update golden tests
