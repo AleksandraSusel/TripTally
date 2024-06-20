@@ -11,17 +11,17 @@ import '../../../../mocked_data.dart';
 import '../../../../mocks.mocks.dart';
 
 void main() {
-  late MockCreateUserUseCase mockCreateUserUseCase;
+  late MockCreateAccountUseCase mockCreateAccountUseCase;
   setUpAll(() {
-    mockCreateUserUseCase = MockCreateUserUseCase();
+    mockCreateAccountUseCase = MockCreateAccountUseCase();
   });
 
-  RegistrationBloc createBloc() => RegistrationBloc(mockCreateUserUseCase);
+  RegistrationBloc createBloc() => RegistrationBloc(mockCreateAccountUseCase);
 
   blocTest<RegistrationBloc, RegistrationState>(
     'RegistrationBloc sends the email and the passwords success',
     setUp: () {
-      when(mockCreateUserUseCase.call(mockedCreateUserEntity)).thenAnswer((_) async => const Right(Success()));
+      when(mockCreateAccountUseCase.call(mockedCreateAccountEntity)).thenAnswer((_) async => const Right(Success()));
     },
     build: createBloc,
     expect: () => const [
@@ -30,21 +30,21 @@ void main() {
     ],
     act: (bloc) => bloc.add(
       OnTapRegistrationEvent(
-        mockedCreateUserEntity.email,
-        mockedCreateUserEntity.password,
-        mockedCreateUserEntity.password,
+        mockedCreateAccountEntity.email,
+        mockedCreateAccountEntity.password,
+        mockedCreateAccountEntity.password,
       ),
     ),
     verify: (_) {
-      verify(mockCreateUserUseCase.call(mockedCreateUserEntity));
-      verifyNoMoreInteractions(mockCreateUserUseCase);
+      verify(mockCreateAccountUseCase.call(mockedCreateAccountEntity));
+      verifyNoMoreInteractions(mockCreateAccountUseCase);
     },
   );
 
   blocTest<RegistrationBloc, RegistrationState>(
     'RegistrationBloc sends the email and the passwords failure',
     setUp: () {
-      when(mockCreateUserUseCase.call(mockedCreateUserEntity)).thenAnswer(
+      when(mockCreateAccountUseCase.call(mockedCreateAccountEntity)).thenAnswer(
         (_) async => const Left(Failure(error: Errors.somethingWentWrong)),
       );
     },
@@ -55,14 +55,14 @@ void main() {
     ],
     act: (bloc) => bloc.add(
       OnTapRegistrationEvent(
-        mockedCreateUserEntity.email,
-        mockedCreateUserEntity.password,
-        mockedCreateUserEntity.password,
-      ),
+        mockedCreateAccountEntity.email,
+        mockedCreateAccountEntity.password,
+        mockedCreateAccountEntity.password,
+            ),
     ),
     verify: (_) {
-      verify(mockCreateUserUseCase.call(mockedCreateUserEntity));
-      verifyNoMoreInteractions(mockCreateUserUseCase);
+      verify(mockCreateAccountUseCase.call(mockedCreateAccountEntity));
+      verifyNoMoreInteractions(mockCreateAccountUseCase);
     },
   );
 }

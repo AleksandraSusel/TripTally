@@ -53,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Add new journey"),
         "hiTravellerSubtitle_planNewJourney":
             MessageLookupByLibrary.simpleMessage("Plan a new journey"),
+        "hiTravellerSubtitle_yourProfileSettings": MessageLookupByLibrary.simpleMessage("Your profile settings"),
         "hiTravellerText_hi": MessageLookupByLibrary.simpleMessage("Hi "),
         "hiTravellerText_traveller":
             MessageLookupByLibrary.simpleMessage("traveller"),
@@ -94,6 +95,10 @@ class MessageLookup extends MessageLookupByLibrary {
                 "You don\\\'t have any trips yet!"),
         "resumeOfTripPage_YouHavePlanned":
             MessageLookupByLibrary.simpleMessage("You have planned:"),
+        "settingsPage_ChangeYourEmail": MessageLookupByLibrary.simpleMessage("Change your email"),
+        "settingsPage_ChangeYourPassword": MessageLookupByLibrary.simpleMessage("Change your password"),
+        "settingsPage_DeleteYourAccount": MessageLookupByLibrary.simpleMessage("Delete your account"),
+        "settingsPage_HistoryOfYourTrips": MessageLookupByLibrary.simpleMessage("History of your trips"),
         "summaryRectangle_youAreStillInYourBudget":
             MessageLookupByLibrary.simpleMessage(
                 "You are still in your budget: "),

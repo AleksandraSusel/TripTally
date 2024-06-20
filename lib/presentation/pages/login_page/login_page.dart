@@ -13,7 +13,15 @@ import 'package:trip_tally/presentation/widgets/custom_circular_progress_indicat
 import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
 import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
-import 'package:trip_tally/presentation/widgets/welcome_title_widget.dart';
+
+import '../../../environment.config.dart';
+import '../../../injectable/injectable.dart';
+import '../../theme/app_dimensions.dart';
+import '../../utils/validators.dart';
+import '../../widgets/custom_circular_progress_indicator.dart';
+import '../../widgets/custom_elevated_button.dart';
+import '../../widgets/custom_snack_bar.dart';
+import '../../widgets/welcome_title_widget.dart';
 
 @RoutePage()
 class LoginPage extends StatelessWidget {

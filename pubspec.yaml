@@ -69,6 +69,7 @@ dependencies:
   file: ^7.0.0
   inner_shadow_widget: ^0.0.3
   country_flags: ^3.0.0
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:

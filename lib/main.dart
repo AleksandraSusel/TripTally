@@ -13,7 +13,7 @@ import 'package:trip_tally/presentation/utils/translation/generated/l10n.dart';
 Future<void> main() async {
   await _configureSystemUIOverlays();
   await _configureServices();
-  configureDependencies();
+  await configureDependencies();
   runApp(const MyApp());
 }
 
@@ -37,6 +37,8 @@ class MyApp extends StatelessWidget {
         child: BlocListener<AppBloc, AppState>(
           listener: (context, state) => state.whenOrNull(
             initial: () => getIt<AppRouter>().push(RegistrationRoute()),
+            success: () => getIt<AppRouter>().push(const NewTripRoute()),
+            toLoginPage: () => getIt<AppRouter>().push(LoginRoute()),
             loading: () => const Center(
               child: CircularProgressIndicator(),
             ),

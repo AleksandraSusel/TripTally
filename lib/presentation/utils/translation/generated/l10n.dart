@@ -400,6 +400,16 @@ class Translation {
     );
   }
 
+  /// `Your profile settings`
+  String get hiTravellerSubtitle_yourProfileSettings {
+    return Intl.message(
+      'Your profile settings',
+      name: 'hiTravellerSubtitle_yourProfileSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Submit!`
   String get newTripPage_submit {
     return Intl.message(
@@ -445,6 +455,46 @@ class Translation {
     return Intl.message(
       'Pick the start date',
       name: 'newTripPage_PickTheStartDate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `History of your trips`
+  String get settingsPage_HistoryOfYourTrips {
+    return Intl.message(
+      'History of your trips',
+      name: 'settingsPage_HistoryOfYourTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change on your email`
+  String get settingsPage_ChangeYourEmail {
+    return Intl.message(
+      'Change on your email',
+      name: 'settingsPage_ChangeYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change on your password`
+  String get settingsPage_ChangeYourPassword {
+    return Intl.message(
+      'Change on your password',
+      name: 'settingsPage_ChangeYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete your account`
+  String get settingsPage_DeleteYourAccount {
+    return Intl.message(
+      'Delete your account',
+      name: 'settingsPage_DeleteYourAccount',
       desc: '',
       args: [],
     );

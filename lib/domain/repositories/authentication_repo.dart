@@ -6,12 +6,12 @@ import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 
 abstract class AuthenticationRepo {
-  Future<Either<Failure, UserCredential>> createUser(
-    CreateUserEntity entity,
-  );
-
   Future<Either<Failure, Success>> login(
     LoginEntity entity,
+  );
+
+  Future<Either<Failure, Success>> createAccount(
+    CreateAccountEntity entity,
   );
 
   Future<Either<Failure, Success>> signOut();
