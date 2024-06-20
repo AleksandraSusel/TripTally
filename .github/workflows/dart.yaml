@@ -17,7 +17,7 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y jq
 
-          FLUTTER_VERSION=$(cat fvm/fvm_config.json | jq -r '.flutterSdkVersion')
+          FLUTTER_VERSION=$(cat .fvm/fvm_config.json | jq -r '.flutterSdkVersion')
           
           git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION --depth 1
           
