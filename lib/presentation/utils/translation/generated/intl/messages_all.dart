@@ -37,11 +37,9 @@ MessageLookupByLibrary? _findExact(String localeName) {
 
 /// User programs should call this before using [localeName] for messages.
 Future<bool> initializeMessages(String localeName) {
-  final availableLocale = Intl.verifiedLocale(
-    localeName,
-    (locale) => _deferredLibraries[locale] != null,
-    onFailure: (_) => null,
-  );
+  final availableLocale = Intl.verifiedLocale(localeName, (locale) => _deferredLibraries[locale] != null,
+      // ignore: require_trailing_commas
+      onFailure: (_) => null);
   if (availableLocale == null) {
     return new SynchronousFuture(false);
   }

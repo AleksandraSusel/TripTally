@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
-
 import 'package:trip_tally/presentation/widgets/circle_svg_button.dart';
 
 class SettingsTile extends StatelessWidget {
@@ -28,6 +27,8 @@ class SettingsTile extends StatelessWidget {
         children: [
           Text(text),
           CustomSvgButton(
+            height: AppDimensions.d26,
+            width: AppDimensions.d26,
             svgPath: svgPath,
             onTap: onTap,
           ),

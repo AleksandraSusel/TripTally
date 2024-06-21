@@ -70,5 +70,9 @@
   "editCurrentTrip_changeYourTransport": "change your transport",
   "plannedTripsPage_yourPlannedTrips": "Your planned trips",
   "plannedTripsPage_youHavePlanned": "You have planned",
-  "addExpensesPage_addExpenses": "Add expenses"
+  "addExpensesPage_addExpenses": "Add expenses",
+  "yourCurrentTripPage_yourCurrentTrip": "Your current trip",
+  "yourCurrentTripPage_closeTheTrip": "Close the trip",
+  "yourCurrentTripPage_addExpense": "Add expense",
+  "yourCurrentTripPage_editTheTrip": "Edit the trip"
 }
