@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:trip_tally/presentation/utils/translation/generated/intl/messages_all.dart';
+import 'intl/messages_all.dart';
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -18,17 +18,17 @@ class Translation {
   static Translation? _current;
 
   static Translation get current {
-    assert(
-      _current != null,
-      'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.',
-    );
+    assert(_current != null,
+        'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.');
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<Translation> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -41,10 +41,8 @@ class Translation {
 
   static Translation of(BuildContext context) {
     final instance = Translation.maybeOf(context);
-    assert(
-      instance != null,
-      'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?',
-    );
+    assert(instance != null,
+        'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?');
     return instance!;
   }
 
@@ -597,6 +595,56 @@ class Translation {
     return Intl.message(
       'Safe!',
       name: 'planExpensesPage_safe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit your trip`
+  String get editCurrentTrip_editYourTrip {
+    return Intl.message(
+      'Edit your trip',
+      name: 'editCurrentTrip_editYourTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get editCurrentTrip_submit {
+    return Intl.message(
+      'Submit',
+      name: 'editCurrentTrip_submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change a city`
+  String get editCurrentTrip_changeACity {
+    return Intl.message(
+      'Change a city',
+      name: 'editCurrentTrip_changeACity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change a date`
+  String get editCurrentTrip_changeADate {
+    return Intl.message(
+      'Change a date',
+      name: 'editCurrentTrip_changeADate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `change your transport`
+  String get editCurrentTrip_changeYourTransport {
+    return Intl.message(
+      'change your transport',
+      name: 'editCurrentTrip_changeYourTransport',
       desc: '',
       args: [],
     );
