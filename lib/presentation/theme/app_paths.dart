@@ -35,4 +35,5 @@ class AppPaths {
   static const String hotel = '$svgPath/hotel.svg';
   static const String eye = '$svgPath/eye.svg';
   static const String exit = '$svgPath/exit.svg';
+  static const String close = '$svgPath/close.svg';
 }

@@ -1,12 +1,15 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
-import 'package:trip_tally/presentation/widgets/circle_svg_button.dart';
+import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
+import 'package:trip_tally/presentation/widgets/calendar_button.dart';
 import 'package:trip_tally/presentation/widgets/hi_traveller_title_widget.dart';
 import 'package:trip_tally/presentation/widgets/main_container.dart';
+import 'package:trip_tally/presentation/widgets/package_button.dart';
+import 'package:trip_tally/presentation/widgets/person_button.dart';
 import 'package:trip_tally/presentation/widgets/settings_tile.dart';
 
 @RoutePage()
@@ -16,32 +19,12 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      actions: [
-        CustomSvgButton(
-          svgPath: AppPaths.arrowBack,
-          onTap: () {},
-          height: AppDimensions.d26,
-          width: AppDimensions.d26,
-        ),
-        const Spacer(),
-        CustomSvgButton(
-          height: AppDimensions.d26,
-          width: AppDimensions.d26,
-          svgPath: AppPaths.calendar,
-          onTap: () {},
-        ),
-        CustomSvgButton(
-          height: AppDimensions.d26,
-          width: AppDimensions.d26,
-          svgPath: AppPaths.package,
-          onTap: () {},
-        ),
-        CustomSvgButton(
-          height: AppDimensions.d26,
-          width: AppDimensions.d26,
-          svgPath: AppPaths.person,
-          onTap: () {},
-        ),
+      actions: const [
+        ArrowBackButton(),
+        Spacer(),
+        CalendarButton(),
+        PackageButton(),
+        PersonButton(),
       ],
       body: SingleChildScrollView(
         child: SafeArea(
@@ -58,7 +41,7 @@ class SettingsPage extends StatelessWidget {
                     ),
                     SettingsTile(
                       svgPath: AppPaths.history,
-                      onTap: () {},
+                      onTap: () => context.router.push(const PlannedTripsRoute()),
                       text: context.tr.settingsPage_HistoryOfYourTrips,
                     ),
                     SettingsTile(

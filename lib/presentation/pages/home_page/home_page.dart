@@ -10,9 +10,7 @@ import 'package:trip_tally/presentation/widgets/current_trip_information.dart';
 import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
 import 'package:trip_tally/presentation/widgets/custom_rectangle_button.dart';
 import 'package:trip_tally/presentation/widgets/main_container.dart';
-import 'package:trip_tally/presentation/widgets/package_button.dart';
 import 'package:trip_tally/presentation/widgets/person_button.dart';
-import 'package:trip_tally/presentation/widgets/settings_button.dart';
 import 'package:trip_tally/presentation/widgets/summary_rectangle.dart';
 import 'package:trip_tally/presentation/widgets/welcome_title_widget.dart';
 
@@ -24,10 +22,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       actions: const [
-        SettingsButton(),
-        Spacer(),
         CalendarButton(),
-        PackageButton(),
         PersonButton(),
       ],
       body: SingleChildScrollView(
@@ -47,7 +42,7 @@ class HomePage extends StatelessWidget {
                           containerWidth: AppDimensions.d90,
                           icon: AppPaths.plus,
                           text: context.tr.homePage_addNewTrip,
-                          onTap: () {},
+                          onTap: () => context.router.push(const NewTripRoute()),
                           iconHeight: AppDimensions.d50,
                           iconWidth: AppDimensions.d50,
                         ),
@@ -77,7 +72,7 @@ class HomePage extends StatelessWidget {
                         ),
                         const SizedBox(height: AppDimensions.d24),
                         CustomElevatedButton(
-                          onPressed: () => context.router.push(const NewTripRoute()),
+                          onPressed: () => context.router.push(const YourCurrentTripRoute()),
                           text: context.tr.homePage_goToYourTrip,
                         ),
                       ],

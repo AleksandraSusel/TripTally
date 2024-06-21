@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 
 class AppBarRoundedButton extends StatelessWidget {
-  const AppBarRoundedButton({required this.svgPicture, super.key});
+  const AppBarRoundedButton({
+    required this.svgPicture,
+    required this.onPressed,
+    super.key,
+  });
 
   final String svgPicture;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +31,7 @@ class AppBarRoundedButton extends StatelessWidget {
           ],
         ),
         child: FloatingActionButton(
-          onPressed: () {},
+          onPressed: onPressed,
           child: SvgPicture.asset(
             svgPicture,
             height: AppDimensions.d26,
