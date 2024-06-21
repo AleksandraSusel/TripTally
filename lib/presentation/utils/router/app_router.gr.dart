@@ -95,6 +95,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SettingsPage(),
       );
     },
+    SummaryAfterClosingRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SummaryAfterClosingPage(),
+      );
+    },
     ViewOfCurrentExpensesRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -314,6 +320,20 @@ class SettingsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SettingsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SummaryAfterClosingPage]
+class SummaryAfterClosingRoute extends PageRouteInfo<void> {
+  const SummaryAfterClosingRoute({List<PageRouteInfo>? children})
+      : super(
+          SummaryAfterClosingRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SummaryAfterClosingRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

@@ -19,7 +19,6 @@ import 'package:trip_tally/presentation/utils/translation/generated/intl/message
 import 'package:trip_tally/presentation/utils/translation/generated/intl/messages_pl.dart' as messages_pl;
 
 typedef Future<dynamic> LibraryLoader();
-
 Map<String, LibraryLoader> _deferredLibraries = {
   'en': () => new SynchronousFuture(null),
   'pl': () => new SynchronousFuture(null),

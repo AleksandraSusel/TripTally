@@ -69,26 +69,40 @@ class MessageLookup extends MessageLookupByLibrary {
         "plannedTripsPage_yourPlannedTrips": MessageLookupByLibrary.simpleMessage("Your planned trips"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
         "removeCurrentTripPage_deleteTheTrip": MessageLookupByLibrary.simpleMessage("Delete"),
-        "removeCurrentTripPage_doYouWantToRemoveThisTrip": MessageLookupByLibrary.simpleMessage("Do you want to remove the trip?"),
+        "removeCurrentTripPage_doYouWantToRemoveThisTrip": MessageLookupByLibrary.simpleMessage(
+          "Do you want to remove the trip?",
+        ),
         "removeCurrentTripPage_removeYourTrip": MessageLookupByLibrary.simpleMessage("Remove your trip"),
         "repeatPassword": MessageLookupByLibrary.simpleMessage("Repeat password"),
-        "resumeOfTripExpenses_YouDontHaveAnyTrips": MessageLookupByLibrary.simpleMessage("You don\\\'t have any trips yet!"),
+        "resumeOfTripExpenses_YouDontHaveAnyTrips": MessageLookupByLibrary.simpleMessage(
+          "You don\\\'t have any trips yet!",
+        ),
         "resumeOfTripPage_YouHavePlanned": MessageLookupByLibrary.simpleMessage("You have planned:"),
         "settingsPage_ChangeYourEmail": MessageLookupByLibrary.simpleMessage("Change your email"),
         "settingsPage_ChangeYourPassword": MessageLookupByLibrary.simpleMessage("Change your password"),
         "settingsPage_DeleteYourAccount": MessageLookupByLibrary.simpleMessage("Delete your account"),
         "settingsPage_HistoryOfYourTrips": MessageLookupByLibrary.simpleMessage("History of your trips"),
-        "summaryRectangle_youAreStillInYourBudget": MessageLookupByLibrary.simpleMessage("You are still in your budget: "),
+        "summaryAfterClosingPage_close": MessageLookupByLibrary.simpleMessage("Close"),
+        "summaryAfterClosingPage_congrats": MessageLookupByLibrary.simpleMessage("Congrats"),
+        "summaryAfterClosingPage_totalCostOfTheTrip": MessageLookupByLibrary.simpleMessage("Total cost of the trip"),
+        "summaryAfterClosingPage_youHaveSpentGreatMomentsIn": MessageLookupByLibrary.simpleMessage(
+          "You have spent great moments in:",
+        ),
+        "summaryRectangle_youAreStillInYourBudget": MessageLookupByLibrary.simpleMessage(
+          "You are still in your budget: ",
+        ),
         "summaryRectangle_youHaveSpent": MessageLookupByLibrary.simpleMessage("You have spent: "),
         "validators_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
         "validators_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
         "validators_yourEmailIsIncorrect": MessageLookupByLibrary.simpleMessage("Your email is incorrect"),
         "viewOfCurrentExpenses_youHaveSpent": MessageLookupByLibrary.simpleMessage("You have spent"),
         "viewOfCurrentExpenses_yourCurrentExpenses": MessageLookupByLibrary.simpleMessage("Your current expenses"),
-        "welcomeSubtitle_theAppForReportingAllExpenses": MessageLookupByLibrary.simpleMessage("The app for reporting all expenses"),
+        "welcomeSubtitle_theAppForReportingAllExpenses": MessageLookupByLibrary.simpleMessage(
+          "The app for reporting all expenses",
+        ),
         "welcomeSubtitle_whileTravelling": MessageLookupByLibrary.simpleMessage("while travelling"),
         "welcomeText_tally": MessageLookupByLibrary.simpleMessage("Tally!"),
         "welcomeText_trip": MessageLookupByLibrary.simpleMessage("Trip"),
-        "welcomeText_welcomeIn": MessageLookupByLibrary.simpleMessage("Welcome in \n")
+        "welcomeText_welcomeIn": MessageLookupByLibrary.simpleMessage("Welcome in \n"),
       };
 }

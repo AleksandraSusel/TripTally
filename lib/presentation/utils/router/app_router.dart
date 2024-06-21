@@ -13,6 +13,7 @@ import 'package:trip_tally/presentation/pages/registration_page/bloc/registratio
 import 'package:trip_tally/presentation/pages/registration_page/registration_page.dart';
 import 'package:trip_tally/presentation/pages/resume_of_trip_page/resume_of_trip_page.dart';
 import 'package:trip_tally/presentation/pages/settings_page/settings_page.dart';
+import 'package:trip_tally/presentation/pages/summary_after_closing_page/summary_after_closing_page.dart';
 import 'package:trip_tally/presentation/pages/view_of_current_expenses_page/view_of_current_expenses_page.dart';
 import 'package:trip_tally/presentation/remove_current_trip_page/remove_current_trip_page.dart';
 
@@ -29,20 +30,19 @@ class AppRouter extends _$AppRouter {
       );
 
   @override
-  List<AutoRoute> get routes =>
-      [
+  List<AutoRoute> get routes => [
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: LoginRoute.page, initial: true),
         AutoRoute(page: RegistrationRoute.page),
         AutoRoute(page: NewTripRoute.page),
         AutoRoute(page: SettingsRoute.page),
         AutoRoute(page: NewTripRoute.page),
-        AutoRoute(page: NewTripRoute.page),
         AutoRoute(page: PlanNewTripRoute.page),
         AutoRoute(page: PlanExpensesRoute.page),
         AutoRoute(page: NewTripRoute.page),
         AutoRoute(page: ResumeOfTripRoute.page),
         AutoRoute(page: PlannedTripsRoute.page),
+        AutoRoute(page: SummaryAfterClosingRoute.page),
         AutoRoute(page: AddExpensesRoute.page),
         AutoRoute(
           page: ViewOfCurrentExpensesRoute.page,
