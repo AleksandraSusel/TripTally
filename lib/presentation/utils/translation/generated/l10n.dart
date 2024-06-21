@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -593,6 +594,56 @@ class Translation {
     return Intl.message(
       'Safe!',
       name: 'planExpensesPage_safe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit your trip`
+  String get editCurrentTrip_editYourTrip {
+    return Intl.message(
+      'Edit your trip',
+      name: 'editCurrentTrip_editYourTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get editCurrentTrip_submit {
+    return Intl.message(
+      'Submit',
+      name: 'editCurrentTrip_submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change a city`
+  String get editCurrentTrip_changeACity {
+    return Intl.message(
+      'Change a city',
+      name: 'editCurrentTrip_changeACity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change a date`
+  String get editCurrentTrip_changeADate {
+    return Intl.message(
+      'Change a date',
+      name: 'editCurrentTrip_changeADate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `change your transport`
+  String get editCurrentTrip_changeYourTransport {
+    return Intl.message(
+      'change your transport',
+      name: 'editCurrentTrip_changeYourTransport',
       desc: '',
       args: [],
     );
