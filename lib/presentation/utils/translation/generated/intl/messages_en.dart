@@ -24,6 +24,11 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expenses"),
         "currentTripInformation_youAreIn": MessageLookupByLibrary.simpleMessage("You are in:"),
+        "editCurrentTrip_changeACity": MessageLookupByLibrary.simpleMessage("Change a city"),
+        "editCurrentTrip_changeADate": MessageLookupByLibrary.simpleMessage("Change a date"),
+        "editCurrentTrip_changeYourTransport": MessageLookupByLibrary.simpleMessage("change your transport"),
+        "editCurrentTrip_editYourTrip": MessageLookupByLibrary.simpleMessage("Edit your trip"),
+        "editCurrentTrip_submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "email": MessageLookupByLibrary.simpleMessage("E-mail"),
         "errors_emailInUse": MessageLookupByLibrary.simpleMessage("Email in use"),
         "errors_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
@@ -60,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "planExpensesPage_planExpenses": MessageLookupByLibrary.simpleMessage("Plan expenses"),
         "planExpensesPage_safe": MessageLookupByLibrary.simpleMessage("Safe!"),
         "planNewTripPage_next": MessageLookupByLibrary.simpleMessage("Next"),
+        "plannedTripsPage_youHavePlanned": MessageLookupByLibrary.simpleMessage("You have planned"),
+        "plannedTripsPage_yourPlannedTrips": MessageLookupByLibrary.simpleMessage("Your planned trips"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
         "repeatPassword": MessageLookupByLibrary.simpleMessage("Repeat password"),
         "resumeOfTripExpenses_YouDontHaveAnyTrips": MessageLookupByLibrary.simpleMessage(
@@ -77,6 +84,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "validators_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
         "validators_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
         "validators_yourEmailIsIncorrect": MessageLookupByLibrary.simpleMessage("Your email is incorrect"),
+        "viewOfCurrentExpenses_youHaveSpent": MessageLookupByLibrary.simpleMessage("You have spent"),
+        "viewOfCurrentExpenses_yourCurrentExpenses": MessageLookupByLibrary.simpleMessage("Your current expenses"),
         "welcomeSubtitle_theAppForReportingAllExpenses": MessageLookupByLibrary.simpleMessage(
           "The app for reporting all expenses",
         ),

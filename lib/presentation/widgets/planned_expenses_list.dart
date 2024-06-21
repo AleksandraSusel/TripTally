@@ -13,7 +13,7 @@ class PlannedExpensesList extends StatelessWidget {
       child: SizedBox(
         height: 400,
         child: ListView.builder(
-          itemCount: 10,
+          itemCount: 8,
           itemBuilder: (BuildContext context, int index) => const PlannedExpense(
             expense: 'Shopping',
             money: '300',

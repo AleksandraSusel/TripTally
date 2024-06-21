@@ -54,5 +54,14 @@
   "planExpensesPage_safe": "Safe!",
   "resumeOfTripPage_YouHavePlanned": "You have planned:",
   "resumeOfTripExpenses_YouDontHaveAnyTrips": "You don\\'t have any trips yet!",
+  "viewOfCurrentExpenses_yourCurrentExpenses": "Your current expenses",
+  "viewOfCurrentExpenses_youHaveSpent": "You have spent",
+  "editCurrentTrip_editYourTrip": "Edit your trip",
+  "editCurrentTrip_submit": "Submit",
+  "editCurrentTrip_changeACity": "Change a city",
+  "editCurrentTrip_changeADate": "Change a date",
+  "editCurrentTrip_changeYourTransport": "change your transport",
+  "plannedTripsPage_yourPlannedTrips": "Your planned trips",
+  "plannedTripsPage_youHavePlanned": "You have planned",
   "addExpensesPage_addExpenses": "Add expenses"
 }

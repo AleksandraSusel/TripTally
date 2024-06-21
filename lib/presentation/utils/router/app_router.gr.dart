@@ -21,6 +21,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AddExpensesPage(),
       );
     },
+    EditCurrentTripRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EditCurrentTripPage(),
+      );
+    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -83,6 +89,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SettingsPage(),
       );
     },
+    ViewOfCurrentExpensesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ViewOfCurrentExpensesPage(),
+      );
+    },
   };
 }
 
@@ -96,6 +108,20 @@ class AddExpensesRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AddExpensesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [EditCurrentTripPage]
+class EditCurrentTripRoute extends PageRouteInfo<void> {
+  const EditCurrentTripRoute({List<PageRouteInfo>? children})
+      : super(
+          EditCurrentTripRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EditCurrentTripRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -268,6 +294,20 @@ class SettingsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SettingsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ViewOfCurrentExpensesPage]
+class ViewOfCurrentExpensesRoute extends PageRouteInfo<void> {
+  const ViewOfCurrentExpensesRoute({List<PageRouteInfo>? children})
+      : super(
+          ViewOfCurrentExpensesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ViewOfCurrentExpensesRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

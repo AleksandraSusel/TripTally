@@ -249,7 +249,7 @@ class ThemeManager {
         boxShadow: [
           BoxShadow(
             offset: Offset(1, 1),
-            blurRadius: AppDimensions.d6,
+            blurRadius: AppDimensions.d20,
             spreadRadius: AppDimensions.d1,
           ),
           BoxShadow(

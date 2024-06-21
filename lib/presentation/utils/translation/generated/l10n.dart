@@ -611,6 +611,96 @@ class Translation {
       args: [],
     );
   }
+
+  /// `Your planned trips`
+  String get plannedTripsPage_yourPlannedTrips {
+    return Intl.message(
+      'Your planned trips',
+      name: 'plannedTripsPage_yourPlannedTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have planned`
+  String get plannedTripsPage_youHavePlanned {
+    return Intl.message(
+      'You have planned',
+      name: 'plannedTripsPage_youHavePlanned',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit your trip`
+  String get editCurrentTrip_editYourTrip {
+    return Intl.message(
+      'Edit your trip',
+      name: 'editCurrentTrip_editYourTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get editCurrentTrip_submit {
+    return Intl.message(
+      'Submit',
+      name: 'editCurrentTrip_submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change a city`
+  String get editCurrentTrip_changeACity {
+    return Intl.message(
+      'Change a city',
+      name: 'editCurrentTrip_changeACity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change a date`
+  String get editCurrentTrip_changeADate {
+    return Intl.message(
+      'Change a date',
+      name: 'editCurrentTrip_changeADate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `change your transport`
+  String get editCurrentTrip_changeYourTransport {
+    return Intl.message(
+      'change your transport',
+      name: 'editCurrentTrip_changeYourTransport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your current expenses`
+  String get viewOfCurrentExpenses_yourCurrentExpenses {
+    return Intl.message(
+      'Your current expenses',
+      name: 'viewOfCurrentExpenses_yourCurrentExpenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have spent`
+  String get viewOfCurrentExpenses_youHaveSpent {
+    return Intl.message(
+      'You have spent',
+      name: 'viewOfCurrentExpenses_youHaveSpent',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {
