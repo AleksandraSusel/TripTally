@@ -1,10 +1,10 @@
 import 'package:trip_tally/presentation/remove_current_trip_page/remove_current_trip_page.dart';
 
-import '../../../golden_test_runner.dart';
+import '../../../../golden_test_runner.dart';
 
 void main() {
   runGoldenTest(
-    'PlannedTripsPage initial',
+    'RemoveCurrentTripPage initial',
     builder: () {
       return const RemoveCurrentTripPage();
     },

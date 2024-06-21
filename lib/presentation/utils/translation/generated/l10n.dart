@@ -1,7 +1,8 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:trip_tally/presentation/utils/translation/generated/intl/messages_all.dart';
+
+import 'intl/messages_all.dart';
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -18,10 +19,8 @@ class Translation {
   static Translation? _current;
 
   static Translation get current {
-    assert(
-      _current != null,
-      'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.',
-    );
+    assert(_current != null,
+        'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.');
     return _current!;
   }
 
@@ -41,10 +40,8 @@ class Translation {
 
   static Translation of(BuildContext context) {
     final instance = Translation.maybeOf(context);
-    assert(
-      instance != null,
-      'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?',
-    );
+    assert(instance != null,
+        'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?');
     return instance!;
   }
 
@@ -697,6 +694,36 @@ class Translation {
     return Intl.message(
       'You have spent',
       name: 'viewOfCurrentExpenses_youHaveSpent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remove your trip`
+  String get removeCurrentTripPage_removeYourTrip {
+    return Intl.message(
+      'Remove your trip',
+      name: 'removeCurrentTripPage_removeYourTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to remove the trip?`
+  String get removeCurrentTripPage_doYouWantToRemoveThisTrip {
+    return Intl.message(
+      'Do you want to remove the trip?',
+      name: 'removeCurrentTripPage_doYouWantToRemoveThisTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get removeCurrentTripPage_deleteTheTrip {
+    return Intl.message(
+      'Delete',
+      name: 'removeCurrentTripPage_deleteTheTrip',
       desc: '',
       args: [],
     );
