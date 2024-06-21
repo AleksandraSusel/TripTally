@@ -1,7 +1,8 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:trip_tally/presentation/utils/translation/generated/intl/messages_all.dart';
+
+import 'intl/messages_all.dart';
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -18,10 +19,8 @@ class Translation {
   static Translation? _current;
 
   static Translation get current {
-    assert(
-      _current != null,
-      'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.',
-    );
+    assert(_current != null,
+        'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.');
     return _current!;
   }
 
@@ -41,10 +40,8 @@ class Translation {
 
   static Translation of(BuildContext context) {
     final instance = Translation.maybeOf(context);
-    assert(
-      instance != null,
-      'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?',
-    );
+    assert(instance != null,
+        'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?');
     return instance!;
   }
 
@@ -597,6 +594,106 @@ class Translation {
     return Intl.message(
       'Safe!',
       name: 'planExpensesPage_safe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add expenses`
+  String get addExpensesPage_addExpenses {
+    return Intl.message(
+      'Add expenses',
+      name: 'addExpensesPage_addExpenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your planned trips`
+  String get plannedTripsPage_yourPlannedTrips {
+    return Intl.message(
+      'Your planned trips',
+      name: 'plannedTripsPage_yourPlannedTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have planned`
+  String get plannedTripsPage_youHavePlanned {
+    return Intl.message(
+      'You have planned',
+      name: 'plannedTripsPage_youHavePlanned',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit your trip`
+  String get editCurrentTrip_editYourTrip {
+    return Intl.message(
+      'Edit your trip',
+      name: 'editCurrentTrip_editYourTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get editCurrentTrip_submit {
+    return Intl.message(
+      'Submit',
+      name: 'editCurrentTrip_submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change a city`
+  String get editCurrentTrip_changeACity {
+    return Intl.message(
+      'Change a city',
+      name: 'editCurrentTrip_changeACity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change a date`
+  String get editCurrentTrip_changeADate {
+    return Intl.message(
+      'Change a date',
+      name: 'editCurrentTrip_changeADate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `change your transport`
+  String get editCurrentTrip_changeYourTransport {
+    return Intl.message(
+      'change your transport',
+      name: 'editCurrentTrip_changeYourTransport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your current expenses`
+  String get viewOfCurrentExpenses_yourCurrentExpenses {
+    return Intl.message(
+      'Your current expenses',
+      name: 'viewOfCurrentExpenses_yourCurrentExpenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have spent`
+  String get viewOfCurrentExpenses_youHaveSpent {
+    return Intl.message(
+      'You have spent',
+      name: 'viewOfCurrentExpenses_youHaveSpent',
       desc: '',
       args: [],
     );
