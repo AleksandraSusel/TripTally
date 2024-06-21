@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:trip_tally/presentation/pages/edit_current_trip_page/edit_current_trip_page.dart';
 import 'package:trip_tally/presentation/pages/home_page/home_page.dart';
 import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart';
 import 'package:trip_tally/presentation/pages/login_page/login_page.dart';
@@ -11,6 +12,7 @@ import 'package:trip_tally/presentation/pages/registration_page/bloc/registratio
 import 'package:trip_tally/presentation/pages/registration_page/registration_page.dart';
 import 'package:trip_tally/presentation/pages/resume_of_trip_page/resume_of_trip_page.dart';
 import 'package:trip_tally/presentation/pages/settings_page/settings_page.dart';
+import 'package:trip_tally/presentation/pages/view_of_current_expenses_page/view_of_current_expenses_page.dart';
 
 part 'app_router.gr.dart';
 
@@ -38,5 +40,9 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: NewTripRoute.page),
         AutoRoute(page: ResumeOfTripRoute.page),
         AutoRoute(page: PlannedTripsRoute.page),
+        AutoRoute(
+          page: ViewOfCurrentExpensesRoute.page,
+        ),
+        AutoRoute(page: EditCurrentTripRoute.page),
       ];
 }

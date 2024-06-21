@@ -55,5 +55,12 @@
   "planExpensesPage_choseIcon": "Chose a icon",
   "planExpensesPage_safe": "Safe!",
   "plannedTripsPage_yourPlannedTrips": "Your planned trips",
-  "plannedTripsPage_youHavePlanned": "You have planned"
+  "plannedTripsPage_youHavePlanned": "You have planned",
+  "editCurrentTrip_editYourTrip": "Edit your trip",
+  "editCurrentTrip_submit": "Submit",
+  "editCurrentTrip_changeACity": "Change a city",
+  "editCurrentTrip_changeADate": "Change a date",
+  "editCurrentTrip_changeYourTransport": "change your transport",
+  "viewOfCurrentExpenses_yourCurrentExpenses": "Your current expenses",
+  "viewOfCurrentExpenses_youHaveSpent": "You have spent"
 }

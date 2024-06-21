@@ -1,5 +1,5 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
+import 'package:auto_route/annotations.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
@@ -12,8 +12,8 @@ import 'package:trip_tally/presentation/widgets/settings_button.dart';
 import 'package:trip_tally/presentation/widgets/top_container.dart';
 
 @RoutePage()
-class ResumeOfTripPage extends StatelessWidget {
-  const ResumeOfTripPage({
+class ViewOfCurrentExpensesPage extends StatelessWidget {
+  const ViewOfCurrentExpensesPage({
     super.key,
   });
 
@@ -30,20 +30,25 @@ class ResumeOfTripPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const TopContainer(
+              TopContainer(
                 child: ResumeTripInformation(
                   country: 'Germany',
-                  subtitle: '3.01.24-10.01.24',
+                  subtitle: context.tr.viewOfCurrentExpenses_youHaveSpent,
                 ),
               ),
               const SizedBox(height: AppDimensions.d40),
-              Padding(
-                padding: const EdgeInsets.only(left: AppDimensions.d18),
-                child: Text(context.tr.resumeOfTripPage_YouHavePlanned),
+              SizedBox(
+                height: 80,
+                width: 300,
+                child: Text(
+                  'Your current expenses',
+                  style: context.tht.displayMedium,
+                  textAlign: TextAlign.center,
+                ),
               ),
-              const SizedBox(height: AppDimensions.d40),
+              const SizedBox(height: AppDimensions.d10),
               const PlannedExpensesList(),
             ],
           ),

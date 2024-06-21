@@ -8,12 +8,14 @@ import 'package:trip_tally/presentation/widgets/money_rich_text.dart';
 class ResumeTripInformation extends StatelessWidget {
   const ResumeTripInformation({
     required this.country,
-    required this.data,
+    required this.subtitle,
+    this.svgPath,
     super.key,
   });
 
   final String country;
-  final String data;
+  final String subtitle;
+  final String? svgPath;
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +35,17 @@ class ResumeTripInformation extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(AppDimensions.d8),
               child: Text(
-                data,
+                subtitle,
                 style: context.tht.headlineSmall,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(AppDimensions.d8),
-              child: SvgPicture.asset(AppPaths.car),
-            ),
+            if (svgPath != null)
+              Padding(
+                padding: const EdgeInsets.all(AppDimensions.d8),
+                child: SvgPicture.asset(AppPaths.car),
+              )
+            else
+              const SizedBox(),
           ],
         ),
         const MoneyRichText(money: '300', currency: r'$'),
