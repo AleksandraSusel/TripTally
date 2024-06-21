@@ -104,5 +104,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "welcomeText_tally": MessageLookupByLibrary.simpleMessage("Tally!"),
         "welcomeText_trip": MessageLookupByLibrary.simpleMessage("Trip"),
         "welcomeText_welcomeIn": MessageLookupByLibrary.simpleMessage("Welcome in \n"),
+        "yourCurrentTripPage_addExpense": MessageLookupByLibrary.simpleMessage("Add expense"),
+        "yourCurrentTripPage_closeTheTrip": MessageLookupByLibrary.simpleMessage("Close the trip"),
+        "yourCurrentTripPage_editTheTrip": MessageLookupByLibrary.simpleMessage("Edit the trip"),
+        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip"),
       };
 }

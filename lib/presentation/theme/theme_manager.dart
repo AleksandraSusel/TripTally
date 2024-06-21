@@ -55,7 +55,7 @@ class ThemeManager {
       ),
       labelSmall: TextStyle(
         fontFamily: _fontName,
-        fontSize: AppDimensions.d12,
+        fontSize: AppDimensions.d10,
         color: AppColors.cello,
         fontWeight: FontWeight.w400,
         letterSpacing: 2,

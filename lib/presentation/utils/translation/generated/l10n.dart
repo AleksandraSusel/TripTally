@@ -771,6 +771,46 @@ class Translation {
       args: [],
     );
   }
+
+  /// `Your current trip`
+  String get yourCurrentTripPage_yourCurrentTrip {
+    return Intl.message(
+      'Your current trip',
+      name: 'yourCurrentTripPage_yourCurrentTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close the trip`
+  String get yourCurrentTripPage_closeTheTrip {
+    return Intl.message(
+      'Close the trip',
+      name: 'yourCurrentTripPage_closeTheTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add expense`
+  String get yourCurrentTripPage_addExpense {
+    return Intl.message(
+      'Add expense',
+      name: 'yourCurrentTripPage_addExpense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit the trip`
+  String get yourCurrentTripPage_editTheTrip {
+    return Intl.message(
+      'Edit the trip',
+      name: 'yourCurrentTripPage_editTheTrip',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {

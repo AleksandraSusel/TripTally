@@ -20,7 +20,7 @@ class SummaryRectangle extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(AppDimensions.d8),
           child: Container(
-            height: AppDimensions.d100,
+            height: AppDimensions.d152,
             decoration: ThemeManager().sideShadow,
             child: Padding(
               padding: const EdgeInsets.all(AppDimensions.d8),
@@ -30,12 +30,12 @@ class SummaryRectangle extends StatelessWidget {
                 children: [
                   Text(
                     '${context.tr.summaryRectangle_youHaveSpent} $spendMoney \$',
-                    style: context.tht.labelSmall,
+                    style: context.tht.displaySmall,
                   ),
-                  const SizedBox(height: AppDimensions.d10),
+                  const SizedBox(height: AppDimensions.d30),
                   Text(
                     '${context.tr.summaryRectangle_youAreStillInYourBudget} $budgetMoney \$',
-                    style: context.tht.labelSmall,
+                    style: context.tht.displaySmall,
                   ),
                 ],
               ),

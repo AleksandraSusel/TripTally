@@ -107,6 +107,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ViewOfCurrentExpensesPage(),
       );
     },
+    YourCurrentTripRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const YourCurrentTripPage(),
+      );
+    },
   };
 }
 
@@ -348,6 +354,20 @@ class ViewOfCurrentExpensesRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ViewOfCurrentExpensesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [YourCurrentTripPage]
+class YourCurrentTripRoute extends PageRouteInfo<void> {
+  const YourCurrentTripRoute({List<PageRouteInfo>? children})
+      : super(
+          YourCurrentTripRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'YourCurrentTripRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

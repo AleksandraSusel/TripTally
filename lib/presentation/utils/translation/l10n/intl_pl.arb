@@ -70,5 +70,9 @@
   "viewOfCurrentExpenses_youHaveSpent": "You have spent",
   "removeCurrentTripPage_removeYourTrip": "Remove your trip",
   "removeCurrentTripPage_doYouWantToRemoveThisTrip": "Do you want to remove the trip?",
-  "removeCurrentTripPage_deleteTheTrip": "Delete"
+  "removeCurrentTripPage_deleteTheTrip": "Delete",
+  "yourCurrentTripPage_yourCurrentTrip": "Your current trip",
+  "yourCurrentTripPage_closeTheTrip": "Close the trip",
+  "yourCurrentTripPage_addExpense": "Add expense",
+  "yourCurrentTripPage_editTheTrip": "Edit the trip"
 }
