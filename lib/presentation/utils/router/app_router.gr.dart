@@ -15,6 +15,18 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AddExpensesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AddExpensesPage(),
+      );
+    },
+    EditCurrentTripRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EditCurrentTripPage(),
+      );
+    },
     HomeRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -65,6 +77,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    RemoveCurrentTripRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RemoveCurrentTripPage(),
+      );
+    },
     ResumeOfTripRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -83,7 +101,41 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SummaryAfterClosingPage(),
       );
     },
+    ViewOfCurrentExpensesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ViewOfCurrentExpensesPage(),
+      );
+    },
   };
+}
+
+/// generated route for
+/// [AddExpensesPage]
+class AddExpensesRoute extends PageRouteInfo<void> {
+  const AddExpensesRoute({List<PageRouteInfo>? children})
+      : super(
+          AddExpensesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AddExpensesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [EditCurrentTripPage]
+class EditCurrentTripRoute extends PageRouteInfo<void> {
+  const EditCurrentTripRoute({List<PageRouteInfo>? children})
+      : super(
+          EditCurrentTripRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EditCurrentTripRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -231,6 +283,20 @@ class RegistrationRouteArgs {
 }
 
 /// generated route for
+/// [RemoveCurrentTripPage]
+class RemoveCurrentTripRoute extends PageRouteInfo<void> {
+  const RemoveCurrentTripRoute({List<PageRouteInfo>? children})
+      : super(
+          RemoveCurrentTripRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RemoveCurrentTripRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [ResumeOfTripPage]
 class ResumeOfTripRoute extends PageRouteInfo<void> {
   const ResumeOfTripRoute({List<PageRouteInfo>? children})
@@ -268,6 +334,20 @@ class SummaryAfterClosingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SummaryAfterClosingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ViewOfCurrentExpensesPage]
+class ViewOfCurrentExpensesRoute extends PageRouteInfo<void> {
+  const ViewOfCurrentExpensesRoute({List<PageRouteInfo>? children})
+      : super(
+          ViewOfCurrentExpensesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ViewOfCurrentExpensesRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
