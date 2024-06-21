@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -27,7 +26,9 @@ class Translation {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<Translation> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -644,6 +645,26 @@ class Translation {
     return Intl.message(
       'change your transport',
       name: 'editCurrentTrip_changeYourTransport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your current expenses`
+  String get viewOfCurrentExpenses_yourCurrentExpenses {
+    return Intl.message(
+      'Your current expenses',
+      name: 'viewOfCurrentExpenses_yourCurrentExpenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have spent`
+  String get viewOfCurrentExpenses_youHaveSpent {
+    return Intl.message(
+      'You have spent',
+      name: 'viewOfCurrentExpenses_youHaveSpent',
       desc: '',
       args: [],
     );

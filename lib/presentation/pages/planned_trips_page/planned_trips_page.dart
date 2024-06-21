@@ -42,7 +42,7 @@ class PlannedTripsPage extends StatelessWidget {
               TopContainer(
                 child: ResumeTripInformation(
                   country: 'Germany',
-                  data: '3.01.24-10.01.24',
+                  subtitle: '3.01.24-10.01.24',
                 ),
               ),
               TripTileList(),

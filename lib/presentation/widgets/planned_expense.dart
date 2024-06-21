@@ -24,7 +24,7 @@ class PlannedExpense extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Padding(
-          padding: const EdgeInsets.all(AppDimensions.d8),
+          padding: const EdgeInsets.all(AppDimensions.d10),
           child: SvgPicture.asset(icon),
         ),
         const SizedBox(width: AppDimensions.d40),
