@@ -65,7 +65,6 @@ class EditCurrentTripPage extends StatelessWidget {
                       height: AppDimensions.d152,
                       child: DatePicker(),
                     ),
-                    const SizedBox(height: AppDimensions.d50),
                     CustomElevatedButton(
                       onPressed: () => context.router.push(const PlanExpensesRoute()),
                       text: context.tr.editCurrentTrip_submit,
