@@ -62,5 +62,6 @@
   "editCurrentTrip_changeADate": "Change a date",
   "editCurrentTrip_changeYourTransport": "change your transport",
   "plannedTripsPage_yourPlannedTrips": "Your planned trips",
-  "plannedTripsPage_youHavePlanned": "You have planned"
+  "plannedTripsPage_youHavePlanned": "You have planned",
+  "addExpensesPage_addExpenses": "Add expenses"
 }

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:trip_tally/presentation/pages/add_expenses_page/add_expenses_page.dart';
 import 'package:trip_tally/presentation/pages/edit_current_trip_page/edit_current_trip_page.dart';
 import 'package:trip_tally/presentation/pages/home_page/home_page.dart';
 import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart';
@@ -27,9 +28,10 @@ class AppRouter extends _$AppRouter {
       );
 
   @override
-  List<AutoRoute> get routes => [
+  List<AutoRoute> get routes =>
+      [
         AutoRoute(page: HomeRoute.page),
-        AutoRoute(page: LoginRoute.page, initial: true),
+        AutoRoute(page: LoginRoute.page),
         AutoRoute(page: RegistrationRoute.page),
         AutoRoute(page: NewTripRoute.page),
         AutoRoute(page: SettingsRoute.page),
@@ -40,6 +42,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: NewTripRoute.page),
         AutoRoute(page: ResumeOfTripRoute.page),
         AutoRoute(page: PlannedTripsRoute.page),
+        AutoRoute(page: AddExpensesRoute.page),
         AutoRoute(
           page: ViewOfCurrentExpensesRoute.page,
         ),

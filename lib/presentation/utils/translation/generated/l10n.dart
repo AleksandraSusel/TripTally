@@ -602,6 +602,16 @@ class Translation {
     );
   }
 
+  /// `Add expenses`
+  String get addExpensesPage_addExpenses {
+    return Intl.message(
+      'Add expenses',
+      name: 'addExpensesPage_addExpenses',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Your planned trips`
   String get plannedTripsPage_yourPlannedTrips {
     return Intl.message(
