@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
 import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
 import 'package:trip_tally/presentation/widgets/calendar_button.dart';
@@ -123,7 +124,7 @@ class PlanExpensesPage extends StatelessWidget {
                       ),
                     ),
                     CustomElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => context.router.push(const ResumeOfTripRoute()),
                       text: context.tr.planExpensesPage_safe,
                     ),
                   ],

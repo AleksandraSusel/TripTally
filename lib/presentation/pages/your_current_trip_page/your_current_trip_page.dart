@@ -5,6 +5,7 @@ import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
+import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
 import 'package:trip_tally/presentation/widgets/calendar_button.dart';
 import 'package:trip_tally/presentation/widgets/circle_svg_button.dart';
 import 'package:trip_tally/presentation/widgets/current_trip_information.dart';
@@ -13,7 +14,6 @@ import 'package:trip_tally/presentation/widgets/hi_traveller_title_widget.dart';
 import 'package:trip_tally/presentation/widgets/main_container.dart';
 import 'package:trip_tally/presentation/widgets/package_button.dart';
 import 'package:trip_tally/presentation/widgets/person_button.dart';
-import 'package:trip_tally/presentation/widgets/settings_button.dart';
 import 'package:trip_tally/presentation/widgets/summary_rectangle.dart';
 
 @RoutePage()
@@ -24,7 +24,7 @@ class YourCurrentTripPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppScaffold(
       actions: const [
-        SettingsButton(),
+        ArrowBackButton(),
         Spacer(),
         CalendarButton(),
         PackageButton(),
@@ -50,9 +50,9 @@ class YourCurrentTripPage extends StatelessWidget {
                         CustomRectangleButton(
                           containerHeight: AppDimensions.d80,
                           containerWidth: AppDimensions.d80,
-                          icon: AppPaths.history,
+                          icon: AppPaths.close,
                           text: context.tr.yourCurrentTripPage_closeTheTrip,
-                          onTap: () {},
+                          onTap: () => context.router.push(const SummaryAfterClosingRoute()),
                           iconHeight: AppDimensions.d50,
                           iconWidth: AppDimensions.d50,
                         ),
@@ -61,7 +61,7 @@ class YourCurrentTripPage extends StatelessWidget {
                           containerWidth: AppDimensions.d80,
                           icon: AppPaths.plus,
                           text: context.tr.yourCurrentTripPage_addExpense,
-                          onTap: () => context.router.push(const PlanNewTripRoute()),
+                          onTap: () => context.router.push(const AddExpensesRoute()),
                           iconHeight: AppDimensions.d50,
                           iconWidth: AppDimensions.d50,
                         ),
@@ -70,7 +70,7 @@ class YourCurrentTripPage extends StatelessWidget {
                           containerWidth: AppDimensions.d80,
                           icon: AppPaths.pen,
                           text: context.tr.yourCurrentTripPage_editTheTrip,
-                          onTap: () => context.router.push(const PlanNewTripRoute()),
+                          onTap: () => context.router.push(const EditCurrentTripRoute()),
                           iconHeight: AppDimensions.d50,
                           iconWidth: AppDimensions.d50,
                         ),
@@ -89,7 +89,7 @@ class YourCurrentTripPage extends StatelessWidget {
                           right: 1,
                           child: CustomSvgButton(
                             svgPath: AppPaths.eye,
-                            onTap: () {},
+                            onTap: () => context.router.push(const ViewOfCurrentExpensesRoute()),
                             height: AppDimensions.d22,
                             width: AppDimensions.d22,
                           ),

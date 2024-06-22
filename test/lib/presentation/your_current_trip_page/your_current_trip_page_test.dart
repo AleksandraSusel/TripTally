@@ -1,4 +1,4 @@
-import 'package:trip_tally/presentation/pages/your_trip_page/your_trip_page.dart';
+import 'package:trip_tally/presentation/pages/your_current_trip_page/your_current_trip_page.dart';
 
 import '../../../golden_test_runner.dart';
 
