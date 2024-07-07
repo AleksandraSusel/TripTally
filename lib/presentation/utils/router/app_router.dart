@@ -32,7 +32,7 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes =>
       [
-        AutoRoute(page: HomeRoute.page, initial: true),
+        AutoRoute(page: HomeRoute.page),
         AutoRoute(page: LoginRoute.page),
         AutoRoute(page: RegistrationRoute.page),
         AutoRoute(page: NewTripRoute.page),
@@ -49,5 +49,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: EditCurrentTripRoute.page),
         AutoRoute(page: RemoveCurrentTripRoute.page),
         AutoRoute(page: YourCurrentTripRoute.page),
+        AutoRoute(page: TestM3Route.page, initial: true),
       ];
 }

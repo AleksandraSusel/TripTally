@@ -247,7 +247,7 @@ class ThemeManager {
         letterSpacing: 0.5,
       ),
     ),
-  ).dark();
+  ).light();
 
   BoxDecoration get mainShadow => BoxDecoration(
         color: AppColors.linkWater,
