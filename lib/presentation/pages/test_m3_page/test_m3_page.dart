@@ -1,5 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/outlined_trip_card.dart';
 import 'package:trip_tally/presentation/widgets/trip_tally_progress_indicator.dart';
 
 @RoutePage()
@@ -112,8 +114,9 @@ class TestM3PageState extends State<TestM3Page> {
         ),
       ),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(AppDimensions.d16),
         children: [
+          const OutlinedTripCard(),
           const TripTallyProgressIndicator(),
           Text(
             'Material 3 Widgets',

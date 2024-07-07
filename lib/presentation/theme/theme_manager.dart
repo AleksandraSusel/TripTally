@@ -167,7 +167,7 @@ class ThemeManager {
 
   final _themeM3Data = const MaterialTheme(
     TextTheme(
-      /// [display] used for bold roboto fonts -> size: 22/16/14
+      /// [display] used for BOLD roboto fonts -> size: 22/16/14
       displayLarge: TextStyle(
         fontFamily: _robotoFont,
         fontSize: AppDimensions.d22,
@@ -187,7 +187,7 @@ class ThemeManager {
         letterSpacing: 0.1,
       ),
 
-      /// [title] used for regular roboto fonts -> size: 24/16/14
+      /// [title] used for REGULAR roboto fonts -> size: 24/16/14
       titleLarge: TextStyle(
         fontFamily: _robotoFont,
         fontSize: AppDimensions.d24,
@@ -207,7 +207,7 @@ class ThemeManager {
         letterSpacing: 0.1,
       ),
 
-      /// [label] used for medium roboto fonts -> size: 22/16/14
+      /// [label] used for MEDIUM roboto fonts -> size: 22/16/14
       labelLarge: TextStyle(
         fontFamily: _robotoFont,
         fontSize: AppDimensions.d22,
