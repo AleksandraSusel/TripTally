@@ -1,18 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:trip_tally/presentation/theme/app_dimensions.dart';
-import 'package:trip_tally/presentation/theme/app_paths.dart';
-import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/router/app_router.dart';
-import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
-import 'package:trip_tally/presentation/widgets/calendar_button.dart';
-import 'package:trip_tally/presentation/widgets/current_trip_information.dart';
-import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
-import 'package:trip_tally/presentation/widgets/custom_rectangle_button.dart';
-import 'package:trip_tally/presentation/widgets/main_container.dart';
-import 'package:trip_tally/presentation/widgets/person_button.dart';
-import 'package:trip_tally/presentation/widgets/summary_rectangle.dart';
-import 'package:trip_tally/presentation/widgets/welcome_title_widget.dart';
+import 'package:trip_tally/presentation/widgets/trip_tally_progress_indicator.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -20,69 +8,316 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
-      actions: const [
-        CalendarButton(),
-        PersonButton(),
-      ],
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            children: [
-              const WelcomeTittleWidget(),
-              MainContainer(
-                child: Column(
-                  children: [
-                    const SizedBox(height: AppDimensions.d20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CustomRectangleButton(
-                          containerHeight: AppDimensions.d90,
-                          containerWidth: AppDimensions.d90,
-                          icon: AppPaths.plus,
-                          text: context.tr.homePage_addNewTrip,
-                          onTap: () => context.router.push(const NewTripRoute()),
-                          iconHeight: AppDimensions.d50,
-                          iconWidth: AppDimensions.d50,
-                        ),
-                        const SizedBox(width: AppDimensions.d40),
-                        CustomRectangleButton(
-                          containerHeight: AppDimensions.d90,
-                          containerWidth: AppDimensions.d90,
-                          icon: AppPaths.pen,
-                          text: context.tr.homePage_planNewTrip,
-                          onTap: () => context.router.push(const PlanNewTripRoute()),
-                          iconHeight: AppDimensions.d50,
-                          iconWidth: AppDimensions.d50,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: AppDimensions.d20),
-                    Column(
-                      children: [
-                        const CurrentTripInformation(
-                          country: 'Italy',
-                          countryCode: 'IT',
-                        ),
-                        const SizedBox(height: AppDimensions.d20),
-                        const SummaryRectangle(
-                          spendMoney: '3000',
-                          budgetMoney: '100',
-                        ),
-                        const SizedBox(height: AppDimensions.d24),
-                        CustomElevatedButton(
-                          onPressed: () => context.router.push(const YourCurrentTripRoute()),
-                          text: context.tr.homePage_goToYourTrip,
-                        ),
-                      ],
-                    ),
-                  ],
+    return const Scaffold(
+      body: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  HomeScreenState createState() => HomeScreenState();
+}
+
+class HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  void _showSnackbar(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('This is a snackbar'),
+      ),
+    );
+  }
+
+  void _showDialog(BuildContext context) {
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Dialog'),
+          content: const Text('This is a dialog'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          padding: const EdgeInsets.all(16),
+          height: 200,
+          child: const Center(
+            child: Text('This is a bottom sheet'),
+          ),
+        );
+      },
+    );
+  }
+
+  void _showDrawer(BuildContext context) {
+    Scaffold.of(context).openDrawer();
+  }
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != DateTime.now()) {}
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Material 3 Widgets',
+          style: theme.textTheme.titleLarge,
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text(
+                'Trip Tally',
+                style: theme.textTheme.headlineLarge,
+              ),
+            ),
+            const ListTile(
+              leading: Icon(Icons.message),
+              title: Text('Messages'),
+            ),
+            const ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text('Profile'),
+            ),
+            const ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+            ),
+          ],
+        ),
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          const TripTallyProgressIndicator(),
+          Text(
+            'Material 3 Widgets',
+            style: theme.textTheme.headlineLarge,
+          ),
+          const SizedBox(height: 16),
+          Card(
+            elevation: 3,
+            margin: const EdgeInsets.all(16),
+            child: SizedBox(
+              height: 200,
+              width: 200,
+              child: Center(
+                child: Text(
+                  'This is a test card',
+                  style: theme.textTheme.displayLarge,
                 ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          ElevatedButton(
+            onPressed: () => _showSnackbar(context),
+            child: const Text('Show Snackbar'),
+          ),
+          const SizedBox(height: 16),
+          OutlinedButton(
+            onPressed: () => _showDialog(context),
+            child: const Text('Show Dialog'),
+          ),
+          const SizedBox(height: 16),
+          TextButton(
+            onPressed: () => _showDrawer(context),
+            child: const Text('Open Drawer'),
+          ),
+          const SizedBox(height: 16),
+          TextButton(
+            onPressed: () => _showBottomSheet(context),
+            child: const Text('Show Bottom Sheet'),
+          ),
+          const SizedBox(height: 16),
+          TextButton(
+            onPressed: () => _selectDate(context),
+            child: const Text('Show Date Picker'),
+          ),
+          const SizedBox(height: 16),
+          const Icon(
+            Icons.heart_broken,
+            size: 40,
+          ),
+          const SizedBox(height: 16),
+          Switch(
+            value: true,
+            onChanged: (bool value) {},
+          ),
+          const SizedBox(height: 16),
+          Checkbox(
+            value: true,
+            onChanged: (bool? value) {},
+          ),
+          const SizedBox(height: 16),
+          const Center(child: CircularProgressIndicator()),
+          const SizedBox(height: 16),
+          const Center(child: LinearProgressIndicator()),
+          const SizedBox(height: 16),
+          const Center(child: RefreshProgressIndicator()),
+          const SizedBox(height: 16),
+          const Divider(),
+          // Text examples
+          Text(
+            'displayLarge: Roboto, 22, bold',
+            style: theme.textTheme.displayLarge,
+          ),
+          Text(
+            'displayMedium: Roboto, 16, bold',
+            style: theme.textTheme.displayMedium,
+          ),
+          Text(
+            'displaySmall: Roboto, 14, light',
+            style: theme.textTheme.displaySmall,
+          ),
+          const Divider(),
+          Text(
+            'titleLarge: Roboto, 24, regular',
+            style: theme.textTheme.titleLarge,
+          ),
+          Text(
+            'titleMedium: Roboto, 16, regular',
+            style: theme.textTheme.titleMedium,
+          ),
+          Text(
+            'titleSmall: Roboto, 14, regular',
+            style: theme.textTheme.titleSmall,
+          ),
+          const Divider(),
+          Text(
+            'labelLarge: Roboto, 22, medium',
+            style: theme.textTheme.labelLarge,
+          ),
+          Text(
+            'labelMedium: Roboto, 16, medium',
+            style: theme.textTheme.labelMedium,
+          ),
+          Text(
+            'labelSmall: Roboto, 14, medium',
+            style: theme.textTheme.labelSmall,
+          ),
+          const Divider(),
+          Text(
+            'headlineLarge: Sail, 32, regular',
+            style: theme.textTheme.headlineLarge,
+          ),
+          Text(
+            'headlineMedium: Sail, 24, regular',
+            style: theme.textTheme.headlineMedium,
+          ),
+          Text(
+            'headlineSmall: Sail, 16, regular',
+            style: theme.textTheme.headlineSmall,
+          ),
+          const Divider(),
+          Text(
+            'bodyLarge: Roboto, 16, regular',
+            style: theme.textTheme.bodyLarge,
+          ),
+          Text(
+            'bodyMedium: Roboto, 14, regular',
+            style: theme.textTheme.bodyMedium,
+          ),
+          Text(
+            'bodySmall: Roboto, 14, thin',
+            style: theme.textTheme.bodySmall,
+          ),
+          const Divider(),
+          const Wrap(
+            spacing: 8,
+            children: [
+              Chip(
+                label: Text('Chip 1'),
+              ),
+              Chip(
+                label: Text('Chip 2'),
+              ),
+              Chip(
+                label: Text('Chip 3'),
               ),
             ],
           ),
-        ),
+          const SizedBox(height: 16),
+          const TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Text Field',
+            ),
+          ),
+          const SizedBox(height: 16),
+          SegmentedButton<int>(
+            segments: const [
+              ButtonSegment(
+                value: 0,
+                label: Text('One'),
+              ),
+              ButtonSegment(
+                value: 1,
+                label: Text('Two'),
+              ),
+            ],
+            selected: const {1},
+            onSelectionChanged: (Set<int> newSelection) {},
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            label: 'Business',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'School',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
       ),
     );
   }
