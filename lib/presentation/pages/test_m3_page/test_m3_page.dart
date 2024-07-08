@@ -1,8 +1,9 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/outlined_trip_card.dart';
-import 'package:trip_tally/presentation/widgets/trip_tally_progress_indicator.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/trip_tally_progress_indicator.dart';
 
 @RoutePage()
 class TestM3Page extends StatefulWidget {
@@ -116,7 +117,17 @@ class TestM3PageState extends State<TestM3Page> {
       body: ListView(
         padding: const EdgeInsets.all(AppDimensions.d16),
         children: [
-          const OutlinedTripCard(),
+          const OutlinedTripCard(
+            country: 'country',
+            dateFrom: 'dateFrom',
+            dateTo: 'dateTo',
+            transportType: 'transportType',
+            totalExpensesAmount: 1300,
+            totalExpensesCurrency: '€',
+            imagePath: AppPaths.italy,
+            countryCode: 'IT',
+
+          ),
           const TripTallyProgressIndicator(),
           Text(
             'Material 3 Widgets',

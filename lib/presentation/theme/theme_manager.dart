@@ -7,8 +7,10 @@ import 'package:trip_tally/presentation/theme/theme.dart';
 
 @singleton
 class ThemeManager {
-  static const _robotoFont = 'Roboto';
-  static const _sailFont = 'Sail';
+  static const robotoFont = 'Roboto';
+  static const robotoSerifFont = 'Roboto Serif';
+  static const sailFont = 'Sail';
+
 
   // final _themeData = ThemeData(
   //   colorScheme: const ColorScheme.light(
@@ -169,19 +171,19 @@ class ThemeManager {
     TextTheme(
       /// [display] used for BOLD roboto fonts -> size: 22/16/14
       displayLarge: TextStyle(
-        fontFamily: _robotoFont,
+        fontFamily: robotoFont,
         fontSize: AppDimensions.d22,
         fontWeight: FontWeight.w700,
         letterSpacing: 0.1,
       ),
       displayMedium: TextStyle(
-        fontFamily: _robotoFont,
+        fontFamily: robotoFont,
         fontSize: AppDimensions.d16,
         fontWeight: FontWeight.w700,
         letterSpacing: 0.1,
       ),
       displaySmall: TextStyle(
-        fontFamily: _robotoFont,
+        fontFamily: robotoFont,
         fontSize: AppDimensions.d14,
         fontWeight: FontWeight.w300,
         letterSpacing: 0.1,
@@ -189,19 +191,19 @@ class ThemeManager {
 
       /// [title] used for REGULAR roboto fonts -> size: 24/16/14
       titleLarge: TextStyle(
-        fontFamily: _robotoFont,
+        fontFamily: robotoFont,
         fontSize: AppDimensions.d24,
         fontWeight: FontWeight.w400,
         letterSpacing: 0.1,
       ),
       titleMedium: TextStyle(
-        fontFamily: _robotoFont,
+        fontFamily: robotoFont,
         fontSize: AppDimensions.d16,
         fontWeight: FontWeight.w400,
         letterSpacing: 0.1,
       ),
       titleSmall: TextStyle(
-        fontFamily: _robotoFont,
+        fontFamily: robotoFont,
         fontSize: AppDimensions.d14,
         fontWeight: FontWeight.w400,
         letterSpacing: 0.1,
@@ -209,19 +211,19 @@ class ThemeManager {
 
       /// [label] used for MEDIUM roboto fonts -> size: 22/16/14
       labelLarge: TextStyle(
-        fontFamily: _robotoFont,
+        fontFamily: robotoFont,
         fontSize: AppDimensions.d22,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.1,
       ),
       labelMedium: TextStyle(
-        fontFamily: _robotoFont,
+        fontFamily: robotoFont,
         fontSize: AppDimensions.d16,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.1,
       ),
       labelSmall: TextStyle(
-        fontFamily: _robotoFont,
+        fontFamily: robotoFont,
         fontSize: AppDimensions.d14,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.1,
@@ -229,19 +231,19 @@ class ThemeManager {
 
       /// [headline] used for sail fonts -> size: 32/24/16
       headlineLarge: TextStyle(
-        fontFamily: _sailFont,
+        fontFamily: sailFont,
         fontSize: AppDimensions.d32,
         fontWeight: FontWeight.w400,
         letterSpacing: 0.5,
       ),
       headlineMedium: TextStyle(
-        fontFamily: _sailFont,
+        fontFamily: sailFont,
         fontSize: AppDimensions.d24,
         fontWeight: FontWeight.w400,
         letterSpacing: 0.5,
       ),
       headlineSmall: TextStyle(
-        fontFamily: _sailFont,
+        fontFamily: sailFont,
         fontSize: AppDimensions.d16,
         fontWeight: FontWeight.w400,
         letterSpacing: 0.5,
@@ -311,7 +313,7 @@ class ThemeManager {
       hintText: hintText,
       suffixIcon: SvgPicture.asset(fit: BoxFit.scaleDown, suffixIcon),
       hintStyle: const TextStyle(
-        fontFamily: _robotoFont,
+        fontFamily: robotoFont,
         fontSize: AppDimensions.d14,
         color: AppColors.poloBlue,
         fontWeight: FontWeight.w400,
@@ -369,7 +371,7 @@ class ThemeManager {
         onPressed: onPressed,
       ),
       hintStyle: const TextStyle(
-        fontFamily: _robotoFont,
+        fontFamily: robotoFont,
         fontSize: AppDimensions.d14,
         color: AppColors.poloBlue,
         fontWeight: FontWeight.w400,

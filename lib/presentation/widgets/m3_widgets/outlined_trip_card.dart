@@ -1,18 +1,40 @@
+import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
-import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/warning_outlined_button.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/surface_money_container.dart';
 
 class OutlinedTripCard extends StatelessWidget {
-  const OutlinedTripCard({super.key});
+  const OutlinedTripCard({
+    required this.country,
+    required this.dateFrom,
+    required this.dateTo,
+    required this.transportType,
+    required this.totalExpensesAmount,
+    required this.totalExpensesCurrency,
+    required this.imagePath,
+    required this.countryCode,
+    super.key,
+  });
+
+  final String country;
+  final String dateFrom;
+  final String dateTo;
+  final String transportType;
+  final int totalExpensesAmount;
+  final String totalExpensesCurrency;
+  final String imagePath;
+  final String countryCode;
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 0,
+      elevation: AppDimensions.zero,
       shape: RoundedRectangleBorder(
         side: BorderSide(
-          color: Theme.of(context).colorScheme.shadow,
+          color: context.thc.shadow,
         ),
         borderRadius: BorderRadius.circular(AppDimensions.d12),
       ),
@@ -22,22 +44,33 @@ class OutlinedTripCard extends StatelessWidget {
             borderRadius: const BorderRadius.vertical(
               top: Radius.circular(AppDimensions.d12),
             ),
-            child: Image.asset(AppPaths.italy),
+            child: Image.asset(imagePath),
           ),
           Padding(
-            padding: const EdgeInsets.all(AppDimensions.d16),
+            padding: const EdgeInsets.all(AppDimensions.d16) + const EdgeInsets.only(right: AppDimensions.d8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Country',
-                      style: context.tht.labelLarge,
+                    Row(
+                      children: [
+                        Text(
+                          country,
+                          style: context.tht.labelLarge,
+                        ),
+                        const SizedBox(width: AppDimensions.d10),
+                        CountryFlag.fromCountryCode(
+                          countryCode,
+                          shape: const RoundedRectangle(2.5),
+                          height: AppDimensions.d18,
+                          width: AppDimensions.d18,
+                        ),
+                      ],
                     ),
                     Text(
-                      '2024.10.12 - 2024.10.20',
+                      '$dateFrom - $dateTo',
                       style: context.tht.titleSmall,
                     ),
                     Row(
@@ -59,35 +92,9 @@ class OutlinedTripCard extends StatelessWidget {
                       'Total expenses:',
                       style: context.tht.labelSmall,
                     ),
-                    Container(
-                      alignment: Alignment.center,
-                      margin: const EdgeInsets.only(top: AppDimensions.d16),
-                      height: 36,
-                      width: 80,
-                      decoration: ShapeDecoration(
-                        color: context.thc.surfaceContainerHigh,
-                        shape: const StadiumBorder(),
-                        shadows: [
-                          BoxShadow(
-                            blurRadius: AppDimensions.d2,
-                            offset: const Offset(AppDimensions.zero, AppDimensions.d1),
-                            color: context.thc.shadow.withOpacity(0.3),
-                          ),
-                          BoxShadow(
-                            blurRadius: AppDimensions.d3,
-                            spreadRadius: AppDimensions.d1,
-                            offset: const Offset(AppDimensions.zero, AppDimensions.d1),
-                            color: context.thc.shadow.withOpacity(0.15),
-                          ),
-                        ],
-                      ),
-                      child: Text(
-                        r'1300 $',
-                        style: context.tht.displayMedium?.copyWith(
-                          color: context.thc.primary,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
+                    SurfaceMoneyContainer(
+                      amount: totalExpensesAmount,
+                      currency: totalExpensesCurrency,
                     ),
                   ],
                 ),
@@ -96,29 +103,20 @@ class OutlinedTripCard extends StatelessWidget {
           ),
           const Divider(),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: AppDimensions.d24, vertical: AppDimensions.d10),
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppDimensions.d24,
+              vertical: AppDimensions.d10,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                OutlinedButton(
+                WarningOutlinedButton(
+                  text: 'End the trip',
                   onPressed: () {},
-                  style: OutlinedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.errorContainer,
-                  ),
-                  child: Text(
-                    'End the trip',
-                    style: context.tht.labelSmall?.copyWith(color: context.thc.onErrorContainer),
-                  ),
                 ),
-                ElevatedButton(
+                PrimaryElevatedButton(
+                  text: 'Add expense',
                   onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                  ),
-                  child: Text(
-                    'Add expense',
-                    style: context.tht.labelSmall?.copyWith(color: context.thc.onPrimary),
-                  ),
                 ),
               ],
             ),

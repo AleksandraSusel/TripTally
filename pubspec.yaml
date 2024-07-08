@@ -108,6 +108,22 @@ flutter:
       fonts:
         - asset: lib/presentation/assets/m3_fonts/sail/Sail-Regular.ttf
           weight: 400
+    - family: Roboto Serif
+      fonts:
+        - asset: lib/presentation/assets/m3_fonts/roboto_serif/static/RobotoSerif-ExtraLight.ttf
+          weight: 200
+        - asset: lib/presentation/assets/m3_fonts/roboto_serif/static/RobotoSerif-Regular.ttf
+          weight: 300
+        - asset: lib/presentation/assets/m3_fonts/roboto_serif/static/RobotoSerif-Medium.ttf
+          weight: 400
+        - asset: lib/presentation/assets/m3_fonts/roboto_serif/static/RobotoSerif-SemiBold.ttf
+          weight: 600
+        - asset: lib/presentation/assets/m3_fonts/roboto_serif/static/RobotoSerif-Bold.ttf
+          weight: 700
+        - asset: lib/presentation/assets/m3_fonts/roboto_serif/static/RobotoSerif-ExtraBold.ttf
+          weight: 800
+        - asset: lib/presentation/assets/m3_fonts/roboto_serif/static/RobotoSerif-Black.ttf
+          weight: 900
 
 
 
