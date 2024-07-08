@@ -1,13 +1,22 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
+import 'package:trip_tally/injectable/injectable.dart';
+import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart';
+import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_event.dart';
+import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_state.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/enums/transport_methods.dart';
+import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
 import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
 import 'package:trip_tally/presentation/widgets/calendar_button.dart';
 import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
+import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
 import 'package:trip_tally/presentation/widgets/date_picker.dart';
 import 'package:trip_tally/presentation/widgets/hi_traveller_title_widget.dart';
 import 'package:trip_tally/presentation/widgets/icon_list.dart';
@@ -19,7 +28,66 @@ import 'package:trip_tally/presentation/widgets/transport_icons.dart';
 
 @RoutePage()
 class NewTripPage extends StatelessWidget {
-  const NewTripPage({super.key});
+  const NewTripPage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => getIt<NewTripBloc>(),
+      child: BlocConsumer<NewTripBloc, NewTripState>(
+        listener: (context, state) => state.maybeWhen(
+          orElse: SizedBox.shrink,
+          initial: _Body.new,
+          success: () => context.router.push(const PlanExpensesRoute()),
+          failure: (error) => customSnackBar(context, error.name),
+        ),
+        builder: (context, state) => state.maybeWhen(
+          orElse: SizedBox.shrink,
+          initial: _Body.new,
+          failure: (_) => const _Body(),
+        ),
+      ),
+    );
+  }
+}
+
+class _Body extends StatefulWidget {
+  const _Body({
+    super.key,
+  });
+
+  @override
+  State<_Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<_Body> {
+  final cityName = TextEditingController();
+  TransportMethods? selectedTransportMethod;
+  final transportType = TextEditingController();
+
+  DateTime? startDate;
+
+  DateTime? endDate;
+
+  void _onStartDateChanged(DateTime date) {
+    setState(() {
+      startDate = date;
+    });
+  }
+
+  void _onEndDateChanged(DateTime date) {
+    setState(() {
+      endDate = date;
+    });
+  }
+
+  void _onIconSelected(TransportMethods? method) {
+    setState(() {
+      selectedTransportMethod = method;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +111,7 @@ class NewTripPage extends StatelessWidget {
                   children: [
                     const SizedBox(height: AppDimensions.d10),
                     SuffixIconTextField(
+                      controller: cityName,
                       svgPath: AppPaths.editorPen,
                       hintText: context.tr.newTripPage_whereAreYouGoing,
                     ),
@@ -53,15 +122,28 @@ class NewTripPage extends StatelessWidget {
                     const SizedBox(height: AppDimensions.d20),
                     IconList(
                       icons: transportIcons,
+                      onIconSelected: _onIconSelected,
                     ),
                     SvgPicture.asset(AppPaths.dots),
                     const SizedBox(height: AppDimensions.d20),
-                    const SizedBox(
+                    SizedBox(
                       height: AppDimensions.d152,
-                      child: DatePicker(),
+                      child: DatePicker(
+                        onStartDateChanged: _onStartDateChanged,
+                        onEndDateChanged: _onEndDateChanged,
+                      ),
                     ),
                     CustomElevatedButton(
-                      onPressed: () {},
+                      onPressed: () => context.read<NewTripBloc>().add(
+                            AddTripEvent(
+                              cityName: cityName.text,
+                              transportType: selectedTransportMethod!.transportMethodsName(context),
+                              countryCode: 'PL',
+                              dateFrom: DateFormat('yyyy-MM-dd').format(startDate!),
+                              dateTo: DateFormat('yyyy-MM-dd').format(endDate!),
+                              plannedCost: 3000,
+                            ),
+                          ),
                       text: context.tr.newTripPage_submit,
                     ),
                   ],

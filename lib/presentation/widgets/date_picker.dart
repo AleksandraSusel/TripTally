@@ -3,11 +3,17 @@ import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
-import 'package:trip_tally/presentation/utils/date_format.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
 class DatePicker extends StatefulWidget {
-  const DatePicker({super.key});
+  const DatePicker({
+    required this.onStartDateChanged,
+    required this.onEndDateChanged,
+    super.key,
+  });
+
+  final ValueChanged<DateTime> onStartDateChanged;
+  final ValueChanged<DateTime> onEndDateChanged;
 
   @override
   State<DatePicker> createState() => _DatePickerState();
@@ -15,9 +21,7 @@ class DatePicker extends StatefulWidget {
 
 class _DatePickerState extends State<DatePicker> {
   DateTime? startDate;
-  TimeOfDay? startTime;
   DateTime? endDate;
-  TimeOfDay? endTime;
   bool isSelected = false;
 
   Future<void> _pickDateTimeRange(BuildContext context) async {
@@ -46,16 +50,14 @@ class _DatePickerState extends State<DatePicker> {
           isSelected = true;
         },
       );
+      widget.onStartDateChanged(startDate!);
+      widget.onEndDateChanged(endDate!);
     }
   }
 
   @override
   Widget build(BuildContext context) => Column(
         children: <Widget>[
-          Text(
-            context.tr.newTripPage_selectDates,
-            style: context.tht.headlineSmall,
-          ),
           Padding(
             padding: const EdgeInsets.all(AppDimensions.d8),
             child: Column(
@@ -65,42 +67,24 @@ class _DatePickerState extends State<DatePicker> {
                   child: GestureDetector(
                     onTap: () => _pickDateTimeRange(context),
                     child: isSelected == false
-                        ? Padding(
-                            padding: const EdgeInsets.all(AppDimensions.d8),
-                            child: SvgPicture.asset(
-                              AppPaths.calendar,
-                              height: AppDimensions.d40,
-                            ),
+                        ? Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(AppDimensions.d8),
+                                child: SvgPicture.asset(
+                                  AppPaths.calendar,
+                                  height: AppDimensions.d40,
+                                ),
+                              ),
+                              Text(
+                                context.tr.newTripPage_selectDates,
+                                style: context.tht.headlineSmall,
+                              ),
+                            ],
                           )
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(AppPaths.flyStart),
-                              const SizedBox(width: AppDimensions.d10),
-                              Text(
-                                dateFormat.format(startDate!),
-                                style: context.tht.headlineSmall,
-                              ),
-                            ],
-                          ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(AppDimensions.d8),
-                  child: GestureDetector(
-                    onTap: () => _pickDateTimeRange(context),
-                    child: isSelected == false
-                        ? const SizedBox(width: AppDimensions.d10)
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(AppPaths.flyEnd),
-                              const SizedBox(width: AppDimensions.d10),
-                              Text(
-                                DateFormat('dd-MM-yyy').format(endDate!),
-                                style: context.tht.headlineSmall,
-                              ),
-                            ],
+                        : Text(
+                            '${DateFormat('yyyy-MM-dd').format(startDate!)} - ${DateFormat('yyyy-MM-dd').format(endDate!)}',
+                            style: context.tht.headlineSmall,
                           ),
                   ),
                 ),

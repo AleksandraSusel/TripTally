@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/enums/transport_methods.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
 import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
@@ -112,6 +113,7 @@ class PlanExpensesPage extends StatelessWidget {
                     const SizedBox(height: AppDimensions.d20),
                     IconList(
                       icons: expensesIcons,
+                      onIconSelected: (TransportMethods value) {},
                     ),
                     SvgPicture.asset(AppPaths.dots),
                     const SizedBox(height: AppDimensions.d20),

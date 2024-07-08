@@ -11,16 +11,21 @@ import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i18;
 import 'package:shared_preferences/shared_preferences.dart' as _i6;
 import 'package:trip_tally/data/api/api_client.dart' as _i17;
+import 'package:trip_tally/data/dto/trips/add_trip_dto.dart' as _i19;
 import 'package:trip_tally/data/dto/user/create_account_dto.dart' as _i14;
 import 'package:trip_tally/data/dto/user/login_dto.dart' as _i13;
 import 'package:trip_tally/domain/data_source/authentication_remote_source.dart' as _i12;
+import 'package:trip_tally/domain/data_source/trips_data_source.dart' as _i22;
+import 'package:trip_tally/domain/entities/add_trip_entity/add_trip_entity.dart' as _i24;
 import 'package:trip_tally/domain/entities/user/create_account_entity.dart' as _i11;
 import 'package:trip_tally/domain/entities/user/login_entity.dart' as _i10;
 import 'package:trip_tally/domain/repositories/authentication_repo.dart' as _i7;
-import 'package:trip_tally/domain/use_case/create_account_use_case.dart' as _i19;
+import 'package:trip_tally/domain/repositories/trips_repo.dart' as _i23;
+import 'package:trip_tally/domain/use_case/add_trip_use_case.dart' as _i25;
+import 'package:trip_tally/domain/use_case/create_account_use_case.dart' as _i20;
 import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i15;
 import 'package:trip_tally/domain/utils/failure.dart' as _i9;
-import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i20;
+import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i21;
 import 'package:trip_tally/domain/utils/success.dart' as _i3;
 import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart' as _i5;
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart' as _i4;
@@ -521,6 +526,16 @@ class MockApiClient extends _i1.Mock implements _i17.ApiClient {
       ) as _i8.Future<String>);
 
   @override
+  _i8.Future<void> addTrip(_i19.AddTripDto? dto) => (super.noSuchMethod(
+        Invocation.method(
+          #addTrip,
+          [dto],
+        ),
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
+
+  @override
   _i8.Future<String> exampleDelete() => (super.noSuchMethod(
         Invocation.method(
           #exampleDelete,
@@ -719,7 +734,7 @@ class MockSharedPreferences extends _i1.Mock implements _i6.SharedPreferences {
 /// A class which mocks [CreateAccountUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCreateAccountUseCase extends _i1.Mock implements _i19.CreateAccountUseCase {
+class MockCreateAccountUseCase extends _i1.Mock implements _i20.CreateAccountUseCase {
   MockCreateAccountUseCase() {
     _i1.throwOnMissingStub(this);
   }
@@ -743,7 +758,7 @@ class MockCreateAccountUseCase extends _i1.Mock implements _i19.CreateAccountUse
 /// A class which mocks [SharedPrefsUtils].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSharedPrefsUtils extends _i1.Mock implements _i20.SharedPrefsUtils {
+class MockSharedPrefsUtils extends _i1.Mock implements _i21.SharedPrefsUtils {
   MockSharedPrefsUtils() {
     _i1.throwOnMissingStub(this);
   }
@@ -772,4 +787,76 @@ class MockSharedPrefsUtils extends _i1.Mock implements _i20.SharedPrefsUtils {
         returnValue: _i8.Future<void>.value(),
         returnValueForMissingStub: _i8.Future<void>.value(),
       ) as _i8.Future<void>);
+}
+
+/// A class which mocks [TripsDataSource].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockTripsDataSource extends _i1.Mock implements _i22.TripsDataSource {
+  MockTripsDataSource() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i8.Future<_i3.Success> addTrip(_i19.AddTripDto? dto) => (super.noSuchMethod(
+        Invocation.method(
+          #addTrip,
+          [dto],
+        ),
+        returnValue: _i8.Future<_i3.Success>.value(_FakeSuccess_1(
+          this,
+          Invocation.method(
+            #addTrip,
+            [dto],
+          ),
+        )),
+      ) as _i8.Future<_i3.Success>);
+}
+
+/// A class which mocks [TripsRepo].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockTripsRepo extends _i1.Mock implements _i23.TripsRepo {
+  MockTripsRepo() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i8.Future<_i2.Either<_i9.Failure, _i3.Success>> newTrip(_i24.AddTripEntity? entity) => (super.noSuchMethod(
+        Invocation.method(
+          #newTrip,
+          [entity],
+        ),
+        returnValue: _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>.value(_FakeEither_0<_i9.Failure, _i3.Success>(
+          this,
+          Invocation.method(
+            #newTrip,
+            [entity],
+          ),
+        )),
+      ) as _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>);
+}
+
+/// A class which mocks [AddTripUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAddTripUseCase extends _i1.Mock implements _i25.AddTripUseCase {
+  MockAddTripUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i8.Future<_i2.Either<_i9.Failure, _i3.Success>> call(_i24.AddTripEntity? entity) => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [entity],
+        ),
+        returnValue: _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>.value(_FakeEither_0<_i9.Failure, _i3.Success>(
+          this,
+          Invocation.method(
+            #call,
+            [entity],
+          ),
+        )),
+      ) as _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>);
 }
