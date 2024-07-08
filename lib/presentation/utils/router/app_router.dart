@@ -15,6 +15,7 @@ import 'package:trip_tally/presentation/pages/remove_current_trip_page/remove_cu
 import 'package:trip_tally/presentation/pages/resume_of_trip_page/resume_of_trip_page.dart';
 import 'package:trip_tally/presentation/pages/settings_page/settings_page.dart';
 import 'package:trip_tally/presentation/pages/summary_after_closing_page/summary_after_closing_page.dart';
+import 'package:trip_tally/presentation/pages/test_m3_page/test_m3_page.dart';
 import 'package:trip_tally/presentation/pages/view_of_current_expenses_page/view_of_current_expenses_page.dart';
 import 'package:trip_tally/presentation/pages/your_current_trip_page/your_current_trip_page.dart';
 
