@@ -1,6 +1,7 @@
 import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
@@ -87,9 +88,8 @@ class ElevatedTripCard extends StatelessWidget {
                     ],
                   ),
                   const Spacer(),
-                  Icon(
-                    Icons.delete,
-                    size: AppDimensions.d32,
+                  SvgAsset(
+                    AppPaths.binM3,
                     color: context.thc.error,
                   ),
                 ],

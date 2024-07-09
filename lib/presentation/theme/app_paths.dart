@@ -47,4 +47,5 @@ class AppPaths {
   static const String trainM3 = '$m3SvgPath/train.svg';
   static const String busM3 = '$m3SvgPath/bus.svg';
   static const String airplaneM3 = '$m3SvgPath/airplane.svg';
+  static const String binM3 = '$m3SvgPath/bin.svg';
 }
