@@ -2,7 +2,9 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
-import 'package:trip_tally/presentation/widgets/m3_widgets/outlined_trip_card.dart';
+import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_trip_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/outlined_trip_card.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/trip_tally_progress_indicator.dart';
 
 @RoutePage()
@@ -117,11 +119,24 @@ class TestM3PageState extends State<TestM3Page> {
       body: ListView(
         padding: const EdgeInsets.all(AppDimensions.d16),
         children: [
-          const OutlinedTripCard(
-            country: 'country',
+          const ElevatedTripCard(
+            country: 'Greece',
             dateFrom: 'dateFrom',
             dateTo: 'dateTo',
-            transportType: 'transportType',
+            transportType: TransportType.airplane,
+            totalExpensesAmount: 600,
+            expectedBudgetAmount: 1600,
+            totalExpensesCurrency: '€',
+            expectedBudgetCurrency: '€',
+            imagePath: AppPaths.italy,
+            countryCode: 'GR',
+
+          ),
+          const OutlinedTripCard(
+            country: 'Italy',
+            dateFrom: 'dateFrom',
+            dateTo: 'dateTo',
+            transportType: TransportType.train,
             totalExpensesAmount: 1300,
             totalExpensesCurrency: '€',
             imagePath: AppPaths.italy,

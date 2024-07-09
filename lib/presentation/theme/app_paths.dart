@@ -3,6 +3,7 @@ class AppPaths {
 
   static const pngPath = 'lib/presentation/assets/png';
   static const svgPath = 'lib/presentation/assets/svg';
+  static const m3SvgPath = 'lib/presentation/assets/m3_svg';
 
   static const String airplane = '$svgPath/airplane.svg';
   static const String biggerAirplane = '$svgPath/bigger_airplane.svg';
@@ -36,5 +37,14 @@ class AppPaths {
   static const String eye = '$svgPath/eye.svg';
   static const String exit = '$svgPath/exit.svg';
   static const String close = '$svgPath/close.svg';
+
+  // PNG
   static const String italy = '$pngPath/italy.png';
+
+  // M3 SVG
+  static const String carM3 = '$m3SvgPath/car.svg';
+  static const String shipM3 = '$m3SvgPath/ship.svg';
+  static const String trainM3 = '$m3SvgPath/train.svg';
+  static const String busM3 = '$m3SvgPath/bus.svg';
+  static const String airplaneM3 = '$m3SvgPath/airplane.svg';
 }

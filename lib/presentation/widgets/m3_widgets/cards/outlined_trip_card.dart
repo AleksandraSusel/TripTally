@@ -1,10 +1,13 @@
 import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/warning_outlined_button.dart';
-import 'package:trip_tally/presentation/widgets/m3_widgets/surface_money_container.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/money_container.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
 
 class OutlinedTripCard extends StatelessWidget {
   const OutlinedTripCard({
@@ -22,7 +25,7 @@ class OutlinedTripCard extends StatelessWidget {
   final String country;
   final String dateFrom;
   final String dateTo;
-  final String transportType;
+  final TransportType transportType;
   final int totalExpensesAmount;
   final String totalExpensesCurrency;
   final String imagePath;
@@ -64,8 +67,8 @@ class OutlinedTripCard extends StatelessWidget {
                         CountryFlag.fromCountryCode(
                           countryCode,
                           shape: const RoundedRectangle(2.5),
-                          height: AppDimensions.d18,
-                          width: AppDimensions.d18,
+                          height: AppDimensions.d20,
+                          width: AppDimensions.d26,
                         ),
                       ],
                     ),
@@ -80,7 +83,10 @@ class OutlinedTripCard extends StatelessWidget {
                           style: context.tht.titleSmall,
                         ),
                         const SizedBox(width: AppDimensions.d10),
-                        const Icon(Icons.car_crash_rounded),
+                        SvgAsset(
+                          AppPaths.trainM3,
+                          color: context.thc.onSurface,
+                        ),
                       ],
                     ),
                   ],
@@ -92,7 +98,8 @@ class OutlinedTripCard extends StatelessWidget {
                       'Total expenses:',
                       style: context.tht.labelSmall,
                     ),
-                    SurfaceMoneyContainer(
+                    const SizedBox(height: AppDimensions.d16),
+                    MoneyContainer(
                       amount: totalExpensesAmount,
                       currency: totalExpensesCurrency,
                     ),
