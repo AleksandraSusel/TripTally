@@ -15,6 +15,7 @@ import 'package:trip_tally/presentation/pages/remove_current_trip_page/remove_cu
 import 'package:trip_tally/presentation/pages/resume_of_trip_page/resume_of_trip_page.dart';
 import 'package:trip_tally/presentation/pages/settings_page/settings_page.dart';
 import 'package:trip_tally/presentation/pages/summary_after_closing_page/summary_after_closing_page.dart';
+import 'package:trip_tally/presentation/pages/test_m3_page/test_m3_page.dart';
 import 'package:trip_tally/presentation/pages/view_of_current_expenses_page/view_of_current_expenses_page.dart';
 import 'package:trip_tally/presentation/pages/your_current_trip_page/your_current_trip_page.dart';
 
@@ -33,7 +34,7 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes =>
       [
         AutoRoute(page: HomeRoute.page),
-        AutoRoute(page: LoginRoute.page, initial: true),
+        AutoRoute(page: LoginRoute.page),
         AutoRoute(page: RegistrationRoute.page),
         AutoRoute(page: NewTripRoute.page),
         AutoRoute(page: SettingsRoute.page),
@@ -49,5 +50,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: EditCurrentTripRoute.page),
         AutoRoute(page: RemoveCurrentTripRoute.page),
         AutoRoute(page: YourCurrentTripRoute.page),
+        AutoRoute(page: TestM3Route.page, initial: true),
       ];
 }

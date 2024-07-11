@@ -10,4 +10,6 @@ extension BuildContextExtension on BuildContext {
   Translation get tr => Translation.of(this);
 
   TextTheme get tht => Theme.of(this).textTheme;
+
+  ColorScheme get thc => Theme.of(this).colorScheme;
 }
