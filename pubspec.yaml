@@ -128,8 +128,6 @@ flutter:
 
 
 
-
-
 flutter_intl:
   enabled: true
   class_name: Translation
