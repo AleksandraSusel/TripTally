@@ -1,6 +1,12 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:trip_tally/injectable/injectable.dart';
+import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_bloc.dart';
+import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_event.dart';
+import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_state.dart';
+import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
@@ -8,6 +14,7 @@ import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
 import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
 import 'package:trip_tally/presentation/widgets/calendar_button.dart';
 import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
+import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
 import 'package:trip_tally/presentation/widgets/expense_icon_contaner.dart';
 import 'package:trip_tally/presentation/widgets/expenses_icons.dart';
 import 'package:trip_tally/presentation/widgets/icon_button_text_field.dart';
@@ -19,7 +26,51 @@ import 'package:trip_tally/presentation/widgets/suffix_icon_text_field.dart';
 
 @RoutePage()
 class AddExpensesPage extends StatelessWidget {
-  const AddExpensesPage({super.key});
+  const AddExpensesPage({
+    super.key,
+    @visibleForTesting this.bloc,
+  });
+
+  final AddExpensesBloc? bloc;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => bloc ?? getIt<AddExpensesBloc>(),
+      child: BlocConsumer<AddExpensesBloc, AddExpensesState>(
+        listener: (context, state) => state.maybeWhen(
+          orElse: () => const SizedBox.shrink(),
+          success: () => customSnackBar(context, 'Success', color: AppColors.wePeep),
+        ),
+        builder: (context, state) => state.maybeWhen(
+          orElse: SizedBox.shrink,
+          success: _Body.new,
+          initial: _Body.new,
+        ),
+      ),
+    );
+  }
+}
+
+class _Body extends StatefulWidget {
+  const _Body({
+    super.key,
+  });
+
+  @override
+  State<_Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<_Body> {
+  final nameOfExpense = TextEditingController();
+  final amount = TextEditingController();
+  int iconIndex = 1;
+
+  void _onIconSelected(int index) {
+    setState(() {
+      iconIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +151,7 @@ class AddExpensesPage extends StatelessWidget {
                     ),
                     const SizedBox(height: AppDimensions.d10),
                     SuffixIconTextField(
+                      controller: nameOfExpense,
                       svgPath: AppPaths.editorPen,
                       hintText: context.tr.planExpensesPage_nameTheExpense,
                     ),
@@ -109,6 +161,7 @@ class AddExpensesPage extends StatelessWidget {
                     ),
                     const SizedBox(height: AppDimensions.d20),
                     IconList(
+                      onIconSelected: _onIconSelected,
                       icons: expensesIcons,
                     ),
                     SvgPicture.asset(AppPaths.dots),
@@ -116,9 +169,25 @@ class AddExpensesPage extends StatelessWidget {
                     SizedBox(
                       height: AppDimensions.d152,
                       child: IconButtonTextField(
+                        controller: amount,
                         svgPath: AppPaths.plus,
                         hintText: context.tr.planExpensesPage_howMuch,
-                        onPressed: () {},
+                        onPressed: () {
+                          final String text = amount.text;
+
+                          final double value = double.tryParse(text) ?? 0;
+
+                          context.read<AddExpensesBloc>().add(
+                                AddExpenseEvent(
+                                  name: nameOfExpense.text,
+                                  date: DateTime.now().toString(),
+                                  amount: value,
+                                  currency: 'USD',
+                                  tripId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+                                  userId: '9ce6c7bf-c848-4633-9154-875223b345a1',
+                                ),
+                              );
+                        },
                       ),
                     ),
                     CustomElevatedButton(

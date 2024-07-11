@@ -3,9 +3,10 @@ import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/widgets/custom_icon_button.dart';
 
 class IconList extends StatelessWidget {
-  const IconList({required this.icons, super.key});
+  const IconList({required this.icons, super.key, this.onIconSelected});
 
   final List<String> icons;
+  final ValueChanged<int>? onIconSelected;
 
   @override
   Widget build(BuildContext context) {

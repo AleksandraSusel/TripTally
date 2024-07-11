@@ -16,9 +16,13 @@ abstract class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     AddExpensesRoute.name: (routeData) {
+      final args = routeData.argsAs<AddExpensesRouteArgs>(orElse: () => const AddExpensesRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const AddExpensesPage(),
+        child: AddExpensesPage(
+          key: args.key,
+          bloc: args.bloc,
+        ),
       );
     },
     EditCurrentTripRoute.name: (routeData) {
@@ -118,16 +122,39 @@ abstract class _$AppRouter extends RootStackRouter {
 
 /// generated route for
 /// [AddExpensesPage]
-class AddExpensesRoute extends PageRouteInfo<void> {
-  const AddExpensesRoute({List<PageRouteInfo>? children})
-      : super(
+class AddExpensesRoute extends PageRouteInfo<AddExpensesRouteArgs> {
+  AddExpensesRoute({
+    Key? key,
+    AddExpensesBloc? bloc,
+    List<PageRouteInfo>? children,
+  }) : super(
           AddExpensesRoute.name,
+          args: AddExpensesRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'AddExpensesRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<AddExpensesRouteArgs> page = PageInfo<AddExpensesRouteArgs>(name);
+}
+
+class AddExpensesRouteArgs {
+  const AddExpensesRouteArgs({
+    this.key,
+    this.bloc,
+  });
+
+  final Key? key;
+
+  final AddExpensesBloc? bloc;
+
+  @override
+  String toString() {
+    return 'AddExpensesRouteArgs{key: $key, bloc: $bloc}';
+  }
 }
 
 /// generated route for

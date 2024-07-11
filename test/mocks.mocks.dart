@@ -3,25 +3,33 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i8;
+import 'dart:async' as _i9;
 
 import 'package:dartz/dartz.dart' as _i2;
-import 'package:flutter_bloc/flutter_bloc.dart' as _i16;
+import 'package:flutter_bloc/flutter_bloc.dart' as _i17;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i18;
+import 'package:mockito/src/dummies.dart' as _i19;
 import 'package:shared_preferences/shared_preferences.dart' as _i6;
-import 'package:trip_tally/data/api/api_client.dart' as _i17;
-import 'package:trip_tally/data/dto/user/create_account_dto.dart' as _i14;
-import 'package:trip_tally/data/dto/user/login_dto.dart' as _i13;
-import 'package:trip_tally/domain/data_source/authentication_remote_source.dart' as _i12;
-import 'package:trip_tally/domain/entities/user/create_account_entity.dart' as _i11;
-import 'package:trip_tally/domain/entities/user/login_entity.dart' as _i10;
-import 'package:trip_tally/domain/repositories/authentication_repo.dart' as _i7;
-import 'package:trip_tally/domain/use_case/create_account_use_case.dart' as _i19;
-import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i15;
-import 'package:trip_tally/domain/utils/failure.dart' as _i9;
-import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i20;
+import 'package:trip_tally/data/api/api_client.dart' as _i18;
+import 'package:trip_tally/data/dto/expenses/expense_dto.dart' as _i20;
+import 'package:trip_tally/data/dto/user/create_account_dto.dart' as _i15;
+import 'package:trip_tally/data/dto/user/login_dto.dart' as _i14;
+import 'package:trip_tally/domain/data_source/authentication_remote_source.dart' as _i13;
+import 'package:trip_tally/domain/data_source/expenses_remote_source.dart' as _i23;
+import 'package:trip_tally/domain/entities/expenses/expense_entity.dart' as _i25;
+import 'package:trip_tally/domain/entities/user/create_account_entity.dart' as _i12;
+import 'package:trip_tally/domain/entities/user/login_entity.dart' as _i11;
+import 'package:trip_tally/domain/repositories/authentication_repo.dart' as _i8;
+import 'package:trip_tally/domain/repositories/expenses_repo.dart' as _i26;
+import 'package:trip_tally/domain/use_case/add_expense_use_case.dart' as _i24;
+import 'package:trip_tally/domain/use_case/create_account_use_case.dart' as _i21;
+import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i16;
+import 'package:trip_tally/domain/utils/failure.dart' as _i10;
+import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i22;
 import 'package:trip_tally/domain/utils/success.dart' as _i3;
+import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_bloc.dart' as _i27;
+import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_event.dart' as _i28;
+import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_state.dart' as _i7;
 import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart' as _i5;
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart' as _i4;
 
@@ -88,136 +96,146 @@ class _FakeSharedPreferences_4 extends _i1.SmartFake implements _i6.SharedPrefer
         );
 }
 
+class _FakeAddExpensesState_5 extends _i1.SmartFake implements _i7.AddExpensesState {
+  _FakeAddExpensesState_5(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [AuthenticationRepo].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAuthenticationRepo extends _i1.Mock implements _i7.AuthenticationRepo {
+class MockAuthenticationRepo extends _i1.Mock implements _i8.AuthenticationRepo {
   MockAuthenticationRepo() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i8.Future<_i2.Either<_i9.Failure, _i3.Success>> login(_i10.LoginEntity? entity) => (super.noSuchMethod(
+  _i9.Future<_i2.Either<_i10.Failure, _i3.Success>> login(_i11.LoginEntity? entity) => (super.noSuchMethod(
         Invocation.method(
           #login,
           [entity],
         ),
-        returnValue: _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>.value(_FakeEither_0<_i9.Failure, _i3.Success>(
+        returnValue: _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>.value(_FakeEither_0<_i10.Failure, _i3.Success>(
           this,
           Invocation.method(
             #login,
             [entity],
           ),
         )),
-      ) as _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>);
+      ) as _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>);
 
   @override
-  _i8.Future<_i2.Either<_i9.Failure, _i3.Success>> createAccount(_i11.CreateAccountEntity? entity) => (super.noSuchMethod(
+  _i9.Future<_i2.Either<_i10.Failure, _i3.Success>> createAccount(_i12.CreateAccountEntity? entity) => (super.noSuchMethod(
         Invocation.method(
           #createAccount,
           [entity],
         ),
-        returnValue: _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>.value(_FakeEither_0<_i9.Failure, _i3.Success>(
+        returnValue: _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>.value(_FakeEither_0<_i10.Failure, _i3.Success>(
           this,
           Invocation.method(
             #createAccount,
             [entity],
           ),
         )),
-      ) as _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>);
+      ) as _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>);
 
   @override
-  _i8.Future<_i2.Either<_i9.Failure, _i3.Success>> signOut() => (super.noSuchMethod(
+  _i9.Future<_i2.Either<_i10.Failure, _i3.Success>> signOut() => (super.noSuchMethod(
         Invocation.method(
           #signOut,
           [],
         ),
-        returnValue: _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>.value(_FakeEither_0<_i9.Failure, _i3.Success>(
+        returnValue: _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>.value(_FakeEither_0<_i10.Failure, _i3.Success>(
           this,
           Invocation.method(
             #signOut,
             [],
           ),
         )),
-      ) as _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>);
+      ) as _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>);
 }
 
 /// A class which mocks [AuthenticationRemoteSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAuthenticationRemoteSource extends _i1.Mock implements _i12.AuthenticationRemoteSource {
+class MockAuthenticationRemoteSource extends _i1.Mock implements _i13.AuthenticationRemoteSource {
   MockAuthenticationRemoteSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i8.Future<_i3.Success> login(_i13.LoginDto? loginDto) => (super.noSuchMethod(
+  _i9.Future<_i3.Success> login(_i14.LoginDto? loginDto) => (super.noSuchMethod(
         Invocation.method(
           #login,
           [loginDto],
         ),
-        returnValue: _i8.Future<_i3.Success>.value(_FakeSuccess_1(
+        returnValue: _i9.Future<_i3.Success>.value(_FakeSuccess_1(
           this,
           Invocation.method(
             #login,
             [loginDto],
           ),
         )),
-      ) as _i8.Future<_i3.Success>);
+      ) as _i9.Future<_i3.Success>);
 
   @override
-  _i8.Future<_i3.Success> createAccount(_i14.CreateAccountDto? createUserDto) => (super.noSuchMethod(
+  _i9.Future<_i3.Success> createAccount(_i15.CreateAccountDto? createUserDto) => (super.noSuchMethod(
         Invocation.method(
           #createAccount,
           [createUserDto],
         ),
-        returnValue: _i8.Future<_i3.Success>.value(_FakeSuccess_1(
+        returnValue: _i9.Future<_i3.Success>.value(_FakeSuccess_1(
           this,
           Invocation.method(
             #createAccount,
             [createUserDto],
           ),
         )),
-      ) as _i8.Future<_i3.Success>);
+      ) as _i9.Future<_i3.Success>);
 
   @override
-  _i8.Future<_i3.Success> signOut() => (super.noSuchMethod(
+  _i9.Future<_i3.Success> signOut() => (super.noSuchMethod(
         Invocation.method(
           #signOut,
           [],
         ),
-        returnValue: _i8.Future<_i3.Success>.value(_FakeSuccess_1(
+        returnValue: _i9.Future<_i3.Success>.value(_FakeSuccess_1(
           this,
           Invocation.method(
             #signOut,
             [],
           ),
         )),
-      ) as _i8.Future<_i3.Success>);
+      ) as _i9.Future<_i3.Success>);
 }
 
 /// A class which mocks [LoginUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockLoginUseCase extends _i1.Mock implements _i15.LoginUseCase {
+class MockLoginUseCase extends _i1.Mock implements _i16.LoginUseCase {
   MockLoginUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i8.Future<_i2.Either<_i9.Failure, _i3.Success>> call(_i10.LoginEntity? loginEntity) => (super.noSuchMethod(
+  _i9.Future<_i2.Either<_i10.Failure, _i3.Success>> call(_i11.LoginEntity? loginEntity) => (super.noSuchMethod(
         Invocation.method(
           #call,
           [loginEntity],
         ),
-        returnValue: _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>.value(_FakeEither_0<_i9.Failure, _i3.Success>(
+        returnValue: _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>.value(_FakeEither_0<_i10.Failure, _i3.Success>(
           this,
           Invocation.method(
             #call,
             [loginEntity],
           ),
         )),
-      ) as _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>);
+      ) as _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>);
 }
 
 /// A class which mocks [RegistrationBloc].
@@ -238,10 +256,10 @@ class MockRegistrationBloc extends _i1.Mock implements _i4.RegistrationBloc {
       ) as _i4.RegistrationState);
 
   @override
-  _i8.Stream<_i4.RegistrationState> get stream => (super.noSuchMethod(
+  _i9.Stream<_i4.RegistrationState> get stream => (super.noSuchMethod(
         Invocation.getter(#stream),
-        returnValue: _i8.Stream<_i4.RegistrationState>.empty(),
-      ) as _i8.Stream<_i4.RegistrationState>);
+        returnValue: _i9.Stream<_i4.RegistrationState>.empty(),
+      ) as _i9.Stream<_i4.RegistrationState>);
 
   @override
   bool get isClosed => (super.noSuchMethod(
@@ -278,8 +296,8 @@ class MockRegistrationBloc extends _i1.Mock implements _i4.RegistrationBloc {
 
   @override
   void on<E extends _i4.RegistrationEvent>(
-    _i16.EventHandler<E, _i4.RegistrationState>? handler, {
-    _i16.EventTransformer<E>? transformer,
+    _i17.EventHandler<E, _i4.RegistrationState>? handler, {
+    _i17.EventTransformer<E>? transformer,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -291,7 +309,7 @@ class MockRegistrationBloc extends _i1.Mock implements _i4.RegistrationBloc {
       );
 
   @override
-  void onTransition(_i16.Transition<_i4.RegistrationEvent, _i4.RegistrationState>? transition) => super.noSuchMethod(
+  void onTransition(_i17.Transition<_i4.RegistrationEvent, _i4.RegistrationState>? transition) => super.noSuchMethod(
         Invocation.method(
           #onTransition,
           [transition],
@@ -300,17 +318,17 @@ class MockRegistrationBloc extends _i1.Mock implements _i4.RegistrationBloc {
       );
 
   @override
-  _i8.Future<void> close() => (super.noSuchMethod(
+  _i9.Future<void> close() => (super.noSuchMethod(
         Invocation.method(
           #close,
           [],
         ),
-        returnValue: _i8.Future<void>.value(),
-        returnValueForMissingStub: _i8.Future<void>.value(),
-      ) as _i8.Future<void>);
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
 
   @override
-  void onChange(_i16.Change<_i4.RegistrationState>? change) => super.noSuchMethod(
+  void onChange(_i17.Change<_i4.RegistrationState>? change) => super.noSuchMethod(
         Invocation.method(
           #onChange,
           [change],
@@ -369,10 +387,10 @@ class MockLoginBloc extends _i1.Mock implements _i5.LoginBloc {
       ) as _i5.LoginState);
 
   @override
-  _i8.Stream<_i5.LoginState> get stream => (super.noSuchMethod(
+  _i9.Stream<_i5.LoginState> get stream => (super.noSuchMethod(
         Invocation.getter(#stream),
-        returnValue: _i8.Stream<_i5.LoginState>.empty(),
-      ) as _i8.Stream<_i5.LoginState>);
+        returnValue: _i9.Stream<_i5.LoginState>.empty(),
+      ) as _i9.Stream<_i5.LoginState>);
 
   @override
   bool get isClosed => (super.noSuchMethod(
@@ -409,8 +427,8 @@ class MockLoginBloc extends _i1.Mock implements _i5.LoginBloc {
 
   @override
   void on<E extends _i5.LoginEvent>(
-    _i16.EventHandler<E, _i5.LoginState>? handler, {
-    _i16.EventTransformer<E>? transformer,
+    _i17.EventHandler<E, _i5.LoginState>? handler, {
+    _i17.EventTransformer<E>? transformer,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -422,7 +440,7 @@ class MockLoginBloc extends _i1.Mock implements _i5.LoginBloc {
       );
 
   @override
-  void onTransition(_i16.Transition<_i5.LoginEvent, _i5.LoginState>? transition) => super.noSuchMethod(
+  void onTransition(_i17.Transition<_i5.LoginEvent, _i5.LoginState>? transition) => super.noSuchMethod(
         Invocation.method(
           #onTransition,
           [transition],
@@ -431,17 +449,17 @@ class MockLoginBloc extends _i1.Mock implements _i5.LoginBloc {
       );
 
   @override
-  _i8.Future<void> close() => (super.noSuchMethod(
+  _i9.Future<void> close() => (super.noSuchMethod(
         Invocation.method(
           #close,
           [],
         ),
-        returnValue: _i8.Future<void>.value(),
-        returnValueForMissingStub: _i8.Future<void>.value(),
-      ) as _i8.Future<void>);
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
 
   @override
-  void onChange(_i16.Change<_i5.LoginState>? change) => super.noSuchMethod(
+  void onChange(_i17.Change<_i5.LoginState>? change) => super.noSuchMethod(
         Invocation.method(
           #onChange,
           [change],
@@ -485,55 +503,65 @@ class MockLoginBloc extends _i1.Mock implements _i5.LoginBloc {
 /// A class which mocks [ApiClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockApiClient extends _i1.Mock implements _i17.ApiClient {
+class MockApiClient extends _i1.Mock implements _i18.ApiClient {
   MockApiClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i8.Future<String> login(_i13.LoginDto? dto) => (super.noSuchMethod(
+  _i9.Future<String> login(_i14.LoginDto? dto) => (super.noSuchMethod(
         Invocation.method(
           #login,
           [dto],
         ),
-        returnValue: _i8.Future<String>.value(_i18.dummyValue<String>(
+        returnValue: _i9.Future<String>.value(_i19.dummyValue<String>(
           this,
           Invocation.method(
             #login,
             [dto],
           ),
         )),
-      ) as _i8.Future<String>);
+      ) as _i9.Future<String>);
 
   @override
-  _i8.Future<String> createAccount(_i14.CreateAccountDto? dto) => (super.noSuchMethod(
+  _i9.Future<String> createAccount(_i15.CreateAccountDto? dto) => (super.noSuchMethod(
         Invocation.method(
           #createAccount,
           [dto],
         ),
-        returnValue: _i8.Future<String>.value(_i18.dummyValue<String>(
+        returnValue: _i9.Future<String>.value(_i19.dummyValue<String>(
           this,
           Invocation.method(
             #createAccount,
             [dto],
           ),
         )),
-      ) as _i8.Future<String>);
+      ) as _i9.Future<String>);
 
   @override
-  _i8.Future<String> exampleDelete() => (super.noSuchMethod(
+  _i9.Future<void> addExpense(_i20.ExpenseDto? dto) => (super.noSuchMethod(
+        Invocation.method(
+          #addExpense,
+          [dto],
+        ),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
+
+  @override
+  _i9.Future<String> exampleDelete() => (super.noSuchMethod(
         Invocation.method(
           #exampleDelete,
           [],
         ),
-        returnValue: _i8.Future<String>.value(_i18.dummyValue<String>(
+        returnValue: _i9.Future<String>.value(_i19.dummyValue<String>(
           this,
           Invocation.method(
             #exampleDelete,
             [],
           ),
         )),
-      ) as _i8.Future<String>);
+      ) as _i9.Future<String>);
 }
 
 /// A class which mocks [SharedPreferences].
@@ -599,7 +627,7 @@ class MockSharedPreferences extends _i1.Mock implements _i6.SharedPreferences {
       )) as List<String>?);
 
   @override
-  _i8.Future<bool> setBool(
+  _i9.Future<bool> setBool(
     String? key,
     bool? value,
   ) =>
@@ -611,11 +639,11 @@ class MockSharedPreferences extends _i1.Mock implements _i6.SharedPreferences {
             value,
           ],
         ),
-        returnValue: _i8.Future<bool>.value(false),
-      ) as _i8.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i8.Future<bool> setInt(
+  _i9.Future<bool> setInt(
     String? key,
     int? value,
   ) =>
@@ -627,11 +655,11 @@ class MockSharedPreferences extends _i1.Mock implements _i6.SharedPreferences {
             value,
           ],
         ),
-        returnValue: _i8.Future<bool>.value(false),
-      ) as _i8.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i8.Future<bool> setDouble(
+  _i9.Future<bool> setDouble(
     String? key,
     double? value,
   ) =>
@@ -643,11 +671,11 @@ class MockSharedPreferences extends _i1.Mock implements _i6.SharedPreferences {
             value,
           ],
         ),
-        returnValue: _i8.Future<bool>.value(false),
-      ) as _i8.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i8.Future<bool> setString(
+  _i9.Future<bool> setString(
     String? key,
     String? value,
   ) =>
@@ -659,11 +687,11 @@ class MockSharedPreferences extends _i1.Mock implements _i6.SharedPreferences {
             value,
           ],
         ),
-        returnValue: _i8.Future<bool>.value(false),
-      ) as _i8.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i8.Future<bool> setStringList(
+  _i9.Future<bool> setStringList(
     String? key,
     List<String>? value,
   ) =>
@@ -675,75 +703,75 @@ class MockSharedPreferences extends _i1.Mock implements _i6.SharedPreferences {
             value,
           ],
         ),
-        returnValue: _i8.Future<bool>.value(false),
-      ) as _i8.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i8.Future<bool> remove(String? key) => (super.noSuchMethod(
+  _i9.Future<bool> remove(String? key) => (super.noSuchMethod(
         Invocation.method(
           #remove,
           [key],
         ),
-        returnValue: _i8.Future<bool>.value(false),
-      ) as _i8.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i8.Future<bool> commit() => (super.noSuchMethod(
+  _i9.Future<bool> commit() => (super.noSuchMethod(
         Invocation.method(
           #commit,
           [],
         ),
-        returnValue: _i8.Future<bool>.value(false),
-      ) as _i8.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i8.Future<bool> clear() => (super.noSuchMethod(
+  _i9.Future<bool> clear() => (super.noSuchMethod(
         Invocation.method(
           #clear,
           [],
         ),
-        returnValue: _i8.Future<bool>.value(false),
-      ) as _i8.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i8.Future<void> reload() => (super.noSuchMethod(
+  _i9.Future<void> reload() => (super.noSuchMethod(
         Invocation.method(
           #reload,
           [],
         ),
-        returnValue: _i8.Future<void>.value(),
-        returnValueForMissingStub: _i8.Future<void>.value(),
-      ) as _i8.Future<void>);
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
 }
 
 /// A class which mocks [CreateAccountUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCreateAccountUseCase extends _i1.Mock implements _i19.CreateAccountUseCase {
+class MockCreateAccountUseCase extends _i1.Mock implements _i21.CreateAccountUseCase {
   MockCreateAccountUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i8.Future<_i2.Either<_i9.Failure, _i3.Success>> call(_i11.CreateAccountEntity? entity) => (super.noSuchMethod(
+  _i9.Future<_i2.Either<_i10.Failure, _i3.Success>> call(_i12.CreateAccountEntity? entity) => (super.noSuchMethod(
         Invocation.method(
           #call,
           [entity],
         ),
-        returnValue: _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>.value(_FakeEither_0<_i9.Failure, _i3.Success>(
+        returnValue: _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>.value(_FakeEither_0<_i10.Failure, _i3.Success>(
           this,
           Invocation.method(
             #call,
             [entity],
           ),
         )),
-      ) as _i8.Future<_i2.Either<_i9.Failure, _i3.Success>>);
+      ) as _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>);
 }
 
 /// A class which mocks [SharedPrefsUtils].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSharedPrefsUtils extends _i1.Mock implements _i20.SharedPrefsUtils {
+class MockSharedPrefsUtils extends _i1.Mock implements _i22.SharedPrefsUtils {
   MockSharedPrefsUtils() {
     _i1.throwOnMissingStub(this);
   }
@@ -758,18 +786,221 @@ class MockSharedPrefsUtils extends _i1.Mock implements _i20.SharedPrefsUtils {
       ) as _i6.SharedPreferences);
 
   @override
-  _i8.Future<bool> get removeToken => (super.noSuchMethod(
+  _i9.Future<bool> get removeToken => (super.noSuchMethod(
         Invocation.getter(#removeToken),
-        returnValue: _i8.Future<bool>.value(false),
-      ) as _i8.Future<bool>);
+        returnValue: _i9.Future<bool>.value(false),
+      ) as _i9.Future<bool>);
 
   @override
-  _i8.Future<void> saveToken(String? token) => (super.noSuchMethod(
+  _i9.Future<void> saveToken(String? token) => (super.noSuchMethod(
         Invocation.method(
           #saveToken,
           [token],
         ),
-        returnValue: _i8.Future<void>.value(),
-        returnValueForMissingStub: _i8.Future<void>.value(),
-      ) as _i8.Future<void>);
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
+}
+
+/// A class which mocks [ExpensesRemoteSource].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockExpensesRemoteSource extends _i1.Mock implements _i23.ExpensesRemoteSource {
+  MockExpensesRemoteSource() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i9.Future<_i3.Success> addExpense(_i20.ExpenseDto? dto) => (super.noSuchMethod(
+        Invocation.method(
+          #addExpense,
+          [dto],
+        ),
+        returnValue: _i9.Future<_i3.Success>.value(_FakeSuccess_1(
+          this,
+          Invocation.method(
+            #addExpense,
+            [dto],
+          ),
+        )),
+      ) as _i9.Future<_i3.Success>);
+}
+
+/// A class which mocks [AddExpenseUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAddExpenseUseCase extends _i1.Mock implements _i24.AddExpenseUseCase {
+  MockAddExpenseUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i9.Future<_i2.Either<_i10.Failure, _i3.Success>> call(_i25.ExpenseEntity? entity) => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [entity],
+        ),
+        returnValue: _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>.value(_FakeEither_0<_i10.Failure, _i3.Success>(
+          this,
+          Invocation.method(
+            #call,
+            [entity],
+          ),
+        )),
+      ) as _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>);
+}
+
+/// A class which mocks [ExpensesRepo].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockExpensesRepo extends _i1.Mock implements _i26.ExpensesRepo {
+  MockExpensesRepo() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i9.Future<_i2.Either<_i10.Failure, _i3.Success>> addExpense(_i25.ExpenseEntity? entity) => (super.noSuchMethod(
+        Invocation.method(
+          #addExpense,
+          [entity],
+        ),
+        returnValue: _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>.value(_FakeEither_0<_i10.Failure, _i3.Success>(
+          this,
+          Invocation.method(
+            #addExpense,
+            [entity],
+          ),
+        )),
+      ) as _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>);
+}
+
+/// A class which mocks [AddExpensesBloc].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAddExpensesBloc extends _i1.Mock implements _i27.AddExpensesBloc {
+  MockAddExpensesBloc() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i7.AddExpensesState get state => (super.noSuchMethod(
+        Invocation.getter(#state),
+        returnValue: _FakeAddExpensesState_5(
+          this,
+          Invocation.getter(#state),
+        ),
+      ) as _i7.AddExpensesState);
+
+  @override
+  _i9.Stream<_i7.AddExpensesState> get stream => (super.noSuchMethod(
+        Invocation.getter(#stream),
+        returnValue: _i9.Stream<_i7.AddExpensesState>.empty(),
+      ) as _i9.Stream<_i7.AddExpensesState>);
+
+  @override
+  bool get isClosed => (super.noSuchMethod(
+        Invocation.getter(#isClosed),
+        returnValue: false,
+      ) as bool);
+
+  @override
+  void add(_i28.AddExpensesEvent? event) => super.noSuchMethod(
+        Invocation.method(
+          #add,
+          [event],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void onEvent(_i28.AddExpensesEvent? event) => super.noSuchMethod(
+        Invocation.method(
+          #onEvent,
+          [event],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void emit(_i7.AddExpensesState? state) => super.noSuchMethod(
+        Invocation.method(
+          #emit,
+          [state],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void on<E extends _i28.AddExpensesEvent>(
+    _i17.EventHandler<E, _i7.AddExpensesState>? handler, {
+    _i17.EventTransformer<E>? transformer,
+  }) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #on,
+          [handler],
+          {#transformer: transformer},
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void onTransition(_i17.Transition<_i28.AddExpensesEvent, _i7.AddExpensesState>? transition) => super.noSuchMethod(
+        Invocation.method(
+          #onTransition,
+          [transition],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i9.Future<void> close() => (super.noSuchMethod(
+        Invocation.method(
+          #close,
+          [],
+        ),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
+
+  @override
+  void onChange(_i17.Change<_i7.AddExpensesState>? change) => super.noSuchMethod(
+        Invocation.method(
+          #onChange,
+          [change],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void addError(
+    Object? error, [
+    StackTrace? stackTrace,
+  ]) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #addError,
+          [
+            error,
+            stackTrace,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void onError(
+    Object? error,
+    StackTrace? stackTrace,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #onError,
+          [
+            error,
+            stackTrace,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
 }

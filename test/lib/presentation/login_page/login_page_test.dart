@@ -6,8 +6,8 @@ import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
 
-import '../../../../golden_test_runner.dart';
-import '../../../../mocks.mocks.dart';
+import '../../../golden_test_runner.dart';
+import '../../../mocks.mocks.dart';
 
 void main() {
   late MockLoginBloc mockLoginBloc;

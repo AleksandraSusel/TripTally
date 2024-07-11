@@ -4,10 +4,14 @@ import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trip_tally/data/api/api_client.dart';
 import 'package:trip_tally/domain/data_source/authentication_remote_source.dart';
+import 'package:trip_tally/domain/data_source/expenses_remote_source.dart';
 import 'package:trip_tally/domain/repositories/authentication_repo.dart';
+import 'package:trip_tally/domain/repositories/expenses_repo.dart';
+import 'package:trip_tally/domain/use_case/add_expense_use_case.dart';
 import 'package:trip_tally/domain/use_case/create_account_use_case.dart';
 import 'package:trip_tally/domain/use_case/login_use_case.dart';
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart';
+import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_bloc.dart';
 import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart';
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart';
 
@@ -21,6 +25,10 @@ import 'package:trip_tally/presentation/pages/registration_page/bloc/registratio
   SharedPreferences,
   CreateAccountUseCase,
   SharedPrefsUtils,
+  ExpensesRemoteSource,
+  AddExpenseUseCase,
+  ExpensesRepo,
+  AddExpensesBloc,
 ])
 void main() {}
 
