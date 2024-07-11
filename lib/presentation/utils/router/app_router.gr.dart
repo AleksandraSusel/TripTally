@@ -106,7 +106,7 @@ abstract class _$AppRouter extends RootStackRouter {
     TestM3Route.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: TestM3Page(),
+        child: const TestM3Page(),
       );
     },
     ViewOfCurrentExpensesRoute.name: (routeData) {
