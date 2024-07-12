@@ -2,8 +2,12 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
+import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_info_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_selection_card.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_trip_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/outlined_info_card.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/cards/outlined_trip_card.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/trip_tally_progress_indicator.dart';
 
@@ -119,18 +123,48 @@ class TestM3PageState extends State<TestM3Page> {
       body: ListView(
         padding: const EdgeInsets.all(AppDimensions.d16),
         children: [
+          ElevatedSelectionCard(
+            title: 'Plan new',
+            subtitle: 'Plan your next trip!',
+            iconBGColor: context.thc.tertiaryContainer,
+            iconAsset: AppPaths.edit,
+          ),
+          const OutlinedInfoCard(
+            country: 'Greece',
+            dateFrom: '2024-30-07',
+            dateTo: '2026-30-08',
+            transportType: TransportType.airplane,
+            totalExpensesAmount: 49000,
+            totalExpensesCurrency: '€',
+            countryCode: 'GR',
+          ),
+          SizedBox(
+            height: AppDimensions.d88,
+            child: ListView.builder(
+              itemCount: 10,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (ctx, index) => const ElevatedInfoCard(
+                country: 'Greece',
+                dateFrom: '2024-30-07',
+                dateTo: '2026-30-08',
+                transportType: TransportType.airplane,
+                totalExpensesAmount: 10000,
+                totalExpensesCurrency: '€',
+                countryCode: 'GR',
+              ),
+            ),
+          ),
           const ElevatedTripCard(
             country: 'Greece',
             dateFrom: 'dateFrom',
             dateTo: 'dateTo',
             transportType: TransportType.airplane,
-            totalExpensesAmount: 600,
-            expectedBudgetAmount: 1600,
+            totalExpensesAmount: 60000,
+            expectedBudgetAmount: 16000.9,
             totalExpensesCurrency: '€',
             expectedBudgetCurrency: '€',
             imagePath: AppPaths.italy,
             countryCode: 'GR',
-
           ),
           const OutlinedTripCard(
             country: 'Italy',
@@ -141,7 +175,6 @@ class TestM3PageState extends State<TestM3Page> {
             totalExpensesCurrency: '€',
             imagePath: AppPaths.italy,
             countryCode: 'IT',
-
           ),
           const TripTallyProgressIndicator(),
           Text(

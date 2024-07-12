@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/theme_manager.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/money_format.dart';
 
 enum MoneyContainerColorTheme {
   surface,
@@ -33,7 +34,7 @@ class MoneyContainer extends StatelessWidget {
     super.key,
   });
 
-  final int amount;
+  final double amount;
   final String currency;
   final MoneyContainerColorTheme theme;
   final double height;
@@ -71,7 +72,7 @@ class MoneyContainer extends StatelessWidget {
           ],
         ),
         child: Text(
-          '$amount $currency',
+          MoneyFormat.formatPositiveAmount(amount, currency),
           style: context.tht.displayMedium?.copyWith(
             fontFamily: ThemeManager.robotoSerifFont,
             color: theme.getFontColor(context),

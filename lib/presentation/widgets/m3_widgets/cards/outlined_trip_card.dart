@@ -26,7 +26,7 @@ class OutlinedTripCard extends StatelessWidget {
   final String dateFrom;
   final String dateTo;
   final TransportType transportType;
-  final int totalExpensesAmount;
+  final double totalExpensesAmount;
   final String totalExpensesCurrency;
   final String imagePath;
   final String countryCode;

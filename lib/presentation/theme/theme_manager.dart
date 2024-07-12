@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/theme.dart';
+import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
 @singleton
 class ThemeManager {
@@ -11,6 +12,16 @@ class ThemeManager {
   static const robotoSerifFont = 'Roboto Serif';
   static const sailFont = 'Sail';
 
+  static List<BoxShadow>? innerShadow(BuildContext context, {Color? containerColor}) => [
+        BoxShadow(
+          color: context.thc.onSurface,
+          spreadRadius: 0.6,
+          offset: const Offset(0.8, -1),
+        ),
+        BoxShadow(
+          color: context.thc.primary,
+        ),
+      ];
 
   // ignore: unused_field
   final _themeData = ThemeData(
