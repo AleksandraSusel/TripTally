@@ -7,8 +7,11 @@ import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_info_card.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_selection_card.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_trip_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/expandable_info_card.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/cards/outlined_info_card.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/cards/outlined_trip_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/custom_drawer.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/profile_app_bar.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/trip_tally_progress_indicator.dart';
 
 @RoutePage()
@@ -89,40 +92,23 @@ class TestM3PageState extends State<TestM3Page> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Material 3 Widgets',
-          style: theme.textTheme.titleLarge,
-        ),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Text(
-                'Trip Tally',
-                style: theme.textTheme.headlineLarge,
-              ),
-            ),
-            const ListTile(
-              leading: Icon(Icons.message),
-              title: Text('Messages'),
-            ),
-            const ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Profile'),
-            ),
-            const ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-            ),
-          ],
-        ),
-      ),
+      appBar: const ProfileAppBar(isDashboard: true),
+      endDrawer: const CustomDrawer(),
       body: ListView(
         padding: const EdgeInsets.all(AppDimensions.d16),
         children: [
+          const ExpandableInfoCard(
+            country: 'Greece',
+            dateFrom: '2024-30-07',
+            dateTo: '2026-30-08',
+            transportType: TransportType.airplane,
+            totalExpensesAmount: 49000,
+            totalExpensesCurrency: '€',
+            countryCode: 'GR',
+            expectedBudgetCurrency: '€',
+            expectedBudgetAmount: 16000.9,
+            imagePath: AppPaths.italy,
+          ),
           ElevatedSelectionCard(
             title: 'Plan new',
             subtitle: 'Plan your next trip!',

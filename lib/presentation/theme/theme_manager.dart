@@ -231,13 +231,13 @@ class ThemeManager {
       labelMedium: TextStyle(
         fontFamily: robotoFont,
         fontSize: AppDimensions.d16,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         letterSpacing: 0.1,
       ),
       labelSmall: TextStyle(
         fontFamily: robotoFont,
         fontSize: AppDimensions.d14,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
         letterSpacing: 0.1,
       ),
 

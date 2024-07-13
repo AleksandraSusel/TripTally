@@ -40,6 +40,7 @@ class AppPaths {
 
   // PNG
   static const String italy = '$pngPath/italy.png';
+  static const String samplePerson = '$pngPath/person.png';
 
   // M3 SVG
   static const String carM3 = '$m3SvgPath/car.svg';
@@ -51,4 +52,5 @@ class AppPaths {
   static const String plusM3 = '$m3SvgPath/plus.svg';
   static const String historyM3 = '$m3SvgPath/history.svg';
   static const String edit = '$m3SvgPath/edit.svg';
+  static const String menu = '$m3SvgPath/menu.svg';
 }

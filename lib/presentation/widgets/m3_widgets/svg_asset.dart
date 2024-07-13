@@ -4,16 +4,22 @@ import 'package:flutter_svg/svg.dart';
 class SvgAsset extends StatelessWidget {
   const SvgAsset(
     this.asset, {
-    required this.color,
+    this.color,
+    this.height,
+    this.width,
     super.key,
   });
 
   final String asset;
-  final Color color;
+  final Color? color;
+  final double? height;
+  final double? width;
 
   @override
   Widget build(BuildContext context) => SvgPicture.asset(
         asset,
-        colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+        height: height,
+        width: width,
+        colorFilter: color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null,
       );
 }
