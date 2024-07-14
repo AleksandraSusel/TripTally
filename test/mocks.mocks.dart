@@ -11,18 +11,18 @@ import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i19;
 import 'package:shared_preferences/shared_preferences.dart' as _i6;
 import 'package:trip_tally/data/api/api_client.dart' as _i18;
-import 'package:trip_tally/data/dto/trips/add_trip_dto.dart' as _i20;
+import 'package:trip_tally/data/dto/trips/create_trip_dto.dart' as _i20;
 import 'package:trip_tally/data/dto/user/create_account_dto.dart' as _i15;
 import 'package:trip_tally/data/dto/user/login_dto.dart' as _i14;
 import 'package:trip_tally/domain/data_source/authentication_remote_source.dart' as _i13;
 import 'package:trip_tally/domain/data_source/trips_data_source.dart' as _i23;
-import 'package:trip_tally/domain/entities/add_trip_entity/add_trip_entity.dart' as _i25;
+import 'package:trip_tally/domain/entities/trips/create_trip_entity.dart' as _i25;
 import 'package:trip_tally/domain/entities/user/create_account_entity.dart' as _i12;
 import 'package:trip_tally/domain/entities/user/login_entity.dart' as _i11;
 import 'package:trip_tally/domain/repositories/authentication_repo.dart' as _i8;
 import 'package:trip_tally/domain/repositories/trips_repo.dart' as _i24;
-import 'package:trip_tally/domain/use_case/add_trip_use_case.dart' as _i26;
 import 'package:trip_tally/domain/use_case/create_account_use_case.dart' as _i21;
+import 'package:trip_tally/domain/use_case/create_trip_use_case.dart' as _i26;
 import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i16;
 import 'package:trip_tally/domain/utils/failure.dart' as _i10;
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i22;
@@ -539,7 +539,7 @@ class MockApiClient extends _i1.Mock implements _i18.ApiClient {
       ) as _i9.Future<String>);
 
   @override
-  _i9.Future<void> addTrip(_i20.AddTripDto? dto) => (super.noSuchMethod(
+  _i9.Future<void> addTrip(_i20.CreateTripDto? dto) => (super.noSuchMethod(
         Invocation.method(
           #addTrip,
           [dto],
@@ -811,15 +811,15 @@ class MockTripsDataSource extends _i1.Mock implements _i23.TripsDataSource {
   }
 
   @override
-  _i9.Future<_i3.Success> addTrip(_i20.AddTripDto? dto) => (super.noSuchMethod(
+  _i9.Future<_i3.Success> createTrip(_i20.CreateTripDto? dto) => (super.noSuchMethod(
         Invocation.method(
-          #addTrip,
+          #createTrip,
           [dto],
         ),
         returnValue: _i9.Future<_i3.Success>.value(_FakeSuccess_1(
           this,
           Invocation.method(
-            #addTrip,
+            #createTrip,
             [dto],
           ),
         )),
@@ -835,31 +835,31 @@ class MockTripsRepo extends _i1.Mock implements _i24.TripsRepo {
   }
 
   @override
-  _i9.Future<_i2.Either<_i10.Failure, _i3.Success>> newTrip(_i25.AddTripEntity? entity) => (super.noSuchMethod(
+  _i9.Future<_i2.Either<_i10.Failure, _i3.Success>> createTrip(_i25.CreateTripEntity? entity) => (super.noSuchMethod(
         Invocation.method(
-          #newTrip,
+          #createTrip,
           [entity],
         ),
         returnValue: _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>.value(_FakeEither_0<_i10.Failure, _i3.Success>(
           this,
           Invocation.method(
-            #newTrip,
+            #createTrip,
             [entity],
           ),
         )),
       ) as _i9.Future<_i2.Either<_i10.Failure, _i3.Success>>);
 }
 
-/// A class which mocks [AddTripUseCase].
+/// A class which mocks [CreateTripUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAddTripUseCase extends _i1.Mock implements _i26.AddTripUseCase {
-  MockAddTripUseCase() {
+class MockCreateTripUseCase extends _i1.Mock implements _i26.CreateTripUseCase {
+  MockCreateTripUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i9.Future<_i2.Either<_i10.Failure, _i3.Success>> call(_i25.AddTripEntity? entity) => (super.noSuchMethod(
+  _i9.Future<_i2.Either<_i10.Failure, _i3.Success>> call(_i25.CreateTripEntity? entity) => (super.noSuchMethod(
         Invocation.method(
           #call,
           [entity],

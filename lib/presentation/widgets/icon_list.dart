@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:trip_tally/presentation/utils/enums/transport_methods.dart';
+import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
 
 class IconList extends StatelessWidget {
   const IconList({
-    required this.icons,
     required this.onIconSelected,
     super.key,
   });
 
-  final List<String> icons;
-  final ValueChanged<TransportMethods> onIconSelected;
+  final ValueChanged<TransportType> onIconSelected;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: TransportMethods.values.map((method) {
+      children: TransportType.values.map((transportType) {
         return IconButton(
-          icon: SvgPicture.asset(icons[method.index]),
-          onPressed: () => onIconSelected(method),
+          icon: SvgPicture.asset(transportType.icon),
+          onPressed: () => onIconSelected(transportType),
         );
       }).toList(),
     );

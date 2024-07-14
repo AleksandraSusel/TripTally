@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:trip_tally/domain/entities/add_trip_entity/add_trip_entity.dart';
-import 'package:trip_tally/domain/use_case/add_trip_use_case.dart';
+import 'package:trip_tally/domain/entities/trips/create_trip_entity.dart';
+import 'package:trip_tally/domain/use_case/create_trip_use_case.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_event.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_state.dart';
 
@@ -11,11 +11,11 @@ class NewTripBloc extends Bloc<NewTripEvent, NewTripState> {
     on<AddTripEvent>(_addTripEvent);
   }
 
-  final AddTripUseCase _addTripUseCase;
+  final CreateTripUseCase _addTripUseCase;
 
   Future<void> _addTripEvent(AddTripEvent event, Emitter<NewTripState> emit) async {
     final result = await _addTripUseCase(
-      AddTripEntity(
+      CreateTripEntity(
         cityName: event.cityName,
         transportType: event.transportType,
         countryCode: event.countryCode,

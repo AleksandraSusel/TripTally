@@ -18,7 +18,6 @@ class AuthInterceptor extends Interceptor {
       if (token != null) {
         options.headers['Authorization'] = 'Bearer $token';
       }
-      // options.headers['Authorization'] = 'Bearer $tokenJson';
     }
 
     return handler.next(options);

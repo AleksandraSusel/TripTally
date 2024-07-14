@@ -73,7 +73,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<void> addTrip(AddTripDto dto) async {
+  Future<void> addTrip(CreateTripDto dto) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(dto.toJson());

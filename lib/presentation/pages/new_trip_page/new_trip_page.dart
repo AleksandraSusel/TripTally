@@ -10,7 +10,7 @@ import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_state.
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/enums/transport_methods.dart';
+import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
 import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
@@ -24,7 +24,6 @@ import 'package:trip_tally/presentation/widgets/main_container.dart';
 import 'package:trip_tally/presentation/widgets/package_button.dart';
 import 'package:trip_tally/presentation/widgets/person_button.dart';
 import 'package:trip_tally/presentation/widgets/suffix_icon_text_field.dart';
-import 'package:trip_tally/presentation/widgets/transport_icons.dart';
 
 @RoutePage()
 class NewTripPage extends StatelessWidget {
@@ -67,30 +66,12 @@ class _Body extends StatefulWidget {
 
 class _BodyState extends State<_Body> {
   final cityName = TextEditingController();
-  TransportMethods? selectedTransportMethod;
+  TransportType selectedTransportMethod = TransportType.car;
   final transportType = TextEditingController();
 
   DateTime? startDate;
 
   DateTime? endDate;
-
-  void _onStartDateChanged(DateTime date) {
-    setState(() {
-      startDate = date;
-    });
-  }
-
-  void _onEndDateChanged(DateTime date) {
-    setState(() {
-      endDate = date;
-    });
-  }
-
-  void _onIconSelected(TransportMethods? method) {
-    setState(() {
-      selectedTransportMethod = method;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,23 +105,28 @@ class _BodyState extends State<_Body> {
                     ),
                     const SizedBox(height: AppDimensions.d20),
                     IconList(
-                      icons: transportIcons,
-                      onIconSelected: _onIconSelected,
+                      onIconSelected: (method) => setState(() {
+                        selectedTransportMethod = method;
+                      }),
                     ),
                     SvgPicture.asset(AppPaths.dots),
                     const SizedBox(height: AppDimensions.d20),
                     SizedBox(
                       height: AppDimensions.d152,
                       child: DatePicker(
-                        onStartDateChanged: _onStartDateChanged,
-                        onEndDateChanged: _onEndDateChanged,
+                        onStartDateChanged: (date) => setState(() {
+                          startDate = date;
+                        }),
+                        onEndDateChanged: (date) => setState(() {
+                          endDate = date;
+                        }),
                       ),
                     ),
                     CustomElevatedButton(
                       onPressed: () => context.read<NewTripBloc>().add(
                             AddTripEvent(
                               cityName: cityName.text,
-                              transportType: selectedTransportMethod!.transportMethodsName(context),
+                              transportType: selectedTransportMethod.icon,
                               countryCode: 'PL',
                               dateFrom: DateFormat('yyyy-MM-dd').format(startDate!),
                               dateTo: DateFormat('yyyy-MM-dd').format(endDate!),

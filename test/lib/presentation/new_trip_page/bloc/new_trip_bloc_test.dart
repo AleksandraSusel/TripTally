@@ -12,10 +12,10 @@ import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import '../../../../mocks.mocks.dart';
 
 void main() {
-  late MockAddTripUseCase mockAddTripUseCase;
+  late MockCreateTripUseCase mockAddTripUseCase;
 
   setUp(() {
-    mockAddTripUseCase = MockAddTripUseCase();
+    mockAddTripUseCase = MockCreateTripUseCase();
   });
 
   NewTripBloc newTripBloc() => NewTripBloc(mockAddTripUseCase);

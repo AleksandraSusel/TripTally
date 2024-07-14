@@ -1,7 +1,7 @@
-import 'package:trip_tally/data/dto/trips/add_trip_dto.dart';
+import 'package:trip_tally/data/dto/trips/create_trip_dto.dart';
 import 'package:trip_tally/data/dto/user/create_account_dto.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
-import 'package:trip_tally/domain/entities/add_trip_entity/add_trip_entity.dart';
+import 'package:trip_tally/domain/entities/trips/create_trip_entity.dart';
 import 'package:trip_tally/domain/entities/user/create_account_entity.dart';
 import 'package:trip_tally/domain/entities/user/login_entity.dart';
 
@@ -22,7 +22,7 @@ const mockedLoginDto = LoginDto(
   password: 'Password1!',
 );
 
-const mockedAddTripDto = AddTripDto(
+const mockedCreateTripDto = CreateTripDto(
   cityName: 'Wrocław',
   transportType: 'Samolot',
   countryCode: 'PL',
@@ -31,7 +31,7 @@ const mockedAddTripDto = AddTripDto(
   plannedCost: 3000,
 );
 
-const mockedAddTripEntity = AddTripEntity(
+const mockedCreateTripEntity = CreateTripEntity(
   cityName: 'Wrocław',
   transportType: 'Samolot',
   countryCode: 'PL',

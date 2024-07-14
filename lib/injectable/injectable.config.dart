@@ -22,8 +22,8 @@ import 'package:trip_tally/domain/data_source/authentication_remote_source.dart'
 import 'package:trip_tally/domain/data_source/trips_data_source.dart' as _i19;
 import 'package:trip_tally/domain/repositories/authentication_repo.dart' as _i13;
 import 'package:trip_tally/domain/repositories/trips_repo.dart' as _i21;
-import 'package:trip_tally/domain/use_case/add_trip_use_case.dart' as _i23;
 import 'package:trip_tally/domain/use_case/create_account_use_case.dart' as _i15;
+import 'package:trip_tally/domain/use_case/create_trip_use_case.dart' as _i23;
 import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i16;
 import 'package:trip_tally/domain/use_case/sign_out_use_case.dart' as _i18;
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i7;
@@ -75,9 +75,9 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i18.SignOutUseCase>(() => _i18.SignOutUseCase(gh<_i13.AuthenticationRepo>()));
     gh.factory<_i19.TripsDataSource>(() => _i20.TripsDataSourceImpl(gh<_i9.ApiClient>()));
     gh.factory<_i21.TripsRepo>(() => _i22.TripsRepoImpl(gh<_i19.TripsDataSource>()));
-    gh.factory<_i23.AddTripUseCase>(() => _i23.AddTripUseCase(gh<_i21.TripsRepo>()));
+    gh.factory<_i23.CreateTripUseCase>(() => _i23.CreateTripUseCase(gh<_i21.TripsRepo>()));
     gh.factory<_i24.LoginBloc>(() => _i24.LoginBloc(gh<_i16.LoginUseCase>()));
-    gh.factory<_i25.NewTripBloc>(() => _i25.NewTripBloc(gh<_i23.AddTripUseCase>()));
+    gh.factory<_i25.NewTripBloc>(() => _i25.NewTripBloc(gh<_i23.CreateTripUseCase>()));
     return this;
   }
 }

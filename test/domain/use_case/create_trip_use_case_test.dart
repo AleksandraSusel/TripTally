@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:trip_tally/domain/use_case/add_trip_use_case.dart';
+import 'package:trip_tally/domain/use_case/create_trip_use_case.dart';
 import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
@@ -11,32 +11,32 @@ import '../../mocks.mocks.dart';
 
 void main() {
   late MockTripsRepo mockTripsRepo;
-  late AddTripUseCase addTripUseCase;
+  late CreateTripUseCase createTripUseCase;
 
   setUp(() {
     mockTripsRepo = MockTripsRepo();
-    addTripUseCase = AddTripUseCase(mockTripsRepo);
+    createTripUseCase = CreateTripUseCase(mockTripsRepo);
   });
 
-  test('AddTrip to add a trip success', () async {
-    when(mockTripsRepo.newTrip(mockedAddTripEntity)).thenAnswer((_) async => const Right(Success()));
-    final result = await addTripUseCase.call(mockedAddTripEntity);
+  test('CreateTrip to creating a trip success', () async {
+    when(mockTripsRepo.createTrip(mockedCreateTripEntity)).thenAnswer((_) async => const Right(Success()));
+    final result = await createTripUseCase.call(mockedCreateTripEntity);
     Success? success;
     result.fold((l) => null, (r) => success = r);
     expect(success, const Success());
-    verify(mockTripsRepo.newTrip(mockedAddTripEntity));
+    verify(mockTripsRepo.createTrip(mockedCreateTripEntity));
     verifyNoMoreInteractions(mockTripsRepo);
   });
 
-  test('AddTrip to add a trip failure', () async {
-    when(mockTripsRepo.newTrip(mockedAddTripEntity)).thenAnswer(
+  test('CreateTrip to creating a trip failure', () async {
+    when(mockTripsRepo.createTrip(mockedCreateTripEntity)).thenAnswer(
       (_) async => const Left(Failure(error: Errors.somethingWentWrong)),
     );
-    final result = await addTripUseCase.call(mockedAddTripEntity);
+    final result = await createTripUseCase.call(mockedCreateTripEntity);
     Errors? error;
     result.fold((l) => error = l.error, (r) => null);
     expect(error, Errors.somethingWentWrong);
-    verify(mockTripsRepo.newTrip(mockedAddTripEntity));
+    verify(mockTripsRepo.createTrip(mockedCreateTripEntity));
     verifyNoMoreInteractions(mockTripsRepo);
   });
 }

@@ -18,23 +18,23 @@ void main() {
     repo = TripsRepoImpl(mockedTripsDataSource);
   });
 
-  test('AddTrip to add a trip,success', () async {
-    when(mockedTripsDataSource.addTrip(mockedAddTripDto)).thenAnswer((_) async => const Success());
-    final result = await repo.newTrip(mockedAddTripEntity);
+  test('CreateTrip to creating a trip,success', () async {
+    when(mockedTripsDataSource.createTrip(mockedCreateTripDto)).thenAnswer((_) async => const Success());
+    final result = await repo.createTrip(mockedCreateTripEntity);
     Success? success;
     result.fold((l) => null, (r) => success = r);
     expect(success, const Success());
-    verify(mockedTripsDataSource.addTrip(mockedAddTripDto));
+    verify(mockedTripsDataSource.createTrip(mockedCreateTripDto));
     verifyNoMoreInteractions(mockedTripsDataSource);
   });
 
-  test('AddTrip to add a trip, failure', () async {
-    when(mockedTripsDataSource.addTrip(mockedAddTripDto)).thenThrow(ApiException(Errors.somethingWentWrong));
-    final result = await repo.newTrip(mockedAddTripEntity);
+  test('CreateTrip to creating a trip, failure', () async {
+    when(mockedTripsDataSource.createTrip(mockedCreateTripDto)).thenThrow(ApiException(Errors.somethingWentWrong));
+    final result = await repo.createTrip(mockedCreateTripEntity);
     Errors? error;
     result.fold((l) => error = l.error, (r) => null);
     expect(error, Errors.somethingWentWrong);
-    verify(mockedTripsDataSource.addTrip(mockedAddTripDto));
+    verify(mockedTripsDataSource.createTrip(mockedCreateTripDto));
     verifyNoMoreInteractions(mockedTripsDataSource);
   });
 }

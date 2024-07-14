@@ -1,25 +1,26 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:trip_tally/domain/entities/add_trip_entity/add_trip_entity.dart';
 
-part 'add_trip_dto.freezed.dart';
+import '../../../domain/entities/trips/create_trip_entity.dart';
 
-part 'add_trip_dto.g.dart';
+part 'create_trip_dto.freezed.dart';
+
+part 'create_trip_dto.g.dart';
 
 @freezed
-class AddTripDto with _$AddTripDto {
-  const factory AddTripDto({
+class CreateTripDto with _$CreateTripDto {
+  const factory CreateTripDto({
     required String cityName,
     required String transportType,
     required String countryCode,
     required String dateFrom,
     required String dateTo,
     required double plannedCost,
-  }) = _AddTripDto;
+  }) = _CreateAddTripDto;
 
-  factory AddTripDto.fromJson(Map<String, dynamic> json) => _$AddTripDtoFromJson(json);
+  factory CreateTripDto.fromJson(Map<String, dynamic> json) => _$CreateTripDtoFromJson(json);
 
-  factory AddTripDto.fromEntity(AddTripEntity entity) {
-    return AddTripDto(
+  factory CreateTripDto.fromEntity(CreateTripEntity entity) {
+    return CreateTripDto(
       cityName: entity.cityName,
       transportType: entity.transportType,
       countryCode: entity.countryCode,

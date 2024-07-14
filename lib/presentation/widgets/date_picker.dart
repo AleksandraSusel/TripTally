@@ -20,8 +20,8 @@ class DatePicker extends StatefulWidget {
 }
 
 class _DatePickerState extends State<DatePicker> {
-  DateTime? startDate;
-  DateTime? endDate;
+  DateTime startDate = DateTime.now();
+  DateTime endDate = DateTime.now();
   bool isSelected = false;
 
   Future<void> _pickDateTimeRange(BuildContext context) async {
@@ -50,8 +50,8 @@ class _DatePickerState extends State<DatePicker> {
           isSelected = true;
         },
       );
-      widget.onStartDateChanged(startDate!);
-      widget.onEndDateChanged(endDate!);
+      widget.onStartDateChanged(startDate);
+      widget.onEndDateChanged(endDate);
     }
   }
 
@@ -83,7 +83,7 @@ class _DatePickerState extends State<DatePicker> {
                             ],
                           )
                         : Text(
-                            '${DateFormat('yyyy-MM-dd').format(startDate!)} - ${DateFormat('yyyy-MM-dd').format(endDate!)}',
+                      '${DateFormat('yyyy-MM-dd').format(startDate)} - ${DateFormat('yyyy-MM-dd').format(endDate)}',
                             style: context.tht.headlineSmall,
                           ),
                   ),

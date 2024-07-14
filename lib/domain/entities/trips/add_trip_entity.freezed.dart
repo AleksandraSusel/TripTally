@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'add_trip_dto.dart';
+part of 'create_trip_entity.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,8 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-AddTripDto _$AddTripDtoFromJson(Map<String, dynamic> json) {
-  return _AddTripDto.fromJson(json);
-}
-
 /// @nodoc
-mixin _$AddTripDto {
+mixin _$AddTripEntity {
   String get cityName => throw _privateConstructorUsedError;
   String get transportType => throw _privateConstructorUsedError;
   String get countryCode => throw _privateConstructorUsedError;
@@ -27,22 +23,22 @@ mixin _$AddTripDto {
   String get dateTo => throw _privateConstructorUsedError;
   double get plannedCost => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AddTripDtoCopyWith<AddTripDto> get copyWith => throw _privateConstructorUsedError;
+  $AddTripEntityCopyWith<AddTripEntity> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AddTripDtoCopyWith<$Res> {
-  factory $AddTripDtoCopyWith(AddTripDto value, $Res Function(AddTripDto) then) = _$AddTripDtoCopyWithImpl<$Res, AddTripDto>;
+abstract class $AddTripEntityCopyWith<$Res> {
+  factory $AddTripEntityCopyWith(AddTripEntity value, $Res Function(AddTripEntity) then) =
+      _$AddTripEntityCopyWithImpl<$Res, AddTripEntity>;
 
   @useResult
   $Res call({String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
 }
 
 /// @nodoc
-class _$AddTripDtoCopyWithImpl<$Res, $Val extends AddTripDto> implements $AddTripDtoCopyWith<$Res> {
-  _$AddTripDtoCopyWithImpl(this._value, this._then);
+class _$AddTripEntityCopyWithImpl<$Res, $Val extends AddTripEntity> implements $AddTripEntityCopyWith<$Res> {
+  _$AddTripEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -90,9 +86,9 @@ class _$AddTripDtoCopyWithImpl<$Res, $Val extends AddTripDto> implements $AddTri
 }
 
 /// @nodoc
-abstract class _$$AddTripDtoImplCopyWith<$Res> implements $AddTripDtoCopyWith<$Res> {
-  factory _$$AddTripDtoImplCopyWith(_$AddTripDtoImpl value, $Res Function(_$AddTripDtoImpl) then) =
-      __$$AddTripDtoImplCopyWithImpl<$Res>;
+abstract class _$$AddTripEntityImplCopyWith<$Res> implements $AddTripEntityCopyWith<$Res> {
+  factory _$$AddTripEntityImplCopyWith(_$AddTripEntityImpl value, $Res Function(_$AddTripEntityImpl) then) =
+      __$$AddTripEntityImplCopyWithImpl<$Res>;
 
   @override
   @useResult
@@ -100,9 +96,9 @@ abstract class _$$AddTripDtoImplCopyWith<$Res> implements $AddTripDtoCopyWith<$R
 }
 
 /// @nodoc
-class __$$AddTripDtoImplCopyWithImpl<$Res> extends _$AddTripDtoCopyWithImpl<$Res, _$AddTripDtoImpl>
-    implements _$$AddTripDtoImplCopyWith<$Res> {
-  __$$AddTripDtoImplCopyWithImpl(_$AddTripDtoImpl _value, $Res Function(_$AddTripDtoImpl) _then) : super(_value, _then);
+class __$$AddTripEntityImplCopyWithImpl<$Res> extends _$AddTripEntityCopyWithImpl<$Res, _$AddTripEntityImpl>
+    implements _$$AddTripEntityImplCopyWith<$Res> {
+  __$$AddTripEntityImplCopyWithImpl(_$AddTripEntityImpl _value, $Res Function(_$AddTripEntityImpl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -114,7 +110,7 @@ class __$$AddTripDtoImplCopyWithImpl<$Res> extends _$AddTripDtoCopyWithImpl<$Res
     Object? dateTo = null,
     Object? plannedCost = null,
   }) {
-    return _then(_$AddTripDtoImpl(
+    return _then(_$AddTripEntityImpl(
       cityName: null == cityName
           ? _value.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
@@ -144,17 +140,15 @@ class __$$AddTripDtoImplCopyWithImpl<$Res> extends _$AddTripDtoCopyWithImpl<$Res
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$AddTripDtoImpl implements _AddTripDto {
-  const _$AddTripDtoImpl(
+
+class _$AddTripEntityImpl implements _AddTripEntity {
+  const _$AddTripEntityImpl(
       {required this.cityName,
       required this.transportType,
       required this.countryCode,
       required this.dateFrom,
       required this.dateTo,
       required this.plannedCost});
-
-  factory _$AddTripDtoImpl.fromJson(Map<String, dynamic> json) => _$$AddTripDtoImplFromJson(json);
 
   @override
   final String cityName;
@@ -171,14 +165,14 @@ class _$AddTripDtoImpl implements _AddTripDto {
 
   @override
   String toString() {
-    return 'AddTripDto(cityName: $cityName, transportType: $transportType, countryCode: $countryCode, dateFrom: $dateFrom, dateTo: $dateTo, plannedCost: $plannedCost)';
+    return 'AddTripEntity(cityName: $cityName, transportType: $transportType, countryCode: $countryCode, dateFrom: $dateFrom, dateTo: $dateTo, plannedCost: $plannedCost)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddTripDtoImpl &&
+            other is _$AddTripEntityImpl &&
             (identical(other.cityName, cityName) || other.cityName == cityName) &&
             (identical(other.transportType, transportType) || other.transportType == transportType) &&
             (identical(other.countryCode, countryCode) || other.countryCode == countryCode) &&
@@ -187,46 +181,33 @@ class _$AddTripDtoImpl implements _AddTripDto {
             (identical(other.plannedCost, plannedCost) || other.plannedCost == plannedCost));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, cityName, transportType, countryCode, dateFrom, dateTo, plannedCost);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddTripDtoImplCopyWith<_$AddTripDtoImpl> get copyWith => __$$AddTripDtoImplCopyWithImpl<_$AddTripDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AddTripDtoImplToJson(
-      this,
-    );
-  }
+  _$$AddTripEntityImplCopyWith<_$AddTripEntityImpl> get copyWith =>
+      __$$AddTripEntityImplCopyWithImpl<_$AddTripEntityImpl>(this, _$identity);
 }
 
-abstract class _AddTripDto implements AddTripDto {
-  const factory _AddTripDto(
+abstract class _AddTripEntity implements AddTripEntity {
+  const factory _AddTripEntity(
       {required final String cityName,
       required final String transportType,
       required final String countryCode,
       required final String dateFrom,
       required final String dateTo,
-      required final double plannedCost}) = _$AddTripDtoImpl;
-
-  factory _AddTripDto.fromJson(Map<String, dynamic> json) = _$AddTripDtoImpl.fromJson;
+      required final double plannedCost}) = _$AddTripEntityImpl;
 
   @override
   String get cityName;
-
   @override
   String get transportType;
-
   @override
   String get countryCode;
-
   @override
   String get dateFrom;
-
   @override
   String get dateTo;
 
@@ -235,5 +216,5 @@ abstract class _AddTripDto implements AddTripDto {
 
   @override
   @JsonKey(ignore: true)
-  _$$AddTripDtoImplCopyWith<_$AddTripDtoImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$AddTripEntityImplCopyWith<_$AddTripEntityImpl> get copyWith => throw _privateConstructorUsedError;
 }
