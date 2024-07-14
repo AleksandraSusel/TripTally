@@ -7,12 +7,6 @@ class NewTripEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class InitializeNewTripEvent extends NewTripEvent {
-  const InitializeNewTripEvent();
-
-  @override
-  List<Object?> get props => [];
-}
 
 class AddTripEvent extends NewTripEvent {
   const AddTripEvent({

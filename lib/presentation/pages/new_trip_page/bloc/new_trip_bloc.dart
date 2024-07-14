@@ -8,15 +8,10 @@ import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_state.
 @injectable
 class NewTripBloc extends Bloc<NewTripEvent, NewTripState> {
   NewTripBloc(this._addTripUseCase) : super(const NewTripState.initial()) {
-    on<InitializeNewTripEvent>(_onInitializeNewTripEvent);
     on<AddTripEvent>(_addTripEvent);
   }
 
   final AddTripUseCase _addTripUseCase;
-
-  void _onInitializeNewTripEvent(InitializeNewTripEvent event, Emitter<NewTripState> emit) {
-    emit(const NewTripState.initial());
-  }
 
   Future<void> _addTripEvent(AddTripEvent event, Emitter<NewTripState> emit) async {
     final result = await _addTripUseCase(

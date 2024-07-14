@@ -30,12 +30,15 @@ import 'package:trip_tally/presentation/widgets/transport_icons.dart';
 class NewTripPage extends StatelessWidget {
   const NewTripPage({
     super.key,
+    this.bloc,
   });
+
+  final NewTripBloc? bloc;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<NewTripBloc>(),
+      create: (context) => bloc ?? getIt<NewTripBloc>(),
       child: BlocConsumer<NewTripBloc, NewTripState>(
         listener: (context, state) => state.maybeWhen(
           orElse: SizedBox.shrink,

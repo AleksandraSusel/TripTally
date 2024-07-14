@@ -44,9 +44,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     NewTripRoute.name: (routeData) {
+      final args = routeData.argsAs<NewTripRouteArgs>(orElse: () => const NewTripRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const NewTripPage(),
+        child: NewTripPage(
+          key: args.key,
+          bloc: args.bloc,
+        ),
       );
     },
     PlanExpensesRoute.name: (routeData) {
@@ -99,6 +103,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const SummaryAfterClosingPage(),
+      );
+    },
+    TestM3Route.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TestM3Page(),
       );
     },
     ViewOfCurrentExpensesRoute.name: (routeData) {
@@ -197,16 +207,39 @@ class LoginRouteArgs {
 
 /// generated route for
 /// [NewTripPage]
-class NewTripRoute extends PageRouteInfo<void> {
-  const NewTripRoute({List<PageRouteInfo>? children})
-      : super(
+class NewTripRoute extends PageRouteInfo<NewTripRouteArgs> {
+  NewTripRoute({
+    Key? key,
+    NewTripBloc? bloc,
+    List<PageRouteInfo>? children,
+  }) : super(
           NewTripRoute.name,
+          args: NewTripRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'NewTripRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<NewTripRouteArgs> page = PageInfo<NewTripRouteArgs>(name);
+}
+
+class NewTripRouteArgs {
+  const NewTripRouteArgs({
+    this.key,
+    this.bloc,
+  });
+
+  final Key? key;
+
+  final NewTripBloc? bloc;
+
+  @override
+  String toString() {
+    return 'NewTripRouteArgs{key: $key, bloc: $bloc}';
+  }
 }
 
 /// generated route for
@@ -340,6 +373,20 @@ class SummaryAfterClosingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SummaryAfterClosingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TestM3Page]
+class TestM3Route extends PageRouteInfo<void> {
+  const TestM3Route({List<PageRouteInfo>? children})
+      : super(
+          TestM3Route.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TestM3Route';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

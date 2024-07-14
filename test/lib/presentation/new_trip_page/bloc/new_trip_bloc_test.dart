@@ -22,15 +22,6 @@ void main() {
 
   group('NewTripBloc', () {
     blocTest<NewTripBloc, NewTripState>(
-      'emits [NewTripState.initial()] when InitializeNewTripEvent is added',
-      build: newTripBloc,
-      act: (bloc) => bloc.add(const InitializeNewTripEvent()),
-      expect: () => [
-        const NewTripState.initial(),
-      ],
-    );
-
-    blocTest<NewTripBloc, NewTripState>(
       'emits [NewTripState.success()] when AddTripEvent is successful',
       setUp: () => when(mockAddTripUseCase(any)).thenAnswer((_) async => const Right(Success())),
       build: newTripBloc,

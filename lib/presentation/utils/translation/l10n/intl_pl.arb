@@ -1,4 +1,5 @@
 {
+  "appName": "Trip Tally",
   "welcomeText_welcomeIn": "Welcome in \n",
   "welcomeText_trip": "Trip",
   "welcomeText_tally": "Tally!",

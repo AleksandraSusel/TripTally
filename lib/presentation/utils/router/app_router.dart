@@ -5,6 +5,7 @@ import 'package:trip_tally/presentation/pages/edit_current_trip_page/edit_curren
 import 'package:trip_tally/presentation/pages/home_page/home_page.dart';
 import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart';
 import 'package:trip_tally/presentation/pages/login_page/login_page.dart';
+import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/new_trip_page.dart';
 import 'package:trip_tally/presentation/pages/plan_expenses_page/plan_expenses_page.dart';
 import 'package:trip_tally/presentation/pages/plan_new_trip_page/plan_new_trip_page.dart';
@@ -15,6 +16,7 @@ import 'package:trip_tally/presentation/pages/remove_current_trip_page/remove_cu
 import 'package:trip_tally/presentation/pages/resume_of_trip_page/resume_of_trip_page.dart';
 import 'package:trip_tally/presentation/pages/settings_page/settings_page.dart';
 import 'package:trip_tally/presentation/pages/summary_after_closing_page/summary_after_closing_page.dart';
+import 'package:trip_tally/presentation/pages/test_m3_page/test_m3_page.dart';
 import 'package:trip_tally/presentation/pages/view_of_current_expenses_page/view_of_current_expenses_page.dart';
 import 'package:trip_tally/presentation/pages/your_current_trip_page/your_current_trip_page.dart';
 
@@ -47,5 +49,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: EditCurrentTripRoute.page),
         AutoRoute(page: RemoveCurrentTripRoute.page),
         AutoRoute(page: YourCurrentTripRoute.page),
+        AutoRoute(page: TestM3Route.page),
       ];
 }
