@@ -9,6 +9,7 @@ import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart';
 import 'package:trip_tally/presentation/theme/theme_manager.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/utils/translation/generated/l10n.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/text_scale_wrapper.dart';
 
 Future<void> main() async {
   await _configureSystemUIOverlays();
@@ -32,17 +33,19 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) => BlocProvider(
-        create: (context) => getIt<AppBloc>(),
-        child: BlocListener<AppBloc, AppState>(
-          listener: (context, state) => state.whenOrNull(
-            initial: () => getIt<AppRouter>().push(RegistrationRoute()),
-            success: () => getIt<AppRouter>().push(const NewTripRoute()),
-            toLoginPage: () => getIt<AppRouter>().push(LoginRoute()),
-            loading: () => const Center(
-              child: CircularProgressIndicator(),
-            ),
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => getIt<AppBloc>(),
+      child: BlocListener<AppBloc, AppState>(
+        listener: (context, state) => state.whenOrNull(
+          initial: () => getIt<AppRouter>().push(RegistrationRoute()),
+          success: () => getIt<AppRouter>().push(const NewTripRoute()),
+          toLoginPage: () => getIt<AppRouter>().push(LoginRoute()),
+          loading: () => const Center(
+            child: CircularProgressIndicator(),
           ),
+        ),
+        child: TextScaleWrapper(
           child: MaterialApp.router(
             routerConfig: getIt<AppRouter>().config(),
             localizationsDelegates: const [
@@ -68,5 +71,7 @@ class MyApp extends StatelessWidget {
             theme: getIt<ThemeManager>().getTheme(),
           ),
         ),
-      );
+      ),
+    );
+  }
 }

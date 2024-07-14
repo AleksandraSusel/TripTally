@@ -1,6 +1,18 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:trip_tally/presentation/widgets/trip_tally_progress_indicator.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
+import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_info_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_selection_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_trip_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/expandable_info_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/outlined_info_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/outlined_trip_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/custom_drawer.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/profile_app_bar.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/trip_tally_progress_indicator.dart';
 
 @RoutePage()
 class TestM3Page extends StatefulWidget {
@@ -80,40 +92,76 @@ class TestM3PageState extends State<TestM3Page> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Material 3 Widgets',
-          style: theme.textTheme.titleLarge,
-        ),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Text(
-                'Trip Tally',
-                style: theme.textTheme.headlineLarge,
+      appBar: const ProfileAppBar(isDashboard: true),
+      endDrawer: const CustomDrawer(),
+      body: ListView(
+        padding: const EdgeInsets.all(AppDimensions.d16),
+        children: [
+          const ExpandableInfoCard(
+            country: 'Greece',
+            dateFrom: '2024-30-07',
+            dateTo: '2026-30-08',
+            transportType: TransportType.airplane,
+            totalExpensesAmount: 49000,
+            totalExpensesCurrency: '€',
+            countryCode: 'GR',
+            expectedBudgetCurrency: '€',
+            expectedBudgetAmount: 16000.9,
+            imagePath: AppPaths.italy,
+          ),
+          ElevatedSelectionCard(
+            title: 'Plan new',
+            subtitle: 'Plan your next trip!',
+            iconBGColor: context.thc.tertiaryContainer,
+            iconAsset: AppPaths.edit,
+          ),
+          const OutlinedInfoCard(
+            country: 'Greece',
+            dateFrom: '2024-30-07',
+            dateTo: '2026-30-08',
+            transportType: TransportType.airplane,
+            totalExpensesAmount: 49000,
+            totalExpensesCurrency: '€',
+            countryCode: 'GR',
+          ),
+          SizedBox(
+            height: AppDimensions.d88,
+            child: ListView.builder(
+              itemCount: 10,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (ctx, index) => const ElevatedInfoCard(
+                country: 'Greece',
+                dateFrom: '2024-30-07',
+                dateTo: '2026-30-08',
+                transportType: TransportType.airplane,
+                totalExpensesAmount: 10000,
+                totalExpensesCurrency: '€',
+                countryCode: 'GR',
               ),
             ),
-            const ListTile(
-              leading: Icon(Icons.message),
-              title: Text('Messages'),
-            ),
-            const ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Profile'),
-            ),
-            const ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-            ),
-          ],
-        ),
-      ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
+          ),
+          const ElevatedTripCard(
+            country: 'Greece',
+            dateFrom: 'dateFrom',
+            dateTo: 'dateTo',
+            transportType: TransportType.airplane,
+            totalExpensesAmount: 60000,
+            expectedBudgetAmount: 16000.9,
+            totalExpensesCurrency: '€',
+            expectedBudgetCurrency: '€',
+            imagePath: AppPaths.italy,
+            countryCode: 'GR',
+          ),
+          const OutlinedTripCard(
+            country: 'Italy',
+            dateFrom: 'dateFrom',
+            dateTo: 'dateTo',
+            transportType: TransportType.train,
+            totalExpensesAmount: 1300,
+            totalExpensesCurrency: '€',
+            imagePath: AppPaths.italy,
+            countryCode: 'IT',
+          ),
           const TripTallyProgressIndicator(),
           Text(
             'Material 3 Widgets',
