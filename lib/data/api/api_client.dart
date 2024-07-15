@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:trip_tally/data/dto/trips/create_trip_dto.dart';
 import 'package:trip_tally/data/dto/user/create_account_dto.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
 
@@ -18,6 +19,9 @@ abstract class ApiClient {
 
   @POST('users/register')
   Future<String> createAccount(@Queries() CreateAccountDto dto);
+
+  @POST('trips')
+  Future<void> addTrip(@Queries() CreateTripDto dto);
 
   ///Delete
   @DELETE('')

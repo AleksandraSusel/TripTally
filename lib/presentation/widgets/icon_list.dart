@@ -1,32 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:trip_tally/presentation/theme/app_dimensions.dart';
-import 'package:trip_tally/presentation/widgets/custom_icon_button.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
 
 class IconList extends StatelessWidget {
-  const IconList({required this.icons, super.key});
+  const IconList({
+    required this.onIconSelected,
+    super.key,
+  });
 
-  final List<String> icons;
+  final ValueChanged<TransportType> onIconSelected;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: AppDimensions.d60,
-      width: AppDimensions.d300,
-      child: Center(
-        child: Align(
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: icons.length,
-            itemBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.only(left: AppDimensions.d8),
-              child: CustomIconButton(
-                icon: icons[index],
-                onPressed: () {},
-              ),
-            ),
-          ),
-        ),
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: TransportType.values.map((transportType) {
+        return IconButton(
+          icon: SvgPicture.asset(transportType.icon),
+          onPressed: () => onIconSelected(transportType),
+        );
+      }).toList(),
     );
   }
 }

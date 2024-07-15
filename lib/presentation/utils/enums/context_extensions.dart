@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:trip_tally/presentation/utils/translation/generated/l10n.dart';
 
 extension BuildContextExtension on BuildContext {

@@ -34,8 +34,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>(
-          orElse: () => const LoginRouteArgs());
+      final args = routeData.argsAs<LoginRouteArgs>(orElse: () => const LoginRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: LoginPage(
@@ -45,9 +44,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     NewTripRoute.name: (routeData) {
+      final args = routeData.argsAs<NewTripRouteArgs>(orElse: () => const NewTripRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const NewTripPage(),
+        child: NewTripPage(
+          key: args.key,
+          bloc: args.bloc,
+        ),
       );
     },
     PlanExpensesRoute.name: (routeData) {
@@ -69,8 +72,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     RegistrationRoute.name: (routeData) {
-      final args = routeData.argsAs<RegistrationRouteArgs>(
-          orElse: () => const RegistrationRouteArgs());
+      final args = routeData.argsAs<RegistrationRouteArgs>(orElse: () => const RegistrationRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: RegistrationPage(
@@ -106,7 +108,7 @@ abstract class _$AppRouter extends RootStackRouter {
     TestM3Route.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: TestM3Page(),
+        child: const TestM3Page(),
       );
     },
     ViewOfCurrentExpensesRoute.name: (routeData) {
@@ -205,16 +207,39 @@ class LoginRouteArgs {
 
 /// generated route for
 /// [NewTripPage]
-class NewTripRoute extends PageRouteInfo<void> {
-  const NewTripRoute({List<PageRouteInfo>? children})
-      : super(
+class NewTripRoute extends PageRouteInfo<NewTripRouteArgs> {
+  NewTripRoute({
+    Key? key,
+    NewTripBloc? bloc,
+    List<PageRouteInfo>? children,
+  }) : super(
           NewTripRoute.name,
+          args: NewTripRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'NewTripRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<NewTripRouteArgs> page = PageInfo<NewTripRouteArgs>(name);
+}
+
+class NewTripRouteArgs {
+  const NewTripRouteArgs({
+    this.key,
+    this.bloc,
+  });
+
+  final Key? key;
+
+  final NewTripBloc? bloc;
+
+  @override
+  String toString() {
+    return 'NewTripRouteArgs{key: $key, bloc: $bloc}';
+  }
 }
 
 /// generated route for
@@ -277,8 +302,7 @@ class RegistrationRoute extends PageRouteInfo<RegistrationRouteArgs> {
 
   static const String name = 'RegistrationRoute';
 
-  static const PageInfo<RegistrationRouteArgs> page =
-      PageInfo<RegistrationRouteArgs>(name);
+  static const PageInfo<RegistrationRouteArgs> page = PageInfo<RegistrationRouteArgs>(name);
 }
 
 class RegistrationRouteArgs {
