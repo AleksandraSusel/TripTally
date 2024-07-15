@@ -126,7 +126,7 @@ class _BodyState extends State<_Body> {
                       onPressed: () => context.read<NewTripBloc>().add(
                             AddTripEvent(
                               cityName: cityName.text,
-                              transportType: selectedTransportMethod.icon,
+                              transportType: selectedTransportMethod.name,
                               countryCode: 'PL',
                               dateFrom: DateFormat('yyyy-MM-dd').format(startDate!),
                               dateTo: DateFormat('yyyy-MM-dd').format(endDate!),
