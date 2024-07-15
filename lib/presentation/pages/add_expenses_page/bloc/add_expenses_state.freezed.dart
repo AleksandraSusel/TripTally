@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'new_trip_state.dart';
+part of 'add_expenses_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$NewTripState {
+mixin _$AddExpensesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -23,7 +23,6 @@ mixin _$NewTripState {
     required TResult Function(Errors error) failure,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -39,7 +38,6 @@ mixin _$NewTripState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -47,7 +45,6 @@ mixin _$NewTripState {
     required TResult Function(_Failure value) failure,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -66,13 +63,14 @@ mixin _$NewTripState {
 }
 
 /// @nodoc
-abstract class $NewTripStateCopyWith<$Res> {
-  factory $NewTripStateCopyWith(NewTripState value, $Res Function(NewTripState) then) = _$NewTripStateCopyWithImpl<$Res, NewTripState>;
+abstract class $AddExpensesStateCopyWith<$Res> {
+  factory $AddExpensesStateCopyWith(AddExpensesState value, $Res Function(AddExpensesState) then) =
+      _$AddExpensesStateCopyWithImpl<$Res, AddExpensesState>;
 }
 
 /// @nodoc
-class _$NewTripStateCopyWithImpl<$Res, $Val extends NewTripState> implements $NewTripStateCopyWith<$Res> {
-  _$NewTripStateCopyWithImpl(this._value, this._then);
+class _$AddExpensesStateCopyWithImpl<$Res, $Val extends AddExpensesState> implements $AddExpensesStateCopyWith<$Res> {
+  _$AddExpensesStateCopyWithImpl(this._value, this._then);
 
 // ignore: unused_field
   final $Val _value;
@@ -86,7 +84,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res> extends _$NewTripStateCopyWithImpl<$Res, _$InitialImpl>
+class __$$InitialImplCopyWithImpl<$Res> extends _$AddExpensesStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(_$InitialImpl _value, $Res Function(_$InitialImpl) _then) : super(_value, _then);
 }
@@ -98,7 +96,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'NewTripState.initial()';
+    return 'AddExpensesState.initial()';
   }
 
   @override
@@ -178,7 +176,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements NewTripState {
+abstract class _Initial implements AddExpensesState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -188,7 +186,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<$Res> extends _$NewTripStateCopyWithImpl<$Res, _$SuccessImpl>
+class __$$SuccessImplCopyWithImpl<$Res> extends _$AddExpensesStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(_$SuccessImpl _value, $Res Function(_$SuccessImpl) _then) : super(_value, _then);
 }
@@ -200,7 +198,7 @@ class _$SuccessImpl implements _Success {
 
   @override
   String toString() {
-    return 'NewTripState.success()';
+    return 'AddExpensesState.success()';
   }
 
   @override
@@ -280,7 +278,7 @@ class _$SuccessImpl implements _Success {
   }
 }
 
-abstract class _Success implements NewTripState {
+abstract class _Success implements AddExpensesState {
   const factory _Success() = _$SuccessImpl;
 }
 
@@ -292,7 +290,7 @@ abstract class _$$FailureImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$FailureImplCopyWithImpl<$Res> extends _$NewTripStateCopyWithImpl<$Res, _$FailureImpl>
+class __$$FailureImplCopyWithImpl<$Res> extends _$AddExpensesStateCopyWithImpl<$Res, _$FailureImpl>
     implements _$$FailureImplCopyWith<$Res> {
   __$$FailureImplCopyWithImpl(_$FailureImpl _value, $Res Function(_$FailureImpl) _then) : super(_value, _then);
 
@@ -320,7 +318,7 @@ class _$FailureImpl implements _Failure {
 
   @override
   String toString() {
-    return 'NewTripState.failure(error: $error)';
+    return 'AddExpensesState.failure(error: $error)';
   }
 
   @override
@@ -406,7 +404,7 @@ class _$FailureImpl implements _Failure {
   }
 }
 
-abstract class _Failure implements NewTripState {
+abstract class _Failure implements AddExpensesState {
   const factory _Failure(final Errors error) = _$FailureImpl;
 
   Errors get error;

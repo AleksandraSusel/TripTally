@@ -17,10 +17,15 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AddTripEntity {
   String get cityName => throw _privateConstructorUsedError;
+
   String get transportType => throw _privateConstructorUsedError;
+
   String get countryCode => throw _privateConstructorUsedError;
+
   String get dateFrom => throw _privateConstructorUsedError;
+
   String get dateTo => throw _privateConstructorUsedError;
+
   double get plannedCost => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -202,12 +207,16 @@ abstract class _AddTripEntity implements AddTripEntity {
 
   @override
   String get cityName;
+
   @override
   String get transportType;
+
   @override
   String get countryCode;
+
   @override
   String get dateFrom;
+
   @override
   String get dateTo;
 

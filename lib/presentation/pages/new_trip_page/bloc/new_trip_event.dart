@@ -7,7 +7,6 @@ class NewTripEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-
 class AddTripEvent extends NewTripEvent {
   const AddTripEvent({
     required this.cityName,

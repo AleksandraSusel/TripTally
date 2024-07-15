@@ -211,10 +211,13 @@ abstract class _CreateTripEntity implements CreateTripEntity {
 
   @override
   String get transportType;
+
   @override
   String get countryCode;
+
   @override
   String get dateFrom;
+
   @override
   String get dateTo;
 
