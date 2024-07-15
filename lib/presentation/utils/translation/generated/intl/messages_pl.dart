@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expenses"),
+        "appName": MessageLookupByLibrary.simpleMessage("Trip Tally"),
         "currentTripInformation_youAreIn": MessageLookupByLibrary.simpleMessage("You are in:"),
         "editCurrentTrip_changeACity": MessageLookupByLibrary.simpleMessage("Change a city"),
         "editCurrentTrip_changeADate": MessageLookupByLibrary.simpleMessage("Change a date"),
@@ -97,6 +98,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "yourCurrentTripPage_addExpense": MessageLookupByLibrary.simpleMessage("Add expense"),
         "yourCurrentTripPage_closeTheTrip": MessageLookupByLibrary.simpleMessage("Close the trip"),
         "yourCurrentTripPage_editTheTrip": MessageLookupByLibrary.simpleMessage("Edit the trip"),
-        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip")
+        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip"),
       };
 }

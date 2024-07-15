@@ -11,15 +11,16 @@ _$ExpenseDtoImpl _$$ExpenseDtoImplFromJson(Map<String, dynamic> json) => _$Expen
       date: json['date'] as String,
       amount: (json['amount'] as num).toDouble(),
       currency: json['currency'] as String,
-      tripId: json['tripId'] as String,
-      userId: json['userId'] as String,
+      tripId: json['trip_id'] as String,
+      userId: json['user_id'] as String,
     );
 
-Map<String, dynamic> _$$ExpenseDtoImplToJson(_$ExpenseDtoImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$$ExpenseDtoImplToJson(_$ExpenseDtoImpl instance) =>
+    <String, dynamic>{
       'name': instance.name,
       'date': instance.date,
       'amount': instance.amount,
       'currency': instance.currency,
-      'tripId': instance.tripId,
-      'userId': instance.userId,
+      'trip_id': instance.tripId,
+      'user_id': instance.userId,
     };

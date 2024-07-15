@@ -6,8 +6,8 @@ class SuffixIconTextField extends StatelessWidget {
   const SuffixIconTextField({
     required this.svgPath,
     required this.hintText,
-    super.key,
     this.controller,
+    super.key,
   });
 
   final String svgPath;

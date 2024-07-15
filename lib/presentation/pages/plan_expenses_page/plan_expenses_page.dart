@@ -11,7 +11,6 @@ import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
 import 'package:trip_tally/presentation/widgets/calendar_button.dart';
 import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
 import 'package:trip_tally/presentation/widgets/expense_icon_contaner.dart';
-import 'package:trip_tally/presentation/widgets/expenses_icons.dart';
 import 'package:trip_tally/presentation/widgets/icon_button_text_field.dart';
 import 'package:trip_tally/presentation/widgets/icon_list.dart';
 import 'package:trip_tally/presentation/widgets/main_container.dart';
@@ -111,7 +110,7 @@ class PlanExpensesPage extends StatelessWidget {
                     ),
                     const SizedBox(height: AppDimensions.d20),
                     IconList(
-                      icons: expensesIcons,
+                      onIconSelected: (value) {},
                     ),
                     SvgPicture.asset(AppPaths.dots),
                     const SizedBox(height: AppDimensions.d20),

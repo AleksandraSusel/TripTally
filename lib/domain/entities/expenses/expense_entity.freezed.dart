@@ -17,13 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ExpenseEntity {
   String get name => throw _privateConstructorUsedError;
-
   String get date => throw _privateConstructorUsedError;
-
   double get amount => throw _privateConstructorUsedError;
-
   String get currency => throw _privateConstructorUsedError;
-
   String get tripId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -186,13 +182,10 @@ abstract class _ExpenseEntity implements ExpenseEntity {
 
   @override
   String get name;
-
   @override
   String get date;
-
   @override
   double get amount;
-
   @override
   String get currency;
 

@@ -9,14 +9,12 @@ import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
 import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
 import 'package:trip_tally/presentation/widgets/calendar_button.dart';
 import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
-import 'package:trip_tally/presentation/widgets/date_picker.dart';
 import 'package:trip_tally/presentation/widgets/hi_traveller_title_widget.dart';
 import 'package:trip_tally/presentation/widgets/icon_list.dart';
 import 'package:trip_tally/presentation/widgets/main_container.dart';
 import 'package:trip_tally/presentation/widgets/package_button.dart';
 import 'package:trip_tally/presentation/widgets/person_button.dart';
 import 'package:trip_tally/presentation/widgets/suffix_icon_text_field.dart';
-import 'package:trip_tally/presentation/widgets/transport_icons.dart';
 
 @RoutePage()
 class PlanNewTripPage extends StatelessWidget {
@@ -53,13 +51,13 @@ class PlanNewTripPage extends StatelessWidget {
                     ),
                     const SizedBox(height: AppDimensions.d20),
                     IconList(
-                      icons: transportIcons,
+                      onIconSelected: (value) {},
                     ),
                     SvgPicture.asset(AppPaths.dots),
                     const SizedBox(height: AppDimensions.d20),
                     const SizedBox(
                       height: AppDimensions.d152,
-                      child: DatePicker(),
+                      // child: DatePicker(onStartDateChanged: (DateTime value) {  },),
                     ),
                     CustomElevatedButton(
                       onPressed: () => context.router.push(const PlanExpensesRoute()),

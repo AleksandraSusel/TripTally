@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
                           containerWidth: AppDimensions.d90,
                           icon: AppPaths.plus,
                           text: context.tr.homePage_addNewTrip,
-                          onTap: () => context.router.push(const NewTripRoute()),
+                          onTap: () => context.router.push(NewTripRoute()),
                           iconHeight: AppDimensions.d50,
                           iconWidth: AppDimensions.d50,
                         ),
