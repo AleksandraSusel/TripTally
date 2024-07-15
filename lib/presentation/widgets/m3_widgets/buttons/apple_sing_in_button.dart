@@ -5,9 +5,14 @@ import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
 class AppleSignInButton extends StatelessWidget {
-  const AppleSignInButton({required this.onPressed, super.key});
+  const AppleSignInButton({
+    required this.onPressed,
+    required this.text,
+    super.key,
+  });
 
   final VoidCallback onPressed;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +40,7 @@ class AppleSignInButton extends StatelessWidget {
           const SizedBox(width: AppDimensions.d16),
           Flexible(
             child: Text(
-              context.tr.authPage_singInApple,
+              text,
               style: context.tht.labelMedium?.copyWith(
                 fontSize: AppDimensions.d18,
                 color: AppColors.white,

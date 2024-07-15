@@ -22,26 +22,21 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "addExpensesPage_addExpenses":
-            MessageLookupByLibrary.simpleMessage("Add expenses"),
+        "addExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expenses"),
         "appName": MessageLookupByLibrary.simpleMessage("TripTally"),
+        "authPage_register": MessageLookupByLibrary.simpleMessage("Register"),
         "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign In"),
-        "authPage_singInApple":
-            MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
-        "authPage_singInGoogle":
-            MessageLookupByLibrary.simpleMessage("Sign in with Google"),
-        "authPage_singInToAcc":
-            MessageLookupByLibrary.simpleMessage("Sign In to your account"),
-        "currentTripInformation_youAreIn":
-            MessageLookupByLibrary.simpleMessage("You are in:"),
-        "editCurrentTrip_changeACity":
-            MessageLookupByLibrary.simpleMessage("Change a city"),
-        "editCurrentTrip_changeADate":
-            MessageLookupByLibrary.simpleMessage("Change a date"),
-        "editCurrentTrip_changeYourTransport":
-            MessageLookupByLibrary.simpleMessage("change your transport"),
-        "editCurrentTrip_editYourTrip":
-            MessageLookupByLibrary.simpleMessage("Edit your trip"),
+        "authPage_singInApple": MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
+        "authPage_singInGoogle": MessageLookupByLibrary.simpleMessage("Sign in with Google"),
+        "authPage_singInToAcc": MessageLookupByLibrary.simpleMessage("Sign in to your account"),
+        "authPage_singUpApple": MessageLookupByLibrary.simpleMessage("Sign up with Apple"),
+        "authPage_singUpGoogle": MessageLookupByLibrary.simpleMessage("Sign up with Google"),
+        "authPage_singUpToAcc": MessageLookupByLibrary.simpleMessage("Sign up to your account"),
+        "currentTripInformation_youAreIn": MessageLookupByLibrary.simpleMessage("You are in:"),
+        "editCurrentTrip_changeACity": MessageLookupByLibrary.simpleMessage("Change a city"),
+        "editCurrentTrip_changeADate": MessageLookupByLibrary.simpleMessage("Change a date"),
+        "editCurrentTrip_changeYourTransport": MessageLookupByLibrary.simpleMessage("change your transport"),
+        "editCurrentTrip_editYourTrip": MessageLookupByLibrary.simpleMessage("Edit your trip"),
         "editCurrentTrip_submit":
             MessageLookupByLibrary.simpleMessage("Submit"),
         "email": MessageLookupByLibrary.simpleMessage("E-mail"),

@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'intl/messages_all.dart';
+import 'package:trip_tally/presentation/utils/translation/generated/intl/messages_all.dart';
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -18,8 +18,10 @@ class Translation {
   static Translation? _current;
 
   static Translation get current {
-    assert(_current != null,
-        'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.');
+    assert(
+      _current != null,
+      'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.',
+    );
     return _current!;
   }
 
@@ -41,8 +43,10 @@ class Translation {
 
   static Translation of(BuildContext context) {
     final instance = Translation.maybeOf(context);
-    assert(instance != null,
-        'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -70,11 +74,31 @@ class Translation {
     );
   }
 
+  /// `Sign up to your account`
+  String get authPage_singUpToAcc {
+    return Intl.message(
+      'Sign up to your account',
+      name: 'authPage_singUpToAcc',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign in with Google`
   String get authPage_singInGoogle {
     return Intl.message(
       'Sign in with Google',
       name: 'authPage_singInGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up with Google`
+  String get authPage_singUpGoogle {
+    return Intl.message(
+      'Sign up with Google',
+      name: 'authPage_singUpGoogle',
       desc: '',
       args: [],
     );
@@ -90,11 +114,31 @@ class Translation {
     );
   }
 
+  /// `Sign up with Apple`
+  String get authPage_singUpApple {
+    return Intl.message(
+      'Sign up with Apple',
+      name: 'authPage_singUpApple',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign In`
   String get authPage_singIn {
     return Intl.message(
       'Sign In',
       name: 'authPage_singIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register`
+  String get authPage_register {
+    return Intl.message(
+      'Register',
+      name: 'authPage_register',
       desc: '',
       args: [],
     );

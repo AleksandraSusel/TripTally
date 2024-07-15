@@ -18,6 +18,7 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/background_container.
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/apple_sing_in_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/google_sing_in_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/surface_outlined_button.dart';
 
 @RoutePage()
 class AuthenticationPage extends StatelessWidget {
@@ -62,7 +63,9 @@ class _Body extends StatefulWidget {
 class _BodyState extends State<_Body> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final repeatPasswordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  bool register = false;
 
   @override
   Widget build(BuildContext context) {
@@ -74,11 +77,11 @@ class _BodyState extends State<_Body> {
             child: Column(
               children: [
                 Text(
-                 context.tr.appName,
+                  context.tr.appName,
                   style: context.tht.headlineLarge,
                 ),
                 Text(
-                  context.tr.authPage_singInToAcc,
+                  register ? context.tr.authPage_singUpToAcc : context.tr.authPage_singInToAcc,
                   style: context.tht.titleSmall,
                 ),
                 const SizedBox(height: AppDimensions.d30),
@@ -99,6 +102,27 @@ class _BodyState extends State<_Body> {
                   },
                 ),
                 const SizedBox(height: AppDimensions.d30),
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 500),
+                  transitionBuilder: (Widget child, Animation<double> animation) {
+                    return FadeTransition(
+                      opacity: animation,
+                      child: child,
+                    );
+                  },
+                  child: Visibility(
+                    visible: register,
+                    child: CustomTextField(
+                      hintText: context.tr.repeatPassword,
+                      controller: repeatPasswordController,
+                      hasPassword: true,
+                      validator: (String? value) {
+                        return Validator.isFieldEmpty(value, context);
+                      },
+                    ),
+                  ),
+                ),
+                const SizedBox(height: AppDimensions.d30),
                 BlocBuilder<AuthenticationBloc, AuthenticationState>(
                   builder: (context, state) => state.maybeWhen(
                     orElse: () => Column(
@@ -107,19 +131,69 @@ class _BodyState extends State<_Body> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            GoogleSignInButton(onPressed: onPressed),
+                            GoogleSignInButton(
+                              onPressed: onLogin,
+                              text: register ? context.tr.authPage_singUpApple : context.tr.authPage_singInApple,
+                            ),
                             const SizedBox(height: AppDimensions.d30),
-                            AppleSignInButton(onPressed: onPressed),
+                            AppleSignInButton(
+                              onPressed: onLogin,
+                              text: register ? context.tr.authPage_singUpApple : context.tr.authPage_singInApple,
+                            ),
                           ],
                         ),
                         const SizedBox(height: AppDimensions.d40),
-                        PrimaryElevatedButton(
-                          text: context.tr.authPage_singIn,
-                          onLongPressed: () {
-                            emailController.text = EnvConfig.email;
-                            passwordController.text = EnvConfig.password;
-                          },
-                          onPressed: onPressed,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            if (register)
+                              PrimaryElevatedButton(
+                                text: context.tr.authPage_register,
+                                onPressed: () {
+                                  setState(() {
+                                    register = true;
+                                  });
+                                  onRegister();
+                                },
+                              )
+                            else
+                              SurfaceOutlinedButton(
+                                text: context.tr.authPage_register,
+                                onPressed: () {
+                                  setState(() {
+                                    register = true;
+                                  });
+                                  onRegister();
+                                },
+                              ),
+                            const SizedBox(
+                              width: AppDimensions.d10,
+                            ),
+                            if (register)
+                              SurfaceOutlinedButton(
+                                text: context.tr.authPage_singIn,
+                                onPressed: () {
+                                  setState(() {
+                                    register = false;
+                                  });
+                                  onLogin();
+                                },
+                              )
+                            else
+                              PrimaryElevatedButton(
+                                text: context.tr.authPage_singIn,
+                                onLongPressed: () {
+                                  emailController.text = EnvConfig.email;
+                                  passwordController.text = EnvConfig.password;
+                                },
+                                onPressed: () {
+                                  setState(() {
+                                    register = false;
+                                  });
+                                  onLogin();
+                                },
+                              ),
+                          ],
                         ),
                       ],
                     ),
@@ -134,12 +208,24 @@ class _BodyState extends State<_Body> {
     );
   }
 
-  void onPressed() {
+  void onLogin() {
     if (_formKey.currentState?.validate() ?? false) {
       context.read<AuthenticationBloc>().add(
             OnTapLoginEvent(
               email: emailController.text,
               password: passwordController.text,
+            ),
+          );
+    }
+  }
+
+  void onRegister() {
+    if (_formKey.currentState?.validate() ?? false) {
+      context.read<AuthenticationBloc>().add(
+            OnTapRegisterEvent(
+              email: emailController.text,
+              password: passwordController.text,
+              repeatPassword: repeatPasswordController.text,
             ),
           );
     }
