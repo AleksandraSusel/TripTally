@@ -13,6 +13,7 @@ class AccountFormContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      clipBehavior: Clip.hardEdge,
       padding: const EdgeInsets.symmetric(
             horizontal: AppDimensions.d28,
           ) +
