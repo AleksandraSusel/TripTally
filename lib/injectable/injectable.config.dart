@@ -33,9 +33,9 @@ import 'package:trip_tally/injectable/modules/firebase_auth_module.dart'
     as _i22;
 import 'package:trip_tally/injectable/modules/shared_preferences_module.dart'
     as _i23;
-import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart' as _i10;
-import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart'
+import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart'
     as _i19;
+import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart' as _i10;
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart'
     as _i17;
 import 'package:trip_tally/presentation/theme/theme_manager.dart' as _i8;
@@ -83,7 +83,8 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i17.RegistrationBloc(gh<_i15.CreateAccountUseCase>()));
     gh.factory<_i18.SignOutUseCase>(
         () => _i18.SignOutUseCase(gh<_i13.AuthenticationRepo>()));
-    gh.factory<_i19.LoginBloc>(() => _i19.LoginBloc(gh<_i16.LoginUseCase>()));
+    gh.factory<_i19.AuthenticationBloc>(
+        () => _i19.AuthenticationBloc(gh<_i16.LoginUseCase>()));
     return this;
   }
 }

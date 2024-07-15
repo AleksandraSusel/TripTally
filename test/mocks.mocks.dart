@@ -25,7 +25,7 @@ import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i15;
 import 'package:trip_tally/domain/utils/failure.dart' as _i9;
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i20;
 import 'package:trip_tally/domain/utils/success.dart' as _i3;
-import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart'
+import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart'
     as _i5;
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart'
     as _i4;
@@ -74,8 +74,9 @@ class _FakeRegistrationState_2 extends _i1.SmartFake
         );
 }
 
-class _FakeLoginState_3 extends _i1.SmartFake implements _i5.LoginState {
-  _FakeLoginState_3(
+class _FakeAuthenticationState_3 extends _i1.SmartFake
+    implements _i5.AuthenticationState {
+  _FakeAuthenticationState_3(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -376,28 +377,29 @@ class MockRegistrationBloc extends _i1.Mock implements _i4.RegistrationBloc {
       );
 }
 
-/// A class which mocks [LoginBloc].
+/// A class which mocks [AuthenticationBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockLoginBloc extends _i1.Mock implements _i5.LoginBloc {
-  MockLoginBloc() {
+class MockAuthenticationBloc extends _i1.Mock
+    implements _i5.AuthenticationBloc {
+  MockAuthenticationBloc() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i5.LoginState get state => (super.noSuchMethod(
+  _i5.AuthenticationState get state => (super.noSuchMethod(
         Invocation.getter(#state),
-        returnValue: _FakeLoginState_3(
+        returnValue: _FakeAuthenticationState_3(
           this,
           Invocation.getter(#state),
         ),
-      ) as _i5.LoginState);
+      ) as _i5.AuthenticationState);
 
   @override
-  _i8.Stream<_i5.LoginState> get stream => (super.noSuchMethod(
+  _i8.Stream<_i5.AuthenticationState> get stream => (super.noSuchMethod(
         Invocation.getter(#stream),
-        returnValue: _i8.Stream<_i5.LoginState>.empty(),
-      ) as _i8.Stream<_i5.LoginState>);
+        returnValue: _i8.Stream<_i5.AuthenticationState>.empty(),
+      ) as _i8.Stream<_i5.AuthenticationState>);
 
   @override
   bool get isClosed => (super.noSuchMethod(
@@ -406,7 +408,7 @@ class MockLoginBloc extends _i1.Mock implements _i5.LoginBloc {
       ) as bool);
 
   @override
-  void add(_i5.LoginEvent? event) => super.noSuchMethod(
+  void add(_i5.AuthenticationEvent? event) => super.noSuchMethod(
         Invocation.method(
           #add,
           [event],
@@ -415,7 +417,7 @@ class MockLoginBloc extends _i1.Mock implements _i5.LoginBloc {
       );
 
   @override
-  void onEvent(_i5.LoginEvent? event) => super.noSuchMethod(
+  void onEvent(_i5.AuthenticationEvent? event) => super.noSuchMethod(
         Invocation.method(
           #onEvent,
           [event],
@@ -424,7 +426,7 @@ class MockLoginBloc extends _i1.Mock implements _i5.LoginBloc {
       );
 
   @override
-  void emit(_i5.LoginState? state) => super.noSuchMethod(
+  void emit(_i5.AuthenticationState? state) => super.noSuchMethod(
         Invocation.method(
           #emit,
           [state],
@@ -433,8 +435,8 @@ class MockLoginBloc extends _i1.Mock implements _i5.LoginBloc {
       );
 
   @override
-  void on<E extends _i5.LoginEvent>(
-    _i16.EventHandler<E, _i5.LoginState>? handler, {
+  void on<E extends _i5.AuthenticationEvent>(
+    _i16.EventHandler<E, _i5.AuthenticationState>? handler, {
     _i16.EventTransformer<E>? transformer,
   }) =>
       super.noSuchMethod(
@@ -448,7 +450,8 @@ class MockLoginBloc extends _i1.Mock implements _i5.LoginBloc {
 
   @override
   void onTransition(
-          _i16.Transition<_i5.LoginEvent, _i5.LoginState>? transition) =>
+          _i16.Transition<_i5.AuthenticationEvent, _i5.AuthenticationState>?
+              transition) =>
       super.noSuchMethod(
         Invocation.method(
           #onTransition,
@@ -468,7 +471,8 @@ class MockLoginBloc extends _i1.Mock implements _i5.LoginBloc {
       ) as _i8.Future<void>);
 
   @override
-  void onChange(_i16.Change<_i5.LoginState>? change) => super.noSuchMethod(
+  void onChange(_i16.Change<_i5.AuthenticationState>? change) =>
+      super.noSuchMethod(
         Invocation.method(
           #onChange,
           [change],

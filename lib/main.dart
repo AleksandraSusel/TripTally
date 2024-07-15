@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         listener: (context, state) => state.whenOrNull(
           initial: () => getIt<AppRouter>().push(RegistrationRoute()),
           success: () => getIt<AppRouter>().push(const NewTripRoute()),
-          toLoginPage: () => getIt<AppRouter>().push(LoginRoute()),
+          toLoginPage: () => getIt<AppRouter>().push(AuthenticationRoute()),
           loading: () => const Center(
             child: CircularProgressIndicator(),
           ),

@@ -60,6 +60,46 @@ class Translation {
     );
   }
 
+  /// `Sign In to your account`
+  String get authPage_singInToAcc {
+    return Intl.message(
+      'Sign In to your account',
+      name: 'authPage_singInToAcc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in with Google`
+  String get authPage_singInGoogle {
+    return Intl.message(
+      'Sign in with Google',
+      name: 'authPage_singInGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in with Apple`
+  String get authPage_singInApple {
+    return Intl.message(
+      'Sign in with Apple',
+      name: 'authPage_singInApple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In`
+  String get authPage_singIn {
+    return Intl.message(
+      'Sign In',
+      name: 'authPage_singIn',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Welcome in \n`
   String get welcomeText_welcomeIn {
     return Intl.message(

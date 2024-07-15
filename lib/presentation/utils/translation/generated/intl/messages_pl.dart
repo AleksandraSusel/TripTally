@@ -25,6 +25,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "addExpensesPage_addExpenses":
             MessageLookupByLibrary.simpleMessage("Add expenses"),
         "appName": MessageLookupByLibrary.simpleMessage("Trip Tally"),
+        "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "authPage_singInApple":
+            MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
+        "authPage_singInGoogle":
+            MessageLookupByLibrary.simpleMessage("Sign in with Google"),
+        "authPage_singInToAcc":
+            MessageLookupByLibrary.simpleMessage("Sign In to your account"),
         "currentTripInformation_youAreIn":
             MessageLookupByLibrary.simpleMessage("You are in:"),
         "editCurrentTrip_changeACity":

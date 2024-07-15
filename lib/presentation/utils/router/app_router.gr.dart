@@ -21,6 +21,17 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AddExpensesPage(),
       );
     },
+    AuthenticationRoute.name: (routeData) {
+      final args = routeData.argsAs<AuthenticationRouteArgs>(
+          orElse: () => const AuthenticationRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AuthenticationPage(
+          key: args.key,
+          bloc: args.bloc,
+        ),
+      );
+    },
     EditCurrentTripRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -31,17 +42,6 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const HomePage(),
-      );
-    },
-    LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>(
-          orElse: () => const LoginRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: LoginPage(
-          key: args.key,
-          bloc: args.bloc,
-        ),
       );
     },
     NewTripRoute.name: (routeData) {
@@ -106,7 +106,7 @@ abstract class _$AppRouter extends RootStackRouter {
     TestM3Route.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: TestM3Page(),
+        child: const TestM3Page(),
       );
     },
     ViewOfCurrentExpensesRoute.name: (routeData) {
@@ -139,6 +139,44 @@ class AddExpensesRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [AuthenticationPage]
+class AuthenticationRoute extends PageRouteInfo<AuthenticationRouteArgs> {
+  AuthenticationRoute({
+    Key? key,
+    AuthenticationBloc? bloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          AuthenticationRoute.name,
+          args: AuthenticationRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AuthenticationRoute';
+
+  static const PageInfo<AuthenticationRouteArgs> page =
+      PageInfo<AuthenticationRouteArgs>(name);
+}
+
+class AuthenticationRouteArgs {
+  const AuthenticationRouteArgs({
+    this.key,
+    this.bloc,
+  });
+
+  final Key? key;
+
+  final AuthenticationBloc? bloc;
+
+  @override
+  String toString() {
+    return 'AuthenticationRouteArgs{key: $key, bloc: $bloc}';
+  }
+}
+
+/// generated route for
 /// [EditCurrentTripPage]
 class EditCurrentTripRoute extends PageRouteInfo<void> {
   const EditCurrentTripRoute({List<PageRouteInfo>? children})
@@ -164,43 +202,6 @@ class HomeRoute extends PageRouteInfo<void> {
   static const String name = 'HomeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [LoginPage]
-class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
-  LoginRoute({
-    Key? key,
-    LoginBloc? bloc,
-    List<PageRouteInfo>? children,
-  }) : super(
-          LoginRoute.name,
-          args: LoginRouteArgs(
-            key: key,
-            bloc: bloc,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'LoginRoute';
-
-  static const PageInfo<LoginRouteArgs> page = PageInfo<LoginRouteArgs>(name);
-}
-
-class LoginRouteArgs {
-  const LoginRouteArgs({
-    this.key,
-    this.bloc,
-  });
-
-  final Key? key;
-
-  final LoginBloc? bloc;
-
-  @override
-  String toString() {
-    return 'LoginRouteArgs{key: $key, bloc: $bloc}';
-  }
 }
 
 /// generated route for

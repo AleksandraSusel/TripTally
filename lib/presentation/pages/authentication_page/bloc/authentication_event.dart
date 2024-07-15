@@ -1,13 +1,13 @@
-part of 'login_bloc.dart';
+part of 'authentication_bloc.dart';
 
-class LoginEvent extends Equatable {
-  const LoginEvent();
+class AuthenticationEvent extends Equatable {
+  const AuthenticationEvent();
 
   @override
   List<Object?> get props => [];
 }
 
-class OnTapLoginEvent extends LoginEvent {
+class OnTapLoginEvent extends AuthenticationEvent {
   const OnTapLoginEvent({
     required this.email,
     required this.password,

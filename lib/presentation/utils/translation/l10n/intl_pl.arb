@@ -1,5 +1,9 @@
 {
   "appName": "Trip Tally",
+  "authPage_singInToAcc": "Sign In to your account",
+  "authPage_singInGoogle": "Sign in with Google",
+  "authPage_singInApple": "Sign in with Apple",
+  "authPage_singIn": "Sign In",
   "welcomeText_welcomeIn": "Welcome in \n",
   "welcomeText_trip": "Trip",
   "welcomeText_tally": "Tally!",

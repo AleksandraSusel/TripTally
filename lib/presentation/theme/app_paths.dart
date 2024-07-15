@@ -41,6 +41,9 @@ class AppPaths {
   // PNG
   static const String italy = '$pngPath/italy.png';
   static const String samplePerson = '$pngPath/person.png';
+  static const String beach = '$pngPath/auth_bg.png';
+  static const String appleLogo = '$pngPath/apple_logo.png';
+  static const String googleLogo = '$pngPath/google_logo.png';
 
   // M3 SVG
   static const String carM3 = '$m3SvgPath/car.svg';

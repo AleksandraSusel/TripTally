@@ -24,7 +24,14 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addExpensesPage_addExpenses":
             MessageLookupByLibrary.simpleMessage("Add expenses"),
-        "appName": MessageLookupByLibrary.simpleMessage("Trip Tally"),
+        "appName": MessageLookupByLibrary.simpleMessage("TripTally"),
+        "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "authPage_singInApple":
+            MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
+        "authPage_singInGoogle":
+            MessageLookupByLibrary.simpleMessage("Sign in with Google"),
+        "authPage_singInToAcc":
+            MessageLookupByLibrary.simpleMessage("Sign In to your account"),
         "currentTripInformation_youAreIn":
             MessageLookupByLibrary.simpleMessage("You are in:"),
         "editCurrentTrip_changeACity":

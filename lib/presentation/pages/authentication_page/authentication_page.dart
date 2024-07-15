@@ -3,38 +3,49 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/environment.config.dart';
 import 'package:trip_tally/injectable/injectable.dart';
-import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart';
+import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/utils/validators.dart';
 import 'package:trip_tally/presentation/widgets/custom_circular_progress_indicator.dart';
-import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
 import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
-import 'package:trip_tally/presentation/widgets/welcome_title_widget.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/account_form_container.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/background_container.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/apple_sing_in_button.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/google_sing_in_button.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
 
 @RoutePage()
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key, @visibleForTesting this.bloc});
+class AuthenticationPage extends StatelessWidget {
+  const AuthenticationPage({
+    super.key,
+    @visibleForTesting this.bloc,
+  });
 
-  final LoginBloc? bloc;
+  final AuthenticationBloc? bloc;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocProvider(
-        create: (context) => bloc ?? getIt<LoginBloc>(),
-        child: BlocListener<LoginBloc, LoginState>(
-          listener: (context, state) => state.whenOrNull(
-            failure: (error) => customSnackBar(
-              context,
-              error.errorText(context),
+    return BackgroundContainer(
+      asset: AppPaths.beach,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: BlocProvider(
+          create: (context) => bloc ?? getIt<AuthenticationBloc>(),
+          child: BlocListener<AuthenticationBloc, AuthenticationState>(
+            listener: (context, state) => state.whenOrNull(
+              failure: (error) => customSnackBar(
+                context,
+                error.errorText(context),
+              ),
+              success: () => context.router.replaceAll([const HomeRoute()]),
             ),
-            success: () => context.router.replaceAll([const HomeRoute()]),
+            child: const _Body(),
           ),
-          child: const _Body(),
         ),
       ),
     );
@@ -55,20 +66,22 @@ class _BodyState extends State<_Body> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Center(
       child: SingleChildScrollView(
-        child: Center(
+        child: AccountFormContainer(
           child: Form(
             key: _formKey,
             child: Column(
               children: [
-                const SizedBox(height: AppDimensions.d40),
-                const WelcomeTittleWidget(),
                 Text(
-                  context.tr.login,
-                  style: context.tht.displayMedium,
+                 context.tr.appName,
+                  style: context.tht.headlineLarge,
                 ),
-                const SizedBox(height: AppDimensions.d20),
+                Text(
+                  context.tr.authPage_singInToAcc,
+                  style: context.tht.titleSmall,
+                ),
+                const SizedBox(height: AppDimensions.d30),
                 CustomTextField(
                   hintText: context.tr.email,
                   controller: emailController,
@@ -76,6 +89,7 @@ class _BodyState extends State<_Body> {
                     return Validator.validateEmail(value, context);
                   },
                 ),
+                const SizedBox(height: AppDimensions.d30),
                 CustomTextField(
                   hintText: context.tr.password,
                   controller: passwordController,
@@ -84,33 +98,28 @@ class _BodyState extends State<_Body> {
                     return Validator.isFieldEmpty(value, context);
                   },
                 ),
-                const SizedBox(height: AppDimensions.d126),
-                BlocBuilder<LoginBloc, LoginState>(
+                const SizedBox(height: AppDimensions.d30),
+                BlocBuilder<AuthenticationBloc, AuthenticationState>(
                   builder: (context, state) => state.maybeWhen(
                     orElse: () => Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        GestureDetector(
-                          onLongPress: () {
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            GoogleSignInButton(onPressed: onPressed),
+                            const SizedBox(height: AppDimensions.d30),
+                            AppleSignInButton(onPressed: onPressed),
+                          ],
+                        ),
+                        const SizedBox(height: AppDimensions.d40),
+                        PrimaryElevatedButton(
+                          text: context.tr.authPage_singIn,
+                          onLongPressed: () {
                             emailController.text = EnvConfig.email;
                             passwordController.text = EnvConfig.password;
                           },
-                          child: CustomElevatedButton(
-                            text: context.tr.login,
-                            onPressed: onPressed,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: AppDimensions.d20),
-                          child: Text(
-                            context.tr.or,
-                            style: context.tht.headlineSmall,
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () => context.router.push(RegistrationRoute()),
-                          child: Text(
-                            context.tr.registration,
-                          ),
+                          onPressed: onPressed,
                         ),
                       ],
                     ),
@@ -127,7 +136,7 @@ class _BodyState extends State<_Body> {
 
   void onPressed() {
     if (_formKey.currentState?.validate() ?? false) {
-      context.read<LoginBloc>().add(
+      context.read<AuthenticationBloc>().add(
             OnTapLoginEvent(
               email: emailController.text,
               password: passwordController.text,
