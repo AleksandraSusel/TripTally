@@ -1,6 +1,6 @@
-*.freezed.dart diff
-*.g.dart diff
-*.config.dart diff
-*.gr.dart diff
-pubspec.lock diff
-mocks.mocks.dart diff
+*.freezed.dart text diff
+*.g.dart text diff
+*.config.dart text diff
+*.gr.dart text diff
+pubspec.lock text diff
+mocks.mocks.dart text diff
