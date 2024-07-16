@@ -55,10 +55,14 @@ class _Body extends StatefulWidget {
 
 class _BodyState extends State<_Body> {
   bool register = false;
+  String _email = '';
+  String _password = '';
 
-  void switchForm() {
+  void switchForm(String email, String password) {
     setState(() {
       register = !register;
+      _email = email;
+      _password = password;
     });
   }
 
@@ -69,9 +73,13 @@ class _BodyState extends State<_Body> {
         child: AccountFormContainer(
           child: register
               ? RegisterForm(
+                  email: _email,
+                  password: _password,
                   onSwitchForm: switchForm,
                 )
               : LoginForm(
+                  email: _email,
+                  password: _password,
                   onSwitchForm: switchForm,
                 ),
         ).animate().scale(delay: 200.ms),

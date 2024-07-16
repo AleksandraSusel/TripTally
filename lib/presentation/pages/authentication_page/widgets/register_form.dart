@@ -13,19 +13,35 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_eleva
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/surface_outlined_button.dart';
 
 class RegisterForm extends StatefulWidget {
-  const RegisterForm({required this.onSwitchForm, super.key});
+  const RegisterForm({
+    required this.onSwitchForm,
+    required this.email,
+    required this.password,
+    super.key,
+  });
 
-  final VoidCallback onSwitchForm;
+  final String email;
+  final String password;
+  final void Function(String email, String password) onSwitchForm;
 
   @override
   State<RegisterForm> createState() => _RegisterFormState();
 }
 
 class _RegisterFormState extends State<RegisterForm> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  late final TextEditingController emailController;
+
+  late final TextEditingController passwordController;
+
   final repeatPasswordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    emailController = TextEditingController(text: widget.email);
+    passwordController = TextEditingController(text: widget.password);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,12 +116,12 @@ class _RegisterFormState extends State<RegisterForm> {
                       ),
                       SurfaceOutlinedButton(
                         text: context.tr.authPage_singIn,
-                        onPressed: widget.onSwitchForm,
+                        onPressed: () => widget.onSwitchForm(emailController.text, passwordController.text),
                       ),
                     ],
                   ),
                 ],
-              ).animate().moveY(begin: -10, duration: 400.ms),
+              ).animate().moveY(begin: -15, duration: 400.ms),
               loading: () => const CustomCircularProgressIndicator(),
             ),
           ),

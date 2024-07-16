@@ -16,19 +16,30 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/surface_outli
 class LoginForm extends StatefulWidget {
   const LoginForm({
     required this.onSwitchForm,
+    required this.email,
+    required this.password,
     super.key,
   });
 
-  final VoidCallback onSwitchForm;
+  final String email;
+  final String password;
+  final void Function(String email, String password) onSwitchForm;
 
   @override
   State<LoginForm> createState() => _LoginFormState();
 }
 
 class _LoginFormState extends State<LoginForm> {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  late final TextEditingController emailController;
+  late final TextEditingController passwordController;
   final _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    emailController = TextEditingController(text: widget.email);
+    passwordController = TextEditingController(text: widget.password);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +79,7 @@ class _LoginFormState extends State<LoginForm> {
             validator: (String? value) {
               return Validator.isFieldEmpty(value, context);
             },
-          ).animate().slideX(duration: 400.ms,begin: 0, end: 2),
-          const SizedBox(height: AppDimensions.d30),
+          ).animate().slideX(duration: 400.ms, begin: 0, end: 2),
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
             builder: (context, state) => state.maybeWhen(
               orElse: () => Column(
@@ -95,7 +105,7 @@ class _LoginFormState extends State<LoginForm> {
                     children: [
                       SurfaceOutlinedButton(
                         text: context.tr.authPage_register,
-                        onPressed: widget.onSwitchForm,
+                        onPressed: () => widget.onSwitchForm(emailController.text, passwordController.text),
                       ),
                       const SizedBox(
                         width: AppDimensions.d10,
@@ -109,9 +119,9 @@ class _LoginFormState extends State<LoginForm> {
                         onPressed: onLogin,
                       ),
                     ],
-                  ).animate().moveY(begin: 10, duration: 400.ms),
+                  ),
                 ],
-              ),
+              ).animate().moveY(begin: 10, duration: 400.ms),
               loading: () => const CustomCircularProgressIndicator(),
             ),
           ),
