@@ -34,8 +34,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>(
-          orElse: () => const LoginRouteArgs());
+      final args = routeData.argsAs<LoginRouteArgs>(orElse: () => const LoginRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: LoginPage(
@@ -51,8 +50,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     NewTripRoute.name: (routeData) {
-      final args = routeData.argsAs<NewTripRouteArgs>(
-          orElse: () => const NewTripRouteArgs());
+      final args = routeData.argsAs<NewTripRouteArgs>(orElse: () => const NewTripRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: NewTripPage(
@@ -80,8 +78,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     RegistrationRoute.name: (routeData) {
-      final args = routeData.argsAs<RegistrationRouteArgs>(
-          orElse: () => const RegistrationRouteArgs());
+      final args = routeData.argsAs<RegistrationRouteArgs>(orElse: () => const RegistrationRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: RegistrationPage(
@@ -246,8 +243,7 @@ class NewTripRoute extends PageRouteInfo<NewTripRouteArgs> {
 
   static const String name = 'NewTripRoute';
 
-  static const PageInfo<NewTripRouteArgs> page =
-      PageInfo<NewTripRouteArgs>(name);
+  static const PageInfo<NewTripRouteArgs> page = PageInfo<NewTripRouteArgs>(name);
 }
 
 class NewTripRouteArgs {
@@ -326,8 +322,7 @@ class RegistrationRoute extends PageRouteInfo<RegistrationRouteArgs> {
 
   static const String name = 'RegistrationRoute';
 
-  static const PageInfo<RegistrationRouteArgs> page =
-      PageInfo<RegistrationRouteArgs>(name);
+  static const PageInfo<RegistrationRouteArgs> page = PageInfo<RegistrationRouteArgs>(name);
 }
 
 class RegistrationRouteArgs {

@@ -83,7 +83,7 @@ class _DatePickerState extends State<DatePicker> {
                             ],
                           )
                         : Text(
-                      '${DateFormat('yyyy-MM-dd').format(startDate)} - ${DateFormat('yyyy-MM-dd').format(endDate)}',
+                            '${DateFormat('yyyy-MM-dd').format(startDate)} - ${DateFormat('yyyy-MM-dd').format(endDate)}',
                             style: context.tht.headlineSmall,
                           ),
                   ),
