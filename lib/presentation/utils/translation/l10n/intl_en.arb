@@ -1,5 +1,13 @@
 {
   "appName": "Trip Tally",
+  "manageTripsPage_currentlyOnTrip": "You are currently on a trip!",
+  "manageTripsPage_planNew": "Plan new",
+  "manageTripsPage_planNewSubtitle": "Your next adventure awaits!",
+  "manageTripsPage_manageTrips": "Manage your trips",
+  "manageTripsPage_editTrips": "Edit your trips",
+  "manageTripsPage_editTripsSubtitle": "Keep your journeys in check!",
+  "manageTripsPage_history": "History",
+  "manageTripsPage_historySubtitle": "Relive your epic travels!",
   "welcomeText_welcomeIn": "Welcome in \n",
   "welcomeText_trip": "Trip",
   "welcomeText_tally": "Tally!",

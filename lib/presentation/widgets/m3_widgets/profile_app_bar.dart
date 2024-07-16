@@ -5,9 +5,14 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/custom_drawer
 import 'package:trip_tally/presentation/widgets/m3_widgets/profile_avatar.dart';
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const ProfileAppBar({this.isDashboard = false, super.key});
+  const ProfileAppBar({
+    this.title,
+    this.isDashboard = false,
+    super.key,
+  });
 
   final bool isDashboard;
+  final String? title;
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +23,37 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
       ],
       title: Row(
         children: [
-          const ProfileAvatar(),
-          const SizedBox(width: AppDimensions.d12),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Welcome back',
-                style: context.tht.labelMedium?.copyWith(
-                  fontSize: 15,
-                ),
-              ),
-              Text(
-                'Johny Bravo',
-                style: context.tht.displayLarge,
-              ),
-            ],
+          ProfileAvatar(
+            size: isDashboard ? 1 : 0.8,
           ),
+          const SizedBox(width: AppDimensions.d12),
+          if (isDashboard)
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Welcome back',
+                  style: context.tht.labelMedium?.copyWith(
+                    fontSize: 15,
+                  ),
+                ),
+                Text(
+                  'Johny Bravo',
+                  style: context.tht.displayLarge,
+                ),
+              ],
+            )
+          else ...[
+            const Spacer(),
+            Text(
+              title ?? '',
+              style: context.tht.titleLarge?.copyWith(
+                fontSize: AppDimensions.d20,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const Spacer(),
+          ],
         ],
       ),
     );

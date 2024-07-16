@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -27,7 +26,9 @@ class Translation {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<Translation> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -54,6 +55,86 @@ class Translation {
     return Intl.message(
       'Trip Tally',
       name: 'appName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You are currently on a trip!`
+  String get manageTripsPage_currentlyOnTrip {
+    return Intl.message(
+      'You are currently on a trip!',
+      name: 'manageTripsPage_currentlyOnTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plan new`
+  String get manageTripsPage_planNew {
+    return Intl.message(
+      'Plan new',
+      name: 'manageTripsPage_planNew',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your next adventure awaits!`
+  String get manageTripsPage_planNewSubtitle {
+    return Intl.message(
+      'Your next adventure awaits!',
+      name: 'manageTripsPage_planNewSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage your trips`
+  String get manageTripsPage_manageTrips {
+    return Intl.message(
+      'Manage your trips',
+      name: 'manageTripsPage_manageTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit your trips`
+  String get manageTripsPage_editTrips {
+    return Intl.message(
+      'Edit your trips',
+      name: 'manageTripsPage_editTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Keep your journeys in check!`
+  String get manageTripsPage_editTripsSubtitle {
+    return Intl.message(
+      'Keep your journeys in check!',
+      name: 'manageTripsPage_editTripsSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `History`
+  String get manageTripsPage_history {
+    return Intl.message(
+      'History',
+      name: 'manageTripsPage_history',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Relive your epic travels!`
+  String get manageTripsPage_historySubtitle {
+    return Intl.message(
+      'Relive your epic travels!',
+      name: 'manageTripsPage_historySubtitle',
       desc: '',
       args: [],
     );

@@ -6,7 +6,9 @@ part of 'create_trip_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CreateAddTripDtoImpl _$$CreateAddTripDtoImplFromJson(Map<String, dynamic> json) => _$CreateAddTripDtoImpl(
+_$CreateAddTripDtoImpl _$$CreateAddTripDtoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$CreateAddTripDtoImpl(
       cityName: json['city_name'] as String,
       transportType: json['transport_type'] as String,
       countryCode: json['country_code'] as String,
@@ -15,7 +17,9 @@ _$CreateAddTripDtoImpl _$$CreateAddTripDtoImplFromJson(Map<String, dynamic> json
       plannedCost: (json['planned_cost'] as num).toDouble(),
     );
 
-Map<String, dynamic> _$$CreateAddTripDtoImplToJson(_$CreateAddTripDtoImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$$CreateAddTripDtoImplToJson(
+        _$CreateAddTripDtoImpl instance) =>
+    <String, dynamic>{
       'city_name': instance.cityName,
       'transport_type': instance.transportType,
       'country_code': instance.countryCode,
