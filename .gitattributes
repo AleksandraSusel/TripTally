@@ -1,0 +1,6 @@
+*.freezed.dart text diff linguist-generated=true
+*.g.dart text diff linguist-generated=true
+*.config.dart text diff linguist-generated=true
+*.gr.dart text diff linguist-generated=true
+pubspec.lock text diff linguist-generated=true
+mocks.mocks.dart text diff linguist-generated=true
