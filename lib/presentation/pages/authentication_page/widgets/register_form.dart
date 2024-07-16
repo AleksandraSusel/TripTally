@@ -91,21 +91,21 @@ class _RegisterFormState extends State<RegisterForm> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      SurfaceOutlinedButton(
-                        text: context.tr.authPage_singIn,
-                        onPressed: widget.onSwitchForm,
-                      ),
-                      const SizedBox(
-                        width: AppDimensions.d10,
-                      ),
                       PrimaryElevatedButton(
                         text: context.tr.authPage_register,
                         onPressed: onRegister,
                       ),
+                      const SizedBox(
+                        width: AppDimensions.d10,
+                      ),
+                      SurfaceOutlinedButton(
+                        text: context.tr.authPage_singIn,
+                        onPressed: widget.onSwitchForm,
+                      ),
                     ],
-                  ).animate().fadeIn(duration: 600.ms),
+                  ),
                 ],
-              ).animate().moveY(begin: -20, duration: 400.ms),
+              ).animate().moveY(begin: -10, duration: 400.ms),
               loading: () => const CustomCircularProgressIndicator(),
             ),
           ),

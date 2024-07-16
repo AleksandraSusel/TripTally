@@ -39,11 +39,11 @@ class _LoginFormState extends State<LoginForm> {
           Text(
             context.tr.appName,
             style: context.tht.headlineLarge,
-          ),
+          ).animate().moveY(begin: -16, duration: 400.ms),
           Text(
             context.tr.authPage_singInToAcc,
             style: context.tht.titleSmall,
-          ),
+          ).animate().moveY(begin: -16, duration: 400.ms),
           const SizedBox(height: AppDimensions.d30),
           CustomTextField(
             hintText: context.tr.email,
@@ -51,7 +51,7 @@ class _LoginFormState extends State<LoginForm> {
             validator: (String? value) {
               return Validator.validateEmail(value, context);
             },
-          ).animate().slideX(begin: 1),
+          ).animate().moveY(begin: -16, duration: 400.ms),
           const SizedBox(height: AppDimensions.d30),
           CustomTextField(
             hintText: context.tr.password,
@@ -60,7 +60,15 @@ class _LoginFormState extends State<LoginForm> {
             validator: (String? value) {
               return Validator.isFieldEmpty(value, context);
             },
-          ).animate().slideX(begin: 1),
+          ).animate().moveY(begin: -16, duration: 400.ms),
+          CustomTextField(
+            hintText: context.tr.repeatPassword,
+            controller: TextEditingController(),
+            hasPassword: true,
+            validator: (String? value) {
+              return Validator.isFieldEmpty(value, context);
+            },
+          ).animate().slideX(duration: 400.ms,begin: 0, end: 2),
           const SizedBox(height: AppDimensions.d30),
           BlocBuilder<AuthenticationBloc, AuthenticationState>(
             builder: (context, state) => state.maybeWhen(
@@ -80,7 +88,7 @@ class _LoginFormState extends State<LoginForm> {
                         text: context.tr.authPage_singInApple,
                       ),
                     ],
-                  ),
+                  ).animate().moveY(begin: 10, duration: 400.ms),
                   const SizedBox(height: AppDimensions.d40),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -101,7 +109,7 @@ class _LoginFormState extends State<LoginForm> {
                         onPressed: onLogin,
                       ),
                     ],
-                  ).animate().fadeIn(duration: 600.ms),
+                  ).animate().moveY(begin: 10, duration: 400.ms),
                 ],
               ),
               loading: () => const CustomCircularProgressIndicator(),
