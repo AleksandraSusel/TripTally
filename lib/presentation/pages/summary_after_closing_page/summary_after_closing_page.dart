@@ -60,7 +60,8 @@ class SummaryAfterClosingPage extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(
-                              AppDimensions.d8), //TODO:  there will be a widget created in the next branch
+                            AppDimensions.d8,
+                          ), //TODO:  there will be a widget created in the next branch
                           child: SizedBox(
                             child: CountryFlag.fromCountryCode(
                               'IT',
