@@ -104,7 +104,7 @@ class _LoginFormState extends State<LoginForm> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       SurfaceOutlinedButton(
-                        text: context.tr.authPage_register,
+                        text: context.tr.authPage_singUp,
                         onPressed: () => widget.onSwitchForm(emailController.text, passwordController.text),
                       ),
                       const SizedBox(

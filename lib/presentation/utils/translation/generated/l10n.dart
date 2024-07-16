@@ -60,10 +60,10 @@ class Translation {
     );
   }
 
-  /// `Sign In to your account`
+  /// `Sign in to your account`
   String get authPage_singInToAcc {
     return Intl.message(
-      'Sign In to your account',
+      'Sign in to your account',
       name: 'authPage_singInToAcc',
       desc: '',
       args: [],
@@ -120,21 +120,21 @@ class Translation {
     );
   }
 
-  /// `Sign In`
+  /// `Sign in`
   String get authPage_singIn {
     return Intl.message(
-      'Sign In',
+      'Sign in',
       name: 'authPage_singIn',
       desc: '',
       args: [],
     );
   }
 
-  /// `Register`
-  String get authPage_register {
+  /// `Sing up`
+  String get authPage_singUp {
     return Intl.message(
-      'Register',
-      name: 'authPage_register',
+      'Sing up',
+      name: 'authPage_singUp',
       desc: '',
       args: [],
     );

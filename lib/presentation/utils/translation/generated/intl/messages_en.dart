@@ -25,14 +25,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "addExpensesPage_addExpenses":
             MessageLookupByLibrary.simpleMessage("Add expenses"),
         "appName": MessageLookupByLibrary.simpleMessage("TripTally"),
-        "authPage_register": MessageLookupByLibrary.simpleMessage("Register"),
-        "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign in"),
         "authPage_singInApple":
             MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
         "authPage_singInGoogle":
             MessageLookupByLibrary.simpleMessage("Sign in with Google"),
         "authPage_singInToAcc":
             MessageLookupByLibrary.simpleMessage("Sign in to your account"),
+        "authPage_singUp": MessageLookupByLibrary.simpleMessage("Sing up"),
         "authPage_singUpApple":
             MessageLookupByLibrary.simpleMessage("Sign up with Apple"),
         "authPage_singUpGoogle":

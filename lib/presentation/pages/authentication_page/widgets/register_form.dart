@@ -108,7 +108,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       PrimaryElevatedButton(
-                        text: context.tr.authPage_register,
+                        text: context.tr.authPage_singUp,
                         onPressed: onRegister,
                       ),
                       const SizedBox(
