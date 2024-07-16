@@ -45,9 +45,14 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     NewTripRoute.name: (routeData) {
+      final args = routeData.argsAs<NewTripRouteArgs>(
+          orElse: () => const NewTripRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const NewTripPage(),
+        child: NewTripPage(
+          key: args.key,
+          bloc: args.bloc,
+        ),
       );
     },
     PlanExpensesRoute.name: (routeData) {
@@ -206,16 +211,40 @@ class HomeRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [NewTripPage]
-class NewTripRoute extends PageRouteInfo<void> {
-  const NewTripRoute({List<PageRouteInfo>? children})
-      : super(
+class NewTripRoute extends PageRouteInfo<NewTripRouteArgs> {
+  NewTripRoute({
+    Key? key,
+    NewTripBloc? bloc,
+    List<PageRouteInfo>? children,
+  }) : super(
           NewTripRoute.name,
+          args: NewTripRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'NewTripRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<NewTripRouteArgs> page =
+      PageInfo<NewTripRouteArgs>(name);
+}
+
+class NewTripRouteArgs {
+  const NewTripRouteArgs({
+    this.key,
+    this.bloc,
+  });
+
+  final Key? key;
+
+  final NewTripBloc? bloc;
+
+  @override
+  String toString() {
+    return 'NewTripRouteArgs{key: $key, bloc: $bloc}';
+  }
 }
 
 /// generated route for
