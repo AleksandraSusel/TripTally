@@ -5,16 +5,19 @@ class PrimaryElevatedButton extends StatelessWidget {
   const PrimaryElevatedButton({
     required this.text,
     required this.onPressed,
+    this.onLongPressed,
     super.key,
   });
 
   final String text;
   final VoidCallback onPressed;
+  final VoidCallback? onLongPressed;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
+      onLongPress: onLongPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: context.th.colorScheme.primary,
         overlayColor: context.th.colorScheme.onPrimary,

@@ -19,11 +19,13 @@ mixin _$Success {}
 
 /// @nodoc
 abstract class $SuccessCopyWith<$Res> {
-  factory $SuccessCopyWith(Success value, $Res Function(Success) then) = _$SuccessCopyWithImpl<$Res, Success>;
+  factory $SuccessCopyWith(Success value, $Res Function(Success) then) =
+      _$SuccessCopyWithImpl<$Res, Success>;
 }
 
 /// @nodoc
-class _$SuccessCopyWithImpl<$Res, $Val extends Success> implements $SuccessCopyWith<$Res> {
+class _$SuccessCopyWithImpl<$Res, $Val extends Success>
+    implements $SuccessCopyWith<$Res> {
   _$SuccessCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -34,14 +36,18 @@ class _$SuccessCopyWithImpl<$Res, $Val extends Success> implements $SuccessCopyW
 
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
-  factory _$$SuccessImplCopyWith(_$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<$Res> extends _$SuccessCopyWithImpl<$Res, _$SuccessImpl>
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$SuccessCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
-  __$$SuccessImplCopyWithImpl(_$SuccessImpl _value, $Res Function(_$SuccessImpl) _then) : super(_value, _then);
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -56,7 +62,8 @@ class _$SuccessImpl implements _Success {
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$SuccessImpl);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SuccessImpl);
   }
 
   @override

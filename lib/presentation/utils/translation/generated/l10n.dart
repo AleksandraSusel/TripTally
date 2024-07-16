@@ -60,81 +60,81 @@ class Translation {
     );
   }
 
-  /// `You are currently on a trip!`
-  String get manageTripsPage_currentlyOnTrip {
+  /// `Sign in to your account`
+  String get authPage_singInToAcc {
     return Intl.message(
-      'You are currently on a trip!',
-      name: 'manageTripsPage_currentlyOnTrip',
+      'Sign in to your account',
+      name: 'authPage_singInToAcc',
       desc: '',
       args: [],
     );
   }
 
-  /// `Plan new`
-  String get manageTripsPage_planNew {
+  /// `Sign up to your account`
+  String get authPage_singUpToAcc {
     return Intl.message(
-      'Plan new',
-      name: 'manageTripsPage_planNew',
+      'Sign up to your account',
+      name: 'authPage_singUpToAcc',
       desc: '',
       args: [],
     );
   }
 
-  /// `Your next adventure awaits!`
-  String get manageTripsPage_planNewSubtitle {
+  /// `Sign in with Google`
+  String get authPage_singInGoogle {
     return Intl.message(
-      'Your next adventure awaits!',
-      name: 'manageTripsPage_planNewSubtitle',
+      'Sign in with Google',
+      name: 'authPage_singInGoogle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Manage your trips`
-  String get manageTripsPage_manageTrips {
+  /// `Sign up with Google`
+  String get authPage_singUpGoogle {
     return Intl.message(
-      'Manage your trips',
-      name: 'manageTripsPage_manageTrips',
+      'Sign up with Google',
+      name: 'authPage_singUpGoogle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Edit your trips`
-  String get manageTripsPage_editTrips {
+  /// `Sign in with Apple`
+  String get authPage_singInApple {
     return Intl.message(
-      'Edit your trips',
-      name: 'manageTripsPage_editTrips',
+      'Sign in with Apple',
+      name: 'authPage_singInApple',
       desc: '',
       args: [],
     );
   }
 
-  /// `Keep your journeys in check!`
-  String get manageTripsPage_editTripsSubtitle {
+  /// `Sign up with Apple`
+  String get authPage_singUpApple {
     return Intl.message(
-      'Keep your journeys in check!',
-      name: 'manageTripsPage_editTripsSubtitle',
+      'Sign up with Apple',
+      name: 'authPage_singUpApple',
       desc: '',
       args: [],
     );
   }
 
-  /// `History`
-  String get manageTripsPage_history {
+  /// `Sign in`
+  String get authPage_singIn {
     return Intl.message(
-      'History',
-      name: 'manageTripsPage_history',
+      'Sign in',
+      name: 'authPage_singIn',
       desc: '',
       args: [],
     );
   }
 
-  /// `Relive your epic travels!`
-  String get manageTripsPage_historySubtitle {
+  /// `Sing up`
+  String get authPage_singUp {
     return Intl.message(
-      'Relive your epic travels!',
-      name: 'manageTripsPage_historySubtitle',
+      'Sing up',
+      name: 'authPage_singUp',
       desc: '',
       args: [],
     );

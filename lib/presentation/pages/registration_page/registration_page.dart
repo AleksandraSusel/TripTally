@@ -119,7 +119,7 @@ class _BodyState extends State<_Body> {
                   ),
                 ),
                 TextButton(
-                  onPressed: () => context.router.push(LoginRoute()),
+                  onPressed: () => context.router.push(AuthenticationRoute()),
                   child: Text(
                     context.tr.login,
                   ),
