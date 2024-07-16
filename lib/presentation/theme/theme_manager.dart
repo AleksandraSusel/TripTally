@@ -19,7 +19,7 @@ class ThemeManager {
           offset: const Offset(0.8, -1),
         ),
         BoxShadow(
-          color: context.thc.primary,
+          color: containerColor ?? context.thc.primary,
         ),
       ];
 

@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:trip_tally/presentation/theme/app_colors.dart';
-import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
     required this.hintText,
     required this.controller,
     required this.validator,
-    super.key,
     this.error,
     this.suffixIcon,
     this.hasPassword = false,
+    super.key,
   });
 
   final String hintText;
@@ -35,33 +34,32 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(AppDimensions.d10),
-      child: SizedBox(
-        width: AppDimensions.d300,
-        child: TextFormField(
-          validator: widget.validator,
-          controller: widget.controller,
-          obscureText: _obscurePassword,
-          decoration: InputDecoration(
-            errorText: widget.error,
-            focusedErrorBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: AppColors.red,
-              ),
-            ),
-            suffixIcon: widget.hasPassword
-                ? IconButton(
-                    onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
-                    icon: Icon(
-                      _obscurePassword ? Icons.visibility_off_outlined : Icons.remove_red_eye_outlined,
-                    ),
-                    color: AppColors.cello,
-                  )
-                : widget.suffixIcon,
-            hintText: widget.hintText,
+    return TextFormField(
+      validator: widget.validator,
+      controller: widget.controller,
+      obscureText: _obscurePassword,
+      autocorrect: false,
+      decoration: InputDecoration(
+        errorText: widget.error,
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: context.thc.error,
           ),
         ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: context.thc.onSurface,
+          ),
+        ),
+        suffixIcon: widget.hasPassword
+            ? IconButton(
+                onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
+                icon: Icon(
+                  _obscurePassword ? Icons.visibility_off_outlined : Icons.remove_red_eye_outlined,
+                ),
+              )
+            : widget.suffixIcon,
+        labelText: widget.hintText,
       ),
     );
   }

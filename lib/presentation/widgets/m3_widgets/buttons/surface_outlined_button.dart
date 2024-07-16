@@ -14,7 +14,7 @@ class SurfaceOutlinedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: OutlinedButton.styleFrom(
         backgroundColor: context.th.colorScheme.surface,
         overlayColor: context.th.colorScheme.onSurface,

@@ -60,6 +60,86 @@ class Translation {
     );
   }
 
+  /// `Sign in to your account`
+  String get authPage_singInToAcc {
+    return Intl.message(
+      'Sign in to your account',
+      name: 'authPage_singInToAcc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up to your account`
+  String get authPage_singUpToAcc {
+    return Intl.message(
+      'Sign up to your account',
+      name: 'authPage_singUpToAcc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in with Google`
+  String get authPage_singInGoogle {
+    return Intl.message(
+      'Sign in with Google',
+      name: 'authPage_singInGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up with Google`
+  String get authPage_singUpGoogle {
+    return Intl.message(
+      'Sign up with Google',
+      name: 'authPage_singUpGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in with Apple`
+  String get authPage_singInApple {
+    return Intl.message(
+      'Sign in with Apple',
+      name: 'authPage_singInApple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up with Apple`
+  String get authPage_singUpApple {
+    return Intl.message(
+      'Sign up with Apple',
+      name: 'authPage_singUpApple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in`
+  String get authPage_singIn {
+    return Intl.message(
+      'Sign in',
+      name: 'authPage_singIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sing up`
+  String get authPage_singUp {
+    return Intl.message(
+      'Sing up',
+      name: 'authPage_singUp',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Welcome in \n`
   String get welcomeText_welcomeIn {
     return Intl.message(
