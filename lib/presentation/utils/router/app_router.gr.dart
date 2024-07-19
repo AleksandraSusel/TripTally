@@ -127,6 +127,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ViewOfCurrentExpensesPage(),
       );
     },
+    WelcomeRoute.name: (routeData) {
+      final args = routeData.argsAs<WelcomeRouteArgs>(orElse: () => const WelcomeRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WelcomePage(
+          key: args.key,
+          permissionsBloc: args.permissionsBloc,
+        ),
+      );
+    },
     YourCurrentTripRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -450,6 +460,43 @@ class ViewOfCurrentExpensesRoute extends PageRouteInfo<void> {
   static const String name = 'ViewOfCurrentExpensesRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WelcomePage]
+class WelcomeRoute extends PageRouteInfo<WelcomeRouteArgs> {
+  WelcomeRoute({
+    Key? key,
+    PermissionsBloc? permissionsBloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WelcomeRoute.name,
+          args: WelcomeRouteArgs(
+            key: key,
+            permissionsBloc: permissionsBloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'WelcomeRoute';
+
+  static const PageInfo<WelcomeRouteArgs> page = PageInfo<WelcomeRouteArgs>(name);
+}
+
+class WelcomeRouteArgs {
+  const WelcomeRouteArgs({
+    this.key,
+    this.permissionsBloc,
+  });
+
+  final Key? key;
+
+  final PermissionsBloc? permissionsBloc;
+
+  @override
+  String toString() {
+    return 'WelcomeRouteArgs{key: $key, permissionsBloc: $permissionsBloc}';
+  }
 }
 
 /// generated route for
