@@ -77,7 +77,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 ),
               )
             : widget.suffixIcon,
-        // labelText: widget.labelText,
         labelText: widget.labelText,
       ),
     );

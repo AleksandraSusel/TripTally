@@ -6,7 +6,7 @@ import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
 class ImagePickerHelper {
-  const ImagePickerHelper();
+  const ImagePickerHelper._();
 
   static Future<XFile?> pickImage(ImageSource source) async {
     try {

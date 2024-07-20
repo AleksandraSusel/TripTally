@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/money_format.dart';
 import 'package:trip_tally/presentation/utils/validators.dart';
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
-import 'package:world_countries/world_countries.dart' as wc;
 
 class WelcomePageFormFields extends StatefulWidget {
   const WelcomePageFormFields({super.key});
@@ -81,18 +81,6 @@ class _WelcomePageFormFieldsState extends State<WelcomePageFormFields> {
     );
   }
 
-  void _updateCurrency(String countryCode) {
-    final fiatCurrency = wc.WorldCountry.maybeFromCodeShort(countryCode)?.currencies?.first;
-    final currency = fiatCurrency?.name;
-    final symbol = fiatCurrency?.symbol;
-
-    if (currency != null && symbol != null) {
-      setState(() {
-        _currencyController.text = '$currency($symbol)';
-      });
-    }
-  }
-
   void _currencyOnTap() => showCurrencyPicker(
         theme: CurrencyPickerThemeData(
           titleTextStyle: context.tht.labelLarge?.copyWith(
@@ -119,7 +107,7 @@ class _WelcomePageFormFieldsState extends State<WelcomePageFormFields> {
         onSelect: (Country country) {
           setState(() {
             _countryController.text = country.name;
-            _updateCurrency(country.countryCode);
+            _currencyController.text = MoneyFormat.countryCodeCurrency(country.countryCode);
           });
         },
       );
