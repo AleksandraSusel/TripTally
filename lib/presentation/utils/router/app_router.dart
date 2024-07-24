@@ -21,6 +21,7 @@ import 'package:trip_tally/presentation/pages/view_of_current_expenses_page/view
 import 'package:trip_tally/presentation/pages/your_current_trip_page/your_current_trip_page.dart';
 
 part 'app_router.gr.dart';
+
 @AutoRouterConfig(
   replaceInRouteName: 'Page,Route',
 )
@@ -32,10 +33,9 @@ class AppRouter extends _$AppRouter {
       );
 
   @override
-  List<AutoRoute> get routes =>
-      [
-        AutoRoute(page: HomeRoute.page),
-        AutoRoute(page: LoginRoute.page, initial: true),
+  List<AutoRoute> get routes => [
+        AutoRoute(page: HomeRoute.page, initial: true),
+        AutoRoute(page: LoginRoute.page),
         AutoRoute(page: RegistrationRoute.page),
         AutoRoute(page: NewTripRoute.page),
         AutoRoute(page: SettingsRoute.page),

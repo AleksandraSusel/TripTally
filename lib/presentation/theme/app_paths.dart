@@ -52,5 +52,9 @@ class AppPaths {
   static const String plusM3 = '$m3SvgPath/plus.svg';
   static const String historyM3 = '$m3SvgPath/history.svg';
   static const String edit = '$m3SvgPath/edit.svg';
+  static const String community = '$m3SvgPath/community.svg';
+  static const String dashboard = '$m3SvgPath/dashboard.svg';
+  static const String luggage = '$m3SvgPath/luggage.svg';
+  static const String statistic = '$m3SvgPath/statistic.svg';
   static const String menu = '$m3SvgPath/menu.svg';
 }

@@ -2,6 +2,7 @@ import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
+import 'package:trip_tally/presentation/utils/date_format.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
@@ -61,7 +62,7 @@ class OutlinedTripCard extends StatelessWidget {
                       children: [
                         Text(
                           country,
-                          style: context.tht.labelLarge,
+                          style: context.tht.titleLarge,
                         ),
                         const SizedBox(width: AppDimensions.d10),
                         CountryFlag.fromCountryCode(
@@ -73,7 +74,7 @@ class OutlinedTripCard extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      '$dateFrom - $dateTo',
+                      formatDates(dateFrom, dateTo),
                       style: context.tht.titleSmall,
                     ),
                     Row(

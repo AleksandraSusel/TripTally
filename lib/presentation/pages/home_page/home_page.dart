@@ -3,83 +3,111 @@ import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/router/app_router.dart';
-import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
-import 'package:trip_tally/presentation/widgets/calendar_button.dart';
-import 'package:trip_tally/presentation/widgets/current_trip_information.dart';
-import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
-import 'package:trip_tally/presentation/widgets/custom_rectangle_button.dart';
-import 'package:trip_tally/presentation/widgets/main_container.dart';
-import 'package:trip_tally/presentation/widgets/person_button.dart';
-import 'package:trip_tally/presentation/widgets/summary_rectangle.dart';
-import 'package:trip_tally/presentation/widgets/welcome_title_widget.dart';
+import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_info_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/outlined_trip_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/custom_drawer.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/profile_app_bar.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
 
 @RoutePage()
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({
+    super.key,
+  });
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
-      actions: const [
-        CalendarButton(),
-        PersonButton(),
-      ],
-      body: SingleChildScrollView(
-        child: SafeArea(
+    return Scaffold(
+      appBar: const ProfileAppBar(isDashboard: true),
+      endDrawer: const CustomDrawer(),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: SvgAsset(AppPaths.dashboard),
+            label: 'Dashboard',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgAsset(AppPaths.luggage),
+            label: 'Trips',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgAsset(AppPaths.statistic),
+            label: 'School',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgAsset(AppPaths.community),
+            label: 'School',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
+      body: SafeArea(
+        minimum: const EdgeInsets.symmetric(horizontal: AppDimensions.d16),
+        child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const WelcomeTittleWidget(),
-              MainContainer(
-                child: Column(
-                  children: [
-                    const SizedBox(height: AppDimensions.d20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CustomRectangleButton(
-                          containerHeight: AppDimensions.d90,
-                          containerWidth: AppDimensions.d90,
-                          icon: AppPaths.plus,
-                          text: context.tr.homePage_addNewTrip,
-                          onTap: () => context.router.push(NewTripRoute()),
-                          iconHeight: AppDimensions.d50,
-                          iconWidth: AppDimensions.d50,
-                        ),
-                        const SizedBox(width: AppDimensions.d40),
-                        CustomRectangleButton(
-                          containerHeight: AppDimensions.d90,
-                          containerWidth: AppDimensions.d90,
-                          icon: AppPaths.pen,
-                          text: context.tr.homePage_planNewTrip,
-                          onTap: () => context.router.push(const PlanNewTripRoute()),
-                          iconHeight: AppDimensions.d50,
-                          iconWidth: AppDimensions.d50,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: AppDimensions.d20),
-                    Column(
-                      children: [
-                        const CurrentTripInformation(
-                          country: 'Italy',
-                          countryCode: 'IT',
-                        ),
-                        const SizedBox(height: AppDimensions.d20),
-                        const SummaryRectangle(
-                          spendMoney: '3000',
-                          budgetMoney: '100',
-                        ),
-                        const SizedBox(height: AppDimensions.d24),
-                        CustomElevatedButton(
-                          onPressed: () => context.router.push(const YourCurrentTripRoute()),
-                          text: context.tr.homePage_goToYourTrip,
-                        ),
-                      ],
-                    ),
-                  ],
+              const SizedBox(
+                height: AppDimensions.d52,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(AppDimensions.d8),
+                child: Text(
+                  context.tr.homePage_youAreCurrentlyOnATrip,
+                  style: context.tht.labelSmall,
                 ),
               ),
+              const OutlinedTripCard(
+                country: 'Italy',
+                dateFrom: '10-02-2023',
+                dateTo: '10-02-2023',
+                transportType: TransportType.airplane,
+                totalExpensesAmount: 1300,
+                totalExpensesCurrency: r'$',
+                countryCode: 'PL',
+                imagePath: AppPaths.italy,
+              ),
+              const Divider(thickness: 1),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: AppDimensions.d20,
+                  left: AppDimensions.d8,
+                  bottom: AppDimensions.d8,
+                ),
+                child: Text(context.tr.homePage_yourPlannedTrips, style: context.tht.labelSmall),
+              ),
+              SizedBox(
+                height: 100,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 2,
+                  itemBuilder: (BuildContext context, int index) => const ElevatedInfoCard(
+                    country: 'Greece',
+                    dateFrom: '2024-30-07',
+                    dateTo: '2024-30-08',
+                    transportType: TransportType.airplane,
+                    totalExpensesAmount: 10000,
+                    totalExpensesCurrency: '€',
+                    countryCode: 'GR',
+                  ),
+                ),
+              ),
+              //
             ],
           ),
         ),
