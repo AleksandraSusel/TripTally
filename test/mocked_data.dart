@@ -30,7 +30,6 @@ const mockedExpenseDto = ExpenseDto(
   amount: 300,
   currency: 'USD',
   tripId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
-  userId: 'userId',
 );
 const mockedExpenseEntity = ExpenseEntity(
   name: 'Wrocław',

@@ -13,7 +13,7 @@ class ExpensesRemoteSourceImpl implements ExpensesRemoteSource {
   final ApiClient _client;
 
   @override
-  Future<Success> addExpense(ExpenseDto dto) async {
+  Future<Success> createExpense(ExpenseDto dto) async {
     try {
       await _client.addExpense(dto);
       return const Success();

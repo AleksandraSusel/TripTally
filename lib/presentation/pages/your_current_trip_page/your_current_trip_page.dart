@@ -61,7 +61,7 @@ class YourCurrentTripPage extends StatelessWidget {
                           containerWidth: AppDimensions.d80,
                           icon: AppPaths.plus,
                           text: context.tr.yourCurrentTripPage_addExpense,
-                          onTap: () => context.router.push(AddExpensesRoute()),
+                          onTap: () => context.router.push(CreateExpensesRoute()),
                           iconHeight: AppDimensions.d50,
                           iconWidth: AppDimensions.d50,
                         ),

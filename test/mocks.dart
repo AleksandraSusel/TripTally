@@ -14,7 +14,7 @@ import 'package:trip_tally/domain/use_case/create_account_use_case.dart';
 import 'package:trip_tally/domain/use_case/create_trip_use_case.dart';
 import 'package:trip_tally/domain/use_case/login_use_case.dart';
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart';
-import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_bloc.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
 import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart';
@@ -36,7 +36,7 @@ import 'package:trip_tally/presentation/pages/registration_page/bloc/registratio
   ExpensesRemoteSource,
   AddExpenseUseCase,
   ExpensesRepo,
-  AddExpensesBloc,
+  CreateExpensesBloc,
 ])
 void main() {}
 

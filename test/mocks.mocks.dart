@@ -32,9 +32,9 @@ import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i17;
 import 'package:trip_tally/domain/utils/failure.dart' as _i11;
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i24;
 import 'package:trip_tally/domain/utils/success.dart' as _i3;
-import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_bloc.dart' as _i35;
-import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_event.dart' as _i36;
-import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_state.dart' as _i8;
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart' as _i35;
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart' as _i36;
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_state.dart' as _i8;
 import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart' as _i5;
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart' as _i29;
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_event.dart' as _i30;
@@ -114,8 +114,8 @@ class _FakeNewTripState_5 extends _i1.SmartFake implements _i7.NewTripState {
         );
 }
 
-class _FakeAddExpensesState_6 extends _i1.SmartFake implements _i8.AddExpensesState {
-  _FakeAddExpensesState_6(
+class _FakeCreateExpensesState_6 extends _i1.SmartFake implements _i8.CreateExpensesState {
+  _FakeCreateExpensesState_6(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -1042,15 +1042,15 @@ class MockExpensesRemoteSource extends _i1.Mock implements _i31.ExpensesRemoteSo
   }
 
   @override
-  _i10.Future<_i3.Success> addExpense(_i21.ExpenseDto? dto) => (super.noSuchMethod(
+  _i10.Future<_i3.Success> createExpense(_i21.ExpenseDto? dto) => (super.noSuchMethod(
         Invocation.method(
-          #addExpense,
+          #createExpense,
           [dto],
         ),
         returnValue: _i10.Future<_i3.Success>.value(_FakeSuccess_1(
           this,
           Invocation.method(
-            #addExpense,
+            #createExpense,
             [dto],
           ),
         )),
@@ -1105,28 +1105,28 @@ class MockExpensesRepo extends _i1.Mock implements _i34.ExpensesRepo {
       ) as _i10.Future<_i2.Either<_i11.Failure, _i3.Success>>);
 }
 
-/// A class which mocks [AddExpensesBloc].
+/// A class which mocks [CreateExpensesBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAddExpensesBloc extends _i1.Mock implements _i35.AddExpensesBloc {
-  MockAddExpensesBloc() {
+class MockCreateExpensesBloc extends _i1.Mock implements _i35.CreateExpensesBloc {
+  MockCreateExpensesBloc() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i8.AddExpensesState get state => (super.noSuchMethod(
+  _i8.CreateExpensesState get state => (super.noSuchMethod(
         Invocation.getter(#state),
-        returnValue: _FakeAddExpensesState_6(
+        returnValue: _FakeCreateExpensesState_6(
           this,
           Invocation.getter(#state),
         ),
-      ) as _i8.AddExpensesState);
+      ) as _i8.CreateExpensesState);
 
   @override
-  _i10.Stream<_i8.AddExpensesState> get stream => (super.noSuchMethod(
+  _i10.Stream<_i8.CreateExpensesState> get stream => (super.noSuchMethod(
         Invocation.getter(#stream),
-        returnValue: _i10.Stream<_i8.AddExpensesState>.empty(),
-      ) as _i10.Stream<_i8.AddExpensesState>);
+        returnValue: _i10.Stream<_i8.CreateExpensesState>.empty(),
+      ) as _i10.Stream<_i8.CreateExpensesState>);
 
   @override
   bool get isClosed => (super.noSuchMethod(
@@ -1135,7 +1135,7 @@ class MockAddExpensesBloc extends _i1.Mock implements _i35.AddExpensesBloc {
       ) as bool);
 
   @override
-  void add(_i36.AddExpensesEvent? event) => super.noSuchMethod(
+  void add(_i36.CreateExpensesEvent? event) => super.noSuchMethod(
         Invocation.method(
           #add,
           [event],
@@ -1144,7 +1144,7 @@ class MockAddExpensesBloc extends _i1.Mock implements _i35.AddExpensesBloc {
       );
 
   @override
-  void onEvent(_i36.AddExpensesEvent? event) => super.noSuchMethod(
+  void onEvent(_i36.CreateExpensesEvent? event) => super.noSuchMethod(
         Invocation.method(
           #onEvent,
           [event],
@@ -1153,7 +1153,7 @@ class MockAddExpensesBloc extends _i1.Mock implements _i35.AddExpensesBloc {
       );
 
   @override
-  void emit(_i8.AddExpensesState? state) => super.noSuchMethod(
+  void emit(_i8.CreateExpensesState? state) => super.noSuchMethod(
         Invocation.method(
           #emit,
           [state],
@@ -1162,8 +1162,8 @@ class MockAddExpensesBloc extends _i1.Mock implements _i35.AddExpensesBloc {
       );
 
   @override
-  void on<E extends _i36.AddExpensesEvent>(
-    _i18.EventHandler<E, _i8.AddExpensesState>? handler, {
+  void on<E extends _i36.CreateExpensesEvent>(
+    _i18.EventHandler<E, _i8.CreateExpensesState>? handler, {
     _i18.EventTransformer<E>? transformer,
   }) =>
       super.noSuchMethod(
@@ -1176,7 +1176,7 @@ class MockAddExpensesBloc extends _i1.Mock implements _i35.AddExpensesBloc {
       );
 
   @override
-  void onTransition(_i18.Transition<_i36.AddExpensesEvent, _i8.AddExpensesState>? transition) => super.noSuchMethod(
+  void onTransition(_i18.Transition<_i36.CreateExpensesEvent, _i8.CreateExpensesState>? transition) => super.noSuchMethod(
         Invocation.method(
           #onTransition,
           [transition],
@@ -1195,7 +1195,7 @@ class MockAddExpensesBloc extends _i1.Mock implements _i35.AddExpensesBloc {
       ) as _i10.Future<void>);
 
   @override
-  void onChange(_i18.Change<_i8.AddExpensesState>? change) => super.noSuchMethod(
+  void onChange(_i18.Change<_i8.CreateExpensesState>? change) => super.noSuchMethod(
         Invocation.method(
           #onChange,
           [change],

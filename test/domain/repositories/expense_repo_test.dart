@@ -19,22 +19,22 @@ void main() {
   });
 
   test('AddExpense adds an expense success', () async {
-    when(mockExpensesRemoteSource.addExpense(mockedExpenseDto)).thenAnswer((_) async => const Success());
+    when(mockExpensesRemoteSource.createExpense(mockedExpenseDto)).thenAnswer((_) async => const Success());
     final result = await repo.addExpense(mockedExpenseEntity);
     Success? success;
     result.fold((l) => null, (r) => success = r);
     expect(success, const Success());
-    verify(mockExpensesRemoteSource.addExpense(mockedExpenseDto));
+    verify(mockExpensesRemoteSource.createExpense(mockedExpenseDto));
     verifyNoMoreInteractions(mockExpensesRemoteSource);
   });
 
   test('AddExpense adds an expense failure', () async {
-    when(mockExpensesRemoteSource.addExpense(any)).thenThrow(ApiException(Errors.somethingWentWrong));
+    when(mockExpensesRemoteSource.createExpense(any)).thenThrow(ApiException(Errors.somethingWentWrong));
     final result = await repo.addExpense(mockedExpenseEntity);
     Errors? error;
     result.fold((l) => error = l.error, (r) => null);
     expect(error, Errors.somethingWentWrong);
-    verify(mockExpensesRemoteSource.addExpense(mockedExpenseDto));
+    verify(mockExpensesRemoteSource.createExpense(mockedExpenseDto));
     verifyNoMoreInteractions(mockExpensesRemoteSource);
   });
 }

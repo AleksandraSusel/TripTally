@@ -15,11 +15,11 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    AddExpensesRoute.name: (routeData) {
-      final args = routeData.argsAs<AddExpensesRouteArgs>(orElse: () => const AddExpensesRouteArgs());
+    CreateExpensesRoute.name: (routeData) {
+      final args = routeData.argsAs<CreateExpensesRouteArgs>(orElse: () => const CreateExpensesRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: AddExpensesPage(
+        child: CreateExpensesPage(
           key: args.key,
           bloc: args.bloc,
         ),
@@ -131,39 +131,39 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
-/// [AddExpensesPage]
-class AddExpensesRoute extends PageRouteInfo<AddExpensesRouteArgs> {
-  AddExpensesRoute({
+/// [CreateExpensesPage]
+class CreateExpensesRoute extends PageRouteInfo<CreateExpensesRouteArgs> {
+  CreateExpensesRoute({
     Key? key,
-    AddExpensesBloc? bloc,
+    CreateExpensesBloc? bloc,
     List<PageRouteInfo>? children,
   }) : super(
-          AddExpensesRoute.name,
-          args: AddExpensesRouteArgs(
+          CreateExpensesRoute.name,
+          args: CreateExpensesRouteArgs(
             key: key,
             bloc: bloc,
           ),
           initialChildren: children,
         );
 
-  static const String name = 'AddExpensesRoute';
+  static const String name = 'CreateExpensesRoute';
 
-  static const PageInfo<AddExpensesRouteArgs> page = PageInfo<AddExpensesRouteArgs>(name);
+  static const PageInfo<CreateExpensesRouteArgs> page = PageInfo<CreateExpensesRouteArgs>(name);
 }
 
-class AddExpensesRouteArgs {
-  const AddExpensesRouteArgs({
+class CreateExpensesRouteArgs {
+  const CreateExpensesRouteArgs({
     this.key,
     this.bloc,
   });
 
   final Key? key;
 
-  final AddExpensesBloc? bloc;
+  final CreateExpensesBloc? bloc;
 
   @override
   String toString() {
-    return 'AddExpensesRouteArgs{key: $key, bloc: $bloc}';
+    return 'CreateExpensesRouteArgs{key: $key, bloc: $bloc}';
   }
 }
 

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'add_expenses_state.dart';
+part of 'create_expenses_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,19 +15,22 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AddExpensesState {
+mixin _$CreateExpensesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() success,
     required TResult Function(Errors error) failure,
+    required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? success,
     TResult? Function(Errors error)? failure,
+    TResult? Function()? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +38,7 @@ mixin _$AddExpensesState {
     TResult Function()? initial,
     TResult Function()? success,
     TResult Function(Errors error)? failure,
+    TResult Function()? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +47,7 @@ mixin _$AddExpensesState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_Loading value) loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +55,7 @@ mixin _$AddExpensesState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_Loading value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,20 +63,21 @@ mixin _$AddExpensesState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AddExpensesStateCopyWith<$Res> {
-  factory $AddExpensesStateCopyWith(AddExpensesState value, $Res Function(AddExpensesState) then) =
-      _$AddExpensesStateCopyWithImpl<$Res, AddExpensesState>;
+abstract class $CreateExpensesStateCopyWith<$Res> {
+  factory $CreateExpensesStateCopyWith(CreateExpensesState value, $Res Function(CreateExpensesState) then) =
+      _$CreateExpensesStateCopyWithImpl<$Res, CreateExpensesState>;
 }
 
 /// @nodoc
-class _$AddExpensesStateCopyWithImpl<$Res, $Val extends AddExpensesState> implements $AddExpensesStateCopyWith<$Res> {
-  _$AddExpensesStateCopyWithImpl(this._value, this._then);
+class _$CreateExpensesStateCopyWithImpl<$Res, $Val extends CreateExpensesState> implements $CreateExpensesStateCopyWith<$Res> {
+  _$CreateExpensesStateCopyWithImpl(this._value, this._then);
 
 // ignore: unused_field
   final $Val _value;
@@ -84,7 +91,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res> extends _$AddExpensesStateCopyWithImpl<$Res, _$InitialImpl>
+class __$$InitialImplCopyWithImpl<$Res> extends _$CreateExpensesStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(_$InitialImpl _value, $Res Function(_$InitialImpl) _then) : super(_value, _then);
 }
@@ -96,7 +103,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'AddExpensesState.initial()';
+    return 'CreateExpensesState.initial()';
   }
 
   @override
@@ -113,6 +120,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() success,
     required TResult Function(Errors error) failure,
+    required TResult Function() loading,
   }) {
     return initial();
   }
@@ -123,6 +131,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? success,
     TResult? Function(Errors error)? failure,
+    TResult? Function()? loading,
   }) {
     return initial?.call();
   }
@@ -133,6 +142,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? success,
     TResult Function(Errors error)? failure,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -147,6 +157,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_Loading value) loading,
   }) {
     return initial(this);
   }
@@ -157,6 +168,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_Loading value)? loading,
   }) {
     return initial?.call(this);
   }
@@ -167,6 +179,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -176,7 +189,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements AddExpensesState {
+abstract class _Initial implements CreateExpensesState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -186,7 +199,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<$Res> extends _$AddExpensesStateCopyWithImpl<$Res, _$SuccessImpl>
+class __$$SuccessImplCopyWithImpl<$Res> extends _$CreateExpensesStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(_$SuccessImpl _value, $Res Function(_$SuccessImpl) _then) : super(_value, _then);
 }
@@ -198,7 +211,7 @@ class _$SuccessImpl implements _Success {
 
   @override
   String toString() {
-    return 'AddExpensesState.success()';
+    return 'CreateExpensesState.success()';
   }
 
   @override
@@ -215,6 +228,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function() initial,
     required TResult Function() success,
     required TResult Function(Errors error) failure,
+    required TResult Function() loading,
   }) {
     return success();
   }
@@ -225,6 +239,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function()? initial,
     TResult? Function()? success,
     TResult? Function(Errors error)? failure,
+    TResult? Function()? loading,
   }) {
     return success?.call();
   }
@@ -235,6 +250,7 @@ class _$SuccessImpl implements _Success {
     TResult Function()? initial,
     TResult Function()? success,
     TResult Function(Errors error)? failure,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -249,6 +265,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_Loading value) loading,
   }) {
     return success(this);
   }
@@ -259,6 +276,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_Loading value)? loading,
   }) {
     return success?.call(this);
   }
@@ -269,6 +287,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -278,7 +297,7 @@ class _$SuccessImpl implements _Success {
   }
 }
 
-abstract class _Success implements AddExpensesState {
+abstract class _Success implements CreateExpensesState {
   const factory _Success() = _$SuccessImpl;
 }
 
@@ -290,7 +309,7 @@ abstract class _$$FailureImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$FailureImplCopyWithImpl<$Res> extends _$AddExpensesStateCopyWithImpl<$Res, _$FailureImpl>
+class __$$FailureImplCopyWithImpl<$Res> extends _$CreateExpensesStateCopyWithImpl<$Res, _$FailureImpl>
     implements _$$FailureImplCopyWith<$Res> {
   __$$FailureImplCopyWithImpl(_$FailureImpl _value, $Res Function(_$FailureImpl) _then) : super(_value, _then);
 
@@ -318,7 +337,7 @@ class _$FailureImpl implements _Failure {
 
   @override
   String toString() {
-    return 'AddExpensesState.failure(error: $error)';
+    return 'CreateExpensesState.failure(error: $error)';
   }
 
   @override
@@ -341,6 +360,7 @@ class _$FailureImpl implements _Failure {
     required TResult Function() initial,
     required TResult Function() success,
     required TResult Function(Errors error) failure,
+    required TResult Function() loading,
   }) {
     return failure(error);
   }
@@ -351,6 +371,7 @@ class _$FailureImpl implements _Failure {
     TResult? Function()? initial,
     TResult? Function()? success,
     TResult? Function(Errors error)? failure,
+    TResult? Function()? loading,
   }) {
     return failure?.call(error);
   }
@@ -361,6 +382,7 @@ class _$FailureImpl implements _Failure {
     TResult Function()? initial,
     TResult Function()? success,
     TResult Function(Errors error)? failure,
+    TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -375,6 +397,7 @@ class _$FailureImpl implements _Failure {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_Loading value) loading,
   }) {
     return failure(this);
   }
@@ -385,6 +408,7 @@ class _$FailureImpl implements _Failure {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_Loading value)? loading,
   }) {
     return failure?.call(this);
   }
@@ -395,6 +419,7 @@ class _$FailureImpl implements _Failure {
     TResult Function(_Initial value)? initial,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
+    TResult Function(_Loading value)? loading,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -404,10 +429,118 @@ class _$FailureImpl implements _Failure {
   }
 }
 
-abstract class _Failure implements AddExpensesState {
+abstract class _Failure implements CreateExpensesState {
   const factory _Failure(final Errors error) = _$FailureImpl;
 
   Errors get error;
   @JsonKey(ignore: true)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(_$LoadingImpl value, $Res Function(_$LoadingImpl) then) = __$$LoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadingImplCopyWithImpl<$Res> extends _$CreateExpensesStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(_$LoadingImpl _value, $Res Function(_$LoadingImpl) _then) : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl();
+
+  @override
+  String toString() {
+    return 'CreateExpensesState.loading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$LoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() success,
+    required TResult Function(Errors error) failure,
+    required TResult Function() loading,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? success,
+    TResult? Function(Errors error)? failure,
+    TResult? Function()? loading,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? success,
+    TResult Function(Errors error)? failure,
+    TResult Function()? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_Loading value) loading,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_Loading value)? loading,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Success value)? success,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_Loading value)? loading,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading implements CreateExpensesState {
+  const factory _Loading() = _$LoadingImpl;
 }

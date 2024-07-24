@@ -21,19 +21,13 @@ CreateTripDto _$CreateTripDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CreateTripDto {
   String get cityName => throw _privateConstructorUsedError;
-
   String get transportType => throw _privateConstructorUsedError;
-
   String get countryCode => throw _privateConstructorUsedError;
-
   String get dateFrom => throw _privateConstructorUsedError;
-
   String get dateTo => throw _privateConstructorUsedError;
-
   double get plannedCost => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $CreateTripDtoCopyWith<CreateTripDto> get copyWith => throw _privateConstructorUsedError;
 }

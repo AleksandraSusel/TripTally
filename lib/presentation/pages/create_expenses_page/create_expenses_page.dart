@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:trip_tally/injectable/injectable.dart';
-import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_bloc.dart';
-import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_event.dart';
-import 'package:trip_tally/presentation/pages/add_expenses_page/bloc/add_expenses_state.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_state.dart';
 import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
@@ -13,6 +13,7 @@ import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
 import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
 import 'package:trip_tally/presentation/widgets/calendar_button.dart';
+import 'package:trip_tally/presentation/widgets/custom_circular_progress_indicator.dart';
 import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
 import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
 import 'package:trip_tally/presentation/widgets/expense_icon_contaner.dart';
@@ -24,27 +25,28 @@ import 'package:trip_tally/presentation/widgets/person_button.dart';
 import 'package:trip_tally/presentation/widgets/suffix_icon_text_field.dart';
 
 @RoutePage()
-class AddExpensesPage extends StatelessWidget {
-  const AddExpensesPage({
+class CreateExpensesPage extends StatelessWidget {
+  const CreateExpensesPage({
     super.key,
     @visibleForTesting this.bloc,
   });
 
-  final AddExpensesBloc? bloc;
+  final CreateExpensesBloc? bloc;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => bloc ?? getIt<AddExpensesBloc>(),
-      child: BlocConsumer<AddExpensesBloc, AddExpensesState>(
-        listener: (context, state) => state.maybeWhen(
-          orElse: () => const SizedBox.shrink(),
+      create: (context) => bloc ?? getIt<CreateExpensesBloc>(),
+      child: BlocConsumer<CreateExpensesBloc, CreateExpensesState>(
+        listener: (context, state) => state.whenOrNull(
           success: () => customSnackBar(context, 'Success', color: AppColors.wePeep),
+          loading: CustomCircularProgressIndicator.new,
         ),
         builder: (context, state) => state.maybeWhen(
           orElse: SizedBox.shrink,
           success: _Body.new,
           initial: _Body.new,
+          loading: _Body.new,
         ),
       ),
     );
@@ -61,9 +63,8 @@ class _Body extends StatefulWidget {
 }
 
 class _BodyState extends State<_Body> {
-  final nameOfExpense = TextEditingController();
-  final amount = TextEditingController();
-  int iconIndex = 1;
+  final expenseNameController = TextEditingController();
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +145,7 @@ class _BodyState extends State<_Body> {
                     ),
                     const SizedBox(height: AppDimensions.d10),
                     SuffixIconTextField(
-                      controller: nameOfExpense,
+                      controller: expenseNameController,
                       svgPath: AppPaths.editorPen,
                       hintText: context.tr.planExpensesPage_nameTheExpense,
                     ),
@@ -161,22 +162,21 @@ class _BodyState extends State<_Body> {
                     SizedBox(
                       height: AppDimensions.d152,
                       child: IconButtonTextField(
-                        controller: amount,
+                        controller: amountController,
                         svgPath: AppPaths.plus,
                         hintText: context.tr.planExpensesPage_howMuch,
                         onPressed: () {
-                          final String text = amount.text;
+                          final String text = amountController.text;
 
                           final double value = double.tryParse(text) ?? 0;
 
-                          context.read<AddExpensesBloc>().add(
-                                AddExpenseEvent(
-                                  name: nameOfExpense.text,
+                          context.read<CreateExpensesBloc>().add(
+                                CreateExpenseEvent(
+                                  name: expenseNameController.text,
                                   date: DateTime.now().toString(),
                                   amount: value,
                                   currency: 'USD',
                                   tripId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
-                                  userId: '9ce6c7bf-c848-4633-9154-875223b345a1',
                                 ),
                               );
                         },
