@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
-import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart';
+import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 import '../../../../mocked_data.dart';
@@ -16,9 +16,9 @@ void main() {
     mockLoginUseCase = MockLoginUseCase();
   });
 
-  LoginBloc createBloc() => LoginBloc(mockLoginUseCase);
+  AuthenticationBloc createBloc() => AuthenticationBloc(mockLoginUseCase);
 
-  blocTest<LoginBloc, LoginState>(
+  blocTest<AuthenticationBloc, AuthenticationState>(
     'OnTapLoginEvent logs the user success',
     setUp: () {
       when(mockLoginUseCase.call(mockedLoginEntity)).thenAnswer((_) async => const Right(Success()));
@@ -30,9 +30,10 @@ void main() {
         password: mockedLoginEntity.password,
       ),
     ),
-    expect: () => const [
-      LoginState.loading(),
-      LoginState.success(),
+    expect: () =>
+    const [
+      AuthenticationState.loading(),
+      AuthenticationState.success(),
     ],
     verify: (_) {
       verify(mockLoginUseCase.call(mockedLoginEntity));
@@ -40,7 +41,7 @@ void main() {
     },
   );
 
-  blocTest<LoginBloc, LoginState>(
+  blocTest<AuthenticationBloc, AuthenticationState>(
     'OnTapLoginEvent logs the user failure',
     setUp: () {
       when(mockLoginUseCase.call(mockedLoginEntity)).thenAnswer(
@@ -54,9 +55,10 @@ void main() {
         password: mockedLoginEntity.password,
       ),
     ),
-    expect: () => const [
-      LoginState.loading(),
-      LoginState.failure(Errors.somethingWentWrong),
+    expect: () =>
+    const [
+      AuthenticationState.loading(),
+      AuthenticationState.failure(Errors.somethingWentWrong),
     ],
     verify: (_) {
       verify(mockLoginUseCase.call(mockedLoginEntity));

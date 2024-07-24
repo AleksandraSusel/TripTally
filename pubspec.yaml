@@ -72,6 +72,7 @@ dependencies:
   country_flags: ^3.0.0
   shared_preferences: ^2.2.3
   auto_size_text: ^3.0.0
+  flutter_animate: ^4.5.0
 
 dev_dependencies:
   flutter_test:

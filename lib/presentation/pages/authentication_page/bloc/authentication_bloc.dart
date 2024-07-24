@@ -6,13 +6,15 @@ import 'package:trip_tally/domain/entities/user/login_entity.dart';
 import 'package:trip_tally/domain/use_case/login_use_case.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
-part 'login_bloc.freezed.dart';
-part 'login_event.dart';
-part 'login_state.dart';
+part 'authentication_bloc.freezed.dart';
+
+part 'authentication_event.dart';
+
+part 'authentication_state.dart';
 
 @injectable
-class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc(this._loginUseCase) : super(const LoginState.initial()) {
+class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
+  AuthenticationBloc(this._loginUseCase) : super(const AuthenticationState.initial()) {
     on<OnTapLoginEvent>(_onTapLogin);
   }
 
@@ -20,13 +22,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   Future<void> _onTapLogin(
     OnTapLoginEvent event,
-    Emitter<LoginState> emit,
+    Emitter<AuthenticationState> emit,
   ) async {
-    emit(const LoginState.loading());
+    emit(const AuthenticationState.loading());
     final result = await _loginUseCase.call(LoginEntity(email: event.email, password: event.password));
     result.fold(
-      (l) => emit(LoginState.failure(l.error)),
-      (r) => emit(const LoginState.success()),
+      (l) => emit(AuthenticationState.failure(l.error)),
+      (r) => emit(const AuthenticationState.success()),
     );
   }
 }

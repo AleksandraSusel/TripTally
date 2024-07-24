@@ -21,6 +21,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AddExpensesPage(),
       );
     },
+    AuthenticationRoute.name: (routeData) {
+      final args = routeData.argsAs<AuthenticationRouteArgs>(orElse: () => const AuthenticationRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AuthenticationPage(
+          key: args.key,
+          bloc: args.bloc,
+        ),
+      );
+    },
     EditCurrentTripRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -33,13 +43,13 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HomePage(),
       );
     },
-    LoginRoute.name: (routeData) {
-      final args = routeData.argsAs<LoginRouteArgs>(orElse: () => const LoginRouteArgs());
+    ManageYourTripsRoute.name: (routeData) {
+      final args = routeData.argsAs<ManageYourTripsRouteArgs>(orElse: () => const ManageYourTripsRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: LoginPage(
+        child: ManageYourTripsPage(
+          isOnTrip: args.isOnTrip,
           key: args.key,
-          bloc: args.bloc,
         ),
       );
     },
@@ -141,6 +151,43 @@ class AddExpensesRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [AuthenticationPage]
+class AuthenticationRoute extends PageRouteInfo<AuthenticationRouteArgs> {
+  AuthenticationRoute({
+    Key? key,
+    AuthenticationBloc? bloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          AuthenticationRoute.name,
+          args: AuthenticationRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'AuthenticationRoute';
+
+  static const PageInfo<AuthenticationRouteArgs> page = PageInfo<AuthenticationRouteArgs>(name);
+}
+
+class AuthenticationRouteArgs {
+  const AuthenticationRouteArgs({
+    this.key,
+    this.bloc,
+  });
+
+  final Key? key;
+
+  final AuthenticationBloc? bloc;
+
+  @override
+  String toString() {
+    return 'AuthenticationRouteArgs{key: $key, bloc: $bloc}';
+  }
+}
+
+/// generated route for
 /// [EditCurrentTripPage]
 class EditCurrentTripRoute extends PageRouteInfo<void> {
   const EditCurrentTripRoute({List<PageRouteInfo>? children})
@@ -169,39 +216,39 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [LoginPage]
-class LoginRoute extends PageRouteInfo<LoginRouteArgs> {
-  LoginRoute({
+/// [ManageYourTripsPage]
+class ManageYourTripsRoute extends PageRouteInfo<ManageYourTripsRouteArgs> {
+  ManageYourTripsRoute({
+    bool isOnTrip = false,
     Key? key,
-    LoginBloc? bloc,
     List<PageRouteInfo>? children,
   }) : super(
-          LoginRoute.name,
-          args: LoginRouteArgs(
+          ManageYourTripsRoute.name,
+          args: ManageYourTripsRouteArgs(
+            isOnTrip: isOnTrip,
             key: key,
-            bloc: bloc,
           ),
           initialChildren: children,
         );
 
-  static const String name = 'LoginRoute';
+  static const String name = 'ManageYourTripsRoute';
 
-  static const PageInfo<LoginRouteArgs> page = PageInfo<LoginRouteArgs>(name);
+  static const PageInfo<ManageYourTripsRouteArgs> page = PageInfo<ManageYourTripsRouteArgs>(name);
 }
 
-class LoginRouteArgs {
-  const LoginRouteArgs({
+class ManageYourTripsRouteArgs {
+  const ManageYourTripsRouteArgs({
+    this.isOnTrip = false,
     this.key,
-    this.bloc,
   });
+
+  final bool isOnTrip;
 
   final Key? key;
 
-  final LoginBloc? bloc;
-
   @override
   String toString() {
-    return 'LoginRouteArgs{key: $key, bloc: $bloc}';
+    return 'ManageYourTripsRouteArgs{isOnTrip: $isOnTrip, key: $key}';
   }
 }
 

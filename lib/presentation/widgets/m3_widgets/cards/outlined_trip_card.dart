@@ -1,7 +1,6 @@
 import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
-import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/date_format.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
@@ -85,7 +84,7 @@ class OutlinedTripCard extends StatelessWidget {
                         ),
                         const SizedBox(width: AppDimensions.d10),
                         SvgAsset(
-                          AppPaths.trainM3,
+                          transportType.icon,
                           color: context.thc.onSurface,
                         ),
                       ],

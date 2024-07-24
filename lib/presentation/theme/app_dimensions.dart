@@ -49,9 +49,13 @@ class AppDimensions {
   static const double d100 = 100;
   static const double d102 = 102;
   static const double d104 = 104;
+  static const double d106 = 106;
   static const double d109 = 109;
   static const double d110 = 110;
   static const double d112 = 112;
+  static const double d114 = 114;
+  static const double d116 = 116;
+  static const double d118 = 118;
   static const double d120 = 120;
   static const double d122 = 122;
   static const double d126 = 126;
@@ -79,6 +83,7 @@ class AppDimensions {
   static const double d300 = 300;
   static const double d339 = 339;
   static const double d343 = 343;
+  static const double d360 = 360;
   static const double d400 = 400;
   static const double d550 = 550;
   static const double d580 = 580;
