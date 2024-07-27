@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:trip_tally/presentation/pages/add_expenses_page/add_expenses_page.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/authentication_page.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
+import 'package:trip_tally/presentation/pages/create_trip_page/create_trip_basic_info_page.dart';
 import 'package:trip_tally/presentation/pages/edit_current_trip_page/edit_current_trip_page.dart';
 import 'package:trip_tally/presentation/pages/home_page/home_page.dart';
 import 'package:trip_tally/presentation/pages/manage_your_trips_page/manage_your_trips_page.dart';
@@ -36,7 +37,7 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(page: HomeRoute.page),
-        AutoRoute(page: AuthenticationRoute.page, initial: true),
+        AutoRoute(page: AuthenticationRoute.page),
         AutoRoute(page: RegistrationRoute.page),
         AutoRoute(page: NewTripRoute.page),
         AutoRoute(page: SettingsRoute.page),
@@ -51,6 +52,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: RemoveCurrentTripRoute.page),
         AutoRoute(page: YourCurrentTripRoute.page),
         AutoRoute(page: ManageYourTripsRoute.page),
+        AutoRoute(page: CreateTripBasicInfoRoute.page, initial: true),
         AutoRoute(page: TestM3Route.page),
       ];
 }

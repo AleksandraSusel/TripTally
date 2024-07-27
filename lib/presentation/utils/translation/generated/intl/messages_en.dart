@@ -23,7 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expenses"),
-        "appName": MessageLookupByLibrary.simpleMessage("Trip Tally"),
+        "appName": MessageLookupByLibrary.simpleMessage("TripTally"),
         "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign in"),
         "authPage_singInApple": MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
         "authPage_singInGoogle": MessageLookupByLibrary.simpleMessage("Sign in with Google"),
@@ -32,6 +32,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "authPage_singUpApple": MessageLookupByLibrary.simpleMessage("Sign up with Apple"),
         "authPage_singUpGoogle": MessageLookupByLibrary.simpleMessage("Sign up with Google"),
         "authPage_singUpToAcc": MessageLookupByLibrary.simpleMessage("Sign up to your account"),
+        "createTripBudgetHelper": MessageLookupByLibrary.simpleMessage("Your planned budget"),
+        "createTripBudgetHint": MessageLookupByLibrary.simpleMessage("Budget"),
+        "createTripCurrencyHelper": MessageLookupByLibrary.simpleMessage("The currency you will use"),
+        "createTripCurrencyHint": MessageLookupByLibrary.simpleMessage("Currency"),
+        "createTripSearchHint": MessageLookupByLibrary.simpleMessage("Destination"),
         "currentTripInformation_youAreIn": MessageLookupByLibrary.simpleMessage("You are in:"),
         "editCurrentTrip_changeACity": MessageLookupByLibrary.simpleMessage("Change a city"),
         "editCurrentTrip_changeADate": MessageLookupByLibrary.simpleMessage("Change a date"),
