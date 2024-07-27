@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
-import 'package:trip_tally/domain/entities/osm_map/place_entity.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/locations_format.dart';
 import 'package:trip_tally/presentation/utils/validators.dart';
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
 
@@ -24,7 +22,7 @@ class _LocationSearchTextFieldState extends State<LocationSearchTextField> {
   }
 
   @override
-  Widget build(BuildContext context) => TypeAheadField<PlaceEntity>(
+  Widget build(BuildContext context) => TypeAheadField<String>(
         emptyBuilder: (ctx) => const SizedBox.shrink(),
         builder: (ctx, controller, fNode) {
           _searchController = controller;
@@ -51,10 +49,10 @@ class _LocationSearchTextFieldState extends State<LocationSearchTextField> {
         ),
         offset: Offset.zero,
         suggestionsCallback: (_) => null,
-        itemBuilder: (context, location) => ListTile(
-          leading: const Icon(Icons.location_on),
-          title: Text(getDestinationFormat(location)),
+        itemBuilder: (context, location) => const ListTile(
+          leading: Icon(Icons.location_on),
+          title: Text('getDestinationFormat(location)'),
         ),
-        onSelected: (location) => _searchController.text = getDestinationFormat(location),
+        onSelected: (location) => _searchController.text = 'getDestinationFormat(location)',
       );
 }

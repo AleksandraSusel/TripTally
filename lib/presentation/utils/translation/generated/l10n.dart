@@ -268,6 +268,56 @@ class Translation {
     );
   }
 
+  /// `Destination`
+  String get createTripSearchHint {
+    return Intl.message(
+      'Destination',
+      name: 'createTripSearchHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Currency`
+  String get createTripCurrencyHint {
+    return Intl.message(
+      'Currency',
+      name: 'createTripCurrencyHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Budget`
+  String get createTripBudgetHint {
+    return Intl.message(
+      'Budget',
+      name: 'createTripBudgetHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your planned budget`
+  String get createTripBudgetHelper {
+    return Intl.message(
+      'Your planned budget',
+      name: 'createTripBudgetHelper',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The currency you will use`
+  String get createTripCurrencyHelper {
+    return Intl.message(
+      'The currency you will use',
+      name: 'createTripCurrencyHelper',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Login`
   String get login {
     return Intl.message(
