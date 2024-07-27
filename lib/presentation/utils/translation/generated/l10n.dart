@@ -58,6 +58,16 @@ class Translation {
     );
   }
 
+  /// `Your personal trip assistant`
+  String get appDescription {
+    return Intl.message(
+      'Your personal trip assistant',
+      name: 'appDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign in to your account`
   String get authPage_singInToAcc {
     return Intl.message(
@@ -133,6 +143,156 @@ class Translation {
     return Intl.message(
       'Sing up',
       name: 'authPage_singUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to`
+  String get welcomePage_WelcomeTo {
+    return Intl.message(
+      'Welcome to',
+      name: 'welcomePage_WelcomeTo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Traveler, your name?`
+  String get welcomePage_nameFieldHint {
+    return Intl.message(
+      'Traveler, your name?',
+      name: 'welcomePage_nameFieldHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We need your name to tag along on your journeys!`
+  String get welcomePage_nameFieldError {
+    return Intl.message(
+      'We need your name to tag along on your journeys!',
+      name: 'welcomePage_nameFieldError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your travel currency?`
+  String get welcomePage_currencyFieldHint {
+    return Intl.message(
+      'Your travel currency?',
+      name: 'welcomePage_currencyFieldHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Setting a default currency helps keep your travel budget in check!`
+  String get welcomePage_currencyFieldError {
+    return Intl.message(
+      'Setting a default currency helps keep your travel budget in check!',
+      name: 'welcomePage_currencyFieldError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Where's your home base?`
+  String get welcomePage_countryFieldHint {
+    return Intl.message(
+      'Where\'s your home base?',
+      name: 'welcomePage_countryFieldHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We need to know your home country to tailor your travel experience!`
+  String get welcomePage_countryFieldError {
+    return Intl.message(
+      'We need to know your home country to tailor your travel experience!',
+      name: 'welcomePage_countryFieldError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skip`
+  String get generic_skip {
+    return Intl.message(
+      'Skip',
+      name: 'generic_skip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get generic_continue {
+    return Intl.message(
+      'Continue',
+      name: 'generic_continue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Camera`
+  String get generic_camera {
+    return Intl.message(
+      'Camera',
+      name: 'generic_camera',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gallery`
+  String get generic_gallery {
+    return Intl.message(
+      'Gallery',
+      name: 'generic_gallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Permission Denied`
+  String get generic_permissionDenied {
+    return Intl.message(
+      'Permission Denied',
+      name: 'generic_permissionDenied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The permission is permanently denied. Please go to settings to enable it.`
+  String get generic_permissionDeniedDesc {
+    return Intl.message(
+      'The permission is permanently denied. Please go to settings to enable it.',
+      name: 'generic_permissionDeniedDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get generic_cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'generic_cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go to settings`
+  String get generic_settings {
+    return Intl.message(
+      'Go to settings',
+      name: 'generic_settings',
       desc: '',
       args: [],
     );
@@ -443,6 +603,26 @@ class Translation {
     return Intl.message(
       'Field can\'t be empty',
       name: 'errors_fieldCanNotBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ups! You didn't choose any picture`
+  String get errors_noImageSelected {
+    return Intl.message(
+      'Ups! You didn\'t choose any picture',
+      name: 'errors_noImageSelected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oh no! Something is wrong with your permissions`
+  String get errors_somethingWrongPermissions {
+    return Intl.message(
+      'Oh no! Something is wrong with your permissions',
+      name: 'errors_somethingWrongPermissions',
       desc: '',
       args: [],
     );

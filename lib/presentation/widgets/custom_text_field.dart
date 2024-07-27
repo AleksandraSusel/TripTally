@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
-    required this.hintText,
-    required this.controller,
+    required this.labelText,
     required this.validator,
-    this.error,
+    this.controller,
     this.suffixIcon,
     this.hasPassword = false,
+    this.onTap,
+    this.readOnly,
+    this.textCapitalization,
     super.key,
   });
 
-  final String hintText;
-  final TextEditingController controller;
-  final String? error;
+  final String labelText;
+  final TextEditingController? controller;
   final Widget? suffixIcon;
   final bool hasPassword;
+  final bool? readOnly;
+  final TextCapitalization? textCapitalization;
+  final VoidCallback? onTap;
   final String? Function(String?)? validator;
 
   @override
@@ -35,12 +40,25 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: widget.onTap,
       validator: widget.validator,
       controller: widget.controller,
       obscureText: _obscurePassword,
       autocorrect: false,
+      textCapitalization: widget.textCapitalization ?? TextCapitalization.none,
+      readOnly: widget.readOnly ?? false,
       decoration: InputDecoration(
-        errorText: widget.error,
+        alignLabelWithHint: true,
+        labelStyle: context.tht.titleSmall,
+        floatingLabelStyle: context.tht.titleSmall?.copyWith(
+          color: context.thc.primary,
+        ),
+        isDense: true,
+        errorStyle: context.tht.titleSmall?.copyWith(
+          color: context.thc.error,
+          fontSize: AppDimensions.d12,
+        ),
+        errorMaxLines: 2,
         focusedErrorBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: context.thc.error,
@@ -59,7 +77,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 ),
               )
             : widget.suffixIcon,
-        labelText: widget.hintText,
+        labelText: widget.labelText,
       ),
     );
   }
