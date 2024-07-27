@@ -41,8 +41,8 @@ class CreateTripBasicInfoPageState extends State<CreateTripBasicInfoPage> {
                 Expanded(
                   flex: 2,
                   child: CustomTextField(
-                    hintText: context.tr.createTripBudgetHint,
-                    validator: (value) => Validator.isFieldEmpty(value, context),
+                    labelText: context.tr.createTripBudgetHint,
+                    validator: (value) => Validator.isFieldEmpty(value: value, context: context),
                   ),
                 ),
                 const SizedBox(width: AppDimensions.d30),
