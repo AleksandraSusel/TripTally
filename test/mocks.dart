@@ -14,6 +14,8 @@ import 'package:trip_tally/domain/utils/shared_prefs_utils.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart';
+import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart';
+import 'package:trip_tally/presentation/utils/permissions/permission_service.dart';
 
 @GenerateMocks([
   AuthenticationRepo,
@@ -29,6 +31,8 @@ import 'package:trip_tally/presentation/pages/registration_page/bloc/registratio
   TripsRepo,
   CreateTripUseCase,
   NewTripBloc,
+  PermissionsService,
+  PermissionsBloc,
 ])
 void main() {}
 

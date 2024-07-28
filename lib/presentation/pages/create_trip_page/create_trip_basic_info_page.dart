@@ -1,12 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:trip_tally/presentation/pages/create_trip_page/widgets/budget_fields.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/widgets/transport_options.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/validators.dart';
-import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
-import 'package:trip_tally/presentation/widgets/m3_widgets/location_search_text_field.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/proceed_floating_action_button.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/calendar/range_calendar.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/navigation_app_bar.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/text_fields/location_search_text_field.dart';
 
 @RoutePage()
 class CreateTripBasicInfoPage extends StatefulWidget {
@@ -17,65 +19,46 @@ class CreateTripBasicInfoPage extends StatefulWidget {
 }
 
 class CreateTripBasicInfoPageState extends State<CreateTripBasicInfoPage> {
+  late final TextEditingController _currencyController;
+  late final TextEditingController _budgetController;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    _currencyController = TextEditingController();
+    _budgetController = TextEditingController();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: ProceedFloatingActionButton(
+        onPressed: () {
+          _formKey.currentState?.validate();
+        },
+      ).animate().scale(delay: 400.ms),
       resizeToAvoidBottomInset: false,
-      appBar: const NavigationAppBar(title: 'Create new trip'),
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const LocationSearchTextField(),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: AppDimensions.d16),
-            child: TransportOptions(),
+      appBar: NavigationAppBar(title: context.tr.createTripPage_titleBasicInfo),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.only(bottom: AppDimensions.d120),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const LocationSearchTextField().animate().fadeIn(),
+              const TransportOptions().animate().slideX(begin: -1),
+              BudgetFields(
+                currencyController: _currencyController,
+                budgetController: _budgetController,
+              ).animate().fadeIn(),
+              RangeCalendar(
+                onDateRangeSelected: (from, to) {},
+              ).animate().slideX(begin: -1),
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: AppDimensions.d16,
-              vertical: AppDimensions.d16,
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: CustomTextField(
-                    hintText: context.tr.createTripBudgetHint,
-                    validator: (value) => Validator.isFieldEmpty(value, context),
-                  ),
-                ),
-                const SizedBox(width: AppDimensions.d30),
-                Expanded(
-                  child: DropdownButtonFormField<String>(
-                    hint: Text(context.tr.createTripCurrencyHint),
-                    items: const [
-                      //TODO: Add right values
-                      DropdownMenuItem(
-                        value: 'pln',
-                        child: Text('PLN'),
-                      ),
-                      DropdownMenuItem(
-                        value: 'usd',
-                        child: Text('USD'),
-                      ),
-                      DropdownMenuItem(
-                        value: 'eur',
-                        child: Text('EUR'),
-                      ),
-                      DropdownMenuItem(
-                        value: 'gbp',
-                        child: Text('GBP'),
-                      ),
-                    ],
-                    onChanged: (_) {},
-                  ),
-                ),
-                //TODO: Add Calendar view
-              ],
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
