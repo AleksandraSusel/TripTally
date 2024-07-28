@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
@@ -28,7 +29,7 @@ class TransportButton extends StatelessWidget {
           height: 20,
           width: 20,
         ),
-        label: Text(
+        label: AutoSizeText(
           transport.name.capitalize,
           style: context.tht.labelSmall,
         ),

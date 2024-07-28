@@ -40,7 +40,7 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: AuthenticationRoute.page),
-        AutoRoute(page: WelcomeRoute.page, initial: true),
+        AutoRoute(page: WelcomeRoute.page),
         AutoRoute(page: RegistrationRoute.page),
         AutoRoute(page: NewTripRoute.page),
         AutoRoute(page: SettingsRoute.page),

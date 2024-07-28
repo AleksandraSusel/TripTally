@@ -218,6 +218,36 @@ class Translation {
     );
   }
 
+  /// `Create new trip`
+  String get createTripPage_titleBasicInfo {
+    return Intl.message(
+      'Create new trip',
+      name: 'createTripPage_titleBasicInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Currency`
+  String get createTripPage_currencyLabel {
+    return Intl.message(
+      'Currency',
+      name: 'createTripPage_currencyLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select a currency`
+  String get createTripPage_currencyError {
+    return Intl.message(
+      'Please select a currency',
+      name: 'createTripPage_currencyError',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Skip`
   String get generic_skip {
     return Intl.message(

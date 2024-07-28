@@ -60,4 +60,5 @@ class AppPaths {
   static const String plusOutlined = '$m3SvgPath/plus_outlined.svg';
   static const String bike = '$m3SvgPath/bike.svg';
   static const String motorcycle = '$m3SvgPath/motorcycle.svg';
+  static const String nextArrow = '$m3SvgPath/next_arrow.svg';
 }

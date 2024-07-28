@@ -26,6 +26,7 @@ class _LocationSearchTextFieldState extends State<LocationSearchTextField> {
         emptyBuilder: (ctx) => const SizedBox.shrink(),
         builder: (ctx, controller, fNode) {
           _searchController = controller;
+          fNode.unfocus();
 
           return Padding(
             padding: const EdgeInsets.all(AppDimensions.d16),
@@ -51,8 +52,10 @@ class _LocationSearchTextFieldState extends State<LocationSearchTextField> {
         suggestionsCallback: (_) => null,
         itemBuilder: (context, location) => const ListTile(
           leading: Icon(Icons.location_on),
+          //TODO: Use the correct function
           title: Text('getDestinationFormat(location)'),
         ),
+        //TODO: Use the correct function
         onSelected: (location) => _searchController.text = 'getDestinationFormat(location)',
       );
 }

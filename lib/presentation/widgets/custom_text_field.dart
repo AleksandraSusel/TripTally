@@ -15,6 +15,7 @@ class CustomTextField extends StatefulWidget {
     super.key,
     this.prefixIcon,
     this.focusNode,
+    this.textInputType,
   });
 
   final String labelText;
@@ -27,6 +28,7 @@ class CustomTextField extends StatefulWidget {
   final VoidCallback? onTap;
   final String? Function(String?)? validator;
   final FocusNode? focusNode;
+  final TextInputType? textInputType;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -44,6 +46,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: widget.textInputType,
       onTap: widget.onTap,
       focusNode: widget.focusNode,
       validator: widget.validator,
