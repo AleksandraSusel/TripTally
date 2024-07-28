@@ -24,22 +24,19 @@ mixin _$GeometryDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GeometryDtoCopyWith<GeometryDto> get copyWith =>
-      throw _privateConstructorUsedError;
+  $GeometryDtoCopyWith<GeometryDto> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $GeometryDtoCopyWith<$Res> {
-  factory $GeometryDtoCopyWith(
-          GeometryDto value, $Res Function(GeometryDto) then) =
+  factory $GeometryDtoCopyWith(GeometryDto value, $Res Function(GeometryDto) then) =
       _$GeometryDtoCopyWithImpl<$Res, GeometryDto>;
   @useResult
   $Res call({List<double> coordinates});
 }
 
 /// @nodoc
-class _$GeometryDtoCopyWithImpl<$Res, $Val extends GeometryDto>
-    implements $GeometryDtoCopyWith<$Res> {
+class _$GeometryDtoCopyWithImpl<$Res, $Val extends GeometryDto> implements $GeometryDtoCopyWith<$Res> {
   _$GeometryDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -62,10 +59,8 @@ class _$GeometryDtoCopyWithImpl<$Res, $Val extends GeometryDto>
 }
 
 /// @nodoc
-abstract class _$$GeometryDtoImplCopyWith<$Res>
-    implements $GeometryDtoCopyWith<$Res> {
-  factory _$$GeometryDtoImplCopyWith(
-          _$GeometryDtoImpl value, $Res Function(_$GeometryDtoImpl) then) =
+abstract class _$$GeometryDtoImplCopyWith<$Res> implements $GeometryDtoCopyWith<$Res> {
+  factory _$$GeometryDtoImplCopyWith(_$GeometryDtoImpl value, $Res Function(_$GeometryDtoImpl) then) =
       __$$GeometryDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -73,11 +68,9 @@ abstract class _$$GeometryDtoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$GeometryDtoImplCopyWithImpl<$Res>
-    extends _$GeometryDtoCopyWithImpl<$Res, _$GeometryDtoImpl>
+class __$$GeometryDtoImplCopyWithImpl<$Res> extends _$GeometryDtoCopyWithImpl<$Res, _$GeometryDtoImpl>
     implements _$$GeometryDtoImplCopyWith<$Res> {
-  __$$GeometryDtoImplCopyWithImpl(
-      _$GeometryDtoImpl _value, $Res Function(_$GeometryDtoImpl) _then)
+  __$$GeometryDtoImplCopyWithImpl(_$GeometryDtoImpl _value, $Res Function(_$GeometryDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,11 +90,9 @@ class __$$GeometryDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$GeometryDtoImpl implements _GeometryDto {
-  const _$GeometryDtoImpl({required final List<double> coordinates})
-      : _coordinates = coordinates;
+  const _$GeometryDtoImpl({required final List<double> coordinates}) : _coordinates = coordinates;
 
-  factory _$GeometryDtoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GeometryDtoImplFromJson(json);
+  factory _$GeometryDtoImpl.fromJson(Map<String, dynamic> json) => _$$GeometryDtoImplFromJson(json);
 
   final List<double> _coordinates;
   @override
@@ -121,14 +112,12 @@ class _$GeometryDtoImpl implements _GeometryDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GeometryDtoImpl &&
-            const DeepCollectionEquality()
-                .equals(other._coordinates, _coordinates));
+            const DeepCollectionEquality().equals(other._coordinates, _coordinates));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_coordinates));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_coordinates));
 
   @JsonKey(ignore: true)
   @override
@@ -145,16 +134,13 @@ class _$GeometryDtoImpl implements _GeometryDto {
 }
 
 abstract class _GeometryDto implements GeometryDto {
-  const factory _GeometryDto({required final List<double> coordinates}) =
-      _$GeometryDtoImpl;
+  const factory _GeometryDto({required final List<double> coordinates}) = _$GeometryDtoImpl;
 
-  factory _GeometryDto.fromJson(Map<String, dynamic> json) =
-      _$GeometryDtoImpl.fromJson;
+  factory _GeometryDto.fromJson(Map<String, dynamic> json) = _$GeometryDtoImpl.fromJson;
 
   @override
   List<double> get coordinates;
   @override
   @JsonKey(ignore: true)
-  _$$GeometryDtoImplCopyWith<_$GeometryDtoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GeometryDtoImplCopyWith<_$GeometryDtoImpl> get copyWith => throw _privateConstructorUsedError;
 }
