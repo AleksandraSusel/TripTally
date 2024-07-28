@@ -26,8 +26,8 @@ class TransportButton extends StatelessWidget {
         icon: SvgAsset(
           transport.icon,
           color: context.thc.primary,
-          height: 20,
-          width: 20,
+          height: AppDimensions.d20,
+          width: AppDimensions.d20,
         ),
         label: AutoSizeText(
           transport.name.capitalize,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/widgets/transport_button.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
 
 class TransportOptions extends StatefulWidget {
@@ -16,7 +17,7 @@ class _TransportOptionsState extends State<TransportOptions> {
   Widget build(BuildContext context) {
     return Wrap(
       alignment: WrapAlignment.spaceBetween,
-      runSpacing: 6,
+      runSpacing: AppDimensions.d6,
       children: TransportType.values.map((transport) {
         return TransportButton(
           transport: transport,

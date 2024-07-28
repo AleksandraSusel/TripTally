@@ -26,7 +26,6 @@ class _LocationSearchTextFieldState extends State<LocationSearchTextField> {
         emptyBuilder: (ctx) => const SizedBox.shrink(),
         builder: (ctx, controller, fNode) {
           _searchController = controller;
-          fNode.unfocus();
 
           return Padding(
             padding: const EdgeInsets.all(AppDimensions.d16),
