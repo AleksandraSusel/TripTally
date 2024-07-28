@@ -78,6 +78,8 @@ dependencies:
   world_countries: ^1.5.0
   image_picker: ^1.1.2
   permission_handler: ^11.3.1
+  flutter_typeahead: ^5.2.0
+  table_calendar: ^3.1.2
 
 dev_dependencies:
   flutter_test:

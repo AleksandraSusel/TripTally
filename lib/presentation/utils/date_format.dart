@@ -1,7 +1,11 @@
 import 'package:intl/intl.dart';
 
 const String datePattern = 'dd-MM-yyy';
+const String patternMMMDY = 'MMM d y';
+const String patternMMMY = 'MMM y';
 final DateFormat dateFormat = DateFormat(datePattern);
+final DateFormat formatMMMDY = DateFormat(patternMMMDY);
+final DateFormat formatMMMY = DateFormat(patternMMMY);
 
 String formatDates(String startDateStr, String endDateStr) {
   final DateTime? startDate = _parseDateWithFormats(startDateStr);
@@ -54,4 +58,10 @@ DateTime? _parseDateWithFormats(String dateStr) {
       return null;
     }
   }).firstWhere((date) => date != null, orElse: () => null);
+}
+
+extension DateTimeExtension on DateTime {
+  bool isSameDay(DateTime other) {
+    return year == other.year && month == other.month && day == other.day;
+  }
 }

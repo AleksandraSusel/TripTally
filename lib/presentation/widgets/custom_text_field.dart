@@ -13,16 +13,22 @@ class CustomTextField extends StatefulWidget {
     this.readOnly,
     this.textCapitalization,
     super.key,
+    this.prefixIcon,
+    this.focusNode,
+    this.textInputType,
   });
 
   final String labelText;
   final TextEditingController? controller;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final bool hasPassword;
   final bool? readOnly;
   final TextCapitalization? textCapitalization;
   final VoidCallback? onTap;
   final String? Function(String?)? validator;
+  final FocusNode? focusNode;
+  final TextInputType? textInputType;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -40,7 +46,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: widget.textInputType,
       onTap: widget.onTap,
+      focusNode: widget.focusNode,
       validator: widget.validator,
       controller: widget.controller,
       obscureText: _obscurePassword,
@@ -69,6 +77,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             color: context.thc.onSurface,
           ),
         ),
+        prefixIcon: widget.prefixIcon,
         suffixIcon: widget.hasPassword
             ? IconButton(
                 onPressed: () => setState(() => _obscurePassword = !_obscurePassword),

@@ -218,6 +218,36 @@ class Translation {
     );
   }
 
+  /// `Create new trip`
+  String get createTripPage_titleBasicInfo {
+    return Intl.message(
+      'Create new trip',
+      name: 'createTripPage_titleBasicInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Currency`
+  String get createTripPage_currencyLabel {
+    return Intl.message(
+      'Currency',
+      name: 'createTripPage_currencyLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select a currency`
+  String get createTripPage_currencyError {
+    return Intl.message(
+      'Please select a currency',
+      name: 'createTripPage_currencyError',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Skip`
   String get generic_skip {
     return Intl.message(
@@ -423,6 +453,56 @@ class Translation {
     return Intl.message(
       'while travelling',
       name: 'welcomeSubtitle_whileTravelling',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Destination`
+  String get createTripSearchHint {
+    return Intl.message(
+      'Destination',
+      name: 'createTripSearchHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Currency`
+  String get createTripCurrencyHint {
+    return Intl.message(
+      'Currency',
+      name: 'createTripCurrencyHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Budget`
+  String get createTripBudgetHint {
+    return Intl.message(
+      'Budget',
+      name: 'createTripBudgetHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your planned budget`
+  String get createTripBudgetHelper {
+    return Intl.message(
+      'Your planned budget',
+      name: 'createTripBudgetHelper',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The currency you will use`
+  String get createTripCurrencyHelper {
+    return Intl.message(
+      'The currency you will use',
+      name: 'createTripCurrencyHelper',
       desc: '',
       args: [],
     );
