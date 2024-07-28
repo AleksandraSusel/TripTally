@@ -20,12 +20,14 @@ mixin _$CoordinatesEntity {
   double get lon => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CoordinatesEntityCopyWith<CoordinatesEntity> get copyWith => throw _privateConstructorUsedError;
+  $CoordinatesEntityCopyWith<CoordinatesEntity> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CoordinatesEntityCopyWith<$Res> {
-  factory $CoordinatesEntityCopyWith(CoordinatesEntity value, $Res Function(CoordinatesEntity) then) =
+  factory $CoordinatesEntityCopyWith(
+          CoordinatesEntity value, $Res Function(CoordinatesEntity) then) =
       _$CoordinatesEntityCopyWithImpl<$Res, CoordinatesEntity>;
   @useResult
   $Res call({double lat, double lon});
@@ -61,8 +63,10 @@ class _$CoordinatesEntityCopyWithImpl<$Res, $Val extends CoordinatesEntity>
 }
 
 /// @nodoc
-abstract class _$$CoordinatesEntityImplCopyWith<$Res> implements $CoordinatesEntityCopyWith<$Res> {
-  factory _$$CoordinatesEntityImplCopyWith(_$CoordinatesEntityImpl value, $Res Function(_$CoordinatesEntityImpl) then) =
+abstract class _$$CoordinatesEntityImplCopyWith<$Res>
+    implements $CoordinatesEntityCopyWith<$Res> {
+  factory _$$CoordinatesEntityImplCopyWith(_$CoordinatesEntityImpl value,
+          $Res Function(_$CoordinatesEntityImpl) then) =
       __$$CoordinatesEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -70,9 +74,11 @@ abstract class _$$CoordinatesEntityImplCopyWith<$Res> implements $CoordinatesEnt
 }
 
 /// @nodoc
-class __$$CoordinatesEntityImplCopyWithImpl<$Res> extends _$CoordinatesEntityCopyWithImpl<$Res, _$CoordinatesEntityImpl>
+class __$$CoordinatesEntityImplCopyWithImpl<$Res>
+    extends _$CoordinatesEntityCopyWithImpl<$Res, _$CoordinatesEntityImpl>
     implements _$$CoordinatesEntityImplCopyWith<$Res> {
-  __$$CoordinatesEntityImplCopyWithImpl(_$CoordinatesEntityImpl _value, $Res Function(_$CoordinatesEntityImpl) _then)
+  __$$CoordinatesEntityImplCopyWithImpl(_$CoordinatesEntityImpl _value,
+      $Res Function(_$CoordinatesEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,11 +131,14 @@ class _$CoordinatesEntityImpl implements _CoordinatesEntity {
   @override
   @pragma('vm:prefer-inline')
   _$$CoordinatesEntityImplCopyWith<_$CoordinatesEntityImpl> get copyWith =>
-      __$$CoordinatesEntityImplCopyWithImpl<_$CoordinatesEntityImpl>(this, _$identity);
+      __$$CoordinatesEntityImplCopyWithImpl<_$CoordinatesEntityImpl>(
+          this, _$identity);
 }
 
 abstract class _CoordinatesEntity implements CoordinatesEntity {
-  const factory _CoordinatesEntity({required final double lat, required final double lon}) = _$CoordinatesEntityImpl;
+  const factory _CoordinatesEntity(
+      {required final double lat,
+      required final double lon}) = _$CoordinatesEntityImpl;
 
   @override
   double get lat;
@@ -137,5 +146,6 @@ abstract class _CoordinatesEntity implements CoordinatesEntity {
   double get lon;
   @override
   @JsonKey(ignore: true)
-  _$$CoordinatesEntityImplCopyWith<_$CoordinatesEntityImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$CoordinatesEntityImplCopyWith<_$CoordinatesEntityImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

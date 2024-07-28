@@ -35,8 +35,8 @@ class _LocationSearchTextFieldState extends State<LocationSearchTextField> {
               focusNode: fNode,
               prefixIcon: const Icon(Icons.search),
               controller: _searchController,
-              hintText: context.tr.createTripSearchHint,
-              validator: (value) => Validator.isFieldEmpty(value, context),
+              labelText: context.tr.createTripSearchHint,
+              validator: (value) => Validator.isFieldEmpty(value: value, context: context),
             ),
           );
         },

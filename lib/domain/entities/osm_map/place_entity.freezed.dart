@@ -25,12 +25,14 @@ mixin _$PlaceEntity {
   PlaceExtraTagsEntity? get extraTags => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $PlaceEntityCopyWith<PlaceEntity> get copyWith => throw _privateConstructorUsedError;
+  $PlaceEntityCopyWith<PlaceEntity> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $PlaceEntityCopyWith<$Res> {
-  factory $PlaceEntityCopyWith(PlaceEntity value, $Res Function(PlaceEntity) then) =
+  factory $PlaceEntityCopyWith(
+          PlaceEntity value, $Res Function(PlaceEntity) then) =
       _$PlaceEntityCopyWithImpl<$Res, PlaceEntity>;
   @useResult
   $Res call(
@@ -48,7 +50,8 @@ abstract class $PlaceEntityCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PlaceEntityCopyWithImpl<$Res, $Val extends PlaceEntity> implements $PlaceEntityCopyWith<$Res> {
+class _$PlaceEntityCopyWithImpl<$Res, $Val extends PlaceEntity>
+    implements $PlaceEntityCopyWith<$Res> {
   _$PlaceEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -129,8 +132,10 @@ class _$PlaceEntityCopyWithImpl<$Res, $Val extends PlaceEntity> implements $Plac
 }
 
 /// @nodoc
-abstract class _$$PlaceEntityImplCopyWith<$Res> implements $PlaceEntityCopyWith<$Res> {
-  factory _$$PlaceEntityImplCopyWith(_$PlaceEntityImpl value, $Res Function(_$PlaceEntityImpl) then) =
+abstract class _$$PlaceEntityImplCopyWith<$Res>
+    implements $PlaceEntityCopyWith<$Res> {
+  factory _$$PlaceEntityImplCopyWith(
+          _$PlaceEntityImpl value, $Res Function(_$PlaceEntityImpl) then) =
       __$$PlaceEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -152,9 +157,11 @@ abstract class _$$PlaceEntityImplCopyWith<$Res> implements $PlaceEntityCopyWith<
 }
 
 /// @nodoc
-class __$$PlaceEntityImplCopyWithImpl<$Res> extends _$PlaceEntityCopyWithImpl<$Res, _$PlaceEntityImpl>
+class __$$PlaceEntityImplCopyWithImpl<$Res>
+    extends _$PlaceEntityCopyWithImpl<$Res, _$PlaceEntityImpl>
     implements _$$PlaceEntityImplCopyWith<$Res> {
-  __$$PlaceEntityImplCopyWithImpl(_$PlaceEntityImpl _value, $Res Function(_$PlaceEntityImpl) _then)
+  __$$PlaceEntityImplCopyWithImpl(
+      _$PlaceEntityImpl _value, $Res Function(_$PlaceEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -239,16 +246,21 @@ class _$PlaceEntityImpl implements _PlaceEntity {
         (other.runtimeType == runtimeType &&
             other is _$PlaceEntityImpl &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.displayName, displayName) || other.displayName == displayName) &&
-            (identical(other.category, category) || other.category == category) &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.address, address) || other.address == address) &&
-            (identical(other.coordinates, coordinates) || other.coordinates == coordinates) &&
-            (identical(other.extraTags, extraTags) || other.extraTags == extraTags));
+            (identical(other.coordinates, coordinates) ||
+                other.coordinates == coordinates) &&
+            (identical(other.extraTags, extraTags) ||
+                other.extraTags == extraTags));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, displayName, category, type, address, coordinates, extraTags);
+  int get hashCode => Object.hash(runtimeType, name, displayName, category,
+      type, address, coordinates, extraTags);
 
   @JsonKey(ignore: true)
   @override
@@ -283,5 +295,6 @@ abstract class _PlaceEntity implements PlaceEntity {
   PlaceExtraTagsEntity? get extraTags;
   @override
   @JsonKey(ignore: true)
-  _$$PlaceEntityImplCopyWith<_$PlaceEntityImpl> get copyWith => throw _privateConstructorUsedError;
+  _$$PlaceEntityImplCopyWith<_$PlaceEntityImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
