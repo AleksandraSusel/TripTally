@@ -57,7 +57,7 @@ class _LoginFormState extends State<LoginForm> {
           ).animate().moveY(begin: -16, duration: 400.ms),
           const SizedBox(height: AppDimensions.d30),
           CustomTextField(
-            hintText: context.tr.email,
+            labelText: context.tr.email,
             controller: emailController,
             validator: (String? value) {
               return Validator.validateEmail(value, context);
@@ -65,19 +65,19 @@ class _LoginFormState extends State<LoginForm> {
           ).animate().moveY(begin: -16, duration: 400.ms),
           const SizedBox(height: AppDimensions.d30),
           CustomTextField(
-            hintText: context.tr.password,
+            labelText: context.tr.password,
             controller: passwordController,
             hasPassword: true,
             validator: (String? value) {
-              return Validator.isFieldEmpty(value, context);
+              return Validator.isFieldEmpty(value: value, context: context);
             },
           ).animate().moveY(begin: -16, duration: 400.ms),
           CustomTextField(
-            hintText: context.tr.repeatPassword,
+            labelText: context.tr.repeatPassword,
             controller: TextEditingController(),
             hasPassword: true,
             validator: (String? value) {
-              return Validator.isFieldEmpty(value, context);
+              return Validator.isFieldEmpty(value: value, context: context);
             },
           ).animate().slideX(duration: 400.ms, begin: 0, end: 2),
           BlocBuilder<AuthenticationBloc, AuthenticationState>(

@@ -73,6 +73,13 @@ dependencies:
   shared_preferences: ^2.2.3
   auto_size_text: ^3.0.0
   flutter_animate: ^4.5.0
+  currency_picker: ^2.0.21
+  country_picker: ^2.0.26
+  world_countries: ^1.5.0
+  image_picker: ^1.1.2
+  permission_handler: ^11.3.1
+  flutter_typeahead: ^5.2.0
+  table_calendar: ^3.1.2
 
 dev_dependencies:
   flutter_test:

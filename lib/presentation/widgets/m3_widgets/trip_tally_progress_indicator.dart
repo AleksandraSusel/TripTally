@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
-import 'package:trip_tally/presentation/utils/enums/capitalize.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/enums/string_extensions.dart';
 
 class TripTallyProgressIndicator extends StatefulWidget {
   const TripTallyProgressIndicator({super.key});
@@ -68,7 +68,7 @@ class TripTallyProgressIndicatorState extends State<TripTallyProgressIndicator> 
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TypingText(
-                text: context.tr.appName.capitalize(),
+                text: context.tr.appName.capitalize,
                 controller: _controller,
               ),
               if (_showIcon)

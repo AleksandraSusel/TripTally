@@ -13,7 +13,9 @@ enum Errors {
   operationNotAllowed,
   fieldCanNotBeEmpty,
   userDisabled,
-  userNotFound
+  userNotFound,
+  noImageSelected,
+  somethingWrongPermissions,
 }
 
 extension ErrorsExtension on Errors {
@@ -43,6 +45,10 @@ extension ErrorsExtension on Errors {
         return context.tr.errors_weakPassword;
       case Errors.fieldCanNotBeEmpty:
         return context.tr.errors_fieldCanNotBeEmpty;
+      case Errors.noImageSelected:
+        return context.tr.errors_noImageSelected;
+      case Errors.somethingWrongPermissions:
+        return context.tr.errors_somethingWrongPermissions;
       default:
         return context.tr.errors_operationNotAllowed;
     }

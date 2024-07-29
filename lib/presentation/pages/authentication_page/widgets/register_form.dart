@@ -59,7 +59,7 @@ class _RegisterFormState extends State<RegisterForm> {
           ).animate().moveY(begin: 10, duration: 400.ms),
           const SizedBox(height: AppDimensions.d30),
           CustomTextField(
-            hintText: context.tr.email,
+            labelText: context.tr.email,
             controller: emailController,
             validator: (String? value) {
               return Validator.validateEmail(value, context);
@@ -67,20 +67,20 @@ class _RegisterFormState extends State<RegisterForm> {
           ).animate().moveY(begin: 10, duration: 400.ms),
           const SizedBox(height: AppDimensions.d30),
           CustomTextField(
-            hintText: context.tr.password,
+            labelText: context.tr.password,
             controller: passwordController,
             hasPassword: true,
             validator: (String? value) {
-              return Validator.isFieldEmpty(value, context);
+              return Validator.isFieldEmpty(value: value, context: context);
             },
           ).animate().moveY(begin: 10, duration: 400.ms),
           const SizedBox(height: AppDimensions.d30),
           CustomTextField(
-            hintText: context.tr.repeatPassword,
+            labelText: context.tr.repeatPassword,
             controller: repeatPasswordController,
             hasPassword: true,
             validator: (String? value) {
-              return Validator.isFieldEmpty(value, context);
+              return Validator.isFieldEmpty(value: value, context: context);
             },
           ).animate().slideX(begin: 1),
           const SizedBox(height: AppDimensions.d30),
