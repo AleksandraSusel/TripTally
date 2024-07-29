@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
                 child: Text(context.tr.homePage_yourPlannedTrips, style: context.tht.labelSmall),
               ),
               SizedBox(
-                height: 100,
+                height: AppDimensions.d100,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: 2,
