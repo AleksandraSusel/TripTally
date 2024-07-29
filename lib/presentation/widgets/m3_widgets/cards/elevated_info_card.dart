@@ -30,20 +30,16 @@ class ElevatedInfoCard extends StatelessWidget {
   final String countryCode;
 
   @override
-  Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(maxWidth: AppDimensions.d256),
-      child: Card(
+  Widget build(BuildContext context) => Card(
         elevation: 2,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.min,
           children: [
             OutlinedCircleCountryFlag(countryCode: countryCode),
-            ConstrainedBox(
-              constraints: const BoxConstraints(
-                maxWidth: AppDimensions.d96,
-                minWidth: AppDimensions.d30,
-              ),
+            Container(
+              constraints: const BoxConstraints(maxWidth: AppDimensions.d170),
+              padding: const EdgeInsets.only(right: AppDimensions.d10),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,52 +60,43 @@ class ElevatedInfoCard extends StatelessWidget {
                 ],
               ),
             ),
-            const Spacer(),
-            ClipRRect(
-              clipBehavior: Clip.hardEdge,
-              borderRadius: const BorderRadius.horizontal(
-                right: Radius.circular(AppDimensions.d12),
-              ),
-              child: Container(
-                constraints: const BoxConstraints(
-                  minWidth: AppDimensions.d80,
-                  minHeight: AppDimensions.d72,
-                ),
+            const SizedBox(width: AppDimensions.d4),
+            Container(
+              decoration: BoxDecoration(
                 color: context.thc.secondaryContainer,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: AppDimensions.d8, horizontal: AppDimensions.d4),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: AppDimensions.d40,
-                        child: TransportCircle(
-                          transportType: transportType,
-                          enableInnerShadow: true,
+                borderRadius: const BorderRadius.horizontal(
+                  right: Radius.circular(AppDimensions.d12),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(AppDimensions.d10),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TransportCircle(
+                      transportType: transportType,
+                      enableInnerShadow: true,
+                    ),
+                    const SizedBox(height: AppDimensions.d4),
+                    Flexible(
+                      child: AutoSizeText(
+                        MoneyFormat.formatPositiveAmount(totalExpensesAmount, totalExpensesCurrency),
+                        style: context.tht.labelMedium?.copyWith(
+                          fontFamily: ThemeManager.robotoSerifFont,
                         ),
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                        minFontSize: AppDimensions.d14,
+                        maxFontSize: AppDimensions.d18,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      const SizedBox(height: AppDimensions.d4),
-                      Flexible(
-                        child: AutoSizeText(
-                          MoneyFormat.formatPositiveAmount(totalExpensesAmount, totalExpensesCurrency),
-                          style: context.tht.labelMedium?.copyWith(
-                            fontFamily: ThemeManager.robotoSerifFont,
-                          ),
-                          maxLines: 2,
-                          textAlign: TextAlign.center,
-                          minFontSize: AppDimensions.d14,
-                          maxFontSize: AppDimensions.d18,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
           ],
         ),
-      ),
-    );
-  }
+      );
 }

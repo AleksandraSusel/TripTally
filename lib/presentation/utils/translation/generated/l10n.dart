@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -773,6 +774,26 @@ class Translation {
     return Intl.message(
       'Plan a new trip',
       name: 'homePage_planNewTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You are currently on a trip`
+  String get homePage_youAreCurrentlyOnATrip {
+    return Intl.message(
+      'You are currently on a trip',
+      name: 'homePage_youAreCurrentlyOnATrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your planned trips:`
+  String get homePage_yourPlannedTrips {
+    return Intl.message(
+      'Your planned trips:',
+      name: 'homePage_yourPlannedTrips',
       desc: '',
       args: [],
     );

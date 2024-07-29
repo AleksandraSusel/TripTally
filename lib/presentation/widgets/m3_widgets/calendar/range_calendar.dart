@@ -3,7 +3,6 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/date_format.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-
 import 'package:trip_tally/presentation/widgets/m3_widgets/calendar/widgets/calendar_title.dart';
 
 class RangeCalendar extends StatefulWidget {
