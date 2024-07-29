@@ -454,7 +454,8 @@ class MockAuthenticationBloc extends _i1.Mock implements _i5.AuthenticationBloc 
       );
 
   @override
-  void onTransition(_i18.Transition<_i5.AuthenticationEvent, _i5.AuthenticationState>? transition) => super.noSuchMethod(
+  void onTransition(_i18.Transition<_i5.AuthenticationEvent, _i5.AuthenticationState>? transition) =>
+      super.noSuchMethod(
         Invocation.method(
           #onTransition,
           [transition],
