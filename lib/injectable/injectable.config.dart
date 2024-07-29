@@ -28,7 +28,7 @@ import 'package:trip_tally/domain/repositories/expenses_repo.dart' as _i18;
 import 'package:trip_tally/domain/repositories/trips_repo.dart' as _i25;
 import 'package:trip_tally/domain/use_case/add_expense_use_case.dart' as _i27;
 import 'package:trip_tally/domain/use_case/create_account_use_case.dart' as _i15;
-import 'package:trip_tally/domain/use_case/create_trip_use_case.dart' as _i29;
+import 'package:trip_tally/domain/use_case/create_trip_use_case.dart' as _i30;
 import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i20;
 import 'package:trip_tally/domain/use_case/sign_out_use_case.dart' as _i22;
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i7;
@@ -36,9 +36,9 @@ import 'package:trip_tally/injectable/modules/api_module.dart' as _i33;
 import 'package:trip_tally/injectable/modules/app_router_module.dart' as _i32;
 import 'package:trip_tally/injectable/modules/firebase_auth_module.dart' as _i34;
 import 'package:trip_tally/injectable/modules/shared_preferences_module.dart' as _i35;
+import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart' as _i28;
 import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart' as _i10;
-import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart' as _i28;
-import 'package:trip_tally/presentation/pages/login_page/bloc/login_bloc.dart' as _i30;
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart' as _i29;
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart' as _i31;
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart' as _i21;
 import 'package:trip_tally/presentation/theme/theme_manager.dart' as _i8;
@@ -84,10 +84,10 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i23.TripsDataSource>(() => _i24.TripsDataSourceImpl(gh<_i9.ApiClient>()));
     gh.factory<_i25.TripsRepo>(() => _i26.TripsRepoImpl(gh<_i23.TripsDataSource>()));
     gh.factory<_i27.AddExpenseUseCase>(() => _i27.AddExpenseUseCase(gh<_i18.ExpensesRepo>()));
-    gh.factory<_i28.CreateExpensesBloc>(() => _i28.CreateExpensesBloc(gh<_i27.AddExpenseUseCase>()));
-    gh.factory<_i29.CreateTripUseCase>(() => _i29.CreateTripUseCase(gh<_i25.TripsRepo>()));
-    gh.factory<_i30.LoginBloc>(() => _i30.LoginBloc(gh<_i20.LoginUseCase>()));
-    gh.factory<_i31.NewTripBloc>(() => _i31.NewTripBloc(gh<_i29.CreateTripUseCase>()));
+    gh.factory<_i28.AuthenticationBloc>(() => _i28.AuthenticationBloc(gh<_i20.LoginUseCase>()));
+    gh.factory<_i29.CreateExpensesBloc>(() => _i29.CreateExpensesBloc(gh<_i27.AddExpenseUseCase>()));
+    gh.factory<_i30.CreateTripUseCase>(() => _i30.CreateTripUseCase(gh<_i25.TripsRepo>()));
+    gh.factory<_i31.NewTripBloc>(() => _i31.NewTripBloc(gh<_i30.CreateTripUseCase>()));
     return this;
   }
 }

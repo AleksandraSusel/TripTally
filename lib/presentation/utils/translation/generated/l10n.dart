@@ -62,6 +62,166 @@ class Translation {
     );
   }
 
+  /// `Sign in to your account`
+  String get authPage_singInToAcc {
+    return Intl.message(
+      'Sign in to your account',
+      name: 'authPage_singInToAcc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up to your account`
+  String get authPage_singUpToAcc {
+    return Intl.message(
+      'Sign up to your account',
+      name: 'authPage_singUpToAcc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in with Google`
+  String get authPage_singInGoogle {
+    return Intl.message(
+      'Sign in with Google',
+      name: 'authPage_singInGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up with Google`
+  String get authPage_singUpGoogle {
+    return Intl.message(
+      'Sign up with Google',
+      name: 'authPage_singUpGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in with Apple`
+  String get authPage_singInApple {
+    return Intl.message(
+      'Sign in with Apple',
+      name: 'authPage_singInApple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up with Apple`
+  String get authPage_singUpApple {
+    return Intl.message(
+      'Sign up with Apple',
+      name: 'authPage_singUpApple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in`
+  String get authPage_singIn {
+    return Intl.message(
+      'Sign in',
+      name: 'authPage_singIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sing up`
+  String get authPage_singUp {
+    return Intl.message(
+      'Sing up',
+      name: 'authPage_singUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You are currently on a trip!`
+  String get manageTripsPage_currentlyOnTrip {
+    return Intl.message(
+      'You are currently on a trip!',
+      name: 'manageTripsPage_currentlyOnTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Plan new`
+  String get manageTripsPage_planNew {
+    return Intl.message(
+      'Plan new',
+      name: 'manageTripsPage_planNew',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your next adventure awaits!`
+  String get manageTripsPage_planNewSubtitle {
+    return Intl.message(
+      'Your next adventure awaits!',
+      name: 'manageTripsPage_planNewSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage your trips`
+  String get manageTripsPage_manageTrips {
+    return Intl.message(
+      'Manage your trips',
+      name: 'manageTripsPage_manageTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit your trips`
+  String get manageTripsPage_editTrips {
+    return Intl.message(
+      'Edit your trips',
+      name: 'manageTripsPage_editTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Keep your journeys in check!`
+  String get manageTripsPage_editTripsSubtitle {
+    return Intl.message(
+      'Keep your journeys in check!',
+      name: 'manageTripsPage_editTripsSubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `History`
+  String get manageTripsPage_history {
+    return Intl.message(
+      'History',
+      name: 'manageTripsPage_history',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Relive your epic travels!`
+  String get manageTripsPage_historySubtitle {
+    return Intl.message(
+      'Relive your epic travels!',
+      name: 'manageTripsPage_historySubtitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Welcome in \n`
   String get welcomeText_welcomeIn {
     return Intl.message(

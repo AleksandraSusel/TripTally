@@ -24,6 +24,14 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expenses"),
         "appName": MessageLookupByLibrary.simpleMessage("Trip Tally"),
+        "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign in"),
+        "authPage_singInApple": MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
+        "authPage_singInGoogle": MessageLookupByLibrary.simpleMessage("Sign in with Google"),
+        "authPage_singInToAcc": MessageLookupByLibrary.simpleMessage("Sign in to your account"),
+        "authPage_singUp": MessageLookupByLibrary.simpleMessage("Sing up"),
+        "authPage_singUpApple": MessageLookupByLibrary.simpleMessage("Sign up with Apple"),
+        "authPage_singUpGoogle": MessageLookupByLibrary.simpleMessage("Sign up with Google"),
+        "authPage_singUpToAcc": MessageLookupByLibrary.simpleMessage("Sign up to your account"),
         "currentTripInformation_youAreIn": MessageLookupByLibrary.simpleMessage("You are in:"),
         "editCurrentTrip_changeACity": MessageLookupByLibrary.simpleMessage("Change a city"),
         "editCurrentTrip_changeADate": MessageLookupByLibrary.simpleMessage("Change a date"),
@@ -52,6 +60,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "homePage_goToYourTrip": MessageLookupByLibrary.simpleMessage("Go to your trip"),
         "homePage_planNewTrip": MessageLookupByLibrary.simpleMessage("Plan a new trip"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "manageTripsPage_currentlyOnTrip": MessageLookupByLibrary.simpleMessage("You are currently on a trip!"),
+        "manageTripsPage_editTrips": MessageLookupByLibrary.simpleMessage("Edit your trips"),
+        "manageTripsPage_editTripsSubtitle": MessageLookupByLibrary.simpleMessage("Keep your journeys in check!"),
+        "manageTripsPage_history": MessageLookupByLibrary.simpleMessage("History"),
+        "manageTripsPage_historySubtitle": MessageLookupByLibrary.simpleMessage("Relive your epic travels!"),
+        "manageTripsPage_manageTrips": MessageLookupByLibrary.simpleMessage("Manage your trips"),
+        "manageTripsPage_planNew": MessageLookupByLibrary.simpleMessage("Plan new"),
+        "manageTripsPage_planNewSubtitle": MessageLookupByLibrary.simpleMessage("Your next adventure awaits!"),
         "newTripPage_PickTheEndDate": MessageLookupByLibrary.simpleMessage("Pick the end date"),
         "newTripPage_PickTheStartDate": MessageLookupByLibrary.simpleMessage("Pick the start date"),
         "newTripPage_selectDates": MessageLookupByLibrary.simpleMessage("Select dates"),
@@ -98,6 +114,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "yourCurrentTripPage_addExpense": MessageLookupByLibrary.simpleMessage("Add expense"),
         "yourCurrentTripPage_closeTheTrip": MessageLookupByLibrary.simpleMessage("Close the trip"),
         "yourCurrentTripPage_editTheTrip": MessageLookupByLibrary.simpleMessage("Edit the trip"),
-        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip"),
+        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip")
       };
 }

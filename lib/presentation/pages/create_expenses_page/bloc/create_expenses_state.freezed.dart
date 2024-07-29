@@ -24,7 +24,6 @@ mixin _$CreateExpensesState {
     required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,

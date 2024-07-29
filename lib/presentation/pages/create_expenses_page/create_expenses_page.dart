@@ -6,7 +6,6 @@ import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_state.dart';
-import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
@@ -39,7 +38,7 @@ class CreateExpensesPage extends StatelessWidget {
       create: (context) => bloc ?? getIt<CreateExpensesBloc>(),
       child: BlocConsumer<CreateExpensesBloc, CreateExpensesState>(
         listener: (context, state) => state.whenOrNull(
-          success: () => customSnackBar(context, 'Success', color: AppColors.wePeep),
+          success: () => customSnackBar(context, 'Success'),
           loading: CustomCircularProgressIndicator.new,
         ),
         builder: (context, state) => state.maybeWhen(

@@ -17,7 +17,6 @@ class ExpensesRepoImpl implements ExpensesRepo {
   @override
   Future<Either<Failure, Success>> addExpense(ExpenseEntity entity) async {
     try {
-      //TODO: add right userId
       final result = await _remoteSource.createExpense(ExpenseDto.fromEntity(entity));
       return Right(result);
     } on ApiException catch (e) {
