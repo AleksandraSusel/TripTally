@@ -16,8 +16,10 @@ Map<String, dynamic> _$$OsmResponseDtoImplToJson(_$OsmResponseDtoImpl instance) 
 
 _$FeatureDtoImpl _$$FeatureDtoImplFromJson(Map<String, dynamic> json) => _$FeatureDtoImpl(
       properties: PlaceDto.fromJson(json['properties'] as Map<String, dynamic>),
+      geometry: GeometryDto.fromJson(json['geometry'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$FeatureDtoImplToJson(_$FeatureDtoImpl instance) => <String, dynamic>{
       'properties': instance.properties.toJson(),
+      'geometry': instance.geometry.toJson(),
     };

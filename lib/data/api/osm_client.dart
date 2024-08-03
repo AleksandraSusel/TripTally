@@ -2,11 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:trip_tally/data/dto/osm_map/osm_response_dto.dart';
+import 'package:trip_tally/environment.config.dart';
 
 part 'osm_client.g.dart';
 
 @injectable
-@RestApi()
+@RestApi(baseUrl: EnvConfig.osmUrl)
 abstract class OsmClient {
   @factoryMethod
   factory OsmClient(@Named('OsmDio') Dio dio) => _OsmClient(dio);

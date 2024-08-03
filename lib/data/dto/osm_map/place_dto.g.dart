@@ -12,7 +12,6 @@ _$PlaceDtoImpl _$$PlaceDtoImplFromJson(Map<String, dynamic> json) => _$PlaceDtoI
       category: json['category'] as String,
       type: json['type'] as String,
       address: PlaceAddressDto.fromJson(json['address'] as Map<String, dynamic>),
-      geometry: GeometryDto.fromJson(json['geometry'] as Map<String, dynamic>),
       extratags:
           json['extratags'] == null ? null : PlaceExtraTagsDto.fromJson(json['extratags'] as Map<String, dynamic>),
     );
@@ -23,6 +22,5 @@ Map<String, dynamic> _$$PlaceDtoImplToJson(_$PlaceDtoImpl instance) => <String, 
       'category': instance.category,
       'type': instance.type,
       'address': instance.address.toJson(),
-      'geometry': instance.geometry.toJson(),
       'extratags': instance.extratags?.toJson(),
     };

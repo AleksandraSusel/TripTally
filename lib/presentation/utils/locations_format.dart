@@ -6,13 +6,12 @@ import 'package:trip_tally/domain/entities/osm_map/place_entity.dart';
 /// `Name, State, Country, CountryCode`
 /// Any fields that are empty or null are excluded from the output.
 ///
-/// Example: `Athens, Attica, Greece, GR`
+/// Example: `Athens, Greece, GR`
 String getDestinationFormat(PlaceEntity location) {
   final parts = [
     location.name,
     location.address.state,
     location.address.country,
-    location.address.countryCode.toUpperCase(),
   ];
 
   final nonEmptyParts = parts.where((part) => part != null && part.isNotEmpty).toList();

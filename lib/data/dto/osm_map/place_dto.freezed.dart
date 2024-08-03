@@ -25,7 +25,6 @@ mixin _$PlaceDto {
   String get category => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   PlaceAddressDto get address => throw _privateConstructorUsedError;
-  GeometryDto get geometry => throw _privateConstructorUsedError;
   PlaceExtraTagsDto? get extratags => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,11 +42,9 @@ abstract class $PlaceDtoCopyWith<$Res> {
       String category,
       String type,
       PlaceAddressDto address,
-      GeometryDto geometry,
       PlaceExtraTagsDto? extratags});
 
   $PlaceAddressDtoCopyWith<$Res> get address;
-  $GeometryDtoCopyWith<$Res> get geometry;
   $PlaceExtraTagsDtoCopyWith<$Res>? get extratags;
 }
 
@@ -68,7 +65,6 @@ class _$PlaceDtoCopyWithImpl<$Res, $Val extends PlaceDto> implements $PlaceDtoCo
     Object? category = null,
     Object? type = null,
     Object? address = null,
-    Object? geometry = null,
     Object? extratags = freezed,
   }) {
     return _then(_value.copyWith(
@@ -92,10 +88,6 @@ class _$PlaceDtoCopyWithImpl<$Res, $Val extends PlaceDto> implements $PlaceDtoCo
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as PlaceAddressDto,
-      geometry: null == geometry
-          ? _value.geometry
-          : geometry // ignore: cast_nullable_to_non_nullable
-              as GeometryDto,
       extratags: freezed == extratags
           ? _value.extratags
           : extratags // ignore: cast_nullable_to_non_nullable
@@ -108,14 +100,6 @@ class _$PlaceDtoCopyWithImpl<$Res, $Val extends PlaceDto> implements $PlaceDtoCo
   $PlaceAddressDtoCopyWith<$Res> get address {
     return $PlaceAddressDtoCopyWith<$Res>(_value.address, (value) {
       return _then(_value.copyWith(address: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $GeometryDtoCopyWith<$Res> get geometry {
-    return $GeometryDtoCopyWith<$Res>(_value.geometry, (value) {
-      return _then(_value.copyWith(geometry: value) as $Val);
     });
   }
 
@@ -144,13 +128,10 @@ abstract class _$$PlaceDtoImplCopyWith<$Res> implements $PlaceDtoCopyWith<$Res> 
       String category,
       String type,
       PlaceAddressDto address,
-      GeometryDto geometry,
       PlaceExtraTagsDto? extratags});
 
   @override
   $PlaceAddressDtoCopyWith<$Res> get address;
-  @override
-  $GeometryDtoCopyWith<$Res> get geometry;
   @override
   $PlaceExtraTagsDtoCopyWith<$Res>? get extratags;
 }
@@ -168,7 +149,6 @@ class __$$PlaceDtoImplCopyWithImpl<$Res> extends _$PlaceDtoCopyWithImpl<$Res, _$
     Object? category = null,
     Object? type = null,
     Object? address = null,
-    Object? geometry = null,
     Object? extratags = freezed,
   }) {
     return _then(_$PlaceDtoImpl(
@@ -192,10 +172,6 @@ class __$$PlaceDtoImplCopyWithImpl<$Res> extends _$PlaceDtoCopyWithImpl<$Res, _$
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
               as PlaceAddressDto,
-      geometry: null == geometry
-          ? _value.geometry
-          : geometry // ignore: cast_nullable_to_non_nullable
-              as GeometryDto,
       extratags: freezed == extratags
           ? _value.extratags
           : extratags // ignore: cast_nullable_to_non_nullable
@@ -213,7 +189,6 @@ class _$PlaceDtoImpl implements _PlaceDto {
       required this.category,
       required this.type,
       required this.address,
-      required this.geometry,
       this.extratags});
 
   factory _$PlaceDtoImpl.fromJson(Map<String, dynamic> json) => _$$PlaceDtoImplFromJson(json);
@@ -229,13 +204,11 @@ class _$PlaceDtoImpl implements _PlaceDto {
   @override
   final PlaceAddressDto address;
   @override
-  final GeometryDto geometry;
-  @override
   final PlaceExtraTagsDto? extratags;
 
   @override
   String toString() {
-    return 'PlaceDto(name: $name, displayName: $displayName, category: $category, type: $type, address: $address, geometry: $geometry, extratags: $extratags)';
+    return 'PlaceDto(name: $name, displayName: $displayName, category: $category, type: $type, address: $address, extratags: $extratags)';
   }
 
   @override
@@ -248,13 +221,12 @@ class _$PlaceDtoImpl implements _PlaceDto {
             (identical(other.category, category) || other.category == category) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.address, address) || other.address == address) &&
-            (identical(other.geometry, geometry) || other.geometry == geometry) &&
             (identical(other.extratags, extratags) || other.extratags == extratags));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, displayName, category, type, address, geometry, extratags);
+  int get hashCode => Object.hash(runtimeType, name, displayName, category, type, address, extratags);
 
   @JsonKey(ignore: true)
   @override
@@ -277,7 +249,6 @@ abstract class _PlaceDto implements PlaceDto {
       required final String category,
       required final String type,
       required final PlaceAddressDto address,
-      required final GeometryDto geometry,
       final PlaceExtraTagsDto? extratags}) = _$PlaceDtoImpl;
 
   factory _PlaceDto.fromJson(Map<String, dynamic> json) = _$PlaceDtoImpl.fromJson;
@@ -292,8 +263,6 @@ abstract class _PlaceDto implements PlaceDto {
   String get type;
   @override
   PlaceAddressDto get address;
-  @override
-  GeometryDto get geometry;
   @override
   PlaceExtraTagsDto? get extratags;
   @override

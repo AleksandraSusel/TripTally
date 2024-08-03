@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:trip_tally/data/dto/osm_map/geometry_dto.dart';
 import 'package:trip_tally/data/dto/osm_map/place_address_dto.dart';
 import 'package:trip_tally/data/dto/osm_map/place_extra_tags_dto.dart';
 
@@ -15,7 +14,6 @@ class PlaceDto with _$PlaceDto {
     required String category,
     required String type,
     required PlaceAddressDto address,
-    required GeometryDto geometry,
     PlaceExtraTagsDto? extratags,
   }) = _PlaceDto;
 

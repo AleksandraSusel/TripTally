@@ -6,7 +6,6 @@ import 'package:latlong2/latlong.dart';
 import 'package:trip_tally/environment.config.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/map_utils.dart';
 
 class FlutterMapView extends StatelessWidget {
   const FlutterMapView({
@@ -30,7 +29,7 @@ class FlutterMapView extends StatelessWidget {
       ),
       children: [
         TileLayer(
-          urlTemplate: MapUtils.mapUrl,
+          urlTemplate: EnvConfig.osmUrlTemplate,
           userAgentPackageName: packageName,
           tileProvider: CancellableNetworkTileProvider(),
         ),

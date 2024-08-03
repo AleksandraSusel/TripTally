@@ -17,7 +17,14 @@ class OsmMapRepositoryImpl extends OsmMapRepository {
     try {
       return _osmMapDataSource.getPlaces(input).then(
             (dtoList) => Right(
-              dtoList.map(PlaceEntity.fromDto).toList(),
+              dtoList
+                  .map(
+                    (featureDto) => PlaceEntity.fromDto(
+                      featureDto.properties,
+                      featureDto.geometry,
+                    ),
+                  )
+                  .toList(),
             ),
           );
     } on ApiException catch (e) {

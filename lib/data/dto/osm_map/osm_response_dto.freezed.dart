@@ -152,6 +152,7 @@ FeatureDto _$FeatureDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FeatureDto {
   PlaceDto get properties => throw _privateConstructorUsedError;
+  GeometryDto get geometry => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -163,9 +164,10 @@ abstract class $FeatureDtoCopyWith<$Res> {
   factory $FeatureDtoCopyWith(FeatureDto value, $Res Function(FeatureDto) then) =
       _$FeatureDtoCopyWithImpl<$Res, FeatureDto>;
   @useResult
-  $Res call({PlaceDto properties});
+  $Res call({PlaceDto properties, GeometryDto geometry});
 
   $PlaceDtoCopyWith<$Res> get properties;
+  $GeometryDtoCopyWith<$Res> get geometry;
 }
 
 /// @nodoc
@@ -181,12 +183,17 @@ class _$FeatureDtoCopyWithImpl<$Res, $Val extends FeatureDto> implements $Featur
   @override
   $Res call({
     Object? properties = null,
+    Object? geometry = null,
   }) {
     return _then(_value.copyWith(
       properties: null == properties
           ? _value.properties
           : properties // ignore: cast_nullable_to_non_nullable
               as PlaceDto,
+      geometry: null == geometry
+          ? _value.geometry
+          : geometry // ignore: cast_nullable_to_non_nullable
+              as GeometryDto,
     ) as $Val);
   }
 
@@ -197,6 +204,14 @@ class _$FeatureDtoCopyWithImpl<$Res, $Val extends FeatureDto> implements $Featur
       return _then(_value.copyWith(properties: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GeometryDtoCopyWith<$Res> get geometry {
+    return $GeometryDtoCopyWith<$Res>(_value.geometry, (value) {
+      return _then(_value.copyWith(geometry: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -205,10 +220,12 @@ abstract class _$$FeatureDtoImplCopyWith<$Res> implements $FeatureDtoCopyWith<$R
       __$$FeatureDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({PlaceDto properties});
+  $Res call({PlaceDto properties, GeometryDto geometry});
 
   @override
   $PlaceDtoCopyWith<$Res> get properties;
+  @override
+  $GeometryDtoCopyWith<$Res> get geometry;
 }
 
 /// @nodoc
@@ -220,12 +237,17 @@ class __$$FeatureDtoImplCopyWithImpl<$Res> extends _$FeatureDtoCopyWithImpl<$Res
   @override
   $Res call({
     Object? properties = null,
+    Object? geometry = null,
   }) {
     return _then(_$FeatureDtoImpl(
       properties: null == properties
           ? _value.properties
           : properties // ignore: cast_nullable_to_non_nullable
               as PlaceDto,
+      geometry: null == geometry
+          ? _value.geometry
+          : geometry // ignore: cast_nullable_to_non_nullable
+              as GeometryDto,
     ));
   }
 }
@@ -233,16 +255,18 @@ class __$$FeatureDtoImplCopyWithImpl<$Res> extends _$FeatureDtoCopyWithImpl<$Res
 /// @nodoc
 @JsonSerializable()
 class _$FeatureDtoImpl implements _FeatureDto {
-  const _$FeatureDtoImpl({required this.properties});
+  const _$FeatureDtoImpl({required this.properties, required this.geometry});
 
   factory _$FeatureDtoImpl.fromJson(Map<String, dynamic> json) => _$$FeatureDtoImplFromJson(json);
 
   @override
   final PlaceDto properties;
+  @override
+  final GeometryDto geometry;
 
   @override
   String toString() {
-    return 'FeatureDto(properties: $properties)';
+    return 'FeatureDto(properties: $properties, geometry: $geometry)';
   }
 
   @override
@@ -250,12 +274,13 @@ class _$FeatureDtoImpl implements _FeatureDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FeatureDtoImpl &&
-            (identical(other.properties, properties) || other.properties == properties));
+            (identical(other.properties, properties) || other.properties == properties) &&
+            (identical(other.geometry, geometry) || other.geometry == geometry));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, properties);
+  int get hashCode => Object.hash(runtimeType, properties, geometry);
 
   @JsonKey(ignore: true)
   @override
@@ -272,12 +297,15 @@ class _$FeatureDtoImpl implements _FeatureDto {
 }
 
 abstract class _FeatureDto implements FeatureDto {
-  const factory _FeatureDto({required final PlaceDto properties}) = _$FeatureDtoImpl;
+  const factory _FeatureDto({required final PlaceDto properties, required final GeometryDto geometry}) =
+      _$FeatureDtoImpl;
 
   factory _FeatureDto.fromJson(Map<String, dynamic> json) = _$FeatureDtoImpl.fromJson;
 
   @override
   PlaceDto get properties;
+  @override
+  GeometryDto get geometry;
   @override
   @JsonKey(ignore: true)
   _$$FeatureDtoImplCopyWith<_$FeatureDtoImpl> get copyWith => throw _privateConstructorUsedError;
