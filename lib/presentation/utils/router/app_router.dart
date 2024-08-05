@@ -11,6 +11,7 @@ import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.d
 import 'package:trip_tally/presentation/pages/new_trip_page/new_trip_page.dart';
 import 'package:trip_tally/presentation/pages/plan_expenses_page/plan_expenses_page.dart';
 import 'package:trip_tally/presentation/pages/plan_new_trip_page/plan_new_trip_page.dart';
+import 'package:trip_tally/presentation/pages/planned_trips_m3_page/planned_trips_m3_page.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_page/planned_trips_page.dart';
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart';
 import 'package:trip_tally/presentation/pages/registration_page/registration_page.dart';
@@ -40,7 +41,7 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: AuthenticationRoute.page),
-        AutoRoute(page: WelcomeRoute.page),
+        AutoRoute(page: WelcomeRoute.page, initial: true),
         AutoRoute(page: RegistrationRoute.page),
         AutoRoute(page: NewTripRoute.page),
         AutoRoute(page: SettingsRoute.page),
@@ -55,7 +56,8 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: RemoveCurrentTripRoute.page),
         AutoRoute(page: YourCurrentTripRoute.page),
         AutoRoute(page: ManageYourTripsRoute.page),
-        AutoRoute(page: CreateTripBasicInfoRoute.page, initial: true),
+        AutoRoute(page: CreateTripBasicInfoRoute.page),
         AutoRoute(page: TestM3Route.page),
+        AutoRoute(page: PlannedTripsM3Route.page),
       ];
 }

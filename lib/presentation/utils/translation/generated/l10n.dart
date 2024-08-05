@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'intl/messages_all.dart';
+import 'package:trip_tally/presentation/utils/translation/generated/intl/messages_all.dart';
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -18,8 +18,10 @@ class Translation {
   static Translation? _current;
 
   static Translation get current {
-    assert(_current != null,
-        'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.');
+    assert(
+      _current != null,
+      'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.',
+    );
     return _current!;
   }
 
@@ -39,8 +41,10 @@ class Translation {
 
   static Translation of(BuildContext context) {
     final instance = Translation.maybeOf(context);
-    assert(instance != null,
-        'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -248,6 +252,36 @@ class Translation {
     );
   }
 
+  /// `Your trips`
+  String get plannedTripsM3Page_yourTrips {
+    return Intl.message(
+      'Your trips',
+      name: 'plannedTripsM3Page_yourTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete trip`
+  String get plannedTripsM3Page_deleteTrip {
+    return Intl.message(
+      'Delete trip',
+      name: 'plannedTripsM3Page_deleteTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure to delete this trip?`
+  String get plannedTripsM3Page_confirmationDeleteTrip {
+    return Intl.message(
+      'Are you sure to delete this trip?',
+      name: 'plannedTripsM3Page_confirmationDeleteTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Skip`
   String get generic_skip {
     return Intl.message(
@@ -263,6 +297,16 @@ class Translation {
     return Intl.message(
       'Continue',
       name: 'generic_continue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get generic_confirm {
+    return Intl.message(
+      'Confirm',
+      name: 'generic_confirm',
       desc: '',
       args: [],
     );
