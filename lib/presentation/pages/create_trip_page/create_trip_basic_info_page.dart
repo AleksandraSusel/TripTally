@@ -17,7 +17,9 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/text_fields/location_
 
 @RoutePage()
 class CreateTripBasicInfoPage extends StatefulWidget {
-  const CreateTripBasicInfoPage({super.key});
+  const CreateTripBasicInfoPage({super.key, this.cubit});
+
+  final OsmSuggestionsCubit? cubit;
 
   @override
   CreateTripBasicInfoPageState createState() => CreateTripBasicInfoPageState();
@@ -29,7 +31,7 @@ class CreateTripBasicInfoPageState extends State<CreateTripBasicInfoPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<OsmSuggestionsCubit>(),
+      create: (context) => widget.cubit ?? getIt<OsmSuggestionsCubit>(),
       child: BlocListener<OsmSuggestionsCubit, OsmSuggestionsState>(
         listener: (context, state) => state.whenOrNull(
           error: (error) => customSnackBar(context, error.errorText(context)),
