@@ -223,15 +223,15 @@ class __$$PlaceAddressDtoImplCopyWithImpl<$Res> extends _$PlaceAddressDtoCopyWit
 @JsonSerializable()
 class _$PlaceAddressDtoImpl implements _PlaceAddressDto {
   const _$PlaceAddressDtoImpl(
-      {required this.houseNumber,
-      required this.road,
-      required this.quarter,
-      required this.suburb,
-      required this.city,
-      required this.village,
-      required this.town,
-      required this.state,
-      required this.postcode,
+      {this.houseNumber,
+      this.road,
+      this.quarter,
+      this.suburb,
+      this.city,
+      this.village,
+      this.town,
+      this.state,
+      this.postcode,
       required this.country,
       required this.countryCode});
 
@@ -304,15 +304,15 @@ class _$PlaceAddressDtoImpl implements _PlaceAddressDto {
 
 abstract class _PlaceAddressDto implements PlaceAddressDto {
   const factory _PlaceAddressDto(
-      {required final String? houseNumber,
-      required final String? road,
-      required final String? quarter,
-      required final String? suburb,
-      required final String? city,
-      required final String? village,
-      required final String? town,
-      required final String? state,
-      required final String? postcode,
+      {final String? houseNumber,
+      final String? road,
+      final String? quarter,
+      final String? suburb,
+      final String? city,
+      final String? village,
+      final String? town,
+      final String? state,
+      final String? postcode,
       required final String country,
       required final String countryCode}) = _$PlaceAddressDtoImpl;
 
