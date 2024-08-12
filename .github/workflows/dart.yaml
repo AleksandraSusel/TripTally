@@ -50,7 +50,7 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
       - name: Run build runner
-        run: flutter pub run build_runner build -d
+        run: dart pub run build_runner build -d
       - name: Analyze project source
         run: flutter analyze
 
