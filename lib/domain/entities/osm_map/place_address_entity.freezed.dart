@@ -16,6 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PlaceAddressEntity {
+  String get country => throw _privateConstructorUsedError;
+  String get countryCode => throw _privateConstructorUsedError;
   String? get houseNumber => throw _privateConstructorUsedError;
   String? get road => throw _privateConstructorUsedError;
   String? get quarter => throw _privateConstructorUsedError;
@@ -23,8 +25,6 @@ mixin _$PlaceAddressEntity {
   String? get city => throw _privateConstructorUsedError;
   String? get state => throw _privateConstructorUsedError;
   String? get postcode => throw _privateConstructorUsedError;
-  String get country => throw _privateConstructorUsedError;
-  String get countryCode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlaceAddressEntityCopyWith<PlaceAddressEntity> get copyWith => throw _privateConstructorUsedError;
@@ -36,15 +36,15 @@ abstract class $PlaceAddressEntityCopyWith<$Res> {
       _$PlaceAddressEntityCopyWithImpl<$Res, PlaceAddressEntity>;
   @useResult
   $Res call(
-      {String? houseNumber,
+      {String country,
+      String countryCode,
+      String? houseNumber,
       String? road,
       String? quarter,
       String? suburb,
       String? city,
       String? state,
-      String? postcode,
-      String country,
-      String countryCode});
+      String? postcode});
 }
 
 /// @nodoc
@@ -60,6 +60,8 @@ class _$PlaceAddressEntityCopyWithImpl<$Res, $Val extends PlaceAddressEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? country = null,
+    Object? countryCode = null,
     Object? houseNumber = freezed,
     Object? road = freezed,
     Object? quarter = freezed,
@@ -67,10 +69,16 @@ class _$PlaceAddressEntityCopyWithImpl<$Res, $Val extends PlaceAddressEntity>
     Object? city = freezed,
     Object? state = freezed,
     Object? postcode = freezed,
-    Object? country = null,
-    Object? countryCode = null,
   }) {
     return _then(_value.copyWith(
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      countryCode: null == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
       houseNumber: freezed == houseNumber
           ? _value.houseNumber
           : houseNumber // ignore: cast_nullable_to_non_nullable
@@ -99,14 +107,6 @@ class _$PlaceAddressEntityCopyWithImpl<$Res, $Val extends PlaceAddressEntity>
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
               as String?,
-      country: null == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      countryCode: null == countryCode
-          ? _value.countryCode
-          : countryCode // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -119,15 +119,15 @@ abstract class _$$PlaceAddressEntityImplCopyWith<$Res> implements $PlaceAddressE
   @override
   @useResult
   $Res call(
-      {String? houseNumber,
+      {String country,
+      String countryCode,
+      String? houseNumber,
       String? road,
       String? quarter,
       String? suburb,
       String? city,
       String? state,
-      String? postcode,
-      String country,
-      String countryCode});
+      String? postcode});
 }
 
 /// @nodoc
@@ -140,6 +140,8 @@ class __$$PlaceAddressEntityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? country = null,
+    Object? countryCode = null,
     Object? houseNumber = freezed,
     Object? road = freezed,
     Object? quarter = freezed,
@@ -147,10 +149,16 @@ class __$$PlaceAddressEntityImplCopyWithImpl<$Res>
     Object? city = freezed,
     Object? state = freezed,
     Object? postcode = freezed,
-    Object? country = null,
-    Object? countryCode = null,
   }) {
     return _then(_$PlaceAddressEntityImpl(
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      countryCode: null == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
       houseNumber: freezed == houseNumber
           ? _value.houseNumber
           : houseNumber // ignore: cast_nullable_to_non_nullable
@@ -179,14 +187,6 @@ class __$$PlaceAddressEntityImplCopyWithImpl<$Res>
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
               as String?,
-      country: null == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      countryCode: null == countryCode
-          ? _value.countryCode
-          : countryCode // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -195,16 +195,20 @@ class __$$PlaceAddressEntityImplCopyWithImpl<$Res>
 
 class _$PlaceAddressEntityImpl implements _PlaceAddressEntity {
   const _$PlaceAddressEntityImpl(
-      {required this.houseNumber,
-      required this.road,
-      required this.quarter,
-      required this.suburb,
-      required this.city,
-      required this.state,
-      required this.postcode,
-      required this.country,
-      required this.countryCode});
+      {required this.country,
+      required this.countryCode,
+      this.houseNumber,
+      this.road,
+      this.quarter,
+      this.suburb,
+      this.city,
+      this.state,
+      this.postcode});
 
+  @override
+  final String country;
+  @override
+  final String countryCode;
   @override
   final String? houseNumber;
   @override
@@ -219,14 +223,10 @@ class _$PlaceAddressEntityImpl implements _PlaceAddressEntity {
   final String? state;
   @override
   final String? postcode;
-  @override
-  final String country;
-  @override
-  final String countryCode;
 
   @override
   String toString() {
-    return 'PlaceAddressEntity(houseNumber: $houseNumber, road: $road, quarter: $quarter, suburb: $suburb, city: $city, state: $state, postcode: $postcode, country: $country, countryCode: $countryCode)';
+    return 'PlaceAddressEntity(country: $country, countryCode: $countryCode, houseNumber: $houseNumber, road: $road, quarter: $quarter, suburb: $suburb, city: $city, state: $state, postcode: $postcode)';
   }
 
   @override
@@ -234,20 +234,20 @@ class _$PlaceAddressEntityImpl implements _PlaceAddressEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PlaceAddressEntityImpl &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.countryCode, countryCode) || other.countryCode == countryCode) &&
             (identical(other.houseNumber, houseNumber) || other.houseNumber == houseNumber) &&
             (identical(other.road, road) || other.road == road) &&
             (identical(other.quarter, quarter) || other.quarter == quarter) &&
             (identical(other.suburb, suburb) || other.suburb == suburb) &&
             (identical(other.city, city) || other.city == city) &&
             (identical(other.state, state) || other.state == state) &&
-            (identical(other.postcode, postcode) || other.postcode == postcode) &&
-            (identical(other.country, country) || other.country == country) &&
-            (identical(other.countryCode, countryCode) || other.countryCode == countryCode));
+            (identical(other.postcode, postcode) || other.postcode == postcode));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, houseNumber, road, quarter, suburb, city, state, postcode, country, countryCode);
+      Object.hash(runtimeType, country, countryCode, houseNumber, road, quarter, suburb, city, state, postcode);
 
   @JsonKey(ignore: true)
   @override
@@ -258,16 +258,20 @@ class _$PlaceAddressEntityImpl implements _PlaceAddressEntity {
 
 abstract class _PlaceAddressEntity implements PlaceAddressEntity {
   const factory _PlaceAddressEntity(
-      {required final String? houseNumber,
-      required final String? road,
-      required final String? quarter,
-      required final String? suburb,
-      required final String? city,
-      required final String? state,
-      required final String? postcode,
-      required final String country,
-      required final String countryCode}) = _$PlaceAddressEntityImpl;
+      {required final String country,
+      required final String countryCode,
+      final String? houseNumber,
+      final String? road,
+      final String? quarter,
+      final String? suburb,
+      final String? city,
+      final String? state,
+      final String? postcode}) = _$PlaceAddressEntityImpl;
 
+  @override
+  String get country;
+  @override
+  String get countryCode;
   @override
   String? get houseNumber;
   @override
@@ -282,10 +286,6 @@ abstract class _PlaceAddressEntity implements PlaceAddressEntity {
   String? get state;
   @override
   String? get postcode;
-  @override
-  String get country;
-  @override
-  String get countryCode;
   @override
   @JsonKey(ignore: true)
   _$$PlaceAddressEntityImplCopyWith<_$PlaceAddressEntityImpl> get copyWith => throw _privateConstructorUsedError;

@@ -20,6 +20,8 @@ PlaceAddressDto _$PlaceAddressDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PlaceAddressDto {
+  String get country => throw _privateConstructorUsedError;
+  String get countryCode => throw _privateConstructorUsedError;
   String? get houseNumber => throw _privateConstructorUsedError;
   String? get road => throw _privateConstructorUsedError;
   String? get quarter => throw _privateConstructorUsedError;
@@ -29,8 +31,6 @@ mixin _$PlaceAddressDto {
   String? get town => throw _privateConstructorUsedError;
   String? get state => throw _privateConstructorUsedError;
   String? get postcode => throw _privateConstructorUsedError;
-  String get country => throw _privateConstructorUsedError;
-  String get countryCode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +43,9 @@ abstract class $PlaceAddressDtoCopyWith<$Res> {
       _$PlaceAddressDtoCopyWithImpl<$Res, PlaceAddressDto>;
   @useResult
   $Res call(
-      {String? houseNumber,
+      {String country,
+      String countryCode,
+      String? houseNumber,
       String? road,
       String? quarter,
       String? suburb,
@@ -51,9 +53,7 @@ abstract class $PlaceAddressDtoCopyWith<$Res> {
       String? village,
       String? town,
       String? state,
-      String? postcode,
-      String country,
-      String countryCode});
+      String? postcode});
 }
 
 /// @nodoc
@@ -68,6 +68,8 @@ class _$PlaceAddressDtoCopyWithImpl<$Res, $Val extends PlaceAddressDto> implemen
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? country = null,
+    Object? countryCode = null,
     Object? houseNumber = freezed,
     Object? road = freezed,
     Object? quarter = freezed,
@@ -77,10 +79,16 @@ class _$PlaceAddressDtoCopyWithImpl<$Res, $Val extends PlaceAddressDto> implemen
     Object? town = freezed,
     Object? state = freezed,
     Object? postcode = freezed,
-    Object? country = null,
-    Object? countryCode = null,
   }) {
     return _then(_value.copyWith(
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      countryCode: null == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
       houseNumber: freezed == houseNumber
           ? _value.houseNumber
           : houseNumber // ignore: cast_nullable_to_non_nullable
@@ -117,14 +125,6 @@ class _$PlaceAddressDtoCopyWithImpl<$Res, $Val extends PlaceAddressDto> implemen
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
               as String?,
-      country: null == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      countryCode: null == countryCode
-          ? _value.countryCode
-          : countryCode // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -136,7 +136,9 @@ abstract class _$$PlaceAddressDtoImplCopyWith<$Res> implements $PlaceAddressDtoC
   @override
   @useResult
   $Res call(
-      {String? houseNumber,
+      {String country,
+      String countryCode,
+      String? houseNumber,
       String? road,
       String? quarter,
       String? suburb,
@@ -144,9 +146,7 @@ abstract class _$$PlaceAddressDtoImplCopyWith<$Res> implements $PlaceAddressDtoC
       String? village,
       String? town,
       String? state,
-      String? postcode,
-      String country,
-      String countryCode});
+      String? postcode});
 }
 
 /// @nodoc
@@ -158,6 +158,8 @@ class __$$PlaceAddressDtoImplCopyWithImpl<$Res> extends _$PlaceAddressDtoCopyWit
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? country = null,
+    Object? countryCode = null,
     Object? houseNumber = freezed,
     Object? road = freezed,
     Object? quarter = freezed,
@@ -167,10 +169,16 @@ class __$$PlaceAddressDtoImplCopyWithImpl<$Res> extends _$PlaceAddressDtoCopyWit
     Object? town = freezed,
     Object? state = freezed,
     Object? postcode = freezed,
-    Object? country = null,
-    Object? countryCode = null,
   }) {
     return _then(_$PlaceAddressDtoImpl(
+      country: null == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      countryCode: null == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
       houseNumber: freezed == houseNumber
           ? _value.houseNumber
           : houseNumber // ignore: cast_nullable_to_non_nullable
@@ -207,14 +215,6 @@ class __$$PlaceAddressDtoImplCopyWithImpl<$Res> extends _$PlaceAddressDtoCopyWit
           ? _value.postcode
           : postcode // ignore: cast_nullable_to_non_nullable
               as String?,
-      country: null == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      countryCode: null == countryCode
-          ? _value.countryCode
-          : countryCode // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -223,7 +223,9 @@ class __$$PlaceAddressDtoImplCopyWithImpl<$Res> extends _$PlaceAddressDtoCopyWit
 @JsonSerializable()
 class _$PlaceAddressDtoImpl implements _PlaceAddressDto {
   const _$PlaceAddressDtoImpl(
-      {this.houseNumber,
+      {required this.country,
+      required this.countryCode,
+      this.houseNumber,
       this.road,
       this.quarter,
       this.suburb,
@@ -231,12 +233,14 @@ class _$PlaceAddressDtoImpl implements _PlaceAddressDto {
       this.village,
       this.town,
       this.state,
-      this.postcode,
-      required this.country,
-      required this.countryCode});
+      this.postcode});
 
   factory _$PlaceAddressDtoImpl.fromJson(Map<String, dynamic> json) => _$$PlaceAddressDtoImplFromJson(json);
 
+  @override
+  final String country;
+  @override
+  final String countryCode;
   @override
   final String? houseNumber;
   @override
@@ -255,14 +259,10 @@ class _$PlaceAddressDtoImpl implements _PlaceAddressDto {
   final String? state;
   @override
   final String? postcode;
-  @override
-  final String country;
-  @override
-  final String countryCode;
 
   @override
   String toString() {
-    return 'PlaceAddressDto(houseNumber: $houseNumber, road: $road, quarter: $quarter, suburb: $suburb, city: $city, village: $village, town: $town, state: $state, postcode: $postcode, country: $country, countryCode: $countryCode)';
+    return 'PlaceAddressDto(country: $country, countryCode: $countryCode, houseNumber: $houseNumber, road: $road, quarter: $quarter, suburb: $suburb, city: $city, village: $village, town: $town, state: $state, postcode: $postcode)';
   }
 
   @override
@@ -270,6 +270,8 @@ class _$PlaceAddressDtoImpl implements _PlaceAddressDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PlaceAddressDtoImpl &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.countryCode, countryCode) || other.countryCode == countryCode) &&
             (identical(other.houseNumber, houseNumber) || other.houseNumber == houseNumber) &&
             (identical(other.road, road) || other.road == road) &&
             (identical(other.quarter, quarter) || other.quarter == quarter) &&
@@ -278,15 +280,13 @@ class _$PlaceAddressDtoImpl implements _PlaceAddressDto {
             (identical(other.village, village) || other.village == village) &&
             (identical(other.town, town) || other.town == town) &&
             (identical(other.state, state) || other.state == state) &&
-            (identical(other.postcode, postcode) || other.postcode == postcode) &&
-            (identical(other.country, country) || other.country == country) &&
-            (identical(other.countryCode, countryCode) || other.countryCode == countryCode));
+            (identical(other.postcode, postcode) || other.postcode == postcode));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, houseNumber, road, quarter, suburb, city, village, town, state, postcode, country, countryCode);
+      runtimeType, country, countryCode, houseNumber, road, quarter, suburb, city, village, town, state, postcode);
 
   @JsonKey(ignore: true)
   @override
@@ -304,7 +304,9 @@ class _$PlaceAddressDtoImpl implements _PlaceAddressDto {
 
 abstract class _PlaceAddressDto implements PlaceAddressDto {
   const factory _PlaceAddressDto(
-      {final String? houseNumber,
+      {required final String country,
+      required final String countryCode,
+      final String? houseNumber,
       final String? road,
       final String? quarter,
       final String? suburb,
@@ -312,12 +314,14 @@ abstract class _PlaceAddressDto implements PlaceAddressDto {
       final String? village,
       final String? town,
       final String? state,
-      final String? postcode,
-      required final String country,
-      required final String countryCode}) = _$PlaceAddressDtoImpl;
+      final String? postcode}) = _$PlaceAddressDtoImpl;
 
   factory _PlaceAddressDto.fromJson(Map<String, dynamic> json) = _$PlaceAddressDtoImpl.fromJson;
 
+  @override
+  String get country;
+  @override
+  String get countryCode;
   @override
   String? get houseNumber;
   @override
@@ -336,10 +340,6 @@ abstract class _PlaceAddressDto implements PlaceAddressDto {
   String? get state;
   @override
   String? get postcode;
-  @override
-  String get country;
-  @override
-  String get countryCode;
   @override
   @JsonKey(ignore: true)
   _$$PlaceAddressDtoImplCopyWith<_$PlaceAddressDtoImpl> get copyWith => throw _privateConstructorUsedError;

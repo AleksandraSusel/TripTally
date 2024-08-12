@@ -23,6 +23,7 @@ import 'package:trip_tally/presentation/pages/view_of_current_expenses_page/view
 import 'package:trip_tally/presentation/pages/welcome_page/welcome_page.dart';
 import 'package:trip_tally/presentation/pages/your_current_trip_page/your_current_trip_page.dart';
 import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_suggestions_cubit.dart';
 
 part 'app_router.gr.dart';
 

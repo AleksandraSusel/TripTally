@@ -6,15 +6,15 @@ part 'place_address_entity.freezed.dart';
 @freezed
 class PlaceAddressEntity with _$PlaceAddressEntity {
   const factory PlaceAddressEntity({
-    required String? houseNumber,
-    required String? road,
-    required String? quarter,
-    required String? suburb,
-    required String? city,
-    required String? state,
-    required String? postcode,
     required String country,
     required String countryCode,
+    String? houseNumber,
+    String? road,
+    String? quarter,
+    String? suburb,
+    String? city,
+    String? state,
+    String? postcode,
   }) = _PlaceAddressEntity;
 
   factory PlaceAddressEntity.fromDto(PlaceAddressDto dto) => PlaceAddressEntity(
