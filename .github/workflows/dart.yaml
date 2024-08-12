@@ -29,14 +29,14 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: ${{ needs.setup.outputs.flutter_version }}
+      - name: Install dependencies
+        run: flutter pub get
       - name: Cache Flutter dependencies
         uses: actions/cache@v3
         with:
           path: |
             ~/.pub-cache
           key: ${{ runner.os }}-pub-cache-${{ hashFiles('**/pubspec.yaml') }}
-      - name: Install dependencies
-        run: flutter pub get
 
   run_build_runner_and_analyze:
     runs-on: ubuntu-latest
