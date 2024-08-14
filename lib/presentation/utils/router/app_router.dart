@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/authentication_page.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
@@ -7,10 +8,12 @@ import 'package:trip_tally/presentation/pages/create_trip_page/create_trip_basic
 import 'package:trip_tally/presentation/pages/edit_current_trip_page/edit_current_trip_page.dart';
 import 'package:trip_tally/presentation/pages/home_page/home_page.dart';
 import 'package:trip_tally/presentation/pages/manage_your_trips_page/manage_your_trips_page.dart';
+import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/new_trip_page.dart';
 import 'package:trip_tally/presentation/pages/plan_expenses_page/plan_expenses_page.dart';
 import 'package:trip_tally/presentation/pages/plan_new_trip_page/plan_new_trip_page.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_page/planned_trips_page.dart';
+import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart';
 import 'package:trip_tally/presentation/pages/registration_page/registration_page.dart';
 import 'package:trip_tally/presentation/pages/remove_current_trip_page/remove_current_trip_page.dart';
 import 'package:trip_tally/presentation/pages/resume_of_trip_page/resume_of_trip_page.dart';
@@ -54,7 +57,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: RemoveCurrentTripRoute.page),
         AutoRoute(page: YourCurrentTripRoute.page),
         AutoRoute(page: ManageYourTripsRoute.page),
-        AutoRoute(page: CreateTripBasicInfoRoute.page, initial: true),
+        AutoRoute(page: CreateTripBasicInfoRoute.page),
         AutoRoute(page: TestM3Route.page),
       ];
 }

@@ -31,6 +31,7 @@ mixin _$OsmResponseDto {
 abstract class $OsmResponseDtoCopyWith<$Res> {
   factory $OsmResponseDtoCopyWith(OsmResponseDto value, $Res Function(OsmResponseDto) then) =
       _$OsmResponseDtoCopyWithImpl<$Res, OsmResponseDto>;
+
   @useResult
   $Res call({List<FeatureDto> features});
 }
@@ -41,6 +42,7 @@ class _$OsmResponseDtoCopyWithImpl<$Res, $Val extends OsmResponseDto> implements
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -62,6 +64,7 @@ class _$OsmResponseDtoCopyWithImpl<$Res, $Val extends OsmResponseDto> implements
 abstract class _$$OsmResponseDtoImplCopyWith<$Res> implements $OsmResponseDtoCopyWith<$Res> {
   factory _$$OsmResponseDtoImplCopyWith(_$OsmResponseDtoImpl value, $Res Function(_$OsmResponseDtoImpl) then) =
       __$$OsmResponseDtoImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({List<FeatureDto> features});
@@ -95,6 +98,7 @@ class _$OsmResponseDtoImpl implements _OsmResponseDto {
   factory _$OsmResponseDtoImpl.fromJson(Map<String, dynamic> json) => _$$OsmResponseDtoImplFromJson(json);
 
   final List<FeatureDto> _features;
+
   @override
   List<FeatureDto> get features {
     if (_features is EqualUnmodifiableListView) return _features;
@@ -140,6 +144,7 @@ abstract class _OsmResponseDto implements OsmResponseDto {
 
   @override
   List<FeatureDto> get features;
+
   @override
   @JsonKey(ignore: true)
   _$$OsmResponseDtoImplCopyWith<_$OsmResponseDtoImpl> get copyWith => throw _privateConstructorUsedError;
@@ -155,6 +160,7 @@ mixin _$FeatureDto {
   GeometryDto get geometry => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $FeatureDtoCopyWith<FeatureDto> get copyWith => throw _privateConstructorUsedError;
 }
@@ -163,10 +169,12 @@ mixin _$FeatureDto {
 abstract class $FeatureDtoCopyWith<$Res> {
   factory $FeatureDtoCopyWith(FeatureDto value, $Res Function(FeatureDto) then) =
       _$FeatureDtoCopyWithImpl<$Res, FeatureDto>;
+
   @useResult
   $Res call({PlaceDto properties, GeometryDto geometry});
 
   $PlaceDtoCopyWith<$Res> get properties;
+
   $GeometryDtoCopyWith<$Res> get geometry;
 }
 
@@ -176,6 +184,7 @@ class _$FeatureDtoCopyWithImpl<$Res, $Val extends FeatureDto> implements $Featur
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -218,12 +227,14 @@ class _$FeatureDtoCopyWithImpl<$Res, $Val extends FeatureDto> implements $Featur
 abstract class _$$FeatureDtoImplCopyWith<$Res> implements $FeatureDtoCopyWith<$Res> {
   factory _$$FeatureDtoImplCopyWith(_$FeatureDtoImpl value, $Res Function(_$FeatureDtoImpl) then) =
       __$$FeatureDtoImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({PlaceDto properties, GeometryDto geometry});
 
   @override
   $PlaceDtoCopyWith<$Res> get properties;
+
   @override
   $GeometryDtoCopyWith<$Res> get geometry;
 }
@@ -304,8 +315,10 @@ abstract class _FeatureDto implements FeatureDto {
 
   @override
   PlaceDto get properties;
+
   @override
   GeometryDto get geometry;
+
   @override
   @JsonKey(ignore: true)
   _$$FeatureDtoImplCopyWith<_$FeatureDtoImpl> get copyWith => throw _privateConstructorUsedError;

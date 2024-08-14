@@ -115,7 +115,7 @@ class _$LoadedImpl implements _Loaded {
   @override
   List<PlaceEntity> get suggestions {
     if (_suggestions is EqualUnmodifiableListView) return _suggestions;
-    // ignore: implicit_dynamic_type
+// ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_suggestions);
   }
 
