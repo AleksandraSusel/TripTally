@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AddExpensesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AddExpensesPage(),
+      );
+    },
     AuthenticationRoute.name: (routeData) {
       final args = routeData.argsAs<AuthenticationRouteArgs>(orElse: () => const AuthenticationRouteArgs());
       return AutoRoutePage<dynamic>(
@@ -25,13 +31,13 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    CreateExpensesRoute.name: (routeData) {
-      final args = routeData.argsAs<CreateExpensesRouteArgs>(orElse: () => const CreateExpensesRouteArgs());
+    CreateTripBasicInfoRoute.name: (routeData) {
+      final args = routeData.argsAs<CreateTripBasicInfoRouteArgs>(orElse: () => const CreateTripBasicInfoRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: CreateExpensesPage(
+        child: CreateTripBasicInfoPage(
           key: args.key,
-          bloc: args.bloc,
+          cubit: args.cubit,
         ),
       );
     },
@@ -131,6 +137,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ViewOfCurrentExpensesPage(),
       );
     },
+    WelcomeRoute.name: (routeData) {
+      final args = routeData.argsAs<WelcomeRouteArgs>(orElse: () => const WelcomeRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WelcomePage(
+          key: args.key,
+          permissionsBloc: args.permissionsBloc,
+        ),
+      );
+    },
     YourCurrentTripRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -138,6 +154,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AddExpensesPage]
+class AddExpensesRoute extends PageRouteInfo<void> {
+  const AddExpensesRoute({List<PageRouteInfo>? children})
+      : super(
+          AddExpensesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AddExpensesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -178,39 +208,39 @@ class AuthenticationRouteArgs {
 }
 
 /// generated route for
-/// [CreateExpensesPage]
-class CreateExpensesRoute extends PageRouteInfo<CreateExpensesRouteArgs> {
-  CreateExpensesRoute({
+/// [CreateTripBasicInfoPage]
+class CreateTripBasicInfoRoute extends PageRouteInfo<CreateTripBasicInfoRouteArgs> {
+  CreateTripBasicInfoRoute({
     Key? key,
-    CreateExpensesBloc? bloc,
+    OsmSuggestionsCubit? cubit,
     List<PageRouteInfo>? children,
   }) : super(
-          CreateExpensesRoute.name,
-          args: CreateExpensesRouteArgs(
+          CreateTripBasicInfoRoute.name,
+          args: CreateTripBasicInfoRouteArgs(
             key: key,
-            bloc: bloc,
+            cubit: cubit,
           ),
           initialChildren: children,
         );
 
-  static const String name = 'CreateExpensesRoute';
+  static const String name = 'CreateTripBasicInfoRoute';
 
-  static const PageInfo<CreateExpensesRouteArgs> page = PageInfo<CreateExpensesRouteArgs>(name);
+  static const PageInfo<CreateTripBasicInfoRouteArgs> page = PageInfo<CreateTripBasicInfoRouteArgs>(name);
 }
 
-class CreateExpensesRouteArgs {
-  const CreateExpensesRouteArgs({
+class CreateTripBasicInfoRouteArgs {
+  const CreateTripBasicInfoRouteArgs({
     this.key,
-    this.bloc,
+    this.cubit,
   });
 
   final Key? key;
 
-  final CreateExpensesBloc? bloc;
+  final OsmSuggestionsCubit? cubit;
 
   @override
   String toString() {
-    return 'CreateExpensesRouteArgs{key: $key, bloc: $bloc}';
+    return 'CreateTripBasicInfoRouteArgs{key: $key, cubit: $cubit}';
   }
 }
 
@@ -477,6 +507,43 @@ class ViewOfCurrentExpensesRoute extends PageRouteInfo<void> {
   static const String name = 'ViewOfCurrentExpensesRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WelcomePage]
+class WelcomeRoute extends PageRouteInfo<WelcomeRouteArgs> {
+  WelcomeRoute({
+    Key? key,
+    PermissionsBloc? permissionsBloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WelcomeRoute.name,
+          args: WelcomeRouteArgs(
+            key: key,
+            permissionsBloc: permissionsBloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'WelcomeRoute';
+
+  static const PageInfo<WelcomeRouteArgs> page = PageInfo<WelcomeRouteArgs>(name);
+}
+
+class WelcomeRouteArgs {
+  const WelcomeRouteArgs({
+    this.key,
+    this.permissionsBloc,
+  });
+
+  final Key? key;
+
+  final PermissionsBloc? permissionsBloc;
+
+  @override
+  String toString() {
+    return 'WelcomeRouteArgs{key: $key, permissionsBloc: $permissionsBloc}';
+  }
 }
 
 /// generated route for

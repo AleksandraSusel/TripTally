@@ -27,9 +27,13 @@ class Validator {
     }
   }
 
-  static String? isFieldEmpty(String? value, BuildContext context) {
+  static String? isFieldEmpty({
+    required BuildContext context,
+    String? value,
+    String? customError,
+  }) {
     if (value == null || value.isEmpty) {
-      return context.tr.validators_fieldCanNotBeEmpty;
+      return customError ?? context.tr.validators_fieldCanNotBeEmpty;
     } else {
       return null;
     }

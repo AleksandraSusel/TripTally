@@ -53,7 +53,7 @@ class _Body extends StatelessWidget {
                 country: 'Italy',
                 dateFrom: '20-10-2024',
                 dateTo: '26-10-2024',
-                transportType: TransportType.airplane,
+                transportType: TransportType.flight,
                 totalExpensesAmount: 6000,
                 totalExpensesCurrency: r'$',
                 imagePath: AppPaths.italy,

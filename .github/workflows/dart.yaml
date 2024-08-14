@@ -2,15 +2,15 @@ name: Dart and Flutter CI
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
   pull_request:
-    branches: ["main"]
+    branches: [ "main" ]
 
 jobs:
   setup:
     runs-on: ubuntu-latest
     outputs:
-      flutter_version: ${{ steps.setup.outputs.flutter_version }}
+      flutter_version: 3.22.2
     steps:
       - uses: actions/checkout@v4
       - name: Set up Flutter from fvm config
@@ -28,15 +28,21 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: ${{ needs.setup.outputs.flutter_version }}
+          flutter-version: 3.22.2
+      - name: Clean Flutter project
+        run: flutter clean
+      - name: Install dependencies
+        run: flutter pub get
       - name: Cache Flutter dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.pub-cache
           key: ${{ runner.os }}-pub-cache-${{ hashFiles('**/pubspec.yaml') }}
-      - name: Install dependencies
-        run: flutter pub get
+          restore-keys: |
+            ${{ runner.os }}-pub-cache-
+      - name: Validate Flutter installation
+        run: flutter doctor -v
 
   run_build_runner_and_analyze:
     runs-on: ubuntu-latest
@@ -46,11 +52,13 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: ${{ needs.setup.outputs.flutter_version }}
+          flutter-version: 3.22.2
+      - name: Clean Flutter project
+        run: flutter clean
       - name: Install dependencies
         run: flutter pub get
       - name: Run build runner
-        run: flutter pub run build_runner build -d
+        run: flutter pub run build_runner build --delete-conflicting-outputs --verbose
       - name: Analyze project source
         run: flutter analyze
 
@@ -62,9 +70,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: ${{ needs.setup.outputs.flutter_version }}
-      - name: Install dependencies
-        run: flutter pub get
+          flutter-version: 3.22.2
       - name: Verify formatting
         run: dart format lib test --line-length 120
 
@@ -76,7 +82,9 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: ${{ needs.setup.outputs.flutter_version }}
+          flutter-version: 3.22.2
+      - name: Clean Flutter project
+        run: flutter clean
       - name: Install dependencies
         run: flutter pub get
       - name: Update golden tests

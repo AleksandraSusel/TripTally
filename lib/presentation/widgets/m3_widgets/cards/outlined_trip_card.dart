@@ -1,4 +1,3 @@
-import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/date_format.dart';
@@ -7,6 +6,7 @@ import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/warning_outlined_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/money_container.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/rectangular_country_flag.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
 
 class OutlinedTripCard extends StatelessWidget {
@@ -64,12 +64,7 @@ class OutlinedTripCard extends StatelessWidget {
                           style: context.tht.labelLarge,
                         ),
                         const SizedBox(width: AppDimensions.d10),
-                        CountryFlag.fromCountryCode(
-                          countryCode,
-                          shape: const RoundedRectangle(2.5),
-                          height: AppDimensions.d20,
-                          width: AppDimensions.d26,
-                        ),
+                        RectangularCountryFlag(countryCode: countryCode),
                       ],
                     ),
                     Text(
