@@ -32,9 +32,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     CreateTripBasicInfoRoute.name: (routeData) {
+      final args = routeData.argsAs<CreateTripBasicInfoRouteArgs>(orElse: () => const CreateTripBasicInfoRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const CreateTripBasicInfoPage(),
+        child: CreateTripBasicInfoPage(
+          key: args.key,
+          cubit: args.cubit,
+        ),
       );
     },
     EditCurrentTripRoute.name: (routeData) {
@@ -211,16 +215,39 @@ class AuthenticationRouteArgs {
 
 /// generated route for
 /// [CreateTripBasicInfoPage]
-class CreateTripBasicInfoRoute extends PageRouteInfo<void> {
-  const CreateTripBasicInfoRoute({List<PageRouteInfo>? children})
-      : super(
+class CreateTripBasicInfoRoute extends PageRouteInfo<CreateTripBasicInfoRouteArgs> {
+  CreateTripBasicInfoRoute({
+    Key? key,
+    OsmSuggestionsCubit? cubit,
+    List<PageRouteInfo>? children,
+  }) : super(
           CreateTripBasicInfoRoute.name,
+          args: CreateTripBasicInfoRouteArgs(
+            key: key,
+            cubit: cubit,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'CreateTripBasicInfoRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<CreateTripBasicInfoRouteArgs> page = PageInfo<CreateTripBasicInfoRouteArgs>(name);
+}
+
+class CreateTripBasicInfoRouteArgs {
+  const CreateTripBasicInfoRouteArgs({
+    this.key,
+    this.cubit,
+  });
+
+  final Key? key;
+
+  final OsmSuggestionsCubit? cubit;
+
+  @override
+  String toString() {
+    return 'CreateTripBasicInfoRouteArgs{key: $key, cubit: $cubit}';
+  }
 }
 
 /// generated route for

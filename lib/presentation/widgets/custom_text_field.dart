@@ -55,6 +55,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       autocorrect: false,
       textCapitalization: widget.textCapitalization ?? TextCapitalization.none,
       readOnly: widget.readOnly ?? false,
+      onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
       decoration: InputDecoration(
         alignLabelWithHint: true,
         labelStyle: context.tht.titleSmall,
