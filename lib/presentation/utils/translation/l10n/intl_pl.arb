@@ -117,5 +117,10 @@
   "yourCurrentTripPage_yourCurrentTrip": "Your current trip",
   "yourCurrentTripPage_closeTheTrip": "Close the trip",
   "yourCurrentTripPage_addExpense": "Add expense",
-  "yourCurrentTripPage_editTheTrip": "Edit the trip"
+  "yourCurrentTripPage_editTheTrip": "Edit the trip",
+  "tripsHistoryPage_historyOfTrips": "History of your trips",
+  "tripsHistoryPage_searchTrip": "Search a trip",
+  "filterListSegmentedButton_mostExpensive": "Most expensive",
+  "filterListSegmentedButton_longest": "Longest",
+  "filterListSegmentedButton_shortest": "Shortest"
 }
