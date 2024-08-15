@@ -32,13 +32,22 @@ class MoneyFormat {
 
   static String countryCodeCurrency(String countryCode) {
     final fiatCurrency = WorldCountry.maybeFromCodeShort(countryCode)?.currencies?.first;
-    final currency = fiatCurrency?.name;
+    final currency = fiatCurrency?.code;
     final symbol = fiatCurrency?.symbol;
 
     if (currency != null && symbol != null) {
       return '$currency($symbol)';
     } else {
       return '';
+    }
+  }
+
+  static String extractCurrencyCode(String currencyString) {
+    if (currencyString.contains('(')) {
+      final int index = currencyString.indexOf('(');
+      return currencyString.substring(0, index);
+    } else {
+      return currencyString;
     }
   }
 }

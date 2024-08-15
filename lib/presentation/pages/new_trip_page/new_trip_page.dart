@@ -43,7 +43,7 @@ class NewTripPage extends StatelessWidget {
           orElse: SizedBox.shrink,
           initial: _Body.new,
           success: () => context.router.push(const PlanExpensesRoute()),
-          failure: (error) => customSnackBar(context, error.name),
+          failure: (error) => showSnackBar(context, error.name),
         ),
         builder: (context, state) => state.maybeWhen(
           orElse: SizedBox.shrink,

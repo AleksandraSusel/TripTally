@@ -144,6 +144,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: WelcomePage(
           key: args.key,
           permissionsBloc: args.permissionsBloc,
+          updateUserProfileBloc: args.updateUserProfileBloc,
         ),
       );
     },
@@ -515,12 +516,14 @@ class WelcomeRoute extends PageRouteInfo<WelcomeRouteArgs> {
   WelcomeRoute({
     Key? key,
     PermissionsBloc? permissionsBloc,
+    UpdateUserProfileBloc? updateUserProfileBloc,
     List<PageRouteInfo>? children,
   }) : super(
           WelcomeRoute.name,
           args: WelcomeRouteArgs(
             key: key,
             permissionsBloc: permissionsBloc,
+            updateUserProfileBloc: updateUserProfileBloc,
           ),
           initialChildren: children,
         );
@@ -534,15 +537,18 @@ class WelcomeRouteArgs {
   const WelcomeRouteArgs({
     this.key,
     this.permissionsBloc,
+    this.updateUserProfileBloc,
   });
 
   final Key? key;
 
   final PermissionsBloc? permissionsBloc;
 
+  final UpdateUserProfileBloc? updateUserProfileBloc;
+
   @override
   String toString() {
-    return 'WelcomeRouteArgs{key: $key, permissionsBloc: $permissionsBloc}';
+    return 'WelcomeRouteArgs{key: $key, permissionsBloc: $permissionsBloc, updateUserProfileBloc: $updateUserProfileBloc}';
   }
 }
 

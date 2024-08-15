@@ -8,25 +8,17 @@ import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/text_fields/country_text_field.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/text_fields/currency_text_field.dart';
 
-class WelcomePageFormFields extends StatefulWidget {
-  const WelcomePageFormFields({super.key});
+class WelcomePageFormFields extends StatelessWidget {
+  const WelcomePageFormFields({
+    required this.nameController,
+    required this.countryController,
+    required this.currencyController,
+    super.key,
+  });
 
-  @override
-  State<WelcomePageFormFields> createState() => _WelcomePageFormFieldsState();
-}
-
-class _WelcomePageFormFieldsState extends State<WelcomePageFormFields> {
-  late final TextEditingController _nameController;
-  late final TextEditingController _countryController;
-  late final TextEditingController _currencyController;
-
-  @override
-  void initState() {
-    _nameController = TextEditingController();
-    _countryController = TextEditingController();
-    _currencyController = TextEditingController();
-    super.initState();
-  }
+  final TextEditingController nameController;
+  final TextEditingController countryController;
+  final TextEditingController currencyController;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +29,7 @@ class _WelcomePageFormFieldsState extends State<WelcomePageFormFields> {
           CustomTextField(
             textCapitalization: TextCapitalization.words,
             labelText: context.tr.welcomePage_nameFieldHint,
-            controller: _nameController,
+            controller: nameController,
             validator: (String? value) {
               return Validator.isFieldEmpty(
                 value: value,
@@ -48,25 +40,17 @@ class _WelcomePageFormFieldsState extends State<WelcomePageFormFields> {
           ),
           const SizedBox(height: AppDimensions.d30),
           CountryTextField(
-            controller: _countryController,
-            onSelected: (country) => _currencyController.text = MoneyFormat.countryCodeCurrency(country.countryCode),
+            controller: countryController,
+            onSelected: (country) => currencyController.text = MoneyFormat.countryCodeCurrency(country.countryCode),
           ),
           const SizedBox(height: AppDimensions.d30),
           CurrencyTextField(
-            controller: _currencyController,
+            controller: currencyController,
             labelText: context.tr.welcomePage_currencyFieldHint,
             errorText: context.tr.welcomePage_currencyFieldError,
           ),
         ],
       ).animate().fadeIn(delay: 1.2.seconds, duration: 600.ms),
     );
-  }
-
-  @override
-  void dispose() {
-    _countryController.dispose();
-    _currencyController.dispose();
-    _nameController.dispose();
-    super.dispose();
   }
 }

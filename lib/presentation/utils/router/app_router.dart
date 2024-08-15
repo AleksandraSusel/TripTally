@@ -20,6 +20,7 @@ import 'package:trip_tally/presentation/pages/settings_page/settings_page.dart';
 import 'package:trip_tally/presentation/pages/summary_after_closing_page/summary_after_closing_page.dart';
 import 'package:trip_tally/presentation/pages/test_m3_page/test_m3_page.dart';
 import 'package:trip_tally/presentation/pages/view_of_current_expenses_page/view_of_current_expenses_page.dart';
+import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart';
 import 'package:trip_tally/presentation/pages/welcome_page/welcome_page.dart';
 import 'package:trip_tally/presentation/pages/your_current_trip_page/your_current_trip_page.dart';
 import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart';
@@ -33,14 +34,13 @@ part 'app_router.gr.dart';
 class AppRouter extends _$AppRouter {
   @override
   RouteType get defaultRouteType => const RouteType.custom(
-        transitionsBuilder: TransitionsBuilders.slideLeft,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
         durationInMilliseconds: 400,
       );
-
   @override
   List<AutoRoute> get routes => [
+        AutoRoute(page: AuthenticationRoute.page, initial: true),
         AutoRoute(page: HomeRoute.page),
-        AutoRoute(page: AuthenticationRoute.page),
         AutoRoute(page: WelcomeRoute.page),
         AutoRoute(page: RegistrationRoute.page),
         AutoRoute(page: NewTripRoute.page),
@@ -56,7 +56,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: RemoveCurrentTripRoute.page),
         AutoRoute(page: YourCurrentTripRoute.page),
         AutoRoute(page: ManageYourTripsRoute.page),
-        AutoRoute(page: CreateTripBasicInfoRoute.page, initial: true),
+        AutoRoute(page: CreateTripBasicInfoRoute.page),
         AutoRoute(page: TestM3Route.page),
       ];
 }

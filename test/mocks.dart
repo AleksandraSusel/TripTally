@@ -14,10 +14,12 @@ import 'package:trip_tally/domain/use_case/create_account_use_case.dart';
 import 'package:trip_tally/domain/use_case/create_trip_use_case.dart';
 import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart';
 import 'package:trip_tally/domain/use_case/login_use_case.dart';
+import 'package:trip_tally/domain/use_case/update_user_profile_use_case.dart';
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart';
+import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart';
 import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart';
 import 'package:trip_tally/presentation/utils/permissions/permission_service.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_suggestions_cubit.dart';
@@ -43,6 +45,8 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_sug
   OsmMapRepository,
   OsmMapDataSource,
   OsmClient,
+  UpdateUserProfileUseCase,
+  UpdateUserProfileBloc,
 ])
 void main() {}
 

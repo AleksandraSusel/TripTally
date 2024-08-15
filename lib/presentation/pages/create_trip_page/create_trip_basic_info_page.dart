@@ -34,7 +34,7 @@ class CreateTripBasicInfoPageState extends State<CreateTripBasicInfoPage> {
       create: (context) => widget.cubit ?? getIt<OsmSuggestionsCubit>(),
       child: BlocListener<OsmSuggestionsCubit, OsmSuggestionsState>(
         listener: (context, state) => state.whenOrNull(
-          error: (error) => customSnackBar(context, error.errorText(context)),
+          error: (error) => showSnackBar(context, error.errorText(context)),
         ),
         child: Scaffold(
           floatingActionButton: ProceedFloatingActionButton(
