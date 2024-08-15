@@ -23,7 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expenses"),
-        "appDescription": MessageLookupByLibrary.simpleMessage("Your personal trip assistant"),
+        "appDescription": MessageLookupByLibrary.simpleMessage(
+          "Your personal trip assistant",
+        ),
         "appName": MessageLookupByLibrary.simpleMessage("Trip Tally"),
         "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign in"),
         "authPage_singInApple": MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
@@ -52,12 +54,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "errors_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
         "errors_fieldCantBeEmpty": MessageLookupByLibrary.simpleMessage("Field cant be empty"),
         "errors_invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
-        "errors_noImageSelected": MessageLookupByLibrary.simpleMessage("Ups! You didn\'t choose any picture"),
+        "errors_noImageSelected": MessageLookupByLibrary.simpleMessage(
+          "Ups! You didn\'t choose any picture",
+        ),
         "errors_operationNotAllowed": MessageLookupByLibrary.simpleMessage("Operation not allowed"),
         "errors_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
         "errors_somethingWentWrong": MessageLookupByLibrary.simpleMessage("Something went wrong"),
-        "errors_somethingWrongPermissions":
-            MessageLookupByLibrary.simpleMessage("Oh no! Something is wrong with your permissions"),
+        "errors_somethingWrongPermissions": MessageLookupByLibrary.simpleMessage(
+          "Oh no! Something is wrong with your permissions",
+        ),
         "errors_unknownError": MessageLookupByLibrary.simpleMessage("Unknown error"),
         "errors_userDisabled": MessageLookupByLibrary.simpleMessage("User disabled"),
         "errors_userNotFound": MessageLookupByLibrary.simpleMessage("User not found:"),
@@ -69,7 +74,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "generic_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "generic_permissionDenied": MessageLookupByLibrary.simpleMessage("Permission Denied"),
         "generic_permissionDeniedDesc": MessageLookupByLibrary.simpleMessage(
-            "The permission is permanently denied. Please go to settings to enable it."),
+          "The permission is permanently denied. Please go to settings to enable it.",
+        ),
         "generic_settings": MessageLookupByLibrary.simpleMessage("Go to settings"),
         "generic_skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "hiTravellerSubtitle_addNewJourney": MessageLookupByLibrary.simpleMessage("Add new journey"),
@@ -142,14 +148,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "viewOfCurrentExpenses_youHaveSpent": MessageLookupByLibrary.simpleMessage("You have spent"),
         "viewOfCurrentExpenses_yourCurrentExpenses": MessageLookupByLibrary.simpleMessage("Your current expenses"),
         "welcomePage_WelcomeTo": MessageLookupByLibrary.simpleMessage("Welcome to"),
-        "welcomePage_countryFieldError":
-            MessageLookupByLibrary.simpleMessage("We need to know your home country to tailor your travel experience!"),
+        "welcomePage_countryFieldError": MessageLookupByLibrary.simpleMessage(
+          "We need to know your home country to tailor your travel experience!",
+        ),
         "welcomePage_countryFieldHint": MessageLookupByLibrary.simpleMessage("Where\'s your home base?"),
-        "welcomePage_currencyFieldError":
-            MessageLookupByLibrary.simpleMessage("Setting a default currency helps keep your travel budget in check!"),
+        "welcomePage_currencyFieldError": MessageLookupByLibrary.simpleMessage(
+          "Setting a default currency helps keep your travel budget in check!",
+        ),
         "welcomePage_currencyFieldHint": MessageLookupByLibrary.simpleMessage("Your travel currency?"),
-        "welcomePage_nameFieldError":
-            MessageLookupByLibrary.simpleMessage("We need your name to tag along on your journeys!"),
+        "welcomePage_nameFieldError": MessageLookupByLibrary.simpleMessage(
+          "We need your name to tag along on your journeys!",
+        ),
         "welcomePage_nameFieldHint": MessageLookupByLibrary.simpleMessage("Traveler, your name?"),
         "welcomeSubtitle_theAppForReportingAllExpenses": MessageLookupByLibrary.simpleMessage(
           "The app for reporting all expenses",

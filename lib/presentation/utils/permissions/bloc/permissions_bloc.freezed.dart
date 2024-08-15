@@ -24,7 +24,6 @@ mixin _$PermissionsState {
     required TResult Function() permanentlyDenied,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(PermissionStatus status)? loaded,
@@ -42,7 +41,6 @@ mixin _$PermissionsState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loaded value) loaded,
@@ -51,7 +49,6 @@ mixin _$PermissionsState {
     required TResult Function(_PermanentlyDenied value) permanentlyDenied,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loaded value)? loaded,
