@@ -3,12 +3,16 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trip_tally/data/api/api_client.dart';
+import 'package:trip_tally/data/api/osm_client.dart';
 import 'package:trip_tally/domain/data_source/authentication_remote_source.dart';
+import 'package:trip_tally/domain/data_source/osm_map_data_source.dart';
 import 'package:trip_tally/domain/data_source/trips_data_source.dart';
 import 'package:trip_tally/domain/repositories/authentication_repo.dart';
+import 'package:trip_tally/domain/repositories/osm_map_repository.dart';
 import 'package:trip_tally/domain/repositories/trips_repo.dart';
 import 'package:trip_tally/domain/use_case/create_account_use_case.dart';
 import 'package:trip_tally/domain/use_case/create_trip_use_case.dart';
+import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart';
 import 'package:trip_tally/domain/use_case/login_use_case.dart';
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
@@ -16,6 +20,7 @@ import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.d
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart';
 import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart';
 import 'package:trip_tally/presentation/utils/permissions/permission_service.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_suggestions_cubit.dart';
 
 @GenerateMocks([
   AuthenticationRepo,
@@ -33,6 +38,11 @@ import 'package:trip_tally/presentation/utils/permissions/permission_service.dar
   NewTripBloc,
   PermissionsService,
   PermissionsBloc,
+  LocationSuggestionsUseCase,
+  OsmSuggestionsCubit,
+  OsmMapRepository,
+  OsmMapDataSource,
+  OsmClient,
 ])
 void main() {}
 
