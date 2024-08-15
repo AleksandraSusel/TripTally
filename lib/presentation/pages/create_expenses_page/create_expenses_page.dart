@@ -36,26 +36,19 @@ class CreateExpensesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => bloc ?? getIt<CreateExpensesBloc>(),
-      child: BlocConsumer<CreateExpensesBloc, CreateExpensesState>(
+      child: BlocListener<CreateExpensesBloc, CreateExpensesState>(
         listener: (context, state) => state.whenOrNull(
           success: () => customSnackBar(context, 'Success'),
           loading: CustomCircularProgressIndicator.new,
         ),
-        builder: (context, state) => state.maybeWhen(
-          orElse: SizedBox.shrink,
-          success: _Body.new,
-          initial: _Body.new,
-          loading: _Body.new,
-        ),
+        child: const _Body(),
       ),
     );
   }
 }
 
 class _Body extends StatefulWidget {
-  const _Body({
-    super.key,
-  });
+  const _Body();
 
   @override
   State<_Body> createState() => _BodyState();
