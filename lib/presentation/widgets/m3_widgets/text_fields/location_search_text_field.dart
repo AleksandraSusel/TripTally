@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:trip_tally/domain/entities/osm_map/place_entity.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/locations_format.dart';
 import 'package:trip_tally/presentation/utils/validators.dart';
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_suggestions_cubit.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/rectangular_country_flag.dart';
 
 class LocationSearchTextField extends StatefulWidget {
   const LocationSearchTextField({super.key});
@@ -22,7 +27,7 @@ class _LocationSearchTextFieldState extends State<LocationSearchTextField> {
   }
 
   @override
-  Widget build(BuildContext context) => TypeAheadField<String>(
+  Widget build(BuildContext context) => TypeAheadField<PlaceEntity>(
         emptyBuilder: (ctx) => const SizedBox.shrink(),
         builder: (ctx, controller, fNode) {
           _searchController = controller;
@@ -48,13 +53,32 @@ class _LocationSearchTextFieldState extends State<LocationSearchTextField> {
           child: child,
         ),
         offset: Offset.zero,
-        suggestionsCallback: (_) => null,
-        itemBuilder: (context, location) => const ListTile(
-          leading: Icon(Icons.location_on),
-          //TODO: Use the correct function
-          title: Text('getDestinationFormat(location)'),
+        suggestionsCallback: (query) {
+          if (query.isNotEmpty) {
+            return context.read<OsmSuggestionsCubit>().getSuggestions(query);
+          }
+          return [];
+        },
+        itemBuilder: (context, location) => ListTile(
+          leading: const Icon(Icons.location_on),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Flexible(
+                flex: 3,
+                child: Text(
+                  getDestinationFormat(location),
+                  style: context.tht.titleMedium,
+                ),
+              ),
+              Flexible(
+                child: RectangularCountryFlag(
+                  countryCode: location.address.countryCode,
+                ),
+              ),
+            ],
+          ),
         ),
-        //TODO: Use the correct function
-        onSelected: (location) => _searchController.text = 'getDestinationFormat(location)',
+        onSelected: (location) => _searchController.text = getDestinationFormat(location),
       );
 }
