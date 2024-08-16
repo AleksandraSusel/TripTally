@@ -64,8 +64,7 @@ mixin _$NewTripState {
 
 /// @nodoc
 abstract class $NewTripStateCopyWith<$Res> {
-  factory $NewTripStateCopyWith(NewTripState value, $Res Function(NewTripState) then) =
-      _$NewTripStateCopyWithImpl<$Res, NewTripState>;
+  factory $NewTripStateCopyWith(NewTripState value, $Res Function(NewTripState) then) = _$NewTripStateCopyWithImpl<$Res, NewTripState>;
 }
 
 /// @nodoc
@@ -80,8 +79,7 @@ class _$NewTripStateCopyWithImpl<$Res, $Val extends NewTripState> implements $Ne
 
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(_$InitialImpl value, $Res Function(_$InitialImpl) then) =
-      __$$InitialImplCopyWithImpl<$Res>;
+  factory _$$InitialImplCopyWith(_$InitialImpl value, $Res Function(_$InitialImpl) then) = __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -183,8 +181,7 @@ abstract class _Initial implements NewTripState {
 
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
-  factory _$$SuccessImplCopyWith(_$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
-      __$$SuccessImplCopyWithImpl<$Res>;
+  factory _$$SuccessImplCopyWith(_$SuccessImpl value, $Res Function(_$SuccessImpl) then) = __$$SuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -286,8 +283,7 @@ abstract class _Success implements NewTripState {
 
 /// @nodoc
 abstract class _$$FailureImplCopyWith<$Res> {
-  factory _$$FailureImplCopyWith(_$FailureImpl value, $Res Function(_$FailureImpl) then) =
-      __$$FailureImplCopyWithImpl<$Res>;
+  factory _$$FailureImplCopyWith(_$FailureImpl value, $Res Function(_$FailureImpl) then) = __$$FailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Errors error});
 }
@@ -327,9 +323,7 @@ class _$FailureImpl implements _Failure {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FailureImpl &&
-            (identical(other.error, error) || other.error == error));
+        (other.runtimeType == runtimeType && other is _$FailureImpl && (identical(other.error, error) || other.error == error));
   }
 
   @override

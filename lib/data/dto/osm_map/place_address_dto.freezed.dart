@@ -41,6 +41,7 @@ mixin _$PlaceAddressDto {
 abstract class $PlaceAddressDtoCopyWith<$Res> {
   factory $PlaceAddressDtoCopyWith(PlaceAddressDto value, $Res Function(PlaceAddressDto) then) =
       _$PlaceAddressDtoCopyWithImpl<$Res, PlaceAddressDto>;
+
   @useResult
   $Res call(
       {String country,
@@ -62,6 +63,7 @@ class _$PlaceAddressDtoCopyWithImpl<$Res, $Val extends PlaceAddressDto> implemen
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -133,6 +135,7 @@ class _$PlaceAddressDtoCopyWithImpl<$Res, $Val extends PlaceAddressDto> implemen
 abstract class _$$PlaceAddressDtoImplCopyWith<$Res> implements $PlaceAddressDtoCopyWith<$Res> {
   factory _$$PlaceAddressDtoImplCopyWith(_$PlaceAddressDtoImpl value, $Res Function(_$PlaceAddressDtoImpl) then) =
       __$$PlaceAddressDtoImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -320,12 +323,16 @@ abstract class _PlaceAddressDto implements PlaceAddressDto {
 
   @override
   String get country;
+
   @override
   String get countryCode;
+
   @override
   String? get houseNumber;
+
   @override
   String? get road;
+
   @override
   String? get quarter;
   @override
@@ -338,8 +345,10 @@ abstract class _PlaceAddressDto implements PlaceAddressDto {
   String? get town;
   @override
   String? get state;
+
   @override
   String? get postcode;
+
   @override
   @JsonKey(ignore: true)
   _$$PlaceAddressDtoImplCopyWith<_$PlaceAddressDtoImpl> get copyWith => throw _privateConstructorUsedError;

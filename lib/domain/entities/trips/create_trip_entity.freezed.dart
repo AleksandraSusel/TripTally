@@ -24,32 +24,25 @@ mixin _$CreateTripEntity {
   double get plannedCost => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CreateTripEntityCopyWith<CreateTripEntity> get copyWith =>
-      throw _privateConstructorUsedError;
+  $CreateTripEntityCopyWith<CreateTripEntity> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CreateTripEntityCopyWith<$Res> {
-  factory $CreateTripEntityCopyWith(
-          CreateTripEntity value, $Res Function(CreateTripEntity) then) =
+  factory $CreateTripEntityCopyWith(CreateTripEntity value, $Res Function(CreateTripEntity) then) =
       _$CreateTripEntityCopyWithImpl<$Res, CreateTripEntity>;
+
   @useResult
-  $Res call(
-      {String cityName,
-      String transportType,
-      String countryCode,
-      String dateFrom,
-      String dateTo,
-      double plannedCost});
+  $Res call({String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
 }
 
 /// @nodoc
-class _$CreateTripEntityCopyWithImpl<$Res, $Val extends CreateTripEntity>
-    implements $CreateTripEntityCopyWith<$Res> {
+class _$CreateTripEntityCopyWithImpl<$Res, $Val extends CreateTripEntity> implements $CreateTripEntityCopyWith<$Res> {
   _$CreateTripEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -93,28 +86,19 @@ class _$CreateTripEntityCopyWithImpl<$Res, $Val extends CreateTripEntity>
 }
 
 /// @nodoc
-abstract class _$$CreateTripEntityImplCopyWith<$Res>
-    implements $CreateTripEntityCopyWith<$Res> {
-  factory _$$CreateTripEntityImplCopyWith(_$CreateTripEntityImpl value,
-          $Res Function(_$CreateTripEntityImpl) then) =
+abstract class _$$CreateTripEntityImplCopyWith<$Res> implements $CreateTripEntityCopyWith<$Res> {
+  factory _$$CreateTripEntityImplCopyWith(_$CreateTripEntityImpl value, $Res Function(_$CreateTripEntityImpl) then) =
       __$$CreateTripEntityImplCopyWithImpl<$Res>;
+
   @override
   @useResult
-  $Res call(
-      {String cityName,
-      String transportType,
-      String countryCode,
-      String dateFrom,
-      String dateTo,
-      double plannedCost});
+  $Res call({String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
 }
 
 /// @nodoc
-class __$$CreateTripEntityImplCopyWithImpl<$Res>
-    extends _$CreateTripEntityCopyWithImpl<$Res, _$CreateTripEntityImpl>
+class __$$CreateTripEntityImplCopyWithImpl<$Res> extends _$CreateTripEntityCopyWithImpl<$Res, _$CreateTripEntityImpl>
     implements _$$CreateTripEntityImplCopyWith<$Res> {
-  __$$CreateTripEntityImplCopyWithImpl(_$CreateTripEntityImpl _value,
-      $Res Function(_$CreateTripEntityImpl) _then)
+  __$$CreateTripEntityImplCopyWithImpl(_$CreateTripEntityImpl _value, $Res Function(_$CreateTripEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -190,29 +174,22 @@ class _$CreateTripEntityImpl implements _CreateTripEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateTripEntityImpl &&
-            (identical(other.cityName, cityName) ||
-                other.cityName == cityName) &&
-            (identical(other.transportType, transportType) ||
-                other.transportType == transportType) &&
-            (identical(other.countryCode, countryCode) ||
-                other.countryCode == countryCode) &&
-            (identical(other.dateFrom, dateFrom) ||
-                other.dateFrom == dateFrom) &&
+            (identical(other.cityName, cityName) || other.cityName == cityName) &&
+            (identical(other.transportType, transportType) || other.transportType == transportType) &&
+            (identical(other.countryCode, countryCode) || other.countryCode == countryCode) &&
+            (identical(other.dateFrom, dateFrom) || other.dateFrom == dateFrom) &&
             (identical(other.dateTo, dateTo) || other.dateTo == dateTo) &&
-            (identical(other.plannedCost, plannedCost) ||
-                other.plannedCost == plannedCost));
+            (identical(other.plannedCost, plannedCost) || other.plannedCost == plannedCost));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, cityName, transportType,
-      countryCode, dateFrom, dateTo, plannedCost);
+  int get hashCode => Object.hash(runtimeType, cityName, transportType, countryCode, dateFrom, dateTo, plannedCost);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CreateTripEntityImplCopyWith<_$CreateTripEntityImpl> get copyWith =>
-      __$$CreateTripEntityImplCopyWithImpl<_$CreateTripEntityImpl>(
-          this, _$identity);
+      __$$CreateTripEntityImplCopyWithImpl<_$CreateTripEntityImpl>(this, _$identity);
 }
 
 abstract class _CreateTripEntity implements CreateTripEntity {
@@ -234,10 +211,11 @@ abstract class _CreateTripEntity implements CreateTripEntity {
   String get dateFrom;
   @override
   String get dateTo;
+
   @override
   double get plannedCost;
+
   @override
   @JsonKey(ignore: true)
-  _$$CreateTripEntityImplCopyWith<_$CreateTripEntityImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CreateTripEntityImplCopyWith<_$CreateTripEntityImpl> get copyWith => throw _privateConstructorUsedError;
 }

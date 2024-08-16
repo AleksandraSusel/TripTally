@@ -822,6 +822,26 @@ class Translation {
     );
   }
 
+  /// `You are currently on a trip`
+  String get homePage_youAreCurrentlyOnATrip {
+    return Intl.message(
+      'You are currently on a trip',
+      name: 'homePage_youAreCurrentlyOnATrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your planned trips:`
+  String get homePage_yourPlannedTrips {
+    return Intl.message(
+      'Your planned trips:',
+      name: 'homePage_yourPlannedTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `You have spent: `
   String get summaryRectangle_youHaveSpent {
     return Intl.message(

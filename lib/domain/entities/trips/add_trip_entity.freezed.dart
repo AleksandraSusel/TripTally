@@ -17,10 +17,15 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AddTripEntity {
   String get cityName => throw _privateConstructorUsedError;
+
   String get transportType => throw _privateConstructorUsedError;
+
   String get countryCode => throw _privateConstructorUsedError;
+
   String get dateFrom => throw _privateConstructorUsedError;
+
   String get dateTo => throw _privateConstructorUsedError;
+
   double get plannedCost => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -33,8 +38,7 @@ abstract class $AddTripEntityCopyWith<$Res> {
       _$AddTripEntityCopyWithImpl<$Res, AddTripEntity>;
 
   @useResult
-  $Res call(
-      {String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
+  $Res call({String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
 }
 
 /// @nodoc
@@ -93,15 +97,13 @@ abstract class _$$AddTripEntityImplCopyWith<$Res> implements $AddTripEntityCopyW
 
   @override
   @useResult
-  $Res call(
-      {String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
+  $Res call({String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
 }
 
 /// @nodoc
 class __$$AddTripEntityImplCopyWithImpl<$Res> extends _$AddTripEntityCopyWithImpl<$Res, _$AddTripEntityImpl>
     implements _$$AddTripEntityImplCopyWith<$Res> {
-  __$$AddTripEntityImplCopyWithImpl(_$AddTripEntityImpl _value, $Res Function(_$AddTripEntityImpl) _then)
-      : super(_value, _then);
+  __$$AddTripEntityImplCopyWithImpl(_$AddTripEntityImpl _value, $Res Function(_$AddTripEntityImpl) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -205,12 +207,16 @@ abstract class _AddTripEntity implements AddTripEntity {
 
   @override
   String get cityName;
+
   @override
   String get transportType;
+
   @override
   String get countryCode;
+
   @override
   String get dateFrom;
+
   @override
   String get dateTo;
 

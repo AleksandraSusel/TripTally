@@ -8,11 +8,10 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/permissions/permission_service.dart';
 
-part 'permissions_event.dart';
-
-part 'permissions_state.dart';
-
 part 'permissions_bloc.freezed.dart';
+
+part 'permissions_event.dart';
+part 'permissions_state.dart';
 
 @injectable
 class PermissionsBloc extends Bloc<PermissionsEvent, PermissionsState> {

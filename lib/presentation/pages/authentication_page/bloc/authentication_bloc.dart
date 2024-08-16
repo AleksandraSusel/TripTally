@@ -7,7 +7,9 @@ import 'package:trip_tally/domain/use_case/login_use_case.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 part 'authentication_bloc.freezed.dart';
+
 part 'authentication_event.dart';
+
 part 'authentication_state.dart';
 
 @injectable
