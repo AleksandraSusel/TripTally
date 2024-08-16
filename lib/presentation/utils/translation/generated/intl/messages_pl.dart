@@ -116,8 +116,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "planExpensesPage_planExpenses": MessageLookupByLibrary.simpleMessage("Plan expenses"),
         "planExpensesPage_safe": MessageLookupByLibrary.simpleMessage("Safe!"),
         "planNewTripPage_next": MessageLookupByLibrary.simpleMessage("Next"),
-        "plannedTripsM3Page_confirmationDeleteTrip":
-            MessageLookupByLibrary.simpleMessage("Are you sure to delete this trip?"),
+        "plannedTripsM3Page_confirmationDeleteTrip": MessageLookupByLibrary.simpleMessage(
+          "Are you sure to delete this trip?",
+        ),
         "plannedTripsM3Page_deleteTrip": MessageLookupByLibrary.simpleMessage("Delete trip"),
         "plannedTripsM3Page_yourTrips": MessageLookupByLibrary.simpleMessage("Your trips"),
         "plannedTripsPage_youHavePlanned": MessageLookupByLibrary.simpleMessage("You have planned"),
