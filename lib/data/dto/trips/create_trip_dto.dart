@@ -2,7 +2,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:trip_tally/domain/entities/trips/create_trip_entity.dart';
 
 part 'create_trip_dto.freezed.dart';
-
 part 'create_trip_dto.g.dart';
 
 @freezed

@@ -234,8 +234,7 @@ class MockAuthenticationRepo extends _i1.Mock implements _i14.AuthenticationRepo
       ) as _i15.Future<_i2.Either<_i16.Failure, _i3.Success>>);
 
   @override
-  _i15.Future<_i2.Either<_i16.Failure, _i3.Success>> createAccount(_i18.CreateAccountEntity? entity) =>
-      (super.noSuchMethod(
+  _i15.Future<_i2.Either<_i16.Failure, _i3.Success>> createAccount(_i18.CreateAccountEntity? entity) => (super.noSuchMethod(
         Invocation.method(
           #createAccount,
           [entity],
@@ -545,8 +544,7 @@ class MockAuthenticationBloc extends _i1.Mock implements _i5.AuthenticationBloc 
       );
 
   @override
-  void onTransition(_i23.Transition<_i5.AuthenticationEvent, _i5.AuthenticationState>? transition) =>
-      super.noSuchMethod(
+  void onTransition(_i23.Transition<_i5.AuthenticationEvent, _i5.AuthenticationState>? transition) => super.noSuchMethod(
         Invocation.method(
           #onTransition,
           [transition],
@@ -1461,8 +1459,8 @@ class MockLocationSuggestionsUseCase extends _i1.Mock implements _i39.LocationSu
           #call,
           [input],
         ),
-        returnValue: _i15.Future<_i2.Either<_i16.Failure, List<_i40.PlaceEntity>>>.value(
-            _FakeEither_0<_i16.Failure, List<_i40.PlaceEntity>>(
+        returnValue:
+            _i15.Future<_i2.Either<_i16.Failure, List<_i40.PlaceEntity>>>.value(_FakeEither_0<_i16.Failure, List<_i40.PlaceEntity>>(
           this,
           Invocation.method(
             #call,
@@ -1585,8 +1583,8 @@ class MockOsmMapRepository extends _i1.Mock implements _i41.OsmMapRepository {
           #getPlaces,
           [input],
         ),
-        returnValue: _i15.Future<_i2.Either<_i16.Failure, List<_i40.PlaceEntity>>>.value(
-            _FakeEither_0<_i16.Failure, List<_i40.PlaceEntity>>(
+        returnValue:
+            _i15.Future<_i2.Either<_i16.Failure, List<_i40.PlaceEntity>>>.value(_FakeEither_0<_i16.Failure, List<_i40.PlaceEntity>>(
           this,
           Invocation.method(
             #getPlaces,
@@ -1808,8 +1806,7 @@ class MockCreateExpensesBloc extends _i1.Mock implements _i48.CreateExpensesBloc
       );
 
   @override
-  void onTransition(_i23.Transition<_i49.CreateExpensesEvent, _i13.CreateExpensesState>? transition) =>
-      super.noSuchMethod(
+  void onTransition(_i23.Transition<_i49.CreateExpensesEvent, _i13.CreateExpensesState>? transition) => super.noSuchMethod(
         Invocation.method(
           #onTransition,
           [transition],

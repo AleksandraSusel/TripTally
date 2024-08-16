@@ -21,12 +21,17 @@ ExpenseDto _$ExpenseDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ExpenseDto {
   String get name => throw _privateConstructorUsedError;
+
   String get date => throw _privateConstructorUsedError;
+
   double get amount => throw _privateConstructorUsedError;
+
   String get currency => throw _privateConstructorUsedError;
+
   String get tripId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $ExpenseDtoCopyWith<ExpenseDto> get copyWith => throw _privateConstructorUsedError;
 }

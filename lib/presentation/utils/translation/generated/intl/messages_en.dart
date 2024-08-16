@@ -24,7 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expenses"),
         "appDescription": MessageLookupByLibrary.simpleMessage("Your personal trip assistant"),
-        "appName": MessageLookupByLibrary.simpleMessage("TripTally"),
+        "appName": MessageLookupByLibrary.simpleMessage("Trip Tally"),
         "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign in"),
         "authPage_singInApple": MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
         "authPage_singInGoogle": MessageLookupByLibrary.simpleMessage("Sign in with Google"),
@@ -81,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "homePage_addNewTrip": MessageLookupByLibrary.simpleMessage("Add a new trip"),
         "homePage_goToYourTrip": MessageLookupByLibrary.simpleMessage("Go to your trip"),
         "homePage_planNewTrip": MessageLookupByLibrary.simpleMessage("Plan a new trip"),
+        "homePage_youAreCurrentlyOnATrip": MessageLookupByLibrary.simpleMessage("You are currently on a trip"),
+        "homePage_yourPlannedTrips": MessageLookupByLibrary.simpleMessage("Your planned trips:"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "manageTripsPage_currentlyOnTrip": MessageLookupByLibrary.simpleMessage("You are currently on a trip!"),
         "manageTripsPage_editTrips": MessageLookupByLibrary.simpleMessage("Edit your trips"),

@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
 
 part 'expense_dto.freezed.dart';
+
 part 'expense_dto.g.dart';
 
 @freezed

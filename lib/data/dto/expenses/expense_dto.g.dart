@@ -14,8 +14,7 @@ _$ExpenseDtoImpl _$$ExpenseDtoImplFromJson(Map<String, dynamic> json) => _$Expen
       tripId: json['trip_id'] as String,
     );
 
-Map<String, dynamic> _$$ExpenseDtoImplToJson(_$ExpenseDtoImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$ExpenseDtoImplToJson(_$ExpenseDtoImpl instance) => <String, dynamic>{
       'name': instance.name,
       'date': instance.date,
       'amount': instance.amount,

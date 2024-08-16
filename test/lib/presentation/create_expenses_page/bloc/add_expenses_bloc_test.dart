@@ -34,8 +34,7 @@ void main() {
           tripId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
         ),
       ),
-      expect: () =>
-      [
+      expect: () => [
         const CreateExpensesState.success(),
       ],
     );
@@ -55,8 +54,7 @@ void main() {
           tripId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
         ),
       ),
-      expect: () =>
-      [
+      expect: () => [
         const CreateExpensesState.failure(Errors.somethingWentWrong),
       ],
     );
