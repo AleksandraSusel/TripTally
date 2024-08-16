@@ -31,6 +31,7 @@ mixin _$GeometryDto {
 abstract class $GeometryDtoCopyWith<$Res> {
   factory $GeometryDtoCopyWith(GeometryDto value, $Res Function(GeometryDto) then) =
       _$GeometryDtoCopyWithImpl<$Res, GeometryDto>;
+
   @useResult
   $Res call({List<double> coordinates});
 }
@@ -41,6 +42,7 @@ class _$GeometryDtoCopyWithImpl<$Res, $Val extends GeometryDto> implements $Geom
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -62,6 +64,7 @@ class _$GeometryDtoCopyWithImpl<$Res, $Val extends GeometryDto> implements $Geom
 abstract class _$$GeometryDtoImplCopyWith<$Res> implements $GeometryDtoCopyWith<$Res> {
   factory _$$GeometryDtoImplCopyWith(_$GeometryDtoImpl value, $Res Function(_$GeometryDtoImpl) then) =
       __$$GeometryDtoImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({List<double> coordinates});
@@ -95,6 +98,7 @@ class _$GeometryDtoImpl implements _GeometryDto {
   factory _$GeometryDtoImpl.fromJson(Map<String, dynamic> json) => _$$GeometryDtoImplFromJson(json);
 
   final List<double> _coordinates;
+
   @override
   List<double> get coordinates {
     if (_coordinates is EqualUnmodifiableListView) return _coordinates;
@@ -140,6 +144,7 @@ abstract class _GeometryDto implements GeometryDto {
 
   @override
   List<double> get coordinates;
+
   @override
   @JsonKey(ignore: true)
   _$$GeometryDtoImplCopyWith<_$GeometryDtoImpl> get copyWith => throw _privateConstructorUsedError;

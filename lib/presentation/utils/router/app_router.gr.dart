@@ -15,17 +15,21 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    AddExpensesRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const AddExpensesPage(),
-      );
-    },
     AuthenticationRoute.name: (routeData) {
       final args = routeData.argsAs<AuthenticationRouteArgs>(orElse: () => const AuthenticationRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: AuthenticationPage(
+          key: args.key,
+          bloc: args.bloc,
+        ),
+      );
+    },
+    CreateExpensesRoute.name: (routeData) {
+      final args = routeData.argsAs<CreateExpensesRouteArgs>(orElse: () => const CreateExpensesRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CreateExpensesPage(
           key: args.key,
           bloc: args.bloc,
         ),
@@ -157,20 +161,6 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
-/// [AddExpensesPage]
-class AddExpensesRoute extends PageRouteInfo<void> {
-  const AddExpensesRoute({List<PageRouteInfo>? children})
-      : super(
-          AddExpensesRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'AddExpensesRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [AuthenticationPage]
 class AuthenticationRoute extends PageRouteInfo<AuthenticationRouteArgs> {
   AuthenticationRoute({
@@ -204,6 +194,43 @@ class AuthenticationRouteArgs {
   @override
   String toString() {
     return 'AuthenticationRouteArgs{key: $key, bloc: $bloc}';
+  }
+}
+
+/// generated route for
+/// [CreateExpensesPage]
+class CreateExpensesRoute extends PageRouteInfo<CreateExpensesRouteArgs> {
+  CreateExpensesRoute({
+    Key? key,
+    CreateExpensesBloc? bloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          CreateExpensesRoute.name,
+          args: CreateExpensesRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'CreateExpensesRoute';
+
+  static const PageInfo<CreateExpensesRouteArgs> page = PageInfo<CreateExpensesRouteArgs>(name);
+}
+
+class CreateExpensesRouteArgs {
+  const CreateExpensesRouteArgs({
+    this.key,
+    this.bloc,
+  });
+
+  final Key? key;
+
+  final CreateExpensesBloc? bloc;
+
+  @override
+  String toString() {
+    return 'CreateExpensesRouteArgs{key: $key, bloc: $bloc}';
   }
 }
 
