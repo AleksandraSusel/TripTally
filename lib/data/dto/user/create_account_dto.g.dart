@@ -6,16 +6,12 @@ part of 'create_account_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CreateAccountDtoImpl _$$CreateAccountDtoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$CreateAccountDtoImpl(
+_$CreateAccountDtoImpl _$$CreateAccountDtoImplFromJson(Map<String, dynamic> json) => _$CreateAccountDtoImpl(
       email: json['email'] as String,
       password: json['password'] as String,
     );
 
-Map<String, dynamic> _$$CreateAccountDtoImplToJson(
-        _$CreateAccountDtoImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$CreateAccountDtoImplToJson(_$CreateAccountDtoImpl instance) => <String, dynamic>{
       'email': instance.email,
       'password': instance.password,
     };

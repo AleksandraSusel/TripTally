@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:trip_tally/presentation/pages/add_expenses_page/add_expenses_page.dart';
+import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/authentication_page.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/create_expenses_page.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/create_trip_basic_info_page.dart';
 import 'package:trip_tally/presentation/pages/edit_current_trip_page/edit_current_trip_page.dart';
 import 'package:trip_tally/presentation/pages/home_page/home_page.dart';
@@ -50,13 +51,13 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ResumeOfTripRoute.page),
         AutoRoute(page: PlannedTripsRoute.page),
         AutoRoute(page: SummaryAfterClosingRoute.page),
-        AutoRoute(page: AddExpensesRoute.page),
+        AutoRoute(page: CreateExpensesRoute.page, initial: true),
         AutoRoute(page: ViewOfCurrentExpensesRoute.page),
         AutoRoute(page: EditCurrentTripRoute.page),
         AutoRoute(page: RemoveCurrentTripRoute.page),
         AutoRoute(page: YourCurrentTripRoute.page),
         AutoRoute(page: ManageYourTripsRoute.page),
-        AutoRoute(page: CreateTripBasicInfoRoute.page, initial: true),
+        AutoRoute(page: CreateTripBasicInfoRoute.page),
         AutoRoute(page: TestM3Route.page),
       ];
 }

@@ -129,8 +129,7 @@ class ElevatedTripCard extends StatelessWidget {
                       height: AppDimensions.d28,
                       amount: totalExpensesAmount,
                       currency: totalExpensesCurrency,
-                      theme:
-                          spendMoreThanExpected ? MoneyContainerColorTheme.warning : MoneyContainerColorTheme.tertiary,
+                      theme: spendMoreThanExpected ? MoneyContainerColorTheme.warning : MoneyContainerColorTheme.tertiary,
                     ),
                   ],
                 ),
