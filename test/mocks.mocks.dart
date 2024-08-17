@@ -4,47 +4,48 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i13;
+import 'dart:io' as _i26;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:flutter_bloc/flutter_bloc.dart' as _i23;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i25;
-import 'package:permission_handler/permission_handler.dart' as _i36;
+import 'package:permission_handler/permission_handler.dart' as _i37;
 import 'package:shared_preferences/shared_preferences.dart' as _i6;
 import 'package:trip_tally/data/api/api_client.dart' as _i24;
-import 'package:trip_tally/data/api/osm_client.dart' as _i41;
+import 'package:trip_tally/data/api/osm_client.dart' as _i42;
 import 'package:trip_tally/data/dto/osm_map/osm_response_dto.dart' as _i10;
-import 'package:trip_tally/data/dto/trips/create_trip_dto.dart' as _i26;
+import 'package:trip_tally/data/dto/trips/create_trip_dto.dart' as _i27;
 import 'package:trip_tally/data/dto/user/create_account_dto.dart' as _i20;
 import 'package:trip_tally/data/dto/user/login_dto.dart' as _i19;
 import 'package:trip_tally/data/dto/user/update_user_profile_dto.dart' as _i21;
 import 'package:trip_tally/domain/data_source/authentication_remote_source.dart' as _i18;
-import 'package:trip_tally/domain/data_source/osm_map_data_source.dart' as _i40;
-import 'package:trip_tally/domain/data_source/trips_data_source.dart' as _i29;
-import 'package:trip_tally/domain/entities/osm_map/place_entity.dart' as _i38;
-import 'package:trip_tally/domain/entities/trips/create_trip_entity.dart' as _i31;
+import 'package:trip_tally/domain/data_source/osm_map_data_source.dart' as _i41;
+import 'package:trip_tally/domain/data_source/trips_data_source.dart' as _i30;
+import 'package:trip_tally/domain/entities/osm_map/place_entity.dart' as _i39;
+import 'package:trip_tally/domain/entities/trips/create_trip_entity.dart' as _i32;
 import 'package:trip_tally/domain/entities/user/create_account_entity.dart' as _i16;
 import 'package:trip_tally/domain/entities/user/login_entity.dart' as _i15;
 import 'package:trip_tally/domain/entities/user/update_user_profile_entity.dart' as _i17;
 import 'package:trip_tally/domain/repositories/authentication_repo.dart' as _i12;
-import 'package:trip_tally/domain/repositories/osm_map_repository.dart' as _i39;
-import 'package:trip_tally/domain/repositories/trips_repo.dart' as _i30;
-import 'package:trip_tally/domain/use_case/create_account_use_case.dart' as _i27;
-import 'package:trip_tally/domain/use_case/create_trip_use_case.dart' as _i32;
-import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart' as _i37;
+import 'package:trip_tally/domain/repositories/osm_map_repository.dart' as _i40;
+import 'package:trip_tally/domain/repositories/trips_repo.dart' as _i31;
+import 'package:trip_tally/domain/use_case/create_account_use_case.dart' as _i28;
+import 'package:trip_tally/domain/use_case/create_trip_use_case.dart' as _i33;
+import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart' as _i38;
 import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i22;
-import 'package:trip_tally/domain/use_case/update_user_profile_use_case.dart' as _i42;
+import 'package:trip_tally/domain/use_case/update_user_profile_use_case.dart' as _i43;
 import 'package:trip_tally/domain/utils/failure.dart' as _i14;
-import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i28;
+import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i29;
 import 'package:trip_tally/domain/utils/success.dart' as _i3;
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart' as _i5;
-import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart' as _i33;
-import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_event.dart' as _i34;
+import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart' as _i34;
+import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_event.dart' as _i35;
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_state.dart' as _i7;
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart' as _i4;
 import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart' as _i11;
 import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart' as _i8;
-import 'package:trip_tally/presentation/utils/permissions/permission_service.dart' as _i35;
+import 'package:trip_tally/presentation/utils/permissions/permission_service.dart' as _i36;
 import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_suggestions_cubit.dart' as _i9;
 
 // ignore_for_file: type=lint
@@ -626,17 +627,29 @@ class MockApiClient extends _i1.Mock implements _i24.ApiClient {
       ) as _i13.Future<String>);
 
   @override
-  _i13.Future<void> updateUserProfile(_i21.UpdateUserProfileDto? dto) => (super.noSuchMethod(
+  _i13.Future<void> updateUserProfile({
+    required String? username,
+    required String? country,
+    required String? defaultCurrencyCode,
+    _i26.File? profilePicture,
+  }) =>
+      (super.noSuchMethod(
         Invocation.method(
           #updateUserProfile,
-          [dto],
+          [],
+          {
+            #username: username,
+            #country: country,
+            #defaultCurrencyCode: defaultCurrencyCode,
+            #profilePicture: profilePicture,
+          },
         ),
         returnValue: _i13.Future<void>.value(),
         returnValueForMissingStub: _i13.Future<void>.value(),
       ) as _i13.Future<void>);
 
   @override
-  _i13.Future<void> addTrip(_i26.CreateTripDto? dto) => (super.noSuchMethod(
+  _i13.Future<void> addTrip(_i27.CreateTripDto? dto) => (super.noSuchMethod(
         Invocation.method(
           #addTrip,
           [dto],
@@ -844,7 +857,7 @@ class MockSharedPreferences extends _i1.Mock implements _i6.SharedPreferences {
 /// A class which mocks [CreateAccountUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCreateAccountUseCase extends _i1.Mock implements _i27.CreateAccountUseCase {
+class MockCreateAccountUseCase extends _i1.Mock implements _i28.CreateAccountUseCase {
   MockCreateAccountUseCase() {
     _i1.throwOnMissingStub(this);
   }
@@ -868,7 +881,7 @@ class MockCreateAccountUseCase extends _i1.Mock implements _i27.CreateAccountUse
 /// A class which mocks [SharedPrefsUtils].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSharedPrefsUtils extends _i1.Mock implements _i28.SharedPrefsUtils {
+class MockSharedPrefsUtils extends _i1.Mock implements _i29.SharedPrefsUtils {
   MockSharedPrefsUtils() {
     _i1.throwOnMissingStub(this);
   }
@@ -902,13 +915,13 @@ class MockSharedPrefsUtils extends _i1.Mock implements _i28.SharedPrefsUtils {
 /// A class which mocks [TripsDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTripsDataSource extends _i1.Mock implements _i29.TripsDataSource {
+class MockTripsDataSource extends _i1.Mock implements _i30.TripsDataSource {
   MockTripsDataSource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i13.Future<_i3.Success> createTrip(_i26.CreateTripDto? dto) => (super.noSuchMethod(
+  _i13.Future<_i3.Success> createTrip(_i27.CreateTripDto? dto) => (super.noSuchMethod(
         Invocation.method(
           #createTrip,
           [dto],
@@ -926,13 +939,13 @@ class MockTripsDataSource extends _i1.Mock implements _i29.TripsDataSource {
 /// A class which mocks [TripsRepo].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockTripsRepo extends _i1.Mock implements _i30.TripsRepo {
+class MockTripsRepo extends _i1.Mock implements _i31.TripsRepo {
   MockTripsRepo() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i13.Future<_i2.Either<_i14.Failure, _i3.Success>> createTrip(_i31.CreateTripEntity? entity) => (super.noSuchMethod(
+  _i13.Future<_i2.Either<_i14.Failure, _i3.Success>> createTrip(_i32.CreateTripEntity? entity) => (super.noSuchMethod(
         Invocation.method(
           #createTrip,
           [entity],
@@ -950,13 +963,13 @@ class MockTripsRepo extends _i1.Mock implements _i30.TripsRepo {
 /// A class which mocks [CreateTripUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCreateTripUseCase extends _i1.Mock implements _i32.CreateTripUseCase {
+class MockCreateTripUseCase extends _i1.Mock implements _i33.CreateTripUseCase {
   MockCreateTripUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i13.Future<_i2.Either<_i14.Failure, _i3.Success>> call(_i31.CreateTripEntity? entity) => (super.noSuchMethod(
+  _i13.Future<_i2.Either<_i14.Failure, _i3.Success>> call(_i32.CreateTripEntity? entity) => (super.noSuchMethod(
         Invocation.method(
           #call,
           [entity],
@@ -974,7 +987,7 @@ class MockCreateTripUseCase extends _i1.Mock implements _i32.CreateTripUseCase {
 /// A class which mocks [NewTripBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockNewTripBloc extends _i1.Mock implements _i33.NewTripBloc {
+class MockNewTripBloc extends _i1.Mock implements _i34.NewTripBloc {
   MockNewTripBloc() {
     _i1.throwOnMissingStub(this);
   }
@@ -1001,7 +1014,7 @@ class MockNewTripBloc extends _i1.Mock implements _i33.NewTripBloc {
       ) as bool);
 
   @override
-  void add(_i34.NewTripEvent? event) => super.noSuchMethod(
+  void add(_i35.NewTripEvent? event) => super.noSuchMethod(
         Invocation.method(
           #add,
           [event],
@@ -1010,7 +1023,7 @@ class MockNewTripBloc extends _i1.Mock implements _i33.NewTripBloc {
       );
 
   @override
-  void onEvent(_i34.NewTripEvent? event) => super.noSuchMethod(
+  void onEvent(_i35.NewTripEvent? event) => super.noSuchMethod(
         Invocation.method(
           #onEvent,
           [event],
@@ -1028,7 +1041,7 @@ class MockNewTripBloc extends _i1.Mock implements _i33.NewTripBloc {
       );
 
   @override
-  void on<E extends _i34.NewTripEvent>(
+  void on<E extends _i35.NewTripEvent>(
     _i23.EventHandler<E, _i7.NewTripState>? handler, {
     _i23.EventTransformer<E>? transformer,
   }) =>
@@ -1042,7 +1055,7 @@ class MockNewTripBloc extends _i1.Mock implements _i33.NewTripBloc {
       );
 
   @override
-  void onTransition(_i23.Transition<_i34.NewTripEvent, _i7.NewTripState>? transition) => super.noSuchMethod(
+  void onTransition(_i23.Transition<_i35.NewTripEvent, _i7.NewTripState>? transition) => super.noSuchMethod(
         Invocation.method(
           #onTransition,
           [transition],
@@ -1105,19 +1118,19 @@ class MockNewTripBloc extends _i1.Mock implements _i33.NewTripBloc {
 /// A class which mocks [PermissionsService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockPermissionsService extends _i1.Mock implements _i35.PermissionsService {
+class MockPermissionsService extends _i1.Mock implements _i36.PermissionsService {
   MockPermissionsService() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i13.Future<_i36.PermissionStatus> status(_i36.Permission? permission) => (super.noSuchMethod(
+  _i13.Future<_i37.PermissionStatus> status(_i37.Permission? permission) => (super.noSuchMethod(
         Invocation.method(
           #status,
           [permission],
         ),
-        returnValue: _i13.Future<_i36.PermissionStatus>.value(_i36.PermissionStatus.denied),
-      ) as _i13.Future<_i36.PermissionStatus>);
+        returnValue: _i13.Future<_i37.PermissionStatus>.value(_i37.PermissionStatus.denied),
+      ) as _i13.Future<_i37.PermissionStatus>);
 
   @override
   _i13.Future<bool> openAppSettings() => (super.noSuchMethod(
@@ -1129,13 +1142,13 @@ class MockPermissionsService extends _i1.Mock implements _i35.PermissionsService
       ) as _i13.Future<bool>);
 
   @override
-  _i13.Future<_i36.PermissionStatus> request(_i36.Permission? permission) => (super.noSuchMethod(
+  _i13.Future<_i37.PermissionStatus> request(_i37.Permission? permission) => (super.noSuchMethod(
         Invocation.method(
           #request,
           [permission],
         ),
-        returnValue: _i13.Future<_i36.PermissionStatus>.value(_i36.PermissionStatus.denied),
-      ) as _i13.Future<_i36.PermissionStatus>);
+        returnValue: _i13.Future<_i37.PermissionStatus>.value(_i37.PermissionStatus.denied),
+      ) as _i13.Future<_i37.PermissionStatus>);
 }
 
 /// A class which mocks [PermissionsBloc].
@@ -1272,26 +1285,26 @@ class MockPermissionsBloc extends _i1.Mock implements _i8.PermissionsBloc {
 /// A class which mocks [LocationSuggestionsUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockLocationSuggestionsUseCase extends _i1.Mock implements _i37.LocationSuggestionsUseCase {
+class MockLocationSuggestionsUseCase extends _i1.Mock implements _i38.LocationSuggestionsUseCase {
   MockLocationSuggestionsUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i13.Future<_i2.Either<_i14.Failure, List<_i38.PlaceEntity>>> call(String? input) => (super.noSuchMethod(
+  _i13.Future<_i2.Either<_i14.Failure, List<_i39.PlaceEntity>>> call(String? input) => (super.noSuchMethod(
         Invocation.method(
           #call,
           [input],
         ),
-        returnValue: _i13.Future<_i2.Either<_i14.Failure, List<_i38.PlaceEntity>>>.value(
-            _FakeEither_0<_i14.Failure, List<_i38.PlaceEntity>>(
+        returnValue: _i13.Future<_i2.Either<_i14.Failure, List<_i39.PlaceEntity>>>.value(
+            _FakeEither_0<_i14.Failure, List<_i39.PlaceEntity>>(
           this,
           Invocation.method(
             #call,
             [input],
           ),
         )),
-      ) as _i13.Future<_i2.Either<_i14.Failure, List<_i38.PlaceEntity>>>);
+      ) as _i13.Future<_i2.Either<_i14.Failure, List<_i39.PlaceEntity>>>);
 }
 
 /// A class which mocks [OsmSuggestionsCubit].
@@ -1324,13 +1337,13 @@ class MockOsmSuggestionsCubit extends _i1.Mock implements _i9.OsmSuggestionsCubi
       ) as bool);
 
   @override
-  _i13.Future<List<_i38.PlaceEntity>> getSuggestions(String? query) => (super.noSuchMethod(
+  _i13.Future<List<_i39.PlaceEntity>> getSuggestions(String? query) => (super.noSuchMethod(
         Invocation.method(
           #getSuggestions,
           [query],
         ),
-        returnValue: _i13.Future<List<_i38.PlaceEntity>>.value(<_i38.PlaceEntity>[]),
-      ) as _i13.Future<List<_i38.PlaceEntity>>);
+        returnValue: _i13.Future<List<_i39.PlaceEntity>>.value(<_i39.PlaceEntity>[]),
+      ) as _i13.Future<List<_i39.PlaceEntity>>);
 
   @override
   void emit(_i9.OsmSuggestionsState? state) => super.noSuchMethod(
@@ -1396,32 +1409,32 @@ class MockOsmSuggestionsCubit extends _i1.Mock implements _i9.OsmSuggestionsCubi
 /// A class which mocks [OsmMapRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockOsmMapRepository extends _i1.Mock implements _i39.OsmMapRepository {
+class MockOsmMapRepository extends _i1.Mock implements _i40.OsmMapRepository {
   MockOsmMapRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i13.Future<_i2.Either<_i14.Failure, List<_i38.PlaceEntity>>> getPlaces(String? input) => (super.noSuchMethod(
+  _i13.Future<_i2.Either<_i14.Failure, List<_i39.PlaceEntity>>> getPlaces(String? input) => (super.noSuchMethod(
         Invocation.method(
           #getPlaces,
           [input],
         ),
-        returnValue: _i13.Future<_i2.Either<_i14.Failure, List<_i38.PlaceEntity>>>.value(
-            _FakeEither_0<_i14.Failure, List<_i38.PlaceEntity>>(
+        returnValue: _i13.Future<_i2.Either<_i14.Failure, List<_i39.PlaceEntity>>>.value(
+            _FakeEither_0<_i14.Failure, List<_i39.PlaceEntity>>(
           this,
           Invocation.method(
             #getPlaces,
             [input],
           ),
         )),
-      ) as _i13.Future<_i2.Either<_i14.Failure, List<_i38.PlaceEntity>>>);
+      ) as _i13.Future<_i2.Either<_i14.Failure, List<_i39.PlaceEntity>>>);
 }
 
 /// A class which mocks [OsmMapDataSource].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockOsmMapDataSource extends _i1.Mock implements _i40.OsmMapDataSource {
+class MockOsmMapDataSource extends _i1.Mock implements _i41.OsmMapDataSource {
   MockOsmMapDataSource() {
     _i1.throwOnMissingStub(this);
   }
@@ -1439,7 +1452,7 @@ class MockOsmMapDataSource extends _i1.Mock implements _i40.OsmMapDataSource {
 /// A class which mocks [OsmClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockOsmClient extends _i1.Mock implements _i41.OsmClient {
+class MockOsmClient extends _i1.Mock implements _i42.OsmClient {
   MockOsmClient() {
     _i1.throwOnMissingStub(this);
   }
@@ -1490,7 +1503,7 @@ class MockOsmClient extends _i1.Mock implements _i41.OsmClient {
 /// A class which mocks [UpdateUserProfileUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockUpdateUserProfileUseCase extends _i1.Mock implements _i42.UpdateUserProfileUseCase {
+class MockUpdateUserProfileUseCase extends _i1.Mock implements _i43.UpdateUserProfileUseCase {
   MockUpdateUserProfileUseCase() {
     _i1.throwOnMissingStub(this);
   }

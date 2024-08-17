@@ -19,6 +19,7 @@ mixin _$UpdateUserProfileEntity {
   String get username => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
   String get defaultCurrencyCode => throw _privateConstructorUsedError;
+  XFile? get profilePicture => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UpdateUserProfileEntityCopyWith<UpdateUserProfileEntity> get copyWith => throw _privateConstructorUsedError;
@@ -29,7 +30,7 @@ abstract class $UpdateUserProfileEntityCopyWith<$Res> {
   factory $UpdateUserProfileEntityCopyWith(UpdateUserProfileEntity value, $Res Function(UpdateUserProfileEntity) then) =
       _$UpdateUserProfileEntityCopyWithImpl<$Res, UpdateUserProfileEntity>;
   @useResult
-  $Res call({String username, String country, String defaultCurrencyCode});
+  $Res call({String username, String country, String defaultCurrencyCode, XFile? profilePicture});
 }
 
 /// @nodoc
@@ -48,6 +49,7 @@ class _$UpdateUserProfileEntityCopyWithImpl<$Res, $Val extends UpdateUserProfile
     Object? username = null,
     Object? country = null,
     Object? defaultCurrencyCode = null,
+    Object? profilePicture = freezed,
   }) {
     return _then(_value.copyWith(
       username: null == username
@@ -62,6 +64,10 @@ class _$UpdateUserProfileEntityCopyWithImpl<$Res, $Val extends UpdateUserProfile
           ? _value.defaultCurrencyCode
           : defaultCurrencyCode // ignore: cast_nullable_to_non_nullable
               as String,
+      profilePicture: freezed == profilePicture
+          ? _value.profilePicture
+          : profilePicture // ignore: cast_nullable_to_non_nullable
+              as XFile?,
     ) as $Val);
   }
 }
@@ -73,7 +79,7 @@ abstract class _$$UpdateUserProfileEntityImplCopyWith<$Res> implements $UpdateUs
       __$$UpdateUserProfileEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String username, String country, String defaultCurrencyCode});
+  $Res call({String username, String country, String defaultCurrencyCode, XFile? profilePicture});
 }
 
 /// @nodoc
@@ -90,6 +96,7 @@ class __$$UpdateUserProfileEntityImplCopyWithImpl<$Res>
     Object? username = null,
     Object? country = null,
     Object? defaultCurrencyCode = null,
+    Object? profilePicture = freezed,
   }) {
     return _then(_$UpdateUserProfileEntityImpl(
       username: null == username
@@ -104,6 +111,10 @@ class __$$UpdateUserProfileEntityImplCopyWithImpl<$Res>
           ? _value.defaultCurrencyCode
           : defaultCurrencyCode // ignore: cast_nullable_to_non_nullable
               as String,
+      profilePicture: freezed == profilePicture
+          ? _value.profilePicture
+          : profilePicture // ignore: cast_nullable_to_non_nullable
+              as XFile?,
     ));
   }
 }
@@ -112,7 +123,7 @@ class __$$UpdateUserProfileEntityImplCopyWithImpl<$Res>
 
 class _$UpdateUserProfileEntityImpl implements _UpdateUserProfileEntity {
   const _$UpdateUserProfileEntityImpl(
-      {required this.username, required this.country, required this.defaultCurrencyCode});
+      {required this.username, required this.country, required this.defaultCurrencyCode, this.profilePicture});
 
   @override
   final String username;
@@ -120,10 +131,12 @@ class _$UpdateUserProfileEntityImpl implements _UpdateUserProfileEntity {
   final String country;
   @override
   final String defaultCurrencyCode;
+  @override
+  final XFile? profilePicture;
 
   @override
   String toString() {
-    return 'UpdateUserProfileEntity(username: $username, country: $country, defaultCurrencyCode: $defaultCurrencyCode)';
+    return 'UpdateUserProfileEntity(username: $username, country: $country, defaultCurrencyCode: $defaultCurrencyCode, profilePicture: $profilePicture)';
   }
 
   @override
@@ -134,11 +147,12 @@ class _$UpdateUserProfileEntityImpl implements _UpdateUserProfileEntity {
             (identical(other.username, username) || other.username == username) &&
             (identical(other.country, country) || other.country == country) &&
             (identical(other.defaultCurrencyCode, defaultCurrencyCode) ||
-                other.defaultCurrencyCode == defaultCurrencyCode));
+                other.defaultCurrencyCode == defaultCurrencyCode) &&
+            (identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, username, country, defaultCurrencyCode);
+  int get hashCode => Object.hash(runtimeType, username, country, defaultCurrencyCode, profilePicture);
 
   @JsonKey(ignore: true)
   @override
@@ -151,7 +165,8 @@ abstract class _UpdateUserProfileEntity implements UpdateUserProfileEntity {
   const factory _UpdateUserProfileEntity(
       {required final String username,
       required final String country,
-      required final String defaultCurrencyCode}) = _$UpdateUserProfileEntityImpl;
+      required final String defaultCurrencyCode,
+      final XFile? profilePicture}) = _$UpdateUserProfileEntityImpl;
 
   @override
   String get username;
@@ -159,6 +174,8 @@ abstract class _UpdateUserProfileEntity implements UpdateUserProfileEntity {
   String get country;
   @override
   String get defaultCurrencyCode;
+  @override
+  XFile? get profilePicture;
   @override
   @JsonKey(ignore: true)
   _$$UpdateUserProfileEntityImplCopyWith<_$UpdateUserProfileEntityImpl> get copyWith =>

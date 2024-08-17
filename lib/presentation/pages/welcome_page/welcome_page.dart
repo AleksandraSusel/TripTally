@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart';
 import 'package:trip_tally/presentation/pages/welcome_page/widgets/welcome_page_form_fields.dart';
@@ -68,6 +69,7 @@ class _BodyState extends State<_Body> {
   late final TextEditingController _nameController;
   late final TextEditingController _countryController;
   late final TextEditingController _currencyController;
+  XFile? profilePicture;
 
   @override
   void initState() {
@@ -91,7 +93,11 @@ class _BodyState extends State<_Body> {
                 const SizedBox(height: AppDimensions.d30),
                 BlocProvider(
                   create: (context) => widget.permissionsBloc ?? getIt<PermissionsBloc>(),
-                  child: const AvatarPicker(),
+                  child: AvatarPicker(
+                    onPickedImage: (image) {
+                      profilePicture = image;
+                    },
+                  ),
                 ),
                 WelcomePageFormFields(
                   nameController: _nameController,
@@ -118,6 +124,7 @@ class _BodyState extends State<_Body> {
                                   username: _nameController.text,
                                   currencyCode: MoneyFormat.extractCurrencyCode(_currencyController.text),
                                   country: _countryController.text,
+                                  profilePicture: profilePicture,
                                 ),
                               );
                         }

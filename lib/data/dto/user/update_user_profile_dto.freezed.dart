@@ -23,6 +23,8 @@ mixin _$UpdateUserProfileDto {
   String get username => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
   String get defaultCurrencyCode => throw _privateConstructorUsedError;
+  @JsonKey(includeToJson: false, includeFromJson: false)
+  File? get profilePicture => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +36,11 @@ abstract class $UpdateUserProfileDtoCopyWith<$Res> {
   factory $UpdateUserProfileDtoCopyWith(UpdateUserProfileDto value, $Res Function(UpdateUserProfileDto) then) =
       _$UpdateUserProfileDtoCopyWithImpl<$Res, UpdateUserProfileDto>;
   @useResult
-  $Res call({String username, String country, String defaultCurrencyCode});
+  $Res call(
+      {String username,
+      String country,
+      String defaultCurrencyCode,
+      @JsonKey(includeToJson: false, includeFromJson: false) File? profilePicture});
 }
 
 /// @nodoc
@@ -53,6 +59,7 @@ class _$UpdateUserProfileDtoCopyWithImpl<$Res, $Val extends UpdateUserProfileDto
     Object? username = null,
     Object? country = null,
     Object? defaultCurrencyCode = null,
+    Object? profilePicture = freezed,
   }) {
     return _then(_value.copyWith(
       username: null == username
@@ -67,6 +74,10 @@ class _$UpdateUserProfileDtoCopyWithImpl<$Res, $Val extends UpdateUserProfileDto
           ? _value.defaultCurrencyCode
           : defaultCurrencyCode // ignore: cast_nullable_to_non_nullable
               as String,
+      profilePicture: freezed == profilePicture
+          ? _value.profilePicture
+          : profilePicture // ignore: cast_nullable_to_non_nullable
+              as File?,
     ) as $Val);
   }
 }
@@ -78,7 +89,11 @@ abstract class _$$UpdateUserProfileDtoImplCopyWith<$Res> implements $UpdateUserP
       __$$UpdateUserProfileDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String username, String country, String defaultCurrencyCode});
+  $Res call(
+      {String username,
+      String country,
+      String defaultCurrencyCode,
+      @JsonKey(includeToJson: false, includeFromJson: false) File? profilePicture});
 }
 
 /// @nodoc
@@ -95,6 +110,7 @@ class __$$UpdateUserProfileDtoImplCopyWithImpl<$Res>
     Object? username = null,
     Object? country = null,
     Object? defaultCurrencyCode = null,
+    Object? profilePicture = freezed,
   }) {
     return _then(_$UpdateUserProfileDtoImpl(
       username: null == username
@@ -109,6 +125,10 @@ class __$$UpdateUserProfileDtoImplCopyWithImpl<$Res>
           ? _value.defaultCurrencyCode
           : defaultCurrencyCode // ignore: cast_nullable_to_non_nullable
               as String,
+      profilePicture: freezed == profilePicture
+          ? _value.profilePicture
+          : profilePicture // ignore: cast_nullable_to_non_nullable
+              as File?,
     ));
   }
 }
@@ -116,7 +136,11 @@ class __$$UpdateUserProfileDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UpdateUserProfileDtoImpl implements _UpdateUserProfileDto {
-  const _$UpdateUserProfileDtoImpl({required this.username, required this.country, required this.defaultCurrencyCode});
+  const _$UpdateUserProfileDtoImpl(
+      {required this.username,
+      required this.country,
+      required this.defaultCurrencyCode,
+      @JsonKey(includeToJson: false, includeFromJson: false) this.profilePicture});
 
   factory _$UpdateUserProfileDtoImpl.fromJson(Map<String, dynamic> json) => _$$UpdateUserProfileDtoImplFromJson(json);
 
@@ -126,10 +150,13 @@ class _$UpdateUserProfileDtoImpl implements _UpdateUserProfileDto {
   final String country;
   @override
   final String defaultCurrencyCode;
+  @override
+  @JsonKey(includeToJson: false, includeFromJson: false)
+  final File? profilePicture;
 
   @override
   String toString() {
-    return 'UpdateUserProfileDto(username: $username, country: $country, defaultCurrencyCode: $defaultCurrencyCode)';
+    return 'UpdateUserProfileDto(username: $username, country: $country, defaultCurrencyCode: $defaultCurrencyCode, profilePicture: $profilePicture)';
   }
 
   @override
@@ -140,12 +167,13 @@ class _$UpdateUserProfileDtoImpl implements _UpdateUserProfileDto {
             (identical(other.username, username) || other.username == username) &&
             (identical(other.country, country) || other.country == country) &&
             (identical(other.defaultCurrencyCode, defaultCurrencyCode) ||
-                other.defaultCurrencyCode == defaultCurrencyCode));
+                other.defaultCurrencyCode == defaultCurrencyCode) &&
+            (identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, username, country, defaultCurrencyCode);
+  int get hashCode => Object.hash(runtimeType, username, country, defaultCurrencyCode, profilePicture);
 
   @JsonKey(ignore: true)
   @override
@@ -165,7 +193,8 @@ abstract class _UpdateUserProfileDto implements UpdateUserProfileDto {
   const factory _UpdateUserProfileDto(
       {required final String username,
       required final String country,
-      required final String defaultCurrencyCode}) = _$UpdateUserProfileDtoImpl;
+      required final String defaultCurrencyCode,
+      @JsonKey(includeToJson: false, includeFromJson: false) final File? profilePicture}) = _$UpdateUserProfileDtoImpl;
 
   factory _UpdateUserProfileDto.fromJson(Map<String, dynamic> json) = _$UpdateUserProfileDtoImpl.fromJson;
 
@@ -175,6 +204,9 @@ abstract class _UpdateUserProfileDto implements UpdateUserProfileDto {
   String get country;
   @override
   String get defaultCurrencyCode;
+  @override
+  @JsonKey(includeToJson: false, includeFromJson: false)
+  File? get profilePicture;
   @override
   @JsonKey(ignore: true)
   _$$UpdateUserProfileDtoImplCopyWith<_$UpdateUserProfileDtoImpl> get copyWith => throw _privateConstructorUsedError;

@@ -34,10 +34,10 @@ import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i23;
 import 'package:trip_tally/domain/use_case/sign_out_use_case.dart' as _i27;
 import 'package:trip_tally/domain/use_case/update_user_profile_use_case.dart' as _i32;
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i13;
-import 'package:trip_tally/injectable/modules/api_module.dart' as _i39;
+import 'package:trip_tally/injectable/modules/api_module.dart' as _i38;
 import 'package:trip_tally/injectable/modules/app_router_module.dart' as _i37;
 import 'package:trip_tally/injectable/modules/firebase_auth_module.dart' as _i40;
-import 'package:trip_tally/injectable/modules/osm_module.dart' as _i38;
+import 'package:trip_tally/injectable/modules/osm_module.dart' as _i39;
 import 'package:trip_tally/injectable/modules/shared_preferences_module.dart' as _i41;
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart' as _i33;
 import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart' as _i16;
@@ -113,9 +113,9 @@ extension GetItInjectableX on _i1.GetIt {
 
 class _$AppRouterModule extends _i37.AppRouterModule {}
 
-class _$OsmModule extends _i38.OsmModule {}
+class _$ApiModule extends _i38.ApiModule {}
 
-class _$ApiModule extends _i39.ApiModule {}
+class _$OsmModule extends _i39.OsmModule {}
 
 class _$FirebaseAuthModule extends _i40.FirebaseAuthModule {}
 

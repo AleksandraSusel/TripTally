@@ -20,4 +20,6 @@ analyzer:
     - lib/**/injectable.config.dart
     - test/**/*.mocks.dart
     - test/generate_mocks.mocks.dart
+  errors:
+    invalid_annotation_target: ignore
 
