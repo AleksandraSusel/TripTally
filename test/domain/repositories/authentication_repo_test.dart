@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:trip_tally/data/dto/user/update_user_profile_dto.dart';
 import 'package:trip_tally/data/repositories/authentication_repo_impl.dart';
 import 'package:trip_tally/domain/repositories/authentication_repo.dart';
 import 'package:trip_tally/domain/utils/exception.dart';
@@ -83,6 +84,54 @@ void main() {
     result.fold((l) => error = l.error, (r) => null);
     expect(error, Errors.somethingWentWrong);
     verify(mockedAuthenticationRemoteSource.signOut());
+    verifyNoMoreInteractions(mockedAuthenticationRemoteSource);
+  });
+
+  test('UpdateUserProfile updates user profile success', () async {
+    when(mockedAuthenticationRemoteSource.updateUserProfile(any)).thenAnswer((_) async => const Success());
+
+    final result = await repository.updateUserProfile(mockedUpdateUserProfileEntity);
+
+    Success? success;
+    result.fold(
+      (l) => null,
+      (r) => success = r,
+    );
+    expect(success, const Success());
+
+    verify(
+      mockedAuthenticationRemoteSource.updateUserProfile(
+        argThat(
+          predicate<UpdateUserProfileDto>(
+            (dto) => dto.profilePicture?.path == mockedUpdateUserProfileDto.profilePicture?.path,
+          ),
+        ),
+      ),
+    );
+    verifyNoMoreInteractions(mockedAuthenticationRemoteSource);
+  });
+
+  test('UpdateUserProfile updates user profile with catch ApiException', () async {
+    when(mockedAuthenticationRemoteSource.updateUserProfile(any)).thenThrow(ApiException(Errors.somethingWentWrong));
+
+    final result = await repository.updateUserProfile(mockedUpdateUserProfileEntity);
+
+    Errors? failure;
+    result.fold(
+      (l) => failure = l.error,
+      (r) => null,
+    );
+    expect(failure, Errors.somethingWentWrong);
+
+    verify(
+      mockedAuthenticationRemoteSource.updateUserProfile(
+        argThat(
+          predicate<UpdateUserProfileDto>(
+            (dto) => dto.profilePicture?.path == mockedUpdateUserProfileDto.profilePicture?.path,
+          ),
+        ),
+      ),
+    );
     verifyNoMoreInteractions(mockedAuthenticationRemoteSource);
   });
 }
