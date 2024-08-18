@@ -24,7 +24,6 @@ mixin _$CreateExpensesState {
     required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
@@ -42,7 +41,6 @@ mixin _$CreateExpensesState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
@@ -51,7 +49,6 @@ mixin _$CreateExpensesState {
     required TResult Function(_Loading value) loading,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
@@ -78,18 +75,20 @@ abstract class $CreateExpensesStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CreateExpensesStateCopyWithImpl<$Res, $Val extends CreateExpensesState> implements $CreateExpensesStateCopyWith<$Res> {
+class _$CreateExpensesStateCopyWithImpl<$Res, $Val extends CreateExpensesState>
+    implements $CreateExpensesStateCopyWith<$Res> {
   _$CreateExpensesStateCopyWithImpl(this._value, this._then);
 
-// ignore: unused_field
+  // ignore: unused_field
   final $Val _value;
-// ignore: unused_field
+  // ignore: unused_field
   final $Res Function($Val) _then;
 }
 
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(_$InitialImpl value, $Res Function(_$InitialImpl) then) = __$$InitialImplCopyWithImpl<$Res>;
+  factory _$$InitialImplCopyWith(_$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -197,7 +196,8 @@ abstract class _Initial implements CreateExpensesState {
 
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
-  factory _$$SuccessImplCopyWith(_$SuccessImpl value, $Res Function(_$SuccessImpl) then) = __$$SuccessImplCopyWithImpl<$Res>;
+  factory _$$SuccessImplCopyWith(_$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -305,7 +305,8 @@ abstract class _Success implements CreateExpensesState {
 
 /// @nodoc
 abstract class _$$FailureImplCopyWith<$Res> {
-  factory _$$FailureImplCopyWith(_$FailureImpl value, $Res Function(_$FailureImpl) then) = __$$FailureImplCopyWithImpl<$Res>;
+  factory _$$FailureImplCopyWith(_$FailureImpl value, $Res Function(_$FailureImpl) then) =
+      __$$FailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Errors error});
 }
@@ -345,7 +346,9 @@ class _$FailureImpl implements _Failure {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FailureImpl && (identical(other.error, error) || other.error == error));
+        (other.runtimeType == runtimeType &&
+            other is _$FailureImpl &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
@@ -441,7 +444,8 @@ abstract class _Failure implements CreateExpensesState {
 
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(_$LoadingImpl value, $Res Function(_$LoadingImpl) then) = __$$LoadingImplCopyWithImpl<$Res>;
+  factory _$$LoadingImplCopyWith(_$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc

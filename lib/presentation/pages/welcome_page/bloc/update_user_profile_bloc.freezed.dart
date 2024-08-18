@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'registration_bloc.dart';
+part of 'update_user_profile_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$RegistrationState {
+mixin _$UpdateUserProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -69,15 +69,15 @@ mixin _$RegistrationState {
 }
 
 /// @nodoc
-abstract class $RegistrationStateCopyWith<$Res> {
-  factory $RegistrationStateCopyWith(RegistrationState value, $Res Function(RegistrationState) then) =
-      _$RegistrationStateCopyWithImpl<$Res, RegistrationState>;
+abstract class $UpdateUserProfileStateCopyWith<$Res> {
+  factory $UpdateUserProfileStateCopyWith(UpdateUserProfileState value, $Res Function(UpdateUserProfileState) then) =
+      _$UpdateUserProfileStateCopyWithImpl<$Res, UpdateUserProfileState>;
 }
 
 /// @nodoc
-class _$RegistrationStateCopyWithImpl<$Res, $Val extends RegistrationState>
-    implements $RegistrationStateCopyWith<$Res> {
-  _$RegistrationStateCopyWithImpl(this._value, this._then);
+class _$UpdateUserProfileStateCopyWithImpl<$Res, $Val extends UpdateUserProfileState>
+    implements $UpdateUserProfileStateCopyWith<$Res> {
+  _$UpdateUserProfileStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -92,7 +92,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res> extends _$RegistrationStateCopyWithImpl<$Res, _$InitialImpl>
+class __$$InitialImplCopyWithImpl<$Res> extends _$UpdateUserProfileStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(_$InitialImpl _value, $Res Function(_$InitialImpl) _then) : super(_value, _then);
 }
@@ -104,7 +104,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'RegistrationState.initial()';
+    return 'UpdateUserProfileState.initial()';
   }
 
   @override
@@ -190,7 +190,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements RegistrationState {
+abstract class _Initial implements UpdateUserProfileState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -201,7 +201,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res> extends _$RegistrationStateCopyWithImpl<$Res, _$LoadingImpl>
+class __$$LoadingImplCopyWithImpl<$Res> extends _$UpdateUserProfileStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(_$LoadingImpl _value, $Res Function(_$LoadingImpl) _then) : super(_value, _then);
 }
@@ -213,7 +213,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'RegistrationState.loading()';
+    return 'UpdateUserProfileState.loading()';
   }
 
   @override
@@ -299,7 +299,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements RegistrationState {
+abstract class _Loading implements UpdateUserProfileState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -310,7 +310,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<$Res> extends _$RegistrationStateCopyWithImpl<$Res, _$SuccessImpl>
+class __$$SuccessImplCopyWithImpl<$Res> extends _$UpdateUserProfileStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(_$SuccessImpl _value, $Res Function(_$SuccessImpl) _then) : super(_value, _then);
 }
@@ -322,7 +322,7 @@ class _$SuccessImpl implements _Success {
 
   @override
   String toString() {
-    return 'RegistrationState.success()';
+    return 'UpdateUserProfileState.success()';
   }
 
   @override
@@ -408,7 +408,7 @@ class _$SuccessImpl implements _Success {
   }
 }
 
-abstract class _Success implements RegistrationState {
+abstract class _Success implements UpdateUserProfileState {
   const factory _Success() = _$SuccessImpl;
 }
 
@@ -421,7 +421,7 @@ abstract class _$$FailureImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$FailureImplCopyWithImpl<$Res> extends _$RegistrationStateCopyWithImpl<$Res, _$FailureImpl>
+class __$$FailureImplCopyWithImpl<$Res> extends _$UpdateUserProfileStateCopyWithImpl<$Res, _$FailureImpl>
     implements _$$FailureImplCopyWith<$Res> {
   __$$FailureImplCopyWithImpl(_$FailureImpl _value, $Res Function(_$FailureImpl) _then) : super(_value, _then);
 
@@ -449,7 +449,7 @@ class _$FailureImpl implements _Failure {
 
   @override
   String toString() {
-    return 'RegistrationState.failure(error: $error)';
+    return 'UpdateUserProfileState.failure(error: $error)';
   }
 
   @override
@@ -543,7 +543,7 @@ class _$FailureImpl implements _Failure {
   }
 }
 
-abstract class _Failure implements RegistrationState {
+abstract class _Failure implements UpdateUserProfileState {
   const factory _Failure(final Errors error) = _$FailureImpl;
 
   Errors get error;

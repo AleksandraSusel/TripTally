@@ -27,11 +27,11 @@ class RegistrationPage extends StatelessWidget {
         create: (context) => bloc ?? getIt<RegistrationBloc>(),
         child: BlocConsumer<RegistrationBloc, RegistrationState>(
           listener: (context, state) => state.whenOrNull(
-            failure: (error) => customSnackBar(
+            failure: (error) => showSnackBar(
               context,
               error.errorText(context),
             ),
-            success: () => customSnackBar(
+            success: () => showSnackBar(
               context,
               'Zostałeś zarejestrowany',
             ), //TODO: push to HomePage

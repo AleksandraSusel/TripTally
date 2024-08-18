@@ -21,25 +21,20 @@ ExpenseDto _$ExpenseDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ExpenseDto {
   String get name => throw _privateConstructorUsedError;
-
   String get date => throw _privateConstructorUsedError;
-
   double get amount => throw _privateConstructorUsedError;
-
   String get currency => throw _privateConstructorUsedError;
-
   String get tripId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $ExpenseDtoCopyWith<ExpenseDto> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ExpenseDtoCopyWith<$Res> {
-  factory $ExpenseDtoCopyWith(ExpenseDto value, $Res Function(ExpenseDto) then) = _$ExpenseDtoCopyWithImpl<$Res, ExpenseDto>;
-
+  factory $ExpenseDtoCopyWith(ExpenseDto value, $Res Function(ExpenseDto) then) =
+      _$ExpenseDtoCopyWithImpl<$Res, ExpenseDto>;
   @useResult
   $Res call({String name, String date, double amount, String currency, String tripId});
 }
@@ -50,7 +45,6 @@ class _$ExpenseDtoCopyWithImpl<$Res, $Val extends ExpenseDto> implements $Expens
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -92,7 +86,6 @@ class _$ExpenseDtoCopyWithImpl<$Res, $Val extends ExpenseDto> implements $Expens
 abstract class _$$ExpenseDtoImplCopyWith<$Res> implements $ExpenseDtoCopyWith<$Res> {
   factory _$$ExpenseDtoImplCopyWith(_$ExpenseDtoImpl value, $Res Function(_$ExpenseDtoImpl) then) =
       __$$ExpenseDtoImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({String name, String date, double amount, String currency, String tripId});
@@ -140,7 +133,8 @@ class __$$ExpenseDtoImplCopyWithImpl<$Res> extends _$ExpenseDtoCopyWithImpl<$Res
 /// @nodoc
 @JsonSerializable()
 class _$ExpenseDtoImpl implements _ExpenseDto {
-  const _$ExpenseDtoImpl({required this.name, required this.date, required this.amount, required this.currency, required this.tripId});
+  const _$ExpenseDtoImpl(
+      {required this.name, required this.date, required this.amount, required this.currency, required this.tripId});
 
   factory _$ExpenseDtoImpl.fromJson(Map<String, dynamic> json) => _$$ExpenseDtoImplFromJson(json);
 
@@ -179,7 +173,8 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ExpenseDtoImplCopyWith<_$ExpenseDtoImpl> get copyWith => __$$ExpenseDtoImplCopyWithImpl<_$ExpenseDtoImpl>(this, _$identity);
+  _$$ExpenseDtoImplCopyWith<_$ExpenseDtoImpl> get copyWith =>
+      __$$ExpenseDtoImplCopyWithImpl<_$ExpenseDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -201,19 +196,14 @@ abstract class _ExpenseDto implements ExpenseDto {
 
   @override
   String get name;
-
   @override
   String get date;
-
   @override
   double get amount;
-
   @override
   String get currency;
-
   @override
   String get tripId;
-
   @override
   @JsonKey(ignore: true)
   _$$ExpenseDtoImplCopyWith<_$ExpenseDtoImpl> get copyWith => throw _privateConstructorUsedError;

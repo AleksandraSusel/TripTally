@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void customSnackBar(
+void showSnackBar(
   BuildContext context,
   String text, {
   int seconds = 2,
