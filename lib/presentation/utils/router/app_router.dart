@@ -12,6 +12,7 @@ import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.d
 import 'package:trip_tally/presentation/pages/new_trip_page/new_trip_page.dart';
 import 'package:trip_tally/presentation/pages/plan_expenses_page/plan_expenses_page.dart';
 import 'package:trip_tally/presentation/pages/plan_new_trip_page/plan_new_trip_page.dart';
+import 'package:trip_tally/presentation/pages/planned_trips_m3_page/planned_trips_m3_page.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_page/planned_trips_page.dart';
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart';
 import 'package:trip_tally/presentation/pages/registration_page/registration_page.dart';
@@ -51,7 +52,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ResumeOfTripRoute.page),
         AutoRoute(page: PlannedTripsRoute.page),
         AutoRoute(page: SummaryAfterClosingRoute.page),
-        AutoRoute(page: CreateExpensesRoute.page, initial: true),
+        AutoRoute(page: CreateExpensesRoute.page),
         AutoRoute(page: ViewOfCurrentExpensesRoute.page),
         AutoRoute(page: EditCurrentTripRoute.page),
         AutoRoute(page: RemoveCurrentTripRoute.page),
@@ -59,5 +60,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ManageYourTripsRoute.page),
         AutoRoute(page: CreateTripBasicInfoRoute.page),
         AutoRoute(page: TestM3Route.page),
+        AutoRoute(page: PlannedTripsM3Route.page, initial: true),
       ];
 }

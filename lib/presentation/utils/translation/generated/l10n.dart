@@ -248,6 +248,36 @@ class Translation {
     );
   }
 
+  /// `Your trips`
+  String get plannedTripsM3Page_yourTrips {
+    return Intl.message(
+      'Your trips',
+      name: 'plannedTripsM3Page_yourTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete trip`
+  String get plannedTripsM3Page_deleteTrip {
+    return Intl.message(
+      'Delete trip',
+      name: 'plannedTripsM3Page_deleteTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure to delete this trip?`
+  String get plannedTripsM3Page_confirmationDeleteTrip {
+    return Intl.message(
+      'Are you sure to delete this trip?',
+      name: 'plannedTripsM3Page_confirmationDeleteTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Skip`
   String get generic_skip {
     return Intl.message(
@@ -263,6 +293,16 @@ class Translation {
     return Intl.message(
       'Continue',
       name: 'generic_continue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get generic_confirm {
+    return Intl.message(
+      'Confirm',
+      name: 'generic_confirm',
       desc: '',
       args: [],
     );
