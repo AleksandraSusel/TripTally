@@ -38,7 +38,7 @@ class CreateExpensesPage extends StatelessWidget {
       create: (context) => bloc ?? getIt<CreateExpensesBloc>(),
       child: BlocListener<CreateExpensesBloc, CreateExpensesState>(
         listener: (context, state) => state.whenOrNull(
-          success: () => customSnackBar(context, 'Success'),
+          success: () => showSnackBar(context, 'Success'),
           loading: CustomCircularProgressIndicator.new,
         ),
         child: const _Body(),
