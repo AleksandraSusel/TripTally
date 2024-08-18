@@ -9,6 +9,7 @@ class CustomAlertDialog extends StatelessWidget {
     required this.info,
     required this.actionButtonText,
     required this.abortButtonText,
+    required this.onConfirmPressed,
     this.isWarningAction = true,
     super.key,
   });
@@ -18,6 +19,7 @@ class CustomAlertDialog extends StatelessWidget {
   final String actionButtonText;
   final String abortButtonText;
   final bool isWarningAction;
+  final VoidCallback onConfirmPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -40,18 +42,19 @@ class CustomAlertDialog extends StatelessWidget {
             ),
           ),
           onPressed: () {
-            AutoRouter.of(context).maybePop();
+            context.router.maybePop();
           },
         ),
         TextButton(
           child: Text(
             actionButtonText,
             style: context.tht.labelMedium?.copyWith(
-              color: isWarningAction ? AppColorsLight.greenConfirmation : AppColorsLight.error40,
+              color: isWarningAction ? AppColorsLight.error40 : AppColorsLight.greenConfirmation,
             ),
           ),
           onPressed: () {
-            AutoRouter.of(context).maybePop();
+            context.router.maybePop();
+            onConfirmPressed();
           },
         ),
       ],

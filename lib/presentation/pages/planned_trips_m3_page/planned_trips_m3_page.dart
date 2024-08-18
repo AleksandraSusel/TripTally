@@ -16,7 +16,7 @@ class PlannedTripsM3Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: CustomFloatingActionButton(
+      floatingActionButton: IconFloatingActionButton(
         onPressed: () {},
         svgPath: AppPaths.editIcon,
       ),
@@ -44,6 +44,7 @@ class PlannedTripsM3Page extends StatelessWidget {
                   title: context.tr.plannedTripsM3Page_deleteTrip,
                   info: context.tr.plannedTripsM3Page_confirmationDeleteTrip,
                   actionButtonText: context.tr.generic_confirm,
+                  onConfirmPressed: () {},
                 ),
               ),
             ),

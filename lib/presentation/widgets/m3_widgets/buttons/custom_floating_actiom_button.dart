@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
 
-class CustomFloatingActionButton extends StatelessWidget {
-  const CustomFloatingActionButton({
+class IconFloatingActionButton extends StatelessWidget {
+  const IconFloatingActionButton({
     required this.svgPath,
     required this.onPressed,
     super.key,
