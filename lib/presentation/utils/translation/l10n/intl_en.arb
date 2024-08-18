@@ -121,5 +121,6 @@
   "yourCurrentTripPage_addExpense": "Add expense",
   "yourCurrentTripPage_editTheTrip": "Edit the trip",
   "bottomNavBarItem_dashboard": "Dashboard",
-  "bottomNavBarItem_trips": "Trips"
+  "bottomNavBarItem_trips": "Trips",
+  "dashboardPage_welcomeBack": "Welcome back"
 }

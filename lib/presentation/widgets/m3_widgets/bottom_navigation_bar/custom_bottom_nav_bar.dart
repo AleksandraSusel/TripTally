@@ -12,7 +12,7 @@ class CustomBottomNavBar extends StatefulWidget {
     super.key,
   });
 
-  final void Function(int) onItemSelected;
+  final void Function(int, BottomNavItems) onItemSelected;
   final int initialIndex;
 
   @override
@@ -22,8 +22,8 @@ class CustomBottomNavBar extends StatefulWidget {
 class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   List<BottomNavItems> items = BottomNavItems.values;
 
-  void _onItemTapped(int index) {
-    widget.onItemSelected(index);
+  void _onItemTapped(int index, BottomNavItems item) {
+    widget.onItemSelected(index, item);
   }
 
   @override
@@ -53,7 +53,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             child: BottomNavItem(
               isSelected: isSelected,
               item: item,
-              onTap: () => _onItemTapped(index),
+              onTap: () => _onItemTapped(index, item),
             ),
           );
         }),

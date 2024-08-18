@@ -44,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "createTripPage_titleBasicInfo": MessageLookupByLibrary.simpleMessage("Create new trip"),
         "createTripSearchHint": MessageLookupByLibrary.simpleMessage("Destination"),
         "currentTripInformation_youAreIn": MessageLookupByLibrary.simpleMessage("You are in:"),
+        "dashboardPage_welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome back"),
         "editCurrentTrip_changeACity": MessageLookupByLibrary.simpleMessage("Change a city"),
         "editCurrentTrip_changeADate": MessageLookupByLibrary.simpleMessage("Change a date"),
         "editCurrentTrip_changeYourTransport": MessageLookupByLibrary.simpleMessage("change your transport"),

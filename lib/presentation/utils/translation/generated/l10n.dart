@@ -1277,6 +1277,16 @@ class Translation {
       args: [],
     );
   }
+
+  /// `Welcome back`
+  String get dashboardPage_welcomeBack {
+    return Intl.message(
+      'Welcome back',
+      name: 'dashboardPage_welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {

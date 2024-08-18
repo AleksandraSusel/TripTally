@@ -16,4 +16,9 @@ extension BottomNavItemsTranslations on BottomNavItems {
         BottomNavItems.dashboard => context.tr.bottomNavBarItem_dashboard,
         BottomNavItems.trips => context.tr.bottomNavBarItem_trips,
       };
+
+  String? trAppBarTitle(BuildContext context) => switch (this) {
+        BottomNavItems.dashboard => null,
+        BottomNavItems.trips => context.tr.manageTripsPage_manageTrips,
+      };
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:trip_tally/presentation/pages/home_page/page_view/dashboard.dart';
 import 'package:trip_tally/presentation/pages/home_page/page_view/trips.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/bottom_navigation_bar/bottom_nav_items.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/bottom_navigation_bar/custom_bottom_nav_bar.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/custom_drawer.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/profile_app_bar.dart';
@@ -19,6 +20,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late final PageController _pageController;
+  BottomNavItems? _bottomNavItem;
   int _initialPageViewIndex = 0;
 
   @override
@@ -30,12 +32,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const ProfileAppBar(isDashboard: true),
+      appBar: ProfileAppBar(
+        title: _bottomNavItem?.trAppBarTitle(context),
+      ),
       endDrawer: const CustomDrawer(),
       floatingActionButton: CustomBottomNavBar(
         initialIndex: _initialPageViewIndex,
-        onItemSelected: (index) {
+        onItemSelected: (index, item) {
           setState(() {
+            _bottomNavItem = item;
             _pageController.animateToPage(
               index,
               duration: 400.ms,
@@ -56,5 +61,11 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 }
