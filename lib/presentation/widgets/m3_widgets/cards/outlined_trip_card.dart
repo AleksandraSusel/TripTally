@@ -61,7 +61,7 @@ class OutlinedTripCard extends StatelessWidget {
                       children: [
                         Text(
                           country,
-                          style: context.tht.labelLarge,
+                          style: context.tht.titleLarge,
                         ),
                         const SizedBox(width: AppDimensions.d10),
                         RectangularCountryFlag(countryCode: countryCode),

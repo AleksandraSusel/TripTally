@@ -23,7 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expenses"),
-        "appDescription": MessageLookupByLibrary.simpleMessage("Your personal trip assistant"),
+        "appDescription": MessageLookupByLibrary.simpleMessage(
+          "Your personal trip assistant",
+        ),
         "appName": MessageLookupByLibrary.simpleMessage("Trip Tally"),
         "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign in"),
         "authPage_singInApple": MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
@@ -52,12 +54,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "errors_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
         "errors_fieldCantBeEmpty": MessageLookupByLibrary.simpleMessage("Field cant be empty"),
         "errors_invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
-        "errors_noImageSelected": MessageLookupByLibrary.simpleMessage("Ups! You didn\'t choose any picture"),
+        "errors_noImageSelected": MessageLookupByLibrary.simpleMessage(
+          "Ups! You didn\'t choose any picture",
+        ),
         "errors_operationNotAllowed": MessageLookupByLibrary.simpleMessage("Operation not allowed"),
         "errors_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
         "errors_somethingWentWrong": MessageLookupByLibrary.simpleMessage("Something went wrong"),
-        "errors_somethingWrongPermissions":
-            MessageLookupByLibrary.simpleMessage("Oh no! Something is wrong with your permissions"),
+        "errors_somethingWrongPermissions": MessageLookupByLibrary.simpleMessage(
+          "Oh no! Something is wrong with your permissions",
+        ),
         "errors_unknownError": MessageLookupByLibrary.simpleMessage("Unknown error"),
         "errors_userDisabled": MessageLookupByLibrary.simpleMessage("User disabled"),
         "errors_userNotFound": MessageLookupByLibrary.simpleMessage("User not found:"),
@@ -69,7 +74,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "generic_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "generic_permissionDenied": MessageLookupByLibrary.simpleMessage("Permission Denied"),
         "generic_permissionDeniedDesc": MessageLookupByLibrary.simpleMessage(
-            "The permission is permanently denied. Please go to settings to enable it."),
+          "The permission is permanently denied. Please go to settings to enable it.",
+        ),
         "generic_settings": MessageLookupByLibrary.simpleMessage("Go to settings"),
         "generic_skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "hiTravellerSubtitle_addNewJourney": MessageLookupByLibrary.simpleMessage("Add new journey"),
@@ -80,10 +86,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "homePage_addNewTrip": MessageLookupByLibrary.simpleMessage("Add a new trip"),
         "homePage_goToYourTrip": MessageLookupByLibrary.simpleMessage("Go to your trip"),
         "homePage_planNewTrip": MessageLookupByLibrary.simpleMessage("Plan a new trip"),
+        "homePage_youAreCurrentlyOnATrip": MessageLookupByLibrary.simpleMessage("You are currently on a trip"),
+        "homePage_yourPlannedTrips": MessageLookupByLibrary.simpleMessage("Your planned trips:"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
-        "manageTripsPage_currentlyOnTrip": MessageLookupByLibrary.simpleMessage("You are currently on a trip!"),
+        "manageTripsPage_currentlyOnTrip": MessageLookupByLibrary.simpleMessage(
+          "You are currently on a trip!",
+        ),
         "manageTripsPage_editTrips": MessageLookupByLibrary.simpleMessage("Edit your trips"),
-        "manageTripsPage_editTripsSubtitle": MessageLookupByLibrary.simpleMessage("Keep your journeys in check!"),
+        "manageTripsPage_editTripsSubtitle": MessageLookupByLibrary.simpleMessage(
+          "Keep your journeys in check!",
+        ),
         "manageTripsPage_history": MessageLookupByLibrary.simpleMessage("History"),
         "manageTripsPage_historySubtitle": MessageLookupByLibrary.simpleMessage("Relive your epic travels!"),
         "manageTripsPage_manageTrips": MessageLookupByLibrary.simpleMessage("Manage your trips"),
@@ -107,12 +119,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "plannedTripsPage_yourPlannedTrips": MessageLookupByLibrary.simpleMessage("Your planned trips"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
         "removeCurrentTripPage_deleteTheTrip": MessageLookupByLibrary.simpleMessage("Delete"),
-        "removeCurrentTripPage_doYouWantToRemoveThisTrip":
-            MessageLookupByLibrary.simpleMessage("Do you want to remove the trip?"),
+        "removeCurrentTripPage_doYouWantToRemoveThisTrip": MessageLookupByLibrary.simpleMessage(
+          "Do you want to remove the trip?",
+        ),
         "removeCurrentTripPage_removeYourTrip": MessageLookupByLibrary.simpleMessage("Remove your trip"),
         "repeatPassword": MessageLookupByLibrary.simpleMessage("Repeat password"),
-        "resumeOfTripExpenses_YouDontHaveAnyTrips":
-            MessageLookupByLibrary.simpleMessage("You don\\\'t have any trips yet!"),
+        "resumeOfTripExpenses_YouDontHaveAnyTrips": MessageLookupByLibrary.simpleMessage(
+          "You don\\\'t have any trips yet!",
+        ),
         "resumeOfTripPage_YouHavePlanned": MessageLookupByLibrary.simpleMessage("You have planned:"),
         "settingsPage_ChangeYourEmail": MessageLookupByLibrary.simpleMessage("Change on your email"),
         "settingsPage_ChangeYourPassword": MessageLookupByLibrary.simpleMessage("Change on your password"),
@@ -121,10 +135,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "summaryAfterClosingPage_close": MessageLookupByLibrary.simpleMessage("Close"),
         "summaryAfterClosingPage_congrats": MessageLookupByLibrary.simpleMessage("Congrats"),
         "summaryAfterClosingPage_totalCostOfTheTrip": MessageLookupByLibrary.simpleMessage("Total cost of the trip"),
-        "summaryAfterClosingPage_youHaveSpentGreatMomentsIn":
-            MessageLookupByLibrary.simpleMessage("You have spent great moments in:"),
-        "summaryRectangle_youAreStillInYourBudget":
-            MessageLookupByLibrary.simpleMessage("You are still in your budget: "),
+        "summaryAfterClosingPage_youHaveSpentGreatMomentsIn": MessageLookupByLibrary.simpleMessage(
+          "You have spent great moments in:",
+        ),
+        "summaryRectangle_youAreStillInYourBudget": MessageLookupByLibrary.simpleMessage(
+          "You are still in your budget: ",
+        ),
         "summaryRectangle_youHaveSpent": MessageLookupByLibrary.simpleMessage("You have spent: "),
         "validators_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
         "validators_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
@@ -132,17 +148,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "viewOfCurrentExpenses_youHaveSpent": MessageLookupByLibrary.simpleMessage("You have spent"),
         "viewOfCurrentExpenses_yourCurrentExpenses": MessageLookupByLibrary.simpleMessage("Your current expenses"),
         "welcomePage_WelcomeTo": MessageLookupByLibrary.simpleMessage("Welcome to"),
-        "welcomePage_countryFieldError":
-            MessageLookupByLibrary.simpleMessage("We need to know your home country to tailor your travel experience!"),
+        "welcomePage_countryFieldError": MessageLookupByLibrary.simpleMessage(
+          "We need to know your home country to tailor your travel experience!",
+        ),
         "welcomePage_countryFieldHint": MessageLookupByLibrary.simpleMessage("Where\'s your home base?"),
-        "welcomePage_currencyFieldError":
-            MessageLookupByLibrary.simpleMessage("Setting a default currency helps keep your travel budget in check!"),
+        "welcomePage_currencyFieldError": MessageLookupByLibrary.simpleMessage(
+          "Setting a default currency helps keep your travel budget in check!",
+        ),
         "welcomePage_currencyFieldHint": MessageLookupByLibrary.simpleMessage("Your travel currency?"),
-        "welcomePage_nameFieldError":
-            MessageLookupByLibrary.simpleMessage("We need your name to tag along on your journeys!"),
+        "welcomePage_nameFieldError": MessageLookupByLibrary.simpleMessage(
+          "We need your name to tag along on your journeys!",
+        ),
         "welcomePage_nameFieldHint": MessageLookupByLibrary.simpleMessage("Traveler, your name?"),
-        "welcomeSubtitle_theAppForReportingAllExpenses":
-            MessageLookupByLibrary.simpleMessage("The app for reporting all expenses"),
+        "welcomeSubtitle_theAppForReportingAllExpenses": MessageLookupByLibrary.simpleMessage(
+          "The app for reporting all expenses",
+        ),
         "welcomeSubtitle_whileTravelling": MessageLookupByLibrary.simpleMessage("while travelling"),
         "welcomeText_tally": MessageLookupByLibrary.simpleMessage("Tally!"),
         "welcomeText_trip": MessageLookupByLibrary.simpleMessage("Trip"),
@@ -150,6 +170,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "yourCurrentTripPage_addExpense": MessageLookupByLibrary.simpleMessage("Add expense"),
         "yourCurrentTripPage_closeTheTrip": MessageLookupByLibrary.simpleMessage("Close the trip"),
         "yourCurrentTripPage_editTheTrip": MessageLookupByLibrary.simpleMessage("Edit the trip"),
-        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip")
+        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip"),
       };
 }

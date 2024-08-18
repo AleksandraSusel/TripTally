@@ -24,7 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expenses"),
         "appDescription": MessageLookupByLibrary.simpleMessage("Your personal trip assistant"),
-        "appName": MessageLookupByLibrary.simpleMessage("TripTally"),
+        "appName": MessageLookupByLibrary.simpleMessage("Trip Tally"),
         "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign in"),
         "authPage_singInApple": MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
         "authPage_singInGoogle": MessageLookupByLibrary.simpleMessage("Sign in with Google"),
@@ -69,7 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "generic_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "generic_permissionDenied": MessageLookupByLibrary.simpleMessage("Permission Denied"),
         "generic_permissionDeniedDesc": MessageLookupByLibrary.simpleMessage(
-            "The permission is permanently denied. Please go to settings to enable it."),
+          "The permission is permanently denied. Please go to settings to enable it.",
+        ),
         "generic_settings": MessageLookupByLibrary.simpleMessage("Go to settings"),
         "generic_skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "hiTravellerSubtitle_addNewJourney": MessageLookupByLibrary.simpleMessage("Add new journey"),
@@ -80,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "homePage_addNewTrip": MessageLookupByLibrary.simpleMessage("Add a new trip"),
         "homePage_goToYourTrip": MessageLookupByLibrary.simpleMessage("Go to your trip"),
         "homePage_planNewTrip": MessageLookupByLibrary.simpleMessage("Plan a new trip"),
+        "homePage_youAreCurrentlyOnATrip": MessageLookupByLibrary.simpleMessage("You are currently on a trip"),
+        "homePage_yourPlannedTrips": MessageLookupByLibrary.simpleMessage("Your planned trips:"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "manageTripsPage_currentlyOnTrip": MessageLookupByLibrary.simpleMessage("You are currently on a trip!"),
         "manageTripsPage_editTrips": MessageLookupByLibrary.simpleMessage("Edit your trips"),
@@ -150,6 +153,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "yourCurrentTripPage_addExpense": MessageLookupByLibrary.simpleMessage("Add expense"),
         "yourCurrentTripPage_closeTheTrip": MessageLookupByLibrary.simpleMessage("Close the trip"),
         "yourCurrentTripPage_editTheTrip": MessageLookupByLibrary.simpleMessage("Edit the trip"),
-        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip")
+        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip"),
       };
 }

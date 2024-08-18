@@ -1,13 +1,20 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:trip_tally/injectable/injectable.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_state.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/widgets/app_scaffold.dart';
 import 'package:trip_tally/presentation/widgets/arrow_back_button.dart';
 import 'package:trip_tally/presentation/widgets/calendar_button.dart';
+import 'package:trip_tally/presentation/widgets/custom_circular_progress_indicator.dart';
 import 'package:trip_tally/presentation/widgets/custom_elevated_button.dart';
+import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
 import 'package:trip_tally/presentation/widgets/expense_icon_contaner.dart';
 import 'package:trip_tally/presentation/widgets/icon_button_text_field.dart';
 import 'package:trip_tally/presentation/widgets/icon_list.dart';
@@ -17,8 +24,39 @@ import 'package:trip_tally/presentation/widgets/person_button.dart';
 import 'package:trip_tally/presentation/widgets/suffix_icon_text_field.dart';
 
 @RoutePage()
-class AddExpensesPage extends StatelessWidget {
-  const AddExpensesPage({super.key});
+class CreateExpensesPage extends StatelessWidget {
+  const CreateExpensesPage({
+    super.key,
+    @visibleForTesting this.bloc,
+  });
+
+  final CreateExpensesBloc? bloc;
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => bloc ?? getIt<CreateExpensesBloc>(),
+      child: BlocListener<CreateExpensesBloc, CreateExpensesState>(
+        listener: (context, state) => state.whenOrNull(
+          success: () => customSnackBar(context, 'Success'),
+          loading: CustomCircularProgressIndicator.new,
+        ),
+        child: const _Body(),
+      ),
+    );
+  }
+}
+
+class _Body extends StatefulWidget {
+  const _Body();
+
+  @override
+  State<_Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<_Body> {
+  final expenseNameController = TextEditingController();
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -99,6 +137,7 @@ class AddExpensesPage extends StatelessWidget {
                     ),
                     const SizedBox(height: AppDimensions.d10),
                     SuffixIconTextField(
+                      controller: expenseNameController,
                       svgPath: AppPaths.editorPen,
                       hintText: context.tr.planExpensesPage_nameTheExpense,
                     ),
@@ -115,9 +154,24 @@ class AddExpensesPage extends StatelessWidget {
                     SizedBox(
                       height: AppDimensions.d152,
                       child: IconButtonTextField(
+                        controller: amountController,
                         svgPath: AppPaths.plus,
                         hintText: context.tr.planExpensesPage_howMuch,
-                        onPressed: () {},
+                        onPressed: () {
+                          final String text = amountController.text;
+
+                          final double value = double.tryParse(text) ?? 0;
+
+                          context.read<CreateExpensesBloc>().add(
+                                CreateExpenseEvent(
+                                  name: expenseNameController.text,
+                                  date: DateTime.now().toString(),
+                                  amount: value,
+                                  currency: 'USD',
+                                  tripId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+                                ),
+                              );
+                        },
                       ),
                     ),
                     CustomElevatedButton(

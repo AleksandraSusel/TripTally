@@ -32,7 +32,8 @@ void main() {
         password: mockedLoginEntity.password,
       ),
     ),
-    expect: () => const [
+    expect: () =>
+    const [
       AuthenticationState.loading(),
       AuthenticationState.logged(),
     ],
@@ -104,7 +105,8 @@ void main() {
         password: mockedLoginEntity.password,
       ),
     ),
-    expect: () => const [
+    expect: () =>
+    const [
       AuthenticationState.loading(),
       AuthenticationState.failure(Errors.somethingWentWrong),
     ],

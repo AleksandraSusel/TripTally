@@ -1,5 +1,5 @@
 {
-  "appName": "TripTally",
+  "appName": "Trip Tally",
   "appDescription": "Your personal trip assistant",
   "authPage_singInToAcc": "Sign in to your account",
   "authPage_singUpToAcc": "Sign up to your account",
@@ -72,6 +72,8 @@
   "homePage_addNewTrip": "Add a new trip",
   "homePage_goToYourTrip": "Go to your trip",
   "homePage_planNewTrip": "Plan a new trip",
+  "homePage_youAreCurrentlyOnATrip": "You are currently on a trip",
+  "homePage_yourPlannedTrips": "Your planned trips:",
   "summaryRectangle_youHaveSpent": "You have spent: ",
   "summaryRectangle_youAreStillInYourBudget": "You are still in your budget: ",
   "hiTravellerText_hi": "Hi ",
