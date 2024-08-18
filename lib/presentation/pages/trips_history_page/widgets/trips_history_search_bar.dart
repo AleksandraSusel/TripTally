@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
-class TripsTextField extends StatelessWidget {
-  const TripsTextField({required this.controller, super.key});
+class TripsHistorySearchBar extends StatelessWidget {
+  const TripsHistorySearchBar({required this.controller, super.key});
 
   final TextEditingController controller;
 

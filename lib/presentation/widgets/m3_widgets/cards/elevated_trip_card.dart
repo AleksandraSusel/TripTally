@@ -40,7 +40,7 @@ class ElevatedTripCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool spendMoreThanExpected = expectedBudgetAmount < totalExpensesAmount;
     return Card(
-      elevation: AppDimensions.d4,
+      elevation: AppDimensions.d2,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AppDimensions.d12),
       ),
