@@ -34,6 +34,7 @@ class OutlinedTripCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: const EdgeInsets.symmetric(horizontal: AppDimensions.d16),
       elevation: AppDimensions.zero,
       shape: RoundedRectangleBorder(
         side: BorderSide(

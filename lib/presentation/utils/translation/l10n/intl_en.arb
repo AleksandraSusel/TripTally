@@ -119,5 +119,7 @@
   "yourCurrentTripPage_yourCurrentTrip": "Your current trip",
   "yourCurrentTripPage_closeTheTrip": "Close the trip",
   "yourCurrentTripPage_addExpense": "Add expense",
-  "yourCurrentTripPage_editTheTrip": "Edit the trip"
+  "yourCurrentTripPage_editTheTrip": "Edit the trip",
+  "bottomNavBarItem_dashboard": "Dashboard",
+  "bottomNavBarItem_trips": "Trips"
 }

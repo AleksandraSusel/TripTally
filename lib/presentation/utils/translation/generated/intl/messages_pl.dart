@@ -33,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "authPage_singUpApple": MessageLookupByLibrary.simpleMessage("Sign up with Apple"),
         "authPage_singUpGoogle": MessageLookupByLibrary.simpleMessage("Sign up with Google"),
         "authPage_singUpToAcc": MessageLookupByLibrary.simpleMessage("Sign up to your account"),
+        "bottomNavBarItem_dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
+        "bottomNavBarItem_trips": MessageLookupByLibrary.simpleMessage("Trips"),
         "createTripBudgetHelper": MessageLookupByLibrary.simpleMessage("Your planned budget"),
         "createTripBudgetHint": MessageLookupByLibrary.simpleMessage("Budget"),
         "createTripCurrencyHelper": MessageLookupByLibrary.simpleMessage("The currency you will use"),

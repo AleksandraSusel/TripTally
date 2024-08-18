@@ -17,6 +17,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      notificationPredicate: (_) => true,
       centerTitle: false,
       actions: const [
         CustomDrawerAction(),

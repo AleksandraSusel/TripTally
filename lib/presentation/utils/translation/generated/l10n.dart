@@ -1257,6 +1257,26 @@ class Translation {
       args: [],
     );
   }
+
+  /// `Dashboard`
+  String get bottomNavBarItem_dashboard {
+    return Intl.message(
+      'Dashboard',
+      name: 'bottomNavBarItem_dashboard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trips`
+  String get bottomNavBarItem_trips {
+    return Intl.message(
+      'Trips',
+      name: 'bottomNavBarItem_trips',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {
