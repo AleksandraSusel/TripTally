@@ -29,6 +29,7 @@ Future<void> runGoldenTest(
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: Translation.delegate.supportedLocales,
+      locale: const Locale('en'),
       builder: (_, child) => builder(),
     ),
     constraints: constrains,
