@@ -43,7 +43,7 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: AuthenticationRoute.page),
-        AutoRoute(page: WelcomeRoute.page, initial: true),
+        AutoRoute(page: WelcomeRoute.page),
         AutoRoute(page: RegistrationRoute.page),
         AutoRoute(page: NewTripRoute.page),
         AutoRoute(page: SettingsRoute.page),
@@ -52,7 +52,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ResumeOfTripRoute.page),
         AutoRoute(page: PlannedTripsRoute.page),
         AutoRoute(page: SummaryAfterClosingRoute.page),
-        AutoRoute(page: CreateExpensesRoute.page, initial: true),
+        AutoRoute(page: CreateExpensesRoute.page),
         AutoRoute(page: ViewOfCurrentExpensesRoute.page),
         AutoRoute(page: EditCurrentTripRoute.page),
         AutoRoute(page: RemoveCurrentTripRoute.page),
@@ -60,6 +60,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ManageYourTripsRoute.page),
         AutoRoute(page: CreateTripBasicInfoRoute.page),
         AutoRoute(page: TestM3Route.page),
-        AutoRoute(page: PlannedTripsM3Route.page),
+        AutoRoute(page: PlannedTripsM3Route.page, initial: true),
       ];
 }

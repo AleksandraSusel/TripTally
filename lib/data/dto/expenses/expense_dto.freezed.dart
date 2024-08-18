@@ -21,24 +21,20 @@ ExpenseDto _$ExpenseDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ExpenseDto {
   String get name => throw _privateConstructorUsedError;
-
   String get date => throw _privateConstructorUsedError;
-
   double get amount => throw _privateConstructorUsedError;
-
   String get currency => throw _privateConstructorUsedError;
-
   String get tripId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $ExpenseDtoCopyWith<ExpenseDto> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ExpenseDtoCopyWith<$Res> {
-  factory $ExpenseDtoCopyWith(ExpenseDto value, $Res Function(ExpenseDto) then) = _$ExpenseDtoCopyWithImpl<$Res, ExpenseDto>;
+  factory $ExpenseDtoCopyWith(ExpenseDto value, $Res Function(ExpenseDto) then) =
+      _$ExpenseDtoCopyWithImpl<$Res, ExpenseDto>;
 
   @useResult
   $Res call({String name, String date, double amount, String currency, String tripId});
@@ -140,7 +136,8 @@ class __$$ExpenseDtoImplCopyWithImpl<$Res> extends _$ExpenseDtoCopyWithImpl<$Res
 /// @nodoc
 @JsonSerializable()
 class _$ExpenseDtoImpl implements _ExpenseDto {
-  const _$ExpenseDtoImpl({required this.name, required this.date, required this.amount, required this.currency, required this.tripId});
+  const _$ExpenseDtoImpl(
+      {required this.name, required this.date, required this.amount, required this.currency, required this.tripId});
 
   factory _$ExpenseDtoImpl.fromJson(Map<String, dynamic> json) => _$$ExpenseDtoImplFromJson(json);
 
@@ -179,7 +176,8 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ExpenseDtoImplCopyWith<_$ExpenseDtoImpl> get copyWith => __$$ExpenseDtoImplCopyWithImpl<_$ExpenseDtoImpl>(this, _$identity);
+  _$$ExpenseDtoImplCopyWith<_$ExpenseDtoImpl> get copyWith =>
+      __$$ExpenseDtoImplCopyWithImpl<_$ExpenseDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
