@@ -1298,31 +1298,51 @@ class Translation {
     );
   }
 
-  /// `Dashboard`
-  String get bottomNavBarItem_dashboard {
+  /// `History of your trips`
+  String get tripsHistoryPage_historyOfTrips {
     return Intl.message(
-      'Dashboard',
-      name: 'bottomNavBarItem_dashboard',
+      'History of your trips',
+      name: 'tripsHistoryPage_historyOfTrips',
       desc: '',
       args: [],
     );
   }
 
-  /// `Trips`
-  String get bottomNavBarItem_trips {
+  /// `Search a trip`
+  String get tripsHistoryPage_searchTrip {
     return Intl.message(
-      'Trips',
-      name: 'bottomNavBarItem_trips',
+      'Search a trip',
+      name: 'tripsHistoryPage_searchTrip',
       desc: '',
       args: [],
     );
   }
 
-  /// `Welcome back`
-  String get dashboardPage_welcomeBack {
+  /// `Most expensive`
+  String get filterListSegmentedButton_mostExpensive {
     return Intl.message(
-      'Welcome back',
-      name: 'dashboardPage_welcomeBack',
+      'Most expensive',
+      name: 'filterListSegmentedButton_mostExpensive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Longest`
+  String get filterListSegmentedButton_longest {
+    return Intl.message(
+      'Longest',
+      name: 'filterListSegmentedButton_longest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shortest`
+  String get filterListSegmentedButton_shortest {
+    return Intl.message(
+      'Shortest',
+      name: 'filterListSegmentedButton_shortest',
       desc: '',
       args: [],
     );

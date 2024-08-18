@@ -15,6 +15,7 @@ class ExpandableInfoCard extends StatefulWidget {
     required this.expectedBudgetCurrency,
     required this.expectedBudgetAmount,
     required this.imagePath,
+    this.isExpanded = false,
     super.key,
   });
 
@@ -28,13 +29,20 @@ class ExpandableInfoCard extends StatefulWidget {
   final String expectedBudgetCurrency;
   final double expectedBudgetAmount;
   final String imagePath;
+  final bool isExpanded;
 
   @override
   ExpandableInfoCardState createState() => ExpandableInfoCardState();
 }
 
 class ExpandableInfoCardState extends State<ExpandableInfoCard> {
-  bool _isExpanded = false;
+  late bool _isExpanded;
+
+  @override
+  void initState() {
+    _isExpanded = widget.isExpanded;
+    super.initState();
+  }
 
   void _toggleExpand() {
     setState(() {

@@ -126,5 +126,10 @@
   "yourCurrentTripPage_editTheTrip": "Edit the trip",
   "bottomNavBarItem_dashboard": "Dashboard",
   "bottomNavBarItem_trips": "Trips",
-  "dashboardPage_welcomeBack": "Welcome back"
+  "dashboardPage_welcomeBack": "Welcome back",
+  "tripsHistoryPage_historyOfTrips": "History of your trips",
+  "tripsHistoryPage_searchTrip": "Search a trip",
+  "filterListSegmentedButton_mostExpensive": "Most expensive",
+  "filterListSegmentedButton_longest": "Longest",
+  "filterListSegmentedButton_shortest": "Shortest"
 }

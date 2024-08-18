@@ -66,6 +66,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "errors_userNotFound": MessageLookupByLibrary.simpleMessage("User not found:"),
         "errors_weakPassword": MessageLookupByLibrary.simpleMessage("Weak password"),
         "errors_wrongPassword": MessageLookupByLibrary.simpleMessage("Wrong password"),
+        "filterListSegmentedButton_longest": MessageLookupByLibrary.simpleMessage("Longest"),
+        "filterListSegmentedButton_mostExpensive": MessageLookupByLibrary.simpleMessage("Most expensive"),
+        "filterListSegmentedButton_shortest": MessageLookupByLibrary.simpleMessage("Shortest"),
         "generic_camera": MessageLookupByLibrary.simpleMessage("Camera"),
         "generic_cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "generic_confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
@@ -136,6 +139,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "summaryRectangle_youAreStillInYourBudget":
             MessageLookupByLibrary.simpleMessage("You are still in your budget: "),
         "summaryRectangle_youHaveSpent": MessageLookupByLibrary.simpleMessage("You have spent: "),
+        "tripsHistoryPage_historyOfTrips": MessageLookupByLibrary.simpleMessage("History of your trips"),
+        "tripsHistoryPage_searchTrip": MessageLookupByLibrary.simpleMessage("Search a trip"),
         "validators_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
         "validators_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
         "validators_yourEmailIsIncorrect": MessageLookupByLibrary.simpleMessage("Your email is incorrect"),

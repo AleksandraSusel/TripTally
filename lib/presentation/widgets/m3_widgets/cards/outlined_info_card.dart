@@ -44,7 +44,7 @@ class OutlinedInfoCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(
               left: AppDimensions.d10,
-              right: AppDimensions.d6,
+              right: AppDimensions.d10,
               top: AppDimensions.d20,
               bottom: AppDimensions.d20,
             ),
@@ -56,66 +56,58 @@ class OutlinedInfoCard extends StatelessWidget {
               ),
             ),
           ),
-          ConstrainedBox(
-            constraints: const BoxConstraints(
-              maxWidth: AppDimensions.d100,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Flexible(
-                      child: Text(
-                        country,
-                        style: context.tht.labelMedium,
-                        overflow: TextOverflow.ellipsis,
-                      ),
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Flexible(
+                    child: Text(
+                      country,
+                      style: context.tht.labelMedium,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    const SizedBox(width: AppDimensions.d10),
-                    OverflowBox(
-                      maxWidth: 22,
-                      fit: OverflowBoxFit.deferToChild,
-                      child: CountryFlag.fromCountryCode(
-                        countryCode,
-                        shape: const RoundedRectangle(2.5),
-                        height: AppDimensions.d16,
-                        width: AppDimensions.d22,
-                      ),
-                    ),
-                  ],
-                ),
-                Text(
-                  formatDates(dateFrom, dateTo),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: context.tht.titleSmall?.copyWith(
-                    fontSize: AppDimensions.d12,
                   ),
+                  const SizedBox(width: AppDimensions.d10),
+                  OverflowBox(
+                    maxWidth: 22,
+                    fit: OverflowBoxFit.deferToChild,
+                    child: CountryFlag.fromCountryCode(
+                      countryCode,
+                      shape: const RoundedRectangle(2.5),
+                      height: AppDimensions.d16,
+                      width: AppDimensions.d22,
+                    ),
+                  ),
+                ],
+              ),
+              Text(
+                formatDates(dateFrom, dateTo),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: context.tht.titleSmall?.copyWith(
+                  fontSize: AppDimensions.d12,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           const Spacer(),
-          SizedBox(
-            width: AppDimensions.d96,
-            child: Center(
-              child: AutoSizeText(
-                MoneyFormat.formatNegativeAmount(totalExpensesAmount, totalExpensesCurrency),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: context.tht.displayLarge?.copyWith(
-                  fontWeight: FontWeight.w900,
-                  fontSize: AppDimensions.d16,
-                  color: context.thc.error,
-                ),
-                maxFontSize: AppDimensions.d16,
+          Center(
+            child: AutoSizeText(
+              MoneyFormat.formatNegativeAmount(totalExpensesAmount, totalExpensesCurrency),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: context.tht.displayLarge?.copyWith(
+                fontWeight: FontWeight.w900,
+                fontSize: AppDimensions.d16,
+                color: context.thc.error,
               ),
+              maxFontSize: AppDimensions.d16,
             ),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: AppDimensions.d16),
           Container(
             clipBehavior: Clip.hardEdge,
             decoration: const BoxDecoration(
