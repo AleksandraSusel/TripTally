@@ -19,8 +19,12 @@
   "createTripPage_titleBasicInfo": "Create new trip",
   "createTripPage_currencyLabel": "Currency",
   "createTripPage_currencyError": "Please select a currency",
+  "plannedTripsM3Page_yourTrips": "Your trips",
+  "plannedTripsM3Page_deleteTrip": "Delete trip",
+  "plannedTripsM3Page_confirmationDeleteTrip": "Are you sure to delete this trip?",
   "generic_skip": "Skip",
   "generic_continue": "Continue",
+  "generic_confirm": "Confirm",
   "generic_camera": "Camera",
   "generic_gallery": "Gallery",
   "generic_permissionDenied": "Permission Denied",
@@ -119,5 +123,13 @@
   "yourCurrentTripPage_yourCurrentTrip": "Your current trip",
   "yourCurrentTripPage_closeTheTrip": "Close the trip",
   "yourCurrentTripPage_addExpense": "Add expense",
-  "yourCurrentTripPage_editTheTrip": "Edit the trip"
+  "yourCurrentTripPage_editTheTrip": "Edit the trip",
+  "bottomNavBarItem_dashboard": "Dashboard",
+  "bottomNavBarItem_trips": "Trips",
+  "dashboardPage_welcomeBack": "Welcome back",
+  "tripsHistoryPage_historyOfTrips": "History of your trips",
+  "tripsHistoryPage_searchTrip": "Search a trip",
+  "filterListSegmentedButton_mostExpensive": "Most expensive",
+  "filterListSegmentedButton_longest": "Longest",
+  "filterListSegmentedButton_shortest": "Shortest"
 }

@@ -3,6 +3,7 @@ import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
+import 'package:trip_tally/presentation/widgets/keys/widgets_keys.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/surface_outlined_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/money_container.dart';
@@ -23,6 +24,7 @@ class ElevatedTripCard extends StatelessWidget {
     required this.expectedBudgetAmount,
     required this.expectedBudgetCurrency,
     super.key,
+    this.onDeletePressed,
   });
 
   final String country;
@@ -35,12 +37,13 @@ class ElevatedTripCard extends StatelessWidget {
   final String expectedBudgetCurrency;
   final String imagePath;
   final String countryCode;
+  final VoidCallback? onDeletePressed;
 
   @override
   Widget build(BuildContext context) {
     final bool spendMoreThanExpected = expectedBudgetAmount < totalExpensesAmount;
     return Card(
-      elevation: AppDimensions.d4,
+      elevation: AppDimensions.d2,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AppDimensions.d12),
       ),
@@ -80,9 +83,13 @@ class ElevatedTripCard extends StatelessWidget {
                   ],
                 ),
                 const Spacer(),
-                SvgAsset(
-                  AppPaths.binM3,
-                  color: context.thc.error,
+                IconButton(
+                  icon: SvgAsset(
+                    key: WidgetsKeys.elevatedTripCardDeleteButton,
+                    AppPaths.binM3,
+                    color: context.thc.error,
+                  ),
+                  onPressed: onDeletePressed,
                 ),
               ],
             ),
@@ -129,7 +136,8 @@ class ElevatedTripCard extends StatelessWidget {
                       height: AppDimensions.d28,
                       amount: totalExpensesAmount,
                       currency: totalExpensesCurrency,
-                      theme: spendMoreThanExpected ? MoneyContainerColorTheme.warning : MoneyContainerColorTheme.tertiary,
+                      theme:
+                          spendMoreThanExpected ? MoneyContainerColorTheme.warning : MoneyContainerColorTheme.tertiary,
                     ),
                   ],
                 ),

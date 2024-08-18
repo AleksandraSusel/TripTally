@@ -248,6 +248,36 @@ class Translation {
     );
   }
 
+  /// `Your trips`
+  String get plannedTripsM3Page_yourTrips {
+    return Intl.message(
+      'Your trips',
+      name: 'plannedTripsM3Page_yourTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete trip`
+  String get plannedTripsM3Page_deleteTrip {
+    return Intl.message(
+      'Delete trip',
+      name: 'plannedTripsM3Page_deleteTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure to delete this trip?`
+  String get plannedTripsM3Page_confirmationDeleteTrip {
+    return Intl.message(
+      'Are you sure to delete this trip?',
+      name: 'plannedTripsM3Page_confirmationDeleteTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Skip`
   String get generic_skip {
     return Intl.message(
@@ -263,6 +293,16 @@ class Translation {
     return Intl.message(
       'Continue',
       name: 'generic_continue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get generic_confirm {
+    return Intl.message(
+      'Confirm',
+      name: 'generic_confirm',
       desc: '',
       args: [],
     );
@@ -1253,6 +1293,86 @@ class Translation {
     return Intl.message(
       'Edit the trip',
       name: 'yourCurrentTripPage_editTheTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dashboard`
+  String get bottomNavBarItem_dashboard {
+    return Intl.message(
+      'Dashboard',
+      name: 'bottomNavBarItem_dashboard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trips`
+  String get bottomNavBarItem_trips {
+    return Intl.message(
+      'Trips',
+      name: 'bottomNavBarItem_trips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome back`
+  String get dashboardPage_welcomeBack {
+    return Intl.message(
+      'Welcome back',
+      name: 'dashboardPage_welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `History of your trips`
+  String get tripsHistoryPage_historyOfTrips {
+    return Intl.message(
+      'History of your trips',
+      name: 'tripsHistoryPage_historyOfTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search a trip`
+  String get tripsHistoryPage_searchTrip {
+    return Intl.message(
+      'Search a trip',
+      name: 'tripsHistoryPage_searchTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Most expensive`
+  String get filterListSegmentedButton_mostExpensive {
+    return Intl.message(
+      'Most expensive',
+      name: 'filterListSegmentedButton_mostExpensive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Longest`
+  String get filterListSegmentedButton_longest {
+    return Intl.message(
+      'Longest',
+      name: 'filterListSegmentedButton_longest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shortest`
+  String get filterListSegmentedButton_shortest {
+    return Intl.message(
+      'Shortest',
+      name: 'filterListSegmentedButton_shortest',
       desc: '',
       args: [],
     );

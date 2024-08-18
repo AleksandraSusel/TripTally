@@ -92,7 +92,7 @@ class TestM3PageState extends State<TestM3Page> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: const ProfileAppBar(isDashboard: true),
+      appBar: const ProfileAppBar(),
       endDrawer: const CustomDrawer(),
       body: ListView(
         padding: const EdgeInsets.all(AppDimensions.d16),
