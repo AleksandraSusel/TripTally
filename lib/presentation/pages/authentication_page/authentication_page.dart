@@ -32,11 +32,12 @@ class AuthenticationPage extends StatelessWidget {
           create: (context) => bloc ?? getIt<AuthenticationBloc>(),
           child: BlocListener<AuthenticationBloc, AuthenticationState>(
             listener: (context, state) => state.whenOrNull(
-              failure: (error) => customSnackBar(
+              failure: (error) => showSnackBar(
                 context,
                 error.errorText(context),
               ),
-              success: () => context.router.replaceAll([const HomeRoute()]),
+              registered: () => context.router.replaceAll([WelcomeRoute()]),
+              logged: () => context.router.replaceAll([const HomeRoute()]),
             ),
             child: const _Body(),
           ),
