@@ -1297,6 +1297,56 @@ class Translation {
       args: [],
     );
   }
+
+  /// `History of your trips`
+  String get tripsHistoryPage_historyOfTrips {
+    return Intl.message(
+      'History of your trips',
+      name: 'tripsHistoryPage_historyOfTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search a trip`
+  String get tripsHistoryPage_searchTrip {
+    return Intl.message(
+      'Search a trip',
+      name: 'tripsHistoryPage_searchTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Most expensive`
+  String get filterListSegmentedButton_mostExpensive {
+    return Intl.message(
+      'Most expensive',
+      name: 'filterListSegmentedButton_mostExpensive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Longest`
+  String get filterListSegmentedButton_longest {
+    return Intl.message(
+      'Longest',
+      name: 'filterListSegmentedButton_longest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shortest`
+  String get filterListSegmentedButton_shortest {
+    return Intl.message(
+      'Shortest',
+      name: 'filterListSegmentedButton_shortest',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {

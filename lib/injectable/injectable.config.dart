@@ -39,10 +39,10 @@ import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i27;
 import 'package:trip_tally/domain/use_case/sign_out_use_case.dart' as _i31;
 import 'package:trip_tally/domain/use_case/update_user_profile_use_case.dart' as _i36;
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i13;
-import 'package:trip_tally/injectable/modules/api_module.dart' as _i45;
+import 'package:trip_tally/injectable/modules/api_module.dart' as _i44;
 import 'package:trip_tally/injectable/modules/app_router_module.dart' as _i43;
 import 'package:trip_tally/injectable/modules/firebase_auth_module.dart' as _i46;
-import 'package:trip_tally/injectable/modules/osm_module.dart' as _i44;
+import 'package:trip_tally/injectable/modules/osm_module.dart' as _i45;
 import 'package:trip_tally/injectable/modules/shared_preferences_module.dart' as _i47;
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart' as _i38;
 import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart' as _i16;
@@ -68,16 +68,16 @@ extension GetItInjectableX on _i1.GetIt {
       environmentFilter,
     );
     final appRouterModule = _$AppRouterModule();
-    final apiModule = _$ApiModule();
     final osmModule = _$OsmModule();
+    final apiModule = _$ApiModule();
     final firebaseAuthModule = _$FirebaseAuthModule();
     final sharedPreferencesModule = _$SharedPreferencesModule();
     gh.lazySingleton<_i3.AppRouter>(() => appRouterModule.instance);
-    gh.singleton<_i4.Dio>(() => apiModule.client);
     gh.singleton<_i4.Dio>(
       () => osmModule.client,
       instanceName: 'OsmDio',
     );
+    gh.singleton<_i4.Dio>(() => apiModule.client);
     gh.factory<_i5.FirebaseAuth>(() => firebaseAuthModule.instance);
     gh.factory<_i6.OsmClient>(() => _i6.OsmClient(gh<_i4.Dio>(instanceName: 'OsmDio')));
     gh.factory<_i7.OsmMapDataSource>(() => _i8.OsmMapDataSourceImpl(gh<_i6.OsmClient>()));
@@ -123,9 +123,9 @@ extension GetItInjectableX on _i1.GetIt {
 
 class _$AppRouterModule extends _i43.AppRouterModule {}
 
-class _$OsmModule extends _i44.OsmModule {}
+class _$ApiModule extends _i44.ApiModule {}
 
-class _$ApiModule extends _i45.ApiModule {}
+class _$OsmModule extends _i45.OsmModule {}
 
 class _$FirebaseAuthModule extends _i46.FirebaseAuthModule {}
 
