@@ -3,8 +3,8 @@ import 'package:mockito/mockito.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_state.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/new_trip_page.dart';
 
+import '../../../generate_mocks.mocks.dart';
 import '../../../golden_test_runner.dart';
-import '../../../mocks.mocks.dart';
 
 void main() {
   late MockNewTripBloc mockNewTripBloc;

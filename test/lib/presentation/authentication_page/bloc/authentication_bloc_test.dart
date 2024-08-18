@@ -7,8 +7,8 @@ import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
+import '../../../../generate_mocks.mocks.dart';
 import '../../../../mocked_data.dart';
-import '../../../../mocks.mocks.dart';
 
 void main() {
   late MockLoginUseCase mockLoginUseCase;
@@ -32,8 +32,7 @@ void main() {
         password: mockedLoginEntity.password,
       ),
     ),
-    expect: () =>
-    const [
+    expect: () => const [
       AuthenticationState.loading(),
       AuthenticationState.logged(),
     ],
@@ -105,8 +104,7 @@ void main() {
         password: mockedLoginEntity.password,
       ),
     ),
-    expect: () =>
-    const [
+    expect: () => const [
       AuthenticationState.loading(),
       AuthenticationState.failure(Errors.somethingWentWrong),
     ],

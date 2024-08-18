@@ -9,7 +9,7 @@ import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_event.
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_state.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
-import '../../../../mocks.mocks.dart';
+import '../../../../generate_mocks.mocks.dart';
 
 void main() {
   late MockCreateTripUseCase mockAddTripUseCase;

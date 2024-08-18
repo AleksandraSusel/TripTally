@@ -9,7 +9,7 @@ import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_e
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_state.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
-import '../../../../mocks.mocks.dart';
+import '../../../../generate_mocks.mocks.dart';
 
 void main() {
   late MockAddExpenseUseCase mockAddExpenseUseCase;

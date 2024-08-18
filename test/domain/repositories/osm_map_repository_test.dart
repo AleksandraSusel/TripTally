@@ -6,8 +6,8 @@ import 'package:trip_tally/domain/repositories/osm_map_repository.dart';
 import 'package:trip_tally/domain/utils/exception.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
+import '../../generate_mocks.mocks.dart';
 import '../../mocked_data.dart';
-import '../../mocks.mocks.dart';
 
 void main() {
   late MockOsmMapDataSource mockOsmMapDataSource;

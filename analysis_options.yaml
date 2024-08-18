@@ -18,7 +18,6 @@ analyzer:
     - lib/**/*.freezed.dart
     - lib/**/generated/
     - lib/**/injectable.config.dart
-    - test/*.mocks.dart
     - test/generate_mocks.mocks.dart
   errors:
     invalid_annotation_target: ignore

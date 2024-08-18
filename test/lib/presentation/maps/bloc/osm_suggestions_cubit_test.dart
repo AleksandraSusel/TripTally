@@ -7,8 +7,8 @@ import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_suggestions_cubit.dart';
 
+import '../../../../generate_mocks.mocks.dart';
 import '../../../../mocked_data.dart';
-import '../../../../mocks.mocks.dart';
 
 void main() {
   group('OsmSuggestionsCubit', () {
