@@ -34,7 +34,6 @@ mixin _$PlaceAddressEntity {
 abstract class $PlaceAddressEntityCopyWith<$Res> {
   factory $PlaceAddressEntityCopyWith(PlaceAddressEntity value, $Res Function(PlaceAddressEntity) then) =
       _$PlaceAddressEntityCopyWithImpl<$Res, PlaceAddressEntity>;
-
   @useResult
   $Res call(
       {String country,
@@ -117,7 +116,6 @@ abstract class _$$PlaceAddressEntityImplCopyWith<$Res> implements $PlaceAddressE
   factory _$$PlaceAddressEntityImplCopyWith(
           _$PlaceAddressEntityImpl value, $Res Function(_$PlaceAddressEntityImpl) then) =
       __$$PlaceAddressEntityImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -286,10 +284,8 @@ abstract class _PlaceAddressEntity implements PlaceAddressEntity {
   String? get city;
   @override
   String? get state;
-
   @override
   String? get postcode;
-
   @override
   @JsonKey(ignore: true)
   _$$PlaceAddressEntityImplCopyWith<_$PlaceAddressEntityImpl> get copyWith => throw _privateConstructorUsedError;

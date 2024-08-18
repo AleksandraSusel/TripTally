@@ -68,16 +68,16 @@ extension GetItInjectableX on _i1.GetIt {
       environmentFilter,
     );
     final appRouterModule = _$AppRouterModule();
-    final osmModule = _$OsmModule();
     final apiModule = _$ApiModule();
+    final osmModule = _$OsmModule();
     final firebaseAuthModule = _$FirebaseAuthModule();
     final sharedPreferencesModule = _$SharedPreferencesModule();
     gh.lazySingleton<_i3.AppRouter>(() => appRouterModule.instance);
+    gh.singleton<_i4.Dio>(() => apiModule.client);
     gh.singleton<_i4.Dio>(
       () => osmModule.client,
       instanceName: 'OsmDio',
     );
-    gh.singleton<_i4.Dio>(() => apiModule.client);
     gh.factory<_i5.FirebaseAuth>(() => firebaseAuthModule.instance);
     gh.factory<_i6.OsmClient>(() => _i6.OsmClient(gh<_i4.Dio>(instanceName: 'OsmDio')));
     gh.factory<_i7.OsmMapDataSource>(() => _i8.OsmMapDataSourceImpl(gh<_i6.OsmClient>()));

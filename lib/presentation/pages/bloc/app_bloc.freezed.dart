@@ -77,19 +77,21 @@ abstract class $AppStateCopyWith<$Res> {
 class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCopyWith<$Res> {
   _$AppStateCopyWithImpl(this._value, this._then);
 
-// ignore: unused_field
+  // ignore: unused_field
   final $Val _value;
-// ignore: unused_field
+  // ignore: unused_field
   final $Res Function($Val) _then;
 }
 
 /// @nodoc
 abstract class _$$InitialImplCopyWith<$Res> {
-  factory _$$InitialImplCopyWith(_$InitialImpl value, $Res Function(_$InitialImpl) then) = __$$InitialImplCopyWithImpl<$Res>;
+  factory _$$InitialImplCopyWith(_$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$InitialImpl> implements _$$InitialImplCopyWith<$Res> {
+class __$$InitialImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(_$InitialImpl _value, $Res Function(_$InitialImpl) _then) : super(_value, _then);
 }
 
@@ -192,11 +194,13 @@ abstract class _Initial implements AppState {
 
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
-  factory _$$LoadingImplCopyWith(_$LoadingImpl value, $Res Function(_$LoadingImpl) then) = __$$LoadingImplCopyWithImpl<$Res>;
+  factory _$$LoadingImplCopyWith(_$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$LoadingImpl> implements _$$LoadingImplCopyWith<$Res> {
+class __$$LoadingImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(_$LoadingImpl _value, $Res Function(_$LoadingImpl) _then) : super(_value, _then);
 }
 
@@ -299,11 +303,13 @@ abstract class _Loading implements AppState {
 
 /// @nodoc
 abstract class _$$SuccessImplCopyWith<$Res> {
-  factory _$$SuccessImplCopyWith(_$SuccessImpl value, $Res Function(_$SuccessImpl) then) = __$$SuccessImplCopyWithImpl<$Res>;
+  factory _$$SuccessImplCopyWith(_$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$SuccessImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$SuccessImpl> implements _$$SuccessImplCopyWith<$Res> {
+class __$$SuccessImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(_$SuccessImpl _value, $Res Function(_$SuccessImpl) _then) : super(_value, _then);
 }
 
@@ -413,7 +419,8 @@ abstract class _$$ToLoginPageImplCopyWith<$Res> {
 /// @nodoc
 class __$$ToLoginPageImplCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$ToLoginPageImpl>
     implements _$$ToLoginPageImplCopyWith<$Res> {
-  __$$ToLoginPageImplCopyWithImpl(_$ToLoginPageImpl _value, $Res Function(_$ToLoginPageImpl) _then) : super(_value, _then);
+  __$$ToLoginPageImplCopyWithImpl(_$ToLoginPageImpl _value, $Res Function(_$ToLoginPageImpl) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc

@@ -72,6 +72,7 @@ class AppColorsLight {
   static const surfaceContainer = Color(0xfffaebe0);
   static const surfaceContainerHigh = Color(0xfff4e6da);
   static const surfaceContainerHighest = Color(0xffeee0d5);
+  static const surface3 = Color(0xffF0E7E3);
 }
 
 class AppColorsDark {
@@ -127,4 +128,5 @@ class AppColorsDark {
   static const surfaceContainer = Color(0xff251e17);
   static const surfaceContainerHigh = Color(0xff302921);
   static const surfaceContainerHighest = Color(0xff3b332c);
+  static const surface3 = Color(0xff352D1D);
 }

@@ -57,16 +57,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HomePage(),
       );
     },
-    ManageYourTripsRoute.name: (routeData) {
-      final args = routeData.argsAs<ManageYourTripsRouteArgs>(orElse: () => const ManageYourTripsRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: ManageYourTripsPage(
-          isOnTrip: args.isOnTrip,
-          key: args.key,
-        ),
-      );
-    },
     NewTripRoute.name: (routeData) {
       final args = routeData.argsAs<NewTripRouteArgs>(orElse: () => const NewTripRouteArgs());
       return AutoRoutePage<dynamic>(
@@ -310,43 +300,6 @@ class HomeRoute extends PageRouteInfo<void> {
   static const String name = 'HomeRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [ManageYourTripsPage]
-class ManageYourTripsRoute extends PageRouteInfo<ManageYourTripsRouteArgs> {
-  ManageYourTripsRoute({
-    bool isOnTrip = false,
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          ManageYourTripsRoute.name,
-          args: ManageYourTripsRouteArgs(
-            isOnTrip: isOnTrip,
-            key: key,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'ManageYourTripsRoute';
-
-  static const PageInfo<ManageYourTripsRouteArgs> page = PageInfo<ManageYourTripsRouteArgs>(name);
-}
-
-class ManageYourTripsRouteArgs {
-  const ManageYourTripsRouteArgs({
-    this.isOnTrip = false,
-    this.key,
-  });
-
-  final bool isOnTrip;
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'ManageYourTripsRouteArgs{isOnTrip: $isOnTrip, key: $key}';
-  }
 }
 
 /// generated route for

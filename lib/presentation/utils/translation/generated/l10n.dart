@@ -1298,6 +1298,36 @@ class Translation {
     );
   }
 
+  /// `Dashboard`
+  String get bottomNavBarItem_dashboard {
+    return Intl.message(
+      'Dashboard',
+      name: 'bottomNavBarItem_dashboard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trips`
+  String get bottomNavBarItem_trips {
+    return Intl.message(
+      'Trips',
+      name: 'bottomNavBarItem_trips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome back`
+  String get dashboardPage_welcomeBack {
+    return Intl.message(
+      'Welcome back',
+      name: 'dashboardPage_welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `History of your trips`
   String get tripsHistoryPage_historyOfTrips {
     return Intl.message(
