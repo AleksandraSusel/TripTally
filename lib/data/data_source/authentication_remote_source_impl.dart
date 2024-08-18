@@ -50,7 +50,12 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
   @override
   Future<Success> updateUserProfile(UpdateUserProfileDto dto) async {
     try {
-      await _client.updateUserProfile(dto);
+      await _client.updateUserProfile(
+        username: dto.username,
+        country: dto.country,
+        defaultCurrencyCode: dto.defaultCurrencyCode,
+        profilePicture: dto.profilePicture,
+      );
       return const Success();
     } catch (e) {
       throw ApiException(Errors.somethingWentWrong);

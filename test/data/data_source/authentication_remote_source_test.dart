@@ -8,8 +8,8 @@ import 'package:trip_tally/domain/utils/exception.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
+import '../../generate_mocks.mocks.dart';
 import '../../mocked_data.dart';
-import '../../mocks.mocks.dart';
 
 void main() {
   late AuthenticationRemoteSource authenticationDataSource;
@@ -122,6 +122,67 @@ void main() {
       );
       verify(mockSharedPrefsUtils.removeToken);
       verifyNoMoreInteractions(mockSharedPrefsUtils);
+    },
+  );
+
+  test(
+    'UpdateUserProfile updates user profile successfully',
+    () async {
+      when(
+        mockApiClient.updateUserProfile(
+          username: mockedUpdateUserProfileDto.username,
+          country: mockedUpdateUserProfileDto.country,
+          defaultCurrencyCode: mockedUpdateUserProfileDto.defaultCurrencyCode,
+          profilePicture: mockedUpdateUserProfileDto.profilePicture,
+        ),
+      ).thenAnswer((_) async => const Success());
+
+      final result = await authenticationDataSource.updateUserProfile(mockedUpdateUserProfileDto);
+
+      expect(result, const Success());
+
+      verify(
+        mockApiClient.updateUserProfile(
+          username: mockedUpdateUserProfileDto.username,
+          country: mockedUpdateUserProfileDto.country,
+          defaultCurrencyCode: mockedUpdateUserProfileDto.defaultCurrencyCode,
+          profilePicture: mockedUpdateUserProfileDto.profilePicture,
+        ),
+      ).called(1);
+
+      verifyNoMoreInteractions(mockApiClient);
+    },
+  );
+
+  test(
+    'UpdateUserProfile throws ApiException on failure',
+    () async {
+      when(
+        mockApiClient.updateUserProfile(
+          username: mockedUpdateUserProfileDto.username,
+          country: mockedUpdateUserProfileDto.country,
+          defaultCurrencyCode: mockedUpdateUserProfileDto.defaultCurrencyCode,
+          profilePicture: mockedUpdateUserProfileDto.profilePicture,
+        ),
+      ).thenThrow(Exception());
+
+      await expectLater(
+        authenticationDataSource.updateUserProfile(mockedUpdateUserProfileDto),
+        throwsA(
+          isA<ApiException>().having((e) => e.failure, 'Something went wrong', Errors.somethingWentWrong),
+        ),
+      );
+
+      verify(
+        mockApiClient.updateUserProfile(
+          username: mockedUpdateUserProfileDto.username,
+          country: mockedUpdateUserProfileDto.country,
+          defaultCurrencyCode: mockedUpdateUserProfileDto.defaultCurrencyCode,
+          profilePicture: mockedUpdateUserProfileDto.profilePicture,
+        ),
+      ).called(1);
+
+      verifyNoMoreInteractions(mockApiClient);
     },
   );
 }

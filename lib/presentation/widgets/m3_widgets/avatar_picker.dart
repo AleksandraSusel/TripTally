@@ -16,7 +16,9 @@ import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
 
 class AvatarPicker extends StatefulWidget {
-  const AvatarPicker({super.key});
+  const AvatarPicker({super.key, this.onPickedImage});
+
+  final ValueChanged<XFile?>? onPickedImage;
 
   @override
   State<AvatarPicker> createState() => _AvatarPickerState();
@@ -77,7 +79,9 @@ class _AvatarPickerState extends State<AvatarPicker> {
     if (source != null) {
       final pickedFile = await ImagePickerHelper.pickImage(source);
       if (pickedFile != null) {
-        setState(() => _image = XFile(pickedFile.path));
+        final XFile xFile = XFile(pickedFile.path);
+        setState(() => _image = pickedFile);
+        widget.onPickedImage!(xFile);
       } else {
         if (mounted) {
           showSnackBar(context, Errors.noImageSelected.errorText(context));

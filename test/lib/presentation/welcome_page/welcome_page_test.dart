@@ -8,8 +8,8 @@ import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/avatar_picker.dart';
 
+import '../../../generate_mocks.mocks.dart';
 import '../../../golden_test_runner.dart';
-import '../../../mocks.mocks.dart';
 
 void main() {
   late MockPermissionsBloc mockPermissionsBloc;

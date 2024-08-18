@@ -7,8 +7,8 @@ import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/presentation/pages/registration_page/bloc/registration_bloc.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
+import '../../../../generate_mocks.mocks.dart';
 import '../../../../mocked_data.dart';
-import '../../../../mocks.mocks.dart';
 
 void main() {
   late MockCreateAccountUseCase mockCreateAccountUseCase;

@@ -6,10 +6,10 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_sug
 import 'package:trip_tally/presentation/widgets/m3_widgets/text_fields/currency_text_field.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/text_fields/location_search_text_field.dart';
 
+import '../../../generate_mocks.mocks.dart';
 import '../../../golden_test_runner.dart';
 import '../../../keyboard_visibility_handler.dart';
 import '../../../mocked_data.dart';
-import '../../../mocks.mocks.dart';
 
 void main() {
   late MockOsmSuggestionsCubit mockOsmSuggestionsCubit;

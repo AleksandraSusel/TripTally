@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart';
 
+import '../../../generate_mocks.mocks.dart';
 import '../../../mocked_data.dart';
-import '../../../mocks.mocks.dart';
 
 void main() {
   late MockSharedPrefsUtils mockSharedPrefs;

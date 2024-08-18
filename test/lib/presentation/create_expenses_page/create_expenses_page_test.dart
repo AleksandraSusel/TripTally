@@ -3,8 +3,8 @@ import 'package:mockito/mockito.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_state.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/create_expenses_page.dart';
 
+import '../../../generate_mocks.mocks.dart';
 import '../../../golden_test_runner.dart';
-import '../../../mocks.mocks.dart';
 
 void main() {
   late MockCreateExpensesBloc mockCreateExpensesBloc;

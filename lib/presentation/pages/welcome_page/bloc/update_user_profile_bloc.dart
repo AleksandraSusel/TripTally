@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:trip_tally/domain/entities/user/update_user_profile_entity.dart';
 import 'package:trip_tally/domain/use_case/update_user_profile_use_case.dart';
@@ -30,6 +31,7 @@ class UpdateUserProfileBloc extends Bloc<UpdateUserProfileEvent, UpdateUserProfi
       username: event.username,
       country: event.country,
       defaultCurrencyCode: event.currencyCode,
+      profilePicture: event.profilePicture,
     );
 
     final result = await _updateUserProfileUseCase(entity);

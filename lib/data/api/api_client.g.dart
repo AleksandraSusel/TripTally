@@ -98,16 +98,43 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<void> updateUserProfile(UpdateUserProfileDto dto) async {
+  Future<void> updateUserProfile({
+    required String username,
+    required String country,
+    required String defaultCurrencyCode,
+    File? profilePicture,
+  }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.addAll(dto.toJson());
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = FormData();
+    _data.fields.add(MapEntry(
+      'username',
+      username,
+    ));
+    _data.fields.add(MapEntry(
+      'country',
+      country,
+    ));
+    _data.fields.add(MapEntry(
+      'default_currency_code',
+      defaultCurrencyCode,
+    ));
+    if (profilePicture != null) {
+      _data.files.add(MapEntry(
+        'profile_picture',
+        MultipartFile.fromFileSync(
+          profilePicture.path,
+          filename: profilePicture.path.split(Platform.pathSeparator).last,
+        ),
+      ));
+    }
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
+      contentType: 'multipart/form-data',
     )
         .compose(
           _dio.options,

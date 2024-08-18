@@ -7,8 +7,8 @@ import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/surface_outlined_button.dart';
 
+import '../../../generate_mocks.mocks.dart';
 import '../../../golden_test_runner.dart';
-import '../../../mocks.mocks.dart';
 
 void main() {
   late MockAuthenticationBloc mockAuthenticationBloc;

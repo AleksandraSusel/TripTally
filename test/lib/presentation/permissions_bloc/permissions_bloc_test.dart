@@ -5,7 +5,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart';
 
-import '../../../mocks.mocks.dart';
+import '../../../generate_mocks.mocks.dart';
 
 void main() {
   group('PermissionsBloc', () {
