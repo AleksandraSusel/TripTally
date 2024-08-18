@@ -12,11 +12,13 @@ import '../../../../mocks.mocks.dart';
 
 void main() {
   late MockLoginUseCase mockLoginUseCase;
+  late MockCreateAccountUseCase mockCreateAccountUseCase;
   setUpAll(() {
     mockLoginUseCase = MockLoginUseCase();
+    mockCreateAccountUseCase = MockCreateAccountUseCase();
   });
 
-  AuthenticationBloc createBloc() => AuthenticationBloc(mockLoginUseCase);
+  AuthenticationBloc createBloc() => AuthenticationBloc(mockLoginUseCase, mockCreateAccountUseCase);
 
   blocTest<AuthenticationBloc, AuthenticationState>(
     'OnTapLoginEvent logs the user success',
@@ -32,11 +34,59 @@ void main() {
     ),
     expect: () => const [
       AuthenticationState.loading(),
-      AuthenticationState.success(),
+      AuthenticationState.logged(),
     ],
     verify: (_) {
       verify(mockLoginUseCase.call(mockedLoginEntity));
       verifyNoMoreInteractions(mockLoginUseCase);
+    },
+  );
+
+  blocTest<AuthenticationBloc, AuthenticationState>(
+    'OnTapRegisterEvent logs the user success',
+    setUp: () {
+      when(mockCreateAccountUseCase(any)).thenAnswer((_) async => const Right(Success()));
+    },
+    build: createBloc,
+    act: (bloc) => bloc.add(
+      OnTapRegisterEvent(
+        email: mockedCreateAccountEntity.email,
+        password: mockedCreateAccountEntity.password,
+        repeatPassword: mockedCreateAccountEntity.password,
+      ),
+    ),
+    expect: () => const [
+      AuthenticationState.loading(),
+      AuthenticationState.registered(),
+    ],
+    verify: (_) {
+      verify(mockCreateAccountUseCase(any));
+      verifyNoMoreInteractions(mockCreateAccountUseCase);
+    },
+  );
+
+  blocTest<AuthenticationBloc, AuthenticationState>(
+    'OnTapRegisterEvent logs the user failure',
+    setUp: () {
+      when(mockCreateAccountUseCase(any)).thenAnswer(
+        (_) async => const Left(Failure(error: Errors.somethingWentWrong)),
+      );
+    },
+    build: createBloc,
+    act: (bloc) => bloc.add(
+      OnTapRegisterEvent(
+        email: mockedCreateAccountEntity.email,
+        password: mockedCreateAccountEntity.password,
+        repeatPassword: mockedCreateAccountEntity.password,
+      ),
+    ),
+    expect: () => const [
+      AuthenticationState.loading(),
+      AuthenticationState.failure(Errors.somethingWentWrong),
+    ],
+    verify: (_) {
+      verify(mockCreateAccountUseCase(any));
+      verifyNoMoreInteractions(mockCreateAccountUseCase);
     },
   );
 

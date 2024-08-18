@@ -32,7 +32,7 @@ class _AvatarPickerState extends State<AvatarPicker> {
       listener: (context, state) => state.whenOrNull(
         loaded: (status) => _pickImage(_imageSource),
         permanentlyDenied: () => ImagePickerHelper.showPermissionDeniedDialog(context),
-        error: (error) => customSnackBar(
+        error: (error) => showSnackBar(
           context,
           error.errorText(context),
         ),
@@ -80,7 +80,7 @@ class _AvatarPickerState extends State<AvatarPicker> {
         setState(() => _image = XFile(pickedFile.path));
       } else {
         if (mounted) {
-          customSnackBar(context, Errors.noImageSelected.errorText(context));
+          showSnackBar(context, Errors.noImageSelected.errorText(context));
         }
       }
       if (mounted) {

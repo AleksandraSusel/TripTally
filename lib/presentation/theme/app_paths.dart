@@ -40,6 +40,7 @@ class AppPaths {
 
   // PNG
   static const String italy = '$pngPath/italy.png';
+  static const String greece = '$pngPath/greece.png';
   static const String samplePerson = '$pngPath/person.png';
   static const String beach = '$pngPath/auth_bg.png';
   static const String appleLogo = '$pngPath/apple_logo.png';
@@ -55,10 +56,15 @@ class AppPaths {
   static const String plusM3 = '$m3SvgPath/plus.svg';
   static const String historyM3 = '$m3SvgPath/history.svg';
   static const String edit = '$m3SvgPath/edit.svg';
+  static const String community = '$m3SvgPath/community.svg';
+  static const String dashboard = '$m3SvgPath/dashboard.svg';
+  static const String luggage = '$m3SvgPath/luggage.svg';
+  static const String statistic = '$m3SvgPath/statistic.svg';
   static const String menu = '$m3SvgPath/menu.svg';
   static const String camera = '$m3SvgPath/camera.svg';
   static const String plusOutlined = '$m3SvgPath/plus_outlined.svg';
   static const String bike = '$m3SvgPath/bike.svg';
   static const String motorcycle = '$m3SvgPath/motorcycle.svg';
   static const String nextArrow = '$m3SvgPath/next_arrow.svg';
+  static const String editIcon = '$m3SvgPath/edit_icon.svg';
 }

@@ -31,6 +31,7 @@ class AppColorsLight {
   static const secondaryContainer = Color(0xffffddba);
   static const onSecondaryContainer = Color(0xff2b1700);
   static const tertiary = Color(0xff4f6629);
+  static const greenConfirmation = Color(0xff5C9E31);
   static const onTertiary = Color(0xffffffff);
   static const tertiaryContainer = Color(0xffd0eda0);
   static const onTertiaryContainer = Color(0xff121f00);
@@ -38,6 +39,7 @@ class AppColorsLight {
   static const onError = Color(0xffffffff);
   static const errorContainer = Color(0xffffdad6);
   static const onErrorContainer = Color(0xff3b0907);
+  static const error40 = Color(0xffBA1B1B);
   static const background = Color(0xfffff8f4);
   static const onBackground = Color(0xff211a14);
   static const surface = Color(0xfffff8f4);

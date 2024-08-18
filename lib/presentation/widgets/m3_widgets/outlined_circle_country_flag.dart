@@ -13,7 +13,7 @@ class OutlinedCircleCountryFlag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(AppDimensions.d16),
+      margin: const EdgeInsets.all(AppDimensions.d14),
       height: AppDimensions.d40,
       width: AppDimensions.d40,
       clipBehavior: Clip.hardEdge,
