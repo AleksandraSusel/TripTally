@@ -35,12 +35,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<AppBloc>(),
+      create: (context) => getIt<AppBloc>()..add(const OnInitializeAppEvent()),
       child: BlocListener<AppBloc, AppState>(
         listener: (context, state) => state.whenOrNull(
-          initial: () => getIt<AppRouter>().push(RegistrationRoute()),
-          success: () => getIt<AppRouter>().push(NewTripRoute()),
-          toLoginPage: () => getIt<AppRouter>().push(AuthenticationRoute()),
+          initial: () => getIt<AppRouter>().replaceAll([RegistrationRoute()]),
+          success: () => getIt<AppRouter>().replaceAll([const HomeRoute()]),
+          toLoginPage: () => getIt<AppRouter>().replaceAll([AuthenticationRoute()]),
           loading: () => const Center(
             child: CircularProgressIndicator(),
           ),

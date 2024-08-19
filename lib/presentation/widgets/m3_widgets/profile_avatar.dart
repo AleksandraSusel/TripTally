@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 
@@ -13,13 +14,15 @@ class ProfileAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
       height: AppDimensions.d56 * size,
       width: AppDimensions.d56 * size,
       decoration: BoxDecoration(
         border: Border.all(width: 2.5),
         borderRadius: BorderRadius.circular(AppDimensions.d32),
       ),
+      duration: 400.ms,
+      curve: Curves.easeInOut,
       child: const CircleAvatar(
         foregroundImage: AssetImage(AppPaths.samplePerson),
       ),
