@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       create: (context) => getIt<AppBloc>()..add(const OnInitializeAppEvent()),
       child: BlocListener<AppBloc, AppState>(
         listener: (context, state) => state.whenOrNull(
-          initial: () => getIt<AppRouter>().replaceAll([RegistrationRoute()]),
+          initial: () => getIt<AppRouter>().replaceAll([AuthenticationRoute()]),
           success: () => getIt<AppRouter>().replaceAll([const HomeRoute()]),
           toLoginPage: () => getIt<AppRouter>().replaceAll([AuthenticationRoute()]),
           loading: () => const Center(
