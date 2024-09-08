@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
+import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_selection_card.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/cards/outlined_trip_card.dart';
 
@@ -59,7 +61,7 @@ class _Body extends StatelessWidget {
                 subtitle: context.tr.manageTripsPage_planNewSubtitle,
                 iconBGColor: context.thc.tertiaryContainer,
                 iconAsset: AppPaths.plusM3,
-                onTap: () {},
+                onTap: () => context.router.push(CreateTripBasicInfoRoute()),
               ),
               const SizedBox(height: AppDimensions.d8),
               ElevatedSelectionCard(

@@ -37,6 +37,7 @@ class CreateTripBasicInfoPageState extends State<CreateTripBasicInfoPage> {
           error: (error) => showSnackBar(context, error.errorText(context)),
         ),
         child: Scaffold(
+          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
           floatingActionButton: ProceedFloatingActionButton(
             onPressed: () {
               _formKey.currentState?.validate();

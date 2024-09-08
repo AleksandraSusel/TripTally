@@ -17,6 +17,8 @@ class ProceedFloatingActionButton extends StatelessWidget {
     return FloatingActionButton.extended(
       backgroundColor: context.thc.tertiaryContainer,
       clipBehavior: Clip.hardEdge,
+      elevation: AppDimensions.d2,
+      highlightElevation: AppDimensions.d4,
       label: Row(
         children: [
           Text(
