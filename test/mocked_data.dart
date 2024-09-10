@@ -59,7 +59,8 @@ const mockedCreateTripDto = CreateTripDto(
   countryCode: 'PL',
   dateFrom: '2024-08-12',
   dateTo: '2024-08-13',
-  plannedCost: 3000,
+  amount: 3000,
+  currency: 'USD',
 );
 
 const mockedCreateTripEntity = CreateTripEntity(
@@ -69,6 +70,7 @@ const mockedCreateTripEntity = CreateTripEntity(
   dateFrom: '2024-08-12',
   dateTo: '2024-08-13',
   plannedCost: 3000,
+  currency: 'USD',
 );
 const testToken = 'eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ';
 

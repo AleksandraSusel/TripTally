@@ -5,6 +5,7 @@ import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentic
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/create_expenses_page.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/create_trip_basic_info_page.dart';
+import 'package:trip_tally/presentation/pages/create_trip_page/create_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/edit_current_trip_page/edit_current_trip_page.dart';
 import 'package:trip_tally/presentation/pages/home_page/home_page.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart';

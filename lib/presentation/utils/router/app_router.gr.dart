@@ -40,6 +40,7 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: CreateTripBasicInfoPage(
+          bloc: args.bloc,
           key: args.key,
           cubit: args.cubit,
         ),
@@ -241,12 +242,14 @@ class CreateExpensesRouteArgs {
 /// [CreateTripBasicInfoPage]
 class CreateTripBasicInfoRoute extends PageRouteInfo<CreateTripBasicInfoRouteArgs> {
   CreateTripBasicInfoRoute({
+    CreateTripBloc? bloc,
     Key? key,
     OsmSuggestionsCubit? cubit,
     List<PageRouteInfo>? children,
   }) : super(
           CreateTripBasicInfoRoute.name,
           args: CreateTripBasicInfoRouteArgs(
+            bloc: bloc,
             key: key,
             cubit: cubit,
           ),
@@ -260,9 +263,12 @@ class CreateTripBasicInfoRoute extends PageRouteInfo<CreateTripBasicInfoRouteArg
 
 class CreateTripBasicInfoRouteArgs {
   const CreateTripBasicInfoRouteArgs({
+    this.bloc,
     this.key,
     this.cubit,
   });
+
+  final CreateTripBloc? bloc;
 
   final Key? key;
 
@@ -270,7 +276,7 @@ class CreateTripBasicInfoRouteArgs {
 
   @override
   String toString() {
-    return 'CreateTripBasicInfoRouteArgs{key: $key, cubit: $cubit}';
+    return 'CreateTripBasicInfoRouteArgs{bloc: $bloc, key: $key, cubit: $cubit}';
   }
 }
 

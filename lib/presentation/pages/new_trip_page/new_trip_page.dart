@@ -131,6 +131,7 @@ class _BodyState extends State<_Body> {
                               dateFrom: DateFormat('yyyy-MM-dd').format(startDate!),
                               dateTo: DateFormat('yyyy-MM-dd').format(endDate!),
                               plannedCost: 3000,
+                              currency: 'USD',
                             ),
                           ),
                       text: context.tr.newTripPage_submit,

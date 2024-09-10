@@ -1,14 +1,14 @@
 import 'package:equatable/equatable.dart';
 
-class NewTripEvent extends Equatable {
-  const NewTripEvent();
+class CreateTripEvent extends Equatable {
+  const CreateTripEvent();
 
   @override
   List<Object?> get props => [];
 }
 
-class AddTripEvent extends NewTripEvent {
-  const AddTripEvent({
+class OnCreateTripEvent extends CreateTripEvent {
+  const OnCreateTripEvent({
     required this.cityName,
     required this.transportType,
     required this.countryCode,
