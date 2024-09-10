@@ -39,14 +39,15 @@ import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i27;
 import 'package:trip_tally/domain/use_case/sign_out_use_case.dart' as _i30;
 import 'package:trip_tally/domain/use_case/update_user_profile_use_case.dart' as _i35;
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i13;
-import 'package:trip_tally/injectable/modules/api_module.dart' as _i43;
-import 'package:trip_tally/injectable/modules/app_router_module.dart' as _i42;
-import 'package:trip_tally/injectable/modules/firebase_auth_module.dart' as _i45;
+import 'package:trip_tally/injectable/modules/api_module.dart' as _i45;
+import 'package:trip_tally/injectable/modules/app_router_module.dart' as _i43;
+import 'package:trip_tally/injectable/modules/firebase_auth_module.dart' as _i46;
 import 'package:trip_tally/injectable/modules/osm_module.dart' as _i44;
-import 'package:trip_tally/injectable/modules/shared_preferences_module.dart' as _i46;
+import 'package:trip_tally/injectable/modules/shared_preferences_module.dart' as _i47;
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart' as _i37;
 import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart' as _i16;
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart' as _i38;
+import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart' as _i42;
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart' as _i40;
 import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart' as _i41;
 import 'package:trip_tally/presentation/theme/theme_manager.dart' as _i14;
@@ -115,16 +116,17 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i39.CreateTripUseCase>(() => _i39.CreateTripUseCase(gh<_i33.TripsRepo>()));
     gh.factory<_i40.NewTripBloc>(() => _i40.NewTripBloc(gh<_i39.CreateTripUseCase>()));
     gh.factory<_i41.UpdateUserProfileBloc>(() => _i41.UpdateUserProfileBloc(gh<_i35.UpdateUserProfileUseCase>()));
+    gh.factory<_i42.CreateTripBloc>(() => _i42.CreateTripBloc(gh<_i39.CreateTripUseCase>()));
     return this;
   }
 }
 
-class _$AppRouterModule extends _i42.AppRouterModule {}
-
-class _$ApiModule extends _i43.ApiModule {}
+class _$AppRouterModule extends _i43.AppRouterModule {}
 
 class _$OsmModule extends _i44.OsmModule {}
 
-class _$FirebaseAuthModule extends _i45.FirebaseAuthModule {}
+class _$ApiModule extends _i45.ApiModule {}
 
-class _$SharedPreferencesModule extends _i46.SharedPreferencesModule {}
+class _$FirebaseAuthModule extends _i46.FirebaseAuthModule {}
+
+class _$SharedPreferencesModule extends _i47.SharedPreferencesModule {}

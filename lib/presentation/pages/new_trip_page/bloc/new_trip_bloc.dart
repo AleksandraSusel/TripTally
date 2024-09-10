@@ -22,6 +22,7 @@ class NewTripBloc extends Bloc<NewTripEvent, NewTripState> {
         dateFrom: event.dateFrom,
         dateTo: event.dateTo,
         plannedCost: event.plannedCost,
+        currency: event.currency,
       ),
     );
     result.fold(

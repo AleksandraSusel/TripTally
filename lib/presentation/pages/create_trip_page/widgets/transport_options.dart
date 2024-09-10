@@ -4,14 +4,27 @@ import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
 
 class TransportOptions extends StatefulWidget {
-  const TransportOptions({super.key});
+  const TransportOptions({
+    required this.onSelected,
+    required this.initialTransportType,
+    super.key,
+  });
+
+  final ValueSetter<TransportType> onSelected;
+  final TransportType initialTransportType;
 
   @override
   State<TransportOptions> createState() => _TransportOptionsState();
 }
 
 class _TransportOptionsState extends State<TransportOptions> {
-  TransportType _selectedTransport = TransportType.flight;
+  late TransportType _selectedTransport;
+
+  @override
+  void initState() {
+    _selectedTransport = widget.initialTransportType;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +38,7 @@ class _TransportOptionsState extends State<TransportOptions> {
           onSelected: () {
             setState(() {
               _selectedTransport = transport;
+              widget.onSelected(transport);
             });
           },
         );

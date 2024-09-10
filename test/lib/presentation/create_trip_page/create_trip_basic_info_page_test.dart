@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_state.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/create_trip_basic_info_page.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/proceed_floating_action_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_suggestions_cubit.dart';
@@ -13,8 +14,13 @@ import '../../../mocked_data.dart';
 
 void main() {
   late MockOsmSuggestionsCubit mockOsmSuggestionsCubit;
+  late MockCreateTripBloc mockCreateTripBloc;
 
   setUp(() {
+    mockCreateTripBloc = MockCreateTripBloc();
+    when(mockCreateTripBloc.state).thenAnswer((_) => const CreateTripState.initial());
+    when(mockCreateTripBloc.stream).thenAnswer((_) => Stream.value(const CreateTripState.initial()));
+    when(mockCreateTripBloc.close()).thenAnswer((_) async {});
     mockOsmSuggestionsCubit = MockOsmSuggestionsCubit();
     when(mockOsmSuggestionsCubit.state).thenAnswer((_) => const OsmSuggestionsState.loading());
     when(mockOsmSuggestionsCubit.stream).thenAnswer((_) => Stream.value(const OsmSuggestionsState.loading()));
@@ -24,7 +30,10 @@ void main() {
 
   tearDown(tearDownMockKeyboardVisibilityHandler);
 
-  CreateTripBasicInfoPage buildPage() => CreateTripBasicInfoPage(cubit: mockOsmSuggestionsCubit);
+  CreateTripBasicInfoPage buildPage() => CreateTripBasicInfoPage(
+        cubit: mockOsmSuggestionsCubit,
+        bloc: mockCreateTripBloc,
+      );
 
   runGoldenTest(
     'CreateTripBasicInfoPage - Initial Destination',

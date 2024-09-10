@@ -27,6 +27,7 @@ mixin _$CreateAccountEntity {
 abstract class $CreateAccountEntityCopyWith<$Res> {
   factory $CreateAccountEntityCopyWith(CreateAccountEntity value, $Res Function(CreateAccountEntity) then) =
       _$CreateAccountEntityCopyWithImpl<$Res, CreateAccountEntity>;
+
   @useResult
   $Res call({String email, String password});
 }
@@ -65,6 +66,7 @@ abstract class _$$CreateAccountEntityImplCopyWith<$Res> implements $CreateAccoun
   factory _$$CreateAccountEntityImplCopyWith(
           _$CreateAccountEntityImpl value, $Res Function(_$CreateAccountEntityImpl) then) =
       __$$CreateAccountEntityImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({String email, String password});
@@ -137,8 +139,10 @@ abstract class _CreateAccountEntity implements CreateAccountEntity {
 
   @override
   String get email;
+
   @override
   String get password;
+
   @override
   @JsonKey(ignore: true)
   _$$CreateAccountEntityImplCopyWith<_$CreateAccountEntityImpl> get copyWith => throw _privateConstructorUsedError;

@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CreateTripEntity {
   String get cityName => throw _privateConstructorUsedError;
+  String get currency => throw _privateConstructorUsedError;
   String get transportType => throw _privateConstructorUsedError;
   String get countryCode => throw _privateConstructorUsedError;
   String get dateFrom => throw _privateConstructorUsedError;
@@ -31,9 +32,16 @@ mixin _$CreateTripEntity {
 abstract class $CreateTripEntityCopyWith<$Res> {
   factory $CreateTripEntityCopyWith(CreateTripEntity value, $Res Function(CreateTripEntity) then) =
       _$CreateTripEntityCopyWithImpl<$Res, CreateTripEntity>;
+
   @useResult
   $Res call(
-      {String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
+      {String cityName,
+      String currency,
+      String transportType,
+      String countryCode,
+      String dateFrom,
+      String dateTo,
+      double plannedCost});
 }
 
 /// @nodoc
@@ -42,6 +50,7 @@ class _$CreateTripEntityCopyWithImpl<$Res, $Val extends CreateTripEntity> implem
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -49,6 +58,7 @@ class _$CreateTripEntityCopyWithImpl<$Res, $Val extends CreateTripEntity> implem
   @override
   $Res call({
     Object? cityName = null,
+    Object? currency = null,
     Object? transportType = null,
     Object? countryCode = null,
     Object? dateFrom = null,
@@ -59,6 +69,10 @@ class _$CreateTripEntityCopyWithImpl<$Res, $Val extends CreateTripEntity> implem
       cityName: null == cityName
           ? _value.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
               as String,
       transportType: null == transportType
           ? _value.transportType
@@ -88,10 +102,17 @@ class _$CreateTripEntityCopyWithImpl<$Res, $Val extends CreateTripEntity> implem
 abstract class _$$CreateTripEntityImplCopyWith<$Res> implements $CreateTripEntityCopyWith<$Res> {
   factory _$$CreateTripEntityImplCopyWith(_$CreateTripEntityImpl value, $Res Function(_$CreateTripEntityImpl) then) =
       __$$CreateTripEntityImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
-      {String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
+      {String cityName,
+      String currency,
+      String transportType,
+      String countryCode,
+      String dateFrom,
+      String dateTo,
+      double plannedCost});
 }
 
 /// @nodoc
@@ -104,6 +125,7 @@ class __$$CreateTripEntityImplCopyWithImpl<$Res> extends _$CreateTripEntityCopyW
   @override
   $Res call({
     Object? cityName = null,
+    Object? currency = null,
     Object? transportType = null,
     Object? countryCode = null,
     Object? dateFrom = null,
@@ -114,6 +136,10 @@ class __$$CreateTripEntityImplCopyWithImpl<$Res> extends _$CreateTripEntityCopyW
       cityName: null == cityName
           ? _value.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
               as String,
       transportType: null == transportType
           ? _value.transportType
@@ -144,6 +170,7 @@ class __$$CreateTripEntityImplCopyWithImpl<$Res> extends _$CreateTripEntityCopyW
 class _$CreateTripEntityImpl implements _CreateTripEntity {
   const _$CreateTripEntityImpl(
       {required this.cityName,
+      required this.currency,
       required this.transportType,
       required this.countryCode,
       required this.dateFrom,
@@ -152,6 +179,8 @@ class _$CreateTripEntityImpl implements _CreateTripEntity {
 
   @override
   final String cityName;
+  @override
+  final String currency;
   @override
   final String transportType;
   @override
@@ -165,7 +194,7 @@ class _$CreateTripEntityImpl implements _CreateTripEntity {
 
   @override
   String toString() {
-    return 'CreateTripEntity(cityName: $cityName, transportType: $transportType, countryCode: $countryCode, dateFrom: $dateFrom, dateTo: $dateTo, plannedCost: $plannedCost)';
+    return 'CreateTripEntity(cityName: $cityName, currency: $currency, transportType: $transportType, countryCode: $countryCode, dateFrom: $dateFrom, dateTo: $dateTo, plannedCost: $plannedCost)';
   }
 
   @override
@@ -174,6 +203,7 @@ class _$CreateTripEntityImpl implements _CreateTripEntity {
         (other.runtimeType == runtimeType &&
             other is _$CreateTripEntityImpl &&
             (identical(other.cityName, cityName) || other.cityName == cityName) &&
+            (identical(other.currency, currency) || other.currency == currency) &&
             (identical(other.transportType, transportType) || other.transportType == transportType) &&
             (identical(other.countryCode, countryCode) || other.countryCode == countryCode) &&
             (identical(other.dateFrom, dateFrom) || other.dateFrom == dateFrom) &&
@@ -182,7 +212,8 @@ class _$CreateTripEntityImpl implements _CreateTripEntity {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, cityName, transportType, countryCode, dateFrom, dateTo, plannedCost);
+  int get hashCode =>
+      Object.hash(runtimeType, cityName, currency, transportType, countryCode, dateFrom, dateTo, plannedCost);
 
   @JsonKey(ignore: true)
   @override
@@ -194,6 +225,7 @@ class _$CreateTripEntityImpl implements _CreateTripEntity {
 abstract class _CreateTripEntity implements CreateTripEntity {
   const factory _CreateTripEntity(
       {required final String cityName,
+      required final String currency,
       required final String transportType,
       required final String countryCode,
       required final String dateFrom,
@@ -203,6 +235,8 @@ abstract class _CreateTripEntity implements CreateTripEntity {
   @override
   String get cityName;
   @override
+  String get currency;
+  @override
   String get transportType;
   @override
   String get countryCode;
@@ -210,8 +244,10 @@ abstract class _CreateTripEntity implements CreateTripEntity {
   String get dateFrom;
   @override
   String get dateTo;
+
   @override
   double get plannedCost;
+
   @override
   @JsonKey(ignore: true)
   _$$CreateTripEntityImplCopyWith<_$CreateTripEntityImpl> get copyWith => throw _privateConstructorUsedError;
