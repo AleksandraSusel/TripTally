@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/injectable/injectable.dart';
-import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart';
-import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_state.dart';
+import 'package:trip_tally/presentation/pages/create_trip_page/create_trip_bloc.dart';
+import 'package:trip_tally/presentation/pages/create_trip_page/create_trip_event.dart';
+import 'package:trip_tally/presentation/pages/create_trip_page/create_trip_state.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/widgets/budget_fields.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/widgets/transport_options.dart';
 import 'package:trip_tally/presentation/theme/app_colors.dart';
@@ -87,7 +88,7 @@ class _BodyState extends State<_Body> {
     _budgetController = TextEditingController();
     _cityNameController = TextEditingController();
     _currencyController = TextEditingController();
-    _countryCode = TextEditingController();
+    _countryCode = TextEditingController /**/ ();
     isPickedDate = true;
     super.initState();
   }
@@ -152,20 +153,19 @@ class _BodyState extends State<_Body> {
                   });
                 },
               ).animate().slideX(begin: -1),
-              if (!isPickedDate)
+              if (isPickedDate == false)
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
-                    padding: const EdgeInsets.only(
-                      right: AppDimensions.d16,
-                      top: AppDimensions.d10,
-                    ),
+                    padding: const EdgeInsets.only(right: 16, top: 10),
                     child: Text(
-                      context.tr.createTripBasicInfoPage_dateNotSelected,
+                      'Date not selected',
                       style: context.tht.titleSmall?.copyWith(color: AppColorsLight.error40),
                     ),
                   ),
-                ),
+                )
+              else
+                const SizedBox(),
             ],
           ),
         ),
@@ -177,8 +177,6 @@ class _BodyState extends State<_Body> {
   void dispose() {
     _currencyController.dispose();
     _budgetController.dispose();
-    _cityNameController.dispose();
-    _countryCode.dispose();
     super.dispose();
   }
 }
