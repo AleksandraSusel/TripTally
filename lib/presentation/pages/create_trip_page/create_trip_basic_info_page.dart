@@ -87,7 +87,7 @@ class _BodyState extends State<_Body> {
     _budgetController = TextEditingController();
     _cityNameController = TextEditingController();
     _currencyController = TextEditingController();
-    _countryCode = TextEditingController /**/ ();
+    _countryCode = TextEditingController();
     isPickedDate = true;
     super.initState();
   }
@@ -152,19 +152,20 @@ class _BodyState extends State<_Body> {
                   });
                 },
               ).animate().slideX(begin: -1),
-              if (isPickedDate == false)
+              if (!isPickedDate)
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 16, top: 10),
+                    padding: const EdgeInsets.only(
+                      right: AppDimensions.d16,
+                      top: AppDimensions.d10,
+                    ),
                     child: Text(
-                      'Date not selected',
+                      context.tr.createTripBasicInfoPage_dateNotSelected,
                       style: context.tht.titleSmall?.copyWith(color: AppColorsLight.error40),
                     ),
                   ),
-                )
-              else
-                const SizedBox(),
+                ),
             ],
           ),
         ),
@@ -176,6 +177,8 @@ class _BodyState extends State<_Body> {
   void dispose() {
     _currencyController.dispose();
     _budgetController.dispose();
+    _cityNameController.dispose();
+    _countryCode.dispose();
     super.dispose();
   }
 }

@@ -35,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "authPage_singUpToAcc": MessageLookupByLibrary.simpleMessage("Sign up to your account"),
         "bottomNavBarItem_dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
         "bottomNavBarItem_trips": MessageLookupByLibrary.simpleMessage("Trips"),
+        "createTripBasicInfoPage_dateNotSelected": MessageLookupByLibrary.simpleMessage("Date not selected"),
         "createTripBudgetHelper": MessageLookupByLibrary.simpleMessage("Your planned budget"),
         "createTripBudgetHint": MessageLookupByLibrary.simpleMessage("Budget"),
         "createTripCurrencyHelper": MessageLookupByLibrary.simpleMessage("The currency you will use"),

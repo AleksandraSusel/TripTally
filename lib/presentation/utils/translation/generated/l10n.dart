@@ -1381,6 +1381,16 @@ class Translation {
       args: [],
     );
   }
+
+  /// `Date not selected`
+  String get createTripBasicInfoPage_dateNotSelected {
+    return Intl.message(
+      'Date not selected',
+      name: 'createTripBasicInfoPage_dateNotSelected',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {
