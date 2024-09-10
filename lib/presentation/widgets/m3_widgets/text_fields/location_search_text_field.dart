@@ -11,14 +11,16 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_sug
 import 'package:trip_tally/presentation/widgets/m3_widgets/rectangular_country_flag.dart';
 
 class LocationSearchTextField extends StatefulWidget {
-  const LocationSearchTextField({super.key});
+  const LocationSearchTextField({required this.onLocationSelected, super.key});
+
+  final void Function(String cityName, String countryCode) onLocationSelected;
 
   @override
   State<LocationSearchTextField> createState() => _LocationSearchTextFieldState();
 }
 
 class _LocationSearchTextFieldState extends State<LocationSearchTextField> {
-  late TextEditingController _searchController;
+  late final TextEditingController _searchController;
 
   @override
   void initState() {
@@ -28,16 +30,15 @@ class _LocationSearchTextFieldState extends State<LocationSearchTextField> {
 
   @override
   Widget build(BuildContext context) => TypeAheadField<PlaceEntity>(
-        emptyBuilder: (ctx) => const SizedBox.shrink(),
-        builder: (ctx, controller, fNode) {
-          _searchController = controller;
-
+        controller: _searchController,
+        hideOnEmpty: true,
+        builder: (context, controller, fNode) {
           return Padding(
             padding: const EdgeInsets.all(AppDimensions.d16),
             child: CustomTextField(
               focusNode: fNode,
               prefixIcon: const Icon(Icons.search),
-              controller: _searchController,
+              controller: controller,
               labelText: context.tr.createTripSearchHint,
               validator: (value) => Validator.isFieldEmpty(value: value, context: context),
             ),
@@ -79,6 +80,16 @@ class _LocationSearchTextFieldState extends State<LocationSearchTextField> {
             ],
           ),
         ),
-        onSelected: (location) => _searchController.text = getDestinationFormat(location),
+        onSelected: (location) {
+          _searchController.text = getDestinationFormat(location);
+          widget.onLocationSelected(location.name, location.address.countryCode);
+        },
+        constraints: const BoxConstraints(minWidth: 1000),
       );
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 }

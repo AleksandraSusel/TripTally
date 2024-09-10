@@ -21,13 +21,19 @@ CreateTripDto _$CreateTripDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CreateTripDto {
   String get cityName => throw _privateConstructorUsedError;
+
+  String get currency => throw _privateConstructorUsedError;
+
   String get transportType => throw _privateConstructorUsedError;
   String get countryCode => throw _privateConstructorUsedError;
   String get dateFrom => throw _privateConstructorUsedError;
+
   String get dateTo => throw _privateConstructorUsedError;
-  double get plannedCost => throw _privateConstructorUsedError;
+
+  double get amount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $CreateTripDtoCopyWith<CreateTripDto> get copyWith => throw _privateConstructorUsedError;
 }
@@ -36,9 +42,16 @@ mixin _$CreateTripDto {
 abstract class $CreateTripDtoCopyWith<$Res> {
   factory $CreateTripDtoCopyWith(CreateTripDto value, $Res Function(CreateTripDto) then) =
       _$CreateTripDtoCopyWithImpl<$Res, CreateTripDto>;
+
   @useResult
   $Res call(
-      {String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
+      {String cityName,
+      String currency,
+      String transportType,
+      String countryCode,
+      String dateFrom,
+      String dateTo,
+      double amount});
 }
 
 /// @nodoc
@@ -47,6 +60,7 @@ class _$CreateTripDtoCopyWithImpl<$Res, $Val extends CreateTripDto> implements $
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -54,16 +68,21 @@ class _$CreateTripDtoCopyWithImpl<$Res, $Val extends CreateTripDto> implements $
   @override
   $Res call({
     Object? cityName = null,
+    Object? currency = null,
     Object? transportType = null,
     Object? countryCode = null,
     Object? dateFrom = null,
     Object? dateTo = null,
-    Object? plannedCost = null,
+    Object? amount = null,
   }) {
     return _then(_value.copyWith(
       cityName: null == cityName
           ? _value.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
               as String,
       transportType: null == transportType
           ? _value.transportType
@@ -81,9 +100,9 @@ class _$CreateTripDtoCopyWithImpl<$Res, $Val extends CreateTripDto> implements $
           ? _value.dateTo
           : dateTo // ignore: cast_nullable_to_non_nullable
               as String,
-      plannedCost: null == plannedCost
-          ? _value.plannedCost
-          : plannedCost // ignore: cast_nullable_to_non_nullable
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
               as double,
     ) as $Val);
   }
@@ -93,10 +112,17 @@ class _$CreateTripDtoCopyWithImpl<$Res, $Val extends CreateTripDto> implements $
 abstract class _$$CreateAddTripDtoImplCopyWith<$Res> implements $CreateTripDtoCopyWith<$Res> {
   factory _$$CreateAddTripDtoImplCopyWith(_$CreateAddTripDtoImpl value, $Res Function(_$CreateAddTripDtoImpl) then) =
       __$$CreateAddTripDtoImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
-      {String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
+      {String cityName,
+      String currency,
+      String transportType,
+      String countryCode,
+      String dateFrom,
+      String dateTo,
+      double amount});
 }
 
 /// @nodoc
@@ -109,16 +135,21 @@ class __$$CreateAddTripDtoImplCopyWithImpl<$Res> extends _$CreateTripDtoCopyWith
   @override
   $Res call({
     Object? cityName = null,
+    Object? currency = null,
     Object? transportType = null,
     Object? countryCode = null,
     Object? dateFrom = null,
     Object? dateTo = null,
-    Object? plannedCost = null,
+    Object? amount = null,
   }) {
     return _then(_$CreateAddTripDtoImpl(
       cityName: null == cityName
           ? _value.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
+      currency: null == currency
+          ? _value.currency
+          : currency // ignore: cast_nullable_to_non_nullable
               as String,
       transportType: null == transportType
           ? _value.transportType
@@ -136,9 +167,9 @@ class __$$CreateAddTripDtoImplCopyWithImpl<$Res> extends _$CreateTripDtoCopyWith
           ? _value.dateTo
           : dateTo // ignore: cast_nullable_to_non_nullable
               as String,
-      plannedCost: null == plannedCost
-          ? _value.plannedCost
-          : plannedCost // ignore: cast_nullable_to_non_nullable
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
               as double,
     ));
   }
@@ -149,16 +180,19 @@ class __$$CreateAddTripDtoImplCopyWithImpl<$Res> extends _$CreateTripDtoCopyWith
 class _$CreateAddTripDtoImpl implements _CreateAddTripDto {
   const _$CreateAddTripDtoImpl(
       {required this.cityName,
+      required this.currency,
       required this.transportType,
       required this.countryCode,
       required this.dateFrom,
       required this.dateTo,
-      required this.plannedCost});
+      required this.amount});
 
   factory _$CreateAddTripDtoImpl.fromJson(Map<String, dynamic> json) => _$$CreateAddTripDtoImplFromJson(json);
 
   @override
   final String cityName;
+  @override
+  final String currency;
   @override
   final String transportType;
   @override
@@ -168,11 +202,11 @@ class _$CreateAddTripDtoImpl implements _CreateAddTripDto {
   @override
   final String dateTo;
   @override
-  final double plannedCost;
+  final double amount;
 
   @override
   String toString() {
-    return 'CreateTripDto(cityName: $cityName, transportType: $transportType, countryCode: $countryCode, dateFrom: $dateFrom, dateTo: $dateTo, plannedCost: $plannedCost)';
+    return 'CreateTripDto(cityName: $cityName, currency: $currency, transportType: $transportType, countryCode: $countryCode, dateFrom: $dateFrom, dateTo: $dateTo, amount: $amount)';
   }
 
   @override
@@ -181,16 +215,18 @@ class _$CreateAddTripDtoImpl implements _CreateAddTripDto {
         (other.runtimeType == runtimeType &&
             other is _$CreateAddTripDtoImpl &&
             (identical(other.cityName, cityName) || other.cityName == cityName) &&
+            (identical(other.currency, currency) || other.currency == currency) &&
             (identical(other.transportType, transportType) || other.transportType == transportType) &&
             (identical(other.countryCode, countryCode) || other.countryCode == countryCode) &&
             (identical(other.dateFrom, dateFrom) || other.dateFrom == dateFrom) &&
             (identical(other.dateTo, dateTo) || other.dateTo == dateTo) &&
-            (identical(other.plannedCost, plannedCost) || other.plannedCost == plannedCost));
+            (identical(other.amount, amount) || other.amount == amount));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, cityName, transportType, countryCode, dateFrom, dateTo, plannedCost);
+  int get hashCode =>
+      Object.hash(runtimeType, cityName, currency, transportType, countryCode, dateFrom, dateTo, amount);
 
   @JsonKey(ignore: true)
   @override
@@ -209,26 +245,36 @@ class _$CreateAddTripDtoImpl implements _CreateAddTripDto {
 abstract class _CreateAddTripDto implements CreateTripDto {
   const factory _CreateAddTripDto(
       {required final String cityName,
+      required final String currency,
       required final String transportType,
       required final String countryCode,
       required final String dateFrom,
       required final String dateTo,
-      required final double plannedCost}) = _$CreateAddTripDtoImpl;
+      required final double amount}) = _$CreateAddTripDtoImpl;
 
   factory _CreateAddTripDto.fromJson(Map<String, dynamic> json) = _$CreateAddTripDtoImpl.fromJson;
 
   @override
   String get cityName;
+
+  @override
+  String get currency;
+
   @override
   String get transportType;
+
   @override
   String get countryCode;
+
   @override
   String get dateFrom;
+
   @override
   String get dateTo;
+
   @override
-  double get plannedCost;
+  double get amount;
+
   @override
   @JsonKey(ignore: true)
   _$$CreateAddTripDtoImplCopyWith<_$CreateAddTripDtoImpl> get copyWith => throw _privateConstructorUsedError;

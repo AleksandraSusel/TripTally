@@ -25,7 +25,8 @@ void main() {
       countryCode: mockedCreateTripDto.countryCode,
       dateFrom: mockedCreateTripDto.dateFrom,
       dateTo: mockedCreateTripDto.dateTo,
-      plannedCost: mockedCreateTripDto.plannedCost,
+      amount: mockedCreateTripDto.amount,
+      currency: mockedCreateTripDto.currency,
     );
     when(mockApiClient.addTrip(dto)).thenAnswer((_) async => const Success());
 
@@ -44,7 +45,8 @@ void main() {
         countryCode: mockedCreateTripDto.countryCode,
         dateFrom: mockedCreateTripDto.dateFrom,
         dateTo: mockedCreateTripDto.dateTo,
-        plannedCost: mockedCreateTripDto.plannedCost,
+        amount: mockedCreateTripDto.amount,
+        currency: mockedCreateTripDto.currency,
       );
 
       when(mockApiClient.addTrip(any)).thenThrow(Exception());
