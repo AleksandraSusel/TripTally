@@ -1,6 +1,6 @@
-import 'package:equatable/equatable.dart';
+part of 'create_trip_bloc.dart';
 
-class CreateTripEvent extends Equatable {
+abstract class CreateTripEvent extends Equatable {
   const CreateTripEvent();
 
   @override
@@ -25,4 +25,15 @@ class OnCreateTripEvent extends CreateTripEvent {
   final String dateFrom;
   final String dateTo;
   final double plannedCost;
+
+  @override
+  List<Object?> get props => [
+        cityName,
+        transportType,
+        currency,
+        countryCode,
+        dateFrom,
+        dateTo,
+        plannedCost,
+      ];
 }
