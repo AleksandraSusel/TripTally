@@ -7,7 +7,6 @@ import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_
 import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_state.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/widgets/budget_fields.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/widgets/transport_options.dart';
-import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/date_format.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
@@ -18,6 +17,7 @@ import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/proceed_floating_action_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/calendar/range_calendar.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/error_border_container.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_suggestions_cubit.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/navigation_app_bar.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/text_fields/location_search_text_field.dart';
@@ -76,25 +76,26 @@ class _BodyState extends State<_Body> {
   late final TextEditingController _currencyController;
   late final TextEditingController _budgetController;
   late final TextEditingController _cityNameController;
-  late final TextEditingController _countryCode;
+  late final TextEditingController _countryCodeController;
   DateTime? _startDate;
   DateTime? _endDate;
   TransportType _transportType = TransportType.flight;
-  late bool isPickedDate;
+  late bool showCalendarError;
 
   @override
   void initState() {
     _budgetController = TextEditingController();
     _cityNameController = TextEditingController();
     _currencyController = TextEditingController();
-    _countryCode = TextEditingController /**/ ();
-    isPickedDate = true;
+    _countryCodeController = TextEditingController();
+    showCalendarError = false;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: ProceedFloatingActionButton(
         onPressed: () {
           _formKey.currentState?.validate();
@@ -104,7 +105,7 @@ class _BodyState extends State<_Body> {
                     cityName: _cityNameController.text,
                     currency: MoneyFormat.extractCurrencyCode(_currencyController.text),
                     transportType: _transportType.name,
-                    countryCode: _countryCode.text,
+                    countryCode: _countryCodeController.text,
                     dateFrom: dateFormat.format(_startDate!),
                     dateTo: dateFormat.format(_endDate!),
                     plannedCost: double.parse(_budgetController.text),
@@ -112,7 +113,7 @@ class _BodyState extends State<_Body> {
                 );
           }
           return setState(() {
-            isPickedDate = false;
+            showCalendarError = !showCalendarError;
           });
         },
       ).animate().scale(delay: 400.ms),
@@ -127,7 +128,7 @@ class _BodyState extends State<_Body> {
                 onLocationSelected: (String cityName, String countryCode) {
                   setState(() {
                     _cityNameController.text = cityName;
-                    _countryCode.text = countryCode;
+                    _countryCodeController.text = countryCode;
                   });
                 },
               ).animate().fadeIn(),
@@ -143,28 +144,29 @@ class _BodyState extends State<_Body> {
                 currencyController: _currencyController,
                 budgetController: _budgetController,
               ).animate().fadeIn(),
-              RangeCalendar(
-                onDateRangeSelected: (from, to) {
-                  setState(() {
-                    _startDate = from;
-                    _endDate = to;
-                    isPickedDate = true;
-                  });
-                },
-              ).animate().slideX(begin: -1),
-              if (isPickedDate == false)
+              ErrorBorderContainer(
+                showError: showCalendarError,
+                child: RangeCalendar(
+                  onDateRangeSelected: (from, to) {
+                    setState(() {
+                      _startDate = from;
+                      _endDate = to;
+                      showCalendarError = false;
+                    });
+                  },
+                ).animate().slideX(begin: -1),
+              ),
+              if (showCalendarError)
                 Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 16, top: 10),
+                    padding: const EdgeInsets.only(right: AppDimensions.d16, top: AppDimensions.d10),
                     child: Text(
-                      'Date not selected',
-                      style: context.tht.titleSmall?.copyWith(color: AppColorsLight.error40),
+                      context.tr.createTripBasicInfoPage_dateNotSelected,
+                      style: context.tht.titleSmall?.copyWith(color: context.thc.error),
                     ),
                   ),
-                )
-              else
-                const SizedBox(),
+                ),
             ],
           ),
         ),
@@ -176,6 +178,8 @@ class _BodyState extends State<_Body> {
   void dispose() {
     _currencyController.dispose();
     _budgetController.dispose();
+    _cityNameController.dispose();
+    _countryCodeController.dispose();
     super.dispose();
   }
 }
