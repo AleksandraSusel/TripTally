@@ -28,6 +28,7 @@ class _$SuccessCopyWithImpl<$Res, $Val extends Success> implements $SuccessCopyW
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 }

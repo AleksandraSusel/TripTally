@@ -8,11 +8,12 @@ part 'create_trip_dto.g.dart';
 class CreateTripDto with _$CreateTripDto {
   const factory CreateTripDto({
     required String cityName,
+    required String currency,
     required String transportType,
     required String countryCode,
     required String dateFrom,
     required String dateTo,
-    required double plannedCost,
+    required double amount,
   }) = _CreateAddTripDto;
 
   factory CreateTripDto.fromJson(Map<String, dynamic> json) => _$CreateTripDtoFromJson(json);
@@ -24,7 +25,8 @@ class CreateTripDto with _$CreateTripDto {
       countryCode: entity.countryCode,
       dateFrom: entity.dateFrom,
       dateTo: entity.dateTo,
-      plannedCost: entity.plannedCost,
+      amount: entity.plannedCost,
+      currency: entity.currency,
     );
   }
 }

@@ -32,6 +32,7 @@ mixin _$PlaceEntity {
 abstract class $PlaceEntityCopyWith<$Res> {
   factory $PlaceEntityCopyWith(PlaceEntity value, $Res Function(PlaceEntity) then) =
       _$PlaceEntityCopyWithImpl<$Res, PlaceEntity>;
+
   @useResult
   $Res call(
       {String name,
@@ -53,6 +54,7 @@ class _$PlaceEntityCopyWithImpl<$Res, $Val extends PlaceEntity> implements $Plac
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -132,6 +134,7 @@ class _$PlaceEntityCopyWithImpl<$Res, $Val extends PlaceEntity> implements $Plac
 abstract class _$$PlaceEntityImplCopyWith<$Res> implements $PlaceEntityCopyWith<$Res> {
   factory _$$PlaceEntityImplCopyWith(_$PlaceEntityImpl value, $Res Function(_$PlaceEntityImpl) then) =
       __$$PlaceEntityImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -279,8 +282,10 @@ abstract class _PlaceEntity implements PlaceEntity {
   PlaceAddressEntity get address;
   @override
   CoordinatesEntity get coordinates;
+
   @override
   PlaceExtraTagsEntity? get extraTags;
+
   @override
   @JsonKey(ignore: true)
   _$$PlaceEntityImplCopyWith<_$PlaceEntityImpl> get copyWith => throw _privateConstructorUsedError;

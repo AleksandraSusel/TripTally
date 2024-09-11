@@ -22,6 +22,7 @@ import 'package:trip_tally/domain/utils/shared_prefs_utils.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/authentication_page.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
+import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart';
 import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart';
@@ -55,6 +56,7 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_sug
   AddExpenseUseCase,
   ExpensesRepo,
   CreateExpensesBloc,
+  CreateTripBloc,
 ])
 void main() {}
 

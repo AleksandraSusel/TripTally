@@ -33,6 +33,7 @@ void main() {
           dateFrom: '2022-01-02',
           dateTo: '2022-01-02',
           plannedCost: 100,
+          currency: 'USD',
         ),
       ),
       expect: () => [
@@ -54,6 +55,7 @@ void main() {
           dateFrom: '2022-01-02',
           dateTo: '2022-01-02',
           plannedCost: 100,
+          currency: 'USD',
         ),
       ),
       expect: () => [
