@@ -32,7 +32,6 @@ mixin _$CreateTripEntity {
 abstract class $CreateTripEntityCopyWith<$Res> {
   factory $CreateTripEntityCopyWith(CreateTripEntity value, $Res Function(CreateTripEntity) then) =
       _$CreateTripEntityCopyWithImpl<$Res, CreateTripEntity>;
-
   @useResult
   $Res call(
       {String cityName,
@@ -50,7 +49,6 @@ class _$CreateTripEntityCopyWithImpl<$Res, $Val extends CreateTripEntity> implem
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -102,7 +100,6 @@ class _$CreateTripEntityCopyWithImpl<$Res, $Val extends CreateTripEntity> implem
 abstract class _$$CreateTripEntityImplCopyWith<$Res> implements $CreateTripEntityCopyWith<$Res> {
   factory _$$CreateTripEntityImplCopyWith(_$CreateTripEntityImpl value, $Res Function(_$CreateTripEntityImpl) then) =
       __$$CreateTripEntityImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -244,10 +241,8 @@ abstract class _CreateTripEntity implements CreateTripEntity {
   String get dateFrom;
   @override
   String get dateTo;
-
   @override
   double get plannedCost;
-
   @override
   @JsonKey(ignore: true)
   _$$CreateTripEntityImplCopyWith<_$CreateTripEntityImpl> get copyWith => throw _privateConstructorUsedError;

@@ -25,7 +25,6 @@ mixin _$Failure {
 /// @nodoc
 abstract class $FailureCopyWith<$Res> {
   factory $FailureCopyWith(Failure value, $Res Function(Failure) then) = _$FailureCopyWithImpl<$Res, Failure>;
-
   @useResult
   $Res call({Errors error});
 }
@@ -36,7 +35,6 @@ class _$FailureCopyWithImpl<$Res, $Val extends Failure> implements $FailureCopyW
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -58,7 +56,6 @@ class _$FailureCopyWithImpl<$Res, $Val extends Failure> implements $FailureCopyW
 abstract class _$$FailureImplCopyWith<$Res> implements $FailureCopyWith<$Res> {
   factory _$$FailureImplCopyWith(_$FailureImpl value, $Res Function(_$FailureImpl) then) =
       __$$FailureImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({Errors error});
@@ -118,7 +115,6 @@ abstract class _Failure implements Failure {
 
   @override
   Errors get error;
-
   @override
   @JsonKey(ignore: true)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith => throw _privateConstructorUsedError;
