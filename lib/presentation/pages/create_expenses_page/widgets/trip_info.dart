@@ -40,7 +40,7 @@ class TripInfo extends StatelessWidget {
             SvgAsset(
               transportType.icon,
               color: context.thc.shadow,
-              height: 22,
+              height: AppDimensions.d22,
             ),
           ],
         ),
