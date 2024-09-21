@@ -2,13 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
-import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/category_dropdown_button.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/date_format.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/test_manager.dart';
 import 'package:trip_tally/presentation/utils/validators.dart';
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
 import 'package:trip_tally/presentation/widgets/keys/widgets_keys.dart';
@@ -57,10 +55,8 @@ class _AddExpenseFormState extends State<AddExpenseForm> {
                   child: CustomTextField(
                     key: WidgetsKeys.addExpenseFormNameExpense,
                     controller: _expenseNameController,
-                    labelText: getIt<TestsManager>().duringTestExecution ? 'Name' : context.tr.createExpensesPage_name,
-                    helperText: getIt<TestsManager>().duringTestExecution
-                        ? 'Name the expense'
-                        : context.tr.createExpensesPage_nameExpense,
+                    labelText: context.tr.createExpensesPage_name,
+                    helperText: context.tr.createExpensesPage_nameExpense,
                     validator: (value) => Validator.isFieldEmpty(
                       context: context,
                       value: value,
@@ -86,11 +82,8 @@ class _AddExpenseFormState extends State<AddExpenseForm> {
                     key: WidgetsKeys.addExpenseFormBudgetExpense,
                     controller: _budgetController,
                     textInputType: const TextInputType.numberWithOptions(decimal: true),
-                    labelText:
-                        getIt<TestsManager>().duringTestExecution ? 'Budget' : context.tr.createExpensesPage_budget,
-                    helperText: getIt<TestsManager>().duringTestExecution
-                        ? 'Cost of the expense'
-                        : context.tr.createExpensesPage_expenseCost,
+                    labelText: context.tr.createExpensesPage_budget,
+                    helperText: context.tr.createExpensesPage_expenseCost,
                     validator: (value) => Validator.isFieldEmpty(
                       context: context,
                       value: value,
@@ -100,10 +93,8 @@ class _AddExpenseFormState extends State<AddExpenseForm> {
                 const SizedBox(width: AppDimensions.d20),
                 Flexible(
                   child: CustomTextField(
-                    labelText:
-                        getIt<TestsManager>().duringTestExecution ? 'Currency' : context.tr.createExpensesPage_currency,
-                    helperText:
-                        getIt<TestsManager>().duringTestExecution ? 'Currency' : context.tr.createExpensesPage_currency,
+                    labelText: context.tr.createExpensesPage_currency,
+                    helperText: context.tr.createExpensesPage_currency,
                     readOnly: true,
                     initialValue: widget.currency,
                   ),
@@ -114,11 +105,11 @@ class _AddExpenseFormState extends State<AddExpenseForm> {
             Align(
               alignment: Alignment.centerRight,
               child: DoubleFloatingActionButtons(
-                leftActionKey: WidgetsKeys.addExpenseFormAddExpenseButton,
-                rightOnPressed: () {
+                leadingActionKey: WidgetsKeys.addExpenseFormAddExpenseButton,
+                trailingOnPressed: () {
                   context.router.maybePop();
                 },
-                leftOnPressed: () {
+                leadingOnPressed: () {
                   if (_formKey.currentState?.validate() ?? false) {
                     final expense = ExpenseEntity(
                       name: _expenseNameController.text,
@@ -130,15 +121,14 @@ class _AddExpenseFormState extends State<AddExpenseForm> {
                     );
 
                     widget.onAddExpense(expense);
+                    _budgetController.clear();
+                    _expenseNameController.clear();
                   }
                 },
-                rightActionText:
-                    getIt<TestsManager>().duringTestExecution ? 'Finish' : context.tr.createExpensesPage_finish,
-                leftActionText: getIt<TestsManager>().duringTestExecution
-                    ? 'Add expense'
-                    : context.tr.createExpensesPage_addExpenses,
-                rightActionIcon: AppPaths.doubleCheck,
-                leftActionIcon: AppPaths.plus,
+                trailingActionText: context.tr.createExpensesPage_finish,
+                leadingActionText: context.tr.createExpensesPage_addExpenses,
+                trailingActionIcon: AppPaths.doubleCheck,
+                leadingActionIcon: AppPaths.plus,
               ).animate().slideX(begin: 1, delay: 100.ms),
             ),
             const SizedBox(height: AppDimensions.d16),

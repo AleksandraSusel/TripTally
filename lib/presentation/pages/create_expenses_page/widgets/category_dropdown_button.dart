@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/test_manager.dart';
 import 'package:trip_tally/presentation/utils/validators.dart';
 
 class CategoryDropdownButton extends StatefulWidget {
@@ -20,13 +18,10 @@ class _CategoryDropdownButtonState extends State<CategoryDropdownButton> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
-      iconSize: 16,
-      padding: EdgeInsets.zero,
+      icon: const SizedBox.shrink(),
       decoration: InputDecoration(
         labelStyle: context.tht.titleSmall,
-        helperText: getIt<TestsManager>().duringTestExecution
-            ? 'Expense Category'
-            : context.tr.createExpensesPage_expenseCategory,
+        helperText: context.tr.createExpensesPage_expenseCategory,
         helperStyle: context.tht.titleSmall?.copyWith(
           fontSize: AppDimensions.d12,
           overflow: TextOverflow.ellipsis,
@@ -50,7 +45,7 @@ class _CategoryDropdownButtonState extends State<CategoryDropdownButton> {
             color: context.thc.onSurface,
           ),
         ),
-        labelText: getIt<TestsManager>().duringTestExecution ? 'Category' : context.tr.createExpensesPage_category,
+        labelText: context.tr.createExpensesPage_category,
       ),
       value: _selectedCategory,
       items: const [

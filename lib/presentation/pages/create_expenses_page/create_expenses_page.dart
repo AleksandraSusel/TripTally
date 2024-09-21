@@ -50,6 +50,7 @@ class _BodyState extends State<_Body> {
 
   void _showBottomSheet(BuildContext context) {
     showModalBottomSheet<void>(
+      barrierColor: context.thc.shadow.withOpacity(0.1),
       backgroundColor: context.thc.surfaceContainerHighest,
       context: context,
       isScrollControlled: true,
@@ -144,12 +145,12 @@ class _BodyState extends State<_Body> {
             alignment: Alignment.centerRight,
             child: DoubleFloatingActionButtons(
               padding: const EdgeInsets.only(right: AppDimensions.d16),
-              rightOnPressed: () {},
-              leftOnPressed: () => _showBottomSheet(context),
-              rightActionText: context.tr.createExpensesPage_createTrip,
-              leftActionText: context.tr.createExpensesPage_addExpenses,
-              rightActionIcon: AppPaths.doubleCheck,
-              leftActionIcon: AppPaths.plus,
+              trailingOnPressed: () {},
+              leadingOnPressed: () => _showBottomSheet(context),
+              trailingActionText: context.tr.createExpensesPage_createTrip,
+              leadingActionText: context.tr.createExpensesPage_addExpenses,
+              trailingActionIcon: AppPaths.doubleCheck,
+              leadingActionIcon: AppPaths.plus,
             ).animate().scale(delay: 400.ms),
           ),
         ],

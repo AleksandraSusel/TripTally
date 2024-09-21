@@ -6,26 +6,26 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
 
 class DoubleFloatingActionButtons extends StatelessWidget {
   const DoubleFloatingActionButtons({
-    required this.rightOnPressed,
-    required this.leftOnPressed,
-    required this.rightActionText,
-    required this.leftActionText,
-    required this.rightActionIcon,
-    required this.leftActionIcon,
+    required this.trailingOnPressed,
+    required this.leadingOnPressed,
+    required this.trailingActionText,
+    required this.leadingActionText,
+    required this.trailingActionIcon,
+    required this.leadingActionIcon,
     super.key,
     this.padding,
-    this.rightActionKey,
-    this.leftActionKey,
+    this.trailingActionKey,
+    this.leadingActionKey,
   });
 
-  final String rightActionText;
-  final String rightActionIcon;
-  final Key? rightActionKey;
-  final VoidCallback rightOnPressed;
-  final String leftActionText;
-  final String leftActionIcon;
-  final Key? leftActionKey;
-  final VoidCallback leftOnPressed;
+  final String trailingActionText;
+  final String trailingActionIcon;
+  final Key? trailingActionKey;
+  final VoidCallback trailingOnPressed;
+  final String leadingActionText;
+  final String leadingActionIcon;
+  final Key? leadingActionKey;
+  final VoidCallback leadingOnPressed;
   final EdgeInsetsGeometry? padding;
 
   @override
@@ -37,51 +37,51 @@ class DoubleFloatingActionButtons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton.extended(
-            key: leftActionKey,
-            heroTag: 'leftAction',
-            elevation: AppDimensions.d2,
-            backgroundColor: AppColorsLight.surface3,
-            clipBehavior: Clip.hardEdge,
-            label: Row(
-              children: [
-                SvgAsset(
-                  leftActionIcon,
-                  height: 22,
-                  width: 22,
-                  color: context.thc.primary,
-                ),
-                const SizedBox(width: AppDimensions.d8),
-                Text(
-                  leftActionText,
-                  style: context.tht.labelSmall?.copyWith(color: context.thc.primary),
-                ),
-              ],
-            ),
-            onPressed: leftOnPressed,
-          ),
-          const SizedBox(width: AppDimensions.d16),
-          FloatingActionButton.extended(
-            key: rightActionKey,
-            heroTag: 'rightAction',
+            key: leadingActionKey,
+            heroTag: 'leadingAction',
             elevation: AppDimensions.d2,
             backgroundColor: context.thc.tertiaryContainer,
             clipBehavior: Clip.hardEdge,
             label: Row(
               children: [
                 SvgAsset(
-                  rightActionIcon,
+                  leadingActionIcon,
                   height: 22,
                   width: 22,
                   color: context.thc.onTertiaryContainer,
                 ),
                 const SizedBox(width: AppDimensions.d8),
                 Text(
-                  rightActionText,
+                  leadingActionText,
                   style: context.tht.labelSmall?.copyWith(color: context.thc.onTertiaryContainer),
                 ),
               ],
             ),
-            onPressed: rightOnPressed,
+            onPressed: leadingOnPressed,
+          ),
+          const SizedBox(width: AppDimensions.d16),
+          FloatingActionButton.extended(
+            key: trailingActionKey,
+            heroTag: 'trailingAction',
+            elevation: AppDimensions.d2,
+            backgroundColor: AppColorsLight.surface3,
+            clipBehavior: Clip.hardEdge,
+            label: Row(
+              children: [
+                SvgAsset(
+                  trailingActionIcon,
+                  height: 22,
+                  width: 22,
+                  color: context.thc.primary,
+                ),
+                const SizedBox(width: AppDimensions.d8),
+                Text(
+                  trailingActionText,
+                  style: context.tht.labelSmall?.copyWith(color: context.thc.primary),
+                ),
+              ],
+            ),
+            onPressed: trailingOnPressed,
           ),
         ],
       ),
