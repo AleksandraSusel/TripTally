@@ -81,7 +81,7 @@ class ElevatedInfoCard extends StatelessWidget {
                     const SizedBox(height: AppDimensions.d4),
                     Flexible(
                       child: AutoSizeText(
-                        MoneyFormat.formatPositiveAmount(totalExpensesAmount, totalExpensesCurrency),
+                        MoneyFormat.formatPositiveAmountCurrency(totalExpensesAmount, totalExpensesCurrency),
                         style: context.tht.labelMedium?.copyWith(
                           fontFamily: ThemeManager.robotoSerifFont,
                         ),

@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/date_format.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
+import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/warning_outlined_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/money_container.dart';
@@ -119,7 +121,7 @@ class OutlinedTripCard extends StatelessWidget {
                 ),
                 PrimaryElevatedButton(
                   text: 'Add expense',
-                  onPressed: () {},
+                  onPressed: () => context.router.push(const CreateExpensesRoute()),
                 ),
               ],
             ),
