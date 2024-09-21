@@ -1,14 +1,14 @@
-import 'package:equatable/equatable.dart';
+part of 'create_trip_bloc.dart';
 
-class NewTripEvent extends Equatable {
-  const NewTripEvent();
+abstract class CreateTripEvent extends Equatable {
+  const CreateTripEvent();
 
   @override
   List<Object?> get props => [];
 }
 
-class AddTripEvent extends NewTripEvent {
-  const AddTripEvent({
+class OnCreateTripEvent extends CreateTripEvent {
+  const OnCreateTripEvent({
     required this.cityName,
     required this.transportType,
     required this.countryCode,
@@ -25,4 +25,15 @@ class AddTripEvent extends NewTripEvent {
   final String dateFrom;
   final String dateTo;
   final double plannedCost;
+
+  @override
+  List<Object?> get props => [
+        cityName,
+        transportType,
+        currency,
+        countryCode,
+        dateFrom,
+        dateTo,
+        plannedCost,
+      ];
 }

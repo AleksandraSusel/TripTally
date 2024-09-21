@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -1493,6 +1494,16 @@ class Translation {
     return Intl.message(
       'Shortest',
       name: 'filterListSegmentedButton_shortest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date not selected`
+  String get createTripBasicInfoPage_dateNotSelected {
+    return Intl.message(
+      'Date not selected',
+      name: 'createTripBasicInfoPage_dateNotSelected',
       desc: '',
       args: [],
     );

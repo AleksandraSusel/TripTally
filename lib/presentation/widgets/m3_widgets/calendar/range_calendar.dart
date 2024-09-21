@@ -25,8 +25,8 @@ class RangeCalendarState extends State<RangeCalendar> {
 
   @override
   Widget build(BuildContext context) => Container(
-        margin: const EdgeInsets.symmetric(horizontal: AppDimensions.d16),
-        padding: const EdgeInsets.only(bottom: AppDimensions.d10),
+        padding: const EdgeInsets.only(bottom: AppDimensions.d10) +
+            const EdgeInsets.symmetric(horizontal: AppDimensions.d16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppDimensions.d16),
           color: context.thc.surfaceContainerHighest,

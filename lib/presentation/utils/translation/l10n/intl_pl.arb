@@ -143,5 +143,6 @@
   "tripsHistoryPage_searchTrip": "Search a trip",
   "filterListSegmentedButton_mostExpensive": "Most expensive",
   "filterListSegmentedButton_longest": "Longest",
-  "filterListSegmentedButton_shortest": "Shortest"
+  "filterListSegmentedButton_shortest": "Shortest",
+  "createTripBasicInfoPage_dateNotSelected": "Date not selected"
 }
