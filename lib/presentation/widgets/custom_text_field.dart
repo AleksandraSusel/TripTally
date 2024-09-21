@@ -5,7 +5,7 @@ import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
     required this.labelText,
-    required this.validator,
+    this.validator,
     this.controller,
     this.suffixIcon,
     this.hasPassword = false,
@@ -16,9 +16,13 @@ class CustomTextField extends StatefulWidget {
     this.prefixIcon,
     this.focusNode,
     this.textInputType,
+    this.initialValue,
+    this.helperText,
   });
 
   final String labelText;
+  final String? initialValue;
+  final String? helperText;
   final TextEditingController? controller;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
@@ -46,6 +50,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: widget.initialValue,
       keyboardType: widget.textInputType,
       onTap: widget.onTap,
       focusNode: widget.focusNode,
@@ -58,6 +63,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
       onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
       decoration: InputDecoration(
         alignLabelWithHint: true,
+        helperText: widget.helperText,
+        helperStyle: context.tht.titleSmall?.copyWith(
+          fontSize: AppDimensions.d12,
+          overflow: TextOverflow.ellipsis,
+        ),
         labelStyle: context.tht.titleSmall,
         floatingLabelStyle: context.tht.titleSmall?.copyWith(
           color: context.thc.primary,
