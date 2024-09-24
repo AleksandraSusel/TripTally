@@ -74,10 +74,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "generic_cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "generic_confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "generic_continue": MessageLookupByLibrary.simpleMessage("Continue"),
+        "generic_delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "generic_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "generic_permissionDenied": MessageLookupByLibrary.simpleMessage("Permission Denied"),
         "generic_permissionDeniedDesc": MessageLookupByLibrary.simpleMessage(
-            "The permission is permanently denied. Please go to settings to enable it."),
+          "The permission is permanently denied. Please go to settings to enable it.",
+        ),
         "generic_settings": MessageLookupByLibrary.simpleMessage("Go to settings"),
         "generic_skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "hiTravellerSubtitle_addNewJourney": MessageLookupByLibrary.simpleMessage("Add new journey"),
@@ -119,6 +121,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "plannedTripsM3Page_yourTrips": MessageLookupByLibrary.simpleMessage("Your trips"),
         "plannedTripsPage_youHavePlanned": MessageLookupByLibrary.simpleMessage("You have planned"),
         "plannedTripsPage_yourPlannedTrips": MessageLookupByLibrary.simpleMessage("Your planned trips"),
+        "profilePage_finishedTrips": MessageLookupByLibrary.simpleMessage("Finished trips"),
+        "profilePage_followers": MessageLookupByLibrary.simpleMessage("Followers"),
+        "profilePage_spentOnTrips": MessageLookupByLibrary.simpleMessage("Spent on trips"),
+        "profilePage_yourPage": MessageLookupByLibrary.simpleMessage("Your page"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
         "removeCurrentTripPage_deleteTheTrip": MessageLookupByLibrary.simpleMessage("Delete"),
         "removeCurrentTripPage_doYouWantToRemoveThisTrip":
@@ -128,10 +134,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "resumeOfTripExpenses_YouDontHaveAnyTrips":
             MessageLookupByLibrary.simpleMessage("You don\\\'t have any trips yet!"),
         "resumeOfTripPage_YouHavePlanned": MessageLookupByLibrary.simpleMessage("You have planned:"),
-        "settingsPage_ChangeYourEmail": MessageLookupByLibrary.simpleMessage("Change your email"),
-        "settingsPage_ChangeYourPassword": MessageLookupByLibrary.simpleMessage("Change your password"),
-        "settingsPage_DeleteYourAccount": MessageLookupByLibrary.simpleMessage("Delete your account"),
-        "settingsPage_HistoryOfYourTrips": MessageLookupByLibrary.simpleMessage("History of your trips"),
+        "settingsPage_areYouSure": MessageLookupByLibrary.simpleMessage("Are you sure?"),
+        "settingsPage_changeYourEmail": MessageLookupByLibrary.simpleMessage("Change your email"),
+        "settingsPage_changeYourName": MessageLookupByLibrary.simpleMessage("Change your name"),
+        "settingsPage_changeYourPassword": MessageLookupByLibrary.simpleMessage("Change your password"),
+        "settingsPage_clickToDelete": MessageLookupByLibrary.simpleMessage("Click to delete your account"),
+        "settingsPage_clickToSend": MessageLookupByLibrary.simpleMessage("Click to send the link via email"),
+        "settingsPage_deleteYourAccount": MessageLookupByLibrary.simpleMessage("Delete your account"),
+        "settingsPage_informationInDialog":
+            MessageLookupByLibrary.simpleMessage("After confirmation, You\'ll receive a link by email"),
+        "settingsPage_informationInDialogToDeleteAccount": MessageLookupByLibrary.simpleMessage(
+          "After confirmation, Your account will be permanently removed. Are you sure?",
+        ),
+        "settingsPage_newName": MessageLookupByLibrary.simpleMessage("New name"),
+        "settingsPage_settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "summaryAfterClosingPage_close": MessageLookupByLibrary.simpleMessage("Close"),
         "summaryAfterClosingPage_congrats": MessageLookupByLibrary.simpleMessage("Congrats"),
         "summaryAfterClosingPage_totalCostOfTheTrip": MessageLookupByLibrary.simpleMessage("Total cost of the trip"),
@@ -166,6 +182,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "yourCurrentTripPage_addExpense": MessageLookupByLibrary.simpleMessage("Add expense"),
         "yourCurrentTripPage_closeTheTrip": MessageLookupByLibrary.simpleMessage("Close the trip"),
         "yourCurrentTripPage_editTheTrip": MessageLookupByLibrary.simpleMessage("Edit the trip"),
-        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip")
+        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip"),
       };
 }

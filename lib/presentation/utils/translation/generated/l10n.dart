@@ -1,8 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import 'intl/messages_all.dart';
+import 'package:trip_tally/presentation/utils/translation/generated/intl/messages_all.dart';
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -19,8 +18,10 @@ class Translation {
   static Translation? _current;
 
   static Translation get current {
-    assert(_current != null,
-        'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.');
+    assert(
+      _current != null,
+      'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.',
+    );
     return _current!;
   }
 
@@ -40,8 +41,10 @@ class Translation {
 
   static Translation of(BuildContext context) {
     final instance = Translation.maybeOf(context);
-    assert(instance != null,
-        'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -304,6 +307,16 @@ class Translation {
     return Intl.message(
       'Confirm',
       name: 'generic_confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get generic_delete {
+    return Intl.message(
+      'Delete',
+      name: 'generic_delete',
       desc: '',
       args: [],
     );
@@ -959,31 +972,101 @@ class Translation {
     );
   }
 
-  /// `Change on your email`
-  String get settingsPage_ChangeYourEmail {
+  /// `Change your email`
+  String get settingsPage_changeYourEmail {
     return Intl.message(
-      'Change on your email',
-      name: 'settingsPage_ChangeYourEmail',
+      'Change your email',
+      name: 'settingsPage_changeYourEmail',
       desc: '',
       args: [],
     );
   }
 
-  /// `Change on your password`
-  String get settingsPage_ChangeYourPassword {
+  /// `Change your password`
+  String get settingsPage_changeYourPassword {
     return Intl.message(
-      'Change on your password',
-      name: 'settingsPage_ChangeYourPassword',
+      'Change your password',
+      name: 'settingsPage_changeYourPassword',
       desc: '',
       args: [],
     );
   }
 
   /// `Delete your account`
-  String get settingsPage_DeleteYourAccount {
+  String get settingsPage_deleteYourAccount {
     return Intl.message(
       'Delete your account',
-      name: 'settingsPage_DeleteYourAccount',
+      name: 'settingsPage_deleteYourAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change your name`
+  String get settingsPage_changeYourName {
+    return Intl.message(
+      'Change your name',
+      name: 'settingsPage_changeYourName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure?`
+  String get settingsPage_areYouSure {
+    return Intl.message(
+      'Are you sure?',
+      name: 'settingsPage_areYouSure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Click to send the link via email`
+  String get settingsPage_clickToSend {
+    return Intl.message(
+      'Click to send the link via email',
+      name: 'settingsPage_clickToSend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Click to delete your account`
+  String get settingsPage_clickToDelete {
+    return Intl.message(
+      'Click to delete your account',
+      name: 'settingsPage_clickToDelete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `After confirmation, Your account will be permanently removed. Are you sure?`
+  String get settingsPage_informationInDialogToDeleteAccount {
+    return Intl.message(
+      'After confirmation, Your account will be permanently removed. Are you sure?',
+      name: 'settingsPage_informationInDialogToDeleteAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `After confirmation, You'll receive a link by email`
+  String get settingsPage_informationInDialog {
+    return Intl.message(
+      'After confirmation, You\'ll receive a link by email',
+      name: 'settingsPage_informationInDialog',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New name`
+  String get settingsPage_newName {
+    return Intl.message(
+      'New name',
+      name: 'settingsPage_newName',
       desc: '',
       args: [],
     );
@@ -1384,6 +1467,56 @@ class Translation {
     return Intl.message(
       'Date not selected',
       name: 'createTripBasicInfoPage_dateNotSelected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your page`
+  String get profilePage_yourPage {
+    return Intl.message(
+      'Your page',
+      name: 'profilePage_yourPage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Finished trips`
+  String get profilePage_finishedTrips {
+    return Intl.message(
+      'Finished trips',
+      name: 'profilePage_finishedTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Followers`
+  String get profilePage_followers {
+    return Intl.message(
+      'Followers',
+      name: 'profilePage_followers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Spent on trips`
+  String get profilePage_spentOnTrips {
+    return Intl.message(
+      'Spent on trips',
+      name: 'profilePage_spentOnTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settingsPage_settings {
+    return Intl.message(
+      'Settings',
+      name: 'settingsPage_settings',
       desc: '',
       args: [],
     );

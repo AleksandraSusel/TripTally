@@ -45,6 +45,7 @@ class PlannedTripsM3Page extends StatelessWidget {
                   info: context.tr.plannedTripsM3Page_confirmationDeleteTrip,
                   actionButtonText: context.tr.generic_confirm,
                   onConfirmPressed: () {},
+                  withTextField: false,
                 ),
               ),
             ),
