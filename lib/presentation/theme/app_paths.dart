@@ -77,4 +77,5 @@ class AppPaths {
   static const String emailM3 = '$m3SvgPath/emailM3.svg';
   static const String password = '$m3SvgPath/password.svg';
   static const String editPen = '$m3SvgPath/edit_pen.svg';
+  static const String plus = '$m3SvgPath/plus.svg';
 }
