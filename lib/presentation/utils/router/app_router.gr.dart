@@ -25,6 +25,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    CreateExpensesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CreateExpensesPage(),
+      );
+    },
     CreateTripBasicInfoRoute.name: (routeData) {
       final args = routeData.argsAs<CreateTripBasicInfoRouteArgs>(orElse: () => const CreateTripBasicInfoRouteArgs());
       return AutoRoutePage<dynamic>(
@@ -121,6 +127,20 @@ class AuthenticationRouteArgs {
   String toString() {
     return 'AuthenticationRouteArgs{key: $key, bloc: $bloc}';
   }
+}
+
+/// generated route for
+/// [CreateExpensesPage]
+class CreateExpensesRoute extends PageRouteInfo<void> {
+  const CreateExpensesRoute({List<PageRouteInfo>? children})
+      : super(
+          CreateExpensesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CreateExpensesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

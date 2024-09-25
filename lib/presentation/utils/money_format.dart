@@ -3,7 +3,7 @@ import 'package:world_countries/world_countries.dart';
 class MoneyFormat {
   const MoneyFormat._();
 
-  static String formatNegativeAmount(double amount, String currency) {
+  static String formatNegativeAmountCurrency(double amount, String currency) {
     if (amount.abs() >= 50000) {
       final String formattedAmount = _removeTrailingWhenZero((amount.abs() / 1000).toStringAsFixed(1));
       return '-${formattedAmount}k $currency';
@@ -13,7 +13,7 @@ class MoneyFormat {
     }
   }
 
-  static String formatPositiveAmount(double amount, String currency) {
+  static String formatPositiveAmountCurrency(double amount, String currency) {
     if (amount.abs() >= 50000) {
       final String formattedAmount = _removeTrailingWhenZero((amount.abs() / 1000).toStringAsFixed(1));
       return '${formattedAmount}k $currency';
@@ -21,6 +21,23 @@ class MoneyFormat {
       final String formattedAmount = _removeTrailingWhenZero(amount.toStringAsFixed(1));
       return '$formattedAmount $currency';
     }
+  }
+
+  static String formatPositiveAmountWithPlanned({
+    required double plannedAmount,
+    required double maxAmount,
+    required String currency,
+  }) {
+    final String formattedMaxAmount = _formatMoneyAmount(maxAmount);
+    final String formattedPlannedAmount = _formatMoneyAmount(plannedAmount);
+    return '$formattedPlannedAmount / $formattedMaxAmount $currency';
+  }
+
+  static String _formatMoneyAmount(double amount) {
+    if (amount.abs() >= 50000) {
+      return '${_removeTrailingWhenZero((amount.abs() / 1000).toStringAsFixed(1))} k';
+    }
+    return _removeTrailingWhenZero(amount.toStringAsFixed(1));
   }
 
   static String _removeTrailingWhenZero(String amount) {

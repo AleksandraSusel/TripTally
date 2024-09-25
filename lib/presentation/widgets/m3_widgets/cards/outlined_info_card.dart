@@ -96,7 +96,7 @@ class OutlinedInfoCard extends StatelessWidget {
           const Spacer(),
           Center(
             child: AutoSizeText(
-              MoneyFormat.formatNegativeAmount(totalExpensesAmount, totalExpensesCurrency),
+              MoneyFormat.formatNegativeAmountCurrency(totalExpensesAmount, totalExpensesCurrency),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: context.tht.displayLarge?.copyWith(

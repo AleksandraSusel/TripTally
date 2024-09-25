@@ -4,10 +4,14 @@ import 'package:alchemist/alchemist.dart';
 import 'package:file/local.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:trip_tally/injectable/injectable.dart';
+import 'package:trip_tally/presentation/utils/test_manager.dart';
 
 const testFileSystem = LocalFileSystem();
 
 Future<void> testExecutable(FutureOr<void> Function() testMain) async {
+  getIt.registerLazySingleton(() => TestsManager()..duringTestExecution = true);
+
   return AlchemistConfig.runWithConfig(
     run: () async {
       TestWidgetsFlutterBinding.ensureInitialized();

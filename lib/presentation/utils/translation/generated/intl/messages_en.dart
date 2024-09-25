@@ -22,7 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "addExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expenses"),
         "appDescription": MessageLookupByLibrary.simpleMessage("Your personal trip assistant"),
         "appName": MessageLookupByLibrary.simpleMessage("Trip Tally"),
         "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign in"),
@@ -35,7 +34,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "authPage_singUpToAcc": MessageLookupByLibrary.simpleMessage("Sign up to your account"),
         "bottomNavBarItem_dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
         "bottomNavBarItem_trips": MessageLookupByLibrary.simpleMessage("Trips"),
-        "createTripBasicInfoPage_dateNotSelected": MessageLookupByLibrary.simpleMessage("Date not selected"),
+        "createExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expense"),
+        "createExpensesPage_category": MessageLookupByLibrary.simpleMessage("Category"),
+        "createExpensesPage_cost": MessageLookupByLibrary.simpleMessage("Cost"),
+        "createExpensesPage_createTrip": MessageLookupByLibrary.simpleMessage("Create trip"),
+        "createExpensesPage_currency": MessageLookupByLibrary.simpleMessage("Currency"),
+        "createExpensesPage_expenseCategory": MessageLookupByLibrary.simpleMessage("Expense category"),
+        "createExpensesPage_expenseCost": MessageLookupByLibrary.simpleMessage("Cost of the expense"),
+        "createExpensesPage_expenseCurrency": MessageLookupByLibrary.simpleMessage("Expense currency"),
+        "createExpensesPage_finish": MessageLookupByLibrary.simpleMessage("Finish"),
+        "createExpensesPage_name": MessageLookupByLibrary.simpleMessage("Name"),
+        "createExpensesPage_nameExpense": MessageLookupByLibrary.simpleMessage("Name the expense"),
+        "createExpensesPage_transportType": MessageLookupByLibrary.simpleMessage("Transport type:"),
         "createTripBudgetHelper": MessageLookupByLibrary.simpleMessage("Your planned budget"),
         "createTripBudgetHint": MessageLookupByLibrary.simpleMessage("Budget"),
         "createTripCurrencyHelper": MessageLookupByLibrary.simpleMessage("The currency you will use"),

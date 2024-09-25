@@ -8,6 +8,35 @@ import 'package:trip_tally/presentation/utils/translation/generated/l10n.dart';
 
 const defaultConstraints = BoxConstraints(maxWidth: 375, maxHeight: 812);
 
+class LocalizationObserver extends NavigatorObserver {
+  LocalizationObserver({
+    required this.locale,
+    required this.delegates,
+  });
+
+  final Locale locale;
+  final List<LocalizationsDelegate<dynamic>> delegates;
+
+  @override
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    super.didPush(route, previousRoute);
+    _ensureLocalizationForRoute(route);
+  }
+
+  void _ensureLocalizationForRoute(Route<dynamic> route) {
+    if (route is ModalRoute) {
+      final modalContext = route.subtreeContext;
+      if (modalContext != null) {
+        Localizations.override(
+          context: modalContext,
+          locale: locale,
+          delegates: delegates,
+        );
+      }
+    }
+  }
+}
+
 @isTest
 Future<void> runGoldenTest(
   String name, {
@@ -16,6 +45,16 @@ Future<void> runGoldenTest(
   BoxConstraints constrains = defaultConstraints,
   double textScaleFactor = 1.0,
 }) async {
+  final navigatorObserver = LocalizationObserver(
+    locale: const Locale('en'),
+    delegates: const [
+      Translation.delegate,
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
+    ],
+  );
+
   await goldenTest(
     name,
     fileName: name.toSnakeCase,
@@ -30,7 +69,8 @@ Future<void> runGoldenTest(
       ],
       supportedLocales: Translation.delegate.supportedLocales,
       locale: const Locale('en'),
-      builder: (_, child) => builder(),
+      navigatorObservers: [navigatorObserver],
+      home: builder(),
     ),
     constraints: constrains,
     textScaleFactor: textScaleFactor,

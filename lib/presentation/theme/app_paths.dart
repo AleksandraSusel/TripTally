@@ -66,6 +66,7 @@ class AppPaths {
   static const String motorcycle = '$m3SvgPath/motorcycle.svg';
   static const String nextArrow = '$m3SvgPath/next_arrow.svg';
   static const String editIcon = '$m3SvgPath/edit_icon.svg';
+  static const String doubleCheck = '$m3SvgPath/double_check.svg';
   static const String profilePhoto = '$m3SvgPath/profile_photo.svg';
   static const String localization = '$m3SvgPath/localization.svg';
   static const String eyeM3 = '$m3SvgPath/eyeM3.svg';

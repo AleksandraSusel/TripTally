@@ -1212,11 +1212,131 @@ class Translation {
     );
   }
 
-  /// `Add expenses`
-  String get addExpensesPage_addExpenses {
+  /// `Add expense`
+  String get createExpensesPage_addExpenses {
     return Intl.message(
-      'Add expenses',
-      name: 'addExpensesPage_addExpenses',
+      'Add expense',
+      name: 'createExpensesPage_addExpenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create trip`
+  String get createExpensesPage_createTrip {
+    return Intl.message(
+      'Create trip',
+      name: 'createExpensesPage_createTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Finish`
+  String get createExpensesPage_finish {
+    return Intl.message(
+      'Finish',
+      name: 'createExpensesPage_finish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name the expense`
+  String get createExpensesPage_nameExpense {
+    return Intl.message(
+      'Name the expense',
+      name: 'createExpensesPage_nameExpense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cost of the expense`
+  String get createExpensesPage_expenseCost {
+    return Intl.message(
+      'Cost of the expense',
+      name: 'createExpensesPage_expenseCost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expense category`
+  String get createExpensesPage_expenseCategory {
+    return Intl.message(
+      'Expense category',
+      name: 'createExpensesPage_expenseCategory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expense currency`
+  String get createExpensesPage_expenseCurrency {
+    return Intl.message(
+      'Expense currency',
+      name: 'createExpensesPage_expenseCurrency',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category`
+  String get createExpensesPage_category {
+    return Intl.message(
+      'Category',
+      name: 'createExpensesPage_category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get createExpensesPage_name {
+    return Intl.message(
+      'Name',
+      name: 'createExpensesPage_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cost`
+  String get createExpensesPage_cost {
+    return Intl.message(
+      'Cost',
+      name: 'createExpensesPage_cost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Transport type:`
+  String get createExpensesPage_transportType {
+    return Intl.message(
+      'Transport type:',
+      name: 'createExpensesPage_transportType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Budget`
+  String get createExpensesPage_budget {
+    return Intl.message(
+      'Budget',
+      name: 'createExpensesPage_budget',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Currency`
+  String get createExpensesPage_currency {
+    return Intl.message(
+      'Currency',
+      name: 'createExpensesPage_currency',
       desc: '',
       args: [],
     );
