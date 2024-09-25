@@ -20,7 +20,7 @@ void main() {
 
   test('AddExpense adds an expense success', () async {
     when(mockExpensesRemoteSource.createExpense(mockedExpenseDto)).thenAnswer((_) async => const Success());
-    final result = await repo.addExpense(mockedExpenseEntity);
+    final result = await repo.createExpense(mockedExpenseEntity);
     Success? success;
     result.fold((l) => null, (r) => success = r);
     expect(success, const Success());
@@ -30,7 +30,7 @@ void main() {
 
   test('AddExpense adds an expense failure', () async {
     when(mockExpensesRemoteSource.createExpense(any)).thenThrow(ApiException(Errors.somethingWentWrong));
-    final result = await repo.addExpense(mockedExpenseEntity);
+    final result = await repo.createExpense(mockedExpenseEntity);
     Errors? error;
     result.fold((l) => error = l.error, (r) => null);
     expect(error, Errors.somethingWentWrong);

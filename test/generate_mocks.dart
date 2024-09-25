@@ -12,8 +12,8 @@ import 'package:trip_tally/domain/repositories/authentication_repo.dart';
 import 'package:trip_tally/domain/repositories/expenses_repo.dart';
 import 'package:trip_tally/domain/repositories/osm_map_repository.dart';
 import 'package:trip_tally/domain/repositories/trips_repo.dart';
-import 'package:trip_tally/domain/use_case/add_expense_use_case.dart';
 import 'package:trip_tally/domain/use_case/create_account_use_case.dart';
+import 'package:trip_tally/domain/use_case/create_expense_use_case.dart';
 import 'package:trip_tally/domain/use_case/create_trip_use_case.dart';
 import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart';
 import 'package:trip_tally/domain/use_case/login_use_case.dart';
@@ -22,6 +22,7 @@ import 'package:trip_tally/domain/utils/shared_prefs_utils.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/authentication_page.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart';
@@ -53,10 +54,11 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_sug
   UpdateUserProfileUseCase,
   UpdateUserProfileBloc,
   ExpensesRemoteSource,
-  AddExpenseUseCase,
+  CreateExpenseUseCase,
   ExpensesRepo,
   CreateExpensesBloc,
   CreateTripBloc,
+  GetExpenseCategoriesBloc,
 ])
 void main() {}
 

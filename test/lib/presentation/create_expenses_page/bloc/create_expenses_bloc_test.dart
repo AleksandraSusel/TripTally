@@ -12,10 +12,10 @@ import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import '../../../../generate_mocks.mocks.dart';
 
 void main() {
-  late MockAddExpenseUseCase mockAddExpenseUseCase;
+  late MockCreateExpenseUseCase mockAddExpenseUseCase;
 
   setUp(() {
-    mockAddExpenseUseCase = MockAddExpenseUseCase();
+    mockAddExpenseUseCase = MockCreateExpenseUseCase();
   });
 
   CreateExpensesBloc addExpensesBloc() => CreateExpensesBloc(mockAddExpenseUseCase);

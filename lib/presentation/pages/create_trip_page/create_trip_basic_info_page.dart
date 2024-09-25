@@ -100,7 +100,7 @@ class _BodyState extends State<_Body> {
         onPressed: () {
           _formKey.currentState?.validate();
           if (_startDate != null && _endDate != null) {
-            return context.read<CreateTripBloc>().add(
+            context.read<CreateTripBloc>().add(
                   OnCreateTripEvent(
                     cityName: _cityNameController.text,
                     currency: MoneyFormat.extractCurrencyCode(_currencyController.text),
@@ -111,6 +111,7 @@ class _BodyState extends State<_Body> {
                     plannedCost: double.parse(_budgetController.text),
                   ),
                 );
+            context.router.push(const CreateExpensesRoute());
           }
           return setState(() {
             showCalendarError = !showCalendarError;

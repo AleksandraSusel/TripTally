@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
-import 'package:trip_tally/domain/use_case/add_expense_use_case.dart';
+import 'package:trip_tally/domain/use_case/create_expense_use_case.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_state.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
@@ -12,7 +12,7 @@ class CreateExpensesBloc extends Bloc<CreateExpensesEvent, CreateExpensesState> 
     on<CreateExpenseEvent>(_createExpenseEvent);
   }
 
-  final AddExpenseUseCase _useCase;
+  final CreateExpenseUseCase _useCase;
 
   Future<void> _createExpenseEvent(CreateExpenseEvent event, Emitter<CreateExpensesState> emit) async {
     final result = await _useCase.call(

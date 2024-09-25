@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:trip_tally/data/api/api_client.dart';
+import 'package:trip_tally/data/dto/expenses/expense_categories_dto.dart';
 import 'package:trip_tally/data/dto/expenses/expense_dto.dart';
 import 'package:trip_tally/domain/data_source/expenses_remote_source.dart';
 import 'package:trip_tally/domain/utils/exception.dart';
@@ -15,8 +16,17 @@ class ExpensesRemoteSourceImpl implements ExpensesRemoteSource {
   @override
   Future<Success> createExpense(ExpenseDto dto) async {
     try {
-      await _client.addExpense(dto);
+      await _client.createExpense(dto);
       return const Success();
+    } catch (e) {
+      throw ApiException(Errors.somethingWentWrong);
+    }
+  }
+
+  @override
+  Future<ExpenseCategoriesDto> getExpenseCategories() async {
+    try {
+      return await _client.getExpensesCategories();
     } catch (e) {
       throw ApiException(Errors.somethingWentWrong);
     }

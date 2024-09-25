@@ -27,10 +27,10 @@ void main() {
       currency: mockedExpenseDto.currency,
       tripId: mockedExpenseDto.tripId,
     );
-    when(mockApiClient.addExpense(dto)).thenAnswer((_) async => const Success());
+    when(mockApiClient.createExpense(dto)).thenAnswer((_) async => const Success());
     final result = await expensesRemoteSource.createExpense(dto);
     expect(result, const Success());
-    verify(mockApiClient.addExpense(dto));
+    verify(mockApiClient.createExpense(dto));
     verifyNoMoreInteractions(mockApiClient);
   });
 
@@ -42,12 +42,12 @@ void main() {
       currency: mockedExpenseDto.currency,
       tripId: mockedExpenseDto.tripId,
     );
-    when(mockApiClient.addExpense(any)).thenThrow(Exception());
+    when(mockApiClient.createExpense(any)).thenThrow(Exception());
     await expectLater(
       expensesRemoteSource.createExpense(dto),
       throwsA(isA<ApiException>().having((e) => e.failure, 'Something went wrong', Errors.somethingWentWrong)),
     );
-    verify(mockApiClient.addExpense(dto));
+    verify(mockApiClient.createExpense(dto));
     verifyNoMoreInteractions(mockApiClient);
   });
 }

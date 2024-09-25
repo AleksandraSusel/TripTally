@@ -30,7 +30,6 @@ mixin _$ExpenseEntity {
 abstract class $ExpenseEntityCopyWith<$Res> {
   factory $ExpenseEntityCopyWith(ExpenseEntity value, $Res Function(ExpenseEntity) then) =
       _$ExpenseEntityCopyWithImpl<$Res, ExpenseEntity>;
-
   @useResult
   $Res call({String name, String date, double amount, String currency, String tripId});
 }
@@ -41,7 +40,6 @@ class _$ExpenseEntityCopyWithImpl<$Res, $Val extends ExpenseEntity> implements $
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -83,7 +81,6 @@ class _$ExpenseEntityCopyWithImpl<$Res, $Val extends ExpenseEntity> implements $
 abstract class _$$ExpenseEntityImplCopyWith<$Res> implements $ExpenseEntityCopyWith<$Res> {
   factory _$$ExpenseEntityImplCopyWith(_$ExpenseEntityImpl value, $Res Function(_$ExpenseEntityImpl) then) =
       __$$ExpenseEntityImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({String name, String date, double amount, String currency, String tripId});
@@ -189,10 +186,8 @@ abstract class _ExpenseEntity implements ExpenseEntity {
   double get amount;
   @override
   String get currency;
-
   @override
   String get tripId;
-
   @override
   @JsonKey(ignore: true)
   _$$ExpenseEntityImplCopyWith<_$ExpenseEntityImpl> get copyWith => throw _privateConstructorUsedError;

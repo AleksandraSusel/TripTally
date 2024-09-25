@@ -29,7 +29,6 @@ mixin _$UpdateUserProfileEntity {
 abstract class $UpdateUserProfileEntityCopyWith<$Res> {
   factory $UpdateUserProfileEntityCopyWith(UpdateUserProfileEntity value, $Res Function(UpdateUserProfileEntity) then) =
       _$UpdateUserProfileEntityCopyWithImpl<$Res, UpdateUserProfileEntity>;
-
   @useResult
   $Res call({String username, String country, String defaultCurrencyCode, XFile? profilePicture});
 }
@@ -41,7 +40,6 @@ class _$UpdateUserProfileEntityCopyWithImpl<$Res, $Val extends UpdateUserProfile
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -79,7 +77,6 @@ abstract class _$$UpdateUserProfileEntityImplCopyWith<$Res> implements $UpdateUs
   factory _$$UpdateUserProfileEntityImplCopyWith(
           _$UpdateUserProfileEntityImpl value, $Res Function(_$UpdateUserProfileEntityImpl) then) =
       __$$UpdateUserProfileEntityImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({String username, String country, String defaultCurrencyCode, XFile? profilePicture});
@@ -177,10 +174,8 @@ abstract class _UpdateUserProfileEntity implements UpdateUserProfileEntity {
   String get country;
   @override
   String get defaultCurrencyCode;
-
   @override
   XFile? get profilePicture;
-
   @override
   @JsonKey(ignore: true)
   _$$UpdateUserProfileEntityImplCopyWith<_$UpdateUserProfileEntityImpl> get copyWith =>

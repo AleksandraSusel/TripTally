@@ -46,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "createExpensesPage_name": MessageLookupByLibrary.simpleMessage("Name"),
         "createExpensesPage_nameExpense": MessageLookupByLibrary.simpleMessage("Name the expense"),
         "createExpensesPage_transportType": MessageLookupByLibrary.simpleMessage("Transport type:"),
+        "createTripBasicInfoPage_dateNotSelected": MessageLookupByLibrary.simpleMessage("Date not selected"),
         "createTripBudgetHelper": MessageLookupByLibrary.simpleMessage("Your planned budget"),
         "createTripBudgetHint": MessageLookupByLibrary.simpleMessage("Budget"),
         "createTripCurrencyHelper": MessageLookupByLibrary.simpleMessage("The currency you will use"),

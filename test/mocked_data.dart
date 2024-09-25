@@ -11,6 +11,8 @@ import 'package:trip_tally/data/dto/trips/create_trip_dto.dart';
 import 'package:trip_tally/data/dto/user/create_account_dto.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
 import 'package:trip_tally/data/dto/user/update_user_profile_dto.dart';
+import 'package:trip_tally/domain/entities/expenses/expense_categories_entity.dart';
+import 'package:trip_tally/domain/entities/expenses/expense_category_entity.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
 import 'package:trip_tally/domain/entities/osm_map/coordinates_entity.dart';
 import 'package:trip_tally/domain/entities/osm_map/place_address_entity.dart';
@@ -160,4 +162,12 @@ final mockedUpdateUserProfileDto = UpdateUserProfileDto(
   country: 'country',
   defaultCurrencyCode: 'USD',
   profilePicture: file,
+);
+
+const mockedExpenseCategoriesEntities = ExpenseCategoriesEntity(
+  categories: [
+    ExpenseCategoryEntity(id: '1-2-3', name: 'Food', translationKey: 'Expense.food'),
+    ExpenseCategoryEntity(id: '2-3-4', name: 'Transport', translationKey: 'Expense.transport'),
+    ExpenseCategoryEntity(id: '3-4-5', name: 'Accommodation', translationKey: 'Expense.accommodation'),
+  ],
 );

@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
+import 'package:trip_tally/injectable/injectable.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/category_dropdown_button.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
@@ -53,6 +56,7 @@ class _AddExpenseFormState extends State<AddExpenseForm> {
               children: [
                 Flexible(
                   child: CustomTextField(
+                    autofocus: true,
                     key: WidgetsKeys.addExpenseFormNameExpense,
                     controller: _expenseNameController,
                     labelText: context.tr.createExpensesPage_name,
@@ -65,11 +69,14 @@ class _AddExpenseFormState extends State<AddExpenseForm> {
                 ),
                 const SizedBox(width: AppDimensions.d20),
                 Flexible(
-                  child: CategoryDropdownButton(
-                    key: WidgetsKeys.addExpenseFormCategoryExpense,
-                    onChanged: (value) {
-                      //TODO: Pass selected category to entity
-                    },
+                  child: BlocProvider(
+                    create: (context) => getIt<GetExpenseCategoriesBloc>()..add(const GetExpenseCategoriesEvent()),
+                    child: CategoryDropdownButton(
+                      key: WidgetsKeys.addExpenseFormCategoryExpense,
+                      onChanged: (value) {
+                        //TODO: Pass selected category to entity
+                      },
+                    ),
                   ),
                 ),
               ],

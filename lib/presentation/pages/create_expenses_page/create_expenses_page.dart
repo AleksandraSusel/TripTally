@@ -22,6 +22,7 @@ class CreateExpensesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: NavigationAppBar(title: context.tr.createTripPage_titleBasicInfo),
       body: const _Body(),
     );
@@ -54,10 +55,11 @@ class _BodyState extends State<_Body> {
       backgroundColor: context.thc.surfaceContainerHighest,
       context: context,
       isScrollControlled: true,
-      useSafeArea: true,
       builder: (ctx) {
         return Padding(
-          padding: MediaQuery.of(context).viewInsets,
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
           child: AddExpenseForm(
             //TODO: Pass real currency based on Trip preference
             currency: 'USD',
