@@ -23,7 +23,9 @@ class GetExpenseCategoriesBloc extends Bloc<GetExpenseCategoriesEvent, GetExpens
   final GetExpenseCategoriesUseCase _getExpenseCategoriesUseCase;
 
   Future<void> _onGetExpenseCategoriesEvent(
-      GetExpenseCategoriesEvent event, Emitter<GetExpenseCategoriesState> emit) async {
+    GetExpenseCategoriesEvent event,
+    Emitter<GetExpenseCategoriesState> emit,
+  ) async {
     final result = await _getExpenseCategoriesUseCase();
     result.fold(
       (l) => emit(GetExpenseCategoriesState.error(l.error)),
