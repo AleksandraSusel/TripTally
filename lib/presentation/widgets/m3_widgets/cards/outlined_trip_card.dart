@@ -7,7 +7,6 @@ import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/warning_outlined_button.dart';
-import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/outlined_trip_card_buttons.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/money_container.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/rectangular_country_flag.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
@@ -110,26 +109,27 @@ class OutlinedTripCard extends StatelessWidget {
             ),
           ),
           if (areThereBottomAction ?? true) const Divider(),
-          if (areThereBottomAction ?? true)
-            OutlinedTripCardButtons(
-              onPressedWarningOutlinedButton: () {},
-              onPressedPrimaryElevatedButton: () {},
+          if (areThereBottomAction ?? false)
+            Padding(
+              padding: const EdgeInsets.only(
+                left: AppDimensions.d16,
+                right: AppDimensions.d16,
+                bottom: AppDimensions.d10,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  WarningOutlinedButton(
+                    text: 'End the trip',
+                    onPressed: () {},
+                  ),
+                  PrimaryElevatedButton(
+                    text: 'Add expense',
+                    onPressed: () => context.router.push(CreateExpensesRoute(tripId: '', currency: '')),
+                  ),
+                ],
+              ),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                WarningOutlinedButton(
-                  text: 'End the trip',
-                  onPressed: () {},
-                ),
-                PrimaryElevatedButton(
-                  text: 'Add expense',
-                  //TODO: Fetch proper trip and pass the params
-                  onPressed: () => context.router.push(CreateExpensesRoute(tripId: '', currency: '')),
-                ),
-              ],
-            ),
-          ),
         ],
       ),
     );
