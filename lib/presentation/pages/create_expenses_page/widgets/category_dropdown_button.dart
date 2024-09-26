@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/validators.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/dropdown_search_button.dart';
 
 class CategoryDropdownButton extends StatefulWidget {
   const CategoryDropdownButton({required this.onChanged, super.key});
@@ -17,67 +19,31 @@ class _CategoryDropdownButtonState extends State<CategoryDropdownButton> {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonFormField<String>(
-      icon: const SizedBox.shrink(),
-      decoration: InputDecoration(
-        labelStyle: context.tht.titleSmall,
-        helperText: context.tr.createExpensesPage_expenseCategory,
-        helperStyle: context.tht.titleSmall?.copyWith(
-          fontSize: AppDimensions.d12,
-          overflow: TextOverflow.ellipsis,
-        ),
-        floatingLabelStyle: context.tht.titleSmall?.copyWith(
-          color: context.thc.primary,
-        ),
-        isDense: true,
-        errorStyle: context.tht.titleSmall?.copyWith(
-          color: context.thc.error,
-          fontSize: AppDimensions.d12,
-        ),
-        errorMaxLines: 2,
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: context.thc.error,
+    return BlocBuilder<GetExpenseCategoriesBloc, GetExpenseCategoriesState>(
+      builder: (context, state) {
+        return DropdownSearchButton<String>(
+          items: state.maybeWhen(
+            orElse: () => [],
+            loaded: (entity) => entity.categories.map((category) => category.name).toList(),
           ),
-        ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: context.thc.onSurface,
+          selectedItem: _selectedCategory,
+          onChanged: (value) {
+            setState(() {
+              _selectedCategory = value;
+            });
+            if (_selectedCategory != null) {
+              widget.onChanged(_selectedCategory!);
+            }
+          },
+          validator: (value) => Validator.isFieldEmpty(
+            context: context,
+            value: value,
           ),
-        ),
-        labelText: context.tr.createExpensesPage_category,
-      ),
-      value: _selectedCategory,
-      items: const [
-        DropdownMenuItem<String>(
-          value: 'Food',
-          child: Text('Food'),
-        ),
-        DropdownMenuItem<String>(
-          value: 'Transport',
-          child: Text('Transport'),
-        ),
-        DropdownMenuItem<String>(
-          value: 'Accommodation',
-          child: Text('Accommodation'),
-        ),
-        DropdownMenuItem<String>(
-          value: 'Entertainment',
-          child: Text('Entertainment'),
-        ),
-      ],
-      onChanged: (value) {
-        setState(() {
-          _selectedCategory = value;
-        });
-        if (_selectedCategory != null) {
-          widget.onChanged(_selectedCategory!);
-        }
+          labelText: context.tr.createExpensesPage_category,
+          helperText: context.tr.createExpensesPage_expenseCategory,
+          searchLabelText: context.tr.generic_search,
+        );
       },
-      validator: (value) => Validator.isFieldEmpty(
-        context: context,
-        value: value,
-      ),
     );
   }
 }

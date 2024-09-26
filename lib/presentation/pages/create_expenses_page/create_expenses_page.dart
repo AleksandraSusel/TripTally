@@ -1,7 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/add_expense_form.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/expense_border_container.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/expense_item.dart';
@@ -16,20 +19,32 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/navigation_app_bar.da
 @RoutePage()
 class CreateExpensesPage extends StatelessWidget {
   const CreateExpensesPage({
+    required this.tripId,
+    required this.currency,
     super.key,
   });
+
+  final String tripId;
+  final String currency;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: NavigationAppBar(title: context.tr.createTripPage_titleBasicInfo),
-      body: const _Body(),
+      body: _Body(tripId: tripId, currency: currency),
     );
   }
 }
 
 class _Body extends StatefulWidget {
-  const _Body();
+  const _Body({
+    required this.tripId,
+    required this.currency,
+  });
+
+  final String tripId;
+  final String currency;
 
   @override
   State<_Body> createState() => _BodyState();
@@ -54,14 +69,14 @@ class _BodyState extends State<_Body> {
       backgroundColor: context.thc.surfaceContainerHighest,
       context: context,
       isScrollControlled: true,
-      useSafeArea: true,
       builder: (ctx) {
         return Padding(
-          padding: MediaQuery.of(context).viewInsets,
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
           child: AddExpenseForm(
-            //TODO: Pass real currency based on Trip preference
-            currency: 'USD',
-            parentContext: context,
+            currency: widget.currency,
+            tripId: widget.tripId,
             onAddExpense: (expense) {
               setState(() {
                 _expenses.insert(0, expense);
@@ -145,7 +160,7 @@ class _BodyState extends State<_Body> {
             alignment: Alignment.centerRight,
             child: DoubleFloatingActionButtons(
               padding: const EdgeInsets.only(right: AppDimensions.d16),
-              trailingOnPressed: () {},
+              trailingOnPressed: () => context.read<CreateExpensesBloc>()..add(CreateExpenseEvent(expenses: _expenses)),
               leadingOnPressed: () => _showBottomSheet(context),
               trailingActionText: context.tr.createExpensesPage_createTrip,
               leadingActionText: context.tr.createExpensesPage_addExpenses,

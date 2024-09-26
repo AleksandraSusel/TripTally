@@ -35,7 +35,6 @@ mixin _$PlaceDto {
 /// @nodoc
 abstract class $PlaceDtoCopyWith<$Res> {
   factory $PlaceDtoCopyWith(PlaceDto value, $Res Function(PlaceDto) then) = _$PlaceDtoCopyWithImpl<$Res, PlaceDto>;
-
   @useResult
   $Res call(
       {String name,
@@ -55,7 +54,6 @@ class _$PlaceDtoCopyWithImpl<$Res, $Val extends PlaceDto> implements $PlaceDtoCo
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -122,7 +120,6 @@ class _$PlaceDtoCopyWithImpl<$Res, $Val extends PlaceDto> implements $PlaceDtoCo
 abstract class _$$PlaceDtoImplCopyWith<$Res> implements $PlaceDtoCopyWith<$Res> {
   factory _$$PlaceDtoImplCopyWith(_$PlaceDtoImpl value, $Res Function(_$PlaceDtoImpl) then) =
       __$$PlaceDtoImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -258,22 +255,16 @@ abstract class _PlaceDto implements PlaceDto {
 
   @override
   String get name;
-
   @override
   String get displayName;
-
   @override
   String get category;
-
   @override
   String get type;
-
   @override
   PlaceAddressDto get address;
-
   @override
   PlaceExtraTagsDto? get extratags;
-
   @override
   @JsonKey(ignore: true)
   _$$PlaceDtoImplCopyWith<_$PlaceDtoImpl> get copyWith => throw _privateConstructorUsedError;
