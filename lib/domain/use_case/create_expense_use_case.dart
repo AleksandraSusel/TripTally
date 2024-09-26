@@ -7,14 +7,14 @@ import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/domain/utils/use_case.dart';
 
 @injectable
-class CreateExpenseUseCase implements UseCase<Success, ExpenseEntity> {
-  const CreateExpenseUseCase(this._repo);
+class CreateExpensesUseCase implements UseCase<Success, List<ExpenseEntity>> {
+  const CreateExpensesUseCase(this._repo);
 
   final ExpensesRepo _repo;
 
   @override
-  Future<Either<Failure, Success>> call(ExpenseEntity entity) async {
-    return (await _repo.createExpense(entity)).fold(
+  Future<Either<Failure, Success>> call(List<ExpenseEntity> entities) async {
+    return (await _repo.createExpenses(entities)).fold(
       Left.new,
       Right.new,
     );

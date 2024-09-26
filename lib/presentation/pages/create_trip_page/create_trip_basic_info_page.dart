@@ -53,7 +53,7 @@ class CreateTripBasicInfoPage extends StatelessWidget {
                 context,
                 error.errorText(context),
               ),
-              success: () => context.router.push(const HomeRoute()),
+              success: () => context.router.push(CreateExpensesRoute(currency: '', tripId: '')),
             ),
           ),
         ),
@@ -111,7 +111,6 @@ class _BodyState extends State<_Body> {
                     plannedCost: double.parse(_budgetController.text),
                   ),
                 );
-            context.router.push(const CreateExpensesRoute());
           }
           return setState(() {
             showCalendarError = !showCalendarError;

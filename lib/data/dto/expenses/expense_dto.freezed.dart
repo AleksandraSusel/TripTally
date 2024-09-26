@@ -25,6 +25,8 @@ mixin _$ExpenseDto {
   double get amount => throw _privateConstructorUsedError;
   String get currency => throw _privateConstructorUsedError;
   String get tripId => throw _privateConstructorUsedError;
+  String get categoryId => throw _privateConstructorUsedError;
+  ExpenseCategoryDto? get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +38,16 @@ abstract class $ExpenseDtoCopyWith<$Res> {
   factory $ExpenseDtoCopyWith(ExpenseDto value, $Res Function(ExpenseDto) then) =
       _$ExpenseDtoCopyWithImpl<$Res, ExpenseDto>;
   @useResult
-  $Res call({String name, String date, double amount, String currency, String tripId});
+  $Res call(
+      {String name,
+      String date,
+      double amount,
+      String currency,
+      String tripId,
+      String categoryId,
+      ExpenseCategoryDto? category});
+
+  $ExpenseCategoryDtoCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -56,6 +67,8 @@ class _$ExpenseDtoCopyWithImpl<$Res, $Val extends ExpenseDto> implements $Expens
     Object? amount = null,
     Object? currency = null,
     Object? tripId = null,
+    Object? categoryId = null,
+    Object? category = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -78,7 +91,27 @@ class _$ExpenseDtoCopyWithImpl<$Res, $Val extends ExpenseDto> implements $Expens
           ? _value.tripId
           : tripId // ignore: cast_nullable_to_non_nullable
               as String,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as ExpenseCategoryDto?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ExpenseCategoryDtoCopyWith<$Res>? get category {
+    if (_value.category == null) {
+      return null;
+    }
+
+    return $ExpenseCategoryDtoCopyWith<$Res>(_value.category!, (value) {
+      return _then(_value.copyWith(category: value) as $Val);
+    });
   }
 }
 
@@ -88,7 +121,17 @@ abstract class _$$ExpenseDtoImplCopyWith<$Res> implements $ExpenseDtoCopyWith<$R
       __$$ExpenseDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String date, double amount, String currency, String tripId});
+  $Res call(
+      {String name,
+      String date,
+      double amount,
+      String currency,
+      String tripId,
+      String categoryId,
+      ExpenseCategoryDto? category});
+
+  @override
+  $ExpenseCategoryDtoCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -104,6 +147,8 @@ class __$$ExpenseDtoImplCopyWithImpl<$Res> extends _$ExpenseDtoCopyWithImpl<$Res
     Object? amount = null,
     Object? currency = null,
     Object? tripId = null,
+    Object? categoryId = null,
+    Object? category = freezed,
   }) {
     return _then(_$ExpenseDtoImpl(
       name: null == name
@@ -126,6 +171,14 @@ class __$$ExpenseDtoImplCopyWithImpl<$Res> extends _$ExpenseDtoCopyWithImpl<$Res
           ? _value.tripId
           : tripId // ignore: cast_nullable_to_non_nullable
               as String,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as ExpenseCategoryDto?,
     ));
   }
 }
@@ -134,7 +187,13 @@ class __$$ExpenseDtoImplCopyWithImpl<$Res> extends _$ExpenseDtoCopyWithImpl<$Res
 @JsonSerializable()
 class _$ExpenseDtoImpl implements _ExpenseDto {
   const _$ExpenseDtoImpl(
-      {required this.name, required this.date, required this.amount, required this.currency, required this.tripId});
+      {required this.name,
+      required this.date,
+      required this.amount,
+      required this.currency,
+      required this.tripId,
+      required this.categoryId,
+      this.category});
 
   factory _$ExpenseDtoImpl.fromJson(Map<String, dynamic> json) => _$$ExpenseDtoImplFromJson(json);
 
@@ -148,10 +207,14 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
   final String currency;
   @override
   final String tripId;
+  @override
+  final String categoryId;
+  @override
+  final ExpenseCategoryDto? category;
 
   @override
   String toString() {
-    return 'ExpenseDto(name: $name, date: $date, amount: $amount, currency: $currency, tripId: $tripId)';
+    return 'ExpenseDto(name: $name, date: $date, amount: $amount, currency: $currency, tripId: $tripId, categoryId: $categoryId, category: $category)';
   }
 
   @override
@@ -163,12 +226,14 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
             (identical(other.date, date) || other.date == date) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.currency, currency) || other.currency == currency) &&
-            (identical(other.tripId, tripId) || other.tripId == tripId));
+            (identical(other.tripId, tripId) || other.tripId == tripId) &&
+            (identical(other.categoryId, categoryId) || other.categoryId == categoryId) &&
+            (identical(other.category, category) || other.category == category));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, date, amount, currency, tripId);
+  int get hashCode => Object.hash(runtimeType, name, date, amount, currency, tripId, categoryId, category);
 
   @JsonKey(ignore: true)
   @override
@@ -190,7 +255,9 @@ abstract class _ExpenseDto implements ExpenseDto {
       required final String date,
       required final double amount,
       required final String currency,
-      required final String tripId}) = _$ExpenseDtoImpl;
+      required final String tripId,
+      required final String categoryId,
+      final ExpenseCategoryDto? category}) = _$ExpenseDtoImpl;
 
   factory _ExpenseDto.fromJson(Map<String, dynamic> json) = _$ExpenseDtoImpl.fromJson;
 
@@ -204,6 +271,10 @@ abstract class _ExpenseDto implements ExpenseDto {
   String get currency;
   @override
   String get tripId;
+  @override
+  String get categoryId;
+  @override
+  ExpenseCategoryDto? get category;
   @override
   @JsonKey(ignore: true)
   _$$ExpenseDtoImplCopyWith<_$ExpenseDtoImpl> get copyWith => throw _privateConstructorUsedError;

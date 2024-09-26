@@ -19,13 +19,13 @@ class AddExpenseForm extends StatefulWidget {
   const AddExpenseForm({
     required this.currency,
     required this.onAddExpense,
-    required this.parentContext,
+    required this.tripId,
     super.key,
   });
 
   final String currency;
+  final String tripId;
   final ValueSetter<ExpenseEntity> onAddExpense;
-  final BuildContext parentContext;
 
   @override
   State<AddExpenseForm> createState() => _AddExpenseFormState();
@@ -34,6 +34,7 @@ class AddExpenseForm extends StatefulWidget {
 class _AddExpenseFormState extends State<AddExpenseForm> {
   late final TextEditingController _budgetController;
   late final TextEditingController _expenseNameController;
+  late String _categoryId;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -74,7 +75,7 @@ class _AddExpenseFormState extends State<AddExpenseForm> {
                     child: CategoryDropdownButton(
                       key: WidgetsKeys.addExpenseFormCategoryExpense,
                       onChanged: (value) {
-                        //TODO: Pass selected category to entity
+                        setState(() => _categoryId = value);
                       },
                     ),
                   ),
@@ -123,8 +124,8 @@ class _AddExpenseFormState extends State<AddExpenseForm> {
                       date: DateTime.now().toMMMDYFormat,
                       amount: double.parse(_budgetController.text),
                       currency: widget.currency,
-                      //TODO: Add real tripID
-                      tripId: '2398213',
+                      tripId: widget.tripId,
+                      categoryId: _categoryId,
                     );
 
                     widget.onAddExpense(expense);

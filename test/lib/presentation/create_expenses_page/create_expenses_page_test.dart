@@ -22,7 +22,10 @@ void main() {
     initializeMockEnvironmentWithBloc<GetExpenseCategoriesBloc>(mockGetExpenseCategoriesBloc);
   });
 
-  CreateExpensesPage buildPage() => const CreateExpensesPage();
+  CreateExpensesPage buildPage() => const CreateExpensesPage(
+        tripId: 'some-id',
+        currency: 'USD',
+      );
 
   runGoldenTest(
     'CreateExpensesPage - Initial',

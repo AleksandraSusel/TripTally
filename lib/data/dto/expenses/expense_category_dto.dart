@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:trip_tally/domain/entities/expenses/expense_category_entity.dart';
 
 part 'expense_category_dto.freezed.dart';
 
@@ -13,4 +14,12 @@ class ExpenseCategoryDto with _$ExpenseCategoryDto {
   }) = _ExpenseCategoryDto;
 
   factory ExpenseCategoryDto.fromJson(Map<String, dynamic> json) => _$ExpenseCategoryDtoFromJson(json);
+
+  factory ExpenseCategoryDto.fromEntity(ExpenseCategoryEntity entity) {
+    return ExpenseCategoryDto(
+      id: entity.id,
+      name: entity.name,
+      translationKey: entity.translationKey,
+    );
+  }
 }

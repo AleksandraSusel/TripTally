@@ -10,28 +10,25 @@ import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_e
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 import '../../../../generate_mocks.mocks.dart';
+import '../../../../mocked_data.dart';
 
 void main() {
-  late MockCreateExpenseUseCase mockAddExpenseUseCase;
+  late MockCreateExpensesUseCase mockCreateExpensesUseCase;
 
   setUp(() {
-    mockAddExpenseUseCase = MockCreateExpenseUseCase();
+    mockCreateExpensesUseCase = MockCreateExpensesUseCase();
   });
 
-  CreateExpensesBloc addExpensesBloc() => CreateExpensesBloc(mockAddExpenseUseCase);
+  CreateExpensesBloc addExpensesBloc() => CreateExpensesBloc(mockCreateExpensesUseCase);
 
   group('AddExpensesBloc', () {
     blocTest<CreateExpensesBloc, CreateExpensesState>(
       'emits [AddExpensesState.success()] when AddExpenseEvent is successful',
-      setUp: () => when(mockAddExpenseUseCase(any)).thenAnswer((_) async => const Right(Success())),
+      setUp: () => when(mockCreateExpensesUseCase(any)).thenAnswer((_) async => const Right(Success())),
       build: addExpensesBloc,
       act: (bloc) => bloc.add(
         const CreateExpenseEvent(
-          name: 'Flight tickets',
-          date: '2024-01-01',
-          amount: 1000.5,
-          currency: 'USD',
-          tripId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+          expenses: [mockedExpenseEntity, mockedExpenseEntity],
         ),
       ),
       expect: () => [
@@ -41,17 +38,13 @@ void main() {
 
     blocTest<CreateExpensesBloc, CreateExpensesState>(
       'emits [AddExpensesState.failure] when AddExpenseEvent fails',
-      setUp: () => when(mockAddExpenseUseCase(any)).thenAnswer(
+      setUp: () => when(mockCreateExpensesUseCase(any)).thenAnswer(
         (_) async => const Left(Failure(error: Errors.somethingWentWrong)),
       ),
       build: addExpensesBloc,
       act: (bloc) => bloc.add(
         const CreateExpenseEvent(
-          name: 'Flight tickets',
-          date: '2024-01-01',
-          amount: 1000.5,
-          currency: 'USD',
-          tripId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+          expenses: [mockedExpenseEntity, mockedExpenseEntity],
         ),
       ),
       expect: () => [

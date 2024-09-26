@@ -121,7 +121,8 @@ class OutlinedTripCard extends StatelessWidget {
                 ),
                 PrimaryElevatedButton(
                   text: 'Add expense',
-                  onPressed: () => context.router.push(const CreateExpensesRoute()),
+                  //TODO: Fetch proper trip and pass the params
+                  onPressed: () => context.router.push(CreateExpensesRoute(tripId: '', currency: '')),
                 ),
               ],
             ),

@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
+import 'package:trip_tally/data/dto/expenses/create_expenses_dto.dart';
 import 'package:trip_tally/data/dto/expenses/expense_categories_dto.dart';
-import 'package:trip_tally/data/dto/expenses/expense_dto.dart';
 import 'package:trip_tally/data/dto/trips/create_trip_dto.dart';
 import 'package:trip_tally/data/dto/user/create_account_dto.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
@@ -29,7 +29,7 @@ abstract class ApiClient {
   Future<String> createAccount(@Queries() CreateAccountDto dto);
 
   @POST('expenses')
-  Future<void> createExpense(@Queries() ExpenseDto dto);
+  Future<void> createExpenses(@Body() CreateExpensesDto dto);
 
   @PUT('users/update_profile')
   @MultiPart()

@@ -16,9 +16,11 @@ class ExpensesRepoImpl implements ExpensesRepo {
   final ExpensesRemoteSource _remoteSource;
 
   @override
-  Future<Either<Failure, Success>> createExpense(ExpenseEntity entity) async {
+  Future<Either<Failure, Success>> createExpenses(List<ExpenseEntity> entities) async {
     try {
-      final result = await _remoteSource.createExpense(ExpenseDto.fromEntity(entity));
+      final result = await _remoteSource.createExpenses(
+        entities.map(ExpenseDto.fromEntity).toList(),
+      );
       return Right(result);
     } on ApiException catch (e) {
       return Left(Failure(error: e.failure));

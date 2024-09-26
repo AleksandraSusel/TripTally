@@ -368,6 +368,16 @@ class Translation {
     );
   }
 
+  /// `Search`
+  String get generic_search {
+    return Intl.message(
+      'Search',
+      name: 'generic_search',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `You are currently on a trip!`
   String get manageTripsPage_currentlyOnTrip {
     return Intl.message(

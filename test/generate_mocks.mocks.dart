@@ -16,8 +16,9 @@ import 'package:permission_handler/permission_handler.dart' as _i44;
 import 'package:shared_preferences/shared_preferences.dart' as _i6;
 import 'package:trip_tally/data/api/api_client.dart' as _i29;
 import 'package:trip_tally/data/api/osm_client.dart' as _i49;
+import 'package:trip_tally/data/dto/expenses/create_expenses_dto.dart' as _i31;
 import 'package:trip_tally/data/dto/expenses/expense_categories_dto.dart' as _i5;
-import 'package:trip_tally/data/dto/expenses/expense_dto.dart' as _i31;
+import 'package:trip_tally/data/dto/expenses/expense_dto.dart' as _i52;
 import 'package:trip_tally/data/dto/osm_map/osm_response_dto.dart' as _i12;
 import 'package:trip_tally/data/dto/trips/create_trip_dto.dart' as _i33;
 import 'package:trip_tally/data/dto/user/create_account_dto.dart' as _i25;
@@ -27,19 +28,19 @@ import 'package:trip_tally/domain/data_source/authentication_remote_source.dart'
 import 'package:trip_tally/domain/data_source/expenses_remote_source.dart' as _i51;
 import 'package:trip_tally/domain/data_source/osm_map_data_source.dart' as _i48;
 import 'package:trip_tally/domain/data_source/trips_data_source.dart' as _i36;
-import 'package:trip_tally/domain/entities/expenses/expense_categories_entity.dart' as _i55;
-import 'package:trip_tally/domain/entities/expenses/expense_entity.dart' as _i53;
+import 'package:trip_tally/domain/entities/expenses/expense_categories_entity.dart' as _i56;
+import 'package:trip_tally/domain/entities/expenses/expense_entity.dart' as _i54;
 import 'package:trip_tally/domain/entities/osm_map/place_entity.dart' as _i46;
 import 'package:trip_tally/domain/entities/trips/create_trip_entity.dart' as _i39;
 import 'package:trip_tally/domain/entities/user/create_account_entity.dart' as _i21;
 import 'package:trip_tally/domain/entities/user/login_entity.dart' as _i20;
 import 'package:trip_tally/domain/entities/user/update_user_profile_entity.dart' as _i22;
 import 'package:trip_tally/domain/repositories/authentication_repo.dart' as _i17;
-import 'package:trip_tally/domain/repositories/expenses_repo.dart' as _i54;
+import 'package:trip_tally/domain/repositories/expenses_repo.dart' as _i55;
 import 'package:trip_tally/domain/repositories/osm_map_repository.dart' as _i47;
 import 'package:trip_tally/domain/repositories/trips_repo.dart' as _i38;
 import 'package:trip_tally/domain/use_case/create_account_use_case.dart' as _i34;
-import 'package:trip_tally/domain/use_case/create_expense_use_case.dart' as _i52;
+import 'package:trip_tally/domain/use_case/create_expense_use_case.dart' as _i53;
 import 'package:trip_tally/domain/use_case/create_trip_use_case.dart' as _i40;
 import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart' as _i45;
 import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i27;
@@ -49,11 +50,11 @@ import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i35;
 import 'package:trip_tally/domain/utils/success.dart' as _i3;
 import 'package:trip_tally/presentation/pages/authentication_page/authentication_page.dart' as _i37;
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart' as _i4;
-import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart' as _i56;
-import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart' as _i57;
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart' as _i57;
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart' as _i58;
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_state.dart' as _i14;
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart' as _i16;
-import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart' as _i58;
+import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart' as _i59;
 import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_state.dart' as _i15;
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart' as _i41;
 import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_event.dart' as _i42;
@@ -599,9 +600,9 @@ class MockApiClient extends _i1.Mock implements _i29.ApiClient {
       ) as _i18.Future<String>);
 
   @override
-  _i18.Future<void> createExpense(_i31.ExpenseDto? dto) => (super.noSuchMethod(
+  _i18.Future<void> createExpenses(_i31.CreateExpensesDto? dto) => (super.noSuchMethod(
         Invocation.method(
-          #createExpense,
+          #createExpenses,
           [dto],
         ),
         returnValue: _i18.Future<void>.value(),
@@ -1806,15 +1807,15 @@ class MockExpensesRemoteSource extends _i1.Mock implements _i51.ExpensesRemoteSo
   }
 
   @override
-  _i18.Future<_i3.Success> createExpense(_i31.ExpenseDto? dto) => (super.noSuchMethod(
+  _i18.Future<_i3.Success> createExpenses(List<_i52.ExpenseDto>? dto) => (super.noSuchMethod(
         Invocation.method(
-          #createExpense,
+          #createExpenses,
           [dto],
         ),
         returnValue: _i18.Future<_i3.Success>.value(_FakeSuccess_1(
           this,
           Invocation.method(
-            #createExpense,
+            #createExpenses,
             [dto],
           ),
         )),
@@ -1836,25 +1837,25 @@ class MockExpensesRemoteSource extends _i1.Mock implements _i51.ExpensesRemoteSo
       ) as _i18.Future<_i5.ExpenseCategoriesDto>);
 }
 
-/// A class which mocks [CreateExpenseUseCase].
+/// A class which mocks [CreateExpensesUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCreateExpenseUseCase extends _i1.Mock implements _i52.CreateExpenseUseCase {
-  MockCreateExpenseUseCase() {
+class MockCreateExpensesUseCase extends _i1.Mock implements _i53.CreateExpensesUseCase {
+  MockCreateExpensesUseCase() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i18.Future<_i2.Either<_i19.Failure, _i3.Success>> call(_i53.ExpenseEntity? entity) => (super.noSuchMethod(
+  _i18.Future<_i2.Either<_i19.Failure, _i3.Success>> call(List<_i54.ExpenseEntity>? entities) => (super.noSuchMethod(
         Invocation.method(
           #call,
-          [entity],
+          [entities],
         ),
         returnValue: _i18.Future<_i2.Either<_i19.Failure, _i3.Success>>.value(_FakeEither_0<_i19.Failure, _i3.Success>(
           this,
           Invocation.method(
             #call,
-            [entity],
+            [entities],
           ),
         )),
       ) as _i18.Future<_i2.Either<_i19.Failure, _i3.Success>>);
@@ -1863,47 +1864,48 @@ class MockCreateExpenseUseCase extends _i1.Mock implements _i52.CreateExpenseUse
 /// A class which mocks [ExpensesRepo].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockExpensesRepo extends _i1.Mock implements _i54.ExpensesRepo {
+class MockExpensesRepo extends _i1.Mock implements _i55.ExpensesRepo {
   MockExpensesRepo() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i18.Future<_i2.Either<_i19.Failure, _i3.Success>> createExpense(_i53.ExpenseEntity? entity) => (super.noSuchMethod(
+  _i18.Future<_i2.Either<_i19.Failure, _i3.Success>> createExpenses(List<_i54.ExpenseEntity>? entities) =>
+      (super.noSuchMethod(
         Invocation.method(
-          #createExpense,
-          [entity],
+          #createExpenses,
+          [entities],
         ),
         returnValue: _i18.Future<_i2.Either<_i19.Failure, _i3.Success>>.value(_FakeEither_0<_i19.Failure, _i3.Success>(
           this,
           Invocation.method(
-            #createExpense,
-            [entity],
+            #createExpenses,
+            [entities],
           ),
         )),
       ) as _i18.Future<_i2.Either<_i19.Failure, _i3.Success>>);
 
   @override
-  _i18.Future<_i2.Either<_i19.Failure, _i55.ExpenseCategoriesEntity>> getExpenseCategories() => (super.noSuchMethod(
+  _i18.Future<_i2.Either<_i19.Failure, _i56.ExpenseCategoriesEntity>> getExpenseCategories() => (super.noSuchMethod(
         Invocation.method(
           #getExpenseCategories,
           [],
         ),
-        returnValue: _i18.Future<_i2.Either<_i19.Failure, _i55.ExpenseCategoriesEntity>>.value(
-            _FakeEither_0<_i19.Failure, _i55.ExpenseCategoriesEntity>(
+        returnValue: _i18.Future<_i2.Either<_i19.Failure, _i56.ExpenseCategoriesEntity>>.value(
+            _FakeEither_0<_i19.Failure, _i56.ExpenseCategoriesEntity>(
           this,
           Invocation.method(
             #getExpenseCategories,
             [],
           ),
         )),
-      ) as _i18.Future<_i2.Either<_i19.Failure, _i55.ExpenseCategoriesEntity>>);
+      ) as _i18.Future<_i2.Either<_i19.Failure, _i56.ExpenseCategoriesEntity>>);
 }
 
 /// A class which mocks [CreateExpensesBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCreateExpensesBloc extends _i1.Mock implements _i56.CreateExpensesBloc {
+class MockCreateExpensesBloc extends _i1.Mock implements _i57.CreateExpensesBloc {
   MockCreateExpensesBloc() {
     _i1.throwOnMissingStub(this);
   }
@@ -1930,7 +1932,7 @@ class MockCreateExpensesBloc extends _i1.Mock implements _i56.CreateExpensesBloc
       ) as bool);
 
   @override
-  void add(_i57.CreateExpensesEvent? event) => super.noSuchMethod(
+  void add(_i58.CreateExpensesEvent? event) => super.noSuchMethod(
         Invocation.method(
           #add,
           [event],
@@ -1939,7 +1941,7 @@ class MockCreateExpensesBloc extends _i1.Mock implements _i56.CreateExpensesBloc
       );
 
   @override
-  void onEvent(_i57.CreateExpensesEvent? event) => super.noSuchMethod(
+  void onEvent(_i58.CreateExpensesEvent? event) => super.noSuchMethod(
         Invocation.method(
           #onEvent,
           [event],
@@ -1957,7 +1959,7 @@ class MockCreateExpensesBloc extends _i1.Mock implements _i56.CreateExpensesBloc
       );
 
   @override
-  void on<E extends _i57.CreateExpensesEvent>(
+  void on<E extends _i58.CreateExpensesEvent>(
     _i28.EventHandler<E, _i14.CreateExpensesState>? handler, {
     _i28.EventTransformer<E>? transformer,
   }) =>
@@ -1971,7 +1973,7 @@ class MockCreateExpensesBloc extends _i1.Mock implements _i56.CreateExpensesBloc
       );
 
   @override
-  void onTransition(_i28.Transition<_i57.CreateExpensesEvent, _i14.CreateExpensesState>? transition) =>
+  void onTransition(_i28.Transition<_i58.CreateExpensesEvent, _i14.CreateExpensesState>? transition) =>
       super.noSuchMethod(
         Invocation.method(
           #onTransition,
@@ -2035,7 +2037,7 @@ class MockCreateExpensesBloc extends _i1.Mock implements _i56.CreateExpensesBloc
 /// A class which mocks [CreateTripBloc].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCreateTripBloc extends _i1.Mock implements _i58.CreateTripBloc {
+class MockCreateTripBloc extends _i1.Mock implements _i59.CreateTripBloc {
   MockCreateTripBloc() {
     _i1.throwOnMissingStub(this);
   }
@@ -2062,7 +2064,7 @@ class MockCreateTripBloc extends _i1.Mock implements _i58.CreateTripBloc {
       ) as bool);
 
   @override
-  void add(_i58.CreateTripEvent? event) => super.noSuchMethod(
+  void add(_i59.CreateTripEvent? event) => super.noSuchMethod(
         Invocation.method(
           #add,
           [event],
@@ -2071,7 +2073,7 @@ class MockCreateTripBloc extends _i1.Mock implements _i58.CreateTripBloc {
       );
 
   @override
-  void onEvent(_i58.CreateTripEvent? event) => super.noSuchMethod(
+  void onEvent(_i59.CreateTripEvent? event) => super.noSuchMethod(
         Invocation.method(
           #onEvent,
           [event],
@@ -2089,7 +2091,7 @@ class MockCreateTripBloc extends _i1.Mock implements _i58.CreateTripBloc {
       );
 
   @override
-  void on<E extends _i58.CreateTripEvent>(
+  void on<E extends _i59.CreateTripEvent>(
     _i28.EventHandler<E, _i15.CreateTripState>? handler, {
     _i28.EventTransformer<E>? transformer,
   }) =>
@@ -2103,7 +2105,7 @@ class MockCreateTripBloc extends _i1.Mock implements _i58.CreateTripBloc {
       );
 
   @override
-  void onTransition(_i28.Transition<_i58.CreateTripEvent, _i15.CreateTripState>? transition) => super.noSuchMethod(
+  void onTransition(_i28.Transition<_i59.CreateTripEvent, _i15.CreateTripState>? transition) => super.noSuchMethod(
         Invocation.method(
           #onTransition,
           [transition],

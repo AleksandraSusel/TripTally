@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
+import 'package:trip_tally/data/dto/expenses/create_expenses_dto.dart';
 import 'package:trip_tally/data/dto/expenses/expense_dto.dart';
 import 'package:trip_tally/data/dto/osm_map/geometry_dto.dart';
 import 'package:trip_tally/data/dto/osm_map/osm_response_dto.dart';
@@ -46,13 +47,18 @@ const mockedExpenseDto = ExpenseDto(
   amount: 300,
   currency: 'USD',
   tripId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+  categoryId: '9690386d-e0b5-46e5-98a1-a9cf5fb545f90',
 );
+
+const mockedCreateExpensesDto = CreateExpensesDto(expenses: [mockedExpenseDto, mockedExpenseDto]);
+
 const mockedExpenseEntity = ExpenseEntity(
   name: 'Wrocław',
   date: '2022-02-20',
   amount: 300,
   currency: 'USD',
   tripId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+  categoryId: '9690386d-e0b5-46e5-98a1-a9cf5fb545f90',
 );
 
 const mockedCreateTripDto = CreateTripDto(

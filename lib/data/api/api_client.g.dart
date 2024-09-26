@@ -99,12 +99,11 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<void> createExpense(ExpenseDto dto) async {
+  Future<void> createExpenses(CreateExpensesDto dto) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.addAll(dto.toJson());
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = dto;
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'POST',
       headers: _headers,

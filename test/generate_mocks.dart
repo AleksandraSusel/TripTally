@@ -54,7 +54,7 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_sug
   UpdateUserProfileUseCase,
   UpdateUserProfileBloc,
   ExpensesRemoteSource,
-  CreateExpenseUseCase,
+  CreateExpensesUseCase,
   ExpensesRepo,
   CreateExpensesBloc,
   CreateTripBloc,

@@ -5,7 +5,7 @@ import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 
 abstract class ExpensesRepo {
-  Future<Either<Failure, Success>> createExpense(ExpenseEntity entity);
+  Future<Either<Failure, Success>> createExpenses(List<ExpenseEntity> entities);
 
   Future<Either<Failure, ExpenseCategoriesEntity>> getExpenseCategories();
 }

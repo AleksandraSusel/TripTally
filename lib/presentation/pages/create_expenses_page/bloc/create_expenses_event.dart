@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
+
 class CreateExpensesEvent extends Equatable {
   const CreateExpensesEvent();
 
@@ -9,19 +11,11 @@ class CreateExpensesEvent extends Equatable {
 
 class CreateExpenseEvent extends CreateExpensesEvent {
   const CreateExpenseEvent({
-    required this.name,
-    required this.date,
-    required this.amount,
-    required this.currency,
-    required this.tripId,
+    required this.expenses,
   });
 
-  final String name;
-  final String date;
-  final double amount;
-  final String currency;
-  final String tripId;
+  final List<ExpenseEntity> expenses;
 
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [expenses];
 }
