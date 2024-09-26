@@ -54,6 +54,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const TestM3Page(),
       );
     },
+    TripPanelRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TripPanelPage(),
+      );
+    },
     TripsHistoryRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -191,6 +197,20 @@ class TestM3Route extends PageRouteInfo<void> {
         );
 
   static const String name = 'TestM3Route';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TripPanelPage]
+class TripPanelRoute extends PageRouteInfo<void> {
+  const TripPanelRoute({List<PageRouteInfo>? children})
+      : super(
+          TripPanelRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TripPanelRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

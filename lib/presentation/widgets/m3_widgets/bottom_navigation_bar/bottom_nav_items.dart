@@ -4,7 +4,11 @@ import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 
 enum BottomNavItems {
   dashboard(asset: AppPaths.dashboard),
-  trips(asset: AppPaths.luggage);
+  trips(asset: AppPaths.luggage),
+  expenses(asset: AppPaths.menu),
+  community(asset: AppPaths.community),
+  statistic(asset: AppPaths.statistic),
+  recommended(asset: AppPaths.recommended);
 
   const BottomNavItems({required this.asset});
 
@@ -15,10 +19,18 @@ extension BottomNavItemsTranslations on BottomNavItems {
   String trText(BuildContext context) => switch (this) {
         BottomNavItems.dashboard => context.tr.bottomNavBarItem_dashboard,
         BottomNavItems.trips => context.tr.bottomNavBarItem_trips,
+        BottomNavItems.expenses => context.tr.bottomNavBarItem_expenses,
+        BottomNavItems.community => context.tr.bottomNavBarItem_community,
+        BottomNavItems.statistic => context.tr.bottomNavBarItem_statistic,
+        BottomNavItems.recommended => context.tr.bottomNavBarItem_recommended,
       };
 
   String? trAppBarTitle(BuildContext context) => switch (this) {
         BottomNavItems.dashboard => null,
         BottomNavItems.trips => context.tr.manageTripsPage_manageTrips,
+        BottomNavItems.expenses => null,
+        BottomNavItems.community => null,
+        BottomNavItems.statistic => null,
+        BottomNavItems.recommended => null,
       };
 }

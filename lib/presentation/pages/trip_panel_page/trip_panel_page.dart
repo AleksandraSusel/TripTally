@@ -1,26 +1,23 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:trip_tally/presentation/pages/home_page/page_view/dashboard.dart';
 import 'package:trip_tally/presentation/pages/home_page/page_view/trips.dart';
+import 'package:trip_tally/presentation/pages/trip_panel_page/page_view/expenses.dart';
+import 'package:trip_tally/presentation/pages/trip_panel_page/widgets/expense_tile_list.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/bottom_navigation_bar/bottom_nav_items.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/bottom_navigation_bar/custom_bottom_nav_bar.dart';
-import 'package:trip_tally/presentation/widgets/m3_widgets/custom_drawer.dart';
-import 'package:trip_tally/presentation/widgets/m3_widgets/profile_app_bar.dart';
 
 @RoutePage()
-class HomePage extends StatefulWidget {
-  const HomePage({
-    super.key,
-  });
+class TripPanelPage extends StatefulWidget {
+  const TripPanelPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<TripPanelPage> createState() => _TripPanelPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _TripPanelPageState extends State<TripPanelPage> {
   late final PageController _pageController;
-  BottomNavItems? _bottomNavItem;
   int _initialPageViewIndex = 0;
 
   @override
@@ -32,15 +29,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: ProfileAppBar(
-        title: _bottomNavItem?.trAppBarTitle(context),
-      ),
-      endDrawer: const CustomDrawer(),
       floatingActionButton: CustomBottomNavBar(
         initialIndex: _initialPageViewIndex,
         onItemSelected: (index, item) {
           setState(() {
-            _bottomNavItem = item;
             _pageController.animateToPage(
               index,
               duration: 400.ms,
@@ -49,9 +41,13 @@ class _HomePageState extends State<HomePage> {
           });
         },
         items: const [
-          BottomNavItems.trips,
-          BottomNavItems.dashboard,
+          BottomNavItems.expenses,
+          BottomNavItems.statistic,
+          BottomNavItems.recommended,
         ],
+      ),
+      appBar: AppBar(
+        title: const Text('Greece'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: PageView(
@@ -59,17 +55,14 @@ class _HomePageState extends State<HomePage> {
           _initialPageViewIndex = index;
         }),
         controller: _pageController,
-        children: const [
-          Dashboard(),
-          Trips(),
+        children: [
+          Expenses(
+            expenseTile: getExpenseTiles(),
+          ),
+          const Trips(),
+          const Dashboard(),
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
   }
 }

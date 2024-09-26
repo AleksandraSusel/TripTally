@@ -33,7 +33,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "authPage_singUpApple": MessageLookupByLibrary.simpleMessage("Sign up with Apple"),
         "authPage_singUpGoogle": MessageLookupByLibrary.simpleMessage("Sign up with Google"),
         "authPage_singUpToAcc": MessageLookupByLibrary.simpleMessage("Sign up to your account"),
+        "bottomNavBarItem_community": MessageLookupByLibrary.simpleMessage("Community"),
         "bottomNavBarItem_dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
+        "bottomNavBarItem_expenses": MessageLookupByLibrary.simpleMessage("Expenses"),
+        "bottomNavBarItem_recommended": MessageLookupByLibrary.simpleMessage("Recommended"),
+        "bottomNavBarItem_statistic": MessageLookupByLibrary.simpleMessage("Statistic"),
         "bottomNavBarItem_trips": MessageLookupByLibrary.simpleMessage("Trips"),
         "createTripBasicInfoPage_dateNotSelected": MessageLookupByLibrary.simpleMessage("Date not selected"),
         "createTripBudgetHelper": MessageLookupByLibrary.simpleMessage("Your planned budget"),
@@ -45,7 +49,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "createTripPage_titleBasicInfo": MessageLookupByLibrary.simpleMessage("Create new trip"),
         "createTripSearchHint": MessageLookupByLibrary.simpleMessage("Destination"),
         "currentTripInformation_youAreIn": MessageLookupByLibrary.simpleMessage("You are in:"),
-        "dashboardPage_welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome back"),
         "editCurrentTrip_changeACity": MessageLookupByLibrary.simpleMessage("Change a city"),
         "editCurrentTrip_changeADate": MessageLookupByLibrary.simpleMessage("Change a date"),
         "editCurrentTrip_changeYourTransport": MessageLookupByLibrary.simpleMessage("change your transport"),
@@ -77,7 +80,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "generic_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "generic_permissionDenied": MessageLookupByLibrary.simpleMessage("Permission Denied"),
         "generic_permissionDeniedDesc": MessageLookupByLibrary.simpleMessage(
-            "The permission is permanently denied. Please go to settings to enable it."),
+          "The permission is permanently denied. Please go to settings to enable it.",
+        ),
         "generic_settings": MessageLookupByLibrary.simpleMessage("Go to settings"),
         "generic_skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "hiTravellerSubtitle_addNewJourney": MessageLookupByLibrary.simpleMessage("Add new journey"),
@@ -166,6 +170,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "yourCurrentTripPage_addExpense": MessageLookupByLibrary.simpleMessage("Add expense"),
         "yourCurrentTripPage_closeTheTrip": MessageLookupByLibrary.simpleMessage("Close the trip"),
         "yourCurrentTripPage_editTheTrip": MessageLookupByLibrary.simpleMessage("Edit the trip"),
-        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip")
+        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip"),
       };
 }

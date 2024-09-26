@@ -7,6 +7,7 @@ import 'package:trip_tally/presentation/pages/create_trip_page/create_trip_basic
 import 'package:trip_tally/presentation/pages/home_page/home_page.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_m3_page/planned_trips_m3_page.dart';
 import 'package:trip_tally/presentation/pages/test_m3_page/test_m3_page.dart';
+import 'package:trip_tally/presentation/pages/trip_panel_page/trip_panel_page.dart';
 import 'package:trip_tally/presentation/pages/trips_history_page/trips_history_page.dart';
 import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart';
 import 'package:trip_tally/presentation/pages/welcome_page/welcome_page.dart';
@@ -34,5 +35,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: TestM3Route.page),
         AutoRoute(page: TripsHistoryRoute.page),
         AutoRoute(page: PlannedTripsM3Route.page),
+        AutoRoute(page: TripPanelRoute.page),
       ];
 }

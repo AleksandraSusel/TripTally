@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       child: BlocListener<AppBloc, AppState>(
         listener: (context, state) => state.whenOrNull(
           initial: () => getIt<AppRouter>().replaceAll([AuthenticationRoute()]),
-          success: () => getIt<AppRouter>().replaceAll([CreateTripBasicInfoRoute()]),
+          success: () => getIt<AppRouter>().replaceAll([const TripPanelRoute()]),
           toLoginPage: () => getIt<AppRouter>().replaceAll([AuthenticationRoute()]),
           loading: () => const Center(
             child: CircularProgressIndicator(),
