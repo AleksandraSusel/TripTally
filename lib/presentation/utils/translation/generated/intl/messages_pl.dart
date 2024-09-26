@@ -22,7 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "addExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expenses"),
         "appDescription": MessageLookupByLibrary.simpleMessage("Your personal trip assistant"),
         "appName": MessageLookupByLibrary.simpleMessage("Trip Tally"),
         "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign in"),
@@ -39,6 +38,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavBarItem_recommended": MessageLookupByLibrary.simpleMessage("Recommended"),
         "bottomNavBarItem_statistic": MessageLookupByLibrary.simpleMessage("Statistic"),
         "bottomNavBarItem_trips": MessageLookupByLibrary.simpleMessage("Trips"),
+        "createExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expense"),
+        "createExpensesPage_budget": MessageLookupByLibrary.simpleMessage("Budget"),
+        "createExpensesPage_category": MessageLookupByLibrary.simpleMessage("Category"),
+        "createExpensesPage_cost": MessageLookupByLibrary.simpleMessage("Cost"),
+        "createExpensesPage_createTrip": MessageLookupByLibrary.simpleMessage("Create trip"),
+        "createExpensesPage_currency": MessageLookupByLibrary.simpleMessage("Currency"),
+        "createExpensesPage_expenseCategory": MessageLookupByLibrary.simpleMessage("Expense category"),
+        "createExpensesPage_expenseCost": MessageLookupByLibrary.simpleMessage("Cost of the expense"),
+        "createExpensesPage_expenseCurrency": MessageLookupByLibrary.simpleMessage("Expense currency"),
+        "createExpensesPage_finish": MessageLookupByLibrary.simpleMessage("Finish"),
+        "createExpensesPage_name": MessageLookupByLibrary.simpleMessage("Name"),
+        "createExpensesPage_nameExpense": MessageLookupByLibrary.simpleMessage("Name the expense"),
+        "createExpensesPage_transportType": MessageLookupByLibrary.simpleMessage("Transport type:"),
         "createTripBasicInfoPage_dateNotSelected": MessageLookupByLibrary.simpleMessage("Date not selected"),
         "createTripBudgetHelper": MessageLookupByLibrary.simpleMessage("Your planned budget"),
         "createTripBudgetHint": MessageLookupByLibrary.simpleMessage("Budget"),
@@ -83,6 +95,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "generic_permissionDeniedDesc": MessageLookupByLibrary.simpleMessage(
           "The permission is permanently denied. Please go to settings to enable it.",
         ),
+        "generic_search": MessageLookupByLibrary.simpleMessage("Search"),
         "generic_settings": MessageLookupByLibrary.simpleMessage("Go to settings"),
         "generic_skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "hiTravellerSubtitle_addNewJourney": MessageLookupByLibrary.simpleMessage("Add new journey"),

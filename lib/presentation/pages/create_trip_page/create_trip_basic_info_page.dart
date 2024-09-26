@@ -53,7 +53,7 @@ class CreateTripBasicInfoPage extends StatelessWidget {
                 context,
                 error.errorText(context),
               ),
-              success: () => context.router.push(const HomeRoute()),
+              success: () => context.router.push(CreateExpensesRoute(currency: '', tripId: '')),
             ),
           ),
         ),
@@ -100,7 +100,7 @@ class _BodyState extends State<_Body> {
         onPressed: () {
           _formKey.currentState?.validate();
           if (_startDate != null && _endDate != null) {
-            return context.read<CreateTripBloc>().add(
+            context.read<CreateTripBloc>().add(
                   OnCreateTripEvent(
                     cityName: _cityNameController.text,
                     currency: MoneyFormat.extractCurrencyCode(_currencyController.text),

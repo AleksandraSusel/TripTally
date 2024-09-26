@@ -27,7 +27,6 @@ mixin _$CoordinatesEntity {
 abstract class $CoordinatesEntityCopyWith<$Res> {
   factory $CoordinatesEntityCopyWith(CoordinatesEntity value, $Res Function(CoordinatesEntity) then) =
       _$CoordinatesEntityCopyWithImpl<$Res, CoordinatesEntity>;
-
   @useResult
   $Res call({double lat, double lon});
 }
@@ -65,7 +64,6 @@ class _$CoordinatesEntityCopyWithImpl<$Res, $Val extends CoordinatesEntity>
 abstract class _$$CoordinatesEntityImplCopyWith<$Res> implements $CoordinatesEntityCopyWith<$Res> {
   factory _$$CoordinatesEntityImplCopyWith(_$CoordinatesEntityImpl value, $Res Function(_$CoordinatesEntityImpl) then) =
       __$$CoordinatesEntityImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({double lat, double lon});
@@ -135,10 +133,8 @@ abstract class _CoordinatesEntity implements CoordinatesEntity {
 
   @override
   double get lat;
-
   @override
   double get lon;
-
   @override
   @JsonKey(ignore: true)
   _$$CoordinatesEntityImplCopyWith<_$CoordinatesEntityImpl> get copyWith => throw _privateConstructorUsedError;

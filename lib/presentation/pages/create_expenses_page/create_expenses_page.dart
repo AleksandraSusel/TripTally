@@ -1,0 +1,198 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/add_expense_form.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/expense_border_container.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/expense_item.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/trip_details.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/theme/app_paths.dart';
+import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/double_floating_action_buttons.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/navigation_app_bar.dart';
+
+@RoutePage()
+class CreateExpensesPage extends StatelessWidget {
+  const CreateExpensesPage({
+    required this.tripId,
+    required this.currency,
+    super.key,
+  });
+
+  final String tripId;
+  final String currency;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: NavigationAppBar(title: context.tr.createTripPage_titleBasicInfo),
+      body: _Body(tripId: tripId, currency: currency),
+    );
+  }
+}
+
+class _Body extends StatefulWidget {
+  const _Body({
+    required this.tripId,
+    required this.currency,
+  });
+
+  final String tripId;
+  final String currency;
+
+  @override
+  State<_Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<_Body> {
+  final List<ExpenseEntity> _expenses = [];
+  final Set<int> _newItems = {};
+  final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _showBottomSheet(context);
+    });
+  }
+
+  void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet<void>(
+      barrierColor: context.thc.shadow.withOpacity(0.1),
+      backgroundColor: context.thc.surfaceContainerHighest,
+      context: context,
+      isScrollControlled: true,
+      builder: (ctx) {
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: AddExpenseForm(
+            currency: widget.currency,
+            tripId: widget.tripId,
+            onAddExpense: (expense) {
+              setState(() {
+                _expenses.insert(0, expense);
+                _newItems.add(0);
+                _listKey.currentState?.insertItem(0);
+              });
+            },
+          ),
+        );
+      },
+    );
+  }
+
+  double get totalPlannedAmount {
+    return _expenses.fold(0, (sum, item) => sum + item.amount);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Column(
+        children: [
+          Expanded(
+            child: ExpenseBorderContainer(
+              child: Column(
+                children: [
+                  TripDetails(
+                    destination: 'Italy',
+                    date: 'Oct 12-18, 2024',
+                    transportType: TransportType.motorcycle,
+                    maxAmount: 1400,
+                    plannedAmount: totalPlannedAmount,
+                    currency: r'$',
+                  ),
+                  Expanded(
+                    child: AnimatedList(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      key: _listKey,
+                      initialItemCount: _expenses.length,
+                      itemBuilder: (context, index, animation) {
+                        final expense = _expenses[index];
+                        final isNew = _newItems.contains(index);
+
+                        return SizeTransition(
+                          sizeFactor: animation,
+                          child: Animate(
+                            key: GlobalKey(),
+                            effects: [
+                              if (isNew) FadeEffect(duration: 1000.ms),
+                              if (isNew)
+                                ColorEffect(
+                                  delay: 600.ms,
+                                  begin: context.thc.primaryContainer,
+                                  end: context.thc.surface,
+                                  duration: 1000.ms,
+                                  blendMode: BlendMode.darken,
+                                ),
+                            ],
+                            onComplete: (_) {
+                              if (isNew) {
+                                setState(() {
+                                  _newItems.remove(index);
+                                });
+                              }
+                            },
+                            child: ExpenseItem(
+                              expense: expense,
+                              onDelete: () => _removeExpense(index),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: AppDimensions.d30),
+          Align(
+            alignment: Alignment.centerRight,
+            child: DoubleFloatingActionButtons(
+              padding: const EdgeInsets.only(right: AppDimensions.d16),
+              trailingOnPressed: () => context.read<CreateExpensesBloc>()..add(CreateExpenseEvent(expenses: _expenses)),
+              leadingOnPressed: () => _showBottomSheet(context),
+              trailingActionText: context.tr.createExpensesPage_createTrip,
+              leadingActionText: context.tr.createExpensesPage_addExpenses,
+              trailingActionIcon: AppPaths.doubleCheck,
+              leadingActionIcon: AppPaths.plus,
+            ).animate().scale(delay: 400.ms),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _removeExpense(int index) {
+    final removedExpense = _expenses.removeAt(index);
+    final removedItemKey = _listKey.currentState;
+
+    setState(() {
+      if (removedItemKey != null) {
+        removedItemKey.removeItem(
+          index,
+          (context, animation) => SizeTransition(
+            sizeFactor: animation,
+            child: ExpenseItem(
+              expense: removedExpense,
+              onDelete: () {},
+            ),
+          ),
+          duration: 300.ms,
+        );
+
+        _newItems.remove(index);
+      }
+    });
+  }
+}

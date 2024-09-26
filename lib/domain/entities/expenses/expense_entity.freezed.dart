@@ -21,6 +21,8 @@ mixin _$ExpenseEntity {
   double get amount => throw _privateConstructorUsedError;
   String get currency => throw _privateConstructorUsedError;
   String get tripId => throw _privateConstructorUsedError;
+  String get categoryId => throw _privateConstructorUsedError;
+  ExpenseCategoryEntity? get category => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ExpenseEntityCopyWith<ExpenseEntity> get copyWith => throw _privateConstructorUsedError;
@@ -30,9 +32,17 @@ mixin _$ExpenseEntity {
 abstract class $ExpenseEntityCopyWith<$Res> {
   factory $ExpenseEntityCopyWith(ExpenseEntity value, $Res Function(ExpenseEntity) then) =
       _$ExpenseEntityCopyWithImpl<$Res, ExpenseEntity>;
-
   @useResult
-  $Res call({String name, String date, double amount, String currency, String tripId});
+  $Res call(
+      {String name,
+      String date,
+      double amount,
+      String currency,
+      String tripId,
+      String categoryId,
+      ExpenseCategoryEntity? category});
+
+  $ExpenseCategoryEntityCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -41,7 +51,6 @@ class _$ExpenseEntityCopyWithImpl<$Res, $Val extends ExpenseEntity> implements $
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -53,6 +62,8 @@ class _$ExpenseEntityCopyWithImpl<$Res, $Val extends ExpenseEntity> implements $
     Object? amount = null,
     Object? currency = null,
     Object? tripId = null,
+    Object? categoryId = null,
+    Object? category = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -75,7 +86,27 @@ class _$ExpenseEntityCopyWithImpl<$Res, $Val extends ExpenseEntity> implements $
           ? _value.tripId
           : tripId // ignore: cast_nullable_to_non_nullable
               as String,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as ExpenseCategoryEntity?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ExpenseCategoryEntityCopyWith<$Res>? get category {
+    if (_value.category == null) {
+      return null;
+    }
+
+    return $ExpenseCategoryEntityCopyWith<$Res>(_value.category!, (value) {
+      return _then(_value.copyWith(category: value) as $Val);
+    });
   }
 }
 
@@ -83,10 +114,19 @@ class _$ExpenseEntityCopyWithImpl<$Res, $Val extends ExpenseEntity> implements $
 abstract class _$$ExpenseEntityImplCopyWith<$Res> implements $ExpenseEntityCopyWith<$Res> {
   factory _$$ExpenseEntityImplCopyWith(_$ExpenseEntityImpl value, $Res Function(_$ExpenseEntityImpl) then) =
       __$$ExpenseEntityImplCopyWithImpl<$Res>;
-
   @override
   @useResult
-  $Res call({String name, String date, double amount, String currency, String tripId});
+  $Res call(
+      {String name,
+      String date,
+      double amount,
+      String currency,
+      String tripId,
+      String categoryId,
+      ExpenseCategoryEntity? category});
+
+  @override
+  $ExpenseCategoryEntityCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -103,6 +143,8 @@ class __$$ExpenseEntityImplCopyWithImpl<$Res> extends _$ExpenseEntityCopyWithImp
     Object? amount = null,
     Object? currency = null,
     Object? tripId = null,
+    Object? categoryId = null,
+    Object? category = freezed,
   }) {
     return _then(_$ExpenseEntityImpl(
       name: null == name
@@ -125,6 +167,14 @@ class __$$ExpenseEntityImplCopyWithImpl<$Res> extends _$ExpenseEntityCopyWithImp
           ? _value.tripId
           : tripId // ignore: cast_nullable_to_non_nullable
               as String,
+      categoryId: null == categoryId
+          ? _value.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      category: freezed == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as ExpenseCategoryEntity?,
     ));
   }
 }
@@ -133,7 +183,13 @@ class __$$ExpenseEntityImplCopyWithImpl<$Res> extends _$ExpenseEntityCopyWithImp
 
 class _$ExpenseEntityImpl implements _ExpenseEntity {
   const _$ExpenseEntityImpl(
-      {required this.name, required this.date, required this.amount, required this.currency, required this.tripId});
+      {required this.name,
+      required this.date,
+      required this.amount,
+      required this.currency,
+      required this.tripId,
+      required this.categoryId,
+      this.category});
 
   @override
   final String name;
@@ -145,10 +201,14 @@ class _$ExpenseEntityImpl implements _ExpenseEntity {
   final String currency;
   @override
   final String tripId;
+  @override
+  final String categoryId;
+  @override
+  final ExpenseCategoryEntity? category;
 
   @override
   String toString() {
-    return 'ExpenseEntity(name: $name, date: $date, amount: $amount, currency: $currency, tripId: $tripId)';
+    return 'ExpenseEntity(name: $name, date: $date, amount: $amount, currency: $currency, tripId: $tripId, categoryId: $categoryId, category: $category)';
   }
 
   @override
@@ -160,11 +220,13 @@ class _$ExpenseEntityImpl implements _ExpenseEntity {
             (identical(other.date, date) || other.date == date) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.currency, currency) || other.currency == currency) &&
-            (identical(other.tripId, tripId) || other.tripId == tripId));
+            (identical(other.tripId, tripId) || other.tripId == tripId) &&
+            (identical(other.categoryId, categoryId) || other.categoryId == categoryId) &&
+            (identical(other.category, category) || other.category == category));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, date, amount, currency, tripId);
+  int get hashCode => Object.hash(runtimeType, name, date, amount, currency, tripId, categoryId, category);
 
   @JsonKey(ignore: true)
   @override
@@ -179,7 +241,9 @@ abstract class _ExpenseEntity implements ExpenseEntity {
       required final String date,
       required final double amount,
       required final String currency,
-      required final String tripId}) = _$ExpenseEntityImpl;
+      required final String tripId,
+      required final String categoryId,
+      final ExpenseCategoryEntity? category}) = _$ExpenseEntityImpl;
 
   @override
   String get name;
@@ -189,10 +253,12 @@ abstract class _ExpenseEntity implements ExpenseEntity {
   double get amount;
   @override
   String get currency;
-
   @override
   String get tripId;
-
+  @override
+  String get categoryId;
+  @override
+  ExpenseCategoryEntity? get category;
   @override
   @JsonKey(ignore: true)
   _$$ExpenseEntityImplCopyWith<_$ExpenseEntityImpl> get copyWith => throw _privateConstructorUsedError;

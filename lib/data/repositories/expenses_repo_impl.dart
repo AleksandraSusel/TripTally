@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:trip_tally/data/dto/expenses/expense_dto.dart';
 import 'package:trip_tally/domain/data_source/expenses_remote_source.dart';
+import 'package:trip_tally/domain/entities/expenses/expense_categories_entity.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
 import 'package:trip_tally/domain/repositories/expenses_repo.dart';
 import 'package:trip_tally/domain/utils/exception.dart';
@@ -15,10 +16,22 @@ class ExpensesRepoImpl implements ExpensesRepo {
   final ExpensesRemoteSource _remoteSource;
 
   @override
-  Future<Either<Failure, Success>> addExpense(ExpenseEntity entity) async {
+  Future<Either<Failure, Success>> createExpenses(List<ExpenseEntity> entities) async {
     try {
-      final result = await _remoteSource.createExpense(ExpenseDto.fromEntity(entity));
+      final result = await _remoteSource.createExpenses(
+        entities.map(ExpenseDto.fromEntity).toList(),
+      );
       return Right(result);
+    } on ApiException catch (e) {
+      return Left(Failure(error: e.failure));
+    }
+  }
+
+  @override
+  Future<Either<Failure, ExpenseCategoriesEntity>> getExpenseCategories() async {
+    try {
+      final dto = await _remoteSource.getExpenseCategories();
+      return Right(ExpenseCategoriesEntity.fromDto(dto));
     } on ApiException catch (e) {
       return Left(Failure(error: e.failure));
     }
