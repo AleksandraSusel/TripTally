@@ -45,6 +45,32 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+  Future<GetTripsDto> getAllUserTrips() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<GetTripsDto>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'trips',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+    final value = GetTripsDto.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
   Future<String> login(LoginDto dto) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -175,7 +201,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<void> addTrip(CreateTripDto dto) async {
+  Future<void> createTrip(CreateTripDto dto) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(dto.toJson());

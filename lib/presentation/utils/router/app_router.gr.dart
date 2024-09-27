@@ -53,10 +53,10 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HomePage(),
       );
     },
-    PlannedTripsM3Route.name: (routeData) {
+    PlannedTripsRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const PlannedTripsM3Page(),
+        child: const PlannedTripsPage(),
       );
     },
     TestM3Route.name: (routeData) {
@@ -221,15 +221,15 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [PlannedTripsM3Page]
-class PlannedTripsM3Route extends PageRouteInfo<void> {
-  const PlannedTripsM3Route({List<PageRouteInfo>? children})
+/// [PlannedTripsPage]
+class PlannedTripsRoute extends PageRouteInfo<void> {
+  const PlannedTripsRoute({List<PageRouteInfo>? children})
       : super(
-          PlannedTripsM3Route.name,
+          PlannedTripsRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'PlannedTripsM3Route';
+  static const String name = 'PlannedTripsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

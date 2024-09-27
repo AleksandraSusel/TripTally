@@ -34,23 +34,24 @@ import 'package:trip_tally/domain/repositories/trips_repo.dart' as _i35;
 import 'package:trip_tally/domain/use_case/create_account_use_case.dart' as _i22;
 import 'package:trip_tally/domain/use_case/create_expense_use_case.dart' as _i39;
 import 'package:trip_tally/domain/use_case/create_trip_use_case.dart' as _i40;
+import 'package:trip_tally/domain/use_case/get_all_user_trips_use_case.dart' as _i41;
 import 'package:trip_tally/domain/use_case/get_expense_categories_use_case.dart' as _i27;
 import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart' as _i28;
 import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i29;
 import 'package:trip_tally/domain/use_case/sign_out_use_case.dart' as _i32;
 import 'package:trip_tally/domain/use_case/update_user_profile_use_case.dart' as _i37;
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i13;
-import 'package:trip_tally/injectable/modules/api_module.dart' as _i47;
-import 'package:trip_tally/injectable/modules/app_router_module.dart' as _i46;
-import 'package:trip_tally/injectable/modules/firebase_auth_module.dart' as _i49;
-import 'package:trip_tally/injectable/modules/osm_module.dart' as _i48;
-import 'package:trip_tally/injectable/modules/shared_preferences_module.dart' as _i50;
+import 'package:trip_tally/injectable/modules/api_module.dart' as _i48;
+import 'package:trip_tally/injectable/modules/app_router_module.dart' as _i47;
+import 'package:trip_tally/injectable/modules/firebase_auth_module.dart' as _i50;
+import 'package:trip_tally/injectable/modules/osm_module.dart' as _i49;
+import 'package:trip_tally/injectable/modules/shared_preferences_module.dart' as _i51;
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart' as _i38;
 import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart' as _i17;
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart' as _i44;
-import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart' as _i41;
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart' as _i42;
 import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart' as _i45;
-import 'package:trip_tally/presentation/pages/new_trip_page/bloc/new_trip_bloc.dart' as _i42;
+import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/get_all_user_trips_bloc.dart' as _i46;
 import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart' as _i43;
 import 'package:trip_tally/presentation/theme/theme_manager.dart' as _i15;
 import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart' as _i31;
@@ -118,22 +119,23 @@ extension GetItInjectableX on _i1.GetIt {
         ));
     gh.factory<_i39.CreateExpensesUseCase>(() => _i39.CreateExpensesUseCase(gh<_i25.ExpensesRepo>()));
     gh.factory<_i40.CreateTripUseCase>(() => _i40.CreateTripUseCase(gh<_i35.TripsRepo>()));
-    gh.factory<_i41.GetExpenseCategoriesBloc>(
-        () => _i41.GetExpenseCategoriesBloc(gh<_i27.GetExpenseCategoriesUseCase>()));
-    gh.factory<_i42.NewTripBloc>(() => _i42.NewTripBloc(gh<_i40.CreateTripUseCase>()));
+    gh.factory<_i41.GetAllUserTripsUseCase>(() => _i41.GetAllUserTripsUseCase(gh<_i35.TripsRepo>()));
+    gh.factory<_i42.GetExpenseCategoriesBloc>(
+        () => _i42.GetExpenseCategoriesBloc(gh<_i27.GetExpenseCategoriesUseCase>()));
     gh.factory<_i43.UpdateUserProfileBloc>(() => _i43.UpdateUserProfileBloc(gh<_i37.UpdateUserProfileUseCase>()));
     gh.factory<_i44.CreateExpensesBloc>(() => _i44.CreateExpensesBloc(gh<_i39.CreateExpensesUseCase>()));
     gh.factory<_i45.CreateTripBloc>(() => _i45.CreateTripBloc(gh<_i40.CreateTripUseCase>()));
+    gh.factory<_i46.GetAllUserTripsBloc>(() => _i46.GetAllUserTripsBloc(gh<_i41.GetAllUserTripsUseCase>()));
     return this;
   }
 }
 
-class _$AppRouterModule extends _i46.AppRouterModule {}
+class _$AppRouterModule extends _i47.AppRouterModule {}
 
-class _$ApiModule extends _i47.ApiModule {}
+class _$ApiModule extends _i48.ApiModule {}
 
-class _$OsmModule extends _i48.OsmModule {}
+class _$OsmModule extends _i49.OsmModule {}
 
-class _$FirebaseAuthModule extends _i49.FirebaseAuthModule {}
+class _$FirebaseAuthModule extends _i50.FirebaseAuthModule {}
 
-class _$SharedPreferencesModule extends _i50.SharedPreferencesModule {}
+class _$SharedPreferencesModule extends _i51.SharedPreferencesModule {}

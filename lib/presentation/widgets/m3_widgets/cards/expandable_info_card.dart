@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:trip_tally/domain/entities/location/location_entity.dart';
+import 'package:trip_tally/domain/entities/price/price_entity.dart';
+import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_trip_card.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/cards/outlined_info_card.dart';
@@ -65,15 +68,27 @@ class ExpandableInfoCardState extends State<ExpandableInfoCard> {
           countryCode: widget.countryCode,
         ),
         secondChild: ElevatedTripCard(
-          country: widget.country,
-          dateFrom: widget.dateFrom,
-          dateTo: widget.dateTo,
-          transportType: widget.transportType,
+          entity: TripEntity(
+            id: '123',
+            status: 'planned',
+            location: LocationEntity(
+              id: 'loc123',
+              userId: 'user123',
+              countryCode: 'US',
+              cityName: 'New York',
+              insertedAt: DateTime(2024),
+              updatedAt: DateTime(2024),
+            ),
+            userId: 'user123',
+            dateFrom: '2024-10-29',
+            dateTo: '2024-10-30',
+            expenses: [],
+            transportType: 'Airplane',
+            plannedCost: const PriceEntity(currency: 'USD', amount: '1200.57'),
+            insertedAt: DateTime(2024),
+            updatedAt: DateTime(2024),
+          ),
           totalExpensesAmount: widget.totalExpensesAmount,
-          totalExpensesCurrency: widget.totalExpensesCurrency,
-          countryCode: widget.countryCode,
-          expectedBudgetAmount: widget.expectedBudgetAmount,
-          expectedBudgetCurrency: widget.expectedBudgetCurrency,
           imagePath: widget.imagePath,
         ),
         crossFadeState: _isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,

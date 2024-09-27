@@ -6,21 +6,25 @@ class MoneyFormat {
   static String formatNegativeAmountCurrency(double amount, String currency) {
     if (amount.abs() >= 50000) {
       final String formattedAmount = _removeTrailingWhenZero((amount.abs() / 1000).toStringAsFixed(1));
-      return '-${formattedAmount}k $currency';
+      return '-${formattedAmount}k ${formatCurrencyToSymbol(currency)}';
     } else {
       final String formattedAmount = _removeTrailingWhenZero(amount.toStringAsFixed(1));
-      return '-$formattedAmount $currency';
+      return '-$formattedAmount ${formatCurrencyToSymbol(currency)}';
     }
   }
 
   static String formatPositiveAmountCurrency(double amount, String currency) {
     if (amount.abs() >= 50000) {
       final String formattedAmount = _removeTrailingWhenZero((amount.abs() / 1000).toStringAsFixed(1));
-      return '${formattedAmount}k $currency';
+      return '${formattedAmount}k ${formatCurrencyToSymbol(currency)}';
     } else {
       final String formattedAmount = _removeTrailingWhenZero(amount.toStringAsFixed(1));
-      return '$formattedAmount $currency';
+      return '$formattedAmount ${formatCurrencyToSymbol(currency)}';
     }
+  }
+
+  static String formatCurrencyToSymbol(String currency) {
+    return FiatCurrency.maybeFromCode(currency)?.symbol ?? '';
   }
 
   static String formatPositiveAmountWithPlanned({

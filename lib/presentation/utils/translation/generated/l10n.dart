@@ -249,30 +249,30 @@ class Translation {
   }
 
   /// `Your trips`
-  String get plannedTripsM3Page_yourTrips {
+  String get plannedTripsPage_yourTrips {
     return Intl.message(
       'Your trips',
-      name: 'plannedTripsM3Page_yourTrips',
+      name: 'plannedTripsPage_yourTrips',
       desc: '',
       args: [],
     );
   }
 
   /// `Delete trip`
-  String get plannedTripsM3Page_deleteTrip {
+  String get plannedTripsPage_deleteTrip {
     return Intl.message(
       'Delete trip',
-      name: 'plannedTripsM3Page_deleteTrip',
+      name: 'plannedTripsPage_deleteTrip',
       desc: '',
       args: [],
     );
   }
 
   /// `Are you sure to delete this trip?`
-  String get plannedTripsM3Page_confirmationDeleteTrip {
+  String get plannedTripsPage_confirmationDeleteTrip {
     return Intl.message(
       'Are you sure to delete this trip?',
-      name: 'plannedTripsM3Page_confirmationDeleteTrip',
+      name: 'plannedTripsPage_confirmationDeleteTrip',
       desc: '',
       args: [],
     );

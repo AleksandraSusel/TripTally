@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:trip_tally/data/repositories/trips_repo_impl.dart';
+import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
 import 'package:trip_tally/domain/repositories/trips_repo.dart';
 import 'package:trip_tally/domain/utils/exception.dart';
 import 'package:trip_tally/domain/utils/success.dart';
@@ -18,7 +19,7 @@ void main() {
     repo = TripsRepoImpl(mockedTripsDataSource);
   });
 
-  test('CreateTrip to creating a trip,success', () async {
+  test('CreateTrip to creating a trip, success', () async {
     when(mockedTripsDataSource.createTrip(mockedCreateTripDto)).thenAnswer((_) async => const Success());
     final result = await repo.createTrip(mockedCreateTripEntity);
     Success? success;
@@ -35,6 +36,32 @@ void main() {
     result.fold((l) => error = l.error, (r) => null);
     expect(error, Errors.somethingWentWrong);
     verify(mockedTripsDataSource.createTrip(mockedCreateTripDto));
+    verifyNoMoreInteractions(mockedTripsDataSource);
+  });
+
+  test('getAllUserTrips should return a list of trips on success', () async {
+    when(mockedTripsDataSource.getAllUserTrips()).thenAnswer((_) async => mockedTripDtoList);
+
+    final result = await repo.getAllUserTrips();
+
+    List<TripEntity>? tripEntities;
+    result.fold((l) => null, (r) => tripEntities = r);
+
+    expect(tripEntities, mockedTripEntityList);
+    verify(mockedTripsDataSource.getAllUserTrips());
+    verifyNoMoreInteractions(mockedTripsDataSource);
+  });
+
+  test('getAllUserTrips should return a Failure when an exception is thrown', () async {
+    when(mockedTripsDataSource.getAllUserTrips()).thenThrow(ApiException(Errors.somethingWentWrong));
+
+    final result = await repo.getAllUserTrips();
+
+    Errors? error;
+    result.fold((l) => error = l.error, (r) => null);
+
+    expect(error, Errors.somethingWentWrong);
+    verify(mockedTripsDataSource.getAllUserTrips());
     verifyNoMoreInteractions(mockedTripsDataSource);
   });
 }

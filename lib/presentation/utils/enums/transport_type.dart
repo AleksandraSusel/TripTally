@@ -12,4 +12,15 @@ enum TransportType {
   const TransportType({required this.icon});
 
   final String icon;
+
+  static TransportType parseTransportType(String name) => switch (name.toLowerCase()) {
+        'flight' => TransportType.flight,
+        'car' => TransportType.car,
+        'bus' => TransportType.bus,
+        'train' => TransportType.train,
+        'ferry' => TransportType.ferry,
+        'bike' => TransportType.bike,
+        'motorcycle' => TransportType.motorcycle,
+        _ => TransportType.flight,
+      };
 }
