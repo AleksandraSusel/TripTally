@@ -189,28 +189,73 @@ const mockedExpenseCategoriesEntities = ExpenseCategoriesEntity(
   ],
 );
 
-final List<TripDto> mockedTripDtoList = [
-  TripDto(
-    id: '123',
-    status: 'planned',
-    location: LocationDto(
-      id: 'loc123',
-      userId: 'user123',
-      countryCode: 'US',
-      cityName: 'New York',
-      insertedAt: DateTime(2024),
-      updatedAt: DateTime(2024),
-    ),
+final TripDto mockedTripDtoV1 = TripDto(
+  id: '123',
+  status: 'planned',
+  location: LocationDto(
+    id: 'loc123',
     userId: 'user123',
-    dateFrom: '2024-10-29',
-    dateTo: '2024-10-30',
-    expenses: [],
-    transportType: 'Airplane',
-    plannedCost: const PriceDto(currency: 'USD', amount: '1200.57'),
+    countryCode: 'US',
+    cityName: 'New York',
     insertedAt: DateTime(2024),
     updatedAt: DateTime(2024),
   ),
+  userId: 'user123',
+  dateFrom: '2024-10-29',
+  dateTo: '2024-10-30',
+  expenses: [],
+  transportType: 'Airplane',
+  plannedCost: const PriceDto(currency: 'USD', amount: '1200.57'),
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
+);
+final TripDto mockedTripDtoV2 = TripDto(
+  id: '123',
+  status: 'planned',
+  location: LocationDto(
+    id: 'loc123',
+    userId: 'user123',
+    countryCode: 'PL',
+    cityName: 'Warszaw',
+    insertedAt: DateTime(2024),
+    updatedAt: DateTime(2024),
+  ),
+  userId: 'user123',
+  dateFrom: '2024-10-05',
+  dateTo: '2024-10-10',
+  expenses: [],
+  transportType: 'Bus',
+  plannedCost: const PriceDto(currency: 'PLN', amount: '2400'),
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
+);
+final TripDto mockedTripDtoV3 = TripDto(
+  id: '123',
+  status: 'planned',
+  location: LocationDto(
+    id: 'loc123',
+    userId: 'user123',
+    countryCode: 'GB',
+    cityName: 'Big Ben',
+    insertedAt: DateTime(2024),
+    updatedAt: DateTime(2024),
+  ),
+  userId: 'user123',
+  dateFrom: '2024-11-10',
+  dateTo: '2024-11-15',
+  expenses: [],
+  transportType: 'car',
+  plannedCost: const PriceDto(currency: 'GBP', amount: '2000'),
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
+);
+
+final List<TripDto> mockedTripDtoList = [
+  mockedTripDtoV1,
+  mockedTripDtoV2,
+  mockedTripDtoV3,
 ];
+
 final TripEntity mockedTripEntityV1 = TripEntity(
   id: '123',
   status: 'planned',
@@ -271,9 +316,10 @@ final TripEntity mockedTripEntityV3 = TripEntity(
   insertedAt: DateTime(2024),
   updatedAt: DateTime(2024),
 );
+
 final List<TripEntity> mockedTripEntityList = [
   mockedTripEntityV1,
-  mockedTripEntityV3,
+  mockedTripEntityV2,
   mockedTripEntityV3,
 ];
 
