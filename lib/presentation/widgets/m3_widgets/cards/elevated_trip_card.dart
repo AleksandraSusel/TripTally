@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
+import 'package:trip_tally/presentation/utils/date_format.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
 import 'package:trip_tally/presentation/widgets/keys/widgets_keys.dart';
@@ -10,38 +12,26 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/money_container.dart'
 import 'package:trip_tally/presentation/widgets/m3_widgets/rectangular_country_flag.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/transport_circle.dart';
+import 'package:world_countries/world_countries.dart';
 
 class ElevatedTripCard extends StatelessWidget {
   const ElevatedTripCard({
-    required this.country,
-    required this.dateFrom,
-    required this.dateTo,
-    required this.transportType,
     required this.totalExpensesAmount,
-    required this.totalExpensesCurrency,
     required this.imagePath,
-    required this.countryCode,
-    required this.expectedBudgetAmount,
-    required this.expectedBudgetCurrency,
+    required this.entity,
     super.key,
     this.onDeletePressed,
   });
 
-  final String country;
-  final String dateFrom;
-  final String dateTo;
-  final TransportType transportType;
+  final TripEntity entity;
+
   final double totalExpensesAmount;
-  final double expectedBudgetAmount;
-  final String totalExpensesCurrency;
-  final String expectedBudgetCurrency;
   final String imagePath;
-  final String countryCode;
   final VoidCallback? onDeletePressed;
 
   @override
   Widget build(BuildContext context) {
-    final bool spendMoreThanExpected = expectedBudgetAmount < totalExpensesAmount;
+    final bool spendMoreThanExpected = double.parse(entity.plannedCost.amount) < totalExpensesAmount;
     return Card(
       elevation: AppDimensions.d2,
       shape: RoundedRectangleBorder(
@@ -59,7 +49,7 @@ class ElevatedTripCard extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                TransportCircle(transportType: transportType),
+                TransportCircle(transportType: TransportType.parseTransportType(entity.transportType)),
                 const SizedBox(width: AppDimensions.d16),
                 Column(
                   mainAxisSize: MainAxisSize.min,
@@ -69,15 +59,15 @@ class ElevatedTripCard extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          country,
+                          WorldCountry.maybeFromCodeShort(entity.location.countryCode)?.name.name ?? '',
                           style: context.tht.displayLarge?.copyWith(fontSize: AppDimensions.d20),
                         ),
                         const SizedBox(width: AppDimensions.d10),
-                        RectangularCountryFlag(countryCode: countryCode),
+                        RectangularCountryFlag(countryCode: entity.location.countryCode),
                       ],
                     ),
                     Text(
-                      '$dateFrom - $dateTo',
+                      formatDates(entity.dateFrom, entity.dateTo),
                       style: context.tht.titleSmall,
                     ),
                   ],
@@ -117,8 +107,8 @@ class ElevatedTripCard extends StatelessWidget {
                     ),
                     MoneyContainer(
                       height: AppDimensions.d28,
-                      amount: expectedBudgetAmount,
-                      currency: expectedBudgetCurrency,
+                      amount: double.parse(entity.plannedCost.amount),
+                      currency: entity.plannedCost.currency,
                     ),
                   ],
                 ),
@@ -135,7 +125,7 @@ class ElevatedTripCard extends StatelessWidget {
                     MoneyContainer(
                       height: AppDimensions.d28,
                       amount: totalExpensesAmount,
-                      currency: totalExpensesCurrency,
+                      currency: entity.plannedCost.currency,
                       theme:
                           spendMoreThanExpected ? MoneyContainerColorTheme.warning : MoneyContainerColorTheme.tertiary,
                     ),

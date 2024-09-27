@@ -1,5 +1,8 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:trip_tally/domain/entities/location/location_entity.dart';
+import 'package:trip_tally/domain/entities/price/price_entity.dart';
+import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
@@ -140,17 +143,29 @@ class TestM3PageState extends State<TestM3Page> {
               ),
             ),
           ),
-          const ElevatedTripCard(
-            country: 'Greece',
-            dateFrom: 'dateFrom',
-            dateTo: 'dateTo',
-            transportType: TransportType.flight,
+          ElevatedTripCard(
+            entity: TripEntity(
+              id: '123',
+              status: 'planned',
+              location: LocationEntity(
+                id: 'loc123',
+                userId: 'user123',
+                countryCode: 'US',
+                cityName: 'New York',
+                insertedAt: DateTime(2024),
+                updatedAt: DateTime(2024),
+              ),
+              userId: 'user123',
+              dateFrom: '2024-10-29',
+              dateTo: '2024-10-30',
+              expenses: [],
+              transportType: 'Airplane',
+              plannedCost: const PriceEntity(currency: 'USD', amount: '1200.57'),
+              insertedAt: DateTime(2024),
+              updatedAt: DateTime(2024),
+            ),
             totalExpensesAmount: 60000,
-            expectedBudgetAmount: 16000.9,
-            totalExpensesCurrency: '€',
-            expectedBudgetCurrency: '€',
             imagePath: AppPaths.italy,
-            countryCode: 'GR',
           ),
           const OutlinedTripCard(
             country: 'Italy',

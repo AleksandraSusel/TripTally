@@ -91,7 +91,7 @@ class _BodyState extends State<_Body> {
   }
 
   double get totalPlannedAmount {
-    return _expenses.fold(0, (sum, item) => sum + item.amount);
+    return _expenses.fold(0, (sum, item) => sum + double.parse(item.price.amount));
   }
 
   @override

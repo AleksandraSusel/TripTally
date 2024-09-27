@@ -59,15 +59,8 @@ class MoneyContainer extends StatelessWidget {
           shape: const StadiumBorder(),
           shadows: [
             BoxShadow(
-              blurRadius: AppDimensions.d2,
-              offset: const Offset(AppDimensions.zero, AppDimensions.d1),
-              color: context.thc.shadow.withOpacity(0.3),
-            ),
-            BoxShadow(
-              blurRadius: AppDimensions.d3,
-              spreadRadius: AppDimensions.d1,
-              offset: const Offset(AppDimensions.zero, AppDimensions.d1),
-              color: context.thc.shadow.withOpacity(0.15),
+              offset: const Offset(0.5, 1.5),
+              color: context.thc.shadow.withOpacity(0.18),
             ),
           ],
         ),

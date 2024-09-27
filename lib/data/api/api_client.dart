@@ -6,6 +6,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:trip_tally/data/dto/expenses/create_expenses_dto.dart';
 import 'package:trip_tally/data/dto/expenses/expense_categories_dto.dart';
 import 'package:trip_tally/data/dto/trips/create_trip_dto.dart';
+import 'package:trip_tally/data/dto/trips/get_trips_dto.dart';
 import 'package:trip_tally/data/dto/user/create_account_dto.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
 
@@ -20,6 +21,9 @@ abstract class ApiClient {
   ///Get
   @GET('expenses_categories')
   Future<ExpenseCategoriesDto> getExpensesCategories();
+
+  @GET('trips')
+  Future<GetTripsDto> getAllUserTrips();
 
   ///Post
   @POST('users/log_in')
@@ -41,7 +45,7 @@ abstract class ApiClient {
   });
 
   @POST('trips')
-  Future<void> addTrip(@Queries() CreateTripDto dto);
+  Future<void> createTrip(@Queries() CreateTripDto dto);
 
   ///Delete
   @DELETE('')

@@ -38,7 +38,8 @@ abstract class $AddTripEntityCopyWith<$Res> {
       _$AddTripEntityCopyWithImpl<$Res, AddTripEntity>;
 
   @useResult
-  $Res call({String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
+  $Res call(
+      {String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
 }
 
 /// @nodoc
@@ -97,13 +98,15 @@ abstract class _$$AddTripEntityImplCopyWith<$Res> implements $AddTripEntityCopyW
 
   @override
   @useResult
-  $Res call({String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
+  $Res call(
+      {String cityName, String transportType, String countryCode, String dateFrom, String dateTo, double plannedCost});
 }
 
 /// @nodoc
 class __$$AddTripEntityImplCopyWithImpl<$Res> extends _$AddTripEntityCopyWithImpl<$Res, _$AddTripEntityImpl>
     implements _$$AddTripEntityImplCopyWith<$Res> {
-  __$$AddTripEntityImplCopyWithImpl(_$AddTripEntityImpl _value, $Res Function(_$AddTripEntityImpl) _then) : super(_value, _then);
+  __$$AddTripEntityImplCopyWithImpl(_$AddTripEntityImpl _value, $Res Function(_$AddTripEntityImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override

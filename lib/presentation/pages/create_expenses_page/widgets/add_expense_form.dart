@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
+import 'package:trip_tally/domain/entities/price/price_entity.dart';
 import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/category_dropdown_button.dart';
@@ -122,8 +123,10 @@ class _AddExpenseFormState extends State<AddExpenseForm> {
                     final expense = ExpenseEntity(
                       name: _expenseNameController.text,
                       date: DateTime.now().toMMMDYFormat,
-                      amount: double.parse(_budgetController.text),
-                      currency: widget.currency,
+                      price: PriceEntity(
+                        amount: _budgetController.text,
+                        currency: widget.currency,
+                      ),
                       tripId: widget.tripId,
                       categoryId: _categoryId,
                     );

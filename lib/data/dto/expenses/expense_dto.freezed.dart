@@ -22,8 +22,7 @@ ExpenseDto _$ExpenseDtoFromJson(Map<String, dynamic> json) {
 mixin _$ExpenseDto {
   String get name => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
-  double get amount => throw _privateConstructorUsedError;
-  String get currency => throw _privateConstructorUsedError;
+  PriceDto get price => throw _privateConstructorUsedError;
   String get tripId => throw _privateConstructorUsedError;
   String get categoryId => throw _privateConstructorUsedError;
   ExpenseCategoryDto? get category => throw _privateConstructorUsedError;
@@ -38,15 +37,9 @@ abstract class $ExpenseDtoCopyWith<$Res> {
   factory $ExpenseDtoCopyWith(ExpenseDto value, $Res Function(ExpenseDto) then) =
       _$ExpenseDtoCopyWithImpl<$Res, ExpenseDto>;
   @useResult
-  $Res call(
-      {String name,
-      String date,
-      double amount,
-      String currency,
-      String tripId,
-      String categoryId,
-      ExpenseCategoryDto? category});
+  $Res call({String name, String date, PriceDto price, String tripId, String categoryId, ExpenseCategoryDto? category});
 
+  $PriceDtoCopyWith<$Res> get price;
   $ExpenseCategoryDtoCopyWith<$Res>? get category;
 }
 
@@ -64,8 +57,7 @@ class _$ExpenseDtoCopyWithImpl<$Res, $Val extends ExpenseDto> implements $Expens
   $Res call({
     Object? name = null,
     Object? date = null,
-    Object? amount = null,
-    Object? currency = null,
+    Object? price = null,
     Object? tripId = null,
     Object? categoryId = null,
     Object? category = freezed,
@@ -79,14 +71,10 @@ class _$ExpenseDtoCopyWithImpl<$Res, $Val extends ExpenseDto> implements $Expens
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as double,
-      currency: null == currency
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as PriceDto,
       tripId: null == tripId
           ? _value.tripId
           : tripId // ignore: cast_nullable_to_non_nullable
@@ -100,6 +88,14 @@ class _$ExpenseDtoCopyWithImpl<$Res, $Val extends ExpenseDto> implements $Expens
           : category // ignore: cast_nullable_to_non_nullable
               as ExpenseCategoryDto?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PriceDtoCopyWith<$Res> get price {
+    return $PriceDtoCopyWith<$Res>(_value.price, (value) {
+      return _then(_value.copyWith(price: value) as $Val);
+    });
   }
 
   @override
@@ -121,15 +117,10 @@ abstract class _$$ExpenseDtoImplCopyWith<$Res> implements $ExpenseDtoCopyWith<$R
       __$$ExpenseDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String name,
-      String date,
-      double amount,
-      String currency,
-      String tripId,
-      String categoryId,
-      ExpenseCategoryDto? category});
+  $Res call({String name, String date, PriceDto price, String tripId, String categoryId, ExpenseCategoryDto? category});
 
+  @override
+  $PriceDtoCopyWith<$Res> get price;
   @override
   $ExpenseCategoryDtoCopyWith<$Res>? get category;
 }
@@ -144,8 +135,7 @@ class __$$ExpenseDtoImplCopyWithImpl<$Res> extends _$ExpenseDtoCopyWithImpl<$Res
   $Res call({
     Object? name = null,
     Object? date = null,
-    Object? amount = null,
-    Object? currency = null,
+    Object? price = null,
     Object? tripId = null,
     Object? categoryId = null,
     Object? category = freezed,
@@ -159,14 +149,10 @@ class __$$ExpenseDtoImplCopyWithImpl<$Res> extends _$ExpenseDtoCopyWithImpl<$Res
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as double,
-      currency: null == currency
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as PriceDto,
       tripId: null == tripId
           ? _value.tripId
           : tripId // ignore: cast_nullable_to_non_nullable
@@ -189,8 +175,7 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
   const _$ExpenseDtoImpl(
       {required this.name,
       required this.date,
-      required this.amount,
-      required this.currency,
+      required this.price,
       required this.tripId,
       required this.categoryId,
       this.category});
@@ -202,9 +187,7 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
   @override
   final String date;
   @override
-  final double amount;
-  @override
-  final String currency;
+  final PriceDto price;
   @override
   final String tripId;
   @override
@@ -214,7 +197,7 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
 
   @override
   String toString() {
-    return 'ExpenseDto(name: $name, date: $date, amount: $amount, currency: $currency, tripId: $tripId, categoryId: $categoryId, category: $category)';
+    return 'ExpenseDto(name: $name, date: $date, price: $price, tripId: $tripId, categoryId: $categoryId, category: $category)';
   }
 
   @override
@@ -224,8 +207,7 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
             other is _$ExpenseDtoImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.date, date) || other.date == date) &&
-            (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.currency, currency) || other.currency == currency) &&
+            (identical(other.price, price) || other.price == price) &&
             (identical(other.tripId, tripId) || other.tripId == tripId) &&
             (identical(other.categoryId, categoryId) || other.categoryId == categoryId) &&
             (identical(other.category, category) || other.category == category));
@@ -233,7 +215,7 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, date, amount, currency, tripId, categoryId, category);
+  int get hashCode => Object.hash(runtimeType, name, date, price, tripId, categoryId, category);
 
   @JsonKey(ignore: true)
   @override
@@ -253,8 +235,7 @@ abstract class _ExpenseDto implements ExpenseDto {
   const factory _ExpenseDto(
       {required final String name,
       required final String date,
-      required final double amount,
-      required final String currency,
+      required final PriceDto price,
       required final String tripId,
       required final String categoryId,
       final ExpenseCategoryDto? category}) = _$ExpenseDtoImpl;
@@ -266,9 +247,7 @@ abstract class _ExpenseDto implements ExpenseDto {
   @override
   String get date;
   @override
-  double get amount;
-  @override
-  String get currency;
+  PriceDto get price;
   @override
   String get tripId;
   @override
