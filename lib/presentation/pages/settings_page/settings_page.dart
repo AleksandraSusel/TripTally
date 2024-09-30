@@ -1,12 +1,13 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:trip_tally/presentation/pages/profile_page/widgets/user_info_card_widget.dart';
-import 'package:trip_tally/presentation/pages/settings_page/widgets/custom_elevated_selection_card.dart';
-import 'package:trip_tally/presentation/theme/app_colors.dart';
+import 'package:trip_tally/presentation/pages/profile_page/widgets/user_info_card.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/elevated_selection_card.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/custom_alert_dialog.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/navigation_app_bar.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/text_fields/text_field_dialog.dart';
 
 @RoutePage()
 class SettingsPage extends StatefulWidget {
@@ -17,6 +18,15 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  late final TextEditingController _controller;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    _controller = TextEditingController();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,58 +37,104 @@ class _SettingsPageState extends State<SettingsPage> {
         child: Column(
           children: [
             const SizedBox(height: AppDimensions.d24),
-            const UserInfoCardWidget(
-              userName: 'Adrian Nowak',
+            const UserInfoCard(
+              username: 'Adrian Nowak', //TODO: username will be take from UserProfile model
               userPhoto: AppPaths.man,
-              isCircleButton: true,
+              isEditMode: true,
             ),
             const SizedBox(height: AppDimensions.d20),
-            CustomElevatedSelectionCard(
-              cardTitle: context.tr.settingsPage_changeYourName,
+            ElevatedSelectionCard(
+              paddingValue: 12,
+              title: context.tr.settingsPage_changeYourName,
               subtitle: 'Adrian Nowak',
-              iconBGColor: AppColorsLight.primaryContainer,
+              iconBGColor: context.thc.primaryContainer,
               iconAsset: AppPaths.editPen,
-              withTextField: true,
-              dialogTitle: context.tr.settingsPage_newName,
-              isWarningAction: false,
-              actionButtonText: context.tr.generic_confirm,
+              onTap: () => showDialog<void>(
+                context: context,
+                builder: (ctx) => Form(
+                  key: _formKey,
+                  child: TextFieldDialog(
+                    abortButtonText: context.tr.generic_cancel,
+                    title: context.tr.settingsPage_newName,
+                    actionButtonText: context.tr.generic_confirm,
+                    onConfirmPressed: () {
+                      if (_formKey.currentState?.validate() ?? false) {
+                        context.router.maybePop();
+                      }
+                    },
+                    labelText: context.tr.settingsPage_changeYourName,
+                    controller: _controller,
+                  ),
+                ),
+              ),
             ),
-            CustomElevatedSelectionCard(
-              cardTitle: context.tr.settingsPage_changeYourEmail,
+            ElevatedSelectionCard(
+              paddingValue: 12,
+              title: context.tr.settingsPage_changeYourEmail,
               subtitle: context.tr.settingsPage_clickToSend,
-              iconBGColor: AppColorsLight.primaryContainer,
+              iconBGColor: context.thc.primaryContainer,
               iconAsset: AppPaths.emailM3,
-              infoInDialog: context.tr.settingsPage_informationInDialog,
-              withTextField: false,
-              dialogTitle: context.tr.settingsPage_areYouSure,
-              isWarningAction: false,
-              actionButtonText: context.tr.generic_confirm,
+              onTap: () => showDialog<void>(
+                context: context,
+                builder: (ctx) => CustomAlertDialog(
+                  abortButtonText: context.tr.generic_cancel,
+                  title: context.tr.settingsPage_areYouSure,
+                  info: context.tr.settingsPage_informationInDialog,
+                  actionButtonText: context.tr.generic_confirm,
+                  onConfirmPressed: () {
+                    context.router.maybePop();
+                  },
+                ),
+              ),
             ),
-            CustomElevatedSelectionCard(
-              cardTitle: context.tr.settingsPage_changeYourPassword,
+            ElevatedSelectionCard(
+              paddingValue: 12,
+              title: context.tr.settingsPage_changeYourPassword,
               subtitle: context.tr.settingsPage_clickToSend,
-              iconBGColor: AppColorsLight.primaryContainer,
+              iconBGColor: context.thc.primaryContainer,
               iconAsset: AppPaths.password,
-              infoInDialog: context.tr.settingsPage_informationInDialog,
-              withTextField: false,
-              dialogTitle: context.tr.settingsPage_areYouSure,
-              isWarningAction: false,
-              actionButtonText: context.tr.generic_confirm,
+              onTap: () => showDialog<void>(
+                context: context,
+                builder: (ctx) => CustomAlertDialog(
+                  abortButtonText: context.tr.generic_cancel,
+                  title: context.tr.settingsPage_areYouSure,
+                  info: context.tr.settingsPage_informationInDialog,
+                  actionButtonText: context.tr.generic_confirm,
+                  onConfirmPressed: () {
+                    context.router.maybePop();
+                  },
+                ),
+              ),
             ),
-            CustomElevatedSelectionCard(
-              cardTitle: context.tr.settingsPage_deleteYourAccount,
-              subtitle: context.tr.settingsPage_clickToDelete,
-              iconBGColor: AppColorsLight.error,
+            ElevatedSelectionCard(
+              paddingValue: 12,
+              title: context.tr.settingsPage_deleteYourAccount,
+              subtitle: context.tr.settingsPage_clickToSend,
+              iconBGColor: context.thc.error,
               iconAsset: AppPaths.binM3,
-              infoInDialog: context.tr.settingsPage_informationInDialogToDeleteAccount,
-              withTextField: false,
-              dialogTitle: context.tr.settingsPage_areYouSure,
-              isWarningAction: true,
-              actionButtonText: context.tr.generic_delete,
+              onTap: () => showDialog<void>(
+                context: context,
+                builder: (ctx) => CustomAlertDialog(
+                  isWarningAction: true,
+                  abortButtonText: context.tr.generic_cancel,
+                  title: context.tr.settingsPage_areYouSure,
+                  info: context.tr.settingsPage_informationInDialog,
+                  actionButtonText: context.tr.generic_confirm,
+                  onConfirmPressed: () {
+                    context.router.maybePop();
+                  },
+                ),
+              ),
             ),
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }

@@ -1,8 +1,8 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:trip_tally/presentation/pages/profile_page/widgets/row_of_trips_widget.dart';
-import 'package:trip_tally/presentation/pages/profile_page/widgets/user_info_card_widget.dart';
-import 'package:trip_tally/presentation/pages/profile_page/widgets/user_social_stats_widget.dart';
+import 'package:trip_tally/presentation/pages/profile_page/widgets/trips_grid_view.dart';
+import 'package:trip_tally/presentation/pages/profile_page/widgets/user_info_card.dart';
+import 'package:trip_tally/presentation/pages/profile_page/widgets/user_social_stats.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
@@ -32,19 +32,19 @@ class ProfilePage extends StatelessWidget {
       body: Column(
         children: [
           const SizedBox(height: AppDimensions.d24),
-          const UserInfoCardWidget(
-            userName: 'Adrian Nowak',
+          const UserInfoCard(
+            username: 'Adrian Nowak',
             userPhoto: AppPaths.man,
-            isCircleButton: false,
           ),
-          const UserSocialStatsWidget(
-            followers: '2000',
-            finishedTrips: '3',
-            spentForTrips: r'10 000 $',
+          const UserSocialStats(
+            currency: r'$',
+            followers: 20000,
+            finishedTrips: 3,
+            spentForTrips: 100000,
           ),
           const SizedBox(height: AppDimensions.d20),
-          Expanded(child: RowOfTripsWidget()),
-          const SizedBox(height: AppDimensions.d40),
+          Expanded(child: TripsGridView()),
+          const SizedBox(height: AppDimensions.d30),
         ],
       ),
     );

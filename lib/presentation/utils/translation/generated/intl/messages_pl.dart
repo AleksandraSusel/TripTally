@@ -196,5 +196,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "yourCurrentTripPage_closeTheTrip": MessageLookupByLibrary.simpleMessage("Close the trip"),
         "yourCurrentTripPage_editTheTrip": MessageLookupByLibrary.simpleMessage("Edit the trip"),
         "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip"),
+        "your_name": MessageLookupByLibrary.simpleMessage("Your name"),
       };
 }

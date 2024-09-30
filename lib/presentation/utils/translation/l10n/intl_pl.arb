@@ -56,6 +56,7 @@
   "password": "Password",
   "repeatPassword": "Repeat password",
   "or": "or",
+  "your_name": "Your name",
   "errors_unknownError": "Unknown error",
   "errors_userNotFound": "User not found:",
   "errors_userDisabled": "User disabled",

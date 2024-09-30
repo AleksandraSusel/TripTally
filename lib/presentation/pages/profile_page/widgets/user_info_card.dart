@@ -1,45 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
 
-class UserInfoCardWidget extends StatelessWidget {
-  const UserInfoCardWidget({
-    required this.userName,
+class UserInfoCard extends StatelessWidget {
+  const UserInfoCard({
+    required this.username,
     required this.userPhoto,
-    required this.isCircleButton,
+    this.isEditMode = false,
     super.key,
   });
 
-  final String userName;
+  final String username;
   final String userPhoto;
-  final bool isCircleButton;
+  final bool isEditMode;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        if (isCircleButton == true)
+        if (isEditMode == true)
           Stack(
             alignment: Alignment.center,
             children: [
               CircleAvatar(
                 radius: AppDimensions.d50,
-                backgroundImage: AssetImage(userPhoto),
+                backgroundImage: AssetImage(userPhoto), //TODO: NetworkImage
               ),
               Positioned(
                 bottom: 0,
                 right: 0,
                 child: GestureDetector(
-                  onTap: () {},
-                  child: const CircleAvatar(
+                  onTap: () {}, //TODO: In this place should be a function to change userPhoto
+                  child: CircleAvatar(
                     radius: AppDimensions.d16,
-                    backgroundColor: AppColorsLight.primaryContainer,
+                    backgroundColor: context.thc.primaryContainer,
                     child: SvgAsset(
                       AppPaths.plusOutline,
-                      color: AppColorsLight.primary,
+                      color: context.thc.primary,
                     ),
                   ),
                 ),
@@ -54,7 +53,7 @@ class UserInfoCardWidget extends StatelessWidget {
         const SizedBox(height: AppDimensions.d10),
         Center(
           child: Text(
-            userName,
+            username,
             style: context.tht.labelSmall,
           ),
         ),

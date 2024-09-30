@@ -622,6 +622,16 @@ class Translation {
     );
   }
 
+  /// `Your name`
+  String get your_name {
+    return Intl.message(
+      'Your name',
+      name: 'your_name',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Unknown error`
   String get errors_unknownError {
     return Intl.message(

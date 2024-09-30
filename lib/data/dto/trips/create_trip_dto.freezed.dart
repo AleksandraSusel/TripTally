@@ -37,6 +37,7 @@ mixin _$CreateTripDto {
 abstract class $CreateTripDtoCopyWith<$Res> {
   factory $CreateTripDtoCopyWith(CreateTripDto value, $Res Function(CreateTripDto) then) =
       _$CreateTripDtoCopyWithImpl<$Res, CreateTripDto>;
+
   @useResult
   $Res call(
       {String cityName,
@@ -54,6 +55,7 @@ class _$CreateTripDtoCopyWithImpl<$Res, $Val extends CreateTripDto> implements $
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -105,6 +107,7 @@ class _$CreateTripDtoCopyWithImpl<$Res, $Val extends CreateTripDto> implements $
 abstract class _$$CreateAddTripDtoImplCopyWith<$Res> implements $CreateTripDtoCopyWith<$Res> {
   factory _$$CreateAddTripDtoImplCopyWith(_$CreateAddTripDtoImpl value, $Res Function(_$CreateAddTripDtoImpl) then) =
       __$$CreateAddTripDtoImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -248,18 +251,24 @@ abstract class _CreateAddTripDto implements CreateTripDto {
 
   @override
   String get cityName;
+
   @override
   String get currency;
+
   @override
   String get transportType;
+
   @override
   String get countryCode;
+
   @override
   String get dateFrom;
   @override
   String get dateTo;
+
   @override
   double get amount;
+
   @override
   @JsonKey(ignore: true)
   _$$CreateAddTripDtoImplCopyWith<_$CreateAddTripDtoImpl> get copyWith => throw _privateConstructorUsedError;

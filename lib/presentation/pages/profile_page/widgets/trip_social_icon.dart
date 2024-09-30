@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
@@ -22,7 +21,7 @@ class TripSocialIcon extends StatelessWidget {
         const SizedBox(height: AppDimensions.d6),
         Text(
           number,
-          style: context.tht.displaySmall?.copyWith(color: AppColorsLight.primary),
+          style: context.tht.displaySmall?.copyWith(color: context.thc.primary),
         ),
       ],
     );

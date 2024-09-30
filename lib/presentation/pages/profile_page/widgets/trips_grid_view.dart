@@ -3,8 +3,8 @@ import 'package:trip_tally/presentation/pages/profile_page/widgets/profile_page_
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 
-class RowOfTripsWidget extends StatelessWidget {
-  RowOfTripsWidget({super.key});
+class TripsGridView extends StatelessWidget {
+  TripsGridView({super.key});
 
   final List<Map<String, String>> tripData = [
     {'localization': 'Greece', 'imgPath': AppPaths.malta},
