@@ -33,6 +33,7 @@ mixin _$ExpenseCategoryDto {
 abstract class $ExpenseCategoryDtoCopyWith<$Res> {
   factory $ExpenseCategoryDtoCopyWith(ExpenseCategoryDto value, $Res Function(ExpenseCategoryDto) then) =
       _$ExpenseCategoryDtoCopyWithImpl<$Res, ExpenseCategoryDto>;
+
   @useResult
   $Res call({String id, String name, String translationKey});
 }
@@ -76,6 +77,7 @@ abstract class _$$ExpenseCategoryDtoImplCopyWith<$Res> implements $ExpenseCatego
   factory _$$ExpenseCategoryDtoImplCopyWith(
           _$ExpenseCategoryDtoImpl value, $Res Function(_$ExpenseCategoryDtoImpl) then) =
       __$$ExpenseCategoryDtoImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({String id, String name, String translationKey});
@@ -169,10 +171,13 @@ abstract class _ExpenseCategoryDto implements ExpenseCategoryDto {
 
   @override
   String get id;
+
   @override
   String get name;
+
   @override
   String get translationKey;
+
   @override
   @JsonKey(ignore: true)
   _$$ExpenseCategoryDtoImplCopyWith<_$ExpenseCategoryDtoImpl> get copyWith => throw _privateConstructorUsedError;

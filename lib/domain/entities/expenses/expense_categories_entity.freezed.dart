@@ -26,6 +26,7 @@ mixin _$ExpenseCategoriesEntity {
 abstract class $ExpenseCategoriesEntityCopyWith<$Res> {
   factory $ExpenseCategoriesEntityCopyWith(ExpenseCategoriesEntity value, $Res Function(ExpenseCategoriesEntity) then) =
       _$ExpenseCategoriesEntityCopyWithImpl<$Res, ExpenseCategoriesEntity>;
+
   @useResult
   $Res call({List<ExpenseCategoryEntity> categories});
 }
@@ -37,6 +38,7 @@ class _$ExpenseCategoriesEntityCopyWithImpl<$Res, $Val extends ExpenseCategories
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -59,6 +61,7 @@ abstract class _$$ExpenseCategoriesEntityImplCopyWith<$Res> implements $ExpenseC
   factory _$$ExpenseCategoriesEntityImplCopyWith(
           _$ExpenseCategoriesEntityImpl value, $Res Function(_$ExpenseCategoriesEntityImpl) then) =
       __$$ExpenseCategoriesEntityImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({List<ExpenseCategoryEntity> categories});
@@ -93,6 +96,7 @@ class _$ExpenseCategoriesEntityImpl implements _ExpenseCategoriesEntity {
       : _categories = categories;
 
   final List<ExpenseCategoryEntity> _categories;
+
   @override
   List<ExpenseCategoryEntity> get categories {
     if (_categories is EqualUnmodifiableListView) return _categories;
@@ -129,6 +133,7 @@ abstract class _ExpenseCategoriesEntity implements ExpenseCategoriesEntity {
 
   @override
   List<ExpenseCategoryEntity> get categories;
+
   @override
   @JsonKey(ignore: true)
   _$$ExpenseCategoriesEntityImplCopyWith<_$ExpenseCategoriesEntityImpl> get copyWith =>

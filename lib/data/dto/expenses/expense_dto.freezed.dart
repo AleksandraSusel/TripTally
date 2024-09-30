@@ -37,6 +37,7 @@ mixin _$ExpenseDto {
 abstract class $ExpenseDtoCopyWith<$Res> {
   factory $ExpenseDtoCopyWith(ExpenseDto value, $Res Function(ExpenseDto) then) =
       _$ExpenseDtoCopyWithImpl<$Res, ExpenseDto>;
+
   @useResult
   $Res call(
       {String name,
@@ -56,6 +57,7 @@ class _$ExpenseDtoCopyWithImpl<$Res, $Val extends ExpenseDto> implements $Expens
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -119,6 +121,7 @@ class _$ExpenseDtoCopyWithImpl<$Res, $Val extends ExpenseDto> implements $Expens
 abstract class _$$ExpenseDtoImplCopyWith<$Res> implements $ExpenseDtoCopyWith<$Res> {
   factory _$$ExpenseDtoImplCopyWith(_$ExpenseDtoImpl value, $Res Function(_$ExpenseDtoImpl) then) =
       __$$ExpenseDtoImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -263,18 +266,24 @@ abstract class _ExpenseDto implements ExpenseDto {
 
   @override
   String get name;
+
   @override
   String get date;
+
   @override
   double get amount;
+
   @override
   String get currency;
+
   @override
   String get tripId;
   @override
   String get categoryId;
+
   @override
   ExpenseCategoryDto? get category;
+
   @override
   @JsonKey(ignore: true)
   _$$ExpenseDtoImplCopyWith<_$ExpenseDtoImpl> get copyWith => throw _privateConstructorUsedError;

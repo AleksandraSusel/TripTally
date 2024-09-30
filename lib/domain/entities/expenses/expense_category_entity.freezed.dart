@@ -28,6 +28,7 @@ mixin _$ExpenseCategoryEntity {
 abstract class $ExpenseCategoryEntityCopyWith<$Res> {
   factory $ExpenseCategoryEntityCopyWith(ExpenseCategoryEntity value, $Res Function(ExpenseCategoryEntity) then) =
       _$ExpenseCategoryEntityCopyWithImpl<$Res, ExpenseCategoryEntity>;
+
   @useResult
   $Res call({String id, String name, String translationKey});
 }
@@ -39,6 +40,7 @@ class _$ExpenseCategoryEntityCopyWithImpl<$Res, $Val extends ExpenseCategoryEnti
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -71,6 +73,7 @@ abstract class _$$ExpenseCategoryEntityImplCopyWith<$Res> implements $ExpenseCat
   factory _$$ExpenseCategoryEntityImplCopyWith(
           _$ExpenseCategoryEntityImpl value, $Res Function(_$ExpenseCategoryEntityImpl) then) =
       __$$ExpenseCategoryEntityImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({String id, String name, String translationKey});
@@ -155,8 +158,10 @@ abstract class _ExpenseCategoryEntity implements ExpenseCategoryEntity {
   String get id;
   @override
   String get name;
+
   @override
   String get translationKey;
+
   @override
   @JsonKey(ignore: true)
   _$$ExpenseCategoryEntityImplCopyWith<_$ExpenseCategoryEntityImpl> get copyWith => throw _privateConstructorUsedError;

@@ -35,6 +35,7 @@ mixin _$UpdateUserProfileDto {
 abstract class $UpdateUserProfileDtoCopyWith<$Res> {
   factory $UpdateUserProfileDtoCopyWith(UpdateUserProfileDto value, $Res Function(UpdateUserProfileDto) then) =
       _$UpdateUserProfileDtoCopyWithImpl<$Res, UpdateUserProfileDto>;
+
   @useResult
   $Res call(
       {String username,
@@ -50,6 +51,7 @@ class _$UpdateUserProfileDtoCopyWithImpl<$Res, $Val extends UpdateUserProfileDto
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -87,6 +89,7 @@ abstract class _$$UpdateUserProfileDtoImplCopyWith<$Res> implements $UpdateUserP
   factory _$$UpdateUserProfileDtoImplCopyWith(
           _$UpdateUserProfileDtoImpl value, $Res Function(_$UpdateUserProfileDtoImpl) then) =
       __$$UpdateUserProfileDtoImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call(
@@ -200,13 +203,17 @@ abstract class _UpdateUserProfileDto implements UpdateUserProfileDto {
 
   @override
   String get username;
+
   @override
   String get country;
+
   @override
   String get defaultCurrencyCode;
+
   @override
   @JsonKey(includeToJson: false, includeFromJson: false)
   File? get profilePicture;
+
   @override
   @JsonKey(ignore: true)
   _$$UpdateUserProfileDtoImplCopyWith<_$UpdateUserProfileDtoImpl> get copyWith => throw _privateConstructorUsedError;
