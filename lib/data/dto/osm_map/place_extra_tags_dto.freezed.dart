@@ -43,7 +43,6 @@ mixin _$PlaceExtraTagsDto {
 abstract class $PlaceExtraTagsDtoCopyWith<$Res> {
   factory $PlaceExtraTagsDtoCopyWith(PlaceExtraTagsDto value, $Res Function(PlaceExtraTagsDto) then) =
       _$PlaceExtraTagsDtoCopyWithImpl<$Res, PlaceExtraTagsDto>;
-
   @useResult
   $Res call(
       {String? lunch,
@@ -143,7 +142,6 @@ class _$PlaceExtraTagsDtoCopyWithImpl<$Res, $Val extends PlaceExtraTagsDto>
 abstract class _$$PlaceExtraTagsDtoImplCopyWith<$Res> implements $PlaceExtraTagsDtoCopyWith<$Res> {
   factory _$$PlaceExtraTagsDtoImplCopyWith(_$PlaceExtraTagsDtoImpl value, $Res Function(_$PlaceExtraTagsDtoImpl) then) =
       __$$PlaceExtraTagsDtoImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -344,16 +342,12 @@ abstract class _PlaceExtraTagsDto implements PlaceExtraTagsDto {
 
   @override
   String? get lunch;
-
   @override
   String? get cuisine;
-
   @override
   String? get website;
-
   @override
   String? get wheelchair;
-
   @override
   String? get openingHours;
   @override
@@ -369,10 +363,8 @@ abstract class _PlaceExtraTagsDto implements PlaceExtraTagsDto {
   String? get toiletsWheelchair;
   @override
   String? get phone;
-
   @override
   String? get image;
-
   @override
   @JsonKey(ignore: true)
   _$$PlaceExtraTagsDtoImplCopyWith<_$PlaceExtraTagsDtoImpl> get copyWith => throw _privateConstructorUsedError;

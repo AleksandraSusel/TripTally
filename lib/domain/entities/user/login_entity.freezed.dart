@@ -27,7 +27,6 @@ mixin _$LoginEntity {
 abstract class $LoginEntityCopyWith<$Res> {
   factory $LoginEntityCopyWith(LoginEntity value, $Res Function(LoginEntity) then) =
       _$LoginEntityCopyWithImpl<$Res, LoginEntity>;
-
   @useResult
   $Res call({String email, String password});
 }
@@ -38,7 +37,6 @@ class _$LoginEntityCopyWithImpl<$Res, $Val extends LoginEntity> implements $Logi
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -65,7 +63,6 @@ class _$LoginEntityCopyWithImpl<$Res, $Val extends LoginEntity> implements $Logi
 abstract class _$$LoginEntityImplCopyWith<$Res> implements $LoginEntityCopyWith<$Res> {
   factory _$$LoginEntityImplCopyWith(_$LoginEntityImpl value, $Res Function(_$LoginEntityImpl) then) =
       __$$LoginEntityImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({String email, String password});
@@ -135,10 +132,8 @@ abstract class _LoginEntity implements LoginEntity {
 
   @override
   String get email;
-
   @override
   String get password;
-
   @override
   @JsonKey(ignore: true)
   _$$LoginEntityImplCopyWith<_$LoginEntityImpl> get copyWith => throw _privateConstructorUsedError;

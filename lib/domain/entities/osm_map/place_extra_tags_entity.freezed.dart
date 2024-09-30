@@ -37,7 +37,6 @@ mixin _$PlaceExtraTagsEntity {
 abstract class $PlaceExtraTagsEntityCopyWith<$Res> {
   factory $PlaceExtraTagsEntityCopyWith(PlaceExtraTagsEntity value, $Res Function(PlaceExtraTagsEntity) then) =
       _$PlaceExtraTagsEntityCopyWithImpl<$Res, PlaceExtraTagsEntity>;
-
   @useResult
   $Res call(
       {String? lunch,
@@ -61,7 +60,6 @@ class _$PlaceExtraTagsEntityCopyWithImpl<$Res, $Val extends PlaceExtraTagsEntity
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -139,7 +137,6 @@ abstract class _$$PlaceExtraTagsEntityImplCopyWith<$Res> implements $PlaceExtraT
   factory _$$PlaceExtraTagsEntityImplCopyWith(
           _$PlaceExtraTagsEntityImpl value, $Res Function(_$PlaceExtraTagsEntityImpl) then) =
       __$$PlaceExtraTagsEntityImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call(
@@ -349,10 +346,8 @@ abstract class _PlaceExtraTagsEntity implements PlaceExtraTagsEntity {
   String? get toiletsWheelchair;
   @override
   String? get phone;
-
   @override
   String? get image;
-
   @override
   @JsonKey(ignore: true)
   _$$PlaceExtraTagsEntityImplCopyWith<_$PlaceExtraTagsEntityImpl> get copyWith => throw _privateConstructorUsedError;

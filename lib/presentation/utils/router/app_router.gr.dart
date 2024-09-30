@@ -26,9 +26,14 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     CreateExpensesRoute.name: (routeData) {
+      final args = routeData.argsAs<CreateExpensesRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const CreateExpensesPage(),
+        child: CreateExpensesPage(
+          tripId: args.tripId,
+          currency: args.currency,
+          key: args.key,
+        ),
       );
     },
     CreateTripBasicInfoRoute.name: (routeData) {
@@ -131,16 +136,44 @@ class AuthenticationRouteArgs {
 
 /// generated route for
 /// [CreateExpensesPage]
-class CreateExpensesRoute extends PageRouteInfo<void> {
-  const CreateExpensesRoute({List<PageRouteInfo>? children})
-      : super(
+class CreateExpensesRoute extends PageRouteInfo<CreateExpensesRouteArgs> {
+  CreateExpensesRoute({
+    required String tripId,
+    required String currency,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
           CreateExpensesRoute.name,
+          args: CreateExpensesRouteArgs(
+            tripId: tripId,
+            currency: currency,
+            key: key,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'CreateExpensesRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<CreateExpensesRouteArgs> page = PageInfo<CreateExpensesRouteArgs>(name);
+}
+
+class CreateExpensesRouteArgs {
+  const CreateExpensesRouteArgs({
+    required this.tripId,
+    required this.currency,
+    this.key,
+  });
+
+  final String tripId;
+
+  final String currency;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'CreateExpensesRouteArgs{tripId: $tripId, currency: $currency, key: $key}';
+  }
 }
 
 /// generated route for

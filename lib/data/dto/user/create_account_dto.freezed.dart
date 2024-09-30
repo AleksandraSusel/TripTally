@@ -32,7 +32,6 @@ mixin _$CreateAccountDto {
 abstract class $CreateAccountDtoCopyWith<$Res> {
   factory $CreateAccountDtoCopyWith(CreateAccountDto value, $Res Function(CreateAccountDto) then) =
       _$CreateAccountDtoCopyWithImpl<$Res, CreateAccountDto>;
-
   @useResult
   $Res call({String email, String password});
 }
@@ -43,7 +42,6 @@ class _$CreateAccountDtoCopyWithImpl<$Res, $Val extends CreateAccountDto> implem
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -70,7 +68,6 @@ class _$CreateAccountDtoCopyWithImpl<$Res, $Val extends CreateAccountDto> implem
 abstract class _$$CreateAccountDtoImplCopyWith<$Res> implements $CreateAccountDtoCopyWith<$Res> {
   factory _$$CreateAccountDtoImplCopyWith(_$CreateAccountDtoImpl value, $Res Function(_$CreateAccountDtoImpl) then) =
       __$$CreateAccountDtoImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({String email, String password});
@@ -153,10 +150,8 @@ abstract class _CreateAccountDto implements CreateAccountDto {
 
   @override
   String get email;
-
   @override
   String get password;
-
   @override
   @JsonKey(ignore: true)
   _$$CreateAccountDtoImplCopyWith<_$CreateAccountDtoImpl> get copyWith => throw _privateConstructorUsedError;

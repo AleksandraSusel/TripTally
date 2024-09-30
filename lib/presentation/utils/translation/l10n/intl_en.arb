@@ -32,6 +32,7 @@
   "generic_permissionDeniedDesc": "The permission is permanently denied. Please go to settings to enable it.",
   "generic_cancel": "Cancel",
   "generic_settings": "Go to settings",
+  "generic_search": "Search",
   "manageTripsPage_currentlyOnTrip": "You are currently on a trip!",
   "manageTripsPage_planNew": "Plan new",
   "manageTripsPage_planNewSubtitle": "Your next adventure awaits!",

@@ -18,6 +18,7 @@ class CustomTextField extends StatefulWidget {
     this.textInputType,
     this.initialValue,
     this.helperText,
+    this.autofocus = false,
   });
 
   final String labelText;
@@ -33,6 +34,7 @@ class CustomTextField extends StatefulWidget {
   final String? Function(String?)? validator;
   final FocusNode? focusNode;
   final TextInputType? textInputType;
+  final bool autofocus;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -50,6 +52,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: widget.autofocus,
       initialValue: widget.initialValue,
       keyboardType: widget.textInputType,
       onTap: widget.onTap,

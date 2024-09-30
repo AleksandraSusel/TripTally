@@ -12,6 +12,8 @@ _$ExpenseDtoImpl _$$ExpenseDtoImplFromJson(Map<String, dynamic> json) => _$Expen
       amount: (json['amount'] as num).toDouble(),
       currency: json['currency'] as String,
       tripId: json['trip_id'] as String,
+      categoryId: json['category_id'] as String,
+      category: json['category'] == null ? null : ExpenseCategoryDto.fromJson(json['category'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$ExpenseDtoImplToJson(_$ExpenseDtoImpl instance) => <String, dynamic>{
@@ -20,4 +22,6 @@ Map<String, dynamic> _$$ExpenseDtoImplToJson(_$ExpenseDtoImpl instance) => <Stri
       'amount': instance.amount,
       'currency': instance.currency,
       'trip_id': instance.tripId,
+      'category_id': instance.categoryId,
+      'category': instance.category?.toJson(),
     };
