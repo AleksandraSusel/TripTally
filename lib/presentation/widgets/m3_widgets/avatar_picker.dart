@@ -65,7 +65,7 @@ class _AvatarPickerState extends State<AvatarPicker> {
                 backgroundColor: context.thc.secondaryContainer,
                 child: const Padding(
                   padding: EdgeInsets.all(AppDimensions.d4),
-                  child: SvgAsset(AppPaths.plusOutlined),
+                  child: SvgAsset(AppPaths.plusOutline),
                 ),
               ),
             ),

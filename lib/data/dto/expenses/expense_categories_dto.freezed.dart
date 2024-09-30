@@ -31,6 +31,7 @@ mixin _$ExpenseCategoriesDto {
 abstract class $ExpenseCategoriesDtoCopyWith<$Res> {
   factory $ExpenseCategoriesDtoCopyWith(ExpenseCategoriesDto value, $Res Function(ExpenseCategoriesDto) then) =
       _$ExpenseCategoriesDtoCopyWithImpl<$Res, ExpenseCategoriesDto>;
+
   @useResult
   $Res call({List<ExpenseCategoryDto> categories});
 }
@@ -42,6 +43,7 @@ class _$ExpenseCategoriesDtoCopyWithImpl<$Res, $Val extends ExpenseCategoriesDto
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -64,6 +66,7 @@ abstract class _$$ExpenseCategoriesDtoImplCopyWith<$Res> implements $ExpenseCate
   factory _$$ExpenseCategoriesDtoImplCopyWith(
           _$ExpenseCategoriesDtoImpl value, $Res Function(_$ExpenseCategoriesDtoImpl) then) =
       __$$ExpenseCategoriesDtoImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({List<ExpenseCategoryDto> categories});
@@ -99,6 +102,7 @@ class _$ExpenseCategoriesDtoImpl implements _ExpenseCategoriesDto {
   factory _$ExpenseCategoriesDtoImpl.fromJson(Map<String, dynamic> json) => _$$ExpenseCategoriesDtoImplFromJson(json);
 
   final List<ExpenseCategoryDto> _categories;
+
   @override
   List<ExpenseCategoryDto> get categories {
     if (_categories is EqualUnmodifiableListView) return _categories;
@@ -145,6 +149,7 @@ abstract class _ExpenseCategoriesDto implements ExpenseCategoriesDto {
 
   @override
   List<ExpenseCategoryDto> get categories;
+
   @override
   @JsonKey(ignore: true)
   _$$ExpenseCategoriesDtoImplCopyWith<_$ExpenseCategoriesDtoImpl> get copyWith => throw _privateConstructorUsedError;

@@ -7,9 +7,6 @@ class AppPaths {
 
   static const String airplane = '$svgPath/airplane.svg';
   static const String biggerAirplane = '$svgPath/bigger_airplane.svg';
-  static const String plus = '$svgPath/plus.svg';
-  static const String pen = '$svgPath/pen.svg';
-  static const String editorPen = '$svgPath/editor_pen.svg';
   static const String flag = '$svgPath/flag.svg';
   static const String flyStart = '$svgPath/fly_start.svg';
   static const String flyEnd = '$svgPath/fly_end.svg';
@@ -26,7 +23,6 @@ class AppPaths {
   static const String dots = '$svgPath/dots.svg';
   static const String datePicker = '$svgPath/date_picker.svg';
   static const String bin = '$svgPath/bin.svg';
-  static const String email = '$svgPath/email.svg';
   static const String history = '$svgPath/history.svg';
   static const String lock = '$svgPath/lock.svg';
   static const String cutlery = '$svgPath/cutlery.svg';
@@ -41,10 +37,13 @@ class AppPaths {
   // PNG
   static const String italy = '$pngPath/italy.png';
   static const String greece = '$pngPath/greece.png';
+  static const String berlin = '$pngPath/berlin.png';
+  static const String malta = '$pngPath/malta.png';
   static const String samplePerson = '$pngPath/person.png';
   static const String beach = '$pngPath/auth_bg.png';
   static const String appleLogo = '$pngPath/apple_logo.png';
   static const String googleLogo = '$pngPath/google_logo.png';
+  static const String man = '$pngPath/man.png';
 
   // M3 SVG
   static const String carM3 = '$m3SvgPath/car.svg';
@@ -62,10 +61,21 @@ class AppPaths {
   static const String statistic = '$m3SvgPath/statistic.svg';
   static const String menu = '$m3SvgPath/menu.svg';
   static const String camera = '$m3SvgPath/camera.svg';
-  static const String plusOutlined = '$m3SvgPath/plus_outlined.svg';
+  static const String plusOutlineThin = '$m3SvgPath/plus_outline_thin.svg';
   static const String bike = '$m3SvgPath/bike.svg';
   static const String motorcycle = '$m3SvgPath/motorcycle.svg';
   static const String nextArrow = '$m3SvgPath/next_arrow.svg';
   static const String editIcon = '$m3SvgPath/edit_icon.svg';
   static const String doubleCheck = '$m3SvgPath/double_check.svg';
+  static const String profilePhoto = '$m3SvgPath/profile_photo.svg';
+  static const String localization = '$m3SvgPath/localization.svg';
+  static const String eyeM3 = '$m3SvgPath/eyeM3.svg';
+  static const String heart = '$m3SvgPath/heart.svg';
+  static const String bagOfMoney = '$m3SvgPath/bag_of_money.svg';
+  static const String carbonSettings = '$m3SvgPath/carbon_settings.svg';
+  static const String plusOutline = '$m3SvgPath/plus_outline.svg';
+  static const String emailM3 = '$m3SvgPath/emailM3.svg';
+  static const String password = '$m3SvgPath/password.svg';
+  static const String editPen = '$m3SvgPath/edit_pen.svg';
+  static const String plus = '$m3SvgPath/plus.svg';
 }

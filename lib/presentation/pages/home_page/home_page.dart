@@ -39,14 +39,16 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: CustomBottomNavBar(
         initialIndex: _initialPageViewIndex,
         onItemSelected: (index, item) {
-          setState(() {
-            _bottomNavItem = item;
-            _pageController.animateToPage(
-              index,
-              duration: 400.ms,
-              curve: Curves.easeInOut,
-            );
-          });
+          setState(
+            () {
+              _bottomNavItem = item;
+              _pageController.animateToPage(
+                index,
+                duration: 400.ms,
+                curve: Curves.easeInOut,
+              );
+            },
+          );
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

@@ -31,6 +31,7 @@ mixin _$CreateExpensesDto {
 abstract class $CreateExpensesDtoCopyWith<$Res> {
   factory $CreateExpensesDtoCopyWith(CreateExpensesDto value, $Res Function(CreateExpensesDto) then) =
       _$CreateExpensesDtoCopyWithImpl<$Res, CreateExpensesDto>;
+
   @useResult
   $Res call({List<ExpenseDto> expenses});
 }
@@ -63,6 +64,7 @@ class _$CreateExpensesDtoCopyWithImpl<$Res, $Val extends CreateExpensesDto>
 abstract class _$$CreateExpensesDtoImplCopyWith<$Res> implements $CreateExpensesDtoCopyWith<$Res> {
   factory _$$CreateExpensesDtoImplCopyWith(_$CreateExpensesDtoImpl value, $Res Function(_$CreateExpensesDtoImpl) then) =
       __$$CreateExpensesDtoImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({List<ExpenseDto> expenses});
@@ -96,6 +98,7 @@ class _$CreateExpensesDtoImpl implements _CreateExpensesDto {
   factory _$CreateExpensesDtoImpl.fromJson(Map<String, dynamic> json) => _$$CreateExpensesDtoImplFromJson(json);
 
   final List<ExpenseDto> _expenses;
+
   @override
   List<ExpenseDto> get expenses {
     if (_expenses is EqualUnmodifiableListView) return _expenses;
@@ -141,6 +144,7 @@ abstract class _CreateExpensesDto implements CreateExpensesDto {
 
   @override
   List<ExpenseDto> get expenses;
+
   @override
   @JsonKey(ignore: true)
   _$$CreateExpensesDtoImplCopyWith<_$CreateExpensesDtoImpl> get copyWith => throw _privateConstructorUsedError;

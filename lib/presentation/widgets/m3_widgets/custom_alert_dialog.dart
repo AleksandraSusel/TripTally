@@ -6,16 +6,16 @@ import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 class CustomAlertDialog extends StatelessWidget {
   const CustomAlertDialog({
     required this.title,
-    required this.info,
     required this.actionButtonText,
     required this.abortButtonText,
     required this.onConfirmPressed,
-    this.isWarningAction = true,
+    this.isWarningAction = false,
     super.key,
+    this.info,
   });
 
   final String title;
-  final String info;
+  final String? info;
   final String actionButtonText;
   final String abortButtonText;
   final bool isWarningAction;
@@ -30,7 +30,7 @@ class CustomAlertDialog extends StatelessWidget {
         style: context.tht.titleLarge,
       ),
       content: Text(
-        info,
+        info ?? '',
         style: context.tht.titleSmall,
       ),
       actions: <Widget>[
@@ -46,16 +46,13 @@ class CustomAlertDialog extends StatelessWidget {
           },
         ),
         TextButton(
+          onPressed: onConfirmPressed,
           child: Text(
             actionButtonText,
             style: context.tht.labelMedium?.copyWith(
               color: isWarningAction ? AppColorsLight.error40 : AppColorsLight.greenConfirmation,
             ),
           ),
-          onPressed: () {
-            context.router.maybePop();
-            onConfirmPressed();
-          },
         ),
       ],
     );

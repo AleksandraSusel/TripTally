@@ -4,7 +4,7 @@ class MoneyFormat {
   const MoneyFormat._();
 
   static String formatNegativeAmountCurrency(double amount, String currency) {
-    if (amount.abs() >= 50000) {
+    if (amount.abs() >= 1000) {
       final String formattedAmount = _removeTrailingWhenZero((amount.abs() / 1000).toStringAsFixed(1));
       return '-${formattedAmount}k $currency';
     } else {
@@ -14,7 +14,7 @@ class MoneyFormat {
   }
 
   static String formatPositiveAmountCurrency(double amount, String currency) {
-    if (amount.abs() >= 50000) {
+    if (amount.abs() >= 1000) {
       final String formattedAmount = _removeTrailingWhenZero((amount.abs() / 1000).toStringAsFixed(1));
       return '${formattedAmount}k $currency';
     } else {
