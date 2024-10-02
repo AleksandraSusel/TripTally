@@ -76,7 +76,7 @@ class OutlinedTripCard extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'Transport type:',
+                          context.tr.outlinedTripCardButton_transportType,
                           style: context.tht.titleSmall,
                         ),
                         const SizedBox(width: AppDimensions.d10),
@@ -92,7 +92,7 @@ class OutlinedTripCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      'Total expenses:',
+                      context.tr.outlinedTripCardButton_totalExpenses,
                       style: context.tht.labelSmall,
                     ),
                     const SizedBox(height: AppDimensions.d16),
@@ -105,11 +105,13 @@ class OutlinedTripCard extends StatelessWidget {
               ],
             ),
           ),
-          if (withActionButtons) const Divider(),
-          OutlinedTripCardButtons(
-            onPressedWarningOutlinedButton: () {},
-            onPressedPrimaryElevatedButton: () {},
-          ),
+          if (withActionButtons) ...[
+            const Divider(),
+            OutlinedTripCardButtons(
+              onPressedWarningOutlinedButton: () {},
+              onPressedPrimaryElevatedButton: () {},
+            ),
+          ],
         ],
       ),
     );

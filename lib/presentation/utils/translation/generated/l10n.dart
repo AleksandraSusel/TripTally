@@ -1581,6 +1581,26 @@ class Translation {
       args: [],
     );
   }
+
+  /// `Transport type:`
+  String get outlinedTripCardButton_transportType {
+    return Intl.message(
+      'Transport type:',
+      name: 'outlinedTripCardButton_transportType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total expenses:`
+  String get outlinedTripCardButton_totalExpenses {
+    return Intl.message(
+      'Total expenses:',
+      name: 'outlinedTripCardButton_totalExpenses',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Translation> {

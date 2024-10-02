@@ -149,5 +149,7 @@
   "filterListSegmentedButton_shortest": "Shortest",
   "createTripBasicInfoPage_dateNotSelected": "Date not selected",
   "outlinedTripCardButton_endTheTrip": "End the trip",
-  "outlinedTripCardButton_addExpense": "Add expense"
+  "outlinedTripCardButton_addExpense": "Add expense",
+  "outlinedTripCardButton_transportType": "Transport type:",
+  "outlinedTripCardButton_totalExpenses": "Total expenses:"
 }
