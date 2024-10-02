@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'intl/messages_all.dart';
+import 'package:trip_tally/presentation/utils/translation/generated/intl/messages_all.dart';
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -18,8 +18,10 @@ class Translation {
   static Translation? _current;
 
   static Translation get current {
-    assert(_current != null,
-        'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.');
+    assert(
+      _current != null,
+      'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.',
+    );
     return _current!;
   }
 
@@ -39,8 +41,10 @@ class Translation {
 
   static Translation of(BuildContext context) {
     final instance = Translation.maybeOf(context);
-    assert(instance != null,
-        'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -1138,10 +1142,10 @@ class Translation {
     );
   }
 
-  /// `Add expense`
+  /// `Add expenses`
   String get createExpensesPage_addExpenses {
     return Intl.message(
-      'Add expense',
+      'Add expenses',
       name: 'createExpensesPage_addExpenses',
       desc: '',
       args: [],
@@ -1448,6 +1452,46 @@ class Translation {
     );
   }
 
+  /// `Community`
+  String get bottomNavBarItem_community {
+    return Intl.message(
+      'Community',
+      name: 'bottomNavBarItem_community',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Statistic`
+  String get bottomNavBarItem_statistic {
+    return Intl.message(
+      'Statistic',
+      name: 'bottomNavBarItem_statistic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expenses`
+  String get bottomNavBarItem_expenses {
+    return Intl.message(
+      'Expenses',
+      name: 'bottomNavBarItem_expenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Places`
+  String get bottomNavBarItem_places {
+    return Intl.message(
+      'Places',
+      name: 'bottomNavBarItem_places',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Welcome back`
   String get dashboardPage_welcomeBack {
     return Intl.message(
@@ -1513,6 +1557,46 @@ class Translation {
     return Intl.message(
       'Date not selected',
       name: 'createTripBasicInfoPage_dateNotSelected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `End the trip`
+  String get outlinedTripCardButton_endTheTrip {
+    return Intl.message(
+      'End the trip',
+      name: 'outlinedTripCardButton_endTheTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add expense`
+  String get outlinedTripCardButton_addExpense {
+    return Intl.message(
+      'Add expense',
+      name: 'outlinedTripCardButton_addExpense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Transport type:`
+  String get outlinedTripCardButton_transportType {
+    return Intl.message(
+      'Transport type:',
+      name: 'outlinedTripCardButton_transportType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total expenses:`
+  String get outlinedTripCardButton_totalExpenses {
+    return Intl.message(
+      'Total expenses:',
+      name: 'outlinedTripCardButton_totalExpenses',
       desc: '',
       args: [],
     );
