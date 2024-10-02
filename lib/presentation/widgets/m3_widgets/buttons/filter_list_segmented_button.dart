@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:trip_tally/presentation/theme/app_colors.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
@@ -49,8 +50,8 @@ class _FilterListSegmentedButtonState extends State<FilterListSegmentedButton> {
           Padding(
             padding: const EdgeInsets.all(AppDimensions.d8),
             child: ToggleButtons(
-              selectedColor: AppColorsLight.onSurface,
-              selectedBorderColor: AppColorsLight.onSurface,
+              selectedColor: context.thc.onSurface,
+              selectedBorderColor: context.thc.onSurface,
               onPressed: (int index) {},
               isSelected: const [true, false, false],
               borderRadius: const BorderRadius.all(Radius.circular(AppDimensions.d30)),

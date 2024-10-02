@@ -22,7 +22,7 @@ class OutlinedTripCard extends StatelessWidget {
     required this.imagePath,
     required this.countryCode,
     super.key,
-    this.areThereBottomAction = true,
+    this.withActionButtons = true,
   });
 
   final String country;
@@ -33,7 +33,7 @@ class OutlinedTripCard extends StatelessWidget {
   final String totalExpensesCurrency;
   final String imagePath;
   final String countryCode;
-  final bool? areThereBottomAction;
+  final bool? withActionButtons;
 
   @override
   Widget build(BuildContext context) {
@@ -108,8 +108,8 @@ class OutlinedTripCard extends StatelessWidget {
               ],
             ),
           ),
-          if (areThereBottomAction ?? true) const Divider(),
-          if (areThereBottomAction ?? false)
+          if (withActionButtons ?? true) const Divider(),
+          if (withActionButtons ?? false)
             Padding(
               padding: const EdgeInsets.only(
                 left: AppDimensions.d16,

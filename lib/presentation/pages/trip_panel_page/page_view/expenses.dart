@@ -18,7 +18,7 @@ class Expenses extends StatelessWidget {
       body: Column(
         children: [
           const OutlinedTripCard(
-            areThereBottomAction: false,
+            withActionButtons: false,
             country: 'Greece',
             dateFrom: '10-02-2023',
             dateTo: '10-02-2023',
@@ -29,30 +29,20 @@ class Expenses extends StatelessWidget {
             imagePath: AppPaths.greece,
           ),
           const SizedBox(height: AppDimensions.d10),
-          Card(
-            margin: const EdgeInsets.symmetric(horizontal: AppDimensions.d16),
-            elevation: AppDimensions.zero,
-            child: Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(AppDimensions.d12),
-                  topLeft: Radius.circular(AppDimensions.d12),
-                ),
-              ),
-              child: Column(
-                children: expenseTile
-                    .map(
-                      (expense) => Column(
-                        children: [
-                          expense,
-                          const Divider(),
-                        ],
-                      ),
-                    )
-                    .toList(),
-              ),
+          Expanded(
+            flex: 3,
+            child: ListView.separated(
+              padding: const EdgeInsets.symmetric(horizontal: AppDimensions.d16),
+              itemCount: expenseTile.length,
+              itemBuilder: (context, index) {
+                return expenseTile[index];
+              },
+              separatorBuilder: (context, index) {
+                return const Divider();
+              },
             ),
           ),
+          const Spacer(),
         ],
       ),
     );

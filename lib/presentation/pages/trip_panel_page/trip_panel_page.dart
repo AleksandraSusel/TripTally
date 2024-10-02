@@ -28,6 +28,8 @@ class _TripPanelPageState extends State<TripPanelPage> {
 
   @override
   Widget build(BuildContext context) {
+    const navItems = BottomNavItems.tripPanelItems;
+
     return Scaffold(
       floatingActionButton: CustomBottomNavBar(
         initialIndex: _initialPageViewIndex,
@@ -40,11 +42,7 @@ class _TripPanelPageState extends State<TripPanelPage> {
             );
           });
         },
-        items: const [
-          BottomNavItems.expenses,
-          BottomNavItems.statistic,
-          BottomNavItems.recommended,
-        ],
+        items: navItems,
       ),
       appBar: AppBar(
         title: const Text('Greece'),
