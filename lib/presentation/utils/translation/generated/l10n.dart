@@ -1142,10 +1142,10 @@ class Translation {
     );
   }
 
-  /// `Add expense`
+  /// `Add expenses`
   String get createExpensesPage_addExpenses {
     return Intl.message(
-      'Add expense',
+      'Add expenses',
       name: 'createExpensesPage_addExpenses',
       desc: '',
       args: [],
@@ -1557,6 +1557,26 @@ class Translation {
     return Intl.message(
       'Date not selected',
       name: 'createTripBasicInfoPage_dateNotSelected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `End the trip`
+  String get outlinedTripCardButton_endTheTrip {
+    return Intl.message(
+      'End the trip',
+      name: 'outlinedTripCardButton_endTheTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add expense`
+  String get outlinedTripCardButton_addExpense {
+    return Intl.message(
+      'Add expense',
+      name: 'outlinedTripCardButton_addExpense',
       desc: '',
       args: [],
     );

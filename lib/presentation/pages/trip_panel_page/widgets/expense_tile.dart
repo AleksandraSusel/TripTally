@@ -1,23 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:trip_tally/presentation/pages/trip_panel_page/widgets/rounded_icon.dart';
+import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/money_format.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/expense_circle_avatar.dart';
 
 class ExpenseTile extends StatelessWidget {
-  const ExpenseTile({
-    required this.expenseName,
-    required this.date,
-    required this.currency,
-    required this.amount,
-    required this.iconPath,
-    super.key,
-  });
+  const ExpenseTile({required this.expenseEntity, super.key});
 
-  final String expenseName;
-  final String date;
-  final String currency;
-  final String iconPath;
-  final double amount;
+  final ExpenseEntity expenseEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -26,23 +17,21 @@ class ExpenseTile extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          RoundedIcon(iconPath: iconPath),
+          ExpensesCircleAvatar(iconPath: expenseEntity.categoryId),
           Column(
             children: [
               Text(
-                expenseName,
+                expenseEntity.name,
                 style: context.tht.bodyMedium,
               ),
-              Row(
-                children: [
-                  Text(amount.toString(), style: context.tht.bodySmall),
-                  Text(currency, style: context.tht.bodySmall),
-                ],
+              Text(
+                MoneyFormat.formatPositiveAmountCurrency(expenseEntity.amount, expenseEntity.currency),
+                style: context.tht.bodySmall,
               ),
             ],
           ),
           const SizedBox(width: AppDimensions.d100),
-          Text(date, style: context.tht.bodySmall),
+          Text(expenseEntity.date, style: context.tht.bodySmall),
         ],
       ),
     );

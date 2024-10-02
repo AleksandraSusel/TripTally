@@ -1,12 +1,9 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/date_format.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
-import 'package:trip_tally/presentation/utils/router/app_router.dart';
-import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
-import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/warning_outlined_button.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/outlined_trip_card_buttons.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/money_container.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/rectangular_country_flag.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
@@ -22,7 +19,7 @@ class OutlinedTripCard extends StatelessWidget {
     required this.imagePath,
     required this.countryCode,
     super.key,
-    this.areThereBottomAction = true,
+    this.withActionButtons = true,
   });
 
   final String country;
@@ -33,7 +30,7 @@ class OutlinedTripCard extends StatelessWidget {
   final String totalExpensesCurrency;
   final String imagePath;
   final String countryCode;
-  final bool? areThereBottomAction;
+  final bool withActionButtons;
 
   @override
   Widget build(BuildContext context) {
@@ -108,27 +105,11 @@ class OutlinedTripCard extends StatelessWidget {
               ],
             ),
           ),
-          if (areThereBottomAction ?? true) const Divider(),
-          if (areThereBottomAction ?? false)
-            Padding(
-              padding: const EdgeInsets.only(
-                left: AppDimensions.d16,
-                right: AppDimensions.d16,
-                bottom: AppDimensions.d10,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  WarningOutlinedButton(
-                    text: 'End the trip',
-                    onPressed: () {},
-                  ),
-                  PrimaryElevatedButton(
-                    text: 'Add expense',
-                    onPressed: () => context.router.push(CreateExpensesRoute(tripId: '', currency: '')),
-                  ),
-                ],
-              ),
+          if (withActionButtons) const Divider(),
+          if (withActionButtons == true)
+            OutlinedTripCardButtons(
+              onPressedWarningOutlinedButton: () {},
+              onPressedPrimaryElevatedButton: () {},
             ),
         ],
       ),

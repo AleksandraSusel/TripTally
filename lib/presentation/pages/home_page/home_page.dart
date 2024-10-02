@@ -31,6 +31,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    const navItems = BottomNavItems.homePageNavItems;
+
     return Scaffold(
       appBar: ProfileAppBar(
         title: _bottomNavItem?.trAppBarTitle(context),
@@ -48,10 +50,7 @@ class _HomePageState extends State<HomePage> {
             );
           });
         },
-        items: const [
-          BottomNavItems.trips,
-          BottomNavItems.dashboard,
-        ],
+        items: navItems,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: PageView(

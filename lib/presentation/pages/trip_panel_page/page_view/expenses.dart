@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
+import 'package:trip_tally/presentation/pages/trip_panel_page/widgets/expense_tile.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
@@ -10,7 +12,7 @@ class Expenses extends StatelessWidget {
     super.key,
   });
 
-  final List<Widget> expenseTile;
+  final List<ExpenseEntity> expenseTile;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class Expenses extends StatelessWidget {
       body: Column(
         children: [
           const OutlinedTripCard(
-            areThereBottomAction: false,
+            withActionButtons: false,
             country: 'Greece',
             dateFrom: '10-02-2023',
             dateTo: '10-02-2023',
@@ -29,30 +31,21 @@ class Expenses extends StatelessWidget {
             imagePath: AppPaths.greece,
           ),
           const SizedBox(height: AppDimensions.d10),
-          Card(
-            margin: const EdgeInsets.symmetric(horizontal: AppDimensions.d16),
-            elevation: AppDimensions.zero,
-            child: Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(AppDimensions.d12),
-                  topLeft: Radius.circular(AppDimensions.d12),
-                ),
-              ),
-              child: Column(
-                children: expenseTile
-                    .map(
-                      (expense) => Column(
-                        children: [
-                          expense,
-                          const Divider(),
-                        ],
-                      ),
-                    )
-                    .toList(),
-              ),
+          Expanded(
+            flex: 3,
+            child: ListView.separated(
+              padding: const EdgeInsets.symmetric(horizontal: AppDimensions.d16),
+              itemCount: expenseTile.length,
+              itemBuilder: (context, index) {
+                final expense = expenseTile[index];
+                return ExpenseTile(expenseEntity: expense);
+              },
+              separatorBuilder: (context, index) {
+                return const Divider(thickness: 0.4);
+              },
             ),
           ),
+          const Spacer(),
         ],
       ),
     );

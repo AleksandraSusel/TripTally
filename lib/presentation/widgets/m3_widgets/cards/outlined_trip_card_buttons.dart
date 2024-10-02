@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/warning_outlined_button.dart';
 
@@ -24,11 +25,11 @@ class OutlinedTripCardButtons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           WarningOutlinedButton(
-            text: 'End the trip',
+            text: context.tr.outlinedTripCardButton_endTheTrip,
             onPressed: onPressedWarningOutlinedButton,
           ),
           PrimaryElevatedButton(
-            text: 'Add expense',
+            text: context.tr.outlinedTripCardButton_addExpense,
             onPressed: onPressedPrimaryElevatedButton,
           ),
         ],

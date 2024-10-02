@@ -7,12 +7,22 @@ enum BottomNavItems {
   trips(asset: AppPaths.luggage),
   expenses(asset: AppPaths.menu),
   community(asset: AppPaths.community),
-  statistic(asset: AppPaths.statistic),
-  recommended(asset: AppPaths.recommended);
+  tripStatistic(asset: AppPaths.statistic),
+  places(asset: AppPaths.places);
 
   const BottomNavItems({required this.asset});
 
   final String asset;
+
+  static const List<BottomNavItems> homePageNavItems = [
+    dashboard,
+    trips,
+  ];
+  static const List<BottomNavItems> tripPanelItems = [
+    community,
+    tripStatistic,
+    places,
+  ];
 }
 
 extension BottomNavItemsTranslations on BottomNavItems {
@@ -21,8 +31,8 @@ extension BottomNavItemsTranslations on BottomNavItems {
         BottomNavItems.trips => context.tr.bottomNavBarItem_trips,
         BottomNavItems.expenses => context.tr.bottomNavBarItem_expenses,
         BottomNavItems.community => context.tr.bottomNavBarItem_community,
-        BottomNavItems.statistic => context.tr.bottomNavBarItem_statistic,
-        BottomNavItems.recommended => context.tr.bottomNavBarItem_recommended,
+        BottomNavItems.tripStatistic => context.tr.bottomNavBarItem_statistic,
+        BottomNavItems.places => context.tr.bottomNavBarItem_recommended,
       };
 
   String? trAppBarTitle(BuildContext context) => switch (this) {
@@ -30,7 +40,7 @@ extension BottomNavItemsTranslations on BottomNavItems {
         BottomNavItems.trips => context.tr.manageTripsPage_manageTrips,
         BottomNavItems.expenses => null,
         BottomNavItems.community => null,
-        BottomNavItems.statistic => null,
-        BottomNavItems.recommended => null,
+        BottomNavItems.tripStatistic => null,
+        BottomNavItems.places => null,
       };
 }

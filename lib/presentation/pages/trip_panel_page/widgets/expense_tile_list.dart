@@ -1,29 +1,63 @@
-import 'package:flutter/material.dart';
-import 'package:trip_tally/presentation/pages/trip_panel_page/widgets/expense_tile.dart';
+import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 
-List<Widget> getExpenseTiles() {
+List<ExpenseEntity> getExpenseTiles() {
   return [
-    const ExpenseTile(
-      expenseName: 'Food',
+    const ExpenseEntity(
+      name: 'Food',
       date: '22.02.2023',
-      currency: r'$',
       amount: 200,
-      iconPath: AppPaths.restaurant,
+      currency: r'$',
+      tripId: '',
+      categoryId: AppPaths.restaurant,
     ),
-    const ExpenseTile(
-      expenseName: 'Ferry',
+    const ExpenseEntity(
+      name: 'Ferry',
       date: '22.02.2023',
       currency: r'$',
       amount: 100,
-      iconPath: AppPaths.shipM3,
+      categoryId: AppPaths.shipM3,
+      tripId: '',
     ),
-    const ExpenseTile(
-      expenseName: 'Food',
+    const ExpenseEntity(
+      name: 'Food',
       date: '22.02.2023',
       currency: r'$',
       amount: 200,
-      iconPath: AppPaths.statistic,
+      categoryId: AppPaths.statistic,
+      tripId: '',
+    ),
+    const ExpenseEntity(
+      name: 'Food',
+      date: '22.02.2023',
+      currency: r'$',
+      amount: 200,
+      categoryId: AppPaths.statistic,
+      tripId: '',
+    ),
+    const ExpenseEntity(
+      name: 'Food',
+      date: '22.02.2023',
+      currency: r'$',
+      amount: 200,
+      categoryId: AppPaths.statistic,
+      tripId: '',
+    ),
+    const ExpenseEntity(
+      name: 'Food',
+      date: '22.02.2023',
+      currency: r'$',
+      amount: 200,
+      categoryId: AppPaths.statistic,
+      tripId: '',
+    ),
+    const ExpenseEntity(
+      name: 'Food',
+      date: '22.02.2023',
+      currency: r'$',
+      amount: 200,
+      categoryId: AppPaths.statistic,
+      tripId: '',
     ),
   ];
 }
