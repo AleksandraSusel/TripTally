@@ -32,7 +32,7 @@ extension BottomNavItemsTranslations on BottomNavItems {
         BottomNavItems.expenses => context.tr.bottomNavBarItem_expenses,
         BottomNavItems.community => context.tr.bottomNavBarItem_community,
         BottomNavItems.tripStatistic => context.tr.bottomNavBarItem_statistic,
-        BottomNavItems.places => context.tr.bottomNavBarItem_recommended,
+        BottomNavItems.places => context.tr.bottomNavBarItem_places,
       };
 
   String? trAppBarTitle(BuildContext context) => switch (this) {

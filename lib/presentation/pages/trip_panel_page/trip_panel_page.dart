@@ -55,7 +55,7 @@ class _TripPanelPageState extends State<TripPanelPage> {
         controller: _pageController,
         children: [
           Expenses(
-            expenseTile: getExpenseTiles(),
+            expensesEntities: getExpenseTiles(),
           ),
           const Trips(),
           const Dashboard(),

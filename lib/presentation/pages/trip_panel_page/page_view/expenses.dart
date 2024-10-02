@@ -8,11 +8,11 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/cards/outlined_trip_c
 
 class Expenses extends StatelessWidget {
   const Expenses({
-    required this.expenseTile,
+    required this.expensesEntities,
     super.key,
   });
 
-  final List<ExpenseEntity> expenseTile;
+  final List<ExpenseEntity> expensesEntities;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +35,9 @@ class Expenses extends StatelessWidget {
             flex: 3,
             child: ListView.separated(
               padding: const EdgeInsets.symmetric(horizontal: AppDimensions.d16),
-              itemCount: expenseTile.length,
+              itemCount: expensesEntities.length,
               itemBuilder: (context, index) {
-                final expense = expenseTile[index];
+                final expense = expensesEntities[index];
                 return ExpenseTile(expenseEntity: expense);
               },
               separatorBuilder: (context, index) {

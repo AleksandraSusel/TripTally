@@ -3,7 +3,7 @@ import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/money_format.dart';
-import 'package:trip_tally/presentation/widgets/m3_widgets/expense_circle_avatar.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/expense_category_circle_avatar.dart';
 
 class ExpenseTile extends StatelessWidget {
   const ExpenseTile({required this.expenseEntity, super.key});
@@ -17,7 +17,7 @@ class ExpenseTile extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ExpensesCircleAvatar(iconPath: expenseEntity.categoryId),
+          ExpenseCategoryCircleAvatar(iconPath: expenseEntity.categoryId),
           Column(
             children: [
               Text(

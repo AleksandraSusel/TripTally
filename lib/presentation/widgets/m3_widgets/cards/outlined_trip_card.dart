@@ -106,11 +106,10 @@ class OutlinedTripCard extends StatelessWidget {
             ),
           ),
           if (withActionButtons) const Divider(),
-          if (withActionButtons == true)
-            OutlinedTripCardButtons(
-              onPressedWarningOutlinedButton: () {},
-              onPressedPrimaryElevatedButton: () {},
-            ),
+          OutlinedTripCardButtons(
+            onPressedWarningOutlinedButton: () {},
+            onPressedPrimaryElevatedButton: () {},
+          ),
         ],
       ),
     );

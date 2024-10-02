@@ -35,7 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavBarItem_community": MessageLookupByLibrary.simpleMessage("Community"),
         "bottomNavBarItem_dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
         "bottomNavBarItem_expenses": MessageLookupByLibrary.simpleMessage("Expenses"),
-        "bottomNavBarItem_recommended": MessageLookupByLibrary.simpleMessage("Recommended"),
+        "bottomNavBarItem_places": MessageLookupByLibrary.simpleMessage("Places"),
         "bottomNavBarItem_statistic": MessageLookupByLibrary.simpleMessage("Statistic"),
         "bottomNavBarItem_trips": MessageLookupByLibrary.simpleMessage("Trips"),
         "createExpensesPage_addExpenses": MessageLookupByLibrary.simpleMessage("Add expenses"),

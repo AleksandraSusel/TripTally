@@ -1482,11 +1482,11 @@ class Translation {
     );
   }
 
-  /// `Recommended`
-  String get bottomNavBarItem_recommended {
+  /// `Places`
+  String get bottomNavBarItem_places {
     return Intl.message(
-      'Recommended',
-      name: 'bottomNavBarItem_recommended',
+      'Places',
+      name: 'bottomNavBarItem_places',
       desc: '',
       args: [],
     );
