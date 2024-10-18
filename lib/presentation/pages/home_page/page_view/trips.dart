@@ -69,7 +69,7 @@ class _Body extends StatelessWidget {
                 subtitle: context.tr.manageTripsPage_editTripsSubtitle,
                 iconBGColor: context.thc.errorContainer,
                 iconAsset: AppPaths.edit,
-                onTap: () => context.router.push(const PlannedTripsRoute()),
+                onTap: () => context.router.push(PlannedTripsRoute()),
               ),
               const SizedBox(height: AppDimensions.d8),
               ElevatedSelectionCard(

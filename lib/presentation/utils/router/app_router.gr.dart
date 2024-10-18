@@ -16,8 +16,7 @@ abstract class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     AuthenticationRoute.name: (routeData) {
-      final args = routeData.argsAs<AuthenticationRouteArgs>(
-          orElse: () => const AuthenticationRouteArgs());
+      final args = routeData.argsAs<AuthenticationRouteArgs>(orElse: () => const AuthenticationRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: AuthenticationPage(
@@ -38,8 +37,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     CreateTripBasicInfoRoute.name: (routeData) {
-      final args = routeData.argsAs<CreateTripBasicInfoRouteArgs>(
-          orElse: () => const CreateTripBasicInfoRouteArgs());
+      final args = routeData.argsAs<CreateTripBasicInfoRouteArgs>(orElse: () => const CreateTripBasicInfoRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: CreateTripBasicInfoPage(
@@ -56,9 +54,14 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     PlannedTripsRoute.name: (routeData) {
+      final args = routeData.argsAs<PlannedTripsRouteArgs>(orElse: () => const PlannedTripsRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const PlannedTripsPage(),
+        child: PlannedTripsPage(
+          key: args.key,
+          getAllUserTripsBloc: args.getAllUserTripsBloc,
+          deleteTripBloc: args.deleteTripBloc,
+        ),
       );
     },
     TestM3Route.name: (routeData) {
@@ -80,8 +83,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     WelcomeRoute.name: (routeData) {
-      final args = routeData.argsAs<WelcomeRouteArgs>(
-          orElse: () => const WelcomeRouteArgs());
+      final args = routeData.argsAs<WelcomeRouteArgs>(orElse: () => const WelcomeRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: WelcomePage(
@@ -112,8 +114,7 @@ class AuthenticationRoute extends PageRouteInfo<AuthenticationRouteArgs> {
 
   static const String name = 'AuthenticationRoute';
 
-  static const PageInfo<AuthenticationRouteArgs> page =
-      PageInfo<AuthenticationRouteArgs>(name);
+  static const PageInfo<AuthenticationRouteArgs> page = PageInfo<AuthenticationRouteArgs>(name);
 }
 
 class AuthenticationRouteArgs {
@@ -152,8 +153,7 @@ class CreateExpensesRoute extends PageRouteInfo<CreateExpensesRouteArgs> {
 
   static const String name = 'CreateExpensesRoute';
 
-  static const PageInfo<CreateExpensesRouteArgs> page =
-      PageInfo<CreateExpensesRouteArgs>(name);
+  static const PageInfo<CreateExpensesRouteArgs> page = PageInfo<CreateExpensesRouteArgs>(name);
 }
 
 class CreateExpensesRouteArgs {
@@ -177,8 +177,7 @@ class CreateExpensesRouteArgs {
 
 /// generated route for
 /// [CreateTripBasicInfoPage]
-class CreateTripBasicInfoRoute
-    extends PageRouteInfo<CreateTripBasicInfoRouteArgs> {
+class CreateTripBasicInfoRoute extends PageRouteInfo<CreateTripBasicInfoRouteArgs> {
   CreateTripBasicInfoRoute({
     CreateTripBloc? bloc,
     Key? key,
@@ -196,8 +195,7 @@ class CreateTripBasicInfoRoute
 
   static const String name = 'CreateTripBasicInfoRoute';
 
-  static const PageInfo<CreateTripBasicInfoRouteArgs> page =
-      PageInfo<CreateTripBasicInfoRouteArgs>(name);
+  static const PageInfo<CreateTripBasicInfoRouteArgs> page = PageInfo<CreateTripBasicInfoRouteArgs>(name);
 }
 
 class CreateTripBasicInfoRouteArgs {
@@ -235,16 +233,44 @@ class HomeRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [PlannedTripsPage]
-class PlannedTripsRoute extends PageRouteInfo<void> {
-  const PlannedTripsRoute({List<PageRouteInfo>? children})
-      : super(
+class PlannedTripsRoute extends PageRouteInfo<PlannedTripsRouteArgs> {
+  PlannedTripsRoute({
+    Key? key,
+    GetAllUserTripsBloc? getAllUserTripsBloc,
+    DeleteTripBloc? deleteTripBloc,
+    List<PageRouteInfo>? children,
+  }) : super(
           PlannedTripsRoute.name,
+          args: PlannedTripsRouteArgs(
+            key: key,
+            getAllUserTripsBloc: getAllUserTripsBloc,
+            deleteTripBloc: deleteTripBloc,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'PlannedTripsRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<PlannedTripsRouteArgs> page = PageInfo<PlannedTripsRouteArgs>(name);
+}
+
+class PlannedTripsRouteArgs {
+  const PlannedTripsRouteArgs({
+    this.key,
+    this.getAllUserTripsBloc,
+    this.deleteTripBloc,
+  });
+
+  final Key? key;
+
+  final GetAllUserTripsBloc? getAllUserTripsBloc;
+
+  final DeleteTripBloc? deleteTripBloc;
+
+  @override
+  String toString() {
+    return 'PlannedTripsRouteArgs{key: $key, getAllUserTripsBloc: $getAllUserTripsBloc, deleteTripBloc: $deleteTripBloc}';
+  }
 }
 
 /// generated route for
@@ -309,8 +335,7 @@ class WelcomeRoute extends PageRouteInfo<WelcomeRouteArgs> {
 
   static const String name = 'WelcomeRoute';
 
-  static const PageInfo<WelcomeRouteArgs> page =
-      PageInfo<WelcomeRouteArgs>(name);
+  static const PageInfo<WelcomeRouteArgs> page = PageInfo<WelcomeRouteArgs>(name);
 }
 
 class WelcomeRouteArgs {
