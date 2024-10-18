@@ -27,6 +27,7 @@ void main() {
       build: getAllUserTripsBloc,
       act: (bloc) => bloc.add(const OnGetAllUserTripsEvent()),
       expect: () => [
+        const GetAllUserTripsState.loading(),
         GetAllUserTripsState.loaded(mockedTripEntityList),
       ],
     );
@@ -39,6 +40,7 @@ void main() {
       build: getAllUserTripsBloc,
       act: (bloc) => bloc.add(const OnGetAllUserTripsEvent()),
       expect: () => [
+        const GetAllUserTripsState.loading(),
         const GetAllUserTripsState.error(Errors.somethingWentWrong),
       ],
     );

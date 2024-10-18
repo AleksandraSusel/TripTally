@@ -20,17 +20,27 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/trip_tally_progress_i
 
 @RoutePage()
 class PlannedTripsPage extends StatelessWidget {
-  const PlannedTripsPage({super.key});
+  const PlannedTripsPage({
+    super.key,
+    this.getAllUserTripsBloc,
+    this.deleteTripBloc,
+  });
+
+  @visibleForTesting
+  final GetAllUserTripsBloc? getAllUserTripsBloc;
+  @visibleForTesting
+  final DeleteTripBloc? deleteTripBloc;
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => getIt<GetAllUserTripsBloc>()..add(const OnGetAllUserTripsEvent()),
+          create: (context) => getAllUserTripsBloc ?? getIt<GetAllUserTripsBloc>()
+            ..add(const OnGetAllUserTripsEvent()),
         ),
         BlocProvider(
-          create: (context) => getIt<DeleteTripBloc>(),
+          create: (context) => deleteTripBloc ?? getIt<DeleteTripBloc>(),
         ),
       ],
       child: Scaffold(

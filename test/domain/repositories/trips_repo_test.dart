@@ -64,4 +64,32 @@ void main() {
     verify(mockedTripsDataSource.getAllUserTrips());
     verifyNoMoreInteractions(mockedTripsDataSource);
   });
+
+  test('DeleteTrip should successfully delete a trip', () async {
+    final tripId = mockedTripEntityV1.id;
+    when(mockedTripsDataSource.deleteTrip(tripId)).thenAnswer((_) async => const Success());
+
+    final result = await repo.deleteTrip(tripId);
+
+    Success? success;
+    result.fold((l) => null, (r) => success = r);
+    expect(success, const Success());
+
+    verify(mockedTripsDataSource.deleteTrip(tripId));
+    verifyNoMoreInteractions(mockedTripsDataSource);
+  });
+
+  test('DeleteTrip should return a Failure when an exception is thrown', () async {
+    final tripId = mockedTripEntityV1.id;
+    when(mockedTripsDataSource.deleteTrip(tripId)).thenThrow(ApiException(Errors.somethingWentWrong));
+
+    final result = await repo.deleteTrip(tripId);
+
+    Errors? error;
+    result.fold((l) => error = l.error, (r) => null);
+    expect(error, Errors.somethingWentWrong);
+
+    verify(mockedTripsDataSource.deleteTrip(tripId));
+    verifyNoMoreInteractions(mockedTripsDataSource);
+  });
 }

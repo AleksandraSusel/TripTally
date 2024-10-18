@@ -19,6 +19,7 @@ mixin _$DeleteTripState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
+    required TResult Function() loaded,
     required TResult Function() success,
     required TResult Function(Errors error) error,
   }) =>
@@ -26,6 +27,7 @@ mixin _$DeleteTripState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
+    TResult? Function()? loaded,
     TResult? Function()? success,
     TResult? Function(Errors error)? error,
   }) =>
@@ -33,6 +35,7 @@ mixin _$DeleteTripState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
+    TResult Function()? loaded,
     TResult Function()? success,
     TResult Function(Errors error)? error,
     required TResult orElse(),
@@ -41,6 +44,7 @@ mixin _$DeleteTripState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) =>
@@ -48,6 +52,7 @@ mixin _$DeleteTripState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) =>
@@ -55,6 +60,7 @@ mixin _$DeleteTripState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -112,6 +118,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
+    required TResult Function() loaded,
     required TResult Function() success,
     required TResult Function(Errors error) error,
   }) {
@@ -122,6 +129,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
+    TResult? Function()? loaded,
     TResult? Function()? success,
     TResult? Function(Errors error)? error,
   }) {
@@ -132,6 +140,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
+    TResult Function()? loaded,
     TResult Function()? success,
     TResult Function(Errors error)? error,
     required TResult orElse(),
@@ -146,6 +155,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
@@ -156,6 +166,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
@@ -166,6 +177,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -179,6 +191,115 @@ class _$LoadingImpl implements _Loading {
 
 abstract class _Loading implements DeleteTripState {
   const factory _Loading() = _$LoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadedImplCopyWith<$Res> {
+  factory _$$LoadedImplCopyWith(_$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadedImplCopyWithImpl<$Res> extends _$DeleteTripStateCopyWithImpl<$Res, _$LoadedImpl>
+    implements _$$LoadedImplCopyWith<$Res> {
+  __$$LoadedImplCopyWithImpl(_$LoadedImpl _value, $Res Function(_$LoadedImpl) _then) : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadedImpl implements _Loaded {
+  const _$LoadedImpl();
+
+  @override
+  String toString() {
+    return 'DeleteTripState.loaded()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$LoadedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() success,
+    required TResult Function(Errors error) error,
+  }) {
+    return loaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function()? loaded,
+    TResult? Function()? success,
+    TResult? Function(Errors error)? error,
+  }) {
+    return loaded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? success,
+    TResult Function(Errors error)? error,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Error value)? error,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loaded implements DeleteTripState {
+  const factory _Loaded() = _$LoadedImpl;
 }
 
 /// @nodoc
@@ -215,6 +336,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
+    required TResult Function() loaded,
     required TResult Function() success,
     required TResult Function(Errors error) error,
   }) {
@@ -225,6 +347,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
+    TResult? Function()? loaded,
     TResult? Function()? success,
     TResult? Function(Errors error)? error,
   }) {
@@ -235,6 +358,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
+    TResult Function()? loaded,
     TResult Function()? success,
     TResult Function(Errors error)? error,
     required TResult orElse(),
@@ -249,6 +373,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
@@ -259,6 +384,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
@@ -269,6 +395,7 @@ class _$SuccessImpl implements _Success {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -343,6 +470,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
+    required TResult Function() loaded,
     required TResult Function() success,
     required TResult Function(Errors error) error,
   }) {
@@ -353,6 +481,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
+    TResult? Function()? loaded,
     TResult? Function()? success,
     TResult? Function(Errors error)? error,
   }) {
@@ -363,6 +492,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
+    TResult Function()? loaded,
     TResult Function()? success,
     TResult Function(Errors error)? error,
     required TResult orElse(),
@@ -377,6 +507,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
     required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
@@ -387,6 +518,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
@@ -397,6 +529,7 @@ class _$ErrorImpl implements _Error {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
     TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),

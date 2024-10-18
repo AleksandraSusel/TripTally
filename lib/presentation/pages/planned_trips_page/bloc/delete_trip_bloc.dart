@@ -16,7 +16,7 @@ part 'delete_trip_bloc.freezed.dart';
 
 @injectable
 class DeleteTripBloc extends Bloc<DeleteTripEvent, DeleteTripState> {
-  DeleteTripBloc(this._deleteTripUseCase) : super(const DeleteTripState.loading()) {
+  DeleteTripBloc(this._deleteTripUseCase) : super(const DeleteTripState.loaded()) {
     on<DeleteTripEvent>(_onDeleteTripEvent);
   }
 

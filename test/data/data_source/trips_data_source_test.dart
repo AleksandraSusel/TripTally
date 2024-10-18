@@ -63,4 +63,30 @@ void main() {
     verify(mockApiClient.getAllUserTrips());
     verifyNoMoreInteractions(mockApiClient);
   });
+
+  test('DeleteTrip should successfully delete a trip', () async {
+    final tripId = mockedTripDtoV1.id;
+    when(mockApiClient.deleteTrip(tripId)).thenAnswer((_) async => const Success());
+
+    final result = await tripsDataSource.deleteTrip(tripId);
+    expect(result, const Success());
+
+    verify(mockApiClient.deleteTrip(tripId)).called(1);
+    verifyNoMoreInteractions(mockApiClient);
+  });
+
+  test('DeleteTrip throws ApiException on catch', () async {
+    final tripId = mockedTripDtoV1.id;
+    when(mockApiClient.deleteTrip(tripId)).thenThrow(Exception());
+
+    await expectLater(
+      tripsDataSource.deleteTrip(tripId),
+      throwsA(
+        isA<ApiException>().having((e) => e.failure, 'Unknown error', Errors.unknownError),
+      ),
+    );
+
+    verify(mockApiClient.deleteTrip(tripId));
+    verifyNoMoreInteractions(mockApiClient);
+  });
 }
