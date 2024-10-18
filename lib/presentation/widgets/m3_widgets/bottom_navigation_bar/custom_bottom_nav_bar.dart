@@ -9,19 +9,19 @@ class CustomBottomNavBar extends StatefulWidget {
   const CustomBottomNavBar({
     required this.onItemSelected,
     required this.initialIndex,
+    required this.items,
     super.key,
   });
 
   final void Function(int, BottomNavItems) onItemSelected;
   final int initialIndex;
+  final List<BottomNavItems> items;
 
   @override
   State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
 }
 
 class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
-  List<BottomNavItems> items = BottomNavItems.values;
-
   void _onItemTapped(int index, BottomNavItems item) {
     widget.onItemSelected(index, item);
   }
@@ -45,8 +45,8 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
       padding: const EdgeInsets.all(AppDimensions.d10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: List.generate(items.length, (index) {
-          final item = items[index];
+        children: List.generate(widget.items.length, (index) {
+          final item = widget.items[index];
           final isSelected = widget.initialIndex == index;
 
           return Expanded(

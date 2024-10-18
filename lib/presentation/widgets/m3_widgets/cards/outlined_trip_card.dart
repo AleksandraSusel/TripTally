@@ -1,12 +1,9 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/date_format.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
-import 'package:trip_tally/presentation/utils/router/app_router.dart';
-import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
-import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/warning_outlined_button.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/cards/outlined_trip_card_buttons.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/money_container.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/rectangular_country_flag.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
@@ -22,6 +19,7 @@ class OutlinedTripCard extends StatelessWidget {
     required this.imagePath,
     required this.countryCode,
     super.key,
+    this.withActionButtons = true,
   });
 
   final String country;
@@ -32,6 +30,7 @@ class OutlinedTripCard extends StatelessWidget {
   final String totalExpensesCurrency;
   final String imagePath;
   final String countryCode;
+  final bool withActionButtons;
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +76,7 @@ class OutlinedTripCard extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'Transport type:',
+                          context.tr.outlinedTripCardButton_transportType,
                           style: context.tht.titleSmall,
                         ),
                         const SizedBox(width: AppDimensions.d10),
@@ -93,7 +92,7 @@ class OutlinedTripCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      'Total expenses:',
+                      context.tr.outlinedTripCardButton_totalExpenses,
                       style: context.tht.labelSmall,
                     ),
                     const SizedBox(height: AppDimensions.d16),
@@ -106,27 +105,13 @@ class OutlinedTripCard extends StatelessWidget {
               ],
             ),
           ),
-          const Divider(),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: AppDimensions.d24,
-              vertical: AppDimensions.d10,
+          if (withActionButtons) ...[
+            const Divider(),
+            OutlinedTripCardButtons(
+              onPressedWarningOutlinedButton: () {},
+              onPressedPrimaryElevatedButton: () {},
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                WarningOutlinedButton(
-                  text: 'End the trip',
-                  onPressed: () {},
-                ),
-                PrimaryElevatedButton(
-                  text: 'Add expense',
-                  //TODO: Fetch proper trip and pass the params
-                  onPressed: () => context.router.push(CreateExpensesRoute(tripId: '', currency: '')),
-                ),
-              ],
-            ),
-          ),
+          ],
         ],
       ),
     );
