@@ -34,4 +34,15 @@ class TripsDataSourceImpl implements TripsDataSource {
       throw ApiException(Errors.unknownError);
     }
   }
+
+  @override
+  Future<Success> deleteTrip(String id) async {
+    try {
+      await client.deleteTrip(id);
+      return const Success();
+    } catch (e) {
+      debugPrint('Could not delete trip, reason: $e');
+      throw ApiException(Errors.unknownError);
+    }
+  }
 }

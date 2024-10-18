@@ -4,7 +4,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i19;
-import 'dart:io' as _i33;
+import 'dart:io' as _i34;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:flutter/foundation.dart' as _i9;
@@ -20,7 +20,7 @@ import 'package:trip_tally/data/dto/expenses/create_expenses_dto.dart' as _i32;
 import 'package:trip_tally/data/dto/expenses/expense_categories_dto.dart' as _i5;
 import 'package:trip_tally/data/dto/expenses/expense_dto.dart' as _i53;
 import 'package:trip_tally/data/dto/osm_map/osm_response_dto.dart' as _i12;
-import 'package:trip_tally/data/dto/trips/create_trip_dto.dart' as _i34;
+import 'package:trip_tally/data/dto/trips/create_trip_dto.dart' as _i33;
 import 'package:trip_tally/data/dto/trips/get_trips_dto.dart' as _i6;
 import 'package:trip_tally/data/dto/trips/trip_dto.dart' as _i38;
 import 'package:trip_tally/data/dto/user/create_account_dto.dart' as _i26;
@@ -637,11 +637,21 @@ class MockApiClient extends _i1.Mock implements _i30.ApiClient {
       ) as _i19.Future<void>);
 
   @override
+  _i19.Future<void> createTrip(_i33.CreateTripDto? dto) => (super.noSuchMethod(
+        Invocation.method(
+          #createTrip,
+          [dto],
+        ),
+        returnValue: _i19.Future<void>.value(),
+        returnValueForMissingStub: _i19.Future<void>.value(),
+      ) as _i19.Future<void>);
+
+  @override
   _i19.Future<void> updateUserProfile({
     required String? username,
     required String? country,
     required String? defaultCurrencyCode,
-    _i33.File? profilePicture,
+    _i34.File? profilePicture,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -659,29 +669,14 @@ class MockApiClient extends _i1.Mock implements _i30.ApiClient {
       ) as _i19.Future<void>);
 
   @override
-  _i19.Future<void> createTrip(_i34.CreateTripDto? dto) => (super.noSuchMethod(
+  _i19.Future<void> deleteTrip(String? tripId) => (super.noSuchMethod(
         Invocation.method(
-          #createTrip,
-          [dto],
+          #deleteTrip,
+          [tripId],
         ),
         returnValue: _i19.Future<void>.value(),
         returnValueForMissingStub: _i19.Future<void>.value(),
       ) as _i19.Future<void>);
-
-  @override
-  _i19.Future<String> exampleDelete() => (super.noSuchMethod(
-        Invocation.method(
-          #exampleDelete,
-          [],
-        ),
-        returnValue: _i19.Future<String>.value(_i31.dummyValue<String>(
-          this,
-          Invocation.method(
-            #exampleDelete,
-            [],
-          ),
-        )),
-      ) as _i19.Future<String>);
 }
 
 /// A class which mocks [SharedPreferences].
@@ -931,7 +926,7 @@ class MockTripsDataSource extends _i1.Mock implements _i37.TripsDataSource {
   }
 
   @override
-  _i19.Future<_i3.Success> createTrip(_i34.CreateTripDto? dto) => (super.noSuchMethod(
+  _i19.Future<_i3.Success> createTrip(_i33.CreateTripDto? dto) => (super.noSuchMethod(
         Invocation.method(
           #createTrip,
           [dto],
@@ -953,6 +948,21 @@ class MockTripsDataSource extends _i1.Mock implements _i37.TripsDataSource {
         ),
         returnValue: _i19.Future<List<_i38.TripDto>>.value(<_i38.TripDto>[]),
       ) as _i19.Future<List<_i38.TripDto>>);
+
+  @override
+  _i19.Future<_i3.Success> deleteTrip(String? id) => (super.noSuchMethod(
+        Invocation.method(
+          #deleteTrip,
+          [id],
+        ),
+        returnValue: _i19.Future<_i3.Success>.value(_FakeSuccess_1(
+          this,
+          Invocation.method(
+            #deleteTrip,
+            [id],
+          ),
+        )),
+      ) as _i19.Future<_i3.Success>);
 }
 
 /// A class which mocks [AuthenticationPage].
@@ -1152,6 +1162,21 @@ class MockTripsRepo extends _i1.Mock implements _i40.TripsRepo {
           ),
         )),
       ) as _i19.Future<_i2.Either<_i20.Failure, List<_i42.TripEntity>>>);
+
+  @override
+  _i19.Future<_i2.Either<_i20.Failure, _i3.Success>> deleteTrip(String? id) => (super.noSuchMethod(
+        Invocation.method(
+          #deleteTrip,
+          [id],
+        ),
+        returnValue: _i19.Future<_i2.Either<_i20.Failure, _i3.Success>>.value(_FakeEither_0<_i20.Failure, _i3.Success>(
+          this,
+          Invocation.method(
+            #deleteTrip,
+            [id],
+          ),
+        )),
+      ) as _i19.Future<_i2.Either<_i20.Failure, _i3.Success>>);
 }
 
 /// A class which mocks [CreateTripUseCase].

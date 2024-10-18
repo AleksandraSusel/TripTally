@@ -20,6 +20,8 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(reason) => "Reason: ${reason}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "appDescription": MessageLookupByLibrary.simpleMessage("Your personal trip assistant"),
@@ -63,6 +65,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "editCurrentTrip_editYourTrip": MessageLookupByLibrary.simpleMessage("Edit your trip"),
         "editCurrentTrip_submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "email": MessageLookupByLibrary.simpleMessage("E-mail"),
+        "errorWidget_button": MessageLookupByLibrary.simpleMessage("Retry"),
+        "errorWidget_subtitle": m0,
+        "errorWidget_title": MessageLookupByLibrary.simpleMessage("Ups! Something went wrong"),
         "errors_emailInUse": MessageLookupByLibrary.simpleMessage("Email in use"),
         "errors_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
         "errors_fieldCantBeEmpty": MessageLookupByLibrary.simpleMessage("Field cant be empty"),
@@ -128,7 +133,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "plannedTripsPage_confirmationDeleteTrip":
             MessageLookupByLibrary.simpleMessage("Are you sure to delete this trip?"),
         "plannedTripsPage_deleteTrip": MessageLookupByLibrary.simpleMessage("Delete trip"),
-        "plannedTripsPage_youHavePlanned": MessageLookupByLibrary.simpleMessage("You have planned"),
+        "plannedTripsPage_successDelete": MessageLookupByLibrary.simpleMessage("Successfully deleted the trip"),
         "plannedTripsPage_yourPlannedTrips": MessageLookupByLibrary.simpleMessage("Your planned trips"),
         "plannedTripsPage_yourTrips": MessageLookupByLibrary.simpleMessage("Your trips"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),

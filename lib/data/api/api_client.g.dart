@@ -149,6 +149,31 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+  Future<void> createTrip(CreateTripDto dto) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(dto.toJson());
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'trips',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+  }
+
+  @override
   Future<void> updateUserProfile({
     required String username,
     required String country,
@@ -201,44 +226,19 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<void> createTrip(CreateTripDto dto) async {
+  Future<void> deleteTrip(String tripId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    queryParameters.addAll(dto.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-        .compose(
-          _dio.options,
-          'trips',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-            baseUrl: _combineBaseUrls(
-          _dio.options.baseUrl,
-          baseUrl,
-        ))));
-  }
-
-  @override
-  Future<String> exampleDelete() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
       method: 'DELETE',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          '',
+          'trips/${tripId}',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -247,8 +247,6 @@ class _ApiClient implements ApiClient {
           _dio.options.baseUrl,
           baseUrl,
         ))));
-    final value = _result.data!;
-    return value;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

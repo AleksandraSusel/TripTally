@@ -16,7 +16,8 @@ abstract class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     AuthenticationRoute.name: (routeData) {
-      final args = routeData.argsAs<AuthenticationRouteArgs>(orElse: () => const AuthenticationRouteArgs());
+      final args = routeData.argsAs<AuthenticationRouteArgs>(
+          orElse: () => const AuthenticationRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: AuthenticationPage(
@@ -37,7 +38,8 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     CreateTripBasicInfoRoute.name: (routeData) {
-      final args = routeData.argsAs<CreateTripBasicInfoRouteArgs>(orElse: () => const CreateTripBasicInfoRouteArgs());
+      final args = routeData.argsAs<CreateTripBasicInfoRouteArgs>(
+          orElse: () => const CreateTripBasicInfoRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: CreateTripBasicInfoPage(
@@ -72,7 +74,8 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     WelcomeRoute.name: (routeData) {
-      final args = routeData.argsAs<WelcomeRouteArgs>(orElse: () => const WelcomeRouteArgs());
+      final args = routeData.argsAs<WelcomeRouteArgs>(
+          orElse: () => const WelcomeRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: WelcomePage(
@@ -103,7 +106,8 @@ class AuthenticationRoute extends PageRouteInfo<AuthenticationRouteArgs> {
 
   static const String name = 'AuthenticationRoute';
 
-  static const PageInfo<AuthenticationRouteArgs> page = PageInfo<AuthenticationRouteArgs>(name);
+  static const PageInfo<AuthenticationRouteArgs> page =
+      PageInfo<AuthenticationRouteArgs>(name);
 }
 
 class AuthenticationRouteArgs {
@@ -142,7 +146,8 @@ class CreateExpensesRoute extends PageRouteInfo<CreateExpensesRouteArgs> {
 
   static const String name = 'CreateExpensesRoute';
 
-  static const PageInfo<CreateExpensesRouteArgs> page = PageInfo<CreateExpensesRouteArgs>(name);
+  static const PageInfo<CreateExpensesRouteArgs> page =
+      PageInfo<CreateExpensesRouteArgs>(name);
 }
 
 class CreateExpensesRouteArgs {
@@ -166,7 +171,8 @@ class CreateExpensesRouteArgs {
 
 /// generated route for
 /// [CreateTripBasicInfoPage]
-class CreateTripBasicInfoRoute extends PageRouteInfo<CreateTripBasicInfoRouteArgs> {
+class CreateTripBasicInfoRoute
+    extends PageRouteInfo<CreateTripBasicInfoRouteArgs> {
   CreateTripBasicInfoRoute({
     CreateTripBloc? bloc,
     Key? key,
@@ -184,7 +190,8 @@ class CreateTripBasicInfoRoute extends PageRouteInfo<CreateTripBasicInfoRouteArg
 
   static const String name = 'CreateTripBasicInfoRoute';
 
-  static const PageInfo<CreateTripBasicInfoRouteArgs> page = PageInfo<CreateTripBasicInfoRouteArgs>(name);
+  static const PageInfo<CreateTripBasicInfoRouteArgs> page =
+      PageInfo<CreateTripBasicInfoRouteArgs>(name);
 }
 
 class CreateTripBasicInfoRouteArgs {
@@ -282,7 +289,8 @@ class WelcomeRoute extends PageRouteInfo<WelcomeRouteArgs> {
 
   static const String name = 'WelcomeRoute';
 
-  static const PageInfo<WelcomeRouteArgs> page = PageInfo<WelcomeRouteArgs>(name);
+  static const PageInfo<WelcomeRouteArgs> page =
+      PageInfo<WelcomeRouteArgs>(name);
 }
 
 class WelcomeRouteArgs {

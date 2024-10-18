@@ -9,5 +9,7 @@ class CreateTripState with _$CreateTripState {
 
   const factory CreateTripState.success() = _Success;
 
+  const factory CreateTripState.loading() = _Loading;
+
   const factory CreateTripState.failure(Errors error) = _Failure;
 }

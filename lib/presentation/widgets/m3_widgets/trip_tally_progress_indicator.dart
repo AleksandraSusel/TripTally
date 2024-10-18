@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/enums/string_extensions.dart';
 
 class TripTallyProgressIndicator extends StatefulWidget {
   const TripTallyProgressIndicator({super.key});
@@ -60,47 +59,47 @@ class TripTallyProgressIndicatorState extends State<TripTallyProgressIndicator> 
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppDimensions.d36),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TypingText(
-                  text: context.tr.appName.capitalize,
-                  controller: _controller,
+    return Padding(
+      padding:
+          const EdgeInsets.symmetric(horizontal: AppDimensions.d36) + const EdgeInsets.only(bottom: AppDimensions.d140),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TypingText(
+                text: context.tr.appName,
+                controller: _controller,
+              ),
+              if (_showIcon)
+                AnimatedBuilder(
+                  animation: _iconAnimation,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: Offset(0, -100 * _iconAnimation.value),
+                      child: Icon(
+                        Icons.flight,
+                        size: AppDimensions.d36,
+                        color: context.thc.primary,
+                      ),
+                    );
+                  },
+                )
+              else
+                const SizedBox(
+                  height: AppDimensions.d36,
+                  width: AppDimensions.d36,
                 ),
-                if (_showIcon)
-                  AnimatedBuilder(
-                    animation: _iconAnimation,
-                    builder: (context, child) {
-                      return Transform.translate(
-                        offset: Offset(0, -100 * _iconAnimation.value),
-                        child: Icon(
-                          Icons.flight,
-                          size: AppDimensions.d36,
-                          color: context.thc.onSurface,
-                        ),
-                      );
-                    },
-                  )
-                else
-                  const SizedBox(
-                    height: AppDimensions.d36,
-                    width: AppDimensions.d36,
-                  ),
-              ],
-            ),
-            const SizedBox(height: AppDimensions.d20),
-            LinearProgressIndicator(
-              borderRadius: BorderRadius.circular(AppDimensions.d32),
-            ),
-            const SizedBox(height: AppDimensions.d20),
-          ],
-        ),
+            ],
+          ),
+          const SizedBox(height: AppDimensions.d20),
+          LinearProgressIndicator(
+            color: context.thc.primary,
+            borderRadius: BorderRadius.circular(AppDimensions.d32),
+          ),
+          const SizedBox(height: AppDimensions.d20),
+        ],
       ),
     );
   }
@@ -151,7 +150,7 @@ class TypingTextState extends State<TypingText> {
       padding: const EdgeInsets.only(left: AppDimensions.d46, right: AppDimensions.d16),
       child: Text(
         _displayedText,
-        style: context.tht.headlineLarge,
+        style: context.tht.headlineLarge?.copyWith(color: context.thc.primary),
         textAlign: TextAlign.center,
       ),
     );

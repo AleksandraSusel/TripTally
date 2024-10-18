@@ -119,7 +119,7 @@
   "editCurrentTrip_changeADate": "Change a date",
   "editCurrentTrip_changeYourTransport": "change your transport",
   "plannedTripsPage_yourPlannedTrips": "Your planned trips",
-  "plannedTripsPage_youHavePlanned": "You have planned",
+  "plannedTripsPage_successDelete": "Successfully deleted the trip",
   "createExpensesPage_addExpenses": "Add expense",
   "createExpensesPage_createTrip": "Create trip",
   "createExpensesPage_finish": "Finish",
@@ -144,5 +144,17 @@
   "filterListSegmentedButton_mostExpensive": "Most expensive",
   "filterListSegmentedButton_longest": "Longest",
   "filterListSegmentedButton_shortest": "Shortest",
-  "createTripBasicInfoPage_dateNotSelected": "Date not selected"
+  "createTripBasicInfoPage_dateNotSelected": "Date not selected",
+  "errorWidget_title": "Ups! Something went wrong",
+  "errorWidget_subtitle": "Reason: {reason}",
+  "@errorWidget_subtitle": {
+    "description": "Error message with a reason",
+    "placeholders": {
+      "reason": {
+        "type": "String",
+        "example": "Network timeout"
+      }
+    }
+  },
+  "errorWidget_button": "Retry"
 }

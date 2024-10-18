@@ -1278,11 +1278,11 @@ class Translation {
     );
   }
 
-  /// `You have planned`
-  String get plannedTripsPage_youHavePlanned {
+  /// `Successfully deleted the trip`
+  String get plannedTripsPage_successDelete {
     return Intl.message(
-      'You have planned',
-      name: 'plannedTripsPage_youHavePlanned',
+      'Successfully deleted the trip',
+      name: 'plannedTripsPage_successDelete',
       desc: '',
       args: [],
     );
@@ -1513,6 +1513,36 @@ class Translation {
     return Intl.message(
       'Date not selected',
       name: 'createTripBasicInfoPage_dateNotSelected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ups! Something went wrong`
+  String get errorWidget_title {
+    return Intl.message(
+      'Ups! Something went wrong',
+      name: 'errorWidget_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reason: {reason}`
+  String errorWidget_subtitle(String reason) {
+    return Intl.message(
+      'Reason: $reason',
+      name: 'errorWidget_subtitle',
+      desc: 'Error message with a reason',
+      args: [reason],
+    );
+  }
+
+  /// `Retry`
+  String get errorWidget_button {
+    return Intl.message(
+      'Retry',
+      name: 'errorWidget_button',
       desc: '',
       args: [],
     );

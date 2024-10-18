@@ -26,6 +26,7 @@ class GetAllUserTripsBloc extends Bloc<GetAllUserTripsEvent, GetAllUserTripsStat
     OnGetAllUserTripsEvent event,
     Emitter<GetAllUserTripsState> emit,
   ) async {
+    emit(const GetAllUserTripsState.loading());
     final result = await _getAllUserTripsUseCase();
 
     result.fold(

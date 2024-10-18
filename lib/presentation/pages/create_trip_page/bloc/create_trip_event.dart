@@ -15,22 +15,19 @@ class OnCreateTripEvent extends CreateTripEvent {
     required this.dateFrom,
     required this.dateTo,
     required this.plannedCost,
-    required this.currency,
   });
 
   final String cityName;
   final String transportType;
-  final String currency;
   final String countryCode;
   final String dateFrom;
   final String dateTo;
-  final double plannedCost;
+  final PriceEntity plannedCost;
 
   @override
   List<Object?> get props => [
         cityName,
         transportType,
-        currency,
         countryCode,
         dateFrom,
         dateTo,

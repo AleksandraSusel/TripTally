@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:trip_tally/domain/entities/price/price_entity.dart';
 
 part 'create_trip_entity.freezed.dart';
 
@@ -6,11 +7,10 @@ part 'create_trip_entity.freezed.dart';
 class CreateTripEntity with _$CreateTripEntity {
   const factory CreateTripEntity({
     required String cityName,
-    required String currency,
     required String transportType,
     required String countryCode,
     required String dateFrom,
     required String dateTo,
-    required double plannedCost,
+    required PriceEntity plannedCost,
   }) = _CreateTripEntity;
 }

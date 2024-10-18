@@ -8,9 +8,11 @@ class ProceedFloatingActionButton extends StatelessWidget {
   const ProceedFloatingActionButton({
     required this.onPressed,
     super.key,
+    this.isLoading = false,
   });
 
   final VoidCallback onPressed;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +21,22 @@ class ProceedFloatingActionButton extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       elevation: AppDimensions.d2,
       highlightElevation: AppDimensions.d4,
-      label: Row(
-        children: [
-          Text(
-            context.tr.generic_continue,
-            style: context.tht.titleMedium,
-          ),
-          const SizedBox(width: AppDimensions.d8),
-          const SvgAsset(AppPaths.nextArrow),
-        ],
-      ),
-      onPressed: onPressed,
+      label: isLoading
+          ? Padding(
+              padding: const EdgeInsets.symmetric(horizontal: AppDimensions.d30),
+              child: CircularProgressIndicator(color: context.thc.onTertiaryContainer),
+            )
+          : Row(
+              children: [
+                Text(
+                  context.tr.generic_continue,
+                  style: context.tht.titleMedium,
+                ),
+                const SizedBox(width: AppDimensions.d8),
+                const SvgAsset(AppPaths.nextArrow),
+              ],
+            ),
+      onPressed: isLoading ? () {} : onPressed,
     );
   }
 }

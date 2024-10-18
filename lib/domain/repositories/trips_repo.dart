@@ -8,4 +8,6 @@ abstract class TripsRepo {
   Future<Either<Failure, Success>> createTrip(CreateTripEntity entity);
 
   Future<Either<Failure, List<TripEntity>>> getAllUserTrips();
+
+  Future<Either<Failure, Success>> deleteTrip(String id);
 }

@@ -72,14 +72,16 @@ const mockedExpenseEntity = ExpenseEntity(
   categoryId: '9690386d-e0b5-46e5-98a1-a9cf5fb545f90',
 );
 
+const mockedPriceDtoV1 = PriceDto(currency: 'USD', amount: '3000');
+const mockedPriceEntityV1 = PriceEntity(currency: 'USD', amount: '3000');
+
 const mockedCreateTripDto = CreateTripDto(
   cityName: 'Wrocław',
   transportType: 'Samolot',
   countryCode: 'PL',
   dateFrom: '2024-08-12',
   dateTo: '2024-08-13',
-  amount: 3000,
-  currency: 'USD',
+  plannedCost: mockedPriceDtoV1,
 );
 
 const mockedCreateTripEntity = CreateTripEntity(
@@ -88,8 +90,7 @@ const mockedCreateTripEntity = CreateTripEntity(
   countryCode: 'PL',
   dateFrom: '2024-08-12',
   dateTo: '2024-08-13',
-  plannedCost: 3000,
-  currency: 'USD',
+  plannedCost: mockedPriceEntityV1,
 );
 const testToken = 'eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ';
 

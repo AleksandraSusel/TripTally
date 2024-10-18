@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
+import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/add_expense_form.dart';
@@ -29,10 +30,13 @@ class CreateExpensesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: NavigationAppBar(title: context.tr.createTripPage_titleBasicInfo),
-      body: _Body(tripId: tripId, currency: currency),
+    return BlocProvider(
+      create: (context) => getIt<CreateExpensesBloc>(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: NavigationAppBar(title: context.tr.createTripPage_titleBasicInfo),
+        body: _Body(tripId: tripId, currency: currency),
+      ),
     );
   }
 }
