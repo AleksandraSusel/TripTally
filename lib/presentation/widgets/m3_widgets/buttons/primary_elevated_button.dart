@@ -7,11 +7,14 @@ class PrimaryElevatedButton extends StatelessWidget {
     required this.onPressed,
     this.onLongPressed,
     super.key,
+    this.fontSize,
   });
 
   final String text;
   final VoidCallback onPressed;
   final VoidCallback? onLongPressed;
+
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,10 @@ class PrimaryElevatedButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: context.tht.labelSmall?.copyWith(color: context.thc.onPrimary),
+        style: context.tht.labelSmall?.copyWith(
+          color: context.thc.onPrimary,
+          fontSize: fontSize,
+        ),
       ),
     );
   }

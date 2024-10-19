@@ -3,23 +3,30 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:trip_tally/data/dto/expenses/create_expenses_dto.dart';
 import 'package:trip_tally/data/dto/expenses/expense_dto.dart';
+import 'package:trip_tally/data/dto/location/location_dto.dart';
 import 'package:trip_tally/data/dto/osm_map/geometry_dto.dart';
 import 'package:trip_tally/data/dto/osm_map/osm_response_dto.dart';
 import 'package:trip_tally/data/dto/osm_map/place_address_dto.dart';
 import 'package:trip_tally/data/dto/osm_map/place_dto.dart';
 import 'package:trip_tally/data/dto/osm_map/place_extra_tags_dto.dart';
+import 'package:trip_tally/data/dto/price/price_dto.dart';
 import 'package:trip_tally/data/dto/trips/create_trip_dto.dart';
+import 'package:trip_tally/data/dto/trips/get_trips_dto.dart';
+import 'package:trip_tally/data/dto/trips/trip_dto.dart';
 import 'package:trip_tally/data/dto/user/create_account_dto.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
 import 'package:trip_tally/data/dto/user/update_user_profile_dto.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_categories_entity.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_category_entity.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
+import 'package:trip_tally/domain/entities/location/location_entity.dart';
 import 'package:trip_tally/domain/entities/osm_map/coordinates_entity.dart';
 import 'package:trip_tally/domain/entities/osm_map/place_address_entity.dart';
 import 'package:trip_tally/domain/entities/osm_map/place_entity.dart';
 import 'package:trip_tally/domain/entities/osm_map/place_extra_tags_entity.dart';
+import 'package:trip_tally/domain/entities/price/price_entity.dart';
 import 'package:trip_tally/domain/entities/trips/create_trip_entity.dart';
+import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
 import 'package:trip_tally/domain/entities/user/create_account_entity.dart';
 import 'package:trip_tally/domain/entities/user/login_entity.dart';
 import 'package:trip_tally/domain/entities/user/update_user_profile_entity.dart';
@@ -44,8 +51,10 @@ const mockedLoginDto = LoginDto(
 const mockedExpenseDto = ExpenseDto(
   name: 'Wrocław',
   date: '2022-02-20',
-  amount: 300,
-  currency: 'USD',
+  price: PriceDto(
+    amount: '300',
+    currency: 'USD',
+  ),
   tripId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
   categoryId: '9690386d-e0b5-46e5-98a1-a9cf5fb545f90',
 );
@@ -55,11 +64,16 @@ const mockedCreateExpensesDto = CreateExpensesDto(expenses: [mockedExpenseDto, m
 const mockedExpenseEntity = ExpenseEntity(
   name: 'Wrocław',
   date: '2022-02-20',
-  amount: 300,
-  currency: 'USD',
+  price: PriceEntity(
+    amount: '300',
+    currency: 'USD',
+  ),
   tripId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
   categoryId: '9690386d-e0b5-46e5-98a1-a9cf5fb545f90',
 );
+
+const mockedPriceDtoV1 = PriceDto(currency: 'USD', amount: '3000');
+const mockedPriceEntityV1 = PriceEntity(currency: 'USD', amount: '3000');
 
 const mockedCreateTripDto = CreateTripDto(
   cityName: 'Wrocław',
@@ -67,8 +81,7 @@ const mockedCreateTripDto = CreateTripDto(
   countryCode: 'PL',
   dateFrom: '2024-08-12',
   dateTo: '2024-08-13',
-  amount: 3000,
-  currency: 'USD',
+  plannedCost: mockedPriceDtoV1,
 );
 
 const mockedCreateTripEntity = CreateTripEntity(
@@ -77,8 +90,7 @@ const mockedCreateTripEntity = CreateTripEntity(
   countryCode: 'PL',
   dateFrom: '2024-08-12',
   dateTo: '2024-08-13',
-  plannedCost: 3000,
-  currency: 'USD',
+  plannedCost: mockedPriceEntityV1,
 );
 const testToken = 'eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ';
 
@@ -177,3 +189,139 @@ const mockedExpenseCategoriesEntities = ExpenseCategoriesEntity(
     ExpenseCategoryEntity(id: '3-4-5', name: 'Accommodation', translationKey: 'Expense.accommodation'),
   ],
 );
+
+final TripDto mockedTripDtoV1 = TripDto(
+  id: '123',
+  status: 'planned',
+  location: LocationDto(
+    id: 'loc123',
+    userId: 'user123',
+    countryCode: 'US',
+    cityName: 'New York',
+    insertedAt: DateTime(2024),
+    updatedAt: DateTime(2024),
+  ),
+  userId: 'user123',
+  dateFrom: '2024-10-29',
+  dateTo: '2024-10-30',
+  expenses: [],
+  transportType: 'Airplane',
+  plannedCost: const PriceDto(currency: 'USD', amount: '1200.57'),
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
+);
+final TripDto mockedTripDtoV2 = TripDto(
+  id: '123',
+  status: 'planned',
+  location: LocationDto(
+    id: 'loc123',
+    userId: 'user123',
+    countryCode: 'PL',
+    cityName: 'Warszaw',
+    insertedAt: DateTime(2024),
+    updatedAt: DateTime(2024),
+  ),
+  userId: 'user123',
+  dateFrom: '2024-10-05',
+  dateTo: '2024-10-10',
+  expenses: [],
+  transportType: 'Bus',
+  plannedCost: const PriceDto(currency: 'PLN', amount: '2400'),
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
+);
+final TripDto mockedTripDtoV3 = TripDto(
+  id: '123',
+  status: 'planned',
+  location: LocationDto(
+    id: 'loc123',
+    userId: 'user123',
+    countryCode: 'GB',
+    cityName: 'Big Ben',
+    insertedAt: DateTime(2024),
+    updatedAt: DateTime(2024),
+  ),
+  userId: 'user123',
+  dateFrom: '2024-11-10',
+  dateTo: '2024-11-15',
+  expenses: [],
+  transportType: 'car',
+  plannedCost: const PriceDto(currency: 'GBP', amount: '2000'),
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
+);
+
+final List<TripDto> mockedTripDtoList = [
+  mockedTripDtoV1,
+  mockedTripDtoV2,
+  mockedTripDtoV3,
+];
+
+final TripEntity mockedTripEntityV1 = TripEntity(
+  id: '123',
+  status: 'planned',
+  location: LocationEntity(
+    id: 'loc123',
+    userId: 'user123',
+    countryCode: 'US',
+    cityName: 'New York',
+    insertedAt: DateTime(2024),
+    updatedAt: DateTime(2024),
+  ),
+  userId: 'user123',
+  dateFrom: '2024-10-29',
+  dateTo: '2024-10-30',
+  expenses: [],
+  transportType: 'Airplane',
+  plannedCost: const PriceEntity(currency: 'USD', amount: '1200.57'),
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
+);
+final TripEntity mockedTripEntityV2 = TripEntity(
+  id: '123',
+  status: 'planned',
+  location: LocationEntity(
+    id: 'loc123',
+    userId: 'user123',
+    countryCode: 'PL',
+    cityName: 'Warszaw',
+    insertedAt: DateTime(2024),
+    updatedAt: DateTime(2024),
+  ),
+  userId: 'user123',
+  dateFrom: '2024-10-05',
+  dateTo: '2024-10-10',
+  expenses: [],
+  transportType: 'Bus',
+  plannedCost: const PriceEntity(currency: 'PLN', amount: '2400'),
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
+);
+final TripEntity mockedTripEntityV3 = TripEntity(
+  id: '123',
+  status: 'planned',
+  location: LocationEntity(
+    id: 'loc123',
+    userId: 'user123',
+    countryCode: 'GB',
+    cityName: 'Big Ben',
+    insertedAt: DateTime(2024),
+    updatedAt: DateTime(2024),
+  ),
+  userId: 'user123',
+  dateFrom: '2024-11-10',
+  dateTo: '2024-11-15',
+  expenses: [],
+  transportType: 'car',
+  plannedCost: const PriceEntity(currency: 'GBP', amount: '2000'),
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
+);
+
+final List<TripEntity> mockedTripEntityList = [
+  mockedTripEntityV1,
+  mockedTripEntityV2,
+  mockedTripEntityV3,
+];
+
+final mockedGetTripsDto = GetTripsDto(trips: mockedTripDtoList);

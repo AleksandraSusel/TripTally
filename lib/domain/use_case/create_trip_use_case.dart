@@ -14,9 +14,6 @@ class CreateTripUseCase implements UseCase<Success, CreateTripEntity> {
 
   @override
   Future<Either<Failure, Success>> call(CreateTripEntity entity) async {
-    return (await _repo.createTrip(entity)).fold(
-      Left.new,
-      (r) => const Right(Success()),
-    );
+    return (await _repo.createTrip(entity)).fold(Left.new, Right.new);
   }
 }

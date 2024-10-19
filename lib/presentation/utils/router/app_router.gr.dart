@@ -53,10 +53,15 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HomePage(),
       );
     },
-    PlannedTripsM3Route.name: (routeData) {
+    PlannedTripsRoute.name: (routeData) {
+      final args = routeData.argsAs<PlannedTripsRouteArgs>(orElse: () => const PlannedTripsRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const PlannedTripsM3Page(),
+        child: PlannedTripsPage(
+          key: args.key,
+          getAllUserTripsBloc: args.getAllUserTripsBloc,
+          deleteTripBloc: args.deleteTripBloc,
+        ),
       );
     },
     TestM3Route.name: (routeData) {
@@ -227,17 +232,45 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [PlannedTripsM3Page]
-class PlannedTripsM3Route extends PageRouteInfo<void> {
-  const PlannedTripsM3Route({List<PageRouteInfo>? children})
-      : super(
-          PlannedTripsM3Route.name,
+/// [PlannedTripsPage]
+class PlannedTripsRoute extends PageRouteInfo<PlannedTripsRouteArgs> {
+  PlannedTripsRoute({
+    Key? key,
+    GetAllUserTripsBloc? getAllUserTripsBloc,
+    DeleteTripBloc? deleteTripBloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          PlannedTripsRoute.name,
+          args: PlannedTripsRouteArgs(
+            key: key,
+            getAllUserTripsBloc: getAllUserTripsBloc,
+            deleteTripBloc: deleteTripBloc,
+          ),
           initialChildren: children,
         );
 
-  static const String name = 'PlannedTripsM3Route';
+  static const String name = 'PlannedTripsRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<PlannedTripsRouteArgs> page = PageInfo<PlannedTripsRouteArgs>(name);
+}
+
+class PlannedTripsRouteArgs {
+  const PlannedTripsRouteArgs({
+    this.key,
+    this.getAllUserTripsBloc,
+    this.deleteTripBloc,
+  });
+
+  final Key? key;
+
+  final GetAllUserTripsBloc? getAllUserTripsBloc;
+
+  final DeleteTripBloc? deleteTripBloc;
+
+  @override
+  String toString() {
+    return 'PlannedTripsRouteArgs{key: $key, getAllUserTripsBloc: $getAllUserTripsBloc, deleteTripBloc: $deleteTripBloc}';
+  }
 }
 
 /// generated route for

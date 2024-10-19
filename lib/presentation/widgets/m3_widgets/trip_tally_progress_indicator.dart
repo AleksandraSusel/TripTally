@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/enums/string_extensions.dart';
 
 class TripTallyProgressIndicator extends StatefulWidget {
   const TripTallyProgressIndicator({super.key});
@@ -60,7 +59,9 @@ class TripTallyProgressIndicatorState extends State<TripTallyProgressIndicator> 
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Padding(
+      padding:
+          const EdgeInsets.symmetric(horizontal: AppDimensions.d36) + const EdgeInsets.only(bottom: AppDimensions.d140),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -68,7 +69,7 @@ class TripTallyProgressIndicatorState extends State<TripTallyProgressIndicator> 
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TypingText(
-                text: context.tr.appName.capitalize,
+                text: context.tr.appName,
                 controller: _controller,
               ),
               if (_showIcon)
@@ -80,7 +81,7 @@ class TripTallyProgressIndicatorState extends State<TripTallyProgressIndicator> 
                       child: Icon(
                         Icons.flight,
                         size: AppDimensions.d36,
-                        color: context.thc.onSurface,
+                        color: context.thc.primary,
                       ),
                     );
                   },
@@ -94,6 +95,7 @@ class TripTallyProgressIndicatorState extends State<TripTallyProgressIndicator> 
           ),
           const SizedBox(height: AppDimensions.d20),
           LinearProgressIndicator(
+            color: context.thc.primary,
             borderRadius: BorderRadius.circular(AppDimensions.d32),
           ),
           const SizedBox(height: AppDimensions.d20),
@@ -148,7 +150,7 @@ class TypingTextState extends State<TypingText> {
       padding: const EdgeInsets.only(left: AppDimensions.d46, right: AppDimensions.d16),
       child: Text(
         _displayedText,
-        style: context.tht.headlineLarge,
+        style: context.tht.headlineLarge?.copyWith(color: context.thc.primary),
         textAlign: TextAlign.center,
       ),
     );

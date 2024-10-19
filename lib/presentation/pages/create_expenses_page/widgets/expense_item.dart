@@ -48,7 +48,10 @@ class ExpenseItem extends StatelessWidget {
                 style: context.tht.labelSmall,
               ),
               Text(
-                MoneyFormat.formatPositiveAmountCurrency(expense.amount, expense.currency),
+                MoneyFormat.formatPositiveAmountCurrency(
+                  double.parse(expense.price.amount),
+                  expense.price.currency,
+                ),
                 style: context.tht.labelSmall,
               ),
             ],

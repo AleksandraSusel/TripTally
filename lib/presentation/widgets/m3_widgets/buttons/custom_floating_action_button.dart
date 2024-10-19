@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
 
@@ -15,9 +16,10 @@ class IconFloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      heroTag: '',
       backgroundColor: context.thc.tertiaryContainer,
       onPressed: onPressed,
-      child: SvgAsset(svgPath),
+      child: SvgAsset(svgPath, height: AppDimensions.d30),
     );
   }
 }

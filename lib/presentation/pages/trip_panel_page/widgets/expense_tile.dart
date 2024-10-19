@@ -25,7 +25,10 @@ class ExpenseTile extends StatelessWidget {
                 style: context.tht.bodyMedium,
               ),
               Text(
-                MoneyFormat.formatPositiveAmountCurrency(expenseEntity.amount, expenseEntity.currency),
+                MoneyFormat.formatPositiveAmountCurrency(
+                  double.parse(expenseEntity.price.amount),
+                  expenseEntity.price.currency,
+                ),
                 style: context.tht.bodySmall,
               ),
             ],

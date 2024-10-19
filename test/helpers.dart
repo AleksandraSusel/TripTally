@@ -22,3 +22,9 @@ void initializeMockEnvironmentWithBloc<T extends Object>(
     GetIt.instance.registerFactory<T>(() => blocInstance);
   }
 }
+
+void unregisterBlocInstance<T extends Object>(T blocInstance) {
+  if (!GetIt.instance.isRegistered<T>()) {
+    GetIt.instance.unregister<T>();
+  }
+}

@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:trip_tally/presentation/utils/translation/generated/intl/messages_all.dart';
+import 'intl/messages_all.dart';
 
 // **************************************************************************
 // Generator: Flutter Intl IDE plugin
@@ -18,10 +18,8 @@ class Translation {
   static Translation? _current;
 
   static Translation get current {
-    assert(
-      _current != null,
-      'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.',
-    );
+    assert(_current != null,
+        'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.');
     return _current!;
   }
 
@@ -41,10 +39,8 @@ class Translation {
 
   static Translation of(BuildContext context) {
     final instance = Translation.maybeOf(context);
-    assert(
-      instance != null,
-      'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?',
-    );
+    assert(instance != null,
+        'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?');
     return instance!;
   }
 
@@ -253,30 +249,30 @@ class Translation {
   }
 
   /// `Your trips`
-  String get plannedTripsM3Page_yourTrips {
+  String get plannedTripsPage_yourTrips {
     return Intl.message(
       'Your trips',
-      name: 'plannedTripsM3Page_yourTrips',
+      name: 'plannedTripsPage_yourTrips',
       desc: '',
       args: [],
     );
   }
 
   /// `Delete trip`
-  String get plannedTripsM3Page_deleteTrip {
+  String get plannedTripsPage_deleteTrip {
     return Intl.message(
       'Delete trip',
-      name: 'plannedTripsM3Page_deleteTrip',
+      name: 'plannedTripsPage_deleteTrip',
       desc: '',
       args: [],
     );
   }
 
   /// `Are you sure to delete this trip?`
-  String get plannedTripsM3Page_confirmationDeleteTrip {
+  String get plannedTripsPage_confirmationDeleteTrip {
     return Intl.message(
       'Are you sure to delete this trip?',
-      name: 'plannedTripsM3Page_confirmationDeleteTrip',
+      name: 'plannedTripsPage_confirmationDeleteTrip',
       desc: '',
       args: [],
     );
@@ -1282,11 +1278,11 @@ class Translation {
     );
   }
 
-  /// `You have planned`
-  String get plannedTripsPage_youHavePlanned {
+  /// `Successfully deleted the trip`
+  String get plannedTripsPage_successDelete {
     return Intl.message(
-      'You have planned',
-      name: 'plannedTripsPage_youHavePlanned',
+      'Successfully deleted the trip',
+      name: 'plannedTripsPage_successDelete',
       desc: '',
       args: [],
     );
@@ -1597,6 +1593,36 @@ class Translation {
     return Intl.message(
       'Total expenses:',
       name: 'outlinedTripCardButton_totalExpenses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ups! Something went wrong`
+  String get errorWidget_title {
+    return Intl.message(
+      'Ups! Something went wrong',
+      name: 'errorWidget_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reason: {reason}`
+  String errorWidget_subtitle(String reason) {
+    return Intl.message(
+      'Reason: $reason',
+      name: 'errorWidget_subtitle',
+      desc: 'Error message with a reason',
+      args: [reason],
+    );
+  }
+
+  /// `Retry`
+  String get errorWidget_button {
+    return Intl.message(
+      'Retry',
+      name: 'errorWidget_button',
       desc: '',
       args: [],
     );

@@ -19,9 +19,9 @@
   "createTripPage_titleBasicInfo": "Create new trip",
   "createTripPage_currencyLabel": "Currency",
   "createTripPage_currencyError": "Please select a currency",
-  "plannedTripsM3Page_yourTrips": "Your trips",
-  "plannedTripsM3Page_deleteTrip": "Delete trip",
-  "plannedTripsM3Page_confirmationDeleteTrip": "Are you sure to delete this trip?",
+  "plannedTripsPage_yourTrips": "Your trips",
+  "plannedTripsPage_deleteTrip": "Delete trip",
+  "plannedTripsPage_confirmationDeleteTrip": "Are you sure to delete this trip?",
   "generic_skip": "Skip",
   "generic_continue": "Continue",
   "generic_confirm": "Confirm",
@@ -122,7 +122,7 @@
   "createExpensesPage_budget": "Budget",
   "createExpensesPage_currency": "Currency",
   "plannedTripsPage_yourPlannedTrips": "Your planned trips",
-  "plannedTripsPage_youHavePlanned": "You have planned",
+  "plannedTripsPage_successDelete": "Successfully deleted the trip",
   "editCurrentTrip_editYourTrip": "Edit your trip",
   "editCurrentTrip_submit": "Submit",
   "editCurrentTrip_changeACity": "Change a city",
@@ -153,5 +153,17 @@
   "outlinedTripCardButton_endTheTrip": "End the trip",
   "outlinedTripCardButton_addExpense": "Add expense",
   "outlinedTripCardButton_transportType": "Transport type:",
-  "outlinedTripCardButton_totalExpenses": "Total expenses:"
+  "outlinedTripCardButton_totalExpenses": "Total expenses:",
+  "errorWidget_title": "Ups! Something went wrong",
+  "errorWidget_subtitle": "Reason: {reason}",
+  "@errorWidget_subtitle": {
+    "description": "Error message with a reason",
+    "placeholders": {
+      "reason": {
+        "type": "String",
+        "example": "Network timeout"
+      }
+    }
+  },
+  "errorWidget_button": "Retry"
 }

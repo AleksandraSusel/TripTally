@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:trip_tally/data/data_source/trips_data_source_impl.dart';
-import 'package:trip_tally/data/dto/trips/create_trip_dto.dart';
 import 'package:trip_tally/domain/data_source/trips_data_source.dart';
 import 'package:trip_tally/domain/utils/exception.dart';
 import 'package:trip_tally/domain/utils/success.dart';
@@ -13,51 +12,81 @@ import '../../mocked_data.dart';
 void main() {
   late MockApiClient mockApiClient;
   late TripsDataSource tripsDataSource;
+
   setUp(() {
     mockApiClient = MockApiClient();
     tripsDataSource = TripsDataSourceImpl(mockApiClient);
   });
 
   test('CreateTrip to creating a trip, success', () async {
-    final dto = CreateTripDto(
-      cityName: mockedCreateTripDto.cityName,
-      transportType: mockedCreateTripDto.transportType,
-      countryCode: mockedCreateTripDto.countryCode,
-      dateFrom: mockedCreateTripDto.dateFrom,
-      dateTo: mockedCreateTripDto.dateTo,
-      amount: mockedCreateTripDto.amount,
-      currency: mockedCreateTripDto.currency,
-    );
-    when(mockApiClient.addTrip(dto)).thenAnswer((_) async => const Success());
+    when(mockApiClient.createTrip(mockedCreateTripDto)).thenAnswer((_) async => const Success());
 
-    final result = await tripsDataSource.createTrip(dto);
+    final result = await tripsDataSource.createTrip(mockedCreateTripDto);
     expect(result, const Success());
-    verify(mockApiClient.addTrip(dto)).called(1);
+    verify(mockApiClient.createTrip(mockedCreateTripDto)).called(1);
     verifyNoMoreInteractions(mockApiClient);
   });
 
-  test(
-    'CreateTrip throws ApiException on catch',
-    () async {
-      final dto = CreateTripDto(
-        cityName: mockedCreateTripDto.cityName,
-        transportType: mockedCreateTripDto.transportType,
-        countryCode: mockedCreateTripDto.countryCode,
-        dateFrom: mockedCreateTripDto.dateFrom,
-        dateTo: mockedCreateTripDto.dateTo,
-        amount: mockedCreateTripDto.amount,
-        currency: mockedCreateTripDto.currency,
-      );
+  test('CreateTrip throws ApiException on catch', () async {
+    when(mockApiClient.createTrip(any)).thenThrow(Exception());
 
-      when(mockApiClient.addTrip(any)).thenThrow(Exception());
-      await expectLater(
-        tripsDataSource.createTrip(dto),
-        throwsA(
-          isA<ApiException>().having((e) => e.failure, 'Unknown error', Errors.unknownError),
-        ),
-      );
-      verify(mockApiClient.addTrip(dto));
-      verifyNoMoreInteractions(mockApiClient);
-    },
-  );
+    await expectLater(
+      tripsDataSource.createTrip(mockedCreateTripDto),
+      throwsA(
+        isA<ApiException>().having((e) => e.failure, 'Unknown error', Errors.unknownError),
+      ),
+    );
+
+    verify(mockApiClient.createTrip(mockedCreateTripDto));
+    verifyNoMoreInteractions(mockApiClient);
+  });
+
+  test('GetAllUserTrips to get trips, success', () async {
+    when(mockApiClient.getAllUserTrips()).thenAnswer((_) async => mockedGetTripsDto);
+
+    final result = await tripsDataSource.getAllUserTrips();
+    expect(result, mockedGetTripsDto.trips);
+    verify(mockApiClient.getAllUserTrips()).called(1);
+    verifyNoMoreInteractions(mockApiClient);
+  });
+
+  test('GetAllUserTrips throws ApiException on catch', () async {
+    when(mockApiClient.getAllUserTrips()).thenThrow(Exception());
+
+    await expectLater(
+      tripsDataSource.getAllUserTrips(),
+      throwsA(
+        isA<ApiException>().having((e) => e.failure, 'Unknown error', Errors.unknownError),
+      ),
+    );
+
+    verify(mockApiClient.getAllUserTrips());
+    verifyNoMoreInteractions(mockApiClient);
+  });
+
+  test('DeleteTrip should successfully delete a trip', () async {
+    final tripId = mockedTripDtoV1.id;
+    when(mockApiClient.deleteTrip(tripId)).thenAnswer((_) async => const Success());
+
+    final result = await tripsDataSource.deleteTrip(tripId);
+    expect(result, const Success());
+
+    verify(mockApiClient.deleteTrip(tripId)).called(1);
+    verifyNoMoreInteractions(mockApiClient);
+  });
+
+  test('DeleteTrip throws ApiException on catch', () async {
+    final tripId = mockedTripDtoV1.id;
+    when(mockApiClient.deleteTrip(tripId)).thenThrow(Exception());
+
+    await expectLater(
+      tripsDataSource.deleteTrip(tripId),
+      throwsA(
+        isA<ApiException>().having((e) => e.failure, 'Unknown error', Errors.unknownError),
+      ),
+    );
+
+    verify(mockApiClient.deleteTrip(tripId));
+    verifyNoMoreInteractions(mockApiClient);
+  });
 }
