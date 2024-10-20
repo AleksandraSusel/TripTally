@@ -20,7 +20,13 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'pl';
 
-  static String m0(reason) => "Reason: ${reason}";
+  static String m0(tripName) => "Expenses for trip to ${tripName} successfully added!";
+
+  static String m1(transportName) => "Transport: ${transportName}";
+
+  static String m2(tripName) => "Trip to ${tripName} successfully created!";
+
+  static String m3(reason) => "Reason: ${reason}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -52,7 +58,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "createExpensesPage_finish": MessageLookupByLibrary.simpleMessage("Finish"),
         "createExpensesPage_name": MessageLookupByLibrary.simpleMessage("Name"),
         "createExpensesPage_nameExpense": MessageLookupByLibrary.simpleMessage("Name the expense"),
-        "createExpensesPage_transportType": MessageLookupByLibrary.simpleMessage("Transport type:"),
+        "createExpensesPage_successMessage": m0,
+        "createExpensesPage_transportType": m1,
         "createTripBasicInfoPage_dateNotSelected": MessageLookupByLibrary.simpleMessage("Date not selected"),
         "createTripBudgetHelper": MessageLookupByLibrary.simpleMessage("Your planned budget"),
         "createTripBudgetHint": MessageLookupByLibrary.simpleMessage("Budget"),
@@ -60,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "createTripCurrencyHint": MessageLookupByLibrary.simpleMessage("Currency"),
         "createTripPage_currencyError": MessageLookupByLibrary.simpleMessage("Please select a currency"),
         "createTripPage_currencyLabel": MessageLookupByLibrary.simpleMessage("Currency"),
+        "createTripPage_successMessage": m2,
         "createTripPage_titleBasicInfo": MessageLookupByLibrary.simpleMessage("Create new trip"),
         "createTripSearchHint": MessageLookupByLibrary.simpleMessage("Destination"),
         "currentTripInformation_youAreIn": MessageLookupByLibrary.simpleMessage("You are in:"),
@@ -71,7 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "editCurrentTrip_submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "email": MessageLookupByLibrary.simpleMessage("E-mail"),
         "errorWidget_button": MessageLookupByLibrary.simpleMessage("Retry"),
-        "errorWidget_subtitle": m0,
+        "errorWidget_subtitle": m3,
         "errorWidget_title": MessageLookupByLibrary.simpleMessage("Ups! Something went wrong"),
         "errors_emailInUse": MessageLookupByLibrary.simpleMessage("Email in use"),
         "errors_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
