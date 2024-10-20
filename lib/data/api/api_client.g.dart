@@ -149,13 +149,13 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<void> createTrip(CreateTripDto dto) async {
+  Future<TripDtoResponse> createTrip(CreateTripDto dto) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(dto.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<TripDtoResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -171,6 +171,8 @@ class _ApiClient implements ApiClient {
           _dio.options.baseUrl,
           baseUrl,
         ))));
+    final value = TripDtoResponse.fromJson(_result.data!);
+    return value;
   }
 
   @override

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
 import 'package:trip_tally/data/api/api_client.dart';
 import 'package:trip_tally/data/dto/expenses/create_expenses_dto.dart';
@@ -19,7 +20,8 @@ class ExpensesRemoteSourceImpl implements ExpensesRemoteSource {
     try {
       await _client.createExpenses(CreateExpensesDto(expenses: expenses));
       return const Success();
-    } catch (e) {
+    } catch (e, stack) {
+      debugPrint('Could not create expenses.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.somethingWentWrong);
     }
   }
@@ -28,7 +30,8 @@ class ExpensesRemoteSourceImpl implements ExpensesRemoteSource {
   Future<ExpenseCategoriesDto> getExpenseCategories() async {
     try {
       return await _client.getExpensesCategories();
-    } catch (e) {
+    } catch (e, stack) {
+      debugPrint('Could not get Expense Categories.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.somethingWentWrong);
     }
   }

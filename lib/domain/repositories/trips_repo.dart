@@ -5,7 +5,7 @@ import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 
 abstract class TripsRepo {
-  Future<Either<Failure, Success>> createTrip(CreateTripEntity entity);
+  Future<Either<Failure, TripEntity>> createTrip(CreateTripEntity entity);
 
   Future<Either<Failure, List<TripEntity>>> getAllUserTrips();
 

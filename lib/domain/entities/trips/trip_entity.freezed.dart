@@ -27,6 +27,7 @@ mixin _$TripEntity {
   PriceEntity get plannedCost => throw _privateConstructorUsedError;
   DateTime get insertedAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
+  double? get totalExpenses => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TripEntityCopyWith<TripEntity> get copyWith => throw _privateConstructorUsedError;
@@ -48,7 +49,8 @@ abstract class $TripEntityCopyWith<$Res> {
       String transportType,
       PriceEntity plannedCost,
       DateTime insertedAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      double? totalExpenses});
 
   $LocationEntityCopyWith<$Res> get location;
   $PriceEntityCopyWith<$Res> get plannedCost;
@@ -77,6 +79,7 @@ class _$TripEntityCopyWithImpl<$Res, $Val extends TripEntity> implements $TripEn
     Object? plannedCost = null,
     Object? insertedAt = null,
     Object? updatedAt = null,
+    Object? totalExpenses = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -123,6 +126,10 @@ class _$TripEntityCopyWithImpl<$Res, $Val extends TripEntity> implements $TripEn
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      totalExpenses: freezed == totalExpenses
+          ? _value.totalExpenses
+          : totalExpenses // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 
@@ -160,7 +167,8 @@ abstract class _$$TripEntityImplCopyWith<$Res> implements $TripEntityCopyWith<$R
       String transportType,
       PriceEntity plannedCost,
       DateTime insertedAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      double? totalExpenses});
 
   @override
   $LocationEntityCopyWith<$Res> get location;
@@ -187,6 +195,7 @@ class __$$TripEntityImplCopyWithImpl<$Res> extends _$TripEntityCopyWithImpl<$Res
     Object? plannedCost = null,
     Object? insertedAt = null,
     Object? updatedAt = null,
+    Object? totalExpenses = freezed,
   }) {
     return _then(_$TripEntityImpl(
       id: null == id
@@ -233,6 +242,10 @@ class __$$TripEntityImplCopyWithImpl<$Res> extends _$TripEntityCopyWithImpl<$Res
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      totalExpenses: freezed == totalExpenses
+          ? _value.totalExpenses
+          : totalExpenses // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -251,7 +264,8 @@ class _$TripEntityImpl implements _TripEntity {
       required this.transportType,
       required this.plannedCost,
       required this.insertedAt,
-      required this.updatedAt})
+      required this.updatedAt,
+      this.totalExpenses})
       : _expenses = expenses;
 
   @override
@@ -282,10 +296,12 @@ class _$TripEntityImpl implements _TripEntity {
   final DateTime insertedAt;
   @override
   final DateTime updatedAt;
+  @override
+  final double? totalExpenses;
 
   @override
   String toString() {
-    return 'TripEntity(id: $id, status: $status, location: $location, userId: $userId, dateFrom: $dateFrom, dateTo: $dateTo, expenses: $expenses, transportType: $transportType, plannedCost: $plannedCost, insertedAt: $insertedAt, updatedAt: $updatedAt)';
+    return 'TripEntity(id: $id, status: $status, location: $location, userId: $userId, dateFrom: $dateFrom, dateTo: $dateTo, expenses: $expenses, transportType: $transportType, plannedCost: $plannedCost, insertedAt: $insertedAt, updatedAt: $updatedAt, totalExpenses: $totalExpenses)';
   }
 
   @override
@@ -303,12 +319,13 @@ class _$TripEntityImpl implements _TripEntity {
             (identical(other.transportType, transportType) || other.transportType == transportType) &&
             (identical(other.plannedCost, plannedCost) || other.plannedCost == plannedCost) &&
             (identical(other.insertedAt, insertedAt) || other.insertedAt == insertedAt) &&
-            (identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
+            (identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt) &&
+            (identical(other.totalExpenses, totalExpenses) || other.totalExpenses == totalExpenses));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id, status, location, userId, dateFrom, dateTo,
-      const DeepCollectionEquality().hash(_expenses), transportType, plannedCost, insertedAt, updatedAt);
+      const DeepCollectionEquality().hash(_expenses), transportType, plannedCost, insertedAt, updatedAt, totalExpenses);
 
   @JsonKey(ignore: true)
   @override
@@ -329,7 +346,8 @@ abstract class _TripEntity implements TripEntity {
       required final String transportType,
       required final PriceEntity plannedCost,
       required final DateTime insertedAt,
-      required final DateTime updatedAt}) = _$TripEntityImpl;
+      required final DateTime updatedAt,
+      final double? totalExpenses}) = _$TripEntityImpl;
 
   @override
   String get id;
@@ -353,6 +371,8 @@ abstract class _TripEntity implements TripEntity {
   DateTime get insertedAt;
   @override
   DateTime get updatedAt;
+  @override
+  double? get totalExpenses;
   @override
   @JsonKey(ignore: true)
   _$$TripEntityImplCopyWith<_$TripEntityImpl> get copyWith => throw _privateConstructorUsedError;

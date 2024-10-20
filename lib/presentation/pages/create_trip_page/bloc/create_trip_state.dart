@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 part 'create_trip_state.freezed.dart';
@@ -7,7 +8,9 @@ part 'create_trip_state.freezed.dart';
 class CreateTripState with _$CreateTripState {
   const factory CreateTripState.initial() = _Initial;
 
-  const factory CreateTripState.success() = _Success;
+  const factory CreateTripState.success({
+    required TripEntity entity,
+  }) = _Success;
 
   const factory CreateTripState.loading() = _Loading;
 

@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_state.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/create_expenses_page.dart';
 import 'package:trip_tally/presentation/widgets/keys/widgets_keys.dart';
@@ -11,21 +13,26 @@ import '../../../mocked_data.dart';
 
 void main() {
   late GetExpenseCategoriesBloc mockGetExpenseCategoriesBloc;
+  late CreateExpensesBloc mockCreateExpensesBloc;
 
   setUp(() {
     mockGetExpenseCategoriesBloc = MockGetExpenseCategoriesBloc();
+    mockCreateExpensesBloc = MockCreateExpensesBloc();
     when(mockGetExpenseCategoriesBloc.state)
         .thenAnswer((_) => const GetExpenseCategoriesState.loaded(mockedExpenseCategoriesEntities));
     when(mockGetExpenseCategoriesBloc.stream)
         .thenAnswer((_) => Stream.value(const GetExpenseCategoriesState.loaded(mockedExpenseCategoriesEntities)));
     when(mockGetExpenseCategoriesBloc.close()).thenAnswer((_) async {});
+
+    when(mockCreateExpensesBloc.state).thenAnswer((_) => const CreateExpensesState.initial());
+    when(mockCreateExpensesBloc.stream).thenAnswer((_) => Stream.value(const CreateExpensesState.initial()));
+    when(mockCreateExpensesBloc.close()).thenAnswer((_) async {});
+
     initializeMockEnvironmentWithBloc<GetExpenseCategoriesBloc>(mockGetExpenseCategoriesBloc);
+    initializeMockEnvironmentWithBloc<CreateExpensesBloc>(mockCreateExpensesBloc);
   });
 
-  CreateExpensesPage buildPage() => const CreateExpensesPage(
-        tripId: 'some-id',
-        currency: 'USD',
-      );
+  CreateExpensesPage buildPage() => CreateExpensesPage(trip: mockedTripEntityV1);
 
   runGoldenTest(
     'CreateExpensesPage - Initial',

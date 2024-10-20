@@ -20,6 +20,7 @@ class TripEntity with _$TripEntity {
     required PriceEntity plannedCost,
     required DateTime insertedAt,
     required DateTime updatedAt,
+    double? totalExpenses,
   }) = _TripEntity;
 
   factory TripEntity.fromDto(TripDto dto) {
@@ -35,6 +36,7 @@ class TripEntity with _$TripEntity {
       plannedCost: PriceEntity.fromDto(dto.plannedCost),
       insertedAt: dto.insertedAt,
       updatedAt: dto.updatedAt,
+      totalExpenses: double.tryParse(dto.totalExpenses ?? '0'),
     );
   }
 }

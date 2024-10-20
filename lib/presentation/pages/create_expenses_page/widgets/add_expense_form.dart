@@ -122,7 +122,7 @@ class _AddExpenseFormState extends State<AddExpenseForm> {
                   if (_formKey.currentState?.validate() ?? false) {
                     final expense = ExpenseEntity(
                       name: _expenseNameController.text,
-                      date: DateTime.now().toMMMDYFormat,
+                      date: DateTime.now().toYYMMDDFormat,
                       price: PriceEntity(
                         amount: _budgetController.text,
                         currency: widget.currency,

@@ -13,6 +13,7 @@ class DropdownSearchButton<T> extends StatefulWidget {
     required this.searchLabelText,
     this.selectedItem,
     this.validator,
+    this.itemAsString,
     super.key,
   });
 
@@ -23,6 +24,7 @@ class DropdownSearchButton<T> extends StatefulWidget {
   final String searchLabelText;
   final T? selectedItem;
   final String? Function(T?)? validator;
+  final String Function(T?)? itemAsString;
 
   @override
   DropdownSearchButtonState<T> createState() => DropdownSearchButtonState<T>();
@@ -41,6 +43,7 @@ class DropdownSearchButtonState<T> extends State<DropdownSearchButton<T>> {
   Widget build(BuildContext context) {
     return DropdownSearch<T>(
       key: GlobalKey(),
+      itemAsString: widget.itemAsString,
       items: widget.items,
       popupProps: PopupProps.dialog(
         showSearchBox: true,

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:trip_tally/data/api/api_client.dart';
 import 'package:trip_tally/data/dto/user/create_account_dto.dart';
@@ -22,7 +23,8 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
       final token = await _client.login(loginDto);
       await _prefs.saveToken(token);
       return const Success();
-    } catch (e) {
+    } catch (e, stack) {
+      debugPrint('Could not login.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.somethingWentWrong);
     }
   }
@@ -33,7 +35,8 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
       final String token = await _client.createAccount(createUserDto);
       await _prefs.saveToken(token);
       return const Success();
-    } catch (e) {
+    } catch (e, stack) {
+      debugPrint('Could not create account.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.somethingWentWrong);
     }
   }
@@ -57,7 +60,8 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
         profilePicture: dto.profilePicture,
       );
       return const Success();
-    } catch (e) {
+    } catch (e, stack) {
+      debugPrint('Could not update User Profile.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.somethingWentWrong);
     }
   }

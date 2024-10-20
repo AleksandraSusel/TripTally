@@ -87,7 +87,7 @@ class _BodyState extends State<_Body> {
             context,
             error.errorText(context),
           ),
-          success: () => context.router.push(CreateExpensesRoute(currency: '', tripId: '')),
+          success: (entity) => context.router.push(CreateExpensesRoute(trip: entity)),
         ),
         child: BlocSelector<CreateTripBloc, CreateTripState, bool>(
           selector: (state) => state.maybeWhen(orElse: () => false, loading: () => true),

@@ -81,7 +81,7 @@ class MoneyContainer extends StatelessWidget {
 
 class BalanceMoneyContainer extends StatelessWidget {
   const BalanceMoneyContainer({
-    required this.plannedAmount,
+    required this.insertedAmount,
     required this.maxAmount,
     required this.currency,
     this.height = AppDimensions.d36,
@@ -89,7 +89,7 @@ class BalanceMoneyContainer extends StatelessWidget {
     super.key,
   });
 
-  final double plannedAmount;
+  final double insertedAmount;
   final double maxAmount;
   final String currency;
   final double height;
@@ -97,7 +97,7 @@ class BalanceMoneyContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool spendMoreThanExpected = plannedAmount > maxAmount;
+    final bool spendMoreThanExpected = insertedAmount > maxAmount;
 
     return IntrinsicWidth(
       child: Container(
@@ -132,7 +132,7 @@ class BalanceMoneyContainer extends StatelessWidget {
         ),
         child: Text(
           MoneyFormat.formatPositiveAmountWithPlanned(
-            plannedAmount: plannedAmount,
+            plannedAmount: insertedAmount,
             maxAmount: maxAmount,
             currency: currency,
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_tally/domain/entities/expenses/expense_category_entity.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/validators.dart';
@@ -15,29 +16,30 @@ class CategoryDropdownButton extends StatefulWidget {
 }
 
 class _CategoryDropdownButtonState extends State<CategoryDropdownButton> {
-  String? _selectedCategory;
+  ExpenseCategoryEntity? _selectedCategory;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetExpenseCategoriesBloc, GetExpenseCategoriesState>(
       builder: (context, state) {
-        return DropdownSearchButton<String>(
+        return DropdownSearchButton<ExpenseCategoryEntity>(
           items: state.maybeWhen(
             orElse: () => [],
-            loaded: (entity) => entity.categories.map((category) => category.name).toList(),
+            loaded: (entity) => entity.categories,
           ),
           selectedItem: _selectedCategory,
+          itemAsString: (category) => category?.name ?? '',
           onChanged: (value) {
             setState(() {
               _selectedCategory = value;
             });
             if (_selectedCategory != null) {
-              widget.onChanged(_selectedCategory!);
+              widget.onChanged(_selectedCategory!.id);
             }
           },
           validator: (value) => Validator.isFieldEmpty(
             context: context,
-            value: value,
+            value: value?.name,
           ),
           labelText: context.tr.createExpensesPage_category,
           helperText: context.tr.createExpensesPage_expenseCategory,

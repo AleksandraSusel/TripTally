@@ -18,6 +18,7 @@ _$TripDtoImpl _$$TripDtoImplFromJson(Map<String, dynamic> json) => _$TripDtoImpl
       plannedCost: PriceDto.fromJson(json['planned_cost'] as Map<String, dynamic>),
       insertedAt: DateTime.parse(json['inserted_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
+      totalExpenses: json['total_expenses'] as String?,
     );
 
 Map<String, dynamic> _$$TripDtoImplToJson(_$TripDtoImpl instance) => <String, dynamic>{
@@ -32,4 +33,5 @@ Map<String, dynamic> _$$TripDtoImplToJson(_$TripDtoImpl instance) => <String, dy
       'planned_cost': instance.plannedCost.toJson(),
       'inserted_at': instance.insertedAt.toIso8601String(),
       'updated_at': instance.updatedAt.toIso8601String(),
+      'total_expenses': instance.totalExpenses,
     };

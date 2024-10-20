@@ -19,7 +19,7 @@ mixin _$CreateTripState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() success,
+    required TResult Function(TripEntity entity) success,
     required TResult Function() loading,
     required TResult Function(Errors error) failure,
   }) =>
@@ -27,7 +27,7 @@ mixin _$CreateTripState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? success,
+    TResult? Function(TripEntity entity)? success,
     TResult? Function()? loading,
     TResult? Function(Errors error)? failure,
   }) =>
@@ -35,7 +35,7 @@ mixin _$CreateTripState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? success,
+    TResult Function(TripEntity entity)? success,
     TResult Function()? loading,
     TResult Function(Errors error)? failure,
     required TResult orElse(),
@@ -118,7 +118,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() success,
+    required TResult Function(TripEntity entity) success,
     required TResult Function() loading,
     required TResult Function(Errors error) failure,
   }) {
@@ -129,7 +129,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? success,
+    TResult? Function(TripEntity entity)? success,
     TResult? Function()? loading,
     TResult? Function(Errors error)? failure,
   }) {
@@ -140,7 +140,7 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? success,
+    TResult Function(TripEntity entity)? success,
     TResult Function()? loading,
     TResult Function(Errors error)? failure,
     required TResult orElse(),
@@ -197,65 +197,101 @@ abstract class _Initial implements CreateTripState {
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(_$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TripEntity entity});
+
+  $TripEntityCopyWith<$Res> get entity;
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res> extends _$CreateTripStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(_$SuccessImpl _value, $Res Function(_$SuccessImpl) _then) : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? entity = null,
+  }) {
+    return _then(_$SuccessImpl(
+      entity: null == entity
+          ? _value.entity
+          : entity // ignore: cast_nullable_to_non_nullable
+              as TripEntity,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TripEntityCopyWith<$Res> get entity {
+    return $TripEntityCopyWith<$Res>(_value.entity, (value) {
+      return _then(_value.copyWith(entity: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl();
+  const _$SuccessImpl({required this.entity});
+
+  @override
+  final TripEntity entity;
 
   @override
   String toString() {
-    return 'CreateTripState.success()';
+    return 'CreateTripState.success(entity: $entity)';
   }
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$SuccessImpl);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessImpl &&
+            (identical(other.entity, entity) || other.entity == entity));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, entity);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith => __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() success,
+    required TResult Function(TripEntity entity) success,
     required TResult Function() loading,
     required TResult Function(Errors error) failure,
   }) {
-    return success();
+    return success(entity);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? success,
+    TResult? Function(TripEntity entity)? success,
     TResult? Function()? loading,
     TResult? Function(Errors error)? failure,
   }) {
-    return success?.call();
+    return success?.call(entity);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? success,
+    TResult Function(TripEntity entity)? success,
     TResult Function()? loading,
     TResult Function(Errors error)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success();
+      return success(entity);
     }
     return orElse();
   }
@@ -299,7 +335,11 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements CreateTripState {
-  const factory _Success() = _$SuccessImpl;
+  const factory _Success({required final TripEntity entity}) = _$SuccessImpl;
+
+  TripEntity get entity;
+  @JsonKey(ignore: true)
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -336,7 +376,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() success,
+    required TResult Function(TripEntity entity) success,
     required TResult Function() loading,
     required TResult Function(Errors error) failure,
   }) {
@@ -347,7 +387,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? success,
+    TResult? Function(TripEntity entity)? success,
     TResult? Function()? loading,
     TResult? Function(Errors error)? failure,
   }) {
@@ -358,7 +398,7 @@ class _$LoadingImpl implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? success,
+    TResult Function(TripEntity entity)? success,
     TResult Function()? loading,
     TResult Function(Errors error)? failure,
     required TResult orElse(),
@@ -471,7 +511,7 @@ class _$FailureImpl implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() success,
+    required TResult Function(TripEntity entity) success,
     required TResult Function() loading,
     required TResult Function(Errors error) failure,
   }) {
@@ -482,7 +522,7 @@ class _$FailureImpl implements _Failure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? success,
+    TResult? Function(TripEntity entity)? success,
     TResult? Function()? loading,
     TResult? Function(Errors error)? failure,
   }) {
@@ -493,7 +533,7 @@ class _$FailureImpl implements _Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? success,
+    TResult Function(TripEntity entity)? success,
     TResult Function()? loading,
     TResult Function(Errors error)? failure,
     required TResult orElse(),
