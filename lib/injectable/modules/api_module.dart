@@ -11,6 +11,9 @@ abstract class ApiModule {
         BaseOptions(
           // ignore: avoid_redundant_argument_values
           baseUrl: EnvConfig.apiUrl,
+          headers: {
+            'Content-Type': 'application/json',
+          },
         ),
       )..interceptors.addAll(
           [

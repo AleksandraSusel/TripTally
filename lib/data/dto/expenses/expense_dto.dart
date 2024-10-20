@@ -26,7 +26,7 @@ class ExpenseDto with _$ExpenseDto {
       date: entity.date,
       price: PriceDto.fromEntity(entity.price),
       tripId: entity.tripId,
-      categoryId: entity.tripId,
+      categoryId: entity.categoryId,
       category: entity.category != null ? ExpenseCategoryDto.fromEntity(entity.category!) : null,
     );
   }

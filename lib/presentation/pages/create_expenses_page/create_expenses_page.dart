@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
+import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
 import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart';
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_state.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/add_expense_form.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/expense_border_container.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/expense_item.dart';
@@ -13,42 +15,54 @@ import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/trip_
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
+import 'package:trip_tally/presentation/utils/router/app_router.dart';
+import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/double_floating_action_buttons.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/navigation_app_bar.dart';
+import 'package:world_countries/world_countries.dart';
 
 @RoutePage()
 class CreateExpensesPage extends StatelessWidget {
   const CreateExpensesPage({
-    required this.tripId,
-    required this.currency,
+    required this.trip,
     super.key,
   });
 
-  final String tripId;
-  final String currency;
+  final TripEntity trip;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<CreateExpensesBloc>(),
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: NavigationAppBar(title: context.tr.createTripPage_titleBasicInfo),
-        body: _Body(tripId: tripId, currency: currency),
+      child: BlocListener<CreateExpensesBloc, CreateExpensesState>(
+        listener: (context, state) => state.whenOrNull(
+          success: () {
+            showSnackBar(
+              context,
+              context.tr.createExpensesPage_successMessage(
+                WorldCountry.maybeFromCodeShort(trip.location.countryCode)?.name.name ?? trip.location.cityName,
+              ),
+            );
+            return context.router.pushAndPopUntil(
+              PlannedTripsRoute(),
+              predicate: (route) => route.settings.name == HomeRoute.name,
+            );
+          },
+        ),
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          appBar: NavigationAppBar(title: context.tr.createTripPage_titleBasicInfo),
+          body: _Body(trip: trip),
+        ),
       ),
     );
   }
 }
 
 class _Body extends StatefulWidget {
-  const _Body({
-    required this.tripId,
-    required this.currency,
-  });
+  const _Body({required this.trip});
 
-  final String tripId;
-  final String currency;
+  final TripEntity trip;
 
   @override
   State<_Body> createState() => _BodyState();
@@ -79,8 +93,8 @@ class _BodyState extends State<_Body> {
             bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
           child: AddExpenseForm(
-            currency: widget.currency,
-            tripId: widget.tripId,
+            currency: widget.trip.plannedCost.currency,
+            tripId: widget.trip.id,
             onAddExpense: (expense) {
               setState(() {
                 _expenses.insert(0, expense);
@@ -94,7 +108,7 @@ class _BodyState extends State<_Body> {
     );
   }
 
-  double get totalPlannedAmount {
+  double get totalExpensesAmount {
     return _expenses.fold(0, (sum, item) => sum + double.parse(item.price.amount));
   }
 
@@ -108,12 +122,8 @@ class _BodyState extends State<_Body> {
               child: Column(
                 children: [
                   TripDetails(
-                    destination: 'Italy',
-                    date: 'Oct 12-18, 2024',
-                    transportType: TransportType.motorcycle,
-                    maxAmount: 1400,
-                    plannedAmount: totalPlannedAmount,
-                    currency: r'$',
+                    trip: widget.trip,
+                    expensesAmount: totalExpensesAmount,
                   ),
                   Expanded(
                     child: AnimatedList(

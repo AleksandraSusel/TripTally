@@ -8,6 +8,7 @@ import 'package:trip_tally/domain/repositories/trips_repo.dart';
 import 'package:trip_tally/domain/utils/exception.dart';
 import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
+import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 @Injectable(as: TripsRepo)
 class TripsRepoImpl implements TripsRepo {
@@ -16,12 +17,15 @@ class TripsRepoImpl implements TripsRepo {
   final TripsDataSource _dataSource;
 
   @override
-  Future<Either<Failure, Success>> createTrip(CreateTripEntity entity) async {
+  Future<Either<Failure, TripEntity>> createTrip(CreateTripEntity entity) async {
     try {
       final result = await _dataSource.createTrip(CreateTripDto.fromEntity(entity));
-      return Right(result);
+
+      return Right(TripEntity.fromDto(result));
     } on ApiException catch (e) {
       return Left(Failure(error: e.failure));
+    } catch (e) {
+      return const Left(Failure(error: Errors.unknownError));
     }
   }
 

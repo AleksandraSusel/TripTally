@@ -15,11 +15,12 @@ class TripsDataSourceImpl implements TripsDataSource {
   final ApiClient client;
 
   @override
-  Future<Success> createTrip(CreateTripDto dto) async {
+  Future<TripDto> createTrip(CreateTripDto dto) async {
     try {
-      await client.createTrip(dto);
-      return const Success();
-    } catch (e) {
+      final result = await client.createTrip(dto);
+      return result.trip;
+    } catch (e, stack) {
+      debugPrint('Failed to create Trip.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.unknownError);
     }
   }
@@ -29,8 +30,8 @@ class TripsDataSourceImpl implements TripsDataSource {
     try {
       final result = await client.getAllUserTrips();
       return result.trips;
-    } catch (e) {
-      debugPrint('Could not fetch trips, reason: $e');
+    } catch (e, stack) {
+      debugPrint('Could not fetch trips.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.unknownError);
     }
   }
@@ -40,8 +41,8 @@ class TripsDataSourceImpl implements TripsDataSource {
     try {
       await client.deleteTrip(id);
       return const Success();
-    } catch (e) {
-      debugPrint('Could not delete trip, reason: $e');
+    } catch (e, stack) {
+      debugPrint('Could not delete trip.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.unknownError);
     }
   }

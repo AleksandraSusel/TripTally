@@ -30,8 +30,7 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: CreateExpensesPage(
-          tripId: args.tripId,
-          currency: args.currency,
+          trip: args.trip,
           key: args.key,
         ),
       );
@@ -137,15 +136,13 @@ class AuthenticationRouteArgs {
 /// [CreateExpensesPage]
 class CreateExpensesRoute extends PageRouteInfo<CreateExpensesRouteArgs> {
   CreateExpensesRoute({
-    required String tripId,
-    required String currency,
+    required TripEntity trip,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
           CreateExpensesRoute.name,
           args: CreateExpensesRouteArgs(
-            tripId: tripId,
-            currency: currency,
+            trip: trip,
             key: key,
           ),
           initialChildren: children,
@@ -158,20 +155,17 @@ class CreateExpensesRoute extends PageRouteInfo<CreateExpensesRouteArgs> {
 
 class CreateExpensesRouteArgs {
   const CreateExpensesRouteArgs({
-    required this.tripId,
-    required this.currency,
+    required this.trip,
     this.key,
   });
 
-  final String tripId;
-
-  final String currency;
+  final TripEntity trip;
 
   final Key? key;
 
   @override
   String toString() {
-    return 'CreateExpensesRouteArgs{tripId: $tripId, currency: $currency, key: $key}';
+    return 'CreateExpensesRouteArgs{trip: $trip, key: $key}';
   }
 }
 

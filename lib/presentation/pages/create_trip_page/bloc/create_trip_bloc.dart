@@ -29,9 +29,10 @@ class CreateTripBloc extends Bloc<CreateTripEvent, CreateTripState> {
         plannedCost: event.plannedCost,
       ),
     );
+
     result.fold(
       (l) => emit(CreateTripState.failure(l.error)),
-      (r) => emit(const CreateTripState.success()),
+      (r) => emit(CreateTripState.success(entity: r)),
     );
   }
 }

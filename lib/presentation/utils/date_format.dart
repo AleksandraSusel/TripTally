@@ -3,9 +3,11 @@ import 'package:intl/intl.dart';
 const String datePattern = 'dd-MM-yyy';
 const String patternMMMDY = 'MMM d y';
 const String patternMMMY = 'MMM y';
+const String patternYYMMDD = 'yyyy-MM-dd';
 final DateFormat dateFormat = DateFormat(datePattern);
 final DateFormat formatMMMDY = DateFormat(patternMMMDY);
 final DateFormat formatMMMY = DateFormat(patternMMMY);
+final DateFormat formatYYMMDD = DateFormat(patternYYMMDD);
 
 String formatDates(String startDateStr, String endDateStr) {
   final DateTime? startDate = _parseDateWithFormats(startDateStr);
@@ -66,4 +68,5 @@ extension DateTimeExtension on DateTime {
   }
 
   String get toMMMDYFormat => formatMMMDY.format(this);
+  String get toYYMMDDFormat => formatYYMMDD.format(this);
 }

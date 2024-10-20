@@ -31,6 +31,7 @@ mixin _$TripDto {
   PriceDto get plannedCost => throw _privateConstructorUsedError;
   DateTime get insertedAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
+  String? get totalExpenses => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +53,8 @@ abstract class $TripDtoCopyWith<$Res> {
       String transportType,
       PriceDto plannedCost,
       DateTime insertedAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      String? totalExpenses});
 
   $LocationDtoCopyWith<$Res> get location;
   $PriceDtoCopyWith<$Res> get plannedCost;
@@ -81,6 +83,7 @@ class _$TripDtoCopyWithImpl<$Res, $Val extends TripDto> implements $TripDtoCopyW
     Object? plannedCost = null,
     Object? insertedAt = null,
     Object? updatedAt = null,
+    Object? totalExpenses = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -127,6 +130,10 @@ class _$TripDtoCopyWithImpl<$Res, $Val extends TripDto> implements $TripDtoCopyW
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      totalExpenses: freezed == totalExpenses
+          ? _value.totalExpenses
+          : totalExpenses // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -164,7 +171,8 @@ abstract class _$$TripDtoImplCopyWith<$Res> implements $TripDtoCopyWith<$Res> {
       String transportType,
       PriceDto plannedCost,
       DateTime insertedAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      String? totalExpenses});
 
   @override
   $LocationDtoCopyWith<$Res> get location;
@@ -191,6 +199,7 @@ class __$$TripDtoImplCopyWithImpl<$Res> extends _$TripDtoCopyWithImpl<$Res, _$Tr
     Object? plannedCost = null,
     Object? insertedAt = null,
     Object? updatedAt = null,
+    Object? totalExpenses = freezed,
   }) {
     return _then(_$TripDtoImpl(
       id: null == id
@@ -237,6 +246,10 @@ class __$$TripDtoImplCopyWithImpl<$Res> extends _$TripDtoCopyWithImpl<$Res, _$Tr
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      totalExpenses: freezed == totalExpenses
+          ? _value.totalExpenses
+          : totalExpenses // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -255,7 +268,8 @@ class _$TripDtoImpl implements _TripDto {
       required this.transportType,
       required this.plannedCost,
       required this.insertedAt,
-      required this.updatedAt})
+      required this.updatedAt,
+      this.totalExpenses})
       : _expenses = expenses;
 
   factory _$TripDtoImpl.fromJson(Map<String, dynamic> json) => _$$TripDtoImplFromJson(json);
@@ -288,10 +302,12 @@ class _$TripDtoImpl implements _TripDto {
   final DateTime insertedAt;
   @override
   final DateTime updatedAt;
+  @override
+  final String? totalExpenses;
 
   @override
   String toString() {
-    return 'TripDto(id: $id, status: $status, location: $location, userId: $userId, dateFrom: $dateFrom, dateTo: $dateTo, expenses: $expenses, transportType: $transportType, plannedCost: $plannedCost, insertedAt: $insertedAt, updatedAt: $updatedAt)';
+    return 'TripDto(id: $id, status: $status, location: $location, userId: $userId, dateFrom: $dateFrom, dateTo: $dateTo, expenses: $expenses, transportType: $transportType, plannedCost: $plannedCost, insertedAt: $insertedAt, updatedAt: $updatedAt, totalExpenses: $totalExpenses)';
   }
 
   @override
@@ -309,13 +325,14 @@ class _$TripDtoImpl implements _TripDto {
             (identical(other.transportType, transportType) || other.transportType == transportType) &&
             (identical(other.plannedCost, plannedCost) || other.plannedCost == plannedCost) &&
             (identical(other.insertedAt, insertedAt) || other.insertedAt == insertedAt) &&
-            (identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt));
+            (identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt) &&
+            (identical(other.totalExpenses, totalExpenses) || other.totalExpenses == totalExpenses));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, status, location, userId, dateFrom, dateTo,
-      const DeepCollectionEquality().hash(_expenses), transportType, plannedCost, insertedAt, updatedAt);
+      const DeepCollectionEquality().hash(_expenses), transportType, plannedCost, insertedAt, updatedAt, totalExpenses);
 
   @JsonKey(ignore: true)
   @override
@@ -342,7 +359,8 @@ abstract class _TripDto implements TripDto {
       required final String transportType,
       required final PriceDto plannedCost,
       required final DateTime insertedAt,
-      required final DateTime updatedAt}) = _$TripDtoImpl;
+      required final DateTime updatedAt,
+      final String? totalExpenses}) = _$TripDtoImpl;
 
   factory _TripDto.fromJson(Map<String, dynamic> json) = _$TripDtoImpl.fromJson;
 
@@ -368,6 +386,8 @@ abstract class _TripDto implements TripDto {
   DateTime get insertedAt;
   @override
   DateTime get updatedAt;
+  @override
+  String? get totalExpenses;
   @override
   @JsonKey(ignore: true)
   _$$TripDtoImplCopyWith<_$TripDtoImpl> get copyWith => throw _privateConstructorUsedError;

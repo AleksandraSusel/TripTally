@@ -1,27 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/trip_info.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
-import 'package:trip_tally/presentation/utils/enums/transport_type.dart';
+import 'package:trip_tally/presentation/utils/money_format.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/money_container.dart';
 
 class TripDetails extends StatelessWidget {
   const TripDetails({
-    required this.destination,
-    required this.date,
-    required this.transportType,
-    required this.maxAmount,
-    required this.plannedAmount,
-    required this.currency,
+    required this.expensesAmount,
+    required this.trip,
     super.key,
   });
 
-  final String destination;
-  final String date;
-  final TransportType transportType;
-  final double maxAmount;
-  final double plannedAmount;
-  final String currency;
+  final TripEntity trip;
+
+  final double expensesAmount;
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +33,11 @@ class TripDetails extends StatelessWidget {
       child: Row(
         children: [
           TripInfo(
-            destination: destination,
-            date: date,
-            transportType: transportType,
+            cityName: trip.location.cityName,
+            countryCode: trip.location.countryCode,
+            transportType: trip.transportType,
+            dateFrom: trip.dateFrom,
+            dateTo: trip.dateTo,
           ),
           const Spacer(),
           Column(
@@ -52,9 +48,9 @@ class TripDetails extends StatelessWidget {
               ),
               const SizedBox(height: AppDimensions.d16),
               BalanceMoneyContainer(
-                maxAmount: maxAmount,
-                plannedAmount: plannedAmount,
-                currency: currency,
+                maxAmount: double.parse(trip.plannedCost.amount),
+                insertedAmount: expensesAmount,
+                currency: MoneyFormat.formatCurrencyToSymbol(trip.plannedCost.currency),
               ),
             ],
           ),

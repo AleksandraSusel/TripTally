@@ -248,6 +248,16 @@ class Translation {
     );
   }
 
+  /// `Trip to {tripName} successfully created!`
+  String createTripPage_successMessage(Object tripName) {
+    return Intl.message(
+      'Trip to $tripName successfully created!',
+      name: 'createTripPage_successMessage',
+      desc: '',
+      args: [tripName],
+    );
+  }
+
   /// `Your trips`
   String get plannedTripsPage_yourTrips {
     return Intl.message(
@@ -1238,13 +1248,23 @@ class Translation {
     );
   }
 
-  /// `Transport type:`
-  String get createExpensesPage_transportType {
+  /// `Transport: {transportName}`
+  String createExpensesPage_transportType(Object transportName) {
     return Intl.message(
-      'Transport type:',
+      'Transport: $transportName',
       name: 'createExpensesPage_transportType',
       desc: '',
-      args: [],
+      args: [transportName],
+    );
+  }
+
+  /// `Expenses for trip to {tripName} successfully added!`
+  String createExpensesPage_successMessage(Object tripName) {
+    return Intl.message(
+      'Expenses for trip to $tripName successfully added!',
+      name: 'createExpensesPage_successMessage',
+      desc: '',
+      args: [tripName],
     );
   }
 

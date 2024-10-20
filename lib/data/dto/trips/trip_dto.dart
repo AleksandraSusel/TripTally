@@ -21,6 +21,7 @@ class TripDto with _$TripDto {
     required PriceDto plannedCost,
     required DateTime insertedAt,
     required DateTime updatedAt,
+    String? totalExpenses,
   }) = _TripDto;
 
   factory TripDto.fromJson(Map<String, dynamic> json) => _$TripDtoFromJson(json);
