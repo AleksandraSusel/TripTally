@@ -43,6 +43,7 @@ abstract class _$AppRouter extends RootStackRouter {
           bloc: args.bloc,
           key: args.key,
           cubit: args.cubit,
+          trip: args.trip,
         ),
       );
     },
@@ -176,6 +177,7 @@ class CreateTripBasicInfoRoute extends PageRouteInfo<CreateTripBasicInfoRouteArg
     CreateTripBloc? bloc,
     Key? key,
     OsmSuggestionsCubit? cubit,
+    TripEntity? trip,
     List<PageRouteInfo>? children,
   }) : super(
           CreateTripBasicInfoRoute.name,
@@ -183,6 +185,7 @@ class CreateTripBasicInfoRoute extends PageRouteInfo<CreateTripBasicInfoRouteArg
             bloc: bloc,
             key: key,
             cubit: cubit,
+            trip: trip,
           ),
           initialChildren: children,
         );
@@ -197,6 +200,7 @@ class CreateTripBasicInfoRouteArgs {
     this.bloc,
     this.key,
     this.cubit,
+    this.trip,
   });
 
   final CreateTripBloc? bloc;
@@ -205,9 +209,11 @@ class CreateTripBasicInfoRouteArgs {
 
   final OsmSuggestionsCubit? cubit;
 
+  final TripEntity? trip;
+
   @override
   String toString() {
-    return 'CreateTripBasicInfoRouteArgs{bloc: $bloc, key: $key, cubit: $cubit}';
+    return 'CreateTripBasicInfoRouteArgs{bloc: $bloc, key: $key, cubit: $cubit, trip: $trip}';
   }
 }
 

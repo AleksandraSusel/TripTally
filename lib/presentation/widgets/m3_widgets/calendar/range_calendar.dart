@@ -6,7 +6,15 @@ import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/calendar/widgets/calendar_title.dart';
 
 class RangeCalendar extends StatefulWidget {
-  const RangeCalendar({required this.onDateRangeSelected, super.key});
+  const RangeCalendar({
+    required this.onDateRangeSelected,
+    this.initialStartDate,
+    this.initialEndDate,
+    super.key,
+  });
+
+  final DateTime? initialStartDate;
+  final DateTime? initialEndDate;
 
   final void Function(DateTime?, DateTime?) onDateRangeSelected;
 
@@ -22,6 +30,13 @@ class RangeCalendarState extends State<RangeCalendar> {
   DateTime get _firstDay => DateTime.now().subtract(const Duration(days: 365));
 
   DateTime get _lastDay => DateTime.now().add(const Duration(days: 365 * 25));
+
+  @override
+  void initState() {
+    _selectedStartDate = widget.initialStartDate;
+    _selectedEndDate = widget.initialEndDate;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) => Container(

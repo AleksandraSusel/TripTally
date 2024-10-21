@@ -88,4 +88,28 @@ void main() {
     verify(mockApiClient.deleteTrip(any));
     verifyNoMoreInteractions(mockApiClient);
   });
+
+  test('GetTripById should successfully return a trip', () async {
+    when(mockApiClient.getTripById(any)).thenAnswer((_) async => mockedTripDtoV1);
+
+    final result = await tripsDataSource.getTripById(mockedTripDtoV1.id);
+    expect(result, mockedTripDtoV1);
+
+    verify(mockApiClient.getTripById(any)).called(1);
+    verifyNoMoreInteractions(mockApiClient);
+  });
+
+  test('GetTripById throws ApiException on catch', () async {
+    when(mockApiClient.getTripById(any)).thenThrow(Exception());
+
+    await expectLater(
+      tripsDataSource.getTripById(mockedTripDtoV1.id),
+      throwsA(
+        isA<ApiException>().having((e) => e.failure, 'Unknown error', Errors.unknownError),
+      ),
+    );
+
+    verify(mockApiClient.getTripById(any));
+    verifyNoMoreInteractions(mockApiClient);
+  });
 }
