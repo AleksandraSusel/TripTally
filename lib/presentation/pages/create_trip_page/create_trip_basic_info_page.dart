@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/domain/entities/price/price_entity.dart';
+import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
 import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_state.dart';
@@ -29,10 +30,12 @@ class CreateTripBasicInfoPage extends StatelessWidget {
     this.bloc,
     super.key,
     this.cubit,
+    this.trip,
   });
 
   final OsmSuggestionsCubit? cubit;
   final CreateTripBloc? bloc;
+  final TripEntity? trip;
 
   @override
   Widget build(BuildContext context) {
@@ -41,13 +44,15 @@ class CreateTripBasicInfoPage extends StatelessWidget {
         BlocProvider(create: (context) => cubit ?? getIt<OsmSuggestionsCubit>()),
         BlocProvider(create: (context) => bloc ?? getIt<CreateTripBloc>()),
       ],
-      child: const _Body(),
+      child: _Body(trip: trip),
     );
   }
 }
 
 class _Body extends StatefulWidget {
-  const _Body();
+  const _Body({this.trip});
+
+  final TripEntity? trip;
 
   @override
   State<_Body> createState() => _BodyState();
@@ -55,11 +60,12 @@ class _Body extends StatefulWidget {
 
 class _BodyState extends State<_Body> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
+  late final TripEntity? _trip;
   late final TextEditingController _currencyController;
   late final TextEditingController _budgetController;
   late final TextEditingController _cityNameController;
   late final TextEditingController _countryCodeController;
+
   DateTime? _startDate;
   DateTime? _endDate;
   TransportType _transportType = TransportType.flight;
@@ -67,10 +73,20 @@ class _BodyState extends State<_Body> {
 
   @override
   void initState() {
+    _trip = widget.trip;
     _budgetController = TextEditingController();
     _cityNameController = TextEditingController();
     _currencyController = TextEditingController();
     _countryCodeController = TextEditingController();
+    if (widget.trip != null) {
+      _budgetController.text = _trip!.plannedCost.amount;
+      _currencyController.text = _trip.plannedCost.currency;
+      _cityNameController.text = _trip.location.cityName;
+      _countryCodeController.text = _trip.location.countryCode;
+      _transportType = TransportType.parseTransportType(_trip.transportType);
+      _endDate = DateTime.parse(_trip.dateTo);
+      _startDate = DateTime.parse(_trip.dateFrom);
+    }
     showCalendarError = false;
     super.initState();
   }
@@ -97,6 +113,8 @@ class _BodyState extends State<_Body> {
               isLoading: state,
               onPressed: () {
                 _formKey.currentState?.validate();
+                if (_trip != null) {}
+
                 if (_startDate != null && _endDate != null) {
                   return context.read<CreateTripBloc>().add(
                         OnCreateTripEvent(
@@ -125,6 +143,7 @@ class _BodyState extends State<_Body> {
                 child: Column(
                   children: [
                     LocationSearchTextField(
+                      initialLocation: _trip?.location,
                       onLocationSelected: (String cityName, String countryCode) {
                         setState(() {
                           _cityNameController.text = cityName;
@@ -147,6 +166,8 @@ class _BodyState extends State<_Body> {
                     ErrorBorderContainer(
                       showError: showCalendarError,
                       child: RangeCalendar(
+                        initialStartDate: _trip != null ? DateTime.parse(_trip.dateFrom) : null,
+                        initialEndDate: _trip != null ? DateTime.parse(_trip.dateTo) : null,
                         onDateRangeSelected: (from, to) {
                           setState(() {
                             _startDate = from;

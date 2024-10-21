@@ -19,6 +19,8 @@ class ElevatedTripCard extends StatelessWidget {
     required this.totalExpensesAmount,
     required this.imagePath,
     required this.entity,
+    required this.onEditPressed,
+    required this.onManageExpensesPressed,
     super.key,
     this.onDeletePressed,
   });
@@ -28,6 +30,8 @@ class ElevatedTripCard extends StatelessWidget {
   final double totalExpensesAmount;
   final String imagePath;
   final VoidCallback? onDeletePressed;
+  final VoidCallback onEditPressed;
+  final VoidCallback onManageExpensesPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -142,12 +146,12 @@ class ElevatedTripCard extends StatelessWidget {
               children: [
                 SurfaceOutlinedButton(
                   text: 'Edit trip',
-                  onPressed: () {},
+                  onPressed: onEditPressed,
                 ),
                 const SizedBox(width: AppDimensions.d10),
                 PrimaryElevatedButton(
                   text: 'Manage expenses',
-                  onPressed: () {},
+                  onPressed: onManageExpensesPressed,
                 ),
               ],
             ),

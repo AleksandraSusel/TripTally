@@ -48,4 +48,14 @@ class TripsRepoImpl implements TripsRepo {
       return Left(Failure(error: e.failure));
     }
   }
+
+  @override
+  Future<Either<Failure, TripEntity>> getTripById(String id) async {
+    try {
+      final dto = await _dataSource.getTripById(id);
+      return Right(TripEntity.fromDto(dto));
+    } on ApiException catch (e) {
+      return Left(Failure(error: e.failure));
+    }
+  }
 }

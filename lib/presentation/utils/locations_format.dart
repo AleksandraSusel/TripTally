@@ -1,4 +1,6 @@
+import 'package:trip_tally/domain/entities/location/location_entity.dart';
 import 'package:trip_tally/domain/entities/osm_map/place_entity.dart';
+import 'package:world_countries/world_countries.dart';
 
 /// Formats a `MapLocation` into a destination string, excluding any empty fields.
 ///
@@ -17,4 +19,9 @@ String getDestinationFormat(PlaceEntity location) {
   final nonEmptyParts = parts.where((part) => part != null && part.isNotEmpty).toList();
 
   return nonEmptyParts.join(', ');
+}
+
+String getTripDestinationFormat(LocationEntity location) {
+  final String country = WorldCountry.maybeFromCodeShort(location.countryCode)?.name.name ?? location.countryCode;
+  return '${location.cityName}, $country';
 }

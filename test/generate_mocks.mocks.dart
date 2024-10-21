@@ -13,7 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart' as _i32;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i34;
 import 'package:permission_handler/permission_handler.dart' as _i47;
-import 'package:shared_preferences/shared_preferences.dart' as _i8;
+import 'package:shared_preferences/shared_preferences.dart' as _i9;
 import 'package:trip_tally/data/api/api_client.dart' as _i33;
 import 'package:trip_tally/data/api/osm_client.dart' as _i52;
 import 'package:trip_tally/data/dto/expenses/create_expenses_dto.dart' as _i35;
@@ -22,8 +22,8 @@ import 'package:trip_tally/data/dto/expenses/expense_dto.dart' as _i55;
 import 'package:trip_tally/data/dto/osm_map/osm_response_dto.dart' as _i14;
 import 'package:trip_tally/data/dto/trips/create_trip_dto.dart' as _i36;
 import 'package:trip_tally/data/dto/trips/get_trips_dto.dart' as _i6;
-import 'package:trip_tally/data/dto/trips/trip_dto.dart' as _i9;
-import 'package:trip_tally/data/dto/trips/trip_dto_response.dart' as _i7;
+import 'package:trip_tally/data/dto/trips/trip_dto.dart' as _i7;
+import 'package:trip_tally/data/dto/trips/trip_dto_response.dart' as _i8;
 import 'package:trip_tally/data/dto/user/create_account_dto.dart' as _i29;
 import 'package:trip_tally/data/dto/user/login_dto.dart' as _i28;
 import 'package:trip_tally/data/dto/user/update_user_profile_dto.dart' as _i30;
@@ -132,8 +132,8 @@ class _FakeGetTripsDto_4 extends _i1.SmartFake implements _i6.GetTripsDto {
         );
 }
 
-class _FakeTripDtoResponse_5 extends _i1.SmartFake implements _i7.TripDtoResponse {
-  _FakeTripDtoResponse_5(
+class _FakeTripDto_5 extends _i1.SmartFake implements _i7.TripDto {
+  _FakeTripDto_5(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -142,8 +142,8 @@ class _FakeTripDtoResponse_5 extends _i1.SmartFake implements _i7.TripDtoRespons
         );
 }
 
-class _FakeSharedPreferences_6 extends _i1.SmartFake implements _i8.SharedPreferences {
-  _FakeSharedPreferences_6(
+class _FakeTripDtoResponse_6 extends _i1.SmartFake implements _i8.TripDtoResponse {
+  _FakeTripDtoResponse_6(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -152,8 +152,8 @@ class _FakeSharedPreferences_6 extends _i1.SmartFake implements _i8.SharedPrefer
         );
 }
 
-class _FakeTripDto_7 extends _i1.SmartFake implements _i9.TripDto {
-  _FakeTripDto_7(
+class _FakeSharedPreferences_7 extends _i1.SmartFake implements _i9.SharedPreferences {
+  _FakeSharedPreferences_7(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -630,6 +630,21 @@ class MockApiClient extends _i1.Mock implements _i33.ApiClient {
       ) as _i22.Future<_i6.GetTripsDto>);
 
   @override
+  _i22.Future<_i7.TripDto> getTripById(String? tripId) => (super.noSuchMethod(
+        Invocation.method(
+          #getTripById,
+          [tripId],
+        ),
+        returnValue: _i22.Future<_i7.TripDto>.value(_FakeTripDto_5(
+          this,
+          Invocation.method(
+            #getTripById,
+            [tripId],
+          ),
+        )),
+      ) as _i22.Future<_i7.TripDto>);
+
+  @override
   _i22.Future<String> login(_i28.LoginDto? dto) => (super.noSuchMethod(
         Invocation.method(
           #login,
@@ -670,19 +685,19 @@ class MockApiClient extends _i1.Mock implements _i33.ApiClient {
       ) as _i22.Future<void>);
 
   @override
-  _i22.Future<_i7.TripDtoResponse> createTrip(_i36.CreateTripDto? dto) => (super.noSuchMethod(
+  _i22.Future<_i8.TripDtoResponse> createTrip(_i36.CreateTripDto? dto) => (super.noSuchMethod(
         Invocation.method(
           #createTrip,
           [dto],
         ),
-        returnValue: _i22.Future<_i7.TripDtoResponse>.value(_FakeTripDtoResponse_5(
+        returnValue: _i22.Future<_i8.TripDtoResponse>.value(_FakeTripDtoResponse_6(
           this,
           Invocation.method(
             #createTrip,
             [dto],
           ),
         )),
-      ) as _i22.Future<_i7.TripDtoResponse>);
+      ) as _i22.Future<_i8.TripDtoResponse>);
 
   @override
   _i22.Future<void> updateUserProfile({
@@ -720,7 +735,7 @@ class MockApiClient extends _i1.Mock implements _i33.ApiClient {
 /// A class which mocks [SharedPreferences].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSharedPreferences extends _i1.Mock implements _i8.SharedPreferences {
+class MockSharedPreferences extends _i1.Mock implements _i9.SharedPreferences {
   MockSharedPreferences() {
     _i1.throwOnMissingStub(this);
   }
@@ -930,13 +945,13 @@ class MockSharedPrefsUtils extends _i1.Mock implements _i39.SharedPrefsUtils {
   }
 
   @override
-  _i8.SharedPreferences get prefs => (super.noSuchMethod(
+  _i9.SharedPreferences get prefs => (super.noSuchMethod(
         Invocation.getter(#prefs),
-        returnValue: _FakeSharedPreferences_6(
+        returnValue: _FakeSharedPreferences_7(
           this,
           Invocation.getter(#prefs),
         ),
-      ) as _i8.SharedPreferences);
+      ) as _i9.SharedPreferences);
 
   @override
   _i22.Future<bool> get removeToken => (super.noSuchMethod(
@@ -964,28 +979,43 @@ class MockTripsDataSource extends _i1.Mock implements _i40.TripsDataSource {
   }
 
   @override
-  _i22.Future<_i9.TripDto> createTrip(_i36.CreateTripDto? dto) => (super.noSuchMethod(
+  _i22.Future<_i7.TripDto> createTrip(_i36.CreateTripDto? dto) => (super.noSuchMethod(
         Invocation.method(
           #createTrip,
           [dto],
         ),
-        returnValue: _i22.Future<_i9.TripDto>.value(_FakeTripDto_7(
+        returnValue: _i22.Future<_i7.TripDto>.value(_FakeTripDto_5(
           this,
           Invocation.method(
             #createTrip,
             [dto],
           ),
         )),
-      ) as _i22.Future<_i9.TripDto>);
+      ) as _i22.Future<_i7.TripDto>);
 
   @override
-  _i22.Future<List<_i9.TripDto>> getAllUserTrips() => (super.noSuchMethod(
+  _i22.Future<List<_i7.TripDto>> getAllUserTrips() => (super.noSuchMethod(
         Invocation.method(
           #getAllUserTrips,
           [],
         ),
-        returnValue: _i22.Future<List<_i9.TripDto>>.value(<_i9.TripDto>[]),
-      ) as _i22.Future<List<_i9.TripDto>>);
+        returnValue: _i22.Future<List<_i7.TripDto>>.value(<_i7.TripDto>[]),
+      ) as _i22.Future<List<_i7.TripDto>>);
+
+  @override
+  _i22.Future<_i7.TripDto> getTripById(String? id) => (super.noSuchMethod(
+        Invocation.method(
+          #getTripById,
+          [id],
+        ),
+        returnValue: _i22.Future<_i7.TripDto>.value(_FakeTripDto_5(
+          this,
+          Invocation.method(
+            #getTripById,
+            [id],
+          ),
+        )),
+      ) as _i22.Future<_i7.TripDto>);
 
   @override
   _i22.Future<_i3.Success> deleteTrip(String? id) => (super.noSuchMethod(
@@ -1202,6 +1232,22 @@ class MockTripsRepo extends _i1.Mock implements _i42.TripsRepo {
           ),
         )),
       ) as _i22.Future<_i2.Either<_i23.Failure, List<_i43.TripEntity>>>);
+
+  @override
+  _i22.Future<_i2.Either<_i23.Failure, _i43.TripEntity>> getTripById(String? id) => (super.noSuchMethod(
+        Invocation.method(
+          #getTripById,
+          [id],
+        ),
+        returnValue:
+            _i22.Future<_i2.Either<_i23.Failure, _i43.TripEntity>>.value(_FakeEither_0<_i23.Failure, _i43.TripEntity>(
+          this,
+          Invocation.method(
+            #getTripById,
+            [id],
+          ),
+        )),
+      ) as _i22.Future<_i2.Either<_i23.Failure, _i43.TripEntity>>);
 
   @override
   _i22.Future<_i2.Either<_i23.Failure, _i3.Success>> deleteTrip(String? id) => (super.noSuchMethod(
