@@ -26,7 +26,7 @@ void main() {
 
     Success? success;
     result.fold((l) => null, (r) => success = r);
-    expect(success, mockedTripEntityV1);
+    expect(success, const Success());
     verify(mockTripsRepo.updateTrip(any, any)).called(1);
     verifyNoMoreInteractions(mockTripsRepo);
   });
