@@ -84,8 +84,8 @@ class _BodyState extends State<_Body> {
     _cityNameController = TextEditingController();
     _currencyController = TextEditingController();
     _countryCodeController = TextEditingController();
-    if (widget.trip != null) {
-      _budgetController.text = _trip!.plannedCost.amount;
+    if (_trip != null) {
+      _budgetController.text = _trip.plannedCost.amount;
       _currencyController.text = _trip.plannedCost.currency;
       _cityNameController.text = _trip.location.cityName;
       _countryCodeController.text = _trip.location.countryCode;
@@ -99,6 +99,7 @@ class _BodyState extends State<_Body> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isUpdateMode = _trip != null;
     return BlocListener<OsmSuggestionsCubit, OsmSuggestionsState>(
       listener: (context, state) => state.whenOrNull(
         error: (error) => showSnackBar(context, error.errorText(context)),
@@ -135,12 +136,12 @@ class _BodyState extends State<_Body> {
               floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
               floatingActionButton: ProceedFloatingActionButton(
                 isLoading: state,
-                text: _trip != null ? context.tr.createTripPage_updateTrip : null,
-                icon: _trip != null ? AppPaths.doubleCheck : null,
+                text: isUpdateMode ? context.tr.createTripPage_updateTrip : null,
+                icon: isUpdateMode ? AppPaths.doubleCheck : null,
                 onPressed: _onProceedPressed,
               ).animate().scale(delay: 400.ms),
               appBar: NavigationAppBar(
-                title: _trip != null ? context.tr.createTripPage_updateTrip : context.tr.createTripPage_titleBasicInfo,
+                title: isUpdateMode ? context.tr.createTripPage_updateTrip : context.tr.createTripPage_titleBasicInfo,
               ),
               body: SingleChildScrollView(
                 padding: const EdgeInsets.only(bottom: AppDimensions.d120),
@@ -172,8 +173,8 @@ class _BodyState extends State<_Body> {
                       ErrorBorderContainer(
                         showError: showCalendarError,
                         child: RangeCalendar(
-                          initialStartDate: _trip != null ? DateTime.parse(_trip.dateFrom) : null,
-                          initialEndDate: _trip != null ? DateTime.parse(_trip.dateTo) : null,
+                          initialStartDate: isUpdateMode ? DateTime.parse(_trip.dateFrom) : null,
+                          initialEndDate: isUpdateMode ? DateTime.parse(_trip.dateTo) : null,
                           onDateRangeSelected: (from, to) {
                             setState(() {
                               _startDate = from;
