@@ -69,6 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "createTripPage_currencyLabel": MessageLookupByLibrary.simpleMessage("Currency"),
         "createTripPage_successMessage": m2,
         "createTripPage_titleBasicInfo": MessageLookupByLibrary.simpleMessage("Create new trip"),
+        "createTripPage_updateTrip": MessageLookupByLibrary.simpleMessage("Update trip"),
+        "createTripPage_updateTripSuccess": MessageLookupByLibrary.simpleMessage("Trip updated successfully!"),
         "createTripSearchHint": MessageLookupByLibrary.simpleMessage("Destination"),
         "currentTripInformation_youAreIn": MessageLookupByLibrary.simpleMessage("You are in:"),
         "dashboardPage_welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome back"),

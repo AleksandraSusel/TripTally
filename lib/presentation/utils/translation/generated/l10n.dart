@@ -258,6 +258,26 @@ class Translation {
     );
   }
 
+  /// `Update trip`
+  String get createTripPage_updateTrip {
+    return Intl.message(
+      'Update trip',
+      name: 'createTripPage_updateTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trip updated successfully!`
+  String get createTripPage_updateTripSuccess {
+    return Intl.message(
+      'Trip updated successfully!',
+      name: 'createTripPage_updateTripSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Your trips`
   String get plannedTripsPage_yourTrips {
     return Intl.message(

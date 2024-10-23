@@ -9,10 +9,14 @@ class ProceedFloatingActionButton extends StatelessWidget {
     required this.onPressed,
     super.key,
     this.isLoading = false,
+    this.text,
+    this.icon,
   });
 
   final VoidCallback onPressed;
   final bool isLoading;
+  final String? text;
+  final String? icon;
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +33,11 @@ class ProceedFloatingActionButton extends StatelessWidget {
           : Row(
               children: [
                 Text(
-                  context.tr.generic_continue,
+                  text ?? context.tr.generic_continue,
                   style: context.tht.titleMedium,
                 ),
                 const SizedBox(width: AppDimensions.d8),
-                const SvgAsset(AppPaths.nextArrow),
+                SvgAsset(icon ?? AppPaths.nextArrow),
               ],
             ),
       onPressed: isLoading ? () {} : onPressed,

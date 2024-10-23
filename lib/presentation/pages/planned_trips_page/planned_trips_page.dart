@@ -62,6 +62,7 @@ class PlannedTripsPage extends StatelessWidget {
             success: () => showSnackBar(
               context,
               context.tr.plannedTripsPage_successDelete,
+              type: SnackbarType.success,
             ),
           ),
           child: BlocConsumer<GetAllUserTripsBloc, GetAllUserTripsState>(

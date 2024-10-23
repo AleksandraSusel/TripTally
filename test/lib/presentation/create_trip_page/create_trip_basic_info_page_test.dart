@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_state.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/create_trip_basic_info_page.dart';
+import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/update_trip_bloc.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/proceed_floating_action_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_suggestions_cubit.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/text_fields/currency_text_field.dart';
@@ -15,12 +16,19 @@ import '../../../mocked_data.dart';
 void main() {
   late MockOsmSuggestionsCubit mockOsmSuggestionsCubit;
   late MockCreateTripBloc mockCreateTripBloc;
+  late MockUpdateTripBloc mockUpdateTripBloc;
 
   setUp(() {
     mockCreateTripBloc = MockCreateTripBloc();
     when(mockCreateTripBloc.state).thenAnswer((_) => const CreateTripState.initial());
     when(mockCreateTripBloc.stream).thenAnswer((_) => Stream.value(const CreateTripState.initial()));
     when(mockCreateTripBloc.close()).thenAnswer((_) async {});
+
+    mockUpdateTripBloc = MockUpdateTripBloc();
+    when(mockUpdateTripBloc.state).thenAnswer((_) => const UpdateTripState.loading());
+    when(mockUpdateTripBloc.stream).thenAnswer((_) => Stream.value(const UpdateTripState.loading()));
+    when(mockUpdateTripBloc.close()).thenAnswer((_) async {});
+
     mockOsmSuggestionsCubit = MockOsmSuggestionsCubit();
     when(mockOsmSuggestionsCubit.state).thenAnswer((_) => const OsmSuggestionsState.loading());
     when(mockOsmSuggestionsCubit.stream).thenAnswer((_) => Stream.value(const OsmSuggestionsState.loading()));
@@ -32,7 +40,15 @@ void main() {
 
   CreateTripBasicInfoPage buildPage() => CreateTripBasicInfoPage(
         cubit: mockOsmSuggestionsCubit,
-        bloc: mockCreateTripBloc,
+        createTripBloc: mockCreateTripBloc,
+        updateTripBloc: mockUpdateTripBloc,
+      );
+
+  CreateTripBasicInfoPage buildUpdatePage() => CreateTripBasicInfoPage(
+        cubit: mockOsmSuggestionsCubit,
+        createTripBloc: mockCreateTripBloc,
+        updateTripBloc: mockUpdateTripBloc,
+        trip: mockedTripEntityV1,
       );
 
   runGoldenTest(
@@ -77,5 +93,10 @@ void main() {
       return;
     },
     builder: buildPage,
+  );
+
+  runGoldenTest(
+    'CreateTripBasicInfoPage - Update',
+    builder: buildUpdatePage,
   );
 }

@@ -91,7 +91,7 @@ void main() {
     verifyNoMoreInteractions(mockedTripsDataSource);
   });
 
-  test('DeleteTrip should successfully delete a trip', () async {
+  test('GetTripById should successfully return a trip', () async {
     when(mockedTripsDataSource.getTripById(any)).thenAnswer((_) async => mockedTripDtoV1);
 
     final result = await repo.getTripById(mockedTripEntityV1.id);
@@ -104,7 +104,7 @@ void main() {
     verifyNoMoreInteractions(mockedTripsDataSource);
   });
 
-  test('DeleteTrip should return a Failure when an exception is thrown', () async {
+  test('GetTripById should return a Failure when an exception is thrown', () async {
     when(mockedTripsDataSource.getTripById(any)).thenThrow(ApiException(Errors.somethingWentWrong));
 
     final result = await repo.getTripById(mockedTripEntityV1.id);
@@ -114,6 +114,32 @@ void main() {
     expect(error, Errors.somethingWentWrong);
 
     verify(mockedTripsDataSource.getTripById(any)).called(1);
+    verifyNoMoreInteractions(mockedTripsDataSource);
+  });
+
+  test('UpdateTrip should successfully update a trip', () async {
+    when(mockedTripsDataSource.updateTrip(any, any)).thenAnswer((_) async => const Success());
+
+    final result = await repo.updateTrip(mockedTripEntityV1.id, mockedCreateTripEntity);
+
+    Success? success;
+    result.fold((l) => null, (r) => success = r);
+    expect(success, const Success());
+
+    verify(mockedTripsDataSource.updateTrip(any, any)).called(1);
+    verifyNoMoreInteractions(mockedTripsDataSource);
+  });
+
+  test('UpdateTrip should return a Failure when an exception is thrown', () async {
+    when(mockedTripsDataSource.updateTrip(any, any)).thenThrow(ApiException(Errors.somethingWentWrong));
+
+    final result = await repo.updateTrip(mockedTripEntityV1.id, mockedCreateTripEntity);
+
+    Errors? error;
+    result.fold((l) => error = l.error, (r) => null);
+    expect(error, Errors.somethingWentWrong);
+
+    verify(mockedTripsDataSource.updateTrip(any, any)).called(1);
     verifyNoMoreInteractions(mockedTripsDataSource);
   });
 }

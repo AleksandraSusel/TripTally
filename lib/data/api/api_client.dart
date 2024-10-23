@@ -53,6 +53,9 @@ abstract class ApiClient {
     @Part(name: 'profile_picture') File? profilePicture,
   });
 
+  @PUT('trips/{id}')
+  Future<void> updateTrip(@Path('id') String tripId, @Body() CreateTripDto dto);
+
   ///Delete
   @DELETE('trips/{id}')
   Future<void> deleteTrip(@Path('id') String tripId);

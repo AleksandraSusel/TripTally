@@ -70,4 +70,7 @@ class AppPaths {
   static const String doubleCheck = '$m3SvgPath/double_check.svg';
   static const String places = '$m3SvgPath/places.svg';
   static const String restaurant = '$m3SvgPath/restaurant.svg';
+  static const String errorSign = '$svgPath/error_sign.svg';
+  static const String warningSign = '$svgPath/warning_sign.svg';
+  static const String successCheck = '$svgPath/success_check.svg';
 }

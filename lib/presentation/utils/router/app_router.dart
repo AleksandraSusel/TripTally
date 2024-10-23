@@ -9,6 +9,7 @@ import 'package:trip_tally/presentation/pages/create_trip_page/create_trip_basic
 import 'package:trip_tally/presentation/pages/home_page/home_page.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/delete_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/get_all_user_trips_bloc.dart';
+import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/update_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_page/planned_trips_page.dart';
 import 'package:trip_tally/presentation/pages/test_m3_page/test_m3_page.dart';
 import 'package:trip_tally/presentation/pages/trip_panel_page/trip_panel_page.dart';

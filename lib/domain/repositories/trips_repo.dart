@@ -12,4 +12,6 @@ abstract class TripsRepo {
   Future<Either<Failure, TripEntity>> getTripById(String id);
 
   Future<Either<Failure, Success>> deleteTrip(String id);
+
+  Future<Either<Failure, Success>> updateTrip(String id, CreateTripEntity entity);
 }

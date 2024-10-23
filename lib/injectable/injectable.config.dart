@@ -32,30 +32,32 @@ import 'package:trip_tally/domain/repositories/expenses_repo.dart' as _i25;
 import 'package:trip_tally/domain/repositories/osm_map_repository.dart' as _i9;
 import 'package:trip_tally/domain/repositories/trips_repo.dart' as _i35;
 import 'package:trip_tally/domain/use_case/create_account_use_case.dart' as _i22;
-import 'package:trip_tally/domain/use_case/create_expense_use_case.dart' as _i39;
-import 'package:trip_tally/domain/use_case/create_trip_use_case.dart' as _i40;
-import 'package:trip_tally/domain/use_case/delete_trip_use_case.dart' as _i41;
-import 'package:trip_tally/domain/use_case/get_all_user_trips_use_case.dart' as _i42;
+import 'package:trip_tally/domain/use_case/create_expense_use_case.dart' as _i40;
+import 'package:trip_tally/domain/use_case/create_trip_use_case.dart' as _i41;
+import 'package:trip_tally/domain/use_case/delete_trip_use_case.dart' as _i42;
+import 'package:trip_tally/domain/use_case/get_all_user_trips_use_case.dart' as _i43;
 import 'package:trip_tally/domain/use_case/get_expense_categories_use_case.dart' as _i27;
-import 'package:trip_tally/domain/use_case/get_trip_use_case.dart' as _i44;
+import 'package:trip_tally/domain/use_case/get_trip_use_case.dart' as _i45;
 import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart' as _i28;
 import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i29;
 import 'package:trip_tally/domain/use_case/sign_out_use_case.dart' as _i32;
-import 'package:trip_tally/domain/use_case/update_user_profile_use_case.dart' as _i37;
+import 'package:trip_tally/domain/use_case/update_trip_use_case.dart' as _i37;
+import 'package:trip_tally/domain/use_case/update_user_profile_use_case.dart' as _i38;
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart' as _i13;
-import 'package:trip_tally/injectable/modules/api_module.dart' as _i51;
-import 'package:trip_tally/injectable/modules/app_router_module.dart' as _i50;
-import 'package:trip_tally/injectable/modules/firebase_auth_module.dart' as _i53;
-import 'package:trip_tally/injectable/modules/osm_module.dart' as _i52;
-import 'package:trip_tally/injectable/modules/shared_preferences_module.dart' as _i54;
-import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart' as _i38;
+import 'package:trip_tally/injectable/modules/api_module.dart' as _i53;
+import 'package:trip_tally/injectable/modules/app_router_module.dart' as _i52;
+import 'package:trip_tally/injectable/modules/firebase_auth_module.dart' as _i55;
+import 'package:trip_tally/injectable/modules/osm_module.dart' as _i54;
+import 'package:trip_tally/injectable/modules/shared_preferences_module.dart' as _i56;
+import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart' as _i39;
 import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart' as _i17;
-import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart' as _i46;
-import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart' as _i43;
-import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart' as _i47;
-import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/delete_trip_bloc.dart' as _i48;
-import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/get_all_user_trips_bloc.dart' as _i49;
-import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart' as _i45;
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart' as _i48;
+import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart' as _i44;
+import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart' as _i49;
+import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/delete_trip_bloc.dart' as _i50;
+import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/get_all_user_trips_bloc.dart' as _i51;
+import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/update_trip_bloc.dart' as _i46;
+import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart' as _i47;
 import 'package:trip_tally/presentation/theme/theme_manager.dart' as _i15;
 import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart' as _i31;
 import 'package:trip_tally/presentation/utils/permissions/permission_service.dart' as _i11;
@@ -75,16 +77,16 @@ extension GetItInjectableX on _i1.GetIt {
       environmentFilter,
     );
     final appRouterModule = _$AppRouterModule();
-    final apiModule = _$ApiModule();
     final osmModule = _$OsmModule();
+    final apiModule = _$ApiModule();
     final firebaseAuthModule = _$FirebaseAuthModule();
     final sharedPreferencesModule = _$SharedPreferencesModule();
     gh.lazySingleton<_i3.AppRouter>(() => appRouterModule.instance);
-    gh.singleton<_i4.Dio>(() => apiModule.client);
     gh.singleton<_i4.Dio>(
       () => osmModule.client,
       instanceName: 'OsmDio',
     );
+    gh.singleton<_i4.Dio>(() => apiModule.client);
     gh.factory<_i5.FirebaseAuth>(() => firebaseAuthModule.instance);
     gh.factory<_i6.OsmClient>(() => _i6.OsmClient(gh<_i4.Dio>(instanceName: 'OsmDio')));
     gh.factory<_i7.OsmMapDataSource>(() => _i8.OsmMapDataSourceImpl(gh<_i6.OsmClient>()));
@@ -115,33 +117,35 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i32.SignOutUseCase>(() => _i32.SignOutUseCase(gh<_i20.AuthenticationRepo>()));
     gh.factory<_i33.TripsDataSource>(() => _i34.TripsDataSourceImpl(gh<_i16.ApiClient>()));
     gh.factory<_i35.TripsRepo>(() => _i36.TripsRepoImpl(gh<_i33.TripsDataSource>()));
-    gh.factory<_i37.UpdateUserProfileUseCase>(() => _i37.UpdateUserProfileUseCase(gh<_i20.AuthenticationRepo>()));
-    gh.factory<_i38.AuthenticationBloc>(() => _i38.AuthenticationBloc(
+    gh.factory<_i37.UpdateTripUseCase>(() => _i37.UpdateTripUseCase(gh<_i35.TripsRepo>()));
+    gh.factory<_i38.UpdateUserProfileUseCase>(() => _i38.UpdateUserProfileUseCase(gh<_i20.AuthenticationRepo>()));
+    gh.factory<_i39.AuthenticationBloc>(() => _i39.AuthenticationBloc(
           gh<_i29.LoginUseCase>(),
           gh<_i22.CreateAccountUseCase>(),
         ));
-    gh.factory<_i39.CreateExpensesUseCase>(() => _i39.CreateExpensesUseCase(gh<_i25.ExpensesRepo>()));
-    gh.factory<_i40.CreateTripUseCase>(() => _i40.CreateTripUseCase(gh<_i35.TripsRepo>()));
-    gh.factory<_i41.DeleteTripUseCase>(() => _i41.DeleteTripUseCase(gh<_i35.TripsRepo>()));
-    gh.factory<_i42.GetAllUserTripsUseCase>(() => _i42.GetAllUserTripsUseCase(gh<_i35.TripsRepo>()));
-    gh.factory<_i43.GetExpenseCategoriesBloc>(
-        () => _i43.GetExpenseCategoriesBloc(gh<_i27.GetExpenseCategoriesUseCase>()));
-    gh.factory<_i44.GetTripUseCase>(() => _i44.GetTripUseCase(gh<_i35.TripsRepo>()));
-    gh.factory<_i45.UpdateUserProfileBloc>(() => _i45.UpdateUserProfileBloc(gh<_i37.UpdateUserProfileUseCase>()));
-    gh.factory<_i46.CreateExpensesBloc>(() => _i46.CreateExpensesBloc(gh<_i39.CreateExpensesUseCase>()));
-    gh.factory<_i47.CreateTripBloc>(() => _i47.CreateTripBloc(gh<_i40.CreateTripUseCase>()));
-    gh.factory<_i48.DeleteTripBloc>(() => _i48.DeleteTripBloc(gh<_i41.DeleteTripUseCase>()));
-    gh.factory<_i49.GetAllUserTripsBloc>(() => _i49.GetAllUserTripsBloc(gh<_i42.GetAllUserTripsUseCase>()));
+    gh.factory<_i40.CreateExpensesUseCase>(() => _i40.CreateExpensesUseCase(gh<_i25.ExpensesRepo>()));
+    gh.factory<_i41.CreateTripUseCase>(() => _i41.CreateTripUseCase(gh<_i35.TripsRepo>()));
+    gh.factory<_i42.DeleteTripUseCase>(() => _i42.DeleteTripUseCase(gh<_i35.TripsRepo>()));
+    gh.factory<_i43.GetAllUserTripsUseCase>(() => _i43.GetAllUserTripsUseCase(gh<_i35.TripsRepo>()));
+    gh.factory<_i44.GetExpenseCategoriesBloc>(
+        () => _i44.GetExpenseCategoriesBloc(gh<_i27.GetExpenseCategoriesUseCase>()));
+    gh.factory<_i45.GetTripUseCase>(() => _i45.GetTripUseCase(gh<_i35.TripsRepo>()));
+    gh.factory<_i46.UpdateTripBloc>(() => _i46.UpdateTripBloc(gh<_i37.UpdateTripUseCase>()));
+    gh.factory<_i47.UpdateUserProfileBloc>(() => _i47.UpdateUserProfileBloc(gh<_i38.UpdateUserProfileUseCase>()));
+    gh.factory<_i48.CreateExpensesBloc>(() => _i48.CreateExpensesBloc(gh<_i40.CreateExpensesUseCase>()));
+    gh.factory<_i49.CreateTripBloc>(() => _i49.CreateTripBloc(gh<_i41.CreateTripUseCase>()));
+    gh.factory<_i50.DeleteTripBloc>(() => _i50.DeleteTripBloc(gh<_i42.DeleteTripUseCase>()));
+    gh.factory<_i51.GetAllUserTripsBloc>(() => _i51.GetAllUserTripsBloc(gh<_i43.GetAllUserTripsUseCase>()));
     return this;
   }
 }
 
-class _$AppRouterModule extends _i50.AppRouterModule {}
+class _$AppRouterModule extends _i52.AppRouterModule {}
 
-class _$ApiModule extends _i51.ApiModule {}
+class _$ApiModule extends _i53.ApiModule {}
 
-class _$OsmModule extends _i52.OsmModule {}
+class _$OsmModule extends _i54.OsmModule {}
 
-class _$FirebaseAuthModule extends _i53.FirebaseAuthModule {}
+class _$FirebaseAuthModule extends _i55.FirebaseAuthModule {}
 
-class _$SharedPreferencesModule extends _i54.SharedPreferencesModule {}
+class _$SharedPreferencesModule extends _i56.SharedPreferencesModule {}

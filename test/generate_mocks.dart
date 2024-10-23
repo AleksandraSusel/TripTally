@@ -19,6 +19,7 @@ import 'package:trip_tally/domain/use_case/delete_trip_use_case.dart';
 import 'package:trip_tally/domain/use_case/get_all_user_trips_use_case.dart';
 import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart';
 import 'package:trip_tally/domain/use_case/login_use_case.dart';
+import 'package:trip_tally/domain/use_case/update_trip_use_case.dart';
 import 'package:trip_tally/domain/use_case/update_user_profile_use_case.dart';
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/authentication_page.dart';
@@ -28,6 +29,7 @@ import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expe
 import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/delete_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/get_all_user_trips_bloc.dart';
+import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/update_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart';
 import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart';
 import 'package:trip_tally/presentation/utils/permissions/permission_service.dart';
@@ -65,6 +67,8 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_sug
   GetAllUserTripsUseCase,
   DeleteTripBloc,
   DeleteTripUseCase,
+  UpdateTripUseCase,
+  UpdateTripBloc,
 ])
 void main() {}
 

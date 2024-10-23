@@ -254,6 +254,33 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+  Future<void> updateTrip(
+    String tripId,
+    CreateTripDto dto,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = dto;
+    await _dio.fetch<void>(_setStreamType<void>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'trips/${tripId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        ))));
+  }
+
+  @override
   Future<void> deleteTrip(String tripId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

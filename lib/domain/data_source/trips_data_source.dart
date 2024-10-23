@@ -10,4 +10,6 @@ abstract class TripsDataSource {
   Future<TripDto> getTripById(String id);
 
   Future<Success> deleteTrip(String id);
+
+  Future<Success> updateTrip(String id, CreateTripDto dto);
 }
