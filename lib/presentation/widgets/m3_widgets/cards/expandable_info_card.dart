@@ -90,6 +90,8 @@ class ExpandableInfoCardState extends State<ExpandableInfoCard> {
           ),
           totalExpensesAmount: widget.totalExpensesAmount,
           imagePath: widget.imagePath,
+          onEditPressed: () {},
+          onManageExpensesPressed: () {},
         ),
         crossFadeState: _isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
         duration: const Duration(milliseconds: 300),

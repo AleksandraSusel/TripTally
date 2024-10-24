@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:trip_tally/domain/entities/location/location_entity.dart';
 import 'package:trip_tally/domain/entities/osm_map/place_entity.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
@@ -11,8 +12,13 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_sug
 import 'package:trip_tally/presentation/widgets/m3_widgets/rectangular_country_flag.dart';
 
 class LocationSearchTextField extends StatefulWidget {
-  const LocationSearchTextField({required this.onLocationSelected, super.key});
+  const LocationSearchTextField({
+    required this.onLocationSelected,
+    this.initialLocation,
+    super.key,
+  });
 
+  final LocationEntity? initialLocation;
   final void Function(String cityName, String countryCode) onLocationSelected;
 
   @override
@@ -25,6 +31,9 @@ class _LocationSearchTextFieldState extends State<LocationSearchTextField> {
   @override
   void initState() {
     _searchController = TextEditingController();
+    if (widget.initialLocation != null) {
+      _searchController.text = getTripDestinationFormat(widget.initialLocation!);
+    }
     super.initState();
   }
 

@@ -40,9 +40,11 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: CreateTripBasicInfoPage(
-          bloc: args.bloc,
+          createTripBloc: args.createTripBloc,
           key: args.key,
           cubit: args.cubit,
+          trip: args.trip,
+          updateTripBloc: args.updateTripBloc,
         ),
       );
     },
@@ -173,16 +175,20 @@ class CreateExpensesRouteArgs {
 /// [CreateTripBasicInfoPage]
 class CreateTripBasicInfoRoute extends PageRouteInfo<CreateTripBasicInfoRouteArgs> {
   CreateTripBasicInfoRoute({
-    CreateTripBloc? bloc,
+    CreateTripBloc? createTripBloc,
     Key? key,
     OsmSuggestionsCubit? cubit,
+    TripEntity? trip,
+    UpdateTripBloc? updateTripBloc,
     List<PageRouteInfo>? children,
   }) : super(
           CreateTripBasicInfoRoute.name,
           args: CreateTripBasicInfoRouteArgs(
-            bloc: bloc,
+            createTripBloc: createTripBloc,
             key: key,
             cubit: cubit,
+            trip: trip,
+            updateTripBloc: updateTripBloc,
           ),
           initialChildren: children,
         );
@@ -194,20 +200,26 @@ class CreateTripBasicInfoRoute extends PageRouteInfo<CreateTripBasicInfoRouteArg
 
 class CreateTripBasicInfoRouteArgs {
   const CreateTripBasicInfoRouteArgs({
-    this.bloc,
+    this.createTripBloc,
     this.key,
     this.cubit,
+    this.trip,
+    this.updateTripBloc,
   });
 
-  final CreateTripBloc? bloc;
+  final CreateTripBloc? createTripBloc;
 
   final Key? key;
 
   final OsmSuggestionsCubit? cubit;
 
+  final TripEntity? trip;
+
+  final UpdateTripBloc? updateTripBloc;
+
   @override
   String toString() {
-    return 'CreateTripBasicInfoRouteArgs{bloc: $bloc, key: $key, cubit: $cubit}';
+    return 'CreateTripBasicInfoRouteArgs{createTripBloc: $createTripBloc, key: $key, cubit: $cubit, trip: $trip, updateTripBloc: $updateTripBloc}';
   }
 }
 

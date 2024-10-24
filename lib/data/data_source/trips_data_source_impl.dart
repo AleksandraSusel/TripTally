@@ -46,4 +46,25 @@ class TripsDataSourceImpl implements TripsDataSource {
       throw ApiException(Errors.unknownError);
     }
   }
+
+  @override
+  Future<TripDto> getTripById(String id) async {
+    try {
+      return await client.getTripById(id);
+    } catch (e, stack) {
+      debugPrint('Could not get trip with id: $id.\nReason: $e\nStack: $stack');
+      throw ApiException(Errors.unknownError);
+    }
+  }
+
+  @override
+  Future<Success> updateTrip(String id, CreateTripDto dto) async {
+    try {
+      await client.updateTrip(id, dto);
+      return const Success();
+    } catch (e, stack) {
+      debugPrint('Could not update trip with id: $id.\nReason: $e\nStack: $stack');
+      throw ApiException(Errors.unknownError);
+    }
+  }
 }

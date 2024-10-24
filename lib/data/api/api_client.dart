@@ -7,6 +7,7 @@ import 'package:trip_tally/data/dto/expenses/create_expenses_dto.dart';
 import 'package:trip_tally/data/dto/expenses/expense_categories_dto.dart';
 import 'package:trip_tally/data/dto/trips/create_trip_dto.dart';
 import 'package:trip_tally/data/dto/trips/get_trips_dto.dart';
+import 'package:trip_tally/data/dto/trips/trip_dto.dart';
 import 'package:trip_tally/data/dto/trips/trip_dto_response.dart';
 import 'package:trip_tally/data/dto/user/create_account_dto.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
@@ -25,6 +26,9 @@ abstract class ApiClient {
 
   @GET('trips')
   Future<GetTripsDto> getAllUserTrips();
+
+  @GET('trips/{id}')
+  Future<TripDto> getTripById(@Path('id') String tripId);
 
   ///Post
   @POST('users/log_in')
@@ -48,6 +52,9 @@ abstract class ApiClient {
     @Part(name: 'default_currency_code') required String defaultCurrencyCode,
     @Part(name: 'profile_picture') File? profilePicture,
   });
+
+  @PUT('trips/{id}')
+  Future<void> updateTrip(@Path('id') String tripId, @Body() CreateTripDto dto);
 
   ///Delete
   @DELETE('trips/{id}')

@@ -42,6 +42,7 @@ class CreateExpensesPage extends StatelessWidget {
               context.tr.createExpensesPage_successMessage(
                 WorldCountry.maybeFromCodeShort(trip.location.countryCode)?.name.name ?? trip.location.cityName,
               ),
+              type: SnackbarType.success,
             );
             return context.router.pushAndPopUntil(
               PlannedTripsRoute(),

@@ -166,6 +166,8 @@ class TestM3PageState extends State<TestM3Page> {
             ),
             totalExpensesAmount: 60000,
             imagePath: AppPaths.italy,
+            onEditPressed: () {},
+            onManageExpensesPressed: () {},
           ),
           const OutlinedTripCard(
             country: 'Italy',

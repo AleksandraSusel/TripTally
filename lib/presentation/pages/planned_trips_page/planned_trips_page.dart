@@ -62,6 +62,7 @@ class PlannedTripsPage extends StatelessWidget {
             success: () => showSnackBar(
               context,
               context.tr.plannedTripsPage_successDelete,
+              type: SnackbarType.success,
             ),
           ),
           child: BlocConsumer<GetAllUserTripsBloc, GetAllUserTripsState>(
@@ -132,7 +133,7 @@ class _BodyState extends State<_Body> {
       child: Padding(
         padding: const EdgeInsets.all(AppDimensions.d10),
         child: ElevatedTripCard(
-          totalExpensesAmount: 2000,
+          totalExpensesAmount: trip.totalExpenses ?? 0,
           imagePath: AppPaths.greece,
           entity: trip,
           onDeletePressed: () => showDialog<void>(
@@ -145,6 +146,8 @@ class _BodyState extends State<_Body> {
               onConfirmPressed: () => _deleteTrip(index),
             ),
           ),
+          onEditPressed: () => context.router.push(CreateTripBasicInfoRoute(trip: trip)),
+          onManageExpensesPressed: () {},
         ),
       ),
     );
