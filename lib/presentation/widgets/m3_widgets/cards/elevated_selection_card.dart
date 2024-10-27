@@ -11,7 +11,12 @@ class ElevatedSelectionCard extends StatelessWidget {
     required this.iconAsset,
     this.onTap,
     super.key,
-    this.paddingValue,
+    this.paddingValueAll,
+    this.paddingOnly,
+    this.left,
+    this.right,
+    this.top,
+    this.bottom,
   });
 
   final String title;
@@ -19,12 +24,24 @@ class ElevatedSelectionCard extends StatelessWidget {
   final Color iconBGColor;
   final String iconAsset;
   final VoidCallback? onTap;
-  final double? paddingValue;
+  final double? paddingValueAll;
+  final List<double>? paddingOnly;
+  final double? left;
+  final double? right;
+  final double? top;
+  final double? bottom;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(paddingValue ?? 0),
+      padding: paddingValueAll != null
+          ? EdgeInsets.all(paddingValueAll!)
+          : EdgeInsets.only(
+              left: left ?? 0.0,
+              right: right ?? 0.0,
+              top: top ?? 0.0,
+              bottom: bottom ?? 0.0,
+            ),
       child: Card(
         clipBehavior: Clip.hardEdge,
         elevation: 2,

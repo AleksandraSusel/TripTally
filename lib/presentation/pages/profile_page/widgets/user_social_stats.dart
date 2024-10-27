@@ -34,13 +34,15 @@ class UserSocialStats extends StatelessWidget {
           SocialStatContainer(
             title: context.tr.profilePage_followers,
             numberOfStat: followers,
+            currency: '',
           ),
           SocialStatContainer(
             title: context.tr.profilePage_finishedTrips,
             numberOfStat: finishedTrips,
+            currency: '',
           ),
           SocialStatContainer(
-            currency: currency,
+            currency: currency ?? '',
             title: context.tr.profilePage_spentOnTrips,
             numberOfStat: spentForTrips,
           ),

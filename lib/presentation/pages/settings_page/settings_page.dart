@@ -44,7 +44,7 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             const SizedBox(height: AppDimensions.d20),
             ElevatedSelectionCard(
-              paddingValue: 12,
+              paddingValueAll: AppDimensions.d12,
               title: context.tr.settingsPage_changeYourName,
               subtitle: 'Adrian Nowak',
               iconBGColor: context.thc.primaryContainer,
@@ -69,7 +69,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ),
             ElevatedSelectionCard(
-              paddingValue: 12,
+              paddingValueAll: AppDimensions.d12,
               title: context.tr.settingsPage_changeYourEmail,
               subtitle: context.tr.settingsPage_clickToSend,
               iconBGColor: context.thc.primaryContainer,
@@ -88,7 +88,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ),
             ElevatedSelectionCard(
-              paddingValue: 12,
+              paddingValueAll: AppDimensions.d12,
               title: context.tr.settingsPage_changeYourPassword,
               subtitle: context.tr.settingsPage_clickToSend,
               iconBGColor: context.thc.primaryContainer,
@@ -107,7 +107,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ),
             ElevatedSelectionCard(
-              paddingValue: 12,
+              paddingValueAll: AppDimensions.d12,
               title: context.tr.settingsPage_deleteYourAccount,
               subtitle: context.tr.settingsPage_clickToSend,
               iconBGColor: context.thc.error,

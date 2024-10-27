@@ -7,19 +7,17 @@ class SocialStatContainer extends StatelessWidget {
   const SocialStatContainer({
     required this.title,
     required this.numberOfStat,
-    this.currency,
+    required this.currency,
     super.key,
   });
 
   final String title;
-  final String? currency;
+  final String currency;
   final double numberOfStat;
 
   @override
   Widget build(BuildContext context) {
-    final String formattedStat = currency != null
-        ? MoneyFormat.formatPositiveAmountCurrency(numberOfStat, currency!)
-        : MoneyFormat.formatPositiveAmountCurrency(numberOfStat, '');
+    final String formattedStat = MoneyFormat.formatPositiveAmountCurrency(numberOfStat, currency);
 
     return Padding(
       padding: const EdgeInsets.all(AppDimensions.d12),
