@@ -13,8 +13,8 @@ class ExpenseDto with _$ExpenseDto {
     required String name,
     required String date,
     required PriceDto price,
-    required String tripId,
     required String categoryId,
+    String? tripId,
     ExpenseCategoryDto? category,
   }) = _ExpenseDto;
 

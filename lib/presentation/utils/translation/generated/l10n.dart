@@ -1168,21 +1168,21 @@ class Translation {
     );
   }
 
-  /// `Add expenses`
-  String get createExpensesPage_addExpenses {
+  /// `Add expense`
+  String get createExpensesPage_addExpense {
     return Intl.message(
-      'Add expenses',
-      name: 'createExpensesPage_addExpenses',
+      'Add expense',
+      name: 'createExpensesPage_addExpense',
       desc: '',
       args: [],
     );
   }
 
-  /// `Create trip`
-  String get createExpensesPage_createTrip {
+  /// `Submit expenses`
+  String get createExpensesPage_submitExpenses {
     return Intl.message(
-      'Create trip',
-      name: 'createExpensesPage_createTrip',
+      'Submit expenses',
+      name: 'createExpensesPage_submitExpenses',
       desc: '',
       args: [],
     );

@@ -23,8 +23,8 @@ mixin _$ExpenseDto {
   String get name => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   PriceDto get price => throw _privateConstructorUsedError;
-  String get tripId => throw _privateConstructorUsedError;
   String get categoryId => throw _privateConstructorUsedError;
+  String? get tripId => throw _privateConstructorUsedError;
   ExpenseCategoryDto? get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,8 @@ abstract class $ExpenseDtoCopyWith<$Res> {
   factory $ExpenseDtoCopyWith(ExpenseDto value, $Res Function(ExpenseDto) then) =
       _$ExpenseDtoCopyWithImpl<$Res, ExpenseDto>;
   @useResult
-  $Res call({String name, String date, PriceDto price, String tripId, String categoryId, ExpenseCategoryDto? category});
+  $Res call(
+      {String name, String date, PriceDto price, String categoryId, String? tripId, ExpenseCategoryDto? category});
 
   $PriceDtoCopyWith<$Res> get price;
   $ExpenseCategoryDtoCopyWith<$Res>? get category;
@@ -58,8 +59,8 @@ class _$ExpenseDtoCopyWithImpl<$Res, $Val extends ExpenseDto> implements $Expens
     Object? name = null,
     Object? date = null,
     Object? price = null,
-    Object? tripId = null,
     Object? categoryId = null,
+    Object? tripId = freezed,
     Object? category = freezed,
   }) {
     return _then(_value.copyWith(
@@ -75,14 +76,14 @@ class _$ExpenseDtoCopyWithImpl<$Res, $Val extends ExpenseDto> implements $Expens
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as PriceDto,
-      tripId: null == tripId
-          ? _value.tripId
-          : tripId // ignore: cast_nullable_to_non_nullable
-              as String,
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
               as String,
+      tripId: freezed == tripId
+          ? _value.tripId
+          : tripId // ignore: cast_nullable_to_non_nullable
+              as String?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -117,7 +118,8 @@ abstract class _$$ExpenseDtoImplCopyWith<$Res> implements $ExpenseDtoCopyWith<$R
       __$$ExpenseDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String date, PriceDto price, String tripId, String categoryId, ExpenseCategoryDto? category});
+  $Res call(
+      {String name, String date, PriceDto price, String categoryId, String? tripId, ExpenseCategoryDto? category});
 
   @override
   $PriceDtoCopyWith<$Res> get price;
@@ -136,8 +138,8 @@ class __$$ExpenseDtoImplCopyWithImpl<$Res> extends _$ExpenseDtoCopyWithImpl<$Res
     Object? name = null,
     Object? date = null,
     Object? price = null,
-    Object? tripId = null,
     Object? categoryId = null,
+    Object? tripId = freezed,
     Object? category = freezed,
   }) {
     return _then(_$ExpenseDtoImpl(
@@ -153,14 +155,14 @@ class __$$ExpenseDtoImplCopyWithImpl<$Res> extends _$ExpenseDtoCopyWithImpl<$Res
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as PriceDto,
-      tripId: null == tripId
-          ? _value.tripId
-          : tripId // ignore: cast_nullable_to_non_nullable
-              as String,
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
               as String,
+      tripId: freezed == tripId
+          ? _value.tripId
+          : tripId // ignore: cast_nullable_to_non_nullable
+              as String?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -176,8 +178,8 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
       {required this.name,
       required this.date,
       required this.price,
-      required this.tripId,
       required this.categoryId,
+      this.tripId,
       this.category});
 
   factory _$ExpenseDtoImpl.fromJson(Map<String, dynamic> json) => _$$ExpenseDtoImplFromJson(json);
@@ -189,15 +191,15 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
   @override
   final PriceDto price;
   @override
-  final String tripId;
-  @override
   final String categoryId;
+  @override
+  final String? tripId;
   @override
   final ExpenseCategoryDto? category;
 
   @override
   String toString() {
-    return 'ExpenseDto(name: $name, date: $date, price: $price, tripId: $tripId, categoryId: $categoryId, category: $category)';
+    return 'ExpenseDto(name: $name, date: $date, price: $price, categoryId: $categoryId, tripId: $tripId, category: $category)';
   }
 
   @override
@@ -208,14 +210,14 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.price, price) || other.price == price) &&
-            (identical(other.tripId, tripId) || other.tripId == tripId) &&
             (identical(other.categoryId, categoryId) || other.categoryId == categoryId) &&
+            (identical(other.tripId, tripId) || other.tripId == tripId) &&
             (identical(other.category, category) || other.category == category));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, date, price, tripId, categoryId, category);
+  int get hashCode => Object.hash(runtimeType, name, date, price, categoryId, tripId, category);
 
   @JsonKey(ignore: true)
   @override
@@ -236,8 +238,8 @@ abstract class _ExpenseDto implements ExpenseDto {
       {required final String name,
       required final String date,
       required final PriceDto price,
-      required final String tripId,
       required final String categoryId,
+      final String? tripId,
       final ExpenseCategoryDto? category}) = _$ExpenseDtoImpl;
 
   factory _ExpenseDto.fromJson(Map<String, dynamic> json) = _$ExpenseDtoImpl.fromJson;
@@ -249,9 +251,9 @@ abstract class _ExpenseDto implements ExpenseDto {
   @override
   PriceDto get price;
   @override
-  String get tripId;
-  @override
   String get categoryId;
+  @override
+  String? get tripId;
   @override
   ExpenseCategoryDto? get category;
   @override

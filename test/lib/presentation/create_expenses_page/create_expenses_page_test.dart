@@ -32,7 +32,7 @@ void main() {
     initializeMockEnvironmentWithBloc<CreateExpensesBloc>(mockCreateExpensesBloc);
   });
 
-  CreateExpensesPage buildPage() => CreateExpensesPage(trip: mockedTripEntityV1);
+  CreateExpensesPage buildPage() => const CreateExpensesPage(trip: mockedCreateTripEntity);
 
   runGoldenTest(
     'CreateExpensesPage - Initial',
