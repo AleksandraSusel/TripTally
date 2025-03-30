@@ -43,7 +43,7 @@ class GoogleSignInButton extends StatelessWidget {
               text,
               style: context.tht.labelMedium?.copyWith(
                 fontSize: AppDimensions.d18,
-                color: AppColors.black.withOpacity(0.54),
+                color: AppColors.black.withValues(alpha: .54),
               ),
               overflow: TextOverflow.ellipsis,
             ),

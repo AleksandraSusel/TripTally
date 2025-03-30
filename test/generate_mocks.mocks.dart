@@ -1181,6 +1181,7 @@ class MockAuthenticationPage extends _i1.Mock implements _i42.AuthenticationPage
     String? prefixLineOne = r'',
     String? prefixOtherLines,
     _i11.DiagnosticLevel? minLevel = _i11.DiagnosticLevel.debug,
+    int? wrapWidth = 65,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -1190,6 +1191,7 @@ class MockAuthenticationPage extends _i1.Mock implements _i42.AuthenticationPage
             #prefixLineOne: prefixLineOne,
             #prefixOtherLines: prefixOtherLines,
             #minLevel: minLevel,
+            #wrapWidth: wrapWidth,
           },
         ),
         returnValue: _i35.dummyValue<String>(
@@ -1201,6 +1203,7 @@ class MockAuthenticationPage extends _i1.Mock implements _i42.AuthenticationPage
               #prefixLineOne: prefixLineOne,
               #prefixOtherLines: prefixOtherLines,
               #minLevel: minLevel,
+              #wrapWidth: wrapWidth,
             },
           ),
         ),

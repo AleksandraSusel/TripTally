@@ -60,7 +60,7 @@ class MoneyContainer extends StatelessWidget {
           shadows: [
             BoxShadow(
               offset: const Offset(0.5, 1.5),
-              color: context.thc.shadow.withOpacity(0.18),
+              color: context.thc.shadow.withValues(alpha: .18),
             ),
           ],
         ),
@@ -120,13 +120,13 @@ class BalanceMoneyContainer extends StatelessWidget {
             BoxShadow(
               blurRadius: AppDimensions.d2,
               offset: const Offset(AppDimensions.zero, AppDimensions.d1),
-              color: context.thc.shadow.withOpacity(0.3),
+              color: context.thc.shadow.withValues(alpha: .3),
             ),
             BoxShadow(
               blurRadius: AppDimensions.d3,
               spreadRadius: AppDimensions.d1,
               offset: const Offset(AppDimensions.zero, AppDimensions.d1),
-              color: context.thc.shadow.withOpacity(0.15),
+              color: context.thc.shadow.withValues(alpha: .15),
             ),
           ],
         ),

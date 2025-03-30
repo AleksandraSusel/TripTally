@@ -84,7 +84,7 @@ class _BodyState extends State<_Body> {
 
   void _showBottomSheet(BuildContext context) {
     showModalBottomSheet<void>(
-      barrierColor: context.thc.shadow.withOpacity(0.1),
+      barrierColor: context.thc.shadow.withValues(alpha: .1),
       backgroundColor: context.thc.surfaceContainerHighest,
       context: context,
       isScrollControlled: true,
@@ -110,7 +110,10 @@ class _BodyState extends State<_Body> {
   }
 
   double get totalExpensesAmount {
-    return _expenses.fold(0, (sum, item) => sum + double.parse(item.price.amount));
+    return _expenses.fold(
+      0,
+      (sum, item) => sum + double.parse(item.price.amount),
+    );
   }
 
   @override

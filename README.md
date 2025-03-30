@@ -20,3 +20,18 @@ git config core.hooksPath .githooks/
 dart scripts/generate_layers.dart file_name name_entity name_dto
 ```
 
+## How to Run the App
+
+1. Build Runner:
+
+```sh
+fvm flutter pub run build_runner build -d
+```
+
+## Project use Golden Testing
+
+1. To update Golden Tests run:
+
+```sh
+fvm flutter test --update-goldens --tags=golden
+```

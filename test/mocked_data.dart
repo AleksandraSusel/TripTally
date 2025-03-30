@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import 'package:trip_tally/data/dto/expenses/create_expenses_dto.dart';
 import 'package:trip_tally/data/dto/expenses/expense_dto.dart';
+import 'package:trip_tally/data/dto/location/create_location_dto.dart';
 import 'package:trip_tally/data/dto/location/location_dto.dart';
 import 'package:trip_tally/data/dto/osm_map/geometry_dto.dart';
 import 'package:trip_tally/data/dto/osm_map/osm_response_dto.dart';
@@ -19,6 +20,7 @@ import 'package:trip_tally/data/dto/user/update_user_profile_dto.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_categories_entity.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_category_entity.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
+import 'package:trip_tally/domain/entities/location/create_location_entity.dart';
 import 'package:trip_tally/domain/entities/location/location_entity.dart';
 import 'package:trip_tally/domain/entities/osm_map/coordinates_entity.dart';
 import 'package:trip_tally/domain/entities/osm_map/place_address_entity.dart';
@@ -75,23 +77,88 @@ const mockedExpenseEntity = ExpenseEntity(
 const mockedPriceDtoV1 = PriceDto(currency: 'USD', amount: '3000');
 const mockedPriceEntityV1 = PriceEntity(currency: 'USD', amount: '3000');
 
-const mockedCreateTripDto = CreateTripDto(
-  cityName: 'Wrocław',
+final mockedLocationEntityV1 = LocationEntity(
+  id: '123',
+  userId: '123',
+  countryCode: 'US',
+  cityName: 'New York',
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
+);
+
+const mockedCreatedLocationDtoV1 = CreateLocationDto(
+  countryCode: 'US',
+  cityName: 'New York',
+);
+
+const mockedCreatedLocationEntityV1 = CreateLocationEntity(
+  countryCode: 'US',
+  cityName: 'New York',
+);
+final mockedLocationDto = LocationDto(
+  id: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+  userId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+  countryCode: 'US',
+  cityName: 'New York',
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
+);
+
+final mockedLocationEntity = LocationEntity(
+  id: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+  userId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+  countryCode: 'US',
+  cityName: 'New York',
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
+);
+
+final mockedTripDto = TripDto(
+  id: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+  status: 'ended',
+  location: mockedLocationDto,
+  userId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+  expenses: [],
   transportType: 'Samolot',
-  countryCode: 'PL',
   dateFrom: '2024-08-12',
   dateTo: '2024-08-13',
   plannedCost: mockedPriceDtoV1,
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
 );
 
-const mockedCreateTripEntity = CreateTripEntity(
-  cityName: 'Wrocław',
+final mockedTripEntity = TripEntity(
+  id: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+  status: 'ended',
+  location: mockedLocationEntity,
+  userId: '9690386d-e0b5-46e5-98a1-a9cf5fb53f70',
+  expenses: [],
   transportType: 'Samolot',
-  countryCode: 'PL',
   dateFrom: '2024-08-12',
   dateTo: '2024-08-13',
   plannedCost: mockedPriceEntityV1,
+  insertedAt: DateTime(2024),
+  updatedAt: DateTime(2024),
 );
+
+const mockedCreateTripDto = CreateTripDto(
+  transportType: 'Samolot',
+  dateFrom: '2024-08-12',
+  dateTo: '2024-08-13',
+  location: mockedCreatedLocationDtoV1,
+  plannedCost: mockedPriceDtoV1,
+  expenses: [],
+);
+
+const mockedCreateTripEntity = CreateTripEntity(
+  transportType: 'Samolot',
+  dateFrom: '2024-08-12',
+  dateTo: '2024-08-13',
+  location: mockedCreatedLocationEntityV1,
+  plannedCost: mockedPriceEntityV1,
+  expenses: [],
+);
+
 const testToken = 'eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ';
 
 const mockedPlaceAddressEntityV1 = PlaceAddressEntity(
@@ -184,9 +251,21 @@ final mockedUpdateUserProfileDto = UpdateUserProfileDto(
 
 const mockedExpenseCategoriesEntities = ExpenseCategoriesEntity(
   categories: [
-    ExpenseCategoryEntity(id: '1-2-3', name: 'Food', translationKey: 'Expense.food'),
-    ExpenseCategoryEntity(id: '2-3-4', name: 'Transport', translationKey: 'Expense.transport'),
-    ExpenseCategoryEntity(id: '3-4-5', name: 'Accommodation', translationKey: 'Expense.accommodation'),
+    ExpenseCategoryEntity(
+      id: '1-2-3',
+      name: 'Food',
+      translationKey: 'Expense.food',
+    ),
+    ExpenseCategoryEntity(
+      id: '2-3-4',
+      name: 'Transport',
+      translationKey: 'Expense.transport',
+    ),
+    ExpenseCategoryEntity(
+      id: '3-4-5',
+      name: 'Accommodation',
+      translationKey: 'Expense.accommodation',
+    ),
   ],
 );
 

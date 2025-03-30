@@ -6,17 +6,20 @@ part of 'api_client.dart';
 // RetrofitGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
 
 class _ApiClient implements ApiClient {
   _ApiClient(
     this._dio, {
     this.baseUrl,
+    this.errorLogger,
   });
 
   final Dio _dio;
 
   String? baseUrl;
+
+  final ParseErrorLogger? errorLogger;
 
   @override
   Future<ExpenseCategoriesDto> getExpensesCategories() async {
@@ -24,7 +27,7 @@ class _ApiClient implements ApiClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<ExpenseCategoriesDto>(Options(
+    final _options = _setStreamType<ExpenseCategoriesDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -39,9 +42,16 @@ class _ApiClient implements ApiClient {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
-    final value = ExpenseCategoriesDto.fromJson(_result.data!);
-    return value;
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late ExpenseCategoriesDto _value;
+    try {
+      _value = ExpenseCategoriesDto.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
   }
 
   @override
@@ -50,7 +60,7 @@ class _ApiClient implements ApiClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<GetTripsDto>(Options(
+    final _options = _setStreamType<GetTripsDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -65,9 +75,16 @@ class _ApiClient implements ApiClient {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
-    final value = GetTripsDto.fromJson(_result.data!);
-    return value;
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late GetTripsDto _value;
+    try {
+      _value = GetTripsDto.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
   }
 
   @override
@@ -76,7 +93,7 @@ class _ApiClient implements ApiClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<TripDto>(Options(
+    final _options = _setStreamType<TripDto>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -91,9 +108,16 @@ class _ApiClient implements ApiClient {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
-    final value = TripDto.fromJson(_result.data!);
-    return value;
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late TripDto _value;
+    try {
+      _value = TripDto.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
   }
 
   @override
@@ -103,7 +127,7 @@ class _ApiClient implements ApiClient {
     queryParameters.addAll(dto.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
+    final _options = _setStreamType<String>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -118,9 +142,16 @@ class _ApiClient implements ApiClient {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
-    final value = _result.data!;
-    return value;
+        )));
+    final _result = await _dio.fetch<String>(_options);
+    late String _value;
+    try {
+      _value = _result.data!;
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
   }
 
   @override
@@ -130,7 +161,7 @@ class _ApiClient implements ApiClient {
     queryParameters.addAll(dto.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<String>(_setStreamType<String>(Options(
+    final _options = _setStreamType<String>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -145,9 +176,16 @@ class _ApiClient implements ApiClient {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
-    final value = _result.data!;
-    return value;
+        )));
+    final _result = await _dio.fetch<String>(_options);
+    late String _value;
+    try {
+      _value = _result.data!;
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
   }
 
   @override
@@ -156,7 +194,7 @@ class _ApiClient implements ApiClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = dto;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
+    final _options = _setStreamType<void>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -171,7 +209,8 @@ class _ApiClient implements ApiClient {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
+        )));
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -181,7 +220,7 @@ class _ApiClient implements ApiClient {
     queryParameters.addAll(dto.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio.fetch<Map<String, dynamic>>(_setStreamType<TripDtoResponse>(Options(
+    final _options = _setStreamType<TripDtoResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -196,9 +235,16 @@ class _ApiClient implements ApiClient {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
-    final value = TripDtoResponse.fromJson(_result.data!);
-    return value;
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late TripDtoResponse _value;
+    try {
+      _value = TripDtoResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
   }
 
   @override
@@ -234,7 +280,7 @@ class _ApiClient implements ApiClient {
         ),
       ));
     }
-    await _dio.fetch<void>(_setStreamType<void>(Options(
+    final _options = _setStreamType<void>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
@@ -250,7 +296,8 @@ class _ApiClient implements ApiClient {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
+        )));
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -262,7 +309,7 @@ class _ApiClient implements ApiClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = dto;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
+    final _options = _setStreamType<void>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
@@ -277,7 +324,8 @@ class _ApiClient implements ApiClient {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
+        )));
+    await _dio.fetch<void>(_options);
   }
 
   @override
@@ -286,7 +334,7 @@ class _ApiClient implements ApiClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    await _dio.fetch<void>(_setStreamType<void>(Options(
+    final _options = _setStreamType<void>(Options(
       method: 'DELETE',
       headers: _headers,
       extra: _extra,
@@ -301,7 +349,8 @@ class _ApiClient implements ApiClient {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
+        )));
+    await _dio.fetch<void>(_options);
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

@@ -18,21 +18,33 @@ void main() {
   setUp(() {
     mockGetExpenseCategoriesBloc = MockGetExpenseCategoriesBloc();
     mockCreateExpensesBloc = MockCreateExpensesBloc();
-    when(mockGetExpenseCategoriesBloc.state)
-        .thenAnswer((_) => const GetExpenseCategoriesState.loaded(mockedExpenseCategoriesEntities));
-    when(mockGetExpenseCategoriesBloc.stream)
-        .thenAnswer((_) => Stream.value(const GetExpenseCategoriesState.loaded(mockedExpenseCategoriesEntities)));
+    when(mockGetExpenseCategoriesBloc.state).thenAnswer(
+      (_) => const GetExpenseCategoriesState.loaded(
+        mockedExpenseCategoriesEntities,
+      ),
+    );
+    when(mockGetExpenseCategoriesBloc.stream).thenAnswer(
+      (_) => Stream.value(
+        const GetExpenseCategoriesState.loaded(
+          mockedExpenseCategoriesEntities,
+        ),
+      ),
+    );
     when(mockGetExpenseCategoriesBloc.close()).thenAnswer((_) async {});
 
     when(mockCreateExpensesBloc.state).thenAnswer((_) => const CreateExpensesState.initial());
     when(mockCreateExpensesBloc.stream).thenAnswer((_) => Stream.value(const CreateExpensesState.initial()));
     when(mockCreateExpensesBloc.close()).thenAnswer((_) async {});
 
-    initializeMockEnvironmentWithBloc<GetExpenseCategoriesBloc>(mockGetExpenseCategoriesBloc);
-    initializeMockEnvironmentWithBloc<CreateExpensesBloc>(mockCreateExpensesBloc);
+    initializeMockEnvironmentWithBloc<GetExpenseCategoriesBloc>(
+      mockGetExpenseCategoriesBloc,
+    );
+    initializeMockEnvironmentWithBloc<CreateExpensesBloc>(
+      mockCreateExpensesBloc,
+    );
   });
 
-  CreateExpensesPage buildPage() => const CreateExpensesPage(trip: mockedCreateTripEntity);
+  CreateExpensesPage buildPage() => CreateExpensesPage(trip: mockedTripEntity);
 
   runGoldenTest(
     'CreateExpensesPage - Initial',
@@ -43,8 +55,14 @@ void main() {
     'CreateExpensesPage - Categories list',
     whilePerforming: (tester) async {
       await tester.pumpAndSettle();
-      await tester.enterText(find.byKey(WidgetsKeys.addExpenseFormNameExpense), 'Hot-dog');
-      await tester.enterText(find.byKey(WidgetsKeys.addExpenseFormBudgetExpense), '10');
+      await tester.enterText(
+        find.byKey(WidgetsKeys.addExpenseFormNameExpense),
+        'Hot-dog',
+      );
+      await tester.enterText(
+        find.byKey(WidgetsKeys.addExpenseFormBudgetExpense),
+        '10',
+      );
       await tester.tap(find.byKey(WidgetsKeys.addExpenseFormCategoryExpense));
       await tester.pumpAndSettle();
       return;
@@ -56,8 +74,14 @@ void main() {
     'CreateExpensesPage - Add expense',
     whilePerforming: (tester) async {
       await tester.pumpAndSettle();
-      await tester.enterText(find.byKey(WidgetsKeys.addExpenseFormNameExpense), 'Hot-dog');
-      await tester.enterText(find.byKey(WidgetsKeys.addExpenseFormBudgetExpense), '10');
+      await tester.enterText(
+        find.byKey(WidgetsKeys.addExpenseFormNameExpense),
+        'Hot-dog',
+      );
+      await tester.enterText(
+        find.byKey(WidgetsKeys.addExpenseFormBudgetExpense),
+        '10',
+      );
       await tester.tap(find.byKey(WidgetsKeys.addExpenseFormCategoryExpense));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Food'));

@@ -12,7 +12,11 @@ class ThemeManager {
   static const robotoSerifFont = 'Roboto Serif';
   static const sailFont = 'Sail';
 
-  static List<BoxShadow>? innerShadow(BuildContext context, {Color? containerColor}) => [
+  static List<BoxShadow>? innerShadow(
+    BuildContext context, {
+    Color? containerColor,
+  }) =>
+      [
         BoxShadow(
           color: context.thc.onSurface,
           spreadRadius: 0.6,
@@ -268,7 +272,7 @@ class ThemeManager {
         borderRadius: BorderRadius.circular(AppDimensions.d40),
         boxShadow: [
           BoxShadow(
-            color: Colors.white.withOpacity(0.8),
+            color: Colors.white.withValues(alpha: .8),
             offset: const Offset(2, 2),
             blurRadius: AppDimensions.d10,
             spreadRadius: AppDimensions.d10,

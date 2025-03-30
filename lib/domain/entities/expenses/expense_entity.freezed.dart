@@ -19,8 +19,9 @@ mixin _$ExpenseEntity {
   String get name => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   PriceEntity get price => throw _privateConstructorUsedError;
-  String? get tripId => throw _privateConstructorUsedError;
   String get categoryId => throw _privateConstructorUsedError;
+
+  String? get tripId => throw _privateConstructorUsedError;
   ExpenseCategoryEntity? get category => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -36,8 +37,8 @@ abstract class $ExpenseEntityCopyWith<$Res> {
       {String name,
       String date,
       PriceEntity price,
-      String? tripId,
       String categoryId,
+      String? tripId,
       ExpenseCategoryEntity? category});
 
   $PriceEntityCopyWith<$Res> get price;
@@ -59,8 +60,8 @@ class _$ExpenseEntityCopyWithImpl<$Res, $Val extends ExpenseEntity> implements $
     Object? name = null,
     Object? date = null,
     Object? price = null,
-    Object? tripId = freezed,
     Object? categoryId = null,
+    Object? tripId = freezed,
     Object? category = freezed,
   }) {
     return _then(_value.copyWith(
@@ -76,14 +77,14 @@ class _$ExpenseEntityCopyWithImpl<$Res, $Val extends ExpenseEntity> implements $
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as PriceEntity,
-      tripId: freezed == tripId
-          ? _value.tripId
-          : tripId // ignore: cast_nullable_to_non_nullable
-              as String?,
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
               as String,
+      tripId: freezed == tripId
+          ? _value.tripId
+          : tripId // ignore: cast_nullable_to_non_nullable
+              as String?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -122,8 +123,8 @@ abstract class _$$ExpenseEntityImplCopyWith<$Res> implements $ExpenseEntityCopyW
       {String name,
       String date,
       PriceEntity price,
-      String? tripId,
       String categoryId,
+      String? tripId,
       ExpenseCategoryEntity? category});
 
   @override
@@ -144,8 +145,8 @@ class __$$ExpenseEntityImplCopyWithImpl<$Res> extends _$ExpenseEntityCopyWithImp
     Object? name = null,
     Object? date = null,
     Object? price = null,
-    Object? tripId = freezed,
     Object? categoryId = null,
+    Object? tripId = freezed,
     Object? category = freezed,
   }) {
     return _then(_$ExpenseEntityImpl(
@@ -161,14 +162,14 @@ class __$$ExpenseEntityImplCopyWithImpl<$Res> extends _$ExpenseEntityCopyWithImp
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as PriceEntity,
-      tripId: freezed == tripId
-          ? _value.tripId
-          : tripId // ignore: cast_nullable_to_non_nullable
-              as String?,
       categoryId: null == categoryId
           ? _value.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
               as String,
+      tripId: freezed == tripId
+          ? _value.tripId
+          : tripId // ignore: cast_nullable_to_non_nullable
+              as String?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -184,8 +185,8 @@ class _$ExpenseEntityImpl implements _ExpenseEntity {
       {required this.name,
       required this.date,
       required this.price,
-      this.tripId,
       required this.categoryId,
+      this.tripId,
       this.category});
 
   @override
@@ -195,15 +196,15 @@ class _$ExpenseEntityImpl implements _ExpenseEntity {
   @override
   final PriceEntity price;
   @override
-  final String? tripId;
-  @override
   final String categoryId;
+  @override
+  final String? tripId;
   @override
   final ExpenseCategoryEntity? category;
 
   @override
   String toString() {
-    return 'ExpenseEntity(name: $name, date: $date, price: $price, tripId: $tripId, categoryId: $categoryId, category: $category)';
+    return 'ExpenseEntity(name: $name, date: $date, price: $price, categoryId: $categoryId, tripId: $tripId, category: $category)';
   }
 
   @override
@@ -214,13 +215,13 @@ class _$ExpenseEntityImpl implements _ExpenseEntity {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.price, price) || other.price == price) &&
-            (identical(other.tripId, tripId) || other.tripId == tripId) &&
             (identical(other.categoryId, categoryId) || other.categoryId == categoryId) &&
+            (identical(other.tripId, tripId) || other.tripId == tripId) &&
             (identical(other.category, category) || other.category == category));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, date, price, tripId, categoryId, category);
+  int get hashCode => Object.hash(runtimeType, name, date, price, categoryId, tripId, category);
 
   @JsonKey(ignore: true)
   @override
@@ -234,8 +235,8 @@ abstract class _ExpenseEntity implements ExpenseEntity {
       {required final String name,
       required final String date,
       required final PriceEntity price,
-      final String? tripId,
       required final String categoryId,
+      final String? tripId,
       final ExpenseCategoryEntity? category}) = _$ExpenseEntityImpl;
 
   @override
@@ -245,9 +246,9 @@ abstract class _ExpenseEntity implements ExpenseEntity {
   @override
   PriceEntity get price;
   @override
-  String? get tripId;
-  @override
   String get categoryId;
+  @override
+  String? get tripId;
   @override
   ExpenseCategoryEntity? get category;
   @override
