@@ -214,13 +214,13 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<TripDtoResponse> createTrip(CreateTripDto dto) async {
+  Future<TripDto> createTrip(CreateTripDto dto) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     queryParameters.addAll(dto.toJson());
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<TripDtoResponse>(Options(
+    final _options = _setStreamType<TripDto>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -237,9 +237,9 @@ class _ApiClient implements ApiClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late TripDtoResponse _value;
+    late TripDto _value;
     try {
-      _value = TripDtoResponse.fromJson(_result.data!);
+      _value = TripDto.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

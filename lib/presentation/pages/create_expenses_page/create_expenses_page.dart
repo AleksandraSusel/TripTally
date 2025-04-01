@@ -174,18 +174,15 @@ class _BodyState extends State<_Body> {
             ),
           ),
           const SizedBox(height: AppDimensions.d30),
-          Align(
-            alignment: Alignment.centerRight,
-            child: DoubleFloatingActionButtons(
-              padding: const EdgeInsets.only(right: AppDimensions.d16),
-              trailingOnPressed: () => context.read<CreateExpensesBloc>()..add(CreateExpenseEvent(expenses: _expenses)),
-              leadingOnPressed: () => _showBottomSheet(context),
-              trailingActionText: context.tr.createExpensesPage_submitExpenses,
-              leadingActionText: context.tr.createExpensesPage_addExpense,
-              trailingActionIcon: AppPaths.doubleCheck,
-              leadingActionIcon: AppPaths.plus,
-            ).animate().scale(delay: 400.ms),
-          ),
+          DoubleFloatingActionButtons(
+            padding: const EdgeInsets.only(right: AppDimensions.d10),
+            trailingOnPressed: () => context.read<CreateExpensesBloc>()..add(CreateExpenseEvent(expenses: _expenses)),
+            leadingOnPressed: () => _showBottomSheet(context),
+            trailingActionText: context.tr.createExpensesPage_submitExpenses,
+            leadingActionText: context.tr.createExpensesPage_addExpense,
+            trailingActionIcon: AppPaths.doubleCheck,
+            leadingActionIcon: AppPaths.plus,
+          ).animate().scale(delay: 400.ms),
         ],
       ),
     );
