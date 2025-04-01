@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:trip_tally/data/data_source/trips_data_source_impl.dart';
-import 'package:trip_tally/data/dto/trips/trip_dto_response.dart';
 import 'package:trip_tally/domain/data_source/trips_data_source.dart';
 import 'package:trip_tally/domain/utils/exception.dart';
 import 'package:trip_tally/domain/utils/success.dart';
@@ -20,7 +19,7 @@ void main() {
   });
 
   test('CreateTrip to creating a trip, success', () async {
-    when(mockApiClient.createTrip(any)).thenAnswer((_) async => TripDtoResponse(trip: mockedTripDtoV1));
+    when(mockApiClient.createTrip(any)).thenAnswer((_) async => mockedTripDtoV1);
 
     final result = await tripsDataSource.createTrip(mockedCreateTripDto);
     expect(result, mockedTripDtoV1);

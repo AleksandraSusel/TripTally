@@ -16,12 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CreateTripEntity {
-  String get cityName => throw _privateConstructorUsedError;
   String get transportType => throw _privateConstructorUsedError;
-  String get countryCode => throw _privateConstructorUsedError;
+  CreateLocationEntity get location => throw _privateConstructorUsedError;
   String get dateFrom => throw _privateConstructorUsedError;
   String get dateTo => throw _privateConstructorUsedError;
   PriceEntity get plannedCost => throw _privateConstructorUsedError;
+  List<ExpenseEntity> get expenses => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CreateTripEntityCopyWith<CreateTripEntity> get copyWith => throw _privateConstructorUsedError;
@@ -33,13 +33,14 @@ abstract class $CreateTripEntityCopyWith<$Res> {
       _$CreateTripEntityCopyWithImpl<$Res, CreateTripEntity>;
   @useResult
   $Res call(
-      {String cityName,
-      String transportType,
-      String countryCode,
+      {String transportType,
+      CreateLocationEntity location,
       String dateFrom,
       String dateTo,
-      PriceEntity plannedCost});
+      PriceEntity plannedCost,
+      List<ExpenseEntity> expenses});
 
+  $CreateLocationEntityCopyWith<$Res> get location;
   $PriceEntityCopyWith<$Res> get plannedCost;
 }
 
@@ -55,26 +56,22 @@ class _$CreateTripEntityCopyWithImpl<$Res, $Val extends CreateTripEntity> implem
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cityName = null,
     Object? transportType = null,
-    Object? countryCode = null,
+    Object? location = null,
     Object? dateFrom = null,
     Object? dateTo = null,
     Object? plannedCost = null,
+    Object? expenses = null,
   }) {
     return _then(_value.copyWith(
-      cityName: null == cityName
-          ? _value.cityName
-          : cityName // ignore: cast_nullable_to_non_nullable
-              as String,
       transportType: null == transportType
           ? _value.transportType
           : transportType // ignore: cast_nullable_to_non_nullable
               as String,
-      countryCode: null == countryCode
-          ? _value.countryCode
-          : countryCode // ignore: cast_nullable_to_non_nullable
-              as String,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as CreateLocationEntity,
       dateFrom: null == dateFrom
           ? _value.dateFrom
           : dateFrom // ignore: cast_nullable_to_non_nullable
@@ -87,7 +84,19 @@ class _$CreateTripEntityCopyWithImpl<$Res, $Val extends CreateTripEntity> implem
           ? _value.plannedCost
           : plannedCost // ignore: cast_nullable_to_non_nullable
               as PriceEntity,
+      expenses: null == expenses
+          ? _value.expenses
+          : expenses // ignore: cast_nullable_to_non_nullable
+              as List<ExpenseEntity>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreateLocationEntityCopyWith<$Res> get location {
+    return $CreateLocationEntityCopyWith<$Res>(_value.location, (value) {
+      return _then(_value.copyWith(location: value) as $Val);
+    });
   }
 
   @override
@@ -106,13 +115,15 @@ abstract class _$$CreateTripEntityImplCopyWith<$Res> implements $CreateTripEntit
   @override
   @useResult
   $Res call(
-      {String cityName,
-      String transportType,
-      String countryCode,
+      {String transportType,
+      CreateLocationEntity location,
       String dateFrom,
       String dateTo,
-      PriceEntity plannedCost});
+      PriceEntity plannedCost,
+      List<ExpenseEntity> expenses});
 
+  @override
+  $CreateLocationEntityCopyWith<$Res> get location;
   @override
   $PriceEntityCopyWith<$Res> get plannedCost;
 }
@@ -126,26 +137,22 @@ class __$$CreateTripEntityImplCopyWithImpl<$Res> extends _$CreateTripEntityCopyW
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cityName = null,
     Object? transportType = null,
-    Object? countryCode = null,
+    Object? location = null,
     Object? dateFrom = null,
     Object? dateTo = null,
     Object? plannedCost = null,
+    Object? expenses = null,
   }) {
     return _then(_$CreateTripEntityImpl(
-      cityName: null == cityName
-          ? _value.cityName
-          : cityName // ignore: cast_nullable_to_non_nullable
-              as String,
       transportType: null == transportType
           ? _value.transportType
           : transportType // ignore: cast_nullable_to_non_nullable
               as String,
-      countryCode: null == countryCode
-          ? _value.countryCode
-          : countryCode // ignore: cast_nullable_to_non_nullable
-              as String,
+      location: null == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as CreateLocationEntity,
       dateFrom: null == dateFrom
           ? _value.dateFrom
           : dateFrom // ignore: cast_nullable_to_non_nullable
@@ -158,6 +165,10 @@ class __$$CreateTripEntityImplCopyWithImpl<$Res> extends _$CreateTripEntityCopyW
           ? _value.plannedCost
           : plannedCost // ignore: cast_nullable_to_non_nullable
               as PriceEntity,
+      expenses: null == expenses
+          ? _value._expenses
+          : expenses // ignore: cast_nullable_to_non_nullable
+              as List<ExpenseEntity>,
     ));
   }
 }
@@ -166,29 +177,35 @@ class __$$CreateTripEntityImplCopyWithImpl<$Res> extends _$CreateTripEntityCopyW
 
 class _$CreateTripEntityImpl implements _CreateTripEntity {
   const _$CreateTripEntityImpl(
-      {required this.cityName,
-      required this.transportType,
-      required this.countryCode,
+      {required this.transportType,
+      required this.location,
       required this.dateFrom,
       required this.dateTo,
-      required this.plannedCost});
+      required this.plannedCost,
+      required final List<ExpenseEntity> expenses})
+      : _expenses = expenses;
 
-  @override
-  final String cityName;
   @override
   final String transportType;
   @override
-  final String countryCode;
+  final CreateLocationEntity location;
   @override
   final String dateFrom;
   @override
   final String dateTo;
   @override
   final PriceEntity plannedCost;
+  final List<ExpenseEntity> _expenses;
+  @override
+  List<ExpenseEntity> get expenses {
+    if (_expenses is EqualUnmodifiableListView) return _expenses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_expenses);
+  }
 
   @override
   String toString() {
-    return 'CreateTripEntity(cityName: $cityName, transportType: $transportType, countryCode: $countryCode, dateFrom: $dateFrom, dateTo: $dateTo, plannedCost: $plannedCost)';
+    return 'CreateTripEntity(transportType: $transportType, location: $location, dateFrom: $dateFrom, dateTo: $dateTo, plannedCost: $plannedCost, expenses: $expenses)';
   }
 
   @override
@@ -196,16 +213,17 @@ class _$CreateTripEntityImpl implements _CreateTripEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateTripEntityImpl &&
-            (identical(other.cityName, cityName) || other.cityName == cityName) &&
             (identical(other.transportType, transportType) || other.transportType == transportType) &&
-            (identical(other.countryCode, countryCode) || other.countryCode == countryCode) &&
+            (identical(other.location, location) || other.location == location) &&
             (identical(other.dateFrom, dateFrom) || other.dateFrom == dateFrom) &&
             (identical(other.dateTo, dateTo) || other.dateTo == dateTo) &&
-            (identical(other.plannedCost, plannedCost) || other.plannedCost == plannedCost));
+            (identical(other.plannedCost, plannedCost) || other.plannedCost == plannedCost) &&
+            const DeepCollectionEquality().equals(other._expenses, _expenses));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, cityName, transportType, countryCode, dateFrom, dateTo, plannedCost);
+  int get hashCode => Object.hash(runtimeType, transportType, location, dateFrom, dateTo, plannedCost,
+      const DeepCollectionEquality().hash(_expenses));
 
   @JsonKey(ignore: true)
   @override
@@ -216,25 +234,25 @@ class _$CreateTripEntityImpl implements _CreateTripEntity {
 
 abstract class _CreateTripEntity implements CreateTripEntity {
   const factory _CreateTripEntity(
-      {required final String cityName,
-      required final String transportType,
-      required final String countryCode,
+      {required final String transportType,
+      required final CreateLocationEntity location,
       required final String dateFrom,
       required final String dateTo,
-      required final PriceEntity plannedCost}) = _$CreateTripEntityImpl;
+      required final PriceEntity plannedCost,
+      required final List<ExpenseEntity> expenses}) = _$CreateTripEntityImpl;
 
-  @override
-  String get cityName;
   @override
   String get transportType;
   @override
-  String get countryCode;
+  CreateLocationEntity get location;
   @override
   String get dateFrom;
   @override
   String get dateTo;
   @override
   PriceEntity get plannedCost;
+  @override
+  List<ExpenseEntity> get expenses;
   @override
   @JsonKey(ignore: true)
   _$$CreateTripEntityImplCopyWith<_$CreateTripEntityImpl> get copyWith => throw _privateConstructorUsedError;

@@ -7,19 +7,19 @@ part of 'create_trip_dto.dart';
 // **************************************************************************
 
 _$CreateAddTripDtoImpl _$$CreateAddTripDtoImplFromJson(Map<String, dynamic> json) => _$CreateAddTripDtoImpl(
-      cityName: json['city_name'] as String,
       transportType: json['transport_type'] as String,
-      countryCode: json['country_code'] as String,
+      location: CreateLocationDto.fromJson(json['location'] as Map<String, dynamic>),
       dateFrom: json['date_from'] as String,
       dateTo: json['date_to'] as String,
       plannedCost: PriceDto.fromJson(json['planned_cost'] as Map<String, dynamic>),
+      expenses: (json['expenses'] as List<dynamic>).map((e) => ExpenseDto.fromJson(e as Map<String, dynamic>)).toList(),
     );
 
 Map<String, dynamic> _$$CreateAddTripDtoImplToJson(_$CreateAddTripDtoImpl instance) => <String, dynamic>{
-      'city_name': instance.cityName,
       'transport_type': instance.transportType,
-      'country_code': instance.countryCode,
+      'location': instance.location.toJson(),
       'date_from': instance.dateFrom,
       'date_to': instance.dateTo,
       'planned_cost': instance.plannedCost.toJson(),
+      'expenses': instance.expenses.map((e) => e.toJson()).toList(),
     };

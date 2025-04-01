@@ -84,7 +84,7 @@ class _BodyState extends State<_Body> {
 
   void _showBottomSheet(BuildContext context) {
     showModalBottomSheet<void>(
-      barrierColor: context.thc.shadow.withOpacity(0.1),
+      barrierColor: context.thc.shadow.withValues(alpha: .1),
       backgroundColor: context.thc.surfaceContainerHighest,
       context: context,
       isScrollControlled: true,
@@ -110,7 +110,10 @@ class _BodyState extends State<_Body> {
   }
 
   double get totalExpensesAmount {
-    return _expenses.fold(0, (sum, item) => sum + double.parse(item.price.amount));
+    return _expenses.fold(
+      0,
+      (sum, item) => sum + double.parse(item.price.amount),
+    );
   }
 
   @override
@@ -171,18 +174,15 @@ class _BodyState extends State<_Body> {
             ),
           ),
           const SizedBox(height: AppDimensions.d30),
-          Align(
-            alignment: Alignment.centerRight,
-            child: DoubleFloatingActionButtons(
-              padding: const EdgeInsets.only(right: AppDimensions.d16),
-              trailingOnPressed: () => context.read<CreateExpensesBloc>()..add(CreateExpenseEvent(expenses: _expenses)),
-              leadingOnPressed: () => _showBottomSheet(context),
-              trailingActionText: context.tr.createExpensesPage_createTrip,
-              leadingActionText: context.tr.createExpensesPage_addExpenses,
-              trailingActionIcon: AppPaths.doubleCheck,
-              leadingActionIcon: AppPaths.plus,
-            ).animate().scale(delay: 400.ms),
-          ),
+          DoubleFloatingActionButtons(
+            padding: const EdgeInsets.only(right: AppDimensions.d10),
+            trailingOnPressed: () => context.read<CreateExpensesBloc>()..add(CreateExpenseEvent(expenses: _expenses)),
+            leadingOnPressed: () => _showBottomSheet(context),
+            trailingActionText: context.tr.createExpensesPage_submitExpenses,
+            leadingActionText: context.tr.createExpensesPage_addExpense,
+            trailingActionIcon: AppPaths.doubleCheck,
+            leadingActionIcon: AppPaths.plus,
+          ).animate().scale(delay: 400.ms),
         ],
       ),
     );

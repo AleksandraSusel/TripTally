@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trip_tally/domain/entities/location/create_location_entity.dart';
 import 'package:trip_tally/domain/entities/price/price_entity.dart';
 import 'package:trip_tally/domain/entities/trips/create_trip_entity.dart';
 import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
@@ -22,6 +23,7 @@ import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/proceed_floating_action_button.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/calendar/range_calendar.dart';
+import 'package:trip_tally/presentation/widgets/m3_widgets/custom_alert_dialog.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/error_border_container.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_suggestions_cubit.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/navigation_app_bar.dart';
@@ -128,7 +130,7 @@ class _BodyState extends State<_Body> {
               context,
               error.errorText(context),
             ),
-            success: (entity) => context.router.push(CreateExpensesRoute(trip: entity)),
+            success: _onSuccess,
           ),
           child: BlocSelector<CreateTripBloc, CreateTripState, bool>(
             selector: (state) => state.maybeWhen(orElse: () => false, loading: () => true),
@@ -136,8 +138,8 @@ class _BodyState extends State<_Body> {
               floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
               floatingActionButton: ProceedFloatingActionButton(
                 isLoading: state,
-                text: isUpdateMode ? context.tr.createTripPage_updateTrip : null,
-                icon: isUpdateMode ? AppPaths.doubleCheck : null,
+                text: isUpdateMode ? context.tr.createTripPage_updateTrip : 'Create trip',
+                icon: AppPaths.doubleCheck,
                 onPressed: _onProceedPressed,
               ).animate().scale(delay: 400.ms),
               appBar: NavigationAppBar(
@@ -206,20 +208,40 @@ class _BodyState extends State<_Body> {
     );
   }
 
+  void _onSuccess(TripEntity entity) {
+    showDialog<void>(
+      context: context,
+      builder: (ctx) => CustomAlertDialog(
+        title: 'Trip to ${entity.location.cityName} successfully created!',
+        info: 'Would you like to add expenses now?',
+        actionButtonText: 'Add expenses',
+        abortButtonText: 'Maybe later',
+        isWarningAction: false,
+        onConfirmPressed: () => context.router.replace(CreateExpensesRoute(trip: entity)),
+        onAbortPressed: () => context.router.popUntil(
+          (route) => route.settings.name == HomeRoute.name,
+        ),
+      ),
+    );
+  }
+
   void _onProceedPressed() {
     _formKey.currentState?.validate();
 
     if (_startDate != null && _endDate != null) {
       final entity = CreateTripEntity(
-        cityName: _cityNameController.text,
         transportType: _transportType.name,
-        countryCode: _countryCodeController.text,
         dateFrom: dateFormat.format(_startDate!),
         dateTo: dateFormat.format(_endDate!),
         plannedCost: PriceEntity(
           currency: MoneyFormat.extractCurrencyCode(_currencyController.text),
           amount: _budgetController.text,
         ),
+        location: CreateLocationEntity(
+          countryCode: _countryCodeController.text,
+          cityName: _cityNameController.text,
+        ),
+        expenses: [],
       );
       if (_trip != null) {
         return context.read<UpdateTripBloc>().add(UpdateTripEvent(_trip.id, entity));

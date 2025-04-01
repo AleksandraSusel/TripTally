@@ -53,7 +53,9 @@ class DoubleFloatingActionButtons extends StatelessWidget {
                 const SizedBox(width: AppDimensions.d8),
                 Text(
                   leadingActionText,
-                  style: context.tht.labelSmall?.copyWith(color: context.thc.onTertiaryContainer),
+                  style: context.tht.labelSmall?.copyWith(
+                    color: context.thc.onTertiaryContainer,
+                  ),
                 ),
               ],
             ),

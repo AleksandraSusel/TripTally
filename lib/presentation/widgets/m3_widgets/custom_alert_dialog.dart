@@ -10,6 +10,7 @@ class CustomAlertDialog extends StatelessWidget {
     required this.actionButtonText,
     required this.abortButtonText,
     required this.onConfirmPressed,
+    this.onAbortPressed,
     this.isWarningAction = true,
     super.key,
   });
@@ -20,6 +21,7 @@ class CustomAlertDialog extends StatelessWidget {
   final String abortButtonText;
   final bool isWarningAction;
   final VoidCallback onConfirmPressed;
+  final VoidCallback? onAbortPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +45,7 @@ class CustomAlertDialog extends StatelessWidget {
           ),
           onPressed: () {
             context.router.maybePop();
+            onAbortPressed?.call();
           },
         ),
         TextButton(

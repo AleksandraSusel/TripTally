@@ -32,13 +32,13 @@ class AccountFormContainer extends StatelessWidget {
           BoxShadow(
             offset: const Offset(0, 1),
             blurRadius: AppDimensions.d2,
-            color: context.thc.shadow.withOpacity(0.3),
+            color: context.thc.shadow.withValues(alpha: .3),
           ),
           BoxShadow(
             offset: const Offset(0, 2),
             blurRadius: AppDimensions.d6,
             spreadRadius: AppDimensions.d2,
-            color: context.thc.shadow.withOpacity(0.15),
+            color: context.thc.shadow.withValues(alpha: .15),
           ),
         ],
       ),

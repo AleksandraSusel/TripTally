@@ -8,7 +8,6 @@ import 'package:trip_tally/data/dto/expenses/expense_categories_dto.dart';
 import 'package:trip_tally/data/dto/trips/create_trip_dto.dart';
 import 'package:trip_tally/data/dto/trips/get_trips_dto.dart';
 import 'package:trip_tally/data/dto/trips/trip_dto.dart';
-import 'package:trip_tally/data/dto/trips/trip_dto_response.dart';
 import 'package:trip_tally/data/dto/user/create_account_dto.dart';
 import 'package:trip_tally/data/dto/user/login_dto.dart';
 
@@ -41,7 +40,7 @@ abstract class ApiClient {
   Future<void> createExpenses(@Body() CreateExpensesDto dto);
 
   @POST('trips')
-  Future<TripDtoResponse> createTrip(@Queries() CreateTripDto dto);
+  Future<TripDto> createTrip(@Queries() CreateTripDto dto);
 
   ///Put
   @PUT('users/update_profile')

@@ -12,8 +12,8 @@ class ExpenseEntity with _$ExpenseEntity {
     required String name,
     required String date,
     required PriceEntity price,
-    required String tripId,
     required String categoryId,
+    String? tripId,
     ExpenseCategoryEntity? category,
   }) = _ExpenseEntity;
 

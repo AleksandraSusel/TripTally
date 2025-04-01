@@ -10,8 +10,8 @@ _$ExpenseDtoImpl _$$ExpenseDtoImplFromJson(Map<String, dynamic> json) => _$Expen
       name: json['name'] as String,
       date: json['date'] as String,
       price: PriceDto.fromJson(json['price'] as Map<String, dynamic>),
-      tripId: json['trip_id'] as String,
       categoryId: json['category_id'] as String,
+      tripId: json['trip_id'] as String?,
       category: json['category'] == null ? null : ExpenseCategoryDto.fromJson(json['category'] as Map<String, dynamic>),
     );
 
@@ -19,7 +19,7 @@ Map<String, dynamic> _$$ExpenseDtoImplToJson(_$ExpenseDtoImpl instance) => <Stri
       'name': instance.name,
       'date': instance.date,
       'price': instance.price.toJson(),
-      'trip_id': instance.tripId,
       'category_id': instance.categoryId,
+      'trip_id': instance.tripId,
       'category': instance.category?.toJson(),
     };

@@ -20,12 +20,12 @@ class AddExpenseForm extends StatefulWidget {
   const AddExpenseForm({
     required this.currency,
     required this.onAddExpense,
-    required this.tripId,
     super.key,
+    this.tripId,
   });
 
   final String currency;
-  final String tripId;
+  final String? tripId;
   final ValueSetter<ExpenseEntity> onAddExpense;
 
   @override
@@ -137,7 +137,7 @@ class _AddExpenseFormState extends State<AddExpenseForm> {
                   }
                 },
                 trailingActionText: context.tr.createExpensesPage_finish,
-                leadingActionText: context.tr.createExpensesPage_addExpenses,
+                leadingActionText: context.tr.createExpensesPage_addExpense,
                 trailingActionIcon: AppPaths.doubleCheck,
                 leadingActionIcon: AppPaths.plus,
               ).animate().slideX(begin: 1, delay: 100.ms),

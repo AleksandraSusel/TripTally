@@ -49,8 +49,6 @@ extension ErrorsExtension on Errors {
         return context.tr.errors_noImageSelected;
       case Errors.somethingWrongPermissions:
         return context.tr.errors_somethingWrongPermissions;
-      default:
-        return context.tr.errors_operationNotAllowed;
     }
   }
 }

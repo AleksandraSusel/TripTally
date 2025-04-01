@@ -17,8 +17,7 @@ class TripsDataSourceImpl implements TripsDataSource {
   @override
   Future<TripDto> createTrip(CreateTripDto dto) async {
     try {
-      final result = await client.createTrip(dto);
-      return result.trip;
+      return await client.createTrip(dto);
     } catch (e, stack) {
       debugPrint('Failed to create Trip.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.unknownError);
@@ -63,7 +62,9 @@ class TripsDataSourceImpl implements TripsDataSource {
       await client.updateTrip(id, dto);
       return const Success();
     } catch (e, stack) {
-      debugPrint('Could not update trip with id: $id.\nReason: $e\nStack: $stack');
+      debugPrint(
+        'Could not update trip with id: $id.\nReason: $e\nStack: $stack',
+      );
       throw ApiException(Errors.unknownError);
     }
   }
