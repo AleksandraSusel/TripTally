@@ -6,7 +6,7 @@ part of 'expense_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ExpenseDtoImpl _$$ExpenseDtoImplFromJson(Map<String, dynamic> json) => _$ExpenseDtoImpl(
+_ExpenseDto _$ExpenseDtoFromJson(Map<String, dynamic> json) => _ExpenseDto(
       name: json['name'] as String,
       date: json['date'] as String,
       price: PriceDto.fromJson(json['price'] as Map<String, dynamic>),
@@ -15,7 +15,7 @@ _$ExpenseDtoImpl _$$ExpenseDtoImplFromJson(Map<String, dynamic> json) => _$Expen
       category: json['category'] == null ? null : ExpenseCategoryDto.fromJson(json['category'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$ExpenseDtoImplToJson(_$ExpenseDtoImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$ExpenseDtoToJson(_ExpenseDto instance) => <String, dynamic>{
       'name': instance.name,
       'date': instance.date,
       'price': instance.price.toJson(),

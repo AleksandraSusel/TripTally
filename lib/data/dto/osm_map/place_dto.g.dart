@@ -6,7 +6,7 @@ part of 'place_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PlaceDtoImpl _$$PlaceDtoImplFromJson(Map<String, dynamic> json) => _$PlaceDtoImpl(
+_PlaceDto _$PlaceDtoFromJson(Map<String, dynamic> json) => _PlaceDto(
       name: json['name'] as String,
       displayName: json['display_name'] as String,
       category: json['category'] as String,
@@ -16,7 +16,7 @@ _$PlaceDtoImpl _$$PlaceDtoImplFromJson(Map<String, dynamic> json) => _$PlaceDtoI
           json['extratags'] == null ? null : PlaceExtraTagsDto.fromJson(json['extratags'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$PlaceDtoImplToJson(_$PlaceDtoImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$PlaceDtoToJson(_PlaceDto instance) => <String, dynamic>{
       'name': instance.name,
       'display_name': instance.displayName,
       'category': instance.category,

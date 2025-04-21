@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/authentication_page.dart';
-import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/primary_elevated_button.dart';
@@ -18,7 +18,7 @@ void main() {
   });
 
   setUp(() {
-    when(mockAuthenticationBloc.state).thenAnswer((_) => const AuthenticationState.initial());
+    when(mockAuthenticationBloc.state).thenAnswer((_) => const LoadedState<void>(data: null));
     when(mockAuthenticationBloc.close()).thenAnswer((_) async {});
   });
 
@@ -26,7 +26,7 @@ void main() {
     'AuthenticationPage-initial',
     builder: () {
       when(mockAuthenticationBloc.stream).thenAnswer(
-        (_) => Stream.value(const AuthenticationState.initial()),
+        (_) => Stream.value(const LoadedState<void>(data: null)),
       );
       return AuthenticationPage(bloc: mockAuthenticationBloc);
     },
@@ -40,7 +40,7 @@ void main() {
     },
     builder: () {
       when(mockAuthenticationBloc.stream).thenAnswer(
-        (_) => Stream.value(const AuthenticationState.initial()),
+        (_) => Stream.value(const LoadedState<void>(data: null)),
       );
       return AuthenticationPage(bloc: mockAuthenticationBloc);
     },
@@ -50,7 +50,7 @@ void main() {
     'AuthenticationPage-failure',
     builder: () {
       when(mockAuthenticationBloc.stream).thenAnswer(
-        (_) => Stream.value(const AuthenticationState.failure(Errors.somethingWentWrong)),
+        (_) => Stream.value(const FailureState<void>(Errors.somethingWentWrong)),
       );
       return AuthenticationPage(bloc: mockAuthenticationBloc);
     },
@@ -64,7 +64,7 @@ void main() {
     },
     builder: () {
       when(mockAuthenticationBloc.stream).thenAnswer(
-        (_) => Stream.value(const AuthenticationState.failure(Errors.somethingWentWrong)),
+        (_) => Stream.value(const FailureState<void>(Errors.somethingWentWrong)),
       );
       return AuthenticationPage(bloc: mockAuthenticationBloc);
     },
@@ -78,7 +78,7 @@ void main() {
     },
     builder: () {
       when(mockAuthenticationBloc.stream).thenAnswer(
-        (_) => Stream.value(const AuthenticationState.initial()),
+        (_) => Stream.value(const LoadedState<void>(data: null)),
       );
       return AuthenticationPage(bloc: mockAuthenticationBloc);
     },
@@ -94,7 +94,7 @@ void main() {
     },
     builder: () {
       when(mockAuthenticationBloc.stream).thenAnswer(
-        (_) => Stream.value(const AuthenticationState.initial()),
+        (_) => Stream.value(const LoadedState<void>(data: null)),
       );
       return AuthenticationPage(bloc: mockAuthenticationBloc);
     },
@@ -112,7 +112,7 @@ void main() {
     },
     builder: () {
       when(mockAuthenticationBloc.stream).thenAnswer(
-        (_) => Stream.value(const AuthenticationState.initial()),
+        (_) => Stream.value(const LoadedState<void>(data: null)),
       );
       return AuthenticationPage(
         bloc: mockAuthenticationBloc,
@@ -134,7 +134,7 @@ void main() {
     },
     builder: () {
       when(mockAuthenticationBloc.stream).thenAnswer(
-        (_) => Stream.value(const AuthenticationState.initial()),
+        (_) => Stream.value(const LoadedState<void>(data: null)),
       );
       return AuthenticationPage(
         bloc: mockAuthenticationBloc,

@@ -1,12 +1,14 @@
-part of 'permissions_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 
-@freezed
-class PermissionsState with _$PermissionsState {
-  const factory PermissionsState.loaded(PermissionStatus status) = _Loaded;
+sealed class PermissionsState extends BasicState<PermissionStatus> with EquatableMixin {
+  const PermissionsState();
 
-  const factory PermissionsState.loading() = _Loading;
+  @override
+  List<Object?> get props => [];
+}
 
-  const factory PermissionsState.error(Errors error) = _Error;
-
-  const factory PermissionsState.permanentlyDenied() = _PermanentlyDenied;
+class PermanentlyDenied extends PermissionsState {
+  const PermanentlyDenied();
 }

@@ -42,7 +42,6 @@ class DropdownSearchButtonState<T> extends State<DropdownSearchButton<T>> {
   @override
   Widget build(BuildContext context) {
     return DropdownSearch<T>(
-      key: GlobalKey(),
       itemAsString: widget.itemAsString,
       items: widget.items,
       popupProps: PopupProps.dialog(

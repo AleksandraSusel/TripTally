@@ -1,6 +1,6 @@
 part of 'create_trip_bloc.dart';
 
-abstract class CreateTripEvent extends Equatable {
+sealed class CreateTripEvent extends Equatable {
   const CreateTripEvent();
 
   @override

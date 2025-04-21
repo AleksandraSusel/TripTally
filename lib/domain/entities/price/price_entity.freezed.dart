@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,84 +10,68 @@ part of 'price_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PriceEntity {
-  String get currency => throw _privateConstructorUsedError;
-  String get amount => throw _privateConstructorUsedError;
+  String get currency;
+  String get amount;
 
-  @JsonKey(ignore: true)
-  $PriceEntityCopyWith<PriceEntity> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PriceEntityCopyWith<$Res> {
-  factory $PriceEntityCopyWith(PriceEntity value, $Res Function(PriceEntity) then) =
-      _$PriceEntityCopyWithImpl<$Res, PriceEntity>;
-  @useResult
-  $Res call({String currency, String amount});
-}
-
-/// @nodoc
-class _$PriceEntityCopyWithImpl<$Res, $Val extends PriceEntity> implements $PriceEntityCopyWith<$Res> {
-  _$PriceEntityCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of PriceEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $PriceEntityCopyWith<PriceEntity> get copyWith =>
+      _$PriceEntityCopyWithImpl<PriceEntity>(this as PriceEntity, _$identity);
+
   @override
-  $Res call({
-    Object? currency = null,
-    Object? amount = null,
-  }) {
-    return _then(_value.copyWith(
-      currency: null == currency
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PriceEntity &&
+            (identical(other.currency, currency) || other.currency == currency) &&
+            (identical(other.amount, amount) || other.amount == amount));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, currency, amount);
+
+  @override
+  String toString() {
+    return 'PriceEntity(currency: $currency, amount: $amount)';
   }
 }
 
 /// @nodoc
-abstract class _$$PriceEntityImplCopyWith<$Res> implements $PriceEntityCopyWith<$Res> {
-  factory _$$PriceEntityImplCopyWith(_$PriceEntityImpl value, $Res Function(_$PriceEntityImpl) then) =
-      __$$PriceEntityImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PriceEntityCopyWith<$Res> {
+  factory $PriceEntityCopyWith(PriceEntity value, $Res Function(PriceEntity) _then) = _$PriceEntityCopyWithImpl;
   @useResult
   $Res call({String currency, String amount});
 }
 
 /// @nodoc
-class __$$PriceEntityImplCopyWithImpl<$Res> extends _$PriceEntityCopyWithImpl<$Res, _$PriceEntityImpl>
-    implements _$$PriceEntityImplCopyWith<$Res> {
-  __$$PriceEntityImplCopyWithImpl(_$PriceEntityImpl _value, $Res Function(_$PriceEntityImpl) _then)
-      : super(_value, _then);
+class _$PriceEntityCopyWithImpl<$Res> implements $PriceEntityCopyWith<$Res> {
+  _$PriceEntityCopyWithImpl(this._self, this._then);
 
+  final PriceEntity _self;
+  final $Res Function(PriceEntity) _then;
+
+  /// Create a copy of PriceEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? currency = null,
     Object? amount = null,
   }) {
-    return _then(_$PriceEntityImpl(
+    return _then(_self.copyWith(
       currency: null == currency
-          ? _value.currency
+          ? _self.currency
           : currency // ignore: cast_nullable_to_non_nullable
               as String,
       amount: null == amount
-          ? _value.amount
+          ? _self.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -95,24 +80,26 @@ class __$$PriceEntityImplCopyWithImpl<$Res> extends _$PriceEntityCopyWithImpl<$R
 
 /// @nodoc
 
-class _$PriceEntityImpl implements _PriceEntity {
-  const _$PriceEntityImpl({required this.currency, required this.amount});
+class _PriceEntity implements PriceEntity {
+  const _PriceEntity({required this.currency, required this.amount});
 
   @override
   final String currency;
   @override
   final String amount;
 
+  /// Create a copy of PriceEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PriceEntity(currency: $currency, amount: $amount)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PriceEntityCopyWith<_PriceEntity> get copyWith => __$PriceEntityCopyWithImpl<_PriceEntity>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PriceEntityImpl &&
+            other is _PriceEntity &&
             (identical(other.currency, currency) || other.currency == currency) &&
             (identical(other.amount, amount) || other.amount == amount));
   }
@@ -120,21 +107,46 @@ class _$PriceEntityImpl implements _PriceEntity {
   @override
   int get hashCode => Object.hash(runtimeType, currency, amount);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'PriceEntity(currency: $currency, amount: $amount)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$PriceEntityCopyWith<$Res> implements $PriceEntityCopyWith<$Res> {
+  factory _$PriceEntityCopyWith(_PriceEntity value, $Res Function(_PriceEntity) _then) = __$PriceEntityCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String currency, String amount});
+}
+
+/// @nodoc
+class __$PriceEntityCopyWithImpl<$Res> implements _$PriceEntityCopyWith<$Res> {
+  __$PriceEntityCopyWithImpl(this._self, this._then);
+
+  final _PriceEntity _self;
+  final $Res Function(_PriceEntity) _then;
+
+  /// Create a copy of PriceEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$PriceEntityImplCopyWith<_$PriceEntityImpl> get copyWith =>
-      __$$PriceEntityImplCopyWithImpl<_$PriceEntityImpl>(this, _$identity);
+  $Res call({
+    Object? currency = null,
+    Object? amount = null,
+  }) {
+    return _then(_PriceEntity(
+      currency: null == currency
+          ? _self.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _self.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-abstract class _PriceEntity implements PriceEntity {
-  const factory _PriceEntity({required final String currency, required final String amount}) = _$PriceEntityImpl;
-
-  @override
-  String get currency;
-  @override
-  String get amount;
-  @override
-  @JsonKey(ignore: true)
-  _$$PriceEntityImplCopyWith<_$PriceEntityImpl> get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

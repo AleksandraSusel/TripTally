@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/authentication_page.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
@@ -24,11 +25,11 @@ part 'app_router.gr.dart';
 @AutoRouterConfig(
   replaceInRouteName: 'Page,Route',
 )
-class AppRouter extends _$AppRouter {
+class AppRouter extends RootStackRouter {
   @override
-  RouteType get defaultRouteType => const RouteType.custom(
+  RouteType get defaultRouteType => RouteType.custom(
         transitionsBuilder: TransitionsBuilders.fadeIn,
-        durationInMilliseconds: 400,
+        duration: 400.ms,
       );
 
   @override

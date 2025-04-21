@@ -8,10 +8,12 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/image_picker_helper.dart';
 import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart';
+import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_state.dart';
 import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/svg_asset.dart';
 
@@ -30,15 +32,13 @@ class _AvatarPickerState extends State<AvatarPicker> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<PermissionsBloc, PermissionsState>(
-      listener: (context, state) => state.whenOrNull(
-        loaded: (status) => _pickImage(_imageSource),
-        permanentlyDenied: () => ImagePickerHelper.showPermissionDeniedDialog(context),
-        error: (error) => showSnackBar(
-          context,
-          error.errorText(context),
-        ),
-      ),
+    return BlocListener<PermissionsBloc, BasicState<PermissionStatus>>(
+      listener: (context, state) => switch (state) {
+        LoadedState(data: final _) => _pickImage(_imageSource),
+        PermanentlyDenied() => ImagePickerHelper.showPermissionDeniedDialog(context),
+        FailureState(error: final error) => showSnackBar(context, error.errorText(context)),
+        _ => null,
+      },
       child: GestureDetector(
         onTap: () => ImagePickerHelper.showPicker(_onImageSourceSelected, context),
         child: Stack(

@@ -5,6 +5,7 @@ import 'package:mockito/mockito.dart';
 import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 import '../../../../generate_mocks.mocks.dart';
@@ -13,13 +14,13 @@ import '../../../../mocked_data.dart';
 void main() {
   late MockUpdateUserProfileUseCase mockUpdateUserProfileUseCase;
 
-  setUpAll(() {
+  setUp(() {
     mockUpdateUserProfileUseCase = MockUpdateUserProfileUseCase();
   });
 
   UpdateUserProfileBloc createBloc() => UpdateUserProfileBloc(mockUpdateUserProfileUseCase);
 
-  blocTest<UpdateUserProfileBloc, UpdateUserProfileState>(
+  blocTest<UpdateUserProfileBloc, BasicState<void>>(
     'OnUpdateUserProfileEvent updates user profile successfully',
     setUp: () {
       when(mockUpdateUserProfileUseCase(any)).thenAnswer((_) async => const Right(Success()));
@@ -33,8 +34,8 @@ void main() {
         profilePicture: mockedUpdateUserProfileEntity.profilePicture,
       ),
     ),
-    expect: () => const [
-      UpdateUserProfileState.success(),
+    expect: () => [
+      const SuccessState<void>(),
     ],
     verify: (_) {
       verify(mockUpdateUserProfileUseCase(any)).called(1);
@@ -42,7 +43,7 @@ void main() {
     },
   );
 
-  blocTest<UpdateUserProfileBloc, UpdateUserProfileState>(
+  blocTest<UpdateUserProfileBloc, BasicState<void>>(
     'OnUpdateUserProfileEvent fails to update user profile',
     setUp: () {
       when(mockUpdateUserProfileUseCase.call(any)).thenAnswer(
@@ -57,8 +58,8 @@ void main() {
         currencyCode: 'USD',
       ),
     ),
-    expect: () => const [
-      UpdateUserProfileState.failure(Errors.somethingWentWrong),
+    expect: () => [
+      const FailureState<void>(Errors.somethingWentWrong),
     ],
     verify: (_) {
       verify(mockUpdateUserProfileUseCase.call(any)).called(1);

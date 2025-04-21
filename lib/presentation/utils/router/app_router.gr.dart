@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -9,94 +10,6 @@
 
 part of 'app_router.dart';
 
-abstract class _$AppRouter extends RootStackRouter {
-  // ignore: unused_element
-  _$AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, PageFactory> pagesMap = {
-    AuthenticationRoute.name: (routeData) {
-      final args = routeData.argsAs<AuthenticationRouteArgs>(orElse: () => const AuthenticationRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: AuthenticationPage(
-          key: args.key,
-          bloc: args.bloc,
-        ),
-      );
-    },
-    CreateExpensesRoute.name: (routeData) {
-      final args = routeData.argsAs<CreateExpensesRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: CreateExpensesPage(
-          trip: args.trip,
-          key: args.key,
-        ),
-      );
-    },
-    CreateTripBasicInfoRoute.name: (routeData) {
-      final args = routeData.argsAs<CreateTripBasicInfoRouteArgs>(orElse: () => const CreateTripBasicInfoRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: CreateTripBasicInfoPage(
-          createTripBloc: args.createTripBloc,
-          key: args.key,
-          cubit: args.cubit,
-          trip: args.trip,
-          updateTripBloc: args.updateTripBloc,
-        ),
-      );
-    },
-    HomeRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const HomePage(),
-      );
-    },
-    PlannedTripsRoute.name: (routeData) {
-      final args = routeData.argsAs<PlannedTripsRouteArgs>(orElse: () => const PlannedTripsRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: PlannedTripsPage(
-          key: args.key,
-          getAllUserTripsBloc: args.getAllUserTripsBloc,
-          deleteTripBloc: args.deleteTripBloc,
-        ),
-      );
-    },
-    TestM3Route.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const TestM3Page(),
-      );
-    },
-    TripPanelRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const TripPanelPage(),
-      );
-    },
-    TripsHistoryRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const TripsHistoryPage(),
-      );
-    },
-    WelcomeRoute.name: (routeData) {
-      final args = routeData.argsAs<WelcomeRouteArgs>(orElse: () => const WelcomeRouteArgs());
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: WelcomePage(
-          key: args.key,
-          permissionsBloc: args.permissionsBloc,
-          updateUserProfileBloc: args.updateUserProfileBloc,
-        ),
-      );
-    },
-  };
-}
-
 /// generated route for
 /// [AuthenticationPage]
 class AuthenticationRoute extends PageRouteInfo<AuthenticationRouteArgs> {
@@ -106,23 +19,25 @@ class AuthenticationRoute extends PageRouteInfo<AuthenticationRouteArgs> {
     List<PageRouteInfo>? children,
   }) : super(
           AuthenticationRoute.name,
-          args: AuthenticationRouteArgs(
-            key: key,
-            bloc: bloc,
-          ),
+          args: AuthenticationRouteArgs(key: key, bloc: bloc),
           initialChildren: children,
         );
 
   static const String name = 'AuthenticationRoute';
 
-  static const PageInfo<AuthenticationRouteArgs> page = PageInfo<AuthenticationRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<AuthenticationRouteArgs>(
+        orElse: () => const AuthenticationRouteArgs(),
+      );
+      return AuthenticationPage(key: args.key, bloc: args.bloc);
+    },
+  );
 }
 
 class AuthenticationRouteArgs {
-  const AuthenticationRouteArgs({
-    this.key,
-    this.bloc,
-  });
+  const AuthenticationRouteArgs({this.key, this.bloc});
 
   final Key? key;
 
@@ -143,23 +58,23 @@ class CreateExpensesRoute extends PageRouteInfo<CreateExpensesRouteArgs> {
     List<PageRouteInfo>? children,
   }) : super(
           CreateExpensesRoute.name,
-          args: CreateExpensesRouteArgs(
-            trip: trip,
-            key: key,
-          ),
+          args: CreateExpensesRouteArgs(trip: trip, key: key),
           initialChildren: children,
         );
 
   static const String name = 'CreateExpensesRoute';
 
-  static const PageInfo<CreateExpensesRouteArgs> page = PageInfo<CreateExpensesRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<CreateExpensesRouteArgs>();
+      return CreateExpensesPage(trip: args.trip, key: args.key);
+    },
+  );
 }
 
 class CreateExpensesRouteArgs {
-  const CreateExpensesRouteArgs({
-    required this.trip,
-    this.key,
-  });
+  const CreateExpensesRouteArgs({required this.trip, this.key});
 
   final TripEntity trip;
 
@@ -195,7 +110,21 @@ class CreateTripBasicInfoRoute extends PageRouteInfo<CreateTripBasicInfoRouteArg
 
   static const String name = 'CreateTripBasicInfoRoute';
 
-  static const PageInfo<CreateTripBasicInfoRouteArgs> page = PageInfo<CreateTripBasicInfoRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<CreateTripBasicInfoRouteArgs>(
+        orElse: () => const CreateTripBasicInfoRouteArgs(),
+      );
+      return CreateTripBasicInfoPage(
+        createTripBloc: args.createTripBloc,
+        key: args.key,
+        cubit: args.cubit,
+        trip: args.trip,
+        updateTripBloc: args.updateTripBloc,
+      );
+    },
+  );
 }
 
 class CreateTripBasicInfoRouteArgs {
@@ -226,15 +155,16 @@ class CreateTripBasicInfoRouteArgs {
 /// generated route for
 /// [HomePage]
 class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute({List<PageRouteInfo>? children})
-      : super(
-          HomeRoute.name,
-          initialChildren: children,
-        );
+  const HomeRoute({List<PageRouteInfo>? children}) : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const HomePage();
+    },
+  );
 }
 
 /// generated route for
@@ -257,7 +187,19 @@ class PlannedTripsRoute extends PageRouteInfo<PlannedTripsRouteArgs> {
 
   static const String name = 'PlannedTripsRoute';
 
-  static const PageInfo<PlannedTripsRouteArgs> page = PageInfo<PlannedTripsRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<PlannedTripsRouteArgs>(
+        orElse: () => const PlannedTripsRouteArgs(),
+      );
+      return PlannedTripsPage(
+        key: args.key,
+        getAllUserTripsBloc: args.getAllUserTripsBloc,
+        deleteTripBloc: args.deleteTripBloc,
+      );
+    },
+  );
 }
 
 class PlannedTripsRouteArgs {
@@ -282,43 +224,46 @@ class PlannedTripsRouteArgs {
 /// generated route for
 /// [TestM3Page]
 class TestM3Route extends PageRouteInfo<void> {
-  const TestM3Route({List<PageRouteInfo>? children})
-      : super(
-          TestM3Route.name,
-          initialChildren: children,
-        );
+  const TestM3Route({List<PageRouteInfo>? children}) : super(TestM3Route.name, initialChildren: children);
 
   static const String name = 'TestM3Route';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const TestM3Page();
+    },
+  );
 }
 
 /// generated route for
 /// [TripPanelPage]
 class TripPanelRoute extends PageRouteInfo<void> {
-  const TripPanelRoute({List<PageRouteInfo>? children})
-      : super(
-          TripPanelRoute.name,
-          initialChildren: children,
-        );
+  const TripPanelRoute({List<PageRouteInfo>? children}) : super(TripPanelRoute.name, initialChildren: children);
 
   static const String name = 'TripPanelRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const TripPanelPage();
+    },
+  );
 }
 
 /// generated route for
 /// [TripsHistoryPage]
 class TripsHistoryRoute extends PageRouteInfo<void> {
-  const TripsHistoryRoute({List<PageRouteInfo>? children})
-      : super(
-          TripsHistoryRoute.name,
-          initialChildren: children,
-        );
+  const TripsHistoryRoute({List<PageRouteInfo>? children}) : super(TripsHistoryRoute.name, initialChildren: children);
 
   static const String name = 'TripsHistoryRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const TripsHistoryPage();
+    },
+  );
 }
 
 /// generated route for
@@ -341,7 +286,19 @@ class WelcomeRoute extends PageRouteInfo<WelcomeRouteArgs> {
 
   static const String name = 'WelcomeRoute';
 
-  static const PageInfo<WelcomeRouteArgs> page = PageInfo<WelcomeRouteArgs>(name);
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<WelcomeRouteArgs>(
+        orElse: () => const WelcomeRouteArgs(),
+      );
+      return WelcomePage(
+        key: args.key,
+        permissionsBloc: args.permissionsBloc,
+        updateUserProfileBloc: args.updateUserProfileBloc,
+      );
+    },
+  );
 }
 
 class WelcomeRouteArgs {

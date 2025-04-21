@@ -8,7 +8,7 @@ import 'package:trip_tally/domain/entities/osm_map/place_extra_tags_entity.dart'
 part 'place_entity.freezed.dart';
 
 @freezed
-class PlaceEntity with _$PlaceEntity {
+abstract class PlaceEntity with _$PlaceEntity {
   const factory PlaceEntity({
     required String name,
     required String displayName,

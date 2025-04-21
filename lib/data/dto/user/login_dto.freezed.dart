@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,87 +10,71 @@ part of 'login_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-LoginDto _$LoginDtoFromJson(Map<String, dynamic> json) {
-  return _LoginDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LoginDto {
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
+  String get email;
+  String get password;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $LoginDtoCopyWith<LoginDto> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LoginDtoCopyWith<$Res> {
-  factory $LoginDtoCopyWith(LoginDto value, $Res Function(LoginDto) then) = _$LoginDtoCopyWithImpl<$Res, LoginDto>;
-  @useResult
-  $Res call({String email, String password});
-}
-
-/// @nodoc
-class _$LoginDtoCopyWithImpl<$Res, $Val extends LoginDto> implements $LoginDtoCopyWith<$Res> {
-  _$LoginDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of LoginDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $LoginDtoCopyWith<LoginDto> get copyWith => _$LoginDtoCopyWithImpl<LoginDto>(this as LoginDto, _$identity);
+
+  /// Serializes this LoginDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LoginDto &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) || other.password == password));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, email, password);
+
+  @override
+  String toString() {
+    return 'LoginDto(email: $email, password: $password)';
   }
 }
 
 /// @nodoc
-abstract class _$$LoginDtoImplCopyWith<$Res> implements $LoginDtoCopyWith<$Res> {
-  factory _$$LoginDtoImplCopyWith(_$LoginDtoImpl value, $Res Function(_$LoginDtoImpl) then) =
-      __$$LoginDtoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LoginDtoCopyWith<$Res> {
+  factory $LoginDtoCopyWith(LoginDto value, $Res Function(LoginDto) _then) = _$LoginDtoCopyWithImpl;
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class __$$LoginDtoImplCopyWithImpl<$Res> extends _$LoginDtoCopyWithImpl<$Res, _$LoginDtoImpl>
-    implements _$$LoginDtoImplCopyWith<$Res> {
-  __$$LoginDtoImplCopyWithImpl(_$LoginDtoImpl _value, $Res Function(_$LoginDtoImpl) _then) : super(_value, _then);
+class _$LoginDtoCopyWithImpl<$Res> implements $LoginDtoCopyWith<$Res> {
+  _$LoginDtoCopyWithImpl(this._self, this._then);
 
+  final LoginDto _self;
+  final $Res Function(LoginDto) _then;
+
+  /// Create a copy of LoginDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? email = null,
     Object? password = null,
   }) {
-    return _then(_$LoginDtoImpl(
+    return _then(_self.copyWith(
       email: null == email
-          ? _value.email
+          ? _self.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
-          ? _value.password
+          ? _self.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -98,58 +83,82 @@ class __$$LoginDtoImplCopyWithImpl<$Res> extends _$LoginDtoCopyWithImpl<$Res, _$
 
 /// @nodoc
 @JsonSerializable()
-class _$LoginDtoImpl implements _LoginDto {
-  const _$LoginDtoImpl({required this.email, required this.password});
-
-  factory _$LoginDtoImpl.fromJson(Map<String, dynamic> json) => _$$LoginDtoImplFromJson(json);
+class _LoginDto implements LoginDto {
+  const _LoginDto({required this.email, required this.password});
+  factory _LoginDto.fromJson(Map<String, dynamic> json) => _$LoginDtoFromJson(json);
 
   @override
   final String email;
   @override
   final String password;
 
+  /// Create a copy of LoginDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'LoginDto(email: $email, password: $password)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LoginDtoCopyWith<_LoginDto> get copyWith => __$LoginDtoCopyWithImpl<_LoginDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LoginDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginDtoImpl &&
+            other is _LoginDto &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) || other.password == password));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, email, password);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LoginDtoImplCopyWith<_$LoginDtoImpl> get copyWith =>
-      __$$LoginDtoImplCopyWithImpl<_$LoginDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LoginDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LoginDto(email: $email, password: $password)';
   }
 }
 
-abstract class _LoginDto implements LoginDto {
-  const factory _LoginDto({required final String email, required final String password}) = _$LoginDtoImpl;
-
-  factory _LoginDto.fromJson(Map<String, dynamic> json) = _$LoginDtoImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$LoginDtoCopyWith<$Res> implements $LoginDtoCopyWith<$Res> {
+  factory _$LoginDtoCopyWith(_LoginDto value, $Res Function(_LoginDto) _then) = __$LoginDtoCopyWithImpl;
   @override
-  String get email;
-  @override
-  String get password;
-  @override
-  @JsonKey(ignore: true)
-  _$$LoginDtoImplCopyWith<_$LoginDtoImpl> get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call({String email, String password});
 }
+
+/// @nodoc
+class __$LoginDtoCopyWithImpl<$Res> implements _$LoginDtoCopyWith<$Res> {
+  __$LoginDtoCopyWithImpl(this._self, this._then);
+
+  final _LoginDto _self;
+  final $Res Function(_LoginDto) _then;
+
+  /// Create a copy of LoginDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+  }) {
+    return _then(_LoginDto(
+      email: null == email
+          ? _self.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

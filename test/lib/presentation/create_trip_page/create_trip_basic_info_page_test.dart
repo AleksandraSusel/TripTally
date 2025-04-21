@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_state.dart';
+import 'package:trip_tally/domain/entities/osm_map/place_entity.dart';
+import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/create_trip_basic_info_page.dart';
-import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/update_trip_bloc.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/buttons/proceed_floating_action_button.dart';
-import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_suggestions_cubit.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/text_fields/currency_text_field.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/text_fields/location_search_text_field.dart';
 
@@ -20,18 +20,18 @@ void main() {
 
   setUp(() {
     mockCreateTripBloc = MockCreateTripBloc();
-    when(mockCreateTripBloc.state).thenAnswer((_) => const CreateTripState.initial());
-    when(mockCreateTripBloc.stream).thenAnswer((_) => Stream.value(const CreateTripState.initial()));
+    when(mockCreateTripBloc.state).thenAnswer((_) => const InitialState<TripEntity>());
+    when(mockCreateTripBloc.stream).thenAnswer((_) => Stream.value(const InitialState<TripEntity>()));
     when(mockCreateTripBloc.close()).thenAnswer((_) async {});
 
     mockUpdateTripBloc = MockUpdateTripBloc();
-    when(mockUpdateTripBloc.state).thenAnswer((_) => const UpdateTripState.loading());
-    when(mockUpdateTripBloc.stream).thenAnswer((_) => Stream.value(const UpdateTripState.loading()));
+    when(mockUpdateTripBloc.state).thenAnswer((_) => const LoadingState<void>());
+    when(mockUpdateTripBloc.stream).thenAnswer((_) => Stream.value(const LoadingState<void>()));
     when(mockUpdateTripBloc.close()).thenAnswer((_) async {});
 
     mockOsmSuggestionsCubit = MockOsmSuggestionsCubit();
-    when(mockOsmSuggestionsCubit.state).thenAnswer((_) => const OsmSuggestionsState.loading());
-    when(mockOsmSuggestionsCubit.stream).thenAnswer((_) => Stream.value(const OsmSuggestionsState.loading()));
+    when(mockOsmSuggestionsCubit.state).thenAnswer((_) => const LoadingState<List<PlaceEntity>>());
+    when(mockOsmSuggestionsCubit.stream).thenAnswer((_) => Stream.value(const LoadingState<List<PlaceEntity>>()));
     when(mockOsmSuggestionsCubit.close()).thenAnswer((_) async {});
     setupMockKeyboardVisibilityHandler();
   });
@@ -59,7 +59,9 @@ void main() {
       return;
     },
     builder: () {
-      when(mockOsmSuggestionsCubit.getSuggestions('Warszawa')).thenAnswer((_) async => [mockedPlaceEntityV1]);
+      when(mockOsmSuggestionsCubit.getSuggestions('Warszawa')).thenAnswer(
+        (_) async => [mockedPlaceEntityV1],
+      );
       return buildPage();
     },
   );

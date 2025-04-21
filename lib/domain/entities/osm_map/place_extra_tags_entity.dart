@@ -4,7 +4,7 @@ import 'package:trip_tally/data/dto/osm_map/place_extra_tags_dto.dart';
 part 'place_extra_tags_entity.freezed.dart';
 
 @freezed
-class PlaceExtraTagsEntity with _$PlaceExtraTagsEntity {
+abstract class PlaceExtraTagsEntity with _$PlaceExtraTagsEntity {
   const factory PlaceExtraTagsEntity({
     String? lunch,
     String? cuisine,

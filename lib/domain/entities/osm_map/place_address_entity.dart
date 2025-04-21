@@ -4,7 +4,7 @@ import 'package:trip_tally/data/dto/osm_map/place_address_dto.dart';
 part 'place_address_entity.freezed.dart';
 
 @freezed
-class PlaceAddressEntity with _$PlaceAddressEntity {
+abstract class PlaceAddressEntity with _$PlaceAddressEntity {
   const factory PlaceAddressEntity({
     required String country,
     required String countryCode,

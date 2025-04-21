@@ -5,6 +5,8 @@ import 'package:mockito/mockito.dart';
 import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
+import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_state.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 import '../../../../generate_mocks.mocks.dart';
@@ -20,7 +22,7 @@ void main() {
 
   AuthenticationBloc createBloc() => AuthenticationBloc(mockLoginUseCase, mockCreateAccountUseCase);
 
-  blocTest<AuthenticationBloc, AuthenticationState>(
+  blocTest<AuthenticationBloc, BasicState<void>>(
     'OnTapLoginEvent logs the user success',
     setUp: () {
       when(mockLoginUseCase.call(mockedLoginEntity)).thenAnswer((_) async => const Right(Success()));
@@ -32,9 +34,9 @@ void main() {
         password: mockedLoginEntity.password,
       ),
     ),
-    expect: () => const [
-      AuthenticationState.loading(),
-      AuthenticationState.logged(),
+    expect: () => [
+      const LoadingState<void>(),
+      const Logged(),
     ],
     verify: (_) {
       verify(mockLoginUseCase.call(mockedLoginEntity));
@@ -42,7 +44,7 @@ void main() {
     },
   );
 
-  blocTest<AuthenticationBloc, AuthenticationState>(
+  blocTest<AuthenticationBloc, BasicState<void>>(
     'OnTapRegisterEvent logs the user success',
     setUp: () {
       when(mockCreateAccountUseCase(any)).thenAnswer((_) async => const Right(Success()));
@@ -55,9 +57,9 @@ void main() {
         repeatPassword: mockedCreateAccountEntity.password,
       ),
     ),
-    expect: () => const [
-      AuthenticationState.loading(),
-      AuthenticationState.registered(),
+    expect: () => [
+      const LoadingState<void>(),
+      const Registered(),
     ],
     verify: (_) {
       verify(mockCreateAccountUseCase(any));
@@ -65,7 +67,7 @@ void main() {
     },
   );
 
-  blocTest<AuthenticationBloc, AuthenticationState>(
+  blocTest<AuthenticationBloc, BasicState<void>>(
     'OnTapRegisterEvent logs the user failure',
     setUp: () {
       when(mockCreateAccountUseCase(any)).thenAnswer(
@@ -80,9 +82,9 @@ void main() {
         repeatPassword: mockedCreateAccountEntity.password,
       ),
     ),
-    expect: () => const [
-      AuthenticationState.loading(),
-      AuthenticationState.failure(Errors.somethingWentWrong),
+    expect: () => [
+      const LoadingState<void>(),
+      const FailureState<void>(Errors.somethingWentWrong),
     ],
     verify: (_) {
       verify(mockCreateAccountUseCase(any));
@@ -90,7 +92,7 @@ void main() {
     },
   );
 
-  blocTest<AuthenticationBloc, AuthenticationState>(
+  blocTest<AuthenticationBloc, BasicState<void>>(
     'OnTapLoginEvent logs the user failure',
     setUp: () {
       when(mockLoginUseCase.call(mockedLoginEntity)).thenAnswer(
@@ -104,9 +106,9 @@ void main() {
         password: mockedLoginEntity.password,
       ),
     ),
-    expect: () => const [
-      AuthenticationState.loading(),
-      AuthenticationState.failure(Errors.somethingWentWrong),
+    expect: () => [
+      const LoadingState<void>(),
+      const FailureState<void>(Errors.somethingWentWrong),
     ],
     verify: (_) {
       verify(mockLoginUseCase.call(mockedLoginEntity));

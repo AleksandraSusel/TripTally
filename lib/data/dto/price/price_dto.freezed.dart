@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,87 +10,71 @@ part of 'price_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-PriceDto _$PriceDtoFromJson(Map<String, dynamic> json) {
-  return _PriceDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PriceDto {
-  String get currency => throw _privateConstructorUsedError;
-  String get amount => throw _privateConstructorUsedError;
+  String get currency;
+  String get amount;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PriceDtoCopyWith<PriceDto> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PriceDtoCopyWith<$Res> {
-  factory $PriceDtoCopyWith(PriceDto value, $Res Function(PriceDto) then) = _$PriceDtoCopyWithImpl<$Res, PriceDto>;
-  @useResult
-  $Res call({String currency, String amount});
-}
-
-/// @nodoc
-class _$PriceDtoCopyWithImpl<$Res, $Val extends PriceDto> implements $PriceDtoCopyWith<$Res> {
-  _$PriceDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of PriceDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $PriceDtoCopyWith<PriceDto> get copyWith => _$PriceDtoCopyWithImpl<PriceDto>(this as PriceDto, _$identity);
+
+  /// Serializes this PriceDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? currency = null,
-    Object? amount = null,
-  }) {
-    return _then(_value.copyWith(
-      currency: null == currency
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PriceDto &&
+            (identical(other.currency, currency) || other.currency == currency) &&
+            (identical(other.amount, amount) || other.amount == amount));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, currency, amount);
+
+  @override
+  String toString() {
+    return 'PriceDto(currency: $currency, amount: $amount)';
   }
 }
 
 /// @nodoc
-abstract class _$$PriceDtoImplCopyWith<$Res> implements $PriceDtoCopyWith<$Res> {
-  factory _$$PriceDtoImplCopyWith(_$PriceDtoImpl value, $Res Function(_$PriceDtoImpl) then) =
-      __$$PriceDtoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $PriceDtoCopyWith<$Res> {
+  factory $PriceDtoCopyWith(PriceDto value, $Res Function(PriceDto) _then) = _$PriceDtoCopyWithImpl;
   @useResult
   $Res call({String currency, String amount});
 }
 
 /// @nodoc
-class __$$PriceDtoImplCopyWithImpl<$Res> extends _$PriceDtoCopyWithImpl<$Res, _$PriceDtoImpl>
-    implements _$$PriceDtoImplCopyWith<$Res> {
-  __$$PriceDtoImplCopyWithImpl(_$PriceDtoImpl _value, $Res Function(_$PriceDtoImpl) _then) : super(_value, _then);
+class _$PriceDtoCopyWithImpl<$Res> implements $PriceDtoCopyWith<$Res> {
+  _$PriceDtoCopyWithImpl(this._self, this._then);
 
+  final PriceDto _self;
+  final $Res Function(PriceDto) _then;
+
+  /// Create a copy of PriceDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? currency = null,
     Object? amount = null,
   }) {
-    return _then(_$PriceDtoImpl(
+    return _then(_self.copyWith(
       currency: null == currency
-          ? _value.currency
+          ? _self.currency
           : currency // ignore: cast_nullable_to_non_nullable
               as String,
       amount: null == amount
-          ? _value.amount
+          ? _self.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -98,58 +83,82 @@ class __$$PriceDtoImplCopyWithImpl<$Res> extends _$PriceDtoCopyWithImpl<$Res, _$
 
 /// @nodoc
 @JsonSerializable()
-class _$PriceDtoImpl implements _PriceDto {
-  const _$PriceDtoImpl({required this.currency, required this.amount});
-
-  factory _$PriceDtoImpl.fromJson(Map<String, dynamic> json) => _$$PriceDtoImplFromJson(json);
+class _PriceDto implements PriceDto {
+  const _PriceDto({required this.currency, required this.amount});
+  factory _PriceDto.fromJson(Map<String, dynamic> json) => _$PriceDtoFromJson(json);
 
   @override
   final String currency;
   @override
   final String amount;
 
+  /// Create a copy of PriceDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PriceDto(currency: $currency, amount: $amount)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PriceDtoCopyWith<_PriceDto> get copyWith => __$PriceDtoCopyWithImpl<_PriceDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$PriceDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PriceDtoImpl &&
+            other is _PriceDto &&
             (identical(other.currency, currency) || other.currency == currency) &&
             (identical(other.amount, amount) || other.amount == amount));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, currency, amount);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$PriceDtoImplCopyWith<_$PriceDtoImpl> get copyWith =>
-      __$$PriceDtoImplCopyWithImpl<_$PriceDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PriceDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'PriceDto(currency: $currency, amount: $amount)';
   }
 }
 
-abstract class _PriceDto implements PriceDto {
-  const factory _PriceDto({required final String currency, required final String amount}) = _$PriceDtoImpl;
-
-  factory _PriceDto.fromJson(Map<String, dynamic> json) = _$PriceDtoImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$PriceDtoCopyWith<$Res> implements $PriceDtoCopyWith<$Res> {
+  factory _$PriceDtoCopyWith(_PriceDto value, $Res Function(_PriceDto) _then) = __$PriceDtoCopyWithImpl;
   @override
-  String get currency;
-  @override
-  String get amount;
-  @override
-  @JsonKey(ignore: true)
-  _$$PriceDtoImplCopyWith<_$PriceDtoImpl> get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call({String currency, String amount});
 }
+
+/// @nodoc
+class __$PriceDtoCopyWithImpl<$Res> implements _$PriceDtoCopyWith<$Res> {
+  __$PriceDtoCopyWithImpl(this._self, this._then);
+
+  final _PriceDto _self;
+  final $Res Function(_PriceDto) _then;
+
+  /// Create a copy of PriceDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? currency = null,
+    Object? amount = null,
+  }) {
+    return _then(_PriceDto(
+      currency: null == currency
+          ? _self.currency
+          : currency // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: null == amount
+          ? _self.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

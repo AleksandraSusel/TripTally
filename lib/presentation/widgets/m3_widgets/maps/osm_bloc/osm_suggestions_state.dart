@@ -1,10 +1,30 @@
-part of 'osm_suggestions_cubit.dart';
+import 'package:equatable/equatable.dart';
+import 'package:trip_tally/domain/entities/osm_map/place_entity.dart';
+import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
-@freezed
-class OsmSuggestionsState with _$OsmSuggestionsState {
-  const factory OsmSuggestionsState.loaded(List<PlaceEntity> suggestions) = _Loaded;
+sealed class OsmSuggestionsState extends Equatable {
+  const OsmSuggestionsState();
 
-  const factory OsmSuggestionsState.loading() = _Loading;
+  @override
+  List<Object?> get props => [];
+}
 
-  const factory OsmSuggestionsState.error(Errors error) = _Error;
+class Loaded extends OsmSuggestionsState {
+  const Loaded(this.suggestions);
+
+  final List<PlaceEntity> suggestions;
+
+  @override
+  List<Object?> get props => [suggestions];
+}
+
+class Loading extends OsmSuggestionsState {}
+
+class Error extends OsmSuggestionsState {
+  const Error(this.error);
+
+  final Errors error;
+
+  @override
+  List<Object?> get props => [error];
 }

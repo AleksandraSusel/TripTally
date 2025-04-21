@@ -1,11 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'place_extra_tags_dto.freezed.dart';
-
 part 'place_extra_tags_dto.g.dart';
 
 @freezed
-class PlaceExtraTagsDto with _$PlaceExtraTagsDto {
+abstract class PlaceExtraTagsDto with _$PlaceExtraTagsDto {
   const factory PlaceExtraTagsDto({
     String? lunch,
     String? cuisine,

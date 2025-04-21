@@ -56,7 +56,7 @@ DateTime? _parseDateWithFormats(String dateStr) {
   return inputFormats.map((format) {
     try {
       return format.parseStrict(dateStr);
-    } catch (_) {
+    } on Exception catch (_) {
       return null;
     }
   }).firstWhere((date) => date != null, orElse: () => null);

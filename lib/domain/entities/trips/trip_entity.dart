@@ -7,7 +7,7 @@ import 'package:trip_tally/domain/entities/price/price_entity.dart';
 part 'trip_entity.freezed.dart';
 
 @freezed
-class TripEntity with _$TripEntity {
+abstract class TripEntity with _$TripEntity {
   const factory TripEntity({
     required String id,
     required String status,

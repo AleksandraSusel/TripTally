@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,78 +10,65 @@ part of 'get_trips_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GetTripsDto _$GetTripsDtoFromJson(Map<String, dynamic> json) {
-  return _GetTripsDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GetTripsDto {
-  List<TripDto> get trips => throw _privateConstructorUsedError;
+  List<TripDto> get trips;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $GetTripsDtoCopyWith<GetTripsDto> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GetTripsDtoCopyWith<$Res> {
-  factory $GetTripsDtoCopyWith(GetTripsDto value, $Res Function(GetTripsDto) then) =
-      _$GetTripsDtoCopyWithImpl<$Res, GetTripsDto>;
-  @useResult
-  $Res call({List<TripDto> trips});
-}
-
-/// @nodoc
-class _$GetTripsDtoCopyWithImpl<$Res, $Val extends GetTripsDto> implements $GetTripsDtoCopyWith<$Res> {
-  _$GetTripsDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of GetTripsDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $GetTripsDtoCopyWith<GetTripsDto> get copyWith =>
+      _$GetTripsDtoCopyWithImpl<GetTripsDto>(this as GetTripsDto, _$identity);
+
+  /// Serializes this GetTripsDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? trips = null,
-  }) {
-    return _then(_value.copyWith(
-      trips: null == trips
-          ? _value.trips
-          : trips // ignore: cast_nullable_to_non_nullable
-              as List<TripDto>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetTripsDto &&
+            const DeepCollectionEquality().equals(other.trips, trips));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(trips));
+
+  @override
+  String toString() {
+    return 'GetTripsDto(trips: $trips)';
   }
 }
 
 /// @nodoc
-abstract class _$$GetTripsDtoImplCopyWith<$Res> implements $GetTripsDtoCopyWith<$Res> {
-  factory _$$GetTripsDtoImplCopyWith(_$GetTripsDtoImpl value, $Res Function(_$GetTripsDtoImpl) then) =
-      __$$GetTripsDtoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $GetTripsDtoCopyWith<$Res> {
+  factory $GetTripsDtoCopyWith(GetTripsDto value, $Res Function(GetTripsDto) _then) = _$GetTripsDtoCopyWithImpl;
   @useResult
   $Res call({List<TripDto> trips});
 }
 
 /// @nodoc
-class __$$GetTripsDtoImplCopyWithImpl<$Res> extends _$GetTripsDtoCopyWithImpl<$Res, _$GetTripsDtoImpl>
-    implements _$$GetTripsDtoImplCopyWith<$Res> {
-  __$$GetTripsDtoImplCopyWithImpl(_$GetTripsDtoImpl _value, $Res Function(_$GetTripsDtoImpl) _then)
-      : super(_value, _then);
+class _$GetTripsDtoCopyWithImpl<$Res> implements $GetTripsDtoCopyWith<$Res> {
+  _$GetTripsDtoCopyWithImpl(this._self, this._then);
 
+  final GetTripsDto _self;
+  final $Res Function(GetTripsDto) _then;
+
+  /// Create a copy of GetTripsDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? trips = null,
   }) {
-    return _then(_$GetTripsDtoImpl(
+    return _then(_self.copyWith(
       trips: null == trips
-          ? _value._trips
+          ? _self.trips
           : trips // ignore: cast_nullable_to_non_nullable
               as List<TripDto>,
     ));
@@ -89,10 +77,9 @@ class __$$GetTripsDtoImplCopyWithImpl<$Res> extends _$GetTripsDtoCopyWithImpl<$R
 
 /// @nodoc
 @JsonSerializable()
-class _$GetTripsDtoImpl implements _GetTripsDto {
-  const _$GetTripsDtoImpl({required final List<TripDto> trips}) : _trips = trips;
-
-  factory _$GetTripsDtoImpl.fromJson(Map<String, dynamic> json) => _$$GetTripsDtoImplFromJson(json);
+class _GetTripsDto implements GetTripsDto {
+  const _GetTripsDto({required final List<TripDto> trips}) : _trips = trips;
+  factory _GetTripsDto.fromJson(Map<String, dynamic> json) => _$GetTripsDtoFromJson(json);
 
   final List<TripDto> _trips;
   @override
@@ -102,45 +89,67 @@ class _$GetTripsDtoImpl implements _GetTripsDto {
     return EqualUnmodifiableListView(_trips);
   }
 
+  /// Create a copy of GetTripsDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'GetTripsDto(trips: $trips)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GetTripsDtoCopyWith<_GetTripsDto> get copyWith => __$GetTripsDtoCopyWithImpl<_GetTripsDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GetTripsDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetTripsDtoImpl &&
+            other is _GetTripsDto &&
             const DeepCollectionEquality().equals(other._trips, _trips));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_trips));
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GetTripsDtoImplCopyWith<_$GetTripsDtoImpl> get copyWith =>
-      __$$GetTripsDtoImplCopyWithImpl<_$GetTripsDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GetTripsDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GetTripsDto(trips: $trips)';
   }
 }
 
-abstract class _GetTripsDto implements GetTripsDto {
-  const factory _GetTripsDto({required final List<TripDto> trips}) = _$GetTripsDtoImpl;
-
-  factory _GetTripsDto.fromJson(Map<String, dynamic> json) = _$GetTripsDtoImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$GetTripsDtoCopyWith<$Res> implements $GetTripsDtoCopyWith<$Res> {
+  factory _$GetTripsDtoCopyWith(_GetTripsDto value, $Res Function(_GetTripsDto) _then) = __$GetTripsDtoCopyWithImpl;
   @override
-  List<TripDto> get trips;
-  @override
-  @JsonKey(ignore: true)
-  _$$GetTripsDtoImplCopyWith<_$GetTripsDtoImpl> get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call({List<TripDto> trips});
 }
+
+/// @nodoc
+class __$GetTripsDtoCopyWithImpl<$Res> implements _$GetTripsDtoCopyWith<$Res> {
+  __$GetTripsDtoCopyWithImpl(this._self, this._then);
+
+  final _GetTripsDto _self;
+  final $Res Function(_GetTripsDto) _then;
+
+  /// Create a copy of GetTripsDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? trips = null,
+  }) {
+    return _then(_GetTripsDto(
+      trips: null == trips
+          ? _self._trips
+          : trips // ignore: cast_nullable_to_non_nullable
+              as List<TripDto>,
+    ));
+  }
+}
+
+// dart format on

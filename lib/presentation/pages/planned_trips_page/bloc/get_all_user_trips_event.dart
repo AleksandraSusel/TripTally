@@ -1,6 +1,6 @@
 part of 'get_all_user_trips_bloc.dart';
 
-abstract class GetAllUserTripsEvent extends Equatable {
+sealed class GetAllUserTripsEvent extends Equatable {
   const GetAllUserTripsEvent();
 
   @override

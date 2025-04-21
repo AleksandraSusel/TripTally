@@ -3,17 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/domain/entities/location/create_location_entity.dart';
+import 'package:trip_tally/domain/entities/osm_map/place_entity.dart';
 import 'package:trip_tally/domain/entities/price/price_entity.dart';
 import 'package:trip_tally/domain/entities/trips/create_trip_entity.dart';
 import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
 import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart';
-import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_state.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/widgets/budget_fields.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/widgets/transport_options.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/update_trip_bloc.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/date_format.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
@@ -102,104 +103,117 @@ class _BodyState extends State<_Body> {
   @override
   Widget build(BuildContext context) {
     final bool isUpdateMode = _trip != null;
-    return BlocListener<OsmSuggestionsCubit, OsmSuggestionsState>(
-      listener: (context, state) => state.whenOrNull(
-        error: (error) => showSnackBar(context, error.errorText(context)),
-      ),
-      child: BlocListener<UpdateTripBloc, UpdateTripState>(
-        listener: (context, state) => state.whenOrNull(
-          success: () {
-            showSnackBar(
-              context,
-              context.tr.createTripPage_updateTripSuccess,
-              type: SnackbarType.success,
-            );
-            return context.router.pushAndPopUntil(
-              PlannedTripsRoute(),
-              predicate: (route) => route.settings.name == HomeRoute.name,
-            );
-          },
-          error: (error) => showSnackBar(
-            context,
-            error.errorText(context),
-          ),
-        ),
-        child: BlocListener<CreateTripBloc, CreateTripState>(
-          listener: (context, state) => state.whenOrNull(
-            failure: (error) => showSnackBar(
-              context,
-              error.errorText(context),
-            ),
-            success: _onSuccess,
-          ),
-          child: BlocSelector<CreateTripBloc, CreateTripState, bool>(
-            selector: (state) => state.maybeWhen(orElse: () => false, loading: () => true),
-            builder: (context, state) => Scaffold(
-              floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-              floatingActionButton: ProceedFloatingActionButton(
-                isLoading: state,
-                text: isUpdateMode ? context.tr.createTripPage_updateTrip : 'Create trip',
-                icon: AppPaths.doubleCheck,
-                onPressed: _onProceedPressed,
-              ).animate().scale(delay: 400.ms),
-              appBar: NavigationAppBar(
-                title: isUpdateMode ? context.tr.createTripPage_updateTrip : context.tr.createTripPage_titleBasicInfo,
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<OsmSuggestionsCubit, BasicState<List<PlaceEntity>>>(
+          listener: (context, state) => switch (state) {
+            FailureState(error: final error) => showSnackBar(
+                context,
+                error.errorText(context),
               ),
-              body: SingleChildScrollView(
-                padding: const EdgeInsets.only(bottom: AppDimensions.d120),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      LocationSearchTextField(
-                        initialLocation: _trip?.location,
-                        onLocationSelected: (String cityName, String countryCode) {
-                          setState(() {
-                            _cityNameController.text = cityName;
-                            _countryCodeController.text = countryCode;
-                          });
-                        },
-                      ).animate().fadeIn(),
-                      TransportOptions(
-                        initialTransportType: _transportType,
-                        onSelected: (TransportType transportType) {
-                          setState(() {
-                            _transportType = transportType;
-                          });
-                        },
-                      ).animate().slideX(begin: -1),
-                      BudgetFields(
-                        currencyController: _currencyController,
-                        budgetController: _budgetController,
-                      ).animate().fadeIn(),
-                      ErrorBorderContainer(
-                        showError: showCalendarError,
-                        child: RangeCalendar(
-                          initialStartDate: isUpdateMode ? DateTime.parse(_trip.dateFrom) : null,
-                          initialEndDate: isUpdateMode ? DateTime.parse(_trip.dateTo) : null,
-                          onDateRangeSelected: (from, to) {
-                            setState(() {
-                              _startDate = from;
-                              _endDate = to;
-                              showCalendarError = false;
-                            });
-                          },
-                        ).animate().slideX(begin: -1),
-                      ),
-                      if (showCalendarError)
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: AppDimensions.d16, top: AppDimensions.d10),
-                            child: Text(
-                              context.tr.createTripBasicInfoPage_dateNotSelected,
-                              style: context.tht.titleSmall?.copyWith(color: context.thc.error),
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
+            _ => null,
+          },
+        ),
+        BlocListener<UpdateTripBloc, BasicState<void>>(
+          listener: (context, state) => switch (state) {
+            SuccessState() => {
+                showSnackBar(
+                  context,
+                  context.tr.createTripPage_updateTripSuccess,
+                  type: SnackbarType.success,
                 ),
+                context.router.pushAndPopUntil(
+                  PlannedTripsRoute(),
+                  predicate: (route) => route.settings.name == HomeRoute.name,
+                ),
+              },
+            FailureState(error: final error) => showSnackBar(
+                context,
+                error.errorText(context),
+              ),
+            _ => null,
+          },
+        ),
+        BlocListener<CreateTripBloc, BasicState<TripEntity>>(
+          listener: (context, state) => switch (state) {
+            FailureState(error: final error) => showSnackBar(
+                context,
+                error.errorText(context),
+              ),
+            LoadedState(data: final data) => _onSuccess(data),
+            _ => null,
+          },
+        ),
+      ],
+      child: BlocSelector<CreateTripBloc, BasicState<TripEntity>, bool>(
+        selector: (state) => switch (state) {
+          LoadingState() => true,
+          _ => false,
+        },
+        builder: (context, state) => Scaffold(
+          floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+          floatingActionButton: ProceedFloatingActionButton(
+            isLoading: state,
+            text: isUpdateMode ? context.tr.createTripPage_updateTrip : 'Create trip',
+            icon: AppPaths.doubleCheck,
+            onPressed: _onProceedPressed,
+          ).animate().scale(delay: 400.ms),
+          appBar: NavigationAppBar(
+            title: isUpdateMode ? context.tr.createTripPage_updateTrip : context.tr.createTripPage_titleBasicInfo,
+          ),
+          body: SingleChildScrollView(
+            padding: const EdgeInsets.only(bottom: AppDimensions.d120),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  LocationSearchTextField(
+                    initialLocation: _trip?.location,
+                    onLocationSelected: (String cityName, String countryCode) {
+                      setState(() {
+                        _cityNameController.text = cityName;
+                        _countryCodeController.text = countryCode;
+                      });
+                    },
+                  ).animate().fadeIn(),
+                  TransportOptions(
+                    initialTransportType: _transportType,
+                    onSelected: (TransportType transportType) {
+                      setState(() {
+                        _transportType = transportType;
+                      });
+                    },
+                  ).animate().slideX(begin: -1),
+                  BudgetFields(
+                    currencyController: _currencyController,
+                    budgetController: _budgetController,
+                  ).animate().fadeIn(),
+                  ErrorBorderContainer(
+                    showError: showCalendarError,
+                    child: RangeCalendar(
+                      initialStartDate: isUpdateMode ? DateTime.parse(_trip.dateFrom) : null,
+                      initialEndDate: isUpdateMode ? DateTime.parse(_trip.dateTo) : null,
+                      onDateRangeSelected: (from, to) {
+                        setState(() {
+                          _startDate = from;
+                          _endDate = to;
+                          showCalendarError = false;
+                        });
+                      },
+                    ).animate().slideX(begin: -1),
+                  ),
+                  if (showCalendarError)
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: AppDimensions.d16, top: AppDimensions.d10),
+                        child: Text(
+                          context.tr.createTripBasicInfoPage_dateNotSelected,
+                          style: context.tht.titleSmall?.copyWith(color: context.thc.error),
+                        ),
+                      ),
+                    ),
+                ],
               ),
             ),
           ),

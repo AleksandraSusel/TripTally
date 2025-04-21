@@ -2,8 +2,10 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart';
+import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_state.dart';
 
 import '../../../generate_mocks.mocks.dart';
 
@@ -25,33 +27,33 @@ void main() {
       when(mockPermissionsService.request(permission)).thenAnswer((_) async => status);
     }
 
-    blocTest<PermissionsBloc, PermissionsState>(
+    blocTest<PermissionsBloc, BasicState<PermissionStatus>>(
       'emits [loading, loaded] when permission is already granted',
       setUp: () => setupMockPermissionStatus(Permission.camera, PermissionStatus.granted),
       build: permissionsBloc,
       act: (bloc) => bloc.add(const PermissionCheckEvent(Permission.camera)),
       expect: () => [
-        const PermissionsState.loaded(PermissionStatus.granted),
+        const LoadedState<PermissionStatus>(data: PermissionStatus.granted),
       ],
       verify: (_) {
         verify(mockPermissionsService.status(Permission.camera)).called(1);
       },
     );
 
-    blocTest<PermissionsBloc, PermissionsState>(
+    blocTest<PermissionsBloc, BasicState<PermissionStatus>>(
       'emits [loading, loaded] when permission is limited',
       setUp: () => setupMockPermissionStatus(Permission.camera, PermissionStatus.limited),
       build: permissionsBloc,
       act: (bloc) => bloc.add(const PermissionCheckEvent(Permission.camera)),
       expect: () => [
-        const PermissionsState.loaded(PermissionStatus.limited),
+        const LoadedState<PermissionStatus>(data: PermissionStatus.limited),
       ],
       verify: (_) {
         verify(mockPermissionsService.status(Permission.camera)).called(1);
       },
     );
 
-    blocTest<PermissionsBloc, PermissionsState>(
+    blocTest<PermissionsBloc, BasicState<PermissionStatus>>(
       'emits [loading, loading, loaded] when permission is requested and granted',
       setUp: () {
         setupMockPermissionStatus(Permission.camera, PermissionStatus.denied);
@@ -60,7 +62,7 @@ void main() {
       build: permissionsBloc,
       act: (bloc) => bloc.add(const PermissionCheckEvent(Permission.camera)),
       expect: () => [
-        const PermissionsState.loaded(PermissionStatus.granted),
+        const LoadedState<PermissionStatus>(data: PermissionStatus.granted),
       ],
       verify: (_) {
         verify(mockPermissionsService.status(Permission.camera)).called(1);
@@ -68,7 +70,7 @@ void main() {
       },
     );
 
-    blocTest<PermissionsBloc, PermissionsState>(
+    blocTest<PermissionsBloc, BasicState<PermissionStatus>>(
       'emits [loading, loading, permanentlyDenied] when permission is permanently denied',
       setUp: () {
         setupMockPermissionStatus(Permission.camera, PermissionStatus.denied);
@@ -77,7 +79,7 @@ void main() {
       build: permissionsBloc,
       act: (bloc) => bloc.add(const PermissionCheckEvent(Permission.camera)),
       expect: () => [
-        const PermissionsState.permanentlyDenied(),
+        const PermanentlyDenied(),
       ],
       verify: (_) {
         verify(mockPermissionsService.status(Permission.camera)).called(1);
@@ -85,7 +87,7 @@ void main() {
       },
     );
 
-    blocTest<PermissionsBloc, PermissionsState>(
+    blocTest<PermissionsBloc, BasicState<PermissionStatus>>(
       'emits [loading, error] when there is an exception during permission check',
       setUp: () {
         when(mockPermissionsService.status(Permission.camera)).thenThrow(Exception());
@@ -93,14 +95,14 @@ void main() {
       build: permissionsBloc,
       act: (bloc) => bloc.add(const PermissionCheckEvent(Permission.camera)),
       expect: () => [
-        const PermissionsState.error(Errors.somethingWrongPermissions),
+        const FailureState<PermissionStatus>(Errors.somethingWrongPermissions),
       ],
       verify: (_) {
         verify(mockPermissionsService.status(Permission.camera)).called(1);
       },
     );
 
-    blocTest<PermissionsBloc, PermissionsState>(
+    blocTest<PermissionsBloc, BasicState<PermissionStatus>>(
       'emits [loading, error] when there is an exception during permission request',
       setUp: () {
         setupMockPermissionStatus(Permission.camera, PermissionStatus.denied);
@@ -109,7 +111,7 @@ void main() {
       build: permissionsBloc,
       act: (bloc) => bloc.add(const PermissionCheckEvent(Permission.camera)),
       expect: () => [
-        const PermissionsState.error(Errors.somethingWrongPermissions),
+        const FailureState<PermissionStatus>(Errors.somethingWrongPermissions),
       ],
       verify: (_) {
         verify(mockPermissionsService.status(Permission.camera)).called(1);

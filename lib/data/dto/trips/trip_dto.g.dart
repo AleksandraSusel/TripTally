@@ -6,7 +6,7 @@ part of 'trip_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TripDtoImpl _$$TripDtoImplFromJson(Map<String, dynamic> json) => _$TripDtoImpl(
+_TripDto _$TripDtoFromJson(Map<String, dynamic> json) => _TripDto(
       id: json['id'] as String,
       status: json['status'] as String,
       location: LocationDto.fromJson(json['location'] as Map<String, dynamic>),
@@ -21,7 +21,7 @@ _$TripDtoImpl _$$TripDtoImplFromJson(Map<String, dynamic> json) => _$TripDtoImpl
       totalExpenses: json['total_expenses'] as String?,
     );
 
-Map<String, dynamic> _$$TripDtoImplToJson(_$TripDtoImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$TripDtoToJson(_TripDto instance) => <String, dynamic>{
       'id': instance.id,
       'status': instance.status,
       'location': instance.location.toJson(),

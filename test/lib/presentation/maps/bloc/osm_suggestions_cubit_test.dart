@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:trip_tally/domain/entities/osm_map/place_entity.dart';
 import 'package:trip_tally/domain/utils/failure.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_suggestions_cubit.dart';
 
@@ -29,21 +30,21 @@ void main() {
       mockedPlaceEntityV2,
     ];
 
-    blocTest<OsmSuggestionsCubit, OsmSuggestionsState>(
-      'emits [OsmSuggestionsState.loaded()] when getSuggestions is called and succeeds',
+    blocTest<OsmSuggestionsCubit, BasicState<List<PlaceEntity>>>(
+      'emits [LoadedState(data: places)] when getSuggestions is called and succeeds',
       setUp: () => when(mockLocationSuggestionsUseCase(any)).thenAnswer((_) async => Right(places)),
       build: () => osmSuggestionsCubit,
       act: (cubit) => cubit.getSuggestions('query'),
       expect: () => [
-        OsmSuggestionsState.loaded(places),
+        LoadedState<List<PlaceEntity>>(data: places),
       ],
       verify: (_) {
-        verify(mockLocationSuggestionsUseCase('query'));
+        verify(mockLocationSuggestionsUseCase('query')).called(1);
       },
     );
 
-    blocTest<OsmSuggestionsCubit, OsmSuggestionsState>(
-      'emits [OsmSuggestionsState.error()] when getSuggestions is called and fails',
+    blocTest<OsmSuggestionsCubit, BasicState<List<PlaceEntity>>>(
+      'emits [FailureState(error: somethingWentWrong)] when getSuggestions is called and fails',
       setUp: () => when(mockLocationSuggestionsUseCase(any)).thenAnswer(
         (_) async => const Left(
           Failure(error: Errors.somethingWentWrong),
@@ -52,10 +53,10 @@ void main() {
       build: () => osmSuggestionsCubit,
       act: (cubit) => cubit.getSuggestions('query'),
       expect: () => [
-        const OsmSuggestionsState.error(Errors.somethingWentWrong),
+        const FailureState<List<PlaceEntity>>(Errors.somethingWentWrong),
       ],
       verify: (_) {
-        verify(mockLocationSuggestionsUseCase('query'));
+        verify(mockLocationSuggestionsUseCase('query')).called(1);
       },
     );
   });

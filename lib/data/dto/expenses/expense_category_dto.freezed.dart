@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,85 +10,62 @@ part of 'expense_category_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ExpenseCategoryDto _$ExpenseCategoryDtoFromJson(Map<String, dynamic> json) {
-  return _ExpenseCategoryDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ExpenseCategoryDto {
-  String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get translationKey => throw _privateConstructorUsedError;
+  String get id;
+  String get name;
+  String get translationKey;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ExpenseCategoryDtoCopyWith<ExpenseCategoryDto> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ExpenseCategoryDtoCopyWith<$Res> {
-  factory $ExpenseCategoryDtoCopyWith(ExpenseCategoryDto value, $Res Function(ExpenseCategoryDto) then) =
-      _$ExpenseCategoryDtoCopyWithImpl<$Res, ExpenseCategoryDto>;
-  @useResult
-  $Res call({String id, String name, String translationKey});
-}
-
-/// @nodoc
-class _$ExpenseCategoryDtoCopyWithImpl<$Res, $Val extends ExpenseCategoryDto>
-    implements $ExpenseCategoryDtoCopyWith<$Res> {
-  _$ExpenseCategoryDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of ExpenseCategoryDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $ExpenseCategoryDtoCopyWith<ExpenseCategoryDto> get copyWith =>
+      _$ExpenseCategoryDtoCopyWithImpl<ExpenseCategoryDto>(this as ExpenseCategoryDto, _$identity);
+
+  /// Serializes this ExpenseCategoryDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? translationKey = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      translationKey: null == translationKey
-          ? _value.translationKey
-          : translationKey // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ExpenseCategoryDto &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.translationKey, translationKey) || other.translationKey == translationKey));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, translationKey);
+
+  @override
+  String toString() {
+    return 'ExpenseCategoryDto(id: $id, name: $name, translationKey: $translationKey)';
   }
 }
 
 /// @nodoc
-abstract class _$$ExpenseCategoryDtoImplCopyWith<$Res> implements $ExpenseCategoryDtoCopyWith<$Res> {
-  factory _$$ExpenseCategoryDtoImplCopyWith(
-          _$ExpenseCategoryDtoImpl value, $Res Function(_$ExpenseCategoryDtoImpl) then) =
-      __$$ExpenseCategoryDtoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ExpenseCategoryDtoCopyWith<$Res> {
+  factory $ExpenseCategoryDtoCopyWith(ExpenseCategoryDto value, $Res Function(ExpenseCategoryDto) _then) =
+      _$ExpenseCategoryDtoCopyWithImpl;
   @useResult
   $Res call({String id, String name, String translationKey});
 }
 
 /// @nodoc
-class __$$ExpenseCategoryDtoImplCopyWithImpl<$Res>
-    extends _$ExpenseCategoryDtoCopyWithImpl<$Res, _$ExpenseCategoryDtoImpl>
-    implements _$$ExpenseCategoryDtoImplCopyWith<$Res> {
-  __$$ExpenseCategoryDtoImplCopyWithImpl(_$ExpenseCategoryDtoImpl _value, $Res Function(_$ExpenseCategoryDtoImpl) _then)
-      : super(_value, _then);
+class _$ExpenseCategoryDtoCopyWithImpl<$Res> implements $ExpenseCategoryDtoCopyWith<$Res> {
+  _$ExpenseCategoryDtoCopyWithImpl(this._self, this._then);
 
+  final ExpenseCategoryDto _self;
+  final $Res Function(ExpenseCategoryDto) _then;
+
+  /// Create a copy of ExpenseCategoryDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -95,17 +73,17 @@ class __$$ExpenseCategoryDtoImplCopyWithImpl<$Res>
     Object? name = null,
     Object? translationKey = null,
   }) {
-    return _then(_$ExpenseCategoryDtoImpl(
+    return _then(_self.copyWith(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       translationKey: null == translationKey
-          ? _value.translationKey
+          ? _self.translationKey
           : translationKey // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -114,10 +92,9 @@ class __$$ExpenseCategoryDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ExpenseCategoryDtoImpl implements _ExpenseCategoryDto {
-  const _$ExpenseCategoryDtoImpl({required this.id, required this.name, required this.translationKey});
-
-  factory _$ExpenseCategoryDtoImpl.fromJson(Map<String, dynamic> json) => _$$ExpenseCategoryDtoImplFromJson(json);
+class _ExpenseCategoryDto implements ExpenseCategoryDto {
+  const _ExpenseCategoryDto({required this.id, required this.name, required this.translationKey});
+  factory _ExpenseCategoryDto.fromJson(Map<String, dynamic> json) => _$ExpenseCategoryDtoFromJson(json);
 
   @override
   final String id;
@@ -126,54 +103,81 @@ class _$ExpenseCategoryDtoImpl implements _ExpenseCategoryDto {
   @override
   final String translationKey;
 
+  /// Create a copy of ExpenseCategoryDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ExpenseCategoryDto(id: $id, name: $name, translationKey: $translationKey)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ExpenseCategoryDtoCopyWith<_ExpenseCategoryDto> get copyWith =>
+      __$ExpenseCategoryDtoCopyWithImpl<_ExpenseCategoryDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ExpenseCategoryDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExpenseCategoryDtoImpl &&
+            other is _ExpenseCategoryDto &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.translationKey, translationKey) || other.translationKey == translationKey));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, translationKey);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ExpenseCategoryDtoImplCopyWith<_$ExpenseCategoryDtoImpl> get copyWith =>
-      __$$ExpenseCategoryDtoImplCopyWithImpl<_$ExpenseCategoryDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ExpenseCategoryDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ExpenseCategoryDto(id: $id, name: $name, translationKey: $translationKey)';
   }
 }
 
-abstract class _ExpenseCategoryDto implements ExpenseCategoryDto {
-  const factory _ExpenseCategoryDto(
-      {required final String id,
-      required final String name,
-      required final String translationKey}) = _$ExpenseCategoryDtoImpl;
-
-  factory _ExpenseCategoryDto.fromJson(Map<String, dynamic> json) = _$ExpenseCategoryDtoImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ExpenseCategoryDtoCopyWith<$Res> implements $ExpenseCategoryDtoCopyWith<$Res> {
+  factory _$ExpenseCategoryDtoCopyWith(_ExpenseCategoryDto value, $Res Function(_ExpenseCategoryDto) _then) =
+      __$ExpenseCategoryDtoCopyWithImpl;
   @override
-  String get id;
-  @override
-  String get name;
-  @override
-  String get translationKey;
-  @override
-  @JsonKey(ignore: true)
-  _$$ExpenseCategoryDtoImplCopyWith<_$ExpenseCategoryDtoImpl> get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call({String id, String name, String translationKey});
 }
+
+/// @nodoc
+class __$ExpenseCategoryDtoCopyWithImpl<$Res> implements _$ExpenseCategoryDtoCopyWith<$Res> {
+  __$ExpenseCategoryDtoCopyWithImpl(this._self, this._then);
+
+  final _ExpenseCategoryDto _self;
+  final $Res Function(_ExpenseCategoryDto) _then;
+
+  /// Create a copy of ExpenseCategoryDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? translationKey = null,
+  }) {
+    return _then(_ExpenseCategoryDto(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      translationKey: null == translationKey
+          ? _self.translationKey
+          : translationKey // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

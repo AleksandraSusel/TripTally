@@ -28,7 +28,13 @@ class ProceedFloatingActionButton extends StatelessWidget {
       label: isLoading
           ? Padding(
               padding: const EdgeInsets.symmetric(horizontal: AppDimensions.d30),
-              child: CircularProgressIndicator(color: context.thc.onTertiaryContainer),
+              child: CircularProgressIndicator(
+                constraints: const BoxConstraints(
+                  minWidth: 30,
+                  minHeight: 30,
+                ),
+                color: context.thc.onTertiaryContainer,
+              ),
             )
           : Row(
               children: [

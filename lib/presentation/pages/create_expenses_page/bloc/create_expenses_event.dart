@@ -1,8 +1,7 @@
 import 'package:equatable/equatable.dart';
-
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
 
-class CreateExpensesEvent extends Equatable {
+sealed class CreateExpensesEvent extends Equatable {
   const CreateExpensesEvent();
 
   @override

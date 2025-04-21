@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,29 +10,50 @@ part of 'expense_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ExpenseEntity {
-  String get name => throw _privateConstructorUsedError;
-  String get date => throw _privateConstructorUsedError;
-  PriceEntity get price => throw _privateConstructorUsedError;
-  String get categoryId => throw _privateConstructorUsedError;
+  String get name;
+  String get date;
+  PriceEntity get price;
+  String get categoryId;
+  String? get tripId;
+  ExpenseCategoryEntity? get category;
 
-  String? get tripId => throw _privateConstructorUsedError;
-  ExpenseCategoryEntity? get category => throw _privateConstructorUsedError;
+  /// Create a copy of ExpenseEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ExpenseEntityCopyWith<ExpenseEntity> get copyWith =>
+      _$ExpenseEntityCopyWithImpl<ExpenseEntity>(this as ExpenseEntity, _$identity);
 
-  @JsonKey(ignore: true)
-  $ExpenseEntityCopyWith<ExpenseEntity> get copyWith => throw _privateConstructorUsedError;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ExpenseEntity &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.price, price) || other.price == price) &&
+            (identical(other.categoryId, categoryId) || other.categoryId == categoryId) &&
+            (identical(other.tripId, tripId) || other.tripId == tripId) &&
+            (identical(other.category, category) || other.category == category));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, date, price, categoryId, tripId, category);
+
+  @override
+  String toString() {
+    return 'ExpenseEntity(name: $name, date: $date, price: $price, categoryId: $categoryId, tripId: $tripId, category: $category)';
+  }
 }
 
 /// @nodoc
-abstract class $ExpenseEntityCopyWith<$Res> {
-  factory $ExpenseEntityCopyWith(ExpenseEntity value, $Res Function(ExpenseEntity) then) =
-      _$ExpenseEntityCopyWithImpl<$Res, ExpenseEntity>;
+abstract mixin class $ExpenseEntityCopyWith<$Res> {
+  factory $ExpenseEntityCopyWith(ExpenseEntity value, $Res Function(ExpenseEntity) _then) = _$ExpenseEntityCopyWithImpl;
   @useResult
   $Res call(
       {String name,
@@ -46,14 +68,14 @@ abstract class $ExpenseEntityCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ExpenseEntityCopyWithImpl<$Res, $Val extends ExpenseEntity> implements $ExpenseEntityCopyWith<$Res> {
-  _$ExpenseEntityCopyWithImpl(this._value, this._then);
+class _$ExpenseEntityCopyWithImpl<$Res> implements $ExpenseEntityCopyWith<$Res> {
+  _$ExpenseEntityCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ExpenseEntity _self;
+  final $Res Function(ExpenseEntity) _then;
 
+  /// Create a copy of ExpenseEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -64,124 +86,63 @@ class _$ExpenseEntityCopyWithImpl<$Res, $Val extends ExpenseEntity> implements $
     Object? tripId = freezed,
     Object? category = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       date: null == date
-          ? _value.date
+          ? _self.date
           : date // ignore: cast_nullable_to_non_nullable
               as String,
       price: null == price
-          ? _value.price
+          ? _self.price
           : price // ignore: cast_nullable_to_non_nullable
               as PriceEntity,
       categoryId: null == categoryId
-          ? _value.categoryId
+          ? _self.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
               as String,
       tripId: freezed == tripId
-          ? _value.tripId
+          ? _self.tripId
           : tripId // ignore: cast_nullable_to_non_nullable
               as String?,
       category: freezed == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as ExpenseCategoryEntity?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PriceEntityCopyWith<$Res> get price {
-    return $PriceEntityCopyWith<$Res>(_value.price, (value) {
-      return _then(_value.copyWith(price: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ExpenseCategoryEntityCopyWith<$Res>? get category {
-    if (_value.category == null) {
-      return null;
-    }
-
-    return $ExpenseCategoryEntityCopyWith<$Res>(_value.category!, (value) {
-      return _then(_value.copyWith(category: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$ExpenseEntityImplCopyWith<$Res> implements $ExpenseEntityCopyWith<$Res> {
-  factory _$$ExpenseEntityImplCopyWith(_$ExpenseEntityImpl value, $Res Function(_$ExpenseEntityImpl) then) =
-      __$$ExpenseEntityImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String name,
-      String date,
-      PriceEntity price,
-      String categoryId,
-      String? tripId,
-      ExpenseCategoryEntity? category});
-
-  @override
-  $PriceEntityCopyWith<$Res> get price;
-  @override
-  $ExpenseCategoryEntityCopyWith<$Res>? get category;
-}
-
-/// @nodoc
-class __$$ExpenseEntityImplCopyWithImpl<$Res> extends _$ExpenseEntityCopyWithImpl<$Res, _$ExpenseEntityImpl>
-    implements _$$ExpenseEntityImplCopyWith<$Res> {
-  __$$ExpenseEntityImplCopyWithImpl(_$ExpenseEntityImpl _value, $Res Function(_$ExpenseEntityImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? date = null,
-    Object? price = null,
-    Object? categoryId = null,
-    Object? tripId = freezed,
-    Object? category = freezed,
-  }) {
-    return _then(_$ExpenseEntityImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as PriceEntity,
-      categoryId: null == categoryId
-          ? _value.categoryId
-          : categoryId // ignore: cast_nullable_to_non_nullable
-              as String,
-      tripId: freezed == tripId
-          ? _value.tripId
-          : tripId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      category: freezed == category
-          ? _value.category
+          ? _self.category
           : category // ignore: cast_nullable_to_non_nullable
               as ExpenseCategoryEntity?,
     ));
   }
+
+  /// Create a copy of ExpenseEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PriceEntityCopyWith<$Res> get price {
+    return $PriceEntityCopyWith<$Res>(_self.price, (value) {
+      return _then(_self.copyWith(price: value));
+    });
+  }
+
+  /// Create a copy of ExpenseEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ExpenseCategoryEntityCopyWith<$Res>? get category {
+    if (_self.category == null) {
+      return null;
+    }
+
+    return $ExpenseCategoryEntityCopyWith<$Res>(_self.category!, (value) {
+      return _then(_self.copyWith(category: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$ExpenseEntityImpl implements _ExpenseEntity {
-  const _$ExpenseEntityImpl(
+class _ExpenseEntity implements ExpenseEntity {
+  const _ExpenseEntity(
       {required this.name,
       required this.date,
       required this.price,
@@ -202,16 +163,19 @@ class _$ExpenseEntityImpl implements _ExpenseEntity {
   @override
   final ExpenseCategoryEntity? category;
 
+  /// Create a copy of ExpenseEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ExpenseEntity(name: $name, date: $date, price: $price, categoryId: $categoryId, tripId: $tripId, category: $category)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ExpenseEntityCopyWith<_ExpenseEntity> get copyWith =>
+      __$ExpenseEntityCopyWithImpl<_ExpenseEntity>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExpenseEntityImpl &&
+            other is _ExpenseEntity &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.price, price) || other.price == price) &&
@@ -223,35 +187,102 @@ class _$ExpenseEntityImpl implements _ExpenseEntity {
   @override
   int get hashCode => Object.hash(runtimeType, name, date, price, categoryId, tripId, category);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'ExpenseEntity(name: $name, date: $date, price: $price, categoryId: $categoryId, tripId: $tripId, category: $category)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ExpenseEntityCopyWith<$Res> implements $ExpenseEntityCopyWith<$Res> {
+  factory _$ExpenseEntityCopyWith(_ExpenseEntity value, $Res Function(_ExpenseEntity) _then) =
+      __$ExpenseEntityCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String name,
+      String date,
+      PriceEntity price,
+      String categoryId,
+      String? tripId,
+      ExpenseCategoryEntity? category});
+
+  @override
+  $PriceEntityCopyWith<$Res> get price;
+  @override
+  $ExpenseCategoryEntityCopyWith<$Res>? get category;
+}
+
+/// @nodoc
+class __$ExpenseEntityCopyWithImpl<$Res> implements _$ExpenseEntityCopyWith<$Res> {
+  __$ExpenseEntityCopyWithImpl(this._self, this._then);
+
+  final _ExpenseEntity _self;
+  final $Res Function(_ExpenseEntity) _then;
+
+  /// Create a copy of ExpenseEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$ExpenseEntityImplCopyWith<_$ExpenseEntityImpl> get copyWith =>
-      __$$ExpenseEntityImplCopyWithImpl<_$ExpenseEntityImpl>(this, _$identity);
+  $Res call({
+    Object? name = null,
+    Object? date = null,
+    Object? price = null,
+    Object? categoryId = null,
+    Object? tripId = freezed,
+    Object? category = freezed,
+  }) {
+    return _then(_ExpenseEntity(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: null == date
+          ? _self.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      price: null == price
+          ? _self.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as PriceEntity,
+      categoryId: null == categoryId
+          ? _self.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      tripId: freezed == tripId
+          ? _self.tripId
+          : tripId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      category: freezed == category
+          ? _self.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as ExpenseCategoryEntity?,
+    ));
+  }
+
+  /// Create a copy of ExpenseEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PriceEntityCopyWith<$Res> get price {
+    return $PriceEntityCopyWith<$Res>(_self.price, (value) {
+      return _then(_self.copyWith(price: value));
+    });
+  }
+
+  /// Create a copy of ExpenseEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ExpenseCategoryEntityCopyWith<$Res>? get category {
+    if (_self.category == null) {
+      return null;
+    }
+
+    return $ExpenseCategoryEntityCopyWith<$Res>(_self.category!, (value) {
+      return _then(_self.copyWith(category: value));
+    });
+  }
 }
 
-abstract class _ExpenseEntity implements ExpenseEntity {
-  const factory _ExpenseEntity(
-      {required final String name,
-      required final String date,
-      required final PriceEntity price,
-      required final String categoryId,
-      final String? tripId,
-      final ExpenseCategoryEntity? category}) = _$ExpenseEntityImpl;
-
-  @override
-  String get name;
-  @override
-  String get date;
-  @override
-  PriceEntity get price;
-  @override
-  String get categoryId;
-  @override
-  String? get tripId;
-  @override
-  ExpenseCategoryEntity? get category;
-  @override
-  @JsonKey(ignore: true)
-  _$$ExpenseEntityImplCopyWith<_$ExpenseEntityImpl> get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

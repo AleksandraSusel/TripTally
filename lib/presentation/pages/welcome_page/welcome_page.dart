@@ -9,6 +9,7 @@ import 'package:trip_tally/presentation/pages/welcome_page/widgets/welcome_page_
 import 'package:trip_tally/presentation/pages/welcome_page/widgets/welcome_page_headline.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/money_format.dart';
@@ -40,11 +41,12 @@ class WelcomePage extends StatelessWidget {
       asset: AppPaths.beach,
       child: BlocProvider(
         create: (context) => updateUserProfileBloc ?? getIt<UpdateUserProfileBloc>(),
-        child: BlocListener<UpdateUserProfileBloc, UpdateUserProfileState>(
-          listener: (context, state) => state.whenOrNull(
-            failure: (e) => showSnackBar(context, e.errorText(context)),
-            success: () => context.router.replace(const HomeRoute()),
-          ),
+        child: BlocListener<UpdateUserProfileBloc, BasicState<void>>(
+          listener: (context, state) => switch (state) {
+            SuccessState() => context.router.replace(const HomeRoute()),
+            FailureState(error: final error) => showSnackBar(context, error.errorText(context)),
+            _ => null,
+          },
           child: Scaffold(
             backgroundColor: Colors.transparent,
             body: _Body(permissionsBloc: permissionsBloc),

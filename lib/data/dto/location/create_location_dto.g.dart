@@ -6,12 +6,12 @@ part of 'create_location_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CreateLocationDtoImpl _$$CreateLocationDtoImplFromJson(Map<String, dynamic> json) => _$CreateLocationDtoImpl(
+_CreateLocationDto _$CreateLocationDtoFromJson(Map<String, dynamic> json) => _CreateLocationDto(
       countryCode: json['country_code'] as String,
       cityName: json['city_name'] as String,
     );
 
-Map<String, dynamic> _$$CreateLocationDtoImplToJson(_$CreateLocationDtoImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$CreateLocationDtoToJson(_CreateLocationDto instance) => <String, dynamic>{
       'country_code': instance.countryCode,
       'city_name': instance.cityName,
     };

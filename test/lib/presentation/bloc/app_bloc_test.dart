@@ -2,6 +2,8 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart';
+import 'package:trip_tally/presentation/pages/bloc/app_state.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 
 import '../../../generate_mocks.mocks.dart';
 import '../../../mocked_data.dart';
@@ -14,8 +16,8 @@ void main() {
 
   AppBloc createBloc() => AppBloc(mockSharedPrefs);
 
-  blocTest<AppBloc, AppState>(
-    'InitializeAppEvent emit success() when there is a token',
+  blocTest<AppBloc, BasicState<void>>(
+    'InitializeAppEvent emit SuccessState() when there is a token',
     setUp: () => when(mockSharedPrefs.getToken).thenReturn(testToken),
     build: createBloc,
     act: (bloc) => bloc.add(const OnInitializeAppEvent()),
@@ -23,11 +25,11 @@ void main() {
       verify(mockSharedPrefs.getToken);
       verifyNoMoreInteractions(mockSharedPrefs);
     },
-    expect: () => [const AppState.success()],
+    expect: () => [const SuccessState<void>()],
   );
 
-  blocTest<AppBloc, AppState>(
-    'InitializeAppEvent emit toLoginPage() when there token is null',
+  blocTest<AppBloc, BasicState<void>>(
+    'InitializeAppEvent emit ToLoginPage() when the token is null',
     setUp: () => when(mockSharedPrefs.getToken).thenReturn(null),
     build: createBloc,
     act: (bloc) => bloc.add(const OnInitializeAppEvent()),
@@ -35,6 +37,6 @@ void main() {
       verify(mockSharedPrefs.getToken);
       verifyNoMoreInteractions(mockSharedPrefs);
     },
-    expect: () => [const AppState.toLoginPage()],
+    expect: () => [const ToLoginPage()],
   );
 }

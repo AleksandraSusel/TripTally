@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,32 +10,53 @@ part of 'place_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-PlaceDto _$PlaceDtoFromJson(Map<String, dynamic> json) {
-  return _PlaceDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PlaceDto {
-  String get name => throw _privateConstructorUsedError;
-  String get displayName => throw _privateConstructorUsedError;
-  String get category => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  PlaceAddressDto get address => throw _privateConstructorUsedError;
-  PlaceExtraTagsDto? get extratags => throw _privateConstructorUsedError;
+  String get name;
+  String get displayName;
+  String get category;
+  String get type;
+  PlaceAddressDto get address;
+  PlaceExtraTagsDto? get extratags;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PlaceDtoCopyWith<PlaceDto> get copyWith => throw _privateConstructorUsedError;
+  /// Create a copy of PlaceDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $PlaceDtoCopyWith<PlaceDto> get copyWith => _$PlaceDtoCopyWithImpl<PlaceDto>(this as PlaceDto, _$identity);
+
+  /// Serializes this PlaceDto to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PlaceDto &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.displayName, displayName) || other.displayName == displayName) &&
+            (identical(other.category, category) || other.category == category) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.extratags, extratags) || other.extratags == extratags));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, displayName, category, type, address, extratags);
+
+  @override
+  String toString() {
+    return 'PlaceDto(name: $name, displayName: $displayName, category: $category, type: $type, address: $address, extratags: $extratags)';
+  }
 }
 
 /// @nodoc
-abstract class $PlaceDtoCopyWith<$Res> {
-  factory $PlaceDtoCopyWith(PlaceDto value, $Res Function(PlaceDto) then) = _$PlaceDtoCopyWithImpl<$Res, PlaceDto>;
+abstract mixin class $PlaceDtoCopyWith<$Res> {
+  factory $PlaceDtoCopyWith(PlaceDto value, $Res Function(PlaceDto) _then) = _$PlaceDtoCopyWithImpl;
   @useResult
   $Res call(
       {String name,
@@ -49,14 +71,14 @@ abstract class $PlaceDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PlaceDtoCopyWithImpl<$Res, $Val extends PlaceDto> implements $PlaceDtoCopyWith<$Res> {
-  _$PlaceDtoCopyWithImpl(this._value, this._then);
+class _$PlaceDtoCopyWithImpl<$Res> implements $PlaceDtoCopyWith<$Res> {
+  _$PlaceDtoCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PlaceDto _self;
+  final $Res Function(PlaceDto) _then;
 
+  /// Create a copy of PlaceDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -67,131 +89,70 @@ class _$PlaceDtoCopyWithImpl<$Res, $Val extends PlaceDto> implements $PlaceDtoCo
     Object? address = null,
     Object? extratags = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       displayName: null == displayName
-          ? _value.displayName
+          ? _self.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as String,
       category: null == category
-          ? _value.category
+          ? _self.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       address: null == address
-          ? _value.address
+          ? _self.address
           : address // ignore: cast_nullable_to_non_nullable
               as PlaceAddressDto,
       extratags: freezed == extratags
-          ? _value.extratags
-          : extratags // ignore: cast_nullable_to_non_nullable
-              as PlaceExtraTagsDto?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PlaceAddressDtoCopyWith<$Res> get address {
-    return $PlaceAddressDtoCopyWith<$Res>(_value.address, (value) {
-      return _then(_value.copyWith(address: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PlaceExtraTagsDtoCopyWith<$Res>? get extratags {
-    if (_value.extratags == null) {
-      return null;
-    }
-
-    return $PlaceExtraTagsDtoCopyWith<$Res>(_value.extratags!, (value) {
-      return _then(_value.copyWith(extratags: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$PlaceDtoImplCopyWith<$Res> implements $PlaceDtoCopyWith<$Res> {
-  factory _$$PlaceDtoImplCopyWith(_$PlaceDtoImpl value, $Res Function(_$PlaceDtoImpl) then) =
-      __$$PlaceDtoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String name,
-      String displayName,
-      String category,
-      String type,
-      PlaceAddressDto address,
-      PlaceExtraTagsDto? extratags});
-
-  @override
-  $PlaceAddressDtoCopyWith<$Res> get address;
-  @override
-  $PlaceExtraTagsDtoCopyWith<$Res>? get extratags;
-}
-
-/// @nodoc
-class __$$PlaceDtoImplCopyWithImpl<$Res> extends _$PlaceDtoCopyWithImpl<$Res, _$PlaceDtoImpl>
-    implements _$$PlaceDtoImplCopyWith<$Res> {
-  __$$PlaceDtoImplCopyWithImpl(_$PlaceDtoImpl _value, $Res Function(_$PlaceDtoImpl) _then) : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? displayName = null,
-    Object? category = null,
-    Object? type = null,
-    Object? address = null,
-    Object? extratags = freezed,
-  }) {
-    return _then(_$PlaceDtoImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      displayName: null == displayName
-          ? _value.displayName
-          : displayName // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as PlaceAddressDto,
-      extratags: freezed == extratags
-          ? _value.extratags
+          ? _self.extratags
           : extratags // ignore: cast_nullable_to_non_nullable
               as PlaceExtraTagsDto?,
     ));
+  }
+
+  /// Create a copy of PlaceDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaceAddressDtoCopyWith<$Res> get address {
+    return $PlaceAddressDtoCopyWith<$Res>(_self.address, (value) {
+      return _then(_self.copyWith(address: value));
+    });
+  }
+
+  /// Create a copy of PlaceDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaceExtraTagsDtoCopyWith<$Res>? get extratags {
+    if (_self.extratags == null) {
+      return null;
+    }
+
+    return $PlaceExtraTagsDtoCopyWith<$Res>(_self.extratags!, (value) {
+      return _then(_self.copyWith(extratags: value));
+    });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$PlaceDtoImpl implements _PlaceDto {
-  const _$PlaceDtoImpl(
+class _PlaceDto implements PlaceDto {
+  const _PlaceDto(
       {required this.name,
       required this.displayName,
       required this.category,
       required this.type,
       required this.address,
       this.extratags});
-
-  factory _$PlaceDtoImpl.fromJson(Map<String, dynamic> json) => _$$PlaceDtoImplFromJson(json);
+  factory _PlaceDto.fromJson(Map<String, dynamic> json) => _$PlaceDtoFromJson(json);
 
   @override
   final String name;
@@ -206,16 +167,25 @@ class _$PlaceDtoImpl implements _PlaceDto {
   @override
   final PlaceExtraTagsDto? extratags;
 
+  /// Create a copy of PlaceDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PlaceDto(name: $name, displayName: $displayName, category: $category, type: $type, address: $address, extratags: $extratags)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PlaceDtoCopyWith<_PlaceDto> get copyWith => __$PlaceDtoCopyWithImpl<_PlaceDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$PlaceDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlaceDtoImpl &&
+            other is _PlaceDto &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.displayName, displayName) || other.displayName == displayName) &&
             (identical(other.category, category) || other.category == category) &&
@@ -224,48 +194,105 @@ class _$PlaceDtoImpl implements _PlaceDto {
             (identical(other.extratags, extratags) || other.extratags == extratags));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, displayName, category, type, address, extratags);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$PlaceDtoImplCopyWith<_$PlaceDtoImpl> get copyWith =>
-      __$$PlaceDtoImplCopyWithImpl<_$PlaceDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PlaceDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'PlaceDto(name: $name, displayName: $displayName, category: $category, type: $type, address: $address, extratags: $extratags)';
   }
 }
 
-abstract class _PlaceDto implements PlaceDto {
-  const factory _PlaceDto(
-      {required final String name,
-      required final String displayName,
-      required final String category,
-      required final String type,
-      required final PlaceAddressDto address,
-      final PlaceExtraTagsDto? extratags}) = _$PlaceDtoImpl;
+/// @nodoc
+abstract mixin class _$PlaceDtoCopyWith<$Res> implements $PlaceDtoCopyWith<$Res> {
+  factory _$PlaceDtoCopyWith(_PlaceDto value, $Res Function(_PlaceDto) _then) = __$PlaceDtoCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String name,
+      String displayName,
+      String category,
+      String type,
+      PlaceAddressDto address,
+      PlaceExtraTagsDto? extratags});
 
-  factory _PlaceDto.fromJson(Map<String, dynamic> json) = _$PlaceDtoImpl.fromJson;
-
   @override
-  String get name;
+  $PlaceAddressDtoCopyWith<$Res> get address;
   @override
-  String get displayName;
-  @override
-  String get category;
-  @override
-  String get type;
-  @override
-  PlaceAddressDto get address;
-  @override
-  PlaceExtraTagsDto? get extratags;
-  @override
-  @JsonKey(ignore: true)
-  _$$PlaceDtoImplCopyWith<_$PlaceDtoImpl> get copyWith => throw _privateConstructorUsedError;
+  $PlaceExtraTagsDtoCopyWith<$Res>? get extratags;
 }
+
+/// @nodoc
+class __$PlaceDtoCopyWithImpl<$Res> implements _$PlaceDtoCopyWith<$Res> {
+  __$PlaceDtoCopyWithImpl(this._self, this._then);
+
+  final _PlaceDto _self;
+  final $Res Function(_PlaceDto) _then;
+
+  /// Create a copy of PlaceDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? name = null,
+    Object? displayName = null,
+    Object? category = null,
+    Object? type = null,
+    Object? address = null,
+    Object? extratags = freezed,
+  }) {
+    return _then(_PlaceDto(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayName: null == displayName
+          ? _self.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String,
+      category: null == category
+          ? _self.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as PlaceAddressDto,
+      extratags: freezed == extratags
+          ? _self.extratags
+          : extratags // ignore: cast_nullable_to_non_nullable
+              as PlaceExtraTagsDto?,
+    ));
+  }
+
+  /// Create a copy of PlaceDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaceAddressDtoCopyWith<$Res> get address {
+    return $PlaceAddressDtoCopyWith<$Res>(_self.address, (value) {
+      return _then(_self.copyWith(address: value));
+    });
+  }
+
+  /// Create a copy of PlaceDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaceExtraTagsDtoCopyWith<$Res>? get extratags {
+    if (_self.extratags == null) {
+      return null;
+    }
+
+    return $PlaceExtraTagsDtoCopyWith<$Res>(_self.extratags!, (value) {
+      return _then(_self.copyWith(extratags: value));
+    });
+  }
+}
+
+// dart format on

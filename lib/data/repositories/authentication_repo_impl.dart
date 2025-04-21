@@ -44,7 +44,7 @@ class AuthenticationRepoImpl implements AuthenticationRepo {
     try {
       await _remoteSource.signOut();
       return const Right(Success());
-    } catch (e) {
+    } on Exception catch (_) {
       return const Left(Failure(error: Errors.somethingWentWrong));
     }
   }

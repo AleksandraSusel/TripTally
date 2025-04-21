@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,90 +10,73 @@ part of 'create_location_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-CreateLocationDto _$CreateLocationDtoFromJson(Map<String, dynamic> json) {
-  return _CreateLocationDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$CreateLocationDto {
-  String get countryCode => throw _privateConstructorUsedError;
-  String get cityName => throw _privateConstructorUsedError;
+  String get countryCode;
+  String get cityName;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CreateLocationDtoCopyWith<CreateLocationDto> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CreateLocationDtoCopyWith<$Res> {
-  factory $CreateLocationDtoCopyWith(CreateLocationDto value, $Res Function(CreateLocationDto) then) =
-      _$CreateLocationDtoCopyWithImpl<$Res, CreateLocationDto>;
-  @useResult
-  $Res call({String countryCode, String cityName});
-}
-
-/// @nodoc
-class _$CreateLocationDtoCopyWithImpl<$Res, $Val extends CreateLocationDto>
-    implements $CreateLocationDtoCopyWith<$Res> {
-  _$CreateLocationDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of CreateLocationDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $CreateLocationDtoCopyWith<CreateLocationDto> get copyWith =>
+      _$CreateLocationDtoCopyWithImpl<CreateLocationDto>(this as CreateLocationDto, _$identity);
+
+  /// Serializes this CreateLocationDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? countryCode = null,
-    Object? cityName = null,
-  }) {
-    return _then(_value.copyWith(
-      countryCode: null == countryCode
-          ? _value.countryCode
-          : countryCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      cityName: null == cityName
-          ? _value.cityName
-          : cityName // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CreateLocationDto &&
+            (identical(other.countryCode, countryCode) || other.countryCode == countryCode) &&
+            (identical(other.cityName, cityName) || other.cityName == cityName));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, countryCode, cityName);
+
+  @override
+  String toString() {
+    return 'CreateLocationDto(countryCode: $countryCode, cityName: $cityName)';
   }
 }
 
 /// @nodoc
-abstract class _$$CreateLocationDtoImplCopyWith<$Res> implements $CreateLocationDtoCopyWith<$Res> {
-  factory _$$CreateLocationDtoImplCopyWith(_$CreateLocationDtoImpl value, $Res Function(_$CreateLocationDtoImpl) then) =
-      __$$CreateLocationDtoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $CreateLocationDtoCopyWith<$Res> {
+  factory $CreateLocationDtoCopyWith(CreateLocationDto value, $Res Function(CreateLocationDto) _then) =
+      _$CreateLocationDtoCopyWithImpl;
   @useResult
   $Res call({String countryCode, String cityName});
 }
 
 /// @nodoc
-class __$$CreateLocationDtoImplCopyWithImpl<$Res> extends _$CreateLocationDtoCopyWithImpl<$Res, _$CreateLocationDtoImpl>
-    implements _$$CreateLocationDtoImplCopyWith<$Res> {
-  __$$CreateLocationDtoImplCopyWithImpl(_$CreateLocationDtoImpl _value, $Res Function(_$CreateLocationDtoImpl) _then)
-      : super(_value, _then);
+class _$CreateLocationDtoCopyWithImpl<$Res> implements $CreateLocationDtoCopyWith<$Res> {
+  _$CreateLocationDtoCopyWithImpl(this._self, this._then);
 
+  final CreateLocationDto _self;
+  final $Res Function(CreateLocationDto) _then;
+
+  /// Create a copy of CreateLocationDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? countryCode = null,
     Object? cityName = null,
   }) {
-    return _then(_$CreateLocationDtoImpl(
+    return _then(_self.copyWith(
       countryCode: null == countryCode
-          ? _value.countryCode
+          ? _self.countryCode
           : countryCode // ignore: cast_nullable_to_non_nullable
               as String,
       cityName: null == cityName
-          ? _value.cityName
+          ? _self.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -101,59 +85,84 @@ class __$$CreateLocationDtoImplCopyWithImpl<$Res> extends _$CreateLocationDtoCop
 
 /// @nodoc
 @JsonSerializable()
-class _$CreateLocationDtoImpl implements _CreateLocationDto {
-  const _$CreateLocationDtoImpl({required this.countryCode, required this.cityName});
-
-  factory _$CreateLocationDtoImpl.fromJson(Map<String, dynamic> json) => _$$CreateLocationDtoImplFromJson(json);
+class _CreateLocationDto implements CreateLocationDto {
+  const _CreateLocationDto({required this.countryCode, required this.cityName});
+  factory _CreateLocationDto.fromJson(Map<String, dynamic> json) => _$CreateLocationDtoFromJson(json);
 
   @override
   final String countryCode;
   @override
   final String cityName;
 
+  /// Create a copy of CreateLocationDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'CreateLocationDto(countryCode: $countryCode, cityName: $cityName)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CreateLocationDtoCopyWith<_CreateLocationDto> get copyWith =>
+      __$CreateLocationDtoCopyWithImpl<_CreateLocationDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$CreateLocationDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateLocationDtoImpl &&
+            other is _CreateLocationDto &&
             (identical(other.countryCode, countryCode) || other.countryCode == countryCode) &&
             (identical(other.cityName, cityName) || other.cityName == cityName));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, countryCode, cityName);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CreateLocationDtoImplCopyWith<_$CreateLocationDtoImpl> get copyWith =>
-      __$$CreateLocationDtoImplCopyWithImpl<_$CreateLocationDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CreateLocationDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'CreateLocationDto(countryCode: $countryCode, cityName: $cityName)';
   }
 }
 
-abstract class _CreateLocationDto implements CreateLocationDto {
-  const factory _CreateLocationDto({required final String countryCode, required final String cityName}) =
-      _$CreateLocationDtoImpl;
-
-  factory _CreateLocationDto.fromJson(Map<String, dynamic> json) = _$CreateLocationDtoImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$CreateLocationDtoCopyWith<$Res> implements $CreateLocationDtoCopyWith<$Res> {
+  factory _$CreateLocationDtoCopyWith(_CreateLocationDto value, $Res Function(_CreateLocationDto) _then) =
+      __$CreateLocationDtoCopyWithImpl;
   @override
-  String get countryCode;
-  @override
-  String get cityName;
-  @override
-  @JsonKey(ignore: true)
-  _$$CreateLocationDtoImplCopyWith<_$CreateLocationDtoImpl> get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call({String countryCode, String cityName});
 }
+
+/// @nodoc
+class __$CreateLocationDtoCopyWithImpl<$Res> implements _$CreateLocationDtoCopyWith<$Res> {
+  __$CreateLocationDtoCopyWithImpl(this._self, this._then);
+
+  final _CreateLocationDto _self;
+  final $Res Function(_CreateLocationDto) _then;
+
+  /// Create a copy of CreateLocationDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? countryCode = null,
+    Object? cityName = null,
+  }) {
+    return _then(_CreateLocationDto(
+      countryCode: null == countryCode
+          ? _self.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      cityName: null == cityName
+          ? _self.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

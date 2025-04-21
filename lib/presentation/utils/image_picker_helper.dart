@@ -15,7 +15,7 @@ class ImagePickerHelper {
         preferredCameraDevice: CameraDevice.front,
       );
       return pickedFile;
-    } catch (e) {
+    } on Exception catch (_) {
       return null;
     }
   }

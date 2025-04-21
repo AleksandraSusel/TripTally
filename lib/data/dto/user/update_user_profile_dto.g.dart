@@ -6,13 +6,13 @@ part of 'update_user_profile_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UpdateUserProfileDtoImpl _$$UpdateUserProfileDtoImplFromJson(Map<String, dynamic> json) => _$UpdateUserProfileDtoImpl(
+_UpdateUserProfileDto _$UpdateUserProfileDtoFromJson(Map<String, dynamic> json) => _UpdateUserProfileDto(
       username: json['username'] as String,
       country: json['country'] as String,
       defaultCurrencyCode: json['default_currency_code'] as String,
     );
 
-Map<String, dynamic> _$$UpdateUserProfileDtoImplToJson(_$UpdateUserProfileDtoImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$UpdateUserProfileDtoToJson(_UpdateUserProfileDto instance) => <String, dynamic>{
       'username': instance.username,
       'country': instance.country,
       'default_currency_code': instance.defaultCurrencyCode,

@@ -1,9 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:trip_tally/domain/entities/expenses/expense_categories_entity.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
-import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_state.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/create_expenses_page.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/widgets/keys/widgets_keys.dart';
 
 import '../../../generate_mocks.mocks.dart';
@@ -18,22 +19,17 @@ void main() {
   setUp(() {
     mockGetExpenseCategoriesBloc = MockGetExpenseCategoriesBloc();
     mockCreateExpensesBloc = MockCreateExpensesBloc();
+
     when(mockGetExpenseCategoriesBloc.state).thenAnswer(
-      (_) => const GetExpenseCategoriesState.loaded(
-        mockedExpenseCategoriesEntities,
-      ),
+      (_) => const LoadedState<ExpenseCategoriesEntity>(data: mockedExpenseCategoriesEntities),
     );
     when(mockGetExpenseCategoriesBloc.stream).thenAnswer(
-      (_) => Stream.value(
-        const GetExpenseCategoriesState.loaded(
-          mockedExpenseCategoriesEntities,
-        ),
-      ),
+      (_) => Stream.value(const LoadedState<ExpenseCategoriesEntity>(data: mockedExpenseCategoriesEntities)),
     );
     when(mockGetExpenseCategoriesBloc.close()).thenAnswer((_) async {});
 
-    when(mockCreateExpensesBloc.state).thenAnswer((_) => const CreateExpensesState.initial());
-    when(mockCreateExpensesBloc.stream).thenAnswer((_) => Stream.value(const CreateExpensesState.initial()));
+    when(mockCreateExpensesBloc.state).thenAnswer((_) => const LoadedState<void>(data: null));
+    when(mockCreateExpensesBloc.stream).thenAnswer((_) => Stream.value(const LoadedState<void>(data: null)));
     when(mockCreateExpensesBloc.close()).thenAnswer((_) async {});
 
     initializeMockEnvironmentWithBloc<GetExpenseCategoriesBloc>(
@@ -44,7 +40,7 @@ void main() {
     );
   });
 
-  CreateExpensesPage buildPage() => CreateExpensesPage(trip: mockedTripEntity);
+  CreateExpensesPage buildPage() => CreateExpensesPage(trip: mockedTripEntityV1);
 
   runGoldenTest(
     'CreateExpensesPage - Initial',

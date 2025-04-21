@@ -1,12 +1,13 @@
-part of 'app_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 
-@freezed
-class AppState with _$AppState {
-  const factory AppState.initial() = _Initial;
+sealed class AppState extends BasicState<void> with EquatableMixin {
+  const AppState();
 
-  const factory AppState.loading() = _Loading;
+  @override
+  List<Object?> get props => [];
+}
 
-  const factory AppState.success() = _Success;
-
-  const factory AppState.toLoginPage() = _ToLoginPage;
+class ToLoginPage extends AppState {
+  const ToLoginPage();
 }

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,34 +10,62 @@ part of 'trip_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TripEntity {
-  String get id => throw _privateConstructorUsedError;
-  String get status => throw _privateConstructorUsedError;
-  LocationEntity get location => throw _privateConstructorUsedError;
-  String get userId => throw _privateConstructorUsedError;
-  String get dateFrom => throw _privateConstructorUsedError;
-  String get dateTo => throw _privateConstructorUsedError;
-  List<ExpenseEntity> get expenses => throw _privateConstructorUsedError;
-  String get transportType => throw _privateConstructorUsedError;
-  PriceEntity get plannedCost => throw _privateConstructorUsedError;
-  DateTime get insertedAt => throw _privateConstructorUsedError;
-  DateTime get updatedAt => throw _privateConstructorUsedError;
-  double? get totalExpenses => throw _privateConstructorUsedError;
+  String get id;
+  String get status;
+  LocationEntity get location;
+  String get userId;
+  String get dateFrom;
+  String get dateTo;
+  List<ExpenseEntity> get expenses;
+  String get transportType;
+  PriceEntity get plannedCost;
+  DateTime get insertedAt;
+  DateTime get updatedAt;
+  double? get totalExpenses;
 
-  @JsonKey(ignore: true)
-  $TripEntityCopyWith<TripEntity> get copyWith => throw _privateConstructorUsedError;
+  /// Create a copy of TripEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TripEntityCopyWith<TripEntity> get copyWith => _$TripEntityCopyWithImpl<TripEntity>(this as TripEntity, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TripEntity &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.location, location) || other.location == location) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.dateFrom, dateFrom) || other.dateFrom == dateFrom) &&
+            (identical(other.dateTo, dateTo) || other.dateTo == dateTo) &&
+            const DeepCollectionEquality().equals(other.expenses, expenses) &&
+            (identical(other.transportType, transportType) || other.transportType == transportType) &&
+            (identical(other.plannedCost, plannedCost) || other.plannedCost == plannedCost) &&
+            (identical(other.insertedAt, insertedAt) || other.insertedAt == insertedAt) &&
+            (identical(other.updatedAt, updatedAt) || other.updatedAt == updatedAt) &&
+            (identical(other.totalExpenses, totalExpenses) || other.totalExpenses == totalExpenses));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, status, location, userId, dateFrom, dateTo,
+      const DeepCollectionEquality().hash(expenses), transportType, plannedCost, insertedAt, updatedAt, totalExpenses);
+
+  @override
+  String toString() {
+    return 'TripEntity(id: $id, status: $status, location: $location, userId: $userId, dateFrom: $dateFrom, dateTo: $dateTo, expenses: $expenses, transportType: $transportType, plannedCost: $plannedCost, insertedAt: $insertedAt, updatedAt: $updatedAt, totalExpenses: $totalExpenses)';
+  }
 }
 
 /// @nodoc
-abstract class $TripEntityCopyWith<$Res> {
-  factory $TripEntityCopyWith(TripEntity value, $Res Function(TripEntity) then) =
-      _$TripEntityCopyWithImpl<$Res, TripEntity>;
+abstract mixin class $TripEntityCopyWith<$Res> {
+  factory $TripEntityCopyWith(TripEntity value, $Res Function(TripEntity) _then) = _$TripEntityCopyWithImpl;
   @useResult
   $Res call(
       {String id,
@@ -57,14 +86,14 @@ abstract class $TripEntityCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$TripEntityCopyWithImpl<$Res, $Val extends TripEntity> implements $TripEntityCopyWith<$Res> {
-  _$TripEntityCopyWithImpl(this._value, this._then);
+class _$TripEntityCopyWithImpl<$Res> implements $TripEntityCopyWith<$Res> {
+  _$TripEntityCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final TripEntity _self;
+  final $Res Function(TripEntity) _then;
 
+  /// Create a copy of TripEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,179 +110,83 @@ class _$TripEntityCopyWithImpl<$Res, $Val extends TripEntity> implements $TripEn
     Object? updatedAt = null,
     Object? totalExpenses = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       status: null == status
-          ? _value.status
+          ? _self.status
           : status // ignore: cast_nullable_to_non_nullable
               as String,
       location: null == location
-          ? _value.location
+          ? _self.location
           : location // ignore: cast_nullable_to_non_nullable
               as LocationEntity,
       userId: null == userId
-          ? _value.userId
+          ? _self.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
       dateFrom: null == dateFrom
-          ? _value.dateFrom
+          ? _self.dateFrom
           : dateFrom // ignore: cast_nullable_to_non_nullable
               as String,
       dateTo: null == dateTo
-          ? _value.dateTo
+          ? _self.dateTo
           : dateTo // ignore: cast_nullable_to_non_nullable
               as String,
       expenses: null == expenses
-          ? _value.expenses
+          ? _self.expenses
           : expenses // ignore: cast_nullable_to_non_nullable
               as List<ExpenseEntity>,
       transportType: null == transportType
-          ? _value.transportType
+          ? _self.transportType
           : transportType // ignore: cast_nullable_to_non_nullable
               as String,
       plannedCost: null == plannedCost
-          ? _value.plannedCost
+          ? _self.plannedCost
           : plannedCost // ignore: cast_nullable_to_non_nullable
               as PriceEntity,
       insertedAt: null == insertedAt
-          ? _value.insertedAt
+          ? _self.insertedAt
           : insertedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       updatedAt: null == updatedAt
-          ? _value.updatedAt
+          ? _self.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       totalExpenses: freezed == totalExpenses
-          ? _value.totalExpenses
-          : totalExpenses // ignore: cast_nullable_to_non_nullable
-              as double?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $LocationEntityCopyWith<$Res> get location {
-    return $LocationEntityCopyWith<$Res>(_value.location, (value) {
-      return _then(_value.copyWith(location: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PriceEntityCopyWith<$Res> get plannedCost {
-    return $PriceEntityCopyWith<$Res>(_value.plannedCost, (value) {
-      return _then(_value.copyWith(plannedCost: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$TripEntityImplCopyWith<$Res> implements $TripEntityCopyWith<$Res> {
-  factory _$$TripEntityImplCopyWith(_$TripEntityImpl value, $Res Function(_$TripEntityImpl) then) =
-      __$$TripEntityImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String id,
-      String status,
-      LocationEntity location,
-      String userId,
-      String dateFrom,
-      String dateTo,
-      List<ExpenseEntity> expenses,
-      String transportType,
-      PriceEntity plannedCost,
-      DateTime insertedAt,
-      DateTime updatedAt,
-      double? totalExpenses});
-
-  @override
-  $LocationEntityCopyWith<$Res> get location;
-  @override
-  $PriceEntityCopyWith<$Res> get plannedCost;
-}
-
-/// @nodoc
-class __$$TripEntityImplCopyWithImpl<$Res> extends _$TripEntityCopyWithImpl<$Res, _$TripEntityImpl>
-    implements _$$TripEntityImplCopyWith<$Res> {
-  __$$TripEntityImplCopyWithImpl(_$TripEntityImpl _value, $Res Function(_$TripEntityImpl) _then) : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? status = null,
-    Object? location = null,
-    Object? userId = null,
-    Object? dateFrom = null,
-    Object? dateTo = null,
-    Object? expenses = null,
-    Object? transportType = null,
-    Object? plannedCost = null,
-    Object? insertedAt = null,
-    Object? updatedAt = null,
-    Object? totalExpenses = freezed,
-  }) {
-    return _then(_$TripEntityImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as String,
-      location: null == location
-          ? _value.location
-          : location // ignore: cast_nullable_to_non_nullable
-              as LocationEntity,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      dateFrom: null == dateFrom
-          ? _value.dateFrom
-          : dateFrom // ignore: cast_nullable_to_non_nullable
-              as String,
-      dateTo: null == dateTo
-          ? _value.dateTo
-          : dateTo // ignore: cast_nullable_to_non_nullable
-              as String,
-      expenses: null == expenses
-          ? _value._expenses
-          : expenses // ignore: cast_nullable_to_non_nullable
-              as List<ExpenseEntity>,
-      transportType: null == transportType
-          ? _value.transportType
-          : transportType // ignore: cast_nullable_to_non_nullable
-              as String,
-      plannedCost: null == plannedCost
-          ? _value.plannedCost
-          : plannedCost // ignore: cast_nullable_to_non_nullable
-              as PriceEntity,
-      insertedAt: null == insertedAt
-          ? _value.insertedAt
-          : insertedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      totalExpenses: freezed == totalExpenses
-          ? _value.totalExpenses
+          ? _self.totalExpenses
           : totalExpenses // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
   }
+
+  /// Create a copy of TripEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LocationEntityCopyWith<$Res> get location {
+    return $LocationEntityCopyWith<$Res>(_self.location, (value) {
+      return _then(_self.copyWith(location: value));
+    });
+  }
+
+  /// Create a copy of TripEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PriceEntityCopyWith<$Res> get plannedCost {
+    return $PriceEntityCopyWith<$Res>(_self.plannedCost, (value) {
+      return _then(_self.copyWith(plannedCost: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$TripEntityImpl implements _TripEntity {
-  const _$TripEntityImpl(
+class _TripEntity implements TripEntity {
+  const _TripEntity(
       {required this.id,
       required this.status,
       required this.location,
@@ -299,16 +232,18 @@ class _$TripEntityImpl implements _TripEntity {
   @override
   final double? totalExpenses;
 
+  /// Create a copy of TripEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'TripEntity(id: $id, status: $status, location: $location, userId: $userId, dateFrom: $dateFrom, dateTo: $dateTo, expenses: $expenses, transportType: $transportType, plannedCost: $plannedCost, insertedAt: $insertedAt, updatedAt: $updatedAt, totalExpenses: $totalExpenses)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$TripEntityCopyWith<_TripEntity> get copyWith => __$TripEntityCopyWithImpl<_TripEntity>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TripEntityImpl &&
+            other is _TripEntity &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.location, location) || other.location == location) &&
@@ -327,53 +262,133 @@ class _$TripEntityImpl implements _TripEntity {
   int get hashCode => Object.hash(runtimeType, id, status, location, userId, dateFrom, dateTo,
       const DeepCollectionEquality().hash(_expenses), transportType, plannedCost, insertedAt, updatedAt, totalExpenses);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'TripEntity(id: $id, status: $status, location: $location, userId: $userId, dateFrom: $dateFrom, dateTo: $dateTo, expenses: $expenses, transportType: $transportType, plannedCost: $plannedCost, insertedAt: $insertedAt, updatedAt: $updatedAt, totalExpenses: $totalExpenses)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$TripEntityCopyWith<$Res> implements $TripEntityCopyWith<$Res> {
+  factory _$TripEntityCopyWith(_TripEntity value, $Res Function(_TripEntity) _then) = __$TripEntityCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String status,
+      LocationEntity location,
+      String userId,
+      String dateFrom,
+      String dateTo,
+      List<ExpenseEntity> expenses,
+      String transportType,
+      PriceEntity plannedCost,
+      DateTime insertedAt,
+      DateTime updatedAt,
+      double? totalExpenses});
+
+  @override
+  $LocationEntityCopyWith<$Res> get location;
+  @override
+  $PriceEntityCopyWith<$Res> get plannedCost;
+}
+
+/// @nodoc
+class __$TripEntityCopyWithImpl<$Res> implements _$TripEntityCopyWith<$Res> {
+  __$TripEntityCopyWithImpl(this._self, this._then);
+
+  final _TripEntity _self;
+  final $Res Function(_TripEntity) _then;
+
+  /// Create a copy of TripEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$TripEntityImplCopyWith<_$TripEntityImpl> get copyWith =>
-      __$$TripEntityImplCopyWithImpl<_$TripEntityImpl>(this, _$identity);
+  $Res call({
+    Object? id = null,
+    Object? status = null,
+    Object? location = null,
+    Object? userId = null,
+    Object? dateFrom = null,
+    Object? dateTo = null,
+    Object? expenses = null,
+    Object? transportType = null,
+    Object? plannedCost = null,
+    Object? insertedAt = null,
+    Object? updatedAt = null,
+    Object? totalExpenses = freezed,
+  }) {
+    return _then(_TripEntity(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      status: null == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+      location: null == location
+          ? _self.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as LocationEntity,
+      userId: null == userId
+          ? _self.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      dateFrom: null == dateFrom
+          ? _self.dateFrom
+          : dateFrom // ignore: cast_nullable_to_non_nullable
+              as String,
+      dateTo: null == dateTo
+          ? _self.dateTo
+          : dateTo // ignore: cast_nullable_to_non_nullable
+              as String,
+      expenses: null == expenses
+          ? _self._expenses
+          : expenses // ignore: cast_nullable_to_non_nullable
+              as List<ExpenseEntity>,
+      transportType: null == transportType
+          ? _self.transportType
+          : transportType // ignore: cast_nullable_to_non_nullable
+              as String,
+      plannedCost: null == plannedCost
+          ? _self.plannedCost
+          : plannedCost // ignore: cast_nullable_to_non_nullable
+              as PriceEntity,
+      insertedAt: null == insertedAt
+          ? _self.insertedAt
+          : insertedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _self.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      totalExpenses: freezed == totalExpenses
+          ? _self.totalExpenses
+          : totalExpenses // ignore: cast_nullable_to_non_nullable
+              as double?,
+    ));
+  }
+
+  /// Create a copy of TripEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LocationEntityCopyWith<$Res> get location {
+    return $LocationEntityCopyWith<$Res>(_self.location, (value) {
+      return _then(_self.copyWith(location: value));
+    });
+  }
+
+  /// Create a copy of TripEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PriceEntityCopyWith<$Res> get plannedCost {
+    return $PriceEntityCopyWith<$Res>(_self.plannedCost, (value) {
+      return _then(_self.copyWith(plannedCost: value));
+    });
+  }
 }
 
-abstract class _TripEntity implements TripEntity {
-  const factory _TripEntity(
-      {required final String id,
-      required final String status,
-      required final LocationEntity location,
-      required final String userId,
-      required final String dateFrom,
-      required final String dateTo,
-      required final List<ExpenseEntity> expenses,
-      required final String transportType,
-      required final PriceEntity plannedCost,
-      required final DateTime insertedAt,
-      required final DateTime updatedAt,
-      final double? totalExpenses}) = _$TripEntityImpl;
-
-  @override
-  String get id;
-  @override
-  String get status;
-  @override
-  LocationEntity get location;
-  @override
-  String get userId;
-  @override
-  String get dateFrom;
-  @override
-  String get dateTo;
-  @override
-  List<ExpenseEntity> get expenses;
-  @override
-  String get transportType;
-  @override
-  PriceEntity get plannedCost;
-  @override
-  DateTime get insertedAt;
-  @override
-  DateTime get updatedAt;
-  @override
-  double? get totalExpenses;
-  @override
-  @JsonKey(ignore: true)
-  _$$TripEntityImplCopyWith<_$TripEntityImpl> get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

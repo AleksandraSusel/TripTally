@@ -9,6 +9,7 @@ abstract class OsmModule {
   @Named('OsmDio')
   Dio get client => Dio(
         BaseOptions(
+          /// Ignore the baseUrl warning
           // ignore: avoid_redundant_argument_values
           baseUrl: EnvConfig.osmUrl,
         ),

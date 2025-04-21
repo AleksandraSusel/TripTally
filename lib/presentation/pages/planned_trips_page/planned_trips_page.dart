@@ -7,6 +7,7 @@ import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/delete_tri
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/get_all_user_trips_bloc.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
@@ -53,34 +54,36 @@ class PlannedTripsPage extends StatelessWidget {
           ),
         ),
         appBar: NavigationAppBar(title: context.tr.plannedTripsPage_yourTrips),
-        body: BlocListener<DeleteTripBloc, DeleteTripState>(
-          listener: (context, state) => state.whenOrNull(
-            error: (e) => showSnackBar(
-              context,
-              e.errorText(context),
-            ),
-            success: () => showSnackBar(
-              context,
-              context.tr.plannedTripsPage_successDelete,
-              type: SnackbarType.success,
-            ),
-          ),
-          child: BlocConsumer<GetAllUserTripsBloc, GetAllUserTripsState>(
-            listener: (context, state) => state.whenOrNull(
-              error: (error) => showSnackBar(
+        body: BlocListener<DeleteTripBloc, BasicState<void>>(
+          listener: (context, state) => switch (state) {
+            FailureState(error: final e) => showSnackBar(
                 context,
-                error.errorText(context),
+                e.errorText(context),
               ),
-            ),
-            builder: (context, state) => state.maybeWhen(
-              orElse: SizedBox.shrink,
-              loaded: _Body.new,
-              error: (e) => CustomErrorWidget(
-                reason: e.errorText(context),
-                onRetry: () => context.read<GetAllUserTripsBloc>()..add(const OnGetAllUserTripsEvent()),
+            SuccessState() => showSnackBar(
+                context,
+                context.tr.plannedTripsPage_successDelete,
+                type: SnackbarType.success,
               ),
-              loading: TripTallyProgressIndicator.new,
-            ),
+            _ => null,
+          },
+          child: BlocConsumer<GetAllUserTripsBloc, BasicState<List<TripEntity>>>(
+            listener: (context, state) => switch (state) {
+              FailureState(error: final error) => showSnackBar(
+                  context,
+                  error.errorText(context),
+                ),
+              _ => null,
+            },
+            builder: (context, state) => switch (state) {
+              LoadedState(data: final trips) => _Body(trips),
+              FailureState(error: final e) => CustomErrorWidget(
+                  reason: e.errorText(context),
+                  onRetry: () => context.read<GetAllUserTripsBloc>()..add(const OnGetAllUserTripsEvent()),
+                ),
+              LoadingState() => const TripTallyProgressIndicator(),
+              _ => const SizedBox.shrink(),
+            },
           ),
         ),
       ),

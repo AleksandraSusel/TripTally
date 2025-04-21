@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,66 @@ part of 'expense_categories_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ExpenseCategoriesDto _$ExpenseCategoriesDtoFromJson(Map<String, dynamic> json) {
-  return _ExpenseCategoriesDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ExpenseCategoriesDto {
-  List<ExpenseCategoryDto> get categories => throw _privateConstructorUsedError;
+  List<ExpenseCategoryDto> get categories;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ExpenseCategoriesDtoCopyWith<ExpenseCategoriesDto> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ExpenseCategoriesDtoCopyWith<$Res> {
-  factory $ExpenseCategoriesDtoCopyWith(ExpenseCategoriesDto value, $Res Function(ExpenseCategoriesDto) then) =
-      _$ExpenseCategoriesDtoCopyWithImpl<$Res, ExpenseCategoriesDto>;
-  @useResult
-  $Res call({List<ExpenseCategoryDto> categories});
-}
-
-/// @nodoc
-class _$ExpenseCategoriesDtoCopyWithImpl<$Res, $Val extends ExpenseCategoriesDto>
-    implements $ExpenseCategoriesDtoCopyWith<$Res> {
-  _$ExpenseCategoriesDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of ExpenseCategoriesDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $ExpenseCategoriesDtoCopyWith<ExpenseCategoriesDto> get copyWith =>
+      _$ExpenseCategoriesDtoCopyWithImpl<ExpenseCategoriesDto>(this as ExpenseCategoriesDto, _$identity);
+
+  /// Serializes this ExpenseCategoriesDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? categories = null,
-  }) {
-    return _then(_value.copyWith(
-      categories: null == categories
-          ? _value.categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<ExpenseCategoryDto>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ExpenseCategoriesDto &&
+            const DeepCollectionEquality().equals(other.categories, categories));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(categories));
+
+  @override
+  String toString() {
+    return 'ExpenseCategoriesDto(categories: $categories)';
   }
 }
 
 /// @nodoc
-abstract class _$$ExpenseCategoriesDtoImplCopyWith<$Res> implements $ExpenseCategoriesDtoCopyWith<$Res> {
-  factory _$$ExpenseCategoriesDtoImplCopyWith(
-          _$ExpenseCategoriesDtoImpl value, $Res Function(_$ExpenseCategoriesDtoImpl) then) =
-      __$$ExpenseCategoriesDtoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ExpenseCategoriesDtoCopyWith<$Res> {
+  factory $ExpenseCategoriesDtoCopyWith(ExpenseCategoriesDto value, $Res Function(ExpenseCategoriesDto) _then) =
+      _$ExpenseCategoriesDtoCopyWithImpl;
   @useResult
   $Res call({List<ExpenseCategoryDto> categories});
 }
 
 /// @nodoc
-class __$$ExpenseCategoriesDtoImplCopyWithImpl<$Res>
-    extends _$ExpenseCategoriesDtoCopyWithImpl<$Res, _$ExpenseCategoriesDtoImpl>
-    implements _$$ExpenseCategoriesDtoImplCopyWith<$Res> {
-  __$$ExpenseCategoriesDtoImplCopyWithImpl(
-      _$ExpenseCategoriesDtoImpl _value, $Res Function(_$ExpenseCategoriesDtoImpl) _then)
-      : super(_value, _then);
+class _$ExpenseCategoriesDtoCopyWithImpl<$Res> implements $ExpenseCategoriesDtoCopyWith<$Res> {
+  _$ExpenseCategoriesDtoCopyWithImpl(this._self, this._then);
 
+  final ExpenseCategoriesDto _self;
+  final $Res Function(ExpenseCategoriesDto) _then;
+
+  /// Create a copy of ExpenseCategoriesDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? categories = null,
   }) {
-    return _then(_$ExpenseCategoriesDtoImpl(
+    return _then(_self.copyWith(
       categories: null == categories
-          ? _value._categories
+          ? _self.categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<ExpenseCategoryDto>,
     ));
@@ -93,10 +78,9 @@ class __$$ExpenseCategoriesDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ExpenseCategoriesDtoImpl implements _ExpenseCategoriesDto {
-  const _$ExpenseCategoriesDtoImpl({required final List<ExpenseCategoryDto> categories}) : _categories = categories;
-
-  factory _$ExpenseCategoriesDtoImpl.fromJson(Map<String, dynamic> json) => _$$ExpenseCategoriesDtoImplFromJson(json);
+class _ExpenseCategoriesDto implements ExpenseCategoriesDto {
+  const _ExpenseCategoriesDto({required final List<ExpenseCategoryDto> categories}) : _categories = categories;
+  factory _ExpenseCategoriesDto.fromJson(Map<String, dynamic> json) => _$ExpenseCategoriesDtoFromJson(json);
 
   final List<ExpenseCategoryDto> _categories;
   @override
@@ -106,46 +90,69 @@ class _$ExpenseCategoriesDtoImpl implements _ExpenseCategoriesDto {
     return EqualUnmodifiableListView(_categories);
   }
 
+  /// Create a copy of ExpenseCategoriesDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ExpenseCategoriesDto(categories: $categories)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ExpenseCategoriesDtoCopyWith<_ExpenseCategoriesDto> get copyWith =>
+      __$ExpenseCategoriesDtoCopyWithImpl<_ExpenseCategoriesDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ExpenseCategoriesDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExpenseCategoriesDtoImpl &&
+            other is _ExpenseCategoriesDto &&
             const DeepCollectionEquality().equals(other._categories, _categories));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_categories));
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ExpenseCategoriesDtoImplCopyWith<_$ExpenseCategoriesDtoImpl> get copyWith =>
-      __$$ExpenseCategoriesDtoImplCopyWithImpl<_$ExpenseCategoriesDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ExpenseCategoriesDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ExpenseCategoriesDto(categories: $categories)';
   }
 }
 
-abstract class _ExpenseCategoriesDto implements ExpenseCategoriesDto {
-  const factory _ExpenseCategoriesDto({required final List<ExpenseCategoryDto> categories}) =
-      _$ExpenseCategoriesDtoImpl;
-
-  factory _ExpenseCategoriesDto.fromJson(Map<String, dynamic> json) = _$ExpenseCategoriesDtoImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ExpenseCategoriesDtoCopyWith<$Res> implements $ExpenseCategoriesDtoCopyWith<$Res> {
+  factory _$ExpenseCategoriesDtoCopyWith(_ExpenseCategoriesDto value, $Res Function(_ExpenseCategoriesDto) _then) =
+      __$ExpenseCategoriesDtoCopyWithImpl;
   @override
-  List<ExpenseCategoryDto> get categories;
-  @override
-  @JsonKey(ignore: true)
-  _$$ExpenseCategoriesDtoImplCopyWith<_$ExpenseCategoriesDtoImpl> get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call({List<ExpenseCategoryDto> categories});
 }
+
+/// @nodoc
+class __$ExpenseCategoriesDtoCopyWithImpl<$Res> implements _$ExpenseCategoriesDtoCopyWith<$Res> {
+  __$ExpenseCategoriesDtoCopyWithImpl(this._self, this._then);
+
+  final _ExpenseCategoriesDto _self;
+  final $Res Function(_ExpenseCategoriesDto) _then;
+
+  /// Create a copy of ExpenseCategoriesDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? categories = null,
+  }) {
+    return _then(_ExpenseCategoriesDto(
+      categories: null == categories
+          ? _self._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<ExpenseCategoryDto>,
+    ));
+  }
+}
+
+// dart format on
