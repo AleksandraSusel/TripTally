@@ -19,6 +19,7 @@ class CustomTextField extends StatefulWidget {
     this.initialValue,
     this.helperText,
     this.autofocus = false,
+    this.onChanged,
   });
 
   final String labelText;
@@ -31,6 +32,7 @@ class CustomTextField extends StatefulWidget {
   final bool? readOnly;
   final TextCapitalization? textCapitalization;
   final VoidCallback? onTap;
+  final ValueSetter<String>? onChanged;
   final String? Function(String?)? validator;
   final FocusNode? focusNode;
   final TextInputType? textInputType;
@@ -63,6 +65,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       autocorrect: false,
       textCapitalization: widget.textCapitalization ?? TextCapitalization.none,
       readOnly: widget.readOnly ?? false,
+      onChanged: widget.onChanged,
       onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
       decoration: InputDecoration(
         alignLabelWithHint: true,

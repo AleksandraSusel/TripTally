@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:trip_tally/domain/entities/location/location_entity.dart';
@@ -40,7 +41,7 @@ class _LocationSearchTextFieldState extends State<LocationSearchTextField> {
   @override
   Widget build(BuildContext context) => TypeAheadField<PlaceEntity>(
         controller: _searchController,
-        hideOnEmpty: true,
+        debounceDuration: 1.5.seconds,
         builder: (context, controller, fNode) {
           return Padding(
             padding: const EdgeInsets.all(AppDimensions.d16),

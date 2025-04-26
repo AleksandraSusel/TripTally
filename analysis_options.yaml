@@ -17,7 +17,7 @@ analyzer:
     - lib/**/*.gr.dart
     - lib/**/*.freezed.dart
     - lib/**/generated/
-    - lib/presentation/utils/translation/generated/l10n.dart
+    - lib/*/*/*/generated/intl/*.dart
     - lib/**/injectable.config.dart
     - test/generate_mocks.mocks.dart
   errors:

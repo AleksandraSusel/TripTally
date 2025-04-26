@@ -34,10 +34,9 @@ void main() {
     'OsmMapDataSource.getPlaces(), throws ApiException when API Exception is raised',
     () async {
       when(mockOsmClient.getLocationSuggestions(input: anyNamed('input'))).thenThrow(Exception());
-      final future = await osmMapDataSource.getPlaces('testInput');
 
       await expectLater(
-        future,
+        osmMapDataSource.getPlaces('testInput'),
         throwsA(
           isA<ApiException>().having((e) => e.failure, 'Something went error', Errors.somethingWentWrong),
         ),

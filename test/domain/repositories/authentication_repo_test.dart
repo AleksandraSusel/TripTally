@@ -1,11 +1,9 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:trip_tally/data/dto/user/update_user_profile_dto.dart';
 import 'package:trip_tally/data/repositories/authentication_repo_impl.dart';
 import 'package:trip_tally/domain/repositories/authentication_repo.dart';
 import 'package:trip_tally/domain/utils/exception.dart';
-import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
@@ -77,8 +75,7 @@ void main() {
   });
 
   test('SignOut logs user out failure', () async {
-    when(mockedAuthenticationRemoteSource.signOut())
-        .thenThrow(const Left<Failure, dynamic>(Failure(error: Errors.somethingWentWrong)));
+    when(mockedAuthenticationRemoteSource.signOut()).thenThrow(ApiException(Errors.somethingWentWrong));
     final result = await repository.signOut();
     Errors? error;
     result.fold((l) => error = l.error, (r) => null);
