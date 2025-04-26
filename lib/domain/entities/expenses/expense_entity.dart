@@ -1,13 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:trip_tally/data/dto/expenses/expense_dto.dart';
-
 import 'package:trip_tally/domain/entities/expenses/expense_category_entity.dart';
 import 'package:trip_tally/domain/entities/price/price_entity.dart';
 
 part 'expense_entity.freezed.dart';
 
 @freezed
-class ExpenseEntity with _$ExpenseEntity {
+abstract class ExpenseEntity with _$ExpenseEntity {
   const factory ExpenseEntity({
     required String name,
     required String date,

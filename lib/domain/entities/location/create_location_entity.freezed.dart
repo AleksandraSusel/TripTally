@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,88 +10,69 @@ part of 'create_location_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CreateLocationEntity {
-  String get countryCode => throw _privateConstructorUsedError;
-  String get cityName => throw _privateConstructorUsedError;
+  String get countryCode;
+  String get cityName;
 
-  @JsonKey(ignore: true)
-  $CreateLocationEntityCopyWith<CreateLocationEntity> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CreateLocationEntityCopyWith<$Res> {
-  factory $CreateLocationEntityCopyWith(CreateLocationEntity value, $Res Function(CreateLocationEntity) then) =
-      _$CreateLocationEntityCopyWithImpl<$Res, CreateLocationEntity>;
-  @useResult
-  $Res call({String countryCode, String cityName});
-}
-
-/// @nodoc
-class _$CreateLocationEntityCopyWithImpl<$Res, $Val extends CreateLocationEntity>
-    implements $CreateLocationEntityCopyWith<$Res> {
-  _$CreateLocationEntityCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of CreateLocationEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $CreateLocationEntityCopyWith<CreateLocationEntity> get copyWith =>
+      _$CreateLocationEntityCopyWithImpl<CreateLocationEntity>(this as CreateLocationEntity, _$identity);
+
   @override
-  $Res call({
-    Object? countryCode = null,
-    Object? cityName = null,
-  }) {
-    return _then(_value.copyWith(
-      countryCode: null == countryCode
-          ? _value.countryCode
-          : countryCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      cityName: null == cityName
-          ? _value.cityName
-          : cityName // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CreateLocationEntity &&
+            (identical(other.countryCode, countryCode) || other.countryCode == countryCode) &&
+            (identical(other.cityName, cityName) || other.cityName == cityName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, countryCode, cityName);
+
+  @override
+  String toString() {
+    return 'CreateLocationEntity(countryCode: $countryCode, cityName: $cityName)';
   }
 }
 
 /// @nodoc
-abstract class _$$CreateLocationEntityImplCopyWith<$Res> implements $CreateLocationEntityCopyWith<$Res> {
-  factory _$$CreateLocationEntityImplCopyWith(
-          _$CreateLocationEntityImpl value, $Res Function(_$CreateLocationEntityImpl) then) =
-      __$$CreateLocationEntityImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $CreateLocationEntityCopyWith<$Res> {
+  factory $CreateLocationEntityCopyWith(CreateLocationEntity value, $Res Function(CreateLocationEntity) _then) =
+      _$CreateLocationEntityCopyWithImpl;
   @useResult
   $Res call({String countryCode, String cityName});
 }
 
 /// @nodoc
-class __$$CreateLocationEntityImplCopyWithImpl<$Res>
-    extends _$CreateLocationEntityCopyWithImpl<$Res, _$CreateLocationEntityImpl>
-    implements _$$CreateLocationEntityImplCopyWith<$Res> {
-  __$$CreateLocationEntityImplCopyWithImpl(
-      _$CreateLocationEntityImpl _value, $Res Function(_$CreateLocationEntityImpl) _then)
-      : super(_value, _then);
+class _$CreateLocationEntityCopyWithImpl<$Res> implements $CreateLocationEntityCopyWith<$Res> {
+  _$CreateLocationEntityCopyWithImpl(this._self, this._then);
 
+  final CreateLocationEntity _self;
+  final $Res Function(CreateLocationEntity) _then;
+
+  /// Create a copy of CreateLocationEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? countryCode = null,
     Object? cityName = null,
   }) {
-    return _then(_$CreateLocationEntityImpl(
+    return _then(_self.copyWith(
       countryCode: null == countryCode
-          ? _value.countryCode
+          ? _self.countryCode
           : countryCode // ignore: cast_nullable_to_non_nullable
               as String,
       cityName: null == cityName
-          ? _value.cityName
+          ? _self.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -99,24 +81,27 @@ class __$$CreateLocationEntityImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CreateLocationEntityImpl implements _CreateLocationEntity {
-  const _$CreateLocationEntityImpl({required this.countryCode, required this.cityName});
+class _CreateLocationEntity implements CreateLocationEntity {
+  const _CreateLocationEntity({required this.countryCode, required this.cityName});
 
   @override
   final String countryCode;
   @override
   final String cityName;
 
+  /// Create a copy of CreateLocationEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'CreateLocationEntity(countryCode: $countryCode, cityName: $cityName)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CreateLocationEntityCopyWith<_CreateLocationEntity> get copyWith =>
+      __$CreateLocationEntityCopyWithImpl<_CreateLocationEntity>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateLocationEntityImpl &&
+            other is _CreateLocationEntity &&
             (identical(other.countryCode, countryCode) || other.countryCode == countryCode) &&
             (identical(other.cityName, cityName) || other.cityName == cityName));
   }
@@ -124,22 +109,47 @@ class _$CreateLocationEntityImpl implements _CreateLocationEntity {
   @override
   int get hashCode => Object.hash(runtimeType, countryCode, cityName);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'CreateLocationEntity(countryCode: $countryCode, cityName: $cityName)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$CreateLocationEntityCopyWith<$Res> implements $CreateLocationEntityCopyWith<$Res> {
+  factory _$CreateLocationEntityCopyWith(_CreateLocationEntity value, $Res Function(_CreateLocationEntity) _then) =
+      __$CreateLocationEntityCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String countryCode, String cityName});
+}
+
+/// @nodoc
+class __$CreateLocationEntityCopyWithImpl<$Res> implements _$CreateLocationEntityCopyWith<$Res> {
+  __$CreateLocationEntityCopyWithImpl(this._self, this._then);
+
+  final _CreateLocationEntity _self;
+  final $Res Function(_CreateLocationEntity) _then;
+
+  /// Create a copy of CreateLocationEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateLocationEntityImplCopyWith<_$CreateLocationEntityImpl> get copyWith =>
-      __$$CreateLocationEntityImplCopyWithImpl<_$CreateLocationEntityImpl>(this, _$identity);
+  $Res call({
+    Object? countryCode = null,
+    Object? cityName = null,
+  }) {
+    return _then(_CreateLocationEntity(
+      countryCode: null == countryCode
+          ? _self.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      cityName: null == cityName
+          ? _self.cityName
+          : cityName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-abstract class _CreateLocationEntity implements CreateLocationEntity {
-  const factory _CreateLocationEntity({required final String countryCode, required final String cityName}) =
-      _$CreateLocationEntityImpl;
-
-  @override
-  String get countryCode;
-  @override
-  String get cityName;
-  @override
-  @JsonKey(ignore: true)
-  _$$CreateLocationEntityImplCopyWith<_$CreateLocationEntityImpl> get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

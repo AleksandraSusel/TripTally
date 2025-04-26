@@ -6,7 +6,7 @@ part of 'location_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LocationDtoImpl _$$LocationDtoImplFromJson(Map<String, dynamic> json) => _$LocationDtoImpl(
+_LocationDto _$LocationDtoFromJson(Map<String, dynamic> json) => _LocationDto(
       id: json['id'] as String,
       userId: json['user_id'] as String,
       countryCode: json['country_code'] as String,
@@ -15,7 +15,7 @@ _$LocationDtoImpl _$$LocationDtoImplFromJson(Map<String, dynamic> json) => _$Loc
       updatedAt: DateTime.parse(json['updated_at'] as String),
     );
 
-Map<String, dynamic> _$$LocationDtoImplToJson(_$LocationDtoImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$LocationDtoToJson(_LocationDto instance) => <String, dynamic>{
       'id': instance.id,
       'user_id': instance.userId,
       'country_code': instance.countryCode,

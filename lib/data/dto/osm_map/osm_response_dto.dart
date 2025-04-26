@@ -6,7 +6,7 @@ part 'osm_response_dto.freezed.dart';
 part 'osm_response_dto.g.dart';
 
 @freezed
-class OsmResponseDto with _$OsmResponseDto {
+abstract class OsmResponseDto with _$OsmResponseDto {
   const factory OsmResponseDto({
     required List<FeatureDto> features,
   }) = _OsmResponseDto;
@@ -15,7 +15,7 @@ class OsmResponseDto with _$OsmResponseDto {
 }
 
 @freezed
-class FeatureDto with _$FeatureDto {
+abstract class FeatureDto with _$FeatureDto {
   const factory FeatureDto({
     required PlaceDto properties,
     required GeometryDto geometry,

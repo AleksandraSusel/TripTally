@@ -5,6 +5,7 @@ import 'package:mockito/mockito.dart';
 import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/delete_trip_bloc.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 import '../../../../generate_mocks.mocks.dart';
@@ -19,30 +20,30 @@ void main() {
 
   DeleteTripBloc deleteTripBloc() => DeleteTripBloc(mockDeleteTripUseCase);
 
-  group('GetAllUserTripsBloc', () {
-    blocTest<DeleteTripBloc, DeleteTripState>(
-      'emits [DeleteTripBloc.success] when DeleteTripEvent is successful',
+  group('DeleteTripBloc', () {
+    blocTest<DeleteTripBloc, BasicState<void>>(
+      'emits [LoadingState, SuccessState] when DeleteTripEvent is successful',
       setUp: () => when(mockDeleteTripUseCase(any)).thenAnswer(
         (_) async => const Right(Success()),
       ),
       build: deleteTripBloc,
       act: (bloc) => bloc.add(DeleteTripEvent(mockedTripEntityV1.id)),
       expect: () => [
-        const DeleteTripState.loading(),
-        const DeleteTripState.success(),
+        const LoadingState<void>(),
+        const SuccessState<void>(),
       ],
     );
 
-    blocTest<DeleteTripBloc, DeleteTripState>(
-      'emits [DeleteTripBloc.error] when OnGetAllUserTripsEvent fails',
+    blocTest<DeleteTripBloc, BasicState<void>>(
+      'emits [LoadingState, FailureState] when DeleteTripEvent fails',
       setUp: () => when(mockDeleteTripUseCase(any)).thenAnswer(
         (_) async => const Left(Failure(error: Errors.somethingWentWrong)),
       ),
       build: deleteTripBloc,
       act: (bloc) => bloc.add(DeleteTripEvent(mockedTripEntityV1.id)),
       expect: () => [
-        const DeleteTripState.loading(),
-        const DeleteTripState.error(Errors.somethingWentWrong),
+        const LoadingState<void>(),
+        const FailureState<void>(Errors.somethingWentWrong),
       ],
     );
   });

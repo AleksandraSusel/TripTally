@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,78 +10,66 @@ part of 'osm_response_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-OsmResponseDto _$OsmResponseDtoFromJson(Map<String, dynamic> json) {
-  return _OsmResponseDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$OsmResponseDto {
-  List<FeatureDto> get features => throw _privateConstructorUsedError;
+  List<FeatureDto> get features;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $OsmResponseDtoCopyWith<OsmResponseDto> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $OsmResponseDtoCopyWith<$Res> {
-  factory $OsmResponseDtoCopyWith(OsmResponseDto value, $Res Function(OsmResponseDto) then) =
-      _$OsmResponseDtoCopyWithImpl<$Res, OsmResponseDto>;
-  @useResult
-  $Res call({List<FeatureDto> features});
-}
-
-/// @nodoc
-class _$OsmResponseDtoCopyWithImpl<$Res, $Val extends OsmResponseDto> implements $OsmResponseDtoCopyWith<$Res> {
-  _$OsmResponseDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of OsmResponseDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $OsmResponseDtoCopyWith<OsmResponseDto> get copyWith =>
+      _$OsmResponseDtoCopyWithImpl<OsmResponseDto>(this as OsmResponseDto, _$identity);
+
+  /// Serializes this OsmResponseDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? features = null,
-  }) {
-    return _then(_value.copyWith(
-      features: null == features
-          ? _value.features
-          : features // ignore: cast_nullable_to_non_nullable
-              as List<FeatureDto>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is OsmResponseDto &&
+            const DeepCollectionEquality().equals(other.features, features));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(features));
+
+  @override
+  String toString() {
+    return 'OsmResponseDto(features: $features)';
   }
 }
 
 /// @nodoc
-abstract class _$$OsmResponseDtoImplCopyWith<$Res> implements $OsmResponseDtoCopyWith<$Res> {
-  factory _$$OsmResponseDtoImplCopyWith(_$OsmResponseDtoImpl value, $Res Function(_$OsmResponseDtoImpl) then) =
-      __$$OsmResponseDtoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $OsmResponseDtoCopyWith<$Res> {
+  factory $OsmResponseDtoCopyWith(OsmResponseDto value, $Res Function(OsmResponseDto) _then) =
+      _$OsmResponseDtoCopyWithImpl;
   @useResult
   $Res call({List<FeatureDto> features});
 }
 
 /// @nodoc
-class __$$OsmResponseDtoImplCopyWithImpl<$Res> extends _$OsmResponseDtoCopyWithImpl<$Res, _$OsmResponseDtoImpl>
-    implements _$$OsmResponseDtoImplCopyWith<$Res> {
-  __$$OsmResponseDtoImplCopyWithImpl(_$OsmResponseDtoImpl _value, $Res Function(_$OsmResponseDtoImpl) _then)
-      : super(_value, _then);
+class _$OsmResponseDtoCopyWithImpl<$Res> implements $OsmResponseDtoCopyWith<$Res> {
+  _$OsmResponseDtoCopyWithImpl(this._self, this._then);
 
+  final OsmResponseDto _self;
+  final $Res Function(OsmResponseDto) _then;
+
+  /// Create a copy of OsmResponseDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? features = null,
   }) {
-    return _then(_$OsmResponseDtoImpl(
+    return _then(_self.copyWith(
       features: null == features
-          ? _value._features
+          ? _self.features
           : features // ignore: cast_nullable_to_non_nullable
               as List<FeatureDto>,
     ));
@@ -89,10 +78,9 @@ class __$$OsmResponseDtoImplCopyWithImpl<$Res> extends _$OsmResponseDtoCopyWithI
 
 /// @nodoc
 @JsonSerializable()
-class _$OsmResponseDtoImpl implements _OsmResponseDto {
-  const _$OsmResponseDtoImpl({required final List<FeatureDto> features}) : _features = features;
-
-  factory _$OsmResponseDtoImpl.fromJson(Map<String, dynamic> json) => _$$OsmResponseDtoImplFromJson(json);
+class _OsmResponseDto implements OsmResponseDto {
+  const _OsmResponseDto({required final List<FeatureDto> features}) : _features = features;
+  factory _OsmResponseDto.fromJson(Map<String, dynamic> json) => _$OsmResponseDtoFromJson(json);
 
   final List<FeatureDto> _features;
   @override
@@ -102,211 +90,265 @@ class _$OsmResponseDtoImpl implements _OsmResponseDto {
     return EqualUnmodifiableListView(_features);
   }
 
+  /// Create a copy of OsmResponseDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'OsmResponseDto(features: $features)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$OsmResponseDtoCopyWith<_OsmResponseDto> get copyWith =>
+      __$OsmResponseDtoCopyWithImpl<_OsmResponseDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$OsmResponseDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OsmResponseDtoImpl &&
+            other is _OsmResponseDto &&
             const DeepCollectionEquality().equals(other._features, _features));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_features));
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$OsmResponseDtoImplCopyWith<_$OsmResponseDtoImpl> get copyWith =>
-      __$$OsmResponseDtoImplCopyWithImpl<_$OsmResponseDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$OsmResponseDtoImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _OsmResponseDto implements OsmResponseDto {
-  const factory _OsmResponseDto({required final List<FeatureDto> features}) = _$OsmResponseDtoImpl;
-
-  factory _OsmResponseDto.fromJson(Map<String, dynamic> json) = _$OsmResponseDtoImpl.fromJson;
-
-  @override
-  List<FeatureDto> get features;
-  @override
-  @JsonKey(ignore: true)
-  _$$OsmResponseDtoImplCopyWith<_$OsmResponseDtoImpl> get copyWith => throw _privateConstructorUsedError;
-}
-
-FeatureDto _$FeatureDtoFromJson(Map<String, dynamic> json) {
-  return _FeatureDto.fromJson(json);
-}
-
-/// @nodoc
-mixin _$FeatureDto {
-  PlaceDto get properties => throw _privateConstructorUsedError;
-  GeometryDto get geometry => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $FeatureDtoCopyWith<FeatureDto> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $FeatureDtoCopyWith<$Res> {
-  factory $FeatureDtoCopyWith(FeatureDto value, $Res Function(FeatureDto) then) =
-      _$FeatureDtoCopyWithImpl<$Res, FeatureDto>;
-  @useResult
-  $Res call({PlaceDto properties, GeometryDto geometry});
-
-  $PlaceDtoCopyWith<$Res> get properties;
-  $GeometryDtoCopyWith<$Res> get geometry;
-}
-
-/// @nodoc
-class _$FeatureDtoCopyWithImpl<$Res, $Val extends FeatureDto> implements $FeatureDtoCopyWith<$Res> {
-  _$FeatureDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? properties = null,
-    Object? geometry = null,
-  }) {
-    return _then(_value.copyWith(
-      properties: null == properties
-          ? _value.properties
-          : properties // ignore: cast_nullable_to_non_nullable
-              as PlaceDto,
-      geometry: null == geometry
-          ? _value.geometry
-          : geometry // ignore: cast_nullable_to_non_nullable
-              as GeometryDto,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PlaceDtoCopyWith<$Res> get properties {
-    return $PlaceDtoCopyWith<$Res>(_value.properties, (value) {
-      return _then(_value.copyWith(properties: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $GeometryDtoCopyWith<$Res> get geometry {
-    return $GeometryDtoCopyWith<$Res>(_value.geometry, (value) {
-      return _then(_value.copyWith(geometry: value) as $Val);
-    });
+  String toString() {
+    return 'OsmResponseDto(features: $features)';
   }
 }
 
 /// @nodoc
-abstract class _$$FeatureDtoImplCopyWith<$Res> implements $FeatureDtoCopyWith<$Res> {
-  factory _$$FeatureDtoImplCopyWith(_$FeatureDtoImpl value, $Res Function(_$FeatureDtoImpl) then) =
-      __$$FeatureDtoImplCopyWithImpl<$Res>;
+abstract mixin class _$OsmResponseDtoCopyWith<$Res> implements $OsmResponseDtoCopyWith<$Res> {
+  factory _$OsmResponseDtoCopyWith(_OsmResponseDto value, $Res Function(_OsmResponseDto) _then) =
+      __$OsmResponseDtoCopyWithImpl;
   @override
   @useResult
-  $Res call({PlaceDto properties, GeometryDto geometry});
-
-  @override
-  $PlaceDtoCopyWith<$Res> get properties;
-  @override
-  $GeometryDtoCopyWith<$Res> get geometry;
+  $Res call({List<FeatureDto> features});
 }
 
 /// @nodoc
-class __$$FeatureDtoImplCopyWithImpl<$Res> extends _$FeatureDtoCopyWithImpl<$Res, _$FeatureDtoImpl>
-    implements _$$FeatureDtoImplCopyWith<$Res> {
-  __$$FeatureDtoImplCopyWithImpl(_$FeatureDtoImpl _value, $Res Function(_$FeatureDtoImpl) _then) : super(_value, _then);
+class __$OsmResponseDtoCopyWithImpl<$Res> implements _$OsmResponseDtoCopyWith<$Res> {
+  __$OsmResponseDtoCopyWithImpl(this._self, this._then);
 
-  @pragma('vm:prefer-inline')
+  final _OsmResponseDto _self;
+  final $Res Function(_OsmResponseDto) _then;
+
+  /// Create a copy of OsmResponseDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
+  @pragma('vm:prefer-inline')
   $Res call({
-    Object? properties = null,
-    Object? geometry = null,
+    Object? features = null,
   }) {
-    return _then(_$FeatureDtoImpl(
-      properties: null == properties
-          ? _value.properties
-          : properties // ignore: cast_nullable_to_non_nullable
-              as PlaceDto,
-      geometry: null == geometry
-          ? _value.geometry
-          : geometry // ignore: cast_nullable_to_non_nullable
-              as GeometryDto,
+    return _then(_OsmResponseDto(
+      features: null == features
+          ? _self._features
+          : features // ignore: cast_nullable_to_non_nullable
+              as List<FeatureDto>,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$FeatureDtoImpl implements _FeatureDto {
-  const _$FeatureDtoImpl({required this.properties, required this.geometry});
+mixin _$FeatureDto {
+  PlaceDto get properties;
+  GeometryDto get geometry;
 
-  factory _$FeatureDtoImpl.fromJson(Map<String, dynamic> json) => _$$FeatureDtoImplFromJson(json);
+  /// Create a copy of FeatureDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $FeatureDtoCopyWith<FeatureDto> get copyWith => _$FeatureDtoCopyWithImpl<FeatureDto>(this as FeatureDto, _$identity);
+
+  /// Serializes this FeatureDto to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FeatureDto &&
+            (identical(other.properties, properties) || other.properties == properties) &&
+            (identical(other.geometry, geometry) || other.geometry == geometry));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, properties, geometry);
+
+  @override
+  String toString() {
+    return 'FeatureDto(properties: $properties, geometry: $geometry)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $FeatureDtoCopyWith<$Res> {
+  factory $FeatureDtoCopyWith(FeatureDto value, $Res Function(FeatureDto) _then) = _$FeatureDtoCopyWithImpl;
+  @useResult
+  $Res call({PlaceDto properties, GeometryDto geometry});
+
+  $PlaceDtoCopyWith<$Res> get properties;
+  $GeometryDtoCopyWith<$Res> get geometry;
+}
+
+/// @nodoc
+class _$FeatureDtoCopyWithImpl<$Res> implements $FeatureDtoCopyWith<$Res> {
+  _$FeatureDtoCopyWithImpl(this._self, this._then);
+
+  final FeatureDto _self;
+  final $Res Function(FeatureDto) _then;
+
+  /// Create a copy of FeatureDto
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? properties = null,
+    Object? geometry = null,
+  }) {
+    return _then(_self.copyWith(
+      properties: null == properties
+          ? _self.properties
+          : properties // ignore: cast_nullable_to_non_nullable
+              as PlaceDto,
+      geometry: null == geometry
+          ? _self.geometry
+          : geometry // ignore: cast_nullable_to_non_nullable
+              as GeometryDto,
+    ));
+  }
+
+  /// Create a copy of FeatureDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaceDtoCopyWith<$Res> get properties {
+    return $PlaceDtoCopyWith<$Res>(_self.properties, (value) {
+      return _then(_self.copyWith(properties: value));
+    });
+  }
+
+  /// Create a copy of FeatureDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $GeometryDtoCopyWith<$Res> get geometry {
+    return $GeometryDtoCopyWith<$Res>(_self.geometry, (value) {
+      return _then(_self.copyWith(geometry: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _FeatureDto implements FeatureDto {
+  const _FeatureDto({required this.properties, required this.geometry});
+  factory _FeatureDto.fromJson(Map<String, dynamic> json) => _$FeatureDtoFromJson(json);
 
   @override
   final PlaceDto properties;
   @override
   final GeometryDto geometry;
 
+  /// Create a copy of FeatureDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'FeatureDto(properties: $properties, geometry: $geometry)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$FeatureDtoCopyWith<_FeatureDto> get copyWith => __$FeatureDtoCopyWithImpl<_FeatureDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$FeatureDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeatureDtoImpl &&
+            other is _FeatureDto &&
             (identical(other.properties, properties) || other.properties == properties) &&
             (identical(other.geometry, geometry) || other.geometry == geometry));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, properties, geometry);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$FeatureDtoImplCopyWith<_$FeatureDtoImpl> get copyWith =>
-      __$$FeatureDtoImplCopyWithImpl<_$FeatureDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$FeatureDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'FeatureDto(properties: $properties, geometry: $geometry)';
   }
 }
 
-abstract class _FeatureDto implements FeatureDto {
-  const factory _FeatureDto({required final PlaceDto properties, required final GeometryDto geometry}) =
-      _$FeatureDtoImpl;
+/// @nodoc
+abstract mixin class _$FeatureDtoCopyWith<$Res> implements $FeatureDtoCopyWith<$Res> {
+  factory _$FeatureDtoCopyWith(_FeatureDto value, $Res Function(_FeatureDto) _then) = __$FeatureDtoCopyWithImpl;
+  @override
+  @useResult
+  $Res call({PlaceDto properties, GeometryDto geometry});
 
-  factory _FeatureDto.fromJson(Map<String, dynamic> json) = _$FeatureDtoImpl.fromJson;
-
   @override
-  PlaceDto get properties;
+  $PlaceDtoCopyWith<$Res> get properties;
   @override
-  GeometryDto get geometry;
-  @override
-  @JsonKey(ignore: true)
-  _$$FeatureDtoImplCopyWith<_$FeatureDtoImpl> get copyWith => throw _privateConstructorUsedError;
+  $GeometryDtoCopyWith<$Res> get geometry;
 }
+
+/// @nodoc
+class __$FeatureDtoCopyWithImpl<$Res> implements _$FeatureDtoCopyWith<$Res> {
+  __$FeatureDtoCopyWithImpl(this._self, this._then);
+
+  final _FeatureDto _self;
+  final $Res Function(_FeatureDto) _then;
+
+  /// Create a copy of FeatureDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? properties = null,
+    Object? geometry = null,
+  }) {
+    return _then(_FeatureDto(
+      properties: null == properties
+          ? _self.properties
+          : properties // ignore: cast_nullable_to_non_nullable
+              as PlaceDto,
+      geometry: null == geometry
+          ? _self.geometry
+          : geometry // ignore: cast_nullable_to_non_nullable
+              as GeometryDto,
+    ));
+  }
+
+  /// Create a copy of FeatureDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaceDtoCopyWith<$Res> get properties {
+    return $PlaceDtoCopyWith<$Res>(_self.properties, (value) {
+      return _then(_self.copyWith(properties: value));
+    });
+  }
+
+  /// Create a copy of FeatureDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $GeometryDtoCopyWith<$Res> get geometry {
+    return $GeometryDtoCopyWith<$Res>(_self.geometry, (value) {
+      return _then(_self.copyWith(geometry: value));
+    });
+  }
+}
+
+// dart format on

@@ -4,7 +4,7 @@ import 'package:trip_tally/data/dto/osm_map/geometry_dto.dart';
 part 'coordinates_entity.freezed.dart';
 
 @freezed
-class CoordinatesEntity with _$CoordinatesEntity {
+abstract class CoordinatesEntity with _$CoordinatesEntity {
   const factory CoordinatesEntity({
     required double lat,
     required double lon,

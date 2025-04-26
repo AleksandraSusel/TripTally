@@ -1,18 +1,10 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
-import 'package:trip_tally/presentation/utils/enums/errors.dart';
+import 'package:equatable/equatable.dart';
 
-part 'create_trip_state.freezed.dart';
+sealed class CreateTripState extends Equatable {
+  const CreateTripState();
 
-@freezed
-class CreateTripState with _$CreateTripState {
-  const factory CreateTripState.initial() = _Initial;
-
-  const factory CreateTripState.success({
-    required TripEntity entity,
-  }) = _Success;
-
-  const factory CreateTripState.loading() = _Loading;
-
-  const factory CreateTripState.failure(Errors error) = _Failure;
+  @override
+  List<Object?> get props => [];
 }
+
+class Initial extends CreateTripState {}

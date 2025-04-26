@@ -1,11 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:trip_tally/data/dto/location/location_dto.dart';
 
 part 'location_entity.freezed.dart';
 
 @freezed
-class LocationEntity with _$LocationEntity {
+abstract class LocationEntity with _$LocationEntity {
   const factory LocationEntity({
     required String id,
     required String userId,

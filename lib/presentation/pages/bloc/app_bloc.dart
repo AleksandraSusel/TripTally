@@ -1,19 +1,15 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart';
-
-part 'app_bloc.freezed.dart';
+import 'package:trip_tally/presentation/pages/bloc/app_state.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 
 part 'app_event.dart';
 
-part 'app_state.dart';
-
 @injectable
-class AppBloc extends Bloc<AppEvent, AppState> {
-  AppBloc(this.prefs) : super(const AppState.loading()) {
+class AppBloc extends Bloc<AppEvent, BasicState<void>> {
+  AppBloc(this.prefs) : super(const LoadedState<void>(data: null)) {
     on<OnInitializeAppEvent>(_onInitializeAppEvent);
   }
 
@@ -21,13 +17,13 @@ class AppBloc extends Bloc<AppEvent, AppState> {
 
   void _onInitializeAppEvent(
     OnInitializeAppEvent event,
-    Emitter<AppState> emit,
+    Emitter<BasicState<void>> emit,
   ) {
     final token = prefs.getToken;
     if (token != null) {
-      emit(const AppState.success());
+      emit(const SuccessState<void>());
     } else {
-      emit(const AppState.toLoginPage());
+      emit(const ToLoginPage());
     }
   }
 }

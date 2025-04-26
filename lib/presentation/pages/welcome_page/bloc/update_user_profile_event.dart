@@ -1,6 +1,6 @@
 part of 'update_user_profile_bloc.dart';
 
-abstract class UpdateUserProfileEvent extends Equatable {
+sealed class UpdateUserProfileEvent extends Equatable {
   const UpdateUserProfileEvent();
 
   @override

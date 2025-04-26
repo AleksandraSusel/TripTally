@@ -27,6 +27,7 @@ class ThemeManager {
         ),
       ];
 
+  /// Ignore the old theme data warning
   // ignore: unused_field
   final _themeData = ThemeData(
     colorScheme: const ColorScheme.light(

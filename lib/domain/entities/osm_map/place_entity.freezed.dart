@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,29 +10,52 @@ part of 'place_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PlaceEntity {
-  String get name => throw _privateConstructorUsedError;
-  String get displayName => throw _privateConstructorUsedError;
-  String get category => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  PlaceAddressEntity get address => throw _privateConstructorUsedError;
-  CoordinatesEntity get coordinates => throw _privateConstructorUsedError;
-  PlaceExtraTagsEntity? get extraTags => throw _privateConstructorUsedError;
+  String get name;
+  String get displayName;
+  String get category;
+  String get type;
+  PlaceAddressEntity get address;
+  CoordinatesEntity get coordinates;
+  PlaceExtraTagsEntity? get extraTags;
 
-  @JsonKey(ignore: true)
-  $PlaceEntityCopyWith<PlaceEntity> get copyWith => throw _privateConstructorUsedError;
+  /// Create a copy of PlaceEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $PlaceEntityCopyWith<PlaceEntity> get copyWith =>
+      _$PlaceEntityCopyWithImpl<PlaceEntity>(this as PlaceEntity, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PlaceEntity &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.displayName, displayName) || other.displayName == displayName) &&
+            (identical(other.category, category) || other.category == category) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.coordinates, coordinates) || other.coordinates == coordinates) &&
+            (identical(other.extraTags, extraTags) || other.extraTags == extraTags));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name, displayName, category, type, address, coordinates, extraTags);
+
+  @override
+  String toString() {
+    return 'PlaceEntity(name: $name, displayName: $displayName, category: $category, type: $type, address: $address, coordinates: $coordinates, extraTags: $extraTags)';
+  }
 }
 
 /// @nodoc
-abstract class $PlaceEntityCopyWith<$Res> {
-  factory $PlaceEntityCopyWith(PlaceEntity value, $Res Function(PlaceEntity) then) =
-      _$PlaceEntityCopyWithImpl<$Res, PlaceEntity>;
+abstract mixin class $PlaceEntityCopyWith<$Res> {
+  factory $PlaceEntityCopyWith(PlaceEntity value, $Res Function(PlaceEntity) _then) = _$PlaceEntityCopyWithImpl;
   @useResult
   $Res call(
       {String name,
@@ -48,14 +72,14 @@ abstract class $PlaceEntityCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PlaceEntityCopyWithImpl<$Res, $Val extends PlaceEntity> implements $PlaceEntityCopyWith<$Res> {
-  _$PlaceEntityCopyWithImpl(this._value, this._then);
+class _$PlaceEntityCopyWithImpl<$Res> implements $PlaceEntityCopyWith<$Res> {
+  _$PlaceEntityCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PlaceEntity _self;
+  final $Res Function(PlaceEntity) _then;
 
+  /// Create a copy of PlaceEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -67,144 +91,77 @@ class _$PlaceEntityCopyWithImpl<$Res, $Val extends PlaceEntity> implements $Plac
     Object? coordinates = null,
     Object? extraTags = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       displayName: null == displayName
-          ? _value.displayName
+          ? _self.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
               as String,
       category: null == category
-          ? _value.category
+          ? _self.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       address: null == address
-          ? _value.address
+          ? _self.address
           : address // ignore: cast_nullable_to_non_nullable
               as PlaceAddressEntity,
       coordinates: null == coordinates
-          ? _value.coordinates
+          ? _self.coordinates
           : coordinates // ignore: cast_nullable_to_non_nullable
               as CoordinatesEntity,
       extraTags: freezed == extraTags
-          ? _value.extraTags
-          : extraTags // ignore: cast_nullable_to_non_nullable
-              as PlaceExtraTagsEntity?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PlaceAddressEntityCopyWith<$Res> get address {
-    return $PlaceAddressEntityCopyWith<$Res>(_value.address, (value) {
-      return _then(_value.copyWith(address: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $CoordinatesEntityCopyWith<$Res> get coordinates {
-    return $CoordinatesEntityCopyWith<$Res>(_value.coordinates, (value) {
-      return _then(_value.copyWith(coordinates: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PlaceExtraTagsEntityCopyWith<$Res>? get extraTags {
-    if (_value.extraTags == null) {
-      return null;
-    }
-
-    return $PlaceExtraTagsEntityCopyWith<$Res>(_value.extraTags!, (value) {
-      return _then(_value.copyWith(extraTags: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$PlaceEntityImplCopyWith<$Res> implements $PlaceEntityCopyWith<$Res> {
-  factory _$$PlaceEntityImplCopyWith(_$PlaceEntityImpl value, $Res Function(_$PlaceEntityImpl) then) =
-      __$$PlaceEntityImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String name,
-      String displayName,
-      String category,
-      String type,
-      PlaceAddressEntity address,
-      CoordinatesEntity coordinates,
-      PlaceExtraTagsEntity? extraTags});
-
-  @override
-  $PlaceAddressEntityCopyWith<$Res> get address;
-  @override
-  $CoordinatesEntityCopyWith<$Res> get coordinates;
-  @override
-  $PlaceExtraTagsEntityCopyWith<$Res>? get extraTags;
-}
-
-/// @nodoc
-class __$$PlaceEntityImplCopyWithImpl<$Res> extends _$PlaceEntityCopyWithImpl<$Res, _$PlaceEntityImpl>
-    implements _$$PlaceEntityImplCopyWith<$Res> {
-  __$$PlaceEntityImplCopyWithImpl(_$PlaceEntityImpl _value, $Res Function(_$PlaceEntityImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? displayName = null,
-    Object? category = null,
-    Object? type = null,
-    Object? address = null,
-    Object? coordinates = null,
-    Object? extraTags = freezed,
-  }) {
-    return _then(_$PlaceEntityImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      displayName: null == displayName
-          ? _value.displayName
-          : displayName // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as PlaceAddressEntity,
-      coordinates: null == coordinates
-          ? _value.coordinates
-          : coordinates // ignore: cast_nullable_to_non_nullable
-              as CoordinatesEntity,
-      extraTags: freezed == extraTags
-          ? _value.extraTags
+          ? _self.extraTags
           : extraTags // ignore: cast_nullable_to_non_nullable
               as PlaceExtraTagsEntity?,
     ));
   }
+
+  /// Create a copy of PlaceEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaceAddressEntityCopyWith<$Res> get address {
+    return $PlaceAddressEntityCopyWith<$Res>(_self.address, (value) {
+      return _then(_self.copyWith(address: value));
+    });
+  }
+
+  /// Create a copy of PlaceEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CoordinatesEntityCopyWith<$Res> get coordinates {
+    return $CoordinatesEntityCopyWith<$Res>(_self.coordinates, (value) {
+      return _then(_self.copyWith(coordinates: value));
+    });
+  }
+
+  /// Create a copy of PlaceEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaceExtraTagsEntityCopyWith<$Res>? get extraTags {
+    if (_self.extraTags == null) {
+      return null;
+    }
+
+    return $PlaceExtraTagsEntityCopyWith<$Res>(_self.extraTags!, (value) {
+      return _then(_self.copyWith(extraTags: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$PlaceEntityImpl implements _PlaceEntity {
-  const _$PlaceEntityImpl(
+class _PlaceEntity implements PlaceEntity {
+  const _PlaceEntity(
       {required this.name,
       required this.displayName,
       required this.category,
@@ -228,16 +185,18 @@ class _$PlaceEntityImpl implements _PlaceEntity {
   @override
   final PlaceExtraTagsEntity? extraTags;
 
+  /// Create a copy of PlaceEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'PlaceEntity(name: $name, displayName: $displayName, category: $category, type: $type, address: $address, coordinates: $coordinates, extraTags: $extraTags)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$PlaceEntityCopyWith<_PlaceEntity> get copyWith => __$PlaceEntityCopyWithImpl<_PlaceEntity>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlaceEntityImpl &&
+            other is _PlaceEntity &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.displayName, displayName) || other.displayName == displayName) &&
             (identical(other.category, category) || other.category == category) &&
@@ -250,38 +209,119 @@ class _$PlaceEntityImpl implements _PlaceEntity {
   @override
   int get hashCode => Object.hash(runtimeType, name, displayName, category, type, address, coordinates, extraTags);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'PlaceEntity(name: $name, displayName: $displayName, category: $category, type: $type, address: $address, coordinates: $coordinates, extraTags: $extraTags)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$PlaceEntityCopyWith<$Res> implements $PlaceEntityCopyWith<$Res> {
+  factory _$PlaceEntityCopyWith(_PlaceEntity value, $Res Function(_PlaceEntity) _then) = __$PlaceEntityCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String name,
+      String displayName,
+      String category,
+      String type,
+      PlaceAddressEntity address,
+      CoordinatesEntity coordinates,
+      PlaceExtraTagsEntity? extraTags});
+
+  @override
+  $PlaceAddressEntityCopyWith<$Res> get address;
+  @override
+  $CoordinatesEntityCopyWith<$Res> get coordinates;
+  @override
+  $PlaceExtraTagsEntityCopyWith<$Res>? get extraTags;
+}
+
+/// @nodoc
+class __$PlaceEntityCopyWithImpl<$Res> implements _$PlaceEntityCopyWith<$Res> {
+  __$PlaceEntityCopyWithImpl(this._self, this._then);
+
+  final _PlaceEntity _self;
+  final $Res Function(_PlaceEntity) _then;
+
+  /// Create a copy of PlaceEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$PlaceEntityImplCopyWith<_$PlaceEntityImpl> get copyWith =>
-      __$$PlaceEntityImplCopyWithImpl<_$PlaceEntityImpl>(this, _$identity);
+  $Res call({
+    Object? name = null,
+    Object? displayName = null,
+    Object? category = null,
+    Object? type = null,
+    Object? address = null,
+    Object? coordinates = null,
+    Object? extraTags = freezed,
+  }) {
+    return _then(_PlaceEntity(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      displayName: null == displayName
+          ? _self.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String,
+      category: null == category
+          ? _self.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as PlaceAddressEntity,
+      coordinates: null == coordinates
+          ? _self.coordinates
+          : coordinates // ignore: cast_nullable_to_non_nullable
+              as CoordinatesEntity,
+      extraTags: freezed == extraTags
+          ? _self.extraTags
+          : extraTags // ignore: cast_nullable_to_non_nullable
+              as PlaceExtraTagsEntity?,
+    ));
+  }
+
+  /// Create a copy of PlaceEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaceAddressEntityCopyWith<$Res> get address {
+    return $PlaceAddressEntityCopyWith<$Res>(_self.address, (value) {
+      return _then(_self.copyWith(address: value));
+    });
+  }
+
+  /// Create a copy of PlaceEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CoordinatesEntityCopyWith<$Res> get coordinates {
+    return $CoordinatesEntityCopyWith<$Res>(_self.coordinates, (value) {
+      return _then(_self.copyWith(coordinates: value));
+    });
+  }
+
+  /// Create a copy of PlaceEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PlaceExtraTagsEntityCopyWith<$Res>? get extraTags {
+    if (_self.extraTags == null) {
+      return null;
+    }
+
+    return $PlaceExtraTagsEntityCopyWith<$Res>(_self.extraTags!, (value) {
+      return _then(_self.copyWith(extraTags: value));
+    });
+  }
 }
 
-abstract class _PlaceEntity implements PlaceEntity {
-  const factory _PlaceEntity(
-      {required final String name,
-      required final String displayName,
-      required final String category,
-      required final String type,
-      required final PlaceAddressEntity address,
-      required final CoordinatesEntity coordinates,
-      final PlaceExtraTagsEntity? extraTags}) = _$PlaceEntityImpl;
-
-  @override
-  String get name;
-  @override
-  String get displayName;
-  @override
-  String get category;
-  @override
-  String get type;
-  @override
-  PlaceAddressEntity get address;
-  @override
-  CoordinatesEntity get coordinates;
-  @override
-  PlaceExtraTagsEntity? get extraTags;
-  @override
-  @JsonKey(ignore: true)
-  _$$PlaceEntityImplCopyWith<_$PlaceEntityImpl> get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

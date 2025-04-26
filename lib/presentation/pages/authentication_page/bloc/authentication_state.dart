@@ -1,14 +1,17 @@
-part of 'authentication_bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 
-@freezed
-class AuthenticationState with _$AuthenticationState {
-  const factory AuthenticationState.initial() = _Initial;
+sealed class AuthenticationState extends BasicState<void> with EquatableMixin {
+  const AuthenticationState();
 
-  const factory AuthenticationState.failure(Errors error) = _Failure;
+  @override
+  List<Object?> get props => [];
+}
 
-  const factory AuthenticationState.registered() = _Registered;
+class Registered extends AuthenticationState {
+  const Registered();
+}
 
-  const factory AuthenticationState.logged() = _Logged;
-
-  const factory AuthenticationState.loading() = _Loading;
+class Logged extends AuthenticationState {
+  const Logged();
 }

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,78 +10,65 @@ part of 'geometry_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GeometryDto _$GeometryDtoFromJson(Map<String, dynamic> json) {
-  return _GeometryDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GeometryDto {
-  List<double> get coordinates => throw _privateConstructorUsedError;
+  List<double> get coordinates;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $GeometryDtoCopyWith<GeometryDto> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GeometryDtoCopyWith<$Res> {
-  factory $GeometryDtoCopyWith(GeometryDto value, $Res Function(GeometryDto) then) =
-      _$GeometryDtoCopyWithImpl<$Res, GeometryDto>;
-  @useResult
-  $Res call({List<double> coordinates});
-}
-
-/// @nodoc
-class _$GeometryDtoCopyWithImpl<$Res, $Val extends GeometryDto> implements $GeometryDtoCopyWith<$Res> {
-  _$GeometryDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of GeometryDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $GeometryDtoCopyWith<GeometryDto> get copyWith =>
+      _$GeometryDtoCopyWithImpl<GeometryDto>(this as GeometryDto, _$identity);
+
+  /// Serializes this GeometryDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? coordinates = null,
-  }) {
-    return _then(_value.copyWith(
-      coordinates: null == coordinates
-          ? _value.coordinates
-          : coordinates // ignore: cast_nullable_to_non_nullable
-              as List<double>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GeometryDto &&
+            const DeepCollectionEquality().equals(other.coordinates, coordinates));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(coordinates));
+
+  @override
+  String toString() {
+    return 'GeometryDto(coordinates: $coordinates)';
   }
 }
 
 /// @nodoc
-abstract class _$$GeometryDtoImplCopyWith<$Res> implements $GeometryDtoCopyWith<$Res> {
-  factory _$$GeometryDtoImplCopyWith(_$GeometryDtoImpl value, $Res Function(_$GeometryDtoImpl) then) =
-      __$$GeometryDtoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $GeometryDtoCopyWith<$Res> {
+  factory $GeometryDtoCopyWith(GeometryDto value, $Res Function(GeometryDto) _then) = _$GeometryDtoCopyWithImpl;
   @useResult
   $Res call({List<double> coordinates});
 }
 
 /// @nodoc
-class __$$GeometryDtoImplCopyWithImpl<$Res> extends _$GeometryDtoCopyWithImpl<$Res, _$GeometryDtoImpl>
-    implements _$$GeometryDtoImplCopyWith<$Res> {
-  __$$GeometryDtoImplCopyWithImpl(_$GeometryDtoImpl _value, $Res Function(_$GeometryDtoImpl) _then)
-      : super(_value, _then);
+class _$GeometryDtoCopyWithImpl<$Res> implements $GeometryDtoCopyWith<$Res> {
+  _$GeometryDtoCopyWithImpl(this._self, this._then);
 
+  final GeometryDto _self;
+  final $Res Function(GeometryDto) _then;
+
+  /// Create a copy of GeometryDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? coordinates = null,
   }) {
-    return _then(_$GeometryDtoImpl(
+    return _then(_self.copyWith(
       coordinates: null == coordinates
-          ? _value._coordinates
+          ? _self.coordinates
           : coordinates // ignore: cast_nullable_to_non_nullable
               as List<double>,
     ));
@@ -89,10 +77,9 @@ class __$$GeometryDtoImplCopyWithImpl<$Res> extends _$GeometryDtoCopyWithImpl<$R
 
 /// @nodoc
 @JsonSerializable()
-class _$GeometryDtoImpl implements _GeometryDto {
-  const _$GeometryDtoImpl({required final List<double> coordinates}) : _coordinates = coordinates;
-
-  factory _$GeometryDtoImpl.fromJson(Map<String, dynamic> json) => _$$GeometryDtoImplFromJson(json);
+class _GeometryDto implements GeometryDto {
+  const _GeometryDto({required final List<double> coordinates}) : _coordinates = coordinates;
+  factory _GeometryDto.fromJson(Map<String, dynamic> json) => _$GeometryDtoFromJson(json);
 
   final List<double> _coordinates;
   @override
@@ -102,45 +89,67 @@ class _$GeometryDtoImpl implements _GeometryDto {
     return EqualUnmodifiableListView(_coordinates);
   }
 
+  /// Create a copy of GeometryDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'GeometryDto(coordinates: $coordinates)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GeometryDtoCopyWith<_GeometryDto> get copyWith => __$GeometryDtoCopyWithImpl<_GeometryDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GeometryDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GeometryDtoImpl &&
+            other is _GeometryDto &&
             const DeepCollectionEquality().equals(other._coordinates, _coordinates));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_coordinates));
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GeometryDtoImplCopyWith<_$GeometryDtoImpl> get copyWith =>
-      __$$GeometryDtoImplCopyWithImpl<_$GeometryDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GeometryDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GeometryDto(coordinates: $coordinates)';
   }
 }
 
-abstract class _GeometryDto implements GeometryDto {
-  const factory _GeometryDto({required final List<double> coordinates}) = _$GeometryDtoImpl;
-
-  factory _GeometryDto.fromJson(Map<String, dynamic> json) = _$GeometryDtoImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$GeometryDtoCopyWith<$Res> implements $GeometryDtoCopyWith<$Res> {
+  factory _$GeometryDtoCopyWith(_GeometryDto value, $Res Function(_GeometryDto) _then) = __$GeometryDtoCopyWithImpl;
   @override
-  List<double> get coordinates;
-  @override
-  @JsonKey(ignore: true)
-  _$$GeometryDtoImplCopyWith<_$GeometryDtoImpl> get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call({List<double> coordinates});
 }
+
+/// @nodoc
+class __$GeometryDtoCopyWithImpl<$Res> implements _$GeometryDtoCopyWith<$Res> {
+  __$GeometryDtoCopyWithImpl(this._self, this._then);
+
+  final _GeometryDto _self;
+  final $Res Function(_GeometryDto) _then;
+
+  /// Create a copy of GeometryDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? coordinates = null,
+  }) {
+    return _then(_GeometryDto(
+      coordinates: null == coordinates
+          ? _self._coordinates
+          : coordinates // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+    ));
+  }
+}
+
+// dart format on

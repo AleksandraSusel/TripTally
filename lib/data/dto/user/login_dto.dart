@@ -1,13 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:trip_tally/domain/entities/user/login_entity.dart';
 
 part 'login_dto.freezed.dart';
-
 part 'login_dto.g.dart';
 
 @freezed
-class LoginDto with _$LoginDto {
+abstract class LoginDto with _$LoginDto {
   const factory LoginDto({
     required String email,
     required String password,

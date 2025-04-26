@@ -5,7 +5,7 @@ import 'package:trip_tally/domain/entities/expenses/expense_category_entity.dart
 part 'expense_categories_entity.freezed.dart';
 
 @freezed
-class ExpenseCategoriesEntity with _$ExpenseCategoriesEntity {
+abstract class ExpenseCategoriesEntity with _$ExpenseCategoriesEntity {
   const factory ExpenseCategoriesEntity({
     required List<ExpenseCategoryEntity> categories,
   }) = _ExpenseCategoriesEntity;

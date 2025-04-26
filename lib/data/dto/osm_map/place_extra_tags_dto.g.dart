@@ -6,7 +6,7 @@ part of 'place_extra_tags_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PlaceExtraTagsDtoImpl _$$PlaceExtraTagsDtoImplFromJson(Map<String, dynamic> json) => _$PlaceExtraTagsDtoImpl(
+_PlaceExtraTagsDto _$PlaceExtraTagsDtoFromJson(Map<String, dynamic> json) => _PlaceExtraTagsDto(
       lunch: json['lunch'] as String?,
       cuisine: json['cuisine'] as String?,
       website: json['website'] as String?,
@@ -21,7 +21,7 @@ _$PlaceExtraTagsDtoImpl _$$PlaceExtraTagsDtoImplFromJson(Map<String, dynamic> js
       image: json['image'] as String?,
     );
 
-Map<String, dynamic> _$$PlaceExtraTagsDtoImplToJson(_$PlaceExtraTagsDtoImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$PlaceExtraTagsDtoToJson(_PlaceExtraTagsDto instance) => <String, dynamic>{
       'lunch': instance.lunch,
       'cuisine': instance.cuisine,
       'website': instance.website,

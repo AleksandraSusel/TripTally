@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,85 +10,69 @@ part of 'coordinates_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CoordinatesEntity {
-  double get lat => throw _privateConstructorUsedError;
-  double get lon => throw _privateConstructorUsedError;
+  double get lat;
+  double get lon;
 
-  @JsonKey(ignore: true)
-  $CoordinatesEntityCopyWith<CoordinatesEntity> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CoordinatesEntityCopyWith<$Res> {
-  factory $CoordinatesEntityCopyWith(CoordinatesEntity value, $Res Function(CoordinatesEntity) then) =
-      _$CoordinatesEntityCopyWithImpl<$Res, CoordinatesEntity>;
-  @useResult
-  $Res call({double lat, double lon});
-}
-
-/// @nodoc
-class _$CoordinatesEntityCopyWithImpl<$Res, $Val extends CoordinatesEntity>
-    implements $CoordinatesEntityCopyWith<$Res> {
-  _$CoordinatesEntityCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of CoordinatesEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $CoordinatesEntityCopyWith<CoordinatesEntity> get copyWith =>
+      _$CoordinatesEntityCopyWithImpl<CoordinatesEntity>(this as CoordinatesEntity, _$identity);
+
   @override
-  $Res call({
-    Object? lat = null,
-    Object? lon = null,
-  }) {
-    return _then(_value.copyWith(
-      lat: null == lat
-          ? _value.lat
-          : lat // ignore: cast_nullable_to_non_nullable
-              as double,
-      lon: null == lon
-          ? _value.lon
-          : lon // ignore: cast_nullable_to_non_nullable
-              as double,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CoordinatesEntity &&
+            (identical(other.lat, lat) || other.lat == lat) &&
+            (identical(other.lon, lon) || other.lon == lon));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, lat, lon);
+
+  @override
+  String toString() {
+    return 'CoordinatesEntity(lat: $lat, lon: $lon)';
   }
 }
 
 /// @nodoc
-abstract class _$$CoordinatesEntityImplCopyWith<$Res> implements $CoordinatesEntityCopyWith<$Res> {
-  factory _$$CoordinatesEntityImplCopyWith(_$CoordinatesEntityImpl value, $Res Function(_$CoordinatesEntityImpl) then) =
-      __$$CoordinatesEntityImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $CoordinatesEntityCopyWith<$Res> {
+  factory $CoordinatesEntityCopyWith(CoordinatesEntity value, $Res Function(CoordinatesEntity) _then) =
+      _$CoordinatesEntityCopyWithImpl;
   @useResult
   $Res call({double lat, double lon});
 }
 
 /// @nodoc
-class __$$CoordinatesEntityImplCopyWithImpl<$Res> extends _$CoordinatesEntityCopyWithImpl<$Res, _$CoordinatesEntityImpl>
-    implements _$$CoordinatesEntityImplCopyWith<$Res> {
-  __$$CoordinatesEntityImplCopyWithImpl(_$CoordinatesEntityImpl _value, $Res Function(_$CoordinatesEntityImpl) _then)
-      : super(_value, _then);
+class _$CoordinatesEntityCopyWithImpl<$Res> implements $CoordinatesEntityCopyWith<$Res> {
+  _$CoordinatesEntityCopyWithImpl(this._self, this._then);
 
+  final CoordinatesEntity _self;
+  final $Res Function(CoordinatesEntity) _then;
+
+  /// Create a copy of CoordinatesEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? lat = null,
     Object? lon = null,
   }) {
-    return _then(_$CoordinatesEntityImpl(
+    return _then(_self.copyWith(
       lat: null == lat
-          ? _value.lat
+          ? _self.lat
           : lat // ignore: cast_nullable_to_non_nullable
               as double,
       lon: null == lon
-          ? _value.lon
+          ? _self.lon
           : lon // ignore: cast_nullable_to_non_nullable
               as double,
     ));
@@ -96,24 +81,27 @@ class __$$CoordinatesEntityImplCopyWithImpl<$Res> extends _$CoordinatesEntityCop
 
 /// @nodoc
 
-class _$CoordinatesEntityImpl implements _CoordinatesEntity {
-  const _$CoordinatesEntityImpl({required this.lat, required this.lon});
+class _CoordinatesEntity implements CoordinatesEntity {
+  const _CoordinatesEntity({required this.lat, required this.lon});
 
   @override
   final double lat;
   @override
   final double lon;
 
+  /// Create a copy of CoordinatesEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'CoordinatesEntity(lat: $lat, lon: $lon)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CoordinatesEntityCopyWith<_CoordinatesEntity> get copyWith =>
+      __$CoordinatesEntityCopyWithImpl<_CoordinatesEntity>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CoordinatesEntityImpl &&
+            other is _CoordinatesEntity &&
             (identical(other.lat, lat) || other.lat == lat) &&
             (identical(other.lon, lon) || other.lon == lon));
   }
@@ -121,21 +109,47 @@ class _$CoordinatesEntityImpl implements _CoordinatesEntity {
   @override
   int get hashCode => Object.hash(runtimeType, lat, lon);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'CoordinatesEntity(lat: $lat, lon: $lon)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$CoordinatesEntityCopyWith<$Res> implements $CoordinatesEntityCopyWith<$Res> {
+  factory _$CoordinatesEntityCopyWith(_CoordinatesEntity value, $Res Function(_CoordinatesEntity) _then) =
+      __$CoordinatesEntityCopyWithImpl;
+  @override
+  @useResult
+  $Res call({double lat, double lon});
+}
+
+/// @nodoc
+class __$CoordinatesEntityCopyWithImpl<$Res> implements _$CoordinatesEntityCopyWith<$Res> {
+  __$CoordinatesEntityCopyWithImpl(this._self, this._then);
+
+  final _CoordinatesEntity _self;
+  final $Res Function(_CoordinatesEntity) _then;
+
+  /// Create a copy of CoordinatesEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$CoordinatesEntityImplCopyWith<_$CoordinatesEntityImpl> get copyWith =>
-      __$$CoordinatesEntityImplCopyWithImpl<_$CoordinatesEntityImpl>(this, _$identity);
+  $Res call({
+    Object? lat = null,
+    Object? lon = null,
+  }) {
+    return _then(_CoordinatesEntity(
+      lat: null == lat
+          ? _self.lat
+          : lat // ignore: cast_nullable_to_non_nullable
+              as double,
+      lon: null == lon
+          ? _self.lon
+          : lon // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
 }
 
-abstract class _CoordinatesEntity implements CoordinatesEntity {
-  const factory _CoordinatesEntity({required final double lat, required final double lon}) = _$CoordinatesEntityImpl;
-
-  @override
-  double get lat;
-  @override
-  double get lon;
-  @override
-  @JsonKey(ignore: true)
-  _$$CoordinatesEntityImplCopyWith<_$CoordinatesEntityImpl> get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

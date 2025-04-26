@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/environment.config.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/validators.dart';
 import 'package:trip_tally/presentation/widgets/custom_circular_progress_indicator.dart';
@@ -73,50 +74,53 @@ class _LoginFormState extends State<LoginForm> {
             },
           ).animate().moveY(begin: -16, duration: 400.ms),
           const SizedBox(height: AppDimensions.d30),
-          BlocBuilder<AuthenticationBloc, AuthenticationState>(
-            builder: (context, state) => state.maybeWhen(
-              orElse: () => Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      GoogleSignInButton(
-                        onPressed: onLogin,
-                        text: context.tr.authPage_singInGoogle,
-                      ),
-                      const SizedBox(height: AppDimensions.d30),
-                      AppleSignInButton(
-                        onPressed: onLogin,
-                        text: context.tr.authPage_singInApple,
-                      ),
-                    ],
-                  ).animate().moveY(begin: 10, duration: 400.ms),
-                  const SizedBox(height: AppDimensions.d40),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      SurfaceOutlinedButton(
-                        text: context.tr.authPage_singUp,
-                        onPressed: () => widget.onSwitchForm(emailController.text, passwordController.text),
-                      ),
-                      const SizedBox(
-                        width: AppDimensions.d10,
-                      ),
-                      PrimaryElevatedButton(
-                        text: context.tr.authPage_singIn,
-                        onLongPressed: () {
-                          emailController.text = EnvConfig.email;
-                          passwordController.text = EnvConfig.password;
-                        },
-                        onPressed: onLogin,
-                      ),
-                    ],
-                  ),
-                ],
-              ).animate().moveY(begin: 10, duration: 400.ms),
-              loading: () => const CustomCircularProgressIndicator(),
-            ),
+          BlocBuilder<AuthenticationBloc, BasicState<void>>(
+            builder: (context, state) => switch (state) {
+              LoadingState() => const CustomCircularProgressIndicator(),
+              _ => Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        GoogleSignInButton(
+                          onPressed: onLogin,
+                          text: context.tr.authPage_singInGoogle,
+                        ),
+                        const SizedBox(height: AppDimensions.d30),
+                        AppleSignInButton(
+                          onPressed: onLogin,
+                          text: context.tr.authPage_singInApple,
+                        ),
+                      ],
+                    ).animate().moveY(begin: 10, duration: 400.ms),
+                    const SizedBox(height: AppDimensions.d40),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        SurfaceOutlinedButton(
+                          text: context.tr.authPage_singUp,
+                          onPressed: () => widget.onSwitchForm(
+                            emailController.text,
+                            passwordController.text,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: AppDimensions.d10,
+                        ),
+                        PrimaryElevatedButton(
+                          text: context.tr.authPage_singIn,
+                          onLongPressed: () {
+                            emailController.text = EnvConfig.email;
+                            passwordController.text = EnvConfig.password;
+                          },
+                          onPressed: onLogin,
+                        ),
+                      ],
+                    ),
+                  ],
+                ).animate().moveY(begin: 10, duration: 400.ms)
+            },
           ),
         ],
       ),

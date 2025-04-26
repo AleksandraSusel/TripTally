@@ -4,11 +4,10 @@ import 'package:trip_tally/data/dto/price/price_dto.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_entity.dart';
 
 part 'expense_dto.freezed.dart';
-
 part 'expense_dto.g.dart';
 
 @freezed
-class ExpenseDto with _$ExpenseDto {
+abstract class ExpenseDto with _$ExpenseDto {
   const factory ExpenseDto({
     required String name,
     required String date,

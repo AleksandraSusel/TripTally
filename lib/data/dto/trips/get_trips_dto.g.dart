@@ -6,10 +6,10 @@ part of 'get_trips_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GetTripsDtoImpl _$$GetTripsDtoImplFromJson(Map<String, dynamic> json) => _$GetTripsDtoImpl(
+_GetTripsDto _$GetTripsDtoFromJson(Map<String, dynamic> json) => _GetTripsDto(
       trips: (json['trips'] as List<dynamic>).map((e) => TripDto.fromJson(e as Map<String, dynamic>)).toList(),
     );
 
-Map<String, dynamic> _$$GetTripsDtoImplToJson(_$GetTripsDtoImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$GetTripsDtoToJson(_GetTripsDto instance) => <String, dynamic>{
       'trips': instance.trips.map((e) => e.toJson()).toList(),
     };

@@ -6,7 +6,7 @@ import 'package:trip_tally/domain/utils/failure.dart';
 import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart';
-import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_state.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 
 import '../../../../generate_mocks.mocks.dart';
@@ -22,8 +22,8 @@ void main() {
   CreateExpensesBloc addExpensesBloc() => CreateExpensesBloc(mockCreateExpensesUseCase);
 
   group('AddExpensesBloc', () {
-    blocTest<CreateExpensesBloc, CreateExpensesState>(
-      'emits [AddExpensesState.success()] when AddExpenseEvent is successful',
+    blocTest<CreateExpensesBloc, BasicState<void>>(
+      'emits [SuccessState] when CreateExpenseEvent is successful',
       setUp: () => when(mockCreateExpensesUseCase(any)).thenAnswer((_) async => const Right(Success())),
       build: addExpensesBloc,
       act: (bloc) => bloc.add(
@@ -32,12 +32,13 @@ void main() {
         ),
       ),
       expect: () => [
-        const CreateExpensesState.success(),
+        const LoadingState<void>(),
+        const SuccessState<void>(),
       ],
     );
 
-    blocTest<CreateExpensesBloc, CreateExpensesState>(
-      'emits [AddExpensesState.failure] when AddExpenseEvent fails',
+    blocTest<CreateExpensesBloc, BasicState<void>>(
+      'emits [FailureState] when CreateExpenseEvent fails',
       setUp: () => when(mockCreateExpensesUseCase(any)).thenAnswer(
         (_) async => const Left(Failure(error: Errors.somethingWentWrong)),
       ),
@@ -48,7 +49,8 @@ void main() {
         ),
       ),
       expect: () => [
-        const CreateExpensesState.failure(Errors.somethingWentWrong),
+        const LoadingState<void>(),
+        const FailureState<void>(Errors.somethingWentWrong),
       ],
     );
   });

@@ -2,11 +2,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_category_entity.dart';
 
 part 'expense_category_dto.freezed.dart';
-
 part 'expense_category_dto.g.dart';
 
 @freezed
-class ExpenseCategoryDto with _$ExpenseCategoryDto {
+abstract class ExpenseCategoryDto with _$ExpenseCategoryDto {
   const factory ExpenseCategoryDto({
     required String id,
     required String name,

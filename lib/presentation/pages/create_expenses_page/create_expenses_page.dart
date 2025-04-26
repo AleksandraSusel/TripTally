@@ -7,13 +7,13 @@ import 'package:trip_tally/domain/entities/trips/trip_entity.dart';
 import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart';
-import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_state.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/add_expense_form.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/expense_border_container.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/expense_item.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/widgets/trip_details.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
@@ -34,22 +34,23 @@ class CreateExpensesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<CreateExpensesBloc>(),
-      child: BlocListener<CreateExpensesBloc, CreateExpensesState>(
-        listener: (context, state) => state.whenOrNull(
-          success: () {
-            showSnackBar(
-              context,
-              context.tr.createExpensesPage_successMessage(
-                WorldCountry.maybeFromCodeShort(trip.location.countryCode)?.name.name ?? trip.location.cityName,
+      child: BlocListener<CreateExpensesBloc, BasicState<void>>(
+        listener: (context, state) => switch (state) {
+          SuccessState() => {
+              showSnackBar(
+                context,
+                context.tr.createExpensesPage_successMessage(
+                  WorldCountry.maybeFromCodeShort(trip.location.countryCode)?.name.name ?? trip.location.cityName,
+                ),
+                type: SnackbarType.success,
               ),
-              type: SnackbarType.success,
-            );
-            return context.router.pushAndPopUntil(
-              PlannedTripsRoute(),
-              predicate: (route) => route.settings.name == HomeRoute.name,
-            );
-          },
-        ),
+              context.router.pushAndPopUntil(
+                PlannedTripsRoute(),
+                predicate: (route) => route.settings.name == HomeRoute.name,
+              ),
+            },
+          _ => null,
+        },
         child: Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: NavigationAppBar(title: context.tr.createTripPage_titleBasicInfo),
@@ -110,10 +111,7 @@ class _BodyState extends State<_Body> {
   }
 
   double get totalExpensesAmount {
-    return _expenses.fold(
-      0,
-      (sum, item) => sum + double.parse(item.price.amount),
-    );
+    return _expenses.fold(0, (sum, item) => sum + double.parse(item.price.amount));
   }
 
   @override
@@ -175,7 +173,6 @@ class _BodyState extends State<_Body> {
           ),
           const SizedBox(height: AppDimensions.d30),
           DoubleFloatingActionButtons(
-            padding: const EdgeInsets.only(right: AppDimensions.d10),
             trailingOnPressed: () => context.read<CreateExpensesBloc>()..add(CreateExpenseEvent(expenses: _expenses)),
             leadingOnPressed: () => _showBottomSheet(context),
             trailingActionText: context.tr.createExpensesPage_submitExpenses,

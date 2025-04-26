@@ -6,7 +6,7 @@ part of 'place_address_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PlaceAddressDtoImpl _$$PlaceAddressDtoImplFromJson(Map<String, dynamic> json) => _$PlaceAddressDtoImpl(
+_PlaceAddressDto _$PlaceAddressDtoFromJson(Map<String, dynamic> json) => _PlaceAddressDto(
       country: json['country'] as String,
       countryCode: json['country_code'] as String,
       houseNumber: json['house_number'] as String?,
@@ -20,7 +20,7 @@ _$PlaceAddressDtoImpl _$$PlaceAddressDtoImplFromJson(Map<String, dynamic> json) 
       postcode: json['postcode'] as String?,
     );
 
-Map<String, dynamic> _$$PlaceAddressDtoImplToJson(_$PlaceAddressDtoImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$PlaceAddressDtoToJson(_PlaceAddressDto instance) => <String, dynamic>{
       'country': instance.country,
       'country_code': instance.countryCode,
       'house_number': instance.houseNumber,

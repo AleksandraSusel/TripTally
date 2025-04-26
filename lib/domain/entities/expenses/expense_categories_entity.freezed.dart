@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,77 +10,63 @@ part of 'expense_categories_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ExpenseCategoriesEntity {
-  List<ExpenseCategoryEntity> get categories => throw _privateConstructorUsedError;
+  List<ExpenseCategoryEntity> get categories;
 
-  @JsonKey(ignore: true)
-  $ExpenseCategoriesEntityCopyWith<ExpenseCategoriesEntity> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ExpenseCategoriesEntityCopyWith<$Res> {
-  factory $ExpenseCategoriesEntityCopyWith(ExpenseCategoriesEntity value, $Res Function(ExpenseCategoriesEntity) then) =
-      _$ExpenseCategoriesEntityCopyWithImpl<$Res, ExpenseCategoriesEntity>;
-  @useResult
-  $Res call({List<ExpenseCategoryEntity> categories});
-}
-
-/// @nodoc
-class _$ExpenseCategoriesEntityCopyWithImpl<$Res, $Val extends ExpenseCategoriesEntity>
-    implements $ExpenseCategoriesEntityCopyWith<$Res> {
-  _$ExpenseCategoriesEntityCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of ExpenseCategoriesEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $ExpenseCategoriesEntityCopyWith<ExpenseCategoriesEntity> get copyWith =>
+      _$ExpenseCategoriesEntityCopyWithImpl<ExpenseCategoriesEntity>(this as ExpenseCategoriesEntity, _$identity);
+
   @override
-  $Res call({
-    Object? categories = null,
-  }) {
-    return _then(_value.copyWith(
-      categories: null == categories
-          ? _value.categories
-          : categories // ignore: cast_nullable_to_non_nullable
-              as List<ExpenseCategoryEntity>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ExpenseCategoriesEntity &&
+            const DeepCollectionEquality().equals(other.categories, categories));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(categories));
+
+  @override
+  String toString() {
+    return 'ExpenseCategoriesEntity(categories: $categories)';
   }
 }
 
 /// @nodoc
-abstract class _$$ExpenseCategoriesEntityImplCopyWith<$Res> implements $ExpenseCategoriesEntityCopyWith<$Res> {
-  factory _$$ExpenseCategoriesEntityImplCopyWith(
-          _$ExpenseCategoriesEntityImpl value, $Res Function(_$ExpenseCategoriesEntityImpl) then) =
-      __$$ExpenseCategoriesEntityImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ExpenseCategoriesEntityCopyWith<$Res> {
+  factory $ExpenseCategoriesEntityCopyWith(
+          ExpenseCategoriesEntity value, $Res Function(ExpenseCategoriesEntity) _then) =
+      _$ExpenseCategoriesEntityCopyWithImpl;
   @useResult
   $Res call({List<ExpenseCategoryEntity> categories});
 }
 
 /// @nodoc
-class __$$ExpenseCategoriesEntityImplCopyWithImpl<$Res>
-    extends _$ExpenseCategoriesEntityCopyWithImpl<$Res, _$ExpenseCategoriesEntityImpl>
-    implements _$$ExpenseCategoriesEntityImplCopyWith<$Res> {
-  __$$ExpenseCategoriesEntityImplCopyWithImpl(
-      _$ExpenseCategoriesEntityImpl _value, $Res Function(_$ExpenseCategoriesEntityImpl) _then)
-      : super(_value, _then);
+class _$ExpenseCategoriesEntityCopyWithImpl<$Res> implements $ExpenseCategoriesEntityCopyWith<$Res> {
+  _$ExpenseCategoriesEntityCopyWithImpl(this._self, this._then);
 
+  final ExpenseCategoriesEntity _self;
+  final $Res Function(ExpenseCategoriesEntity) _then;
+
+  /// Create a copy of ExpenseCategoriesEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? categories = null,
   }) {
-    return _then(_$ExpenseCategoriesEntityImpl(
+    return _then(_self.copyWith(
       categories: null == categories
-          ? _value._categories
+          ? _self.categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<ExpenseCategoryEntity>,
     ));
@@ -88,9 +75,8 @@ class __$$ExpenseCategoriesEntityImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ExpenseCategoriesEntityImpl implements _ExpenseCategoriesEntity {
-  const _$ExpenseCategoriesEntityImpl({required final List<ExpenseCategoryEntity> categories})
-      : _categories = categories;
+class _ExpenseCategoriesEntity implements ExpenseCategoriesEntity {
+  const _ExpenseCategoriesEntity({required final List<ExpenseCategoryEntity> categories}) : _categories = categories;
 
   final List<ExpenseCategoryEntity> _categories;
   @override
@@ -100,37 +86,62 @@ class _$ExpenseCategoriesEntityImpl implements _ExpenseCategoriesEntity {
     return EqualUnmodifiableListView(_categories);
   }
 
+  /// Create a copy of ExpenseCategoriesEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ExpenseCategoriesEntity(categories: $categories)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ExpenseCategoriesEntityCopyWith<_ExpenseCategoriesEntity> get copyWith =>
+      __$ExpenseCategoriesEntityCopyWithImpl<_ExpenseCategoriesEntity>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExpenseCategoriesEntityImpl &&
+            other is _ExpenseCategoriesEntity &&
             const DeepCollectionEquality().equals(other._categories, _categories));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_categories));
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'ExpenseCategoriesEntity(categories: $categories)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$ExpenseCategoriesEntityCopyWith<$Res> implements $ExpenseCategoriesEntityCopyWith<$Res> {
+  factory _$ExpenseCategoriesEntityCopyWith(
+          _ExpenseCategoriesEntity value, $Res Function(_ExpenseCategoriesEntity) _then) =
+      __$ExpenseCategoriesEntityCopyWithImpl;
+  @override
+  @useResult
+  $Res call({List<ExpenseCategoryEntity> categories});
+}
+
+/// @nodoc
+class __$ExpenseCategoriesEntityCopyWithImpl<$Res> implements _$ExpenseCategoriesEntityCopyWith<$Res> {
+  __$ExpenseCategoriesEntityCopyWithImpl(this._self, this._then);
+
+  final _ExpenseCategoriesEntity _self;
+  final $Res Function(_ExpenseCategoriesEntity) _then;
+
+  /// Create a copy of ExpenseCategoriesEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$ExpenseCategoriesEntityImplCopyWith<_$ExpenseCategoriesEntityImpl> get copyWith =>
-      __$$ExpenseCategoriesEntityImplCopyWithImpl<_$ExpenseCategoriesEntityImpl>(this, _$identity);
+  $Res call({
+    Object? categories = null,
+  }) {
+    return _then(_ExpenseCategoriesEntity(
+      categories: null == categories
+          ? _self._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<ExpenseCategoryEntity>,
+    ));
+  }
 }
 
-abstract class _ExpenseCategoriesEntity implements ExpenseCategoriesEntity {
-  const factory _ExpenseCategoriesEntity({required final List<ExpenseCategoryEntity> categories}) =
-      _$ExpenseCategoriesEntityImpl;
-
-  @override
-  List<ExpenseCategoryEntity> get categories;
-  @override
-  @JsonKey(ignore: true)
-  _$$ExpenseCategoriesEntityImplCopyWith<_$ExpenseCategoriesEntityImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

@@ -15,10 +15,9 @@ class OsmMapDataSourceImpl extends OsmMapDataSource {
   @override
   Future<List<FeatureDto>> getPlaces(String input) async {
     try {
-      return _osmClient.getLocationSuggestions(input: input).then(
-            (r) => r.features.map((feature) => feature).toList(),
-          );
-    } catch (e) {
+      final result = await _osmClient.getLocationSuggestions(input: input);
+      return result.features.map((feature) => feature).toList();
+    } on Object catch (e) {
       debugPrint('Failed to fetch from OSM: $e');
       throw ApiException(Errors.somethingWentWrong);
     }

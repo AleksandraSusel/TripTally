@@ -4,9 +4,11 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_bloc.dart';
+import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentication_state.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/widgets/login_form.dart';
 import 'package:trip_tally/presentation/pages/authentication_page/widgets/register_form.dart';
 import 'package:trip_tally/presentation/theme/app_paths.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/widgets/custom_snack_bar.dart';
@@ -30,15 +32,13 @@ class AuthenticationPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         body: BlocProvider(
           create: (context) => bloc ?? getIt<AuthenticationBloc>(),
-          child: BlocListener<AuthenticationBloc, AuthenticationState>(
-            listener: (context, state) => state.whenOrNull(
-              failure: (error) => showSnackBar(
-                context,
-                error.errorText(context),
-              ),
-              registered: () => context.router.replaceAll([WelcomeRoute()]),
-              logged: () => context.router.replaceAll([const HomeRoute()]),
-            ),
+          child: BlocListener<AuthenticationBloc, BasicState<void>>(
+            listener: (context, state) => switch (state) {
+              FailureState(error: final error) => showSnackBar(context, error.errorText(context)),
+              Registered() => context.router.replaceAll([WelcomeRoute()]),
+              Logged() => context.router.replaceAll([const HomeRoute()]),
+              _ => null,
+            },
             child: const _Body(),
           ),
         ),

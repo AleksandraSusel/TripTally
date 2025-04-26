@@ -5,7 +5,7 @@ part 'get_trips_dto.freezed.dart';
 part 'get_trips_dto.g.dart';
 
 @freezed
-class GetTripsDto with _$GetTripsDto {
+abstract class GetTripsDto with _$GetTripsDto {
   const factory GetTripsDto({
     required List<TripDto> trips,
   }) = _GetTripsDto;

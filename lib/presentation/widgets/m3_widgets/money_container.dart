@@ -115,20 +115,10 @@ class BalanceMoneyContainer extends StatelessWidget {
           color: spendMoreThanExpected
               ? MoneyContainerColorTheme.warning.getContainerColor(context)
               : MoneyContainerColorTheme.tertiary.getContainerColor(context),
-          shape: const StadiumBorder(),
-          shadows: [
-            BoxShadow(
-              blurRadius: AppDimensions.d2,
-              offset: const Offset(AppDimensions.zero, AppDimensions.d1),
-              color: context.thc.shadow.withValues(alpha: .3),
-            ),
-            BoxShadow(
-              blurRadius: AppDimensions.d3,
-              spreadRadius: AppDimensions.d1,
-              offset: const Offset(AppDimensions.zero, AppDimensions.d1),
-              color: context.thc.shadow.withValues(alpha: .15),
-            ),
-          ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppDimensions.d6),
+            side: BorderSide(width: 0.6, color: context.thc.shadow),
+          ),
         ),
         child: Text(
           MoneyFormat.formatPositiveAmountWithPlanned(

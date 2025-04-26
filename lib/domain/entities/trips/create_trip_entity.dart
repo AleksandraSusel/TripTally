@@ -6,7 +6,7 @@ import 'package:trip_tally/domain/entities/price/price_entity.dart';
 part 'create_trip_entity.freezed.dart';
 
 @freezed
-class CreateTripEntity with _$CreateTripEntity {
+abstract class CreateTripEntity with _$CreateTripEntity {
   const factory CreateTripEntity({
     required String transportType,
     required CreateLocationEntity location,

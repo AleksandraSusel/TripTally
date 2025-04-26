@@ -20,7 +20,7 @@ class ExpensesRemoteSourceImpl implements ExpensesRemoteSource {
     try {
       await _client.createExpenses(CreateExpensesDto(expenses: expenses));
       return const Success();
-    } catch (e, stack) {
+    } on Exception catch (e, stack) {
       debugPrint('Could not create expenses.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.somethingWentWrong);
     }
@@ -30,7 +30,7 @@ class ExpensesRemoteSourceImpl implements ExpensesRemoteSource {
   Future<ExpenseCategoriesDto> getExpenseCategories() async {
     try {
       return await _client.getExpensesCategories();
-    } catch (e, stack) {
+    } on Exception catch (e, stack) {
       debugPrint('Could not get Expense Categories.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.somethingWentWrong);
     }

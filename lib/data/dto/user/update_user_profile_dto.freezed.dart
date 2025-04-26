@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,85 +10,53 @@ part of 'update_user_profile_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-UpdateUserProfileDto _$UpdateUserProfileDtoFromJson(Map<String, dynamic> json) {
-  return _UpdateUserProfileDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$UpdateUserProfileDto {
-  String get username => throw _privateConstructorUsedError;
-  String get country => throw _privateConstructorUsedError;
-  String get defaultCurrencyCode => throw _privateConstructorUsedError;
+  String get username;
+  String get country;
+  String get defaultCurrencyCode;
   @JsonKey(includeToJson: false, includeFromJson: false)
-  File? get profilePicture => throw _privateConstructorUsedError;
+  File? get profilePicture;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $UpdateUserProfileDtoCopyWith<UpdateUserProfileDto> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $UpdateUserProfileDtoCopyWith<$Res> {
-  factory $UpdateUserProfileDtoCopyWith(UpdateUserProfileDto value, $Res Function(UpdateUserProfileDto) then) =
-      _$UpdateUserProfileDtoCopyWithImpl<$Res, UpdateUserProfileDto>;
-  @useResult
-  $Res call(
-      {String username,
-      String country,
-      String defaultCurrencyCode,
-      @JsonKey(includeToJson: false, includeFromJson: false) File? profilePicture});
-}
-
-/// @nodoc
-class _$UpdateUserProfileDtoCopyWithImpl<$Res, $Val extends UpdateUserProfileDto>
-    implements $UpdateUserProfileDtoCopyWith<$Res> {
-  _$UpdateUserProfileDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of UpdateUserProfileDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $UpdateUserProfileDtoCopyWith<UpdateUserProfileDto> get copyWith =>
+      _$UpdateUserProfileDtoCopyWithImpl<UpdateUserProfileDto>(this as UpdateUserProfileDto, _$identity);
+
+  /// Serializes this UpdateUserProfileDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? username = null,
-    Object? country = null,
-    Object? defaultCurrencyCode = null,
-    Object? profilePicture = freezed,
-  }) {
-    return _then(_value.copyWith(
-      username: null == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      defaultCurrencyCode: null == defaultCurrencyCode
-          ? _value.defaultCurrencyCode
-          : defaultCurrencyCode // ignore: cast_nullable_to_non_nullable
-              as String,
-      profilePicture: freezed == profilePicture
-          ? _value.profilePicture
-          : profilePicture // ignore: cast_nullable_to_non_nullable
-              as File?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UpdateUserProfileDto &&
+            (identical(other.username, username) || other.username == username) &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.defaultCurrencyCode, defaultCurrencyCode) ||
+                other.defaultCurrencyCode == defaultCurrencyCode) &&
+            (identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, username, country, defaultCurrencyCode, profilePicture);
+
+  @override
+  String toString() {
+    return 'UpdateUserProfileDto(username: $username, country: $country, defaultCurrencyCode: $defaultCurrencyCode, profilePicture: $profilePicture)';
   }
 }
 
 /// @nodoc
-abstract class _$$UpdateUserProfileDtoImplCopyWith<$Res> implements $UpdateUserProfileDtoCopyWith<$Res> {
-  factory _$$UpdateUserProfileDtoImplCopyWith(
-          _$UpdateUserProfileDtoImpl value, $Res Function(_$UpdateUserProfileDtoImpl) then) =
-      __$$UpdateUserProfileDtoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $UpdateUserProfileDtoCopyWith<$Res> {
+  factory $UpdateUserProfileDtoCopyWith(UpdateUserProfileDto value, $Res Function(UpdateUserProfileDto) _then) =
+      _$UpdateUserProfileDtoCopyWithImpl;
   @useResult
   $Res call(
       {String username,
@@ -97,13 +66,14 @@ abstract class _$$UpdateUserProfileDtoImplCopyWith<$Res> implements $UpdateUserP
 }
 
 /// @nodoc
-class __$$UpdateUserProfileDtoImplCopyWithImpl<$Res>
-    extends _$UpdateUserProfileDtoCopyWithImpl<$Res, _$UpdateUserProfileDtoImpl>
-    implements _$$UpdateUserProfileDtoImplCopyWith<$Res> {
-  __$$UpdateUserProfileDtoImplCopyWithImpl(
-      _$UpdateUserProfileDtoImpl _value, $Res Function(_$UpdateUserProfileDtoImpl) _then)
-      : super(_value, _then);
+class _$UpdateUserProfileDtoCopyWithImpl<$Res> implements $UpdateUserProfileDtoCopyWith<$Res> {
+  _$UpdateUserProfileDtoCopyWithImpl(this._self, this._then);
 
+  final UpdateUserProfileDto _self;
+  final $Res Function(UpdateUserProfileDto) _then;
+
+  /// Create a copy of UpdateUserProfileDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -112,21 +82,21 @@ class __$$UpdateUserProfileDtoImplCopyWithImpl<$Res>
     Object? defaultCurrencyCode = null,
     Object? profilePicture = freezed,
   }) {
-    return _then(_$UpdateUserProfileDtoImpl(
+    return _then(_self.copyWith(
       username: null == username
-          ? _value.username
+          ? _self.username
           : username // ignore: cast_nullable_to_non_nullable
               as String,
       country: null == country
-          ? _value.country
+          ? _self.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
       defaultCurrencyCode: null == defaultCurrencyCode
-          ? _value.defaultCurrencyCode
+          ? _self.defaultCurrencyCode
           : defaultCurrencyCode // ignore: cast_nullable_to_non_nullable
               as String,
       profilePicture: freezed == profilePicture
-          ? _value.profilePicture
+          ? _self.profilePicture
           : profilePicture // ignore: cast_nullable_to_non_nullable
               as File?,
     ));
@@ -135,14 +105,13 @@ class __$$UpdateUserProfileDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UpdateUserProfileDtoImpl implements _UpdateUserProfileDto {
-  const _$UpdateUserProfileDtoImpl(
+class _UpdateUserProfileDto implements UpdateUserProfileDto {
+  const _UpdateUserProfileDto(
       {required this.username,
       required this.country,
       required this.defaultCurrencyCode,
       @JsonKey(includeToJson: false, includeFromJson: false) this.profilePicture});
-
-  factory _$UpdateUserProfileDtoImpl.fromJson(Map<String, dynamic> json) => _$$UpdateUserProfileDtoImplFromJson(json);
+  factory _UpdateUserProfileDto.fromJson(Map<String, dynamic> json) => _$UpdateUserProfileDtoFromJson(json);
 
   @override
   final String username;
@@ -154,16 +123,26 @@ class _$UpdateUserProfileDtoImpl implements _UpdateUserProfileDto {
   @JsonKey(includeToJson: false, includeFromJson: false)
   final File? profilePicture;
 
+  /// Create a copy of UpdateUserProfileDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'UpdateUserProfileDto(username: $username, country: $country, defaultCurrencyCode: $defaultCurrencyCode, profilePicture: $profilePicture)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$UpdateUserProfileDtoCopyWith<_UpdateUserProfileDto> get copyWith =>
+      __$UpdateUserProfileDtoCopyWithImpl<_UpdateUserProfileDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$UpdateUserProfileDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UpdateUserProfileDtoImpl &&
+            other is _UpdateUserProfileDto &&
             (identical(other.username, username) || other.username == username) &&
             (identical(other.country, country) || other.country == country) &&
             (identical(other.defaultCurrencyCode, defaultCurrencyCode) ||
@@ -171,43 +150,65 @@ class _$UpdateUserProfileDtoImpl implements _UpdateUserProfileDto {
             (identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, username, country, defaultCurrencyCode, profilePicture);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$UpdateUserProfileDtoImplCopyWith<_$UpdateUserProfileDtoImpl> get copyWith =>
-      __$$UpdateUserProfileDtoImplCopyWithImpl<_$UpdateUserProfileDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$UpdateUserProfileDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'UpdateUserProfileDto(username: $username, country: $country, defaultCurrencyCode: $defaultCurrencyCode, profilePicture: $profilePicture)';
   }
 }
 
-abstract class _UpdateUserProfileDto implements UpdateUserProfileDto {
-  const factory _UpdateUserProfileDto(
-      {required final String username,
-      required final String country,
-      required final String defaultCurrencyCode,
-      @JsonKey(includeToJson: false, includeFromJson: false) final File? profilePicture}) = _$UpdateUserProfileDtoImpl;
-
-  factory _UpdateUserProfileDto.fromJson(Map<String, dynamic> json) = _$UpdateUserProfileDtoImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$UpdateUserProfileDtoCopyWith<$Res> implements $UpdateUserProfileDtoCopyWith<$Res> {
+  factory _$UpdateUserProfileDtoCopyWith(_UpdateUserProfileDto value, $Res Function(_UpdateUserProfileDto) _then) =
+      __$UpdateUserProfileDtoCopyWithImpl;
   @override
-  String get username;
-  @override
-  String get country;
-  @override
-  String get defaultCurrencyCode;
-  @override
-  @JsonKey(includeToJson: false, includeFromJson: false)
-  File? get profilePicture;
-  @override
-  @JsonKey(ignore: true)
-  _$$UpdateUserProfileDtoImplCopyWith<_$UpdateUserProfileDtoImpl> get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {String username,
+      String country,
+      String defaultCurrencyCode,
+      @JsonKey(includeToJson: false, includeFromJson: false) File? profilePicture});
 }
+
+/// @nodoc
+class __$UpdateUserProfileDtoCopyWithImpl<$Res> implements _$UpdateUserProfileDtoCopyWith<$Res> {
+  __$UpdateUserProfileDtoCopyWithImpl(this._self, this._then);
+
+  final _UpdateUserProfileDto _self;
+  final $Res Function(_UpdateUserProfileDto) _then;
+
+  /// Create a copy of UpdateUserProfileDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? username = null,
+    Object? country = null,
+    Object? defaultCurrencyCode = null,
+    Object? profilePicture = freezed,
+  }) {
+    return _then(_UpdateUserProfileDto(
+      username: null == username
+          ? _self.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      country: null == country
+          ? _self.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as String,
+      defaultCurrencyCode: null == defaultCurrencyCode
+          ? _self.defaultCurrencyCode
+          : defaultCurrencyCode // ignore: cast_nullable_to_non_nullable
+              as String,
+      profilePicture: freezed == profilePicture
+          ? _self.profilePicture
+          : profilePicture // ignore: cast_nullable_to_non_nullable
+              as File?,
+    ));
+  }
+}
+
+// dart format on

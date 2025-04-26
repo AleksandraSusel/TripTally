@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,33 +10,53 @@ part of 'expense_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ExpenseDto _$ExpenseDtoFromJson(Map<String, dynamic> json) {
-  return _ExpenseDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ExpenseDto {
-  String get name => throw _privateConstructorUsedError;
-  String get date => throw _privateConstructorUsedError;
-  PriceDto get price => throw _privateConstructorUsedError;
-  String get categoryId => throw _privateConstructorUsedError;
-  String? get tripId => throw _privateConstructorUsedError;
-  ExpenseCategoryDto? get category => throw _privateConstructorUsedError;
+  String get name;
+  String get date;
+  PriceDto get price;
+  String get categoryId;
+  String? get tripId;
+  ExpenseCategoryDto? get category;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ExpenseDtoCopyWith<ExpenseDto> get copyWith => throw _privateConstructorUsedError;
+  /// Create a copy of ExpenseDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ExpenseDtoCopyWith<ExpenseDto> get copyWith => _$ExpenseDtoCopyWithImpl<ExpenseDto>(this as ExpenseDto, _$identity);
+
+  /// Serializes this ExpenseDto to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ExpenseDto &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.price, price) || other.price == price) &&
+            (identical(other.categoryId, categoryId) || other.categoryId == categoryId) &&
+            (identical(other.tripId, tripId) || other.tripId == tripId) &&
+            (identical(other.category, category) || other.category == category));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, date, price, categoryId, tripId, category);
+
+  @override
+  String toString() {
+    return 'ExpenseDto(name: $name, date: $date, price: $price, categoryId: $categoryId, tripId: $tripId, category: $category)';
+  }
 }
 
 /// @nodoc
-abstract class $ExpenseDtoCopyWith<$Res> {
-  factory $ExpenseDtoCopyWith(ExpenseDto value, $Res Function(ExpenseDto) then) =
-      _$ExpenseDtoCopyWithImpl<$Res, ExpenseDto>;
+abstract mixin class $ExpenseDtoCopyWith<$Res> {
+  factory $ExpenseDtoCopyWith(ExpenseDto value, $Res Function(ExpenseDto) _then) = _$ExpenseDtoCopyWithImpl;
   @useResult
   $Res call(
       {String name, String date, PriceDto price, String categoryId, String? tripId, ExpenseCategoryDto? category});
@@ -45,14 +66,14 @@ abstract class $ExpenseDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ExpenseDtoCopyWithImpl<$Res, $Val extends ExpenseDto> implements $ExpenseDtoCopyWith<$Res> {
-  _$ExpenseDtoCopyWithImpl(this._value, this._then);
+class _$ExpenseDtoCopyWithImpl<$Res> implements $ExpenseDtoCopyWith<$Res> {
+  _$ExpenseDtoCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ExpenseDto _self;
+  final $Res Function(ExpenseDto) _then;
 
+  /// Create a copy of ExpenseDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -63,126 +84,70 @@ class _$ExpenseDtoCopyWithImpl<$Res, $Val extends ExpenseDto> implements $Expens
     Object? tripId = freezed,
     Object? category = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       date: null == date
-          ? _value.date
+          ? _self.date
           : date // ignore: cast_nullable_to_non_nullable
               as String,
       price: null == price
-          ? _value.price
+          ? _self.price
           : price // ignore: cast_nullable_to_non_nullable
               as PriceDto,
       categoryId: null == categoryId
-          ? _value.categoryId
+          ? _self.categoryId
           : categoryId // ignore: cast_nullable_to_non_nullable
               as String,
       tripId: freezed == tripId
-          ? _value.tripId
+          ? _self.tripId
           : tripId // ignore: cast_nullable_to_non_nullable
               as String?,
       category: freezed == category
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
-              as ExpenseCategoryDto?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PriceDtoCopyWith<$Res> get price {
-    return $PriceDtoCopyWith<$Res>(_value.price, (value) {
-      return _then(_value.copyWith(price: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ExpenseCategoryDtoCopyWith<$Res>? get category {
-    if (_value.category == null) {
-      return null;
-    }
-
-    return $ExpenseCategoryDtoCopyWith<$Res>(_value.category!, (value) {
-      return _then(_value.copyWith(category: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$ExpenseDtoImplCopyWith<$Res> implements $ExpenseDtoCopyWith<$Res> {
-  factory _$$ExpenseDtoImplCopyWith(_$ExpenseDtoImpl value, $Res Function(_$ExpenseDtoImpl) then) =
-      __$$ExpenseDtoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String name, String date, PriceDto price, String categoryId, String? tripId, ExpenseCategoryDto? category});
-
-  @override
-  $PriceDtoCopyWith<$Res> get price;
-  @override
-  $ExpenseCategoryDtoCopyWith<$Res>? get category;
-}
-
-/// @nodoc
-class __$$ExpenseDtoImplCopyWithImpl<$Res> extends _$ExpenseDtoCopyWithImpl<$Res, _$ExpenseDtoImpl>
-    implements _$$ExpenseDtoImplCopyWith<$Res> {
-  __$$ExpenseDtoImplCopyWithImpl(_$ExpenseDtoImpl _value, $Res Function(_$ExpenseDtoImpl) _then) : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? date = null,
-    Object? price = null,
-    Object? categoryId = null,
-    Object? tripId = freezed,
-    Object? category = freezed,
-  }) {
-    return _then(_$ExpenseDtoImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as PriceDto,
-      categoryId: null == categoryId
-          ? _value.categoryId
-          : categoryId // ignore: cast_nullable_to_non_nullable
-              as String,
-      tripId: freezed == tripId
-          ? _value.tripId
-          : tripId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      category: freezed == category
-          ? _value.category
+          ? _self.category
           : category // ignore: cast_nullable_to_non_nullable
               as ExpenseCategoryDto?,
     ));
+  }
+
+  /// Create a copy of ExpenseDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PriceDtoCopyWith<$Res> get price {
+    return $PriceDtoCopyWith<$Res>(_self.price, (value) {
+      return _then(_self.copyWith(price: value));
+    });
+  }
+
+  /// Create a copy of ExpenseDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ExpenseCategoryDtoCopyWith<$Res>? get category {
+    if (_self.category == null) {
+      return null;
+    }
+
+    return $ExpenseCategoryDtoCopyWith<$Res>(_self.category!, (value) {
+      return _then(_self.copyWith(category: value));
+    });
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ExpenseDtoImpl implements _ExpenseDto {
-  const _$ExpenseDtoImpl(
+class _ExpenseDto implements ExpenseDto {
+  const _ExpenseDto(
       {required this.name,
       required this.date,
       required this.price,
       required this.categoryId,
       this.tripId,
       this.category});
-
-  factory _$ExpenseDtoImpl.fromJson(Map<String, dynamic> json) => _$$ExpenseDtoImplFromJson(json);
+  factory _ExpenseDto.fromJson(Map<String, dynamic> json) => _$ExpenseDtoFromJson(json);
 
   @override
   final String name;
@@ -197,16 +162,25 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
   @override
   final ExpenseCategoryDto? category;
 
+  /// Create a copy of ExpenseDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ExpenseDto(name: $name, date: $date, price: $price, categoryId: $categoryId, tripId: $tripId, category: $category)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ExpenseDtoCopyWith<_ExpenseDto> get copyWith => __$ExpenseDtoCopyWithImpl<_ExpenseDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ExpenseDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExpenseDtoImpl &&
+            other is _ExpenseDto &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.price, price) || other.price == price) &&
@@ -215,48 +189,100 @@ class _$ExpenseDtoImpl implements _ExpenseDto {
             (identical(other.category, category) || other.category == category));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, name, date, price, categoryId, tripId, category);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ExpenseDtoImplCopyWith<_$ExpenseDtoImpl> get copyWith =>
-      __$$ExpenseDtoImplCopyWithImpl<_$ExpenseDtoImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ExpenseDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ExpenseDto(name: $name, date: $date, price: $price, categoryId: $categoryId, tripId: $tripId, category: $category)';
   }
 }
 
-abstract class _ExpenseDto implements ExpenseDto {
-  const factory _ExpenseDto(
-      {required final String name,
-      required final String date,
-      required final PriceDto price,
-      required final String categoryId,
-      final String? tripId,
-      final ExpenseCategoryDto? category}) = _$ExpenseDtoImpl;
-
-  factory _ExpenseDto.fromJson(Map<String, dynamic> json) = _$ExpenseDtoImpl.fromJson;
+/// @nodoc
+abstract mixin class _$ExpenseDtoCopyWith<$Res> implements $ExpenseDtoCopyWith<$Res> {
+  factory _$ExpenseDtoCopyWith(_ExpenseDto value, $Res Function(_ExpenseDto) _then) = __$ExpenseDtoCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String name, String date, PriceDto price, String categoryId, String? tripId, ExpenseCategoryDto? category});
 
   @override
-  String get name;
+  $PriceDtoCopyWith<$Res> get price;
   @override
-  String get date;
-  @override
-  PriceDto get price;
-  @override
-  String get categoryId;
-  @override
-  String? get tripId;
-  @override
-  ExpenseCategoryDto? get category;
-  @override
-  @JsonKey(ignore: true)
-  _$$ExpenseDtoImplCopyWith<_$ExpenseDtoImpl> get copyWith => throw _privateConstructorUsedError;
+  $ExpenseCategoryDtoCopyWith<$Res>? get category;
 }
+
+/// @nodoc
+class __$ExpenseDtoCopyWithImpl<$Res> implements _$ExpenseDtoCopyWith<$Res> {
+  __$ExpenseDtoCopyWithImpl(this._self, this._then);
+
+  final _ExpenseDto _self;
+  final $Res Function(_ExpenseDto) _then;
+
+  /// Create a copy of ExpenseDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? name = null,
+    Object? date = null,
+    Object? price = null,
+    Object? categoryId = null,
+    Object? tripId = freezed,
+    Object? category = freezed,
+  }) {
+    return _then(_ExpenseDto(
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: null == date
+          ? _self.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+      price: null == price
+          ? _self.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as PriceDto,
+      categoryId: null == categoryId
+          ? _self.categoryId
+          : categoryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      tripId: freezed == tripId
+          ? _self.tripId
+          : tripId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      category: freezed == category
+          ? _self.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as ExpenseCategoryDto?,
+    ));
+  }
+
+  /// Create a copy of ExpenseDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PriceDtoCopyWith<$Res> get price {
+    return $PriceDtoCopyWith<$Res>(_self.price, (value) {
+      return _then(_self.copyWith(price: value));
+    });
+  }
+
+  /// Create a copy of ExpenseDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ExpenseCategoryDtoCopyWith<$Res>? get category {
+    if (_self.category == null) {
+      return null;
+    }
+
+    return $ExpenseCategoryDtoCopyWith<$Res>(_self.category!, (value) {
+      return _then(_self.copyWith(category: value));
+    });
+  }
+}
+
+// dart format on

@@ -23,7 +23,7 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
       final token = await _client.login(loginDto);
       await _prefs.saveToken(token);
       return const Success();
-    } catch (e, stack) {
+    } on Exception catch (e, stack) {
       debugPrint('Could not login.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.somethingWentWrong);
     }
@@ -35,7 +35,7 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
       final String token = await _client.createAccount(createUserDto);
       await _prefs.saveToken(token);
       return const Success();
-    } catch (e, stack) {
+    } on Exception catch (e, stack) {
       debugPrint('Could not create account.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.somethingWentWrong);
     }
@@ -60,7 +60,7 @@ class AuthenticationRemoteSourceImpl implements AuthenticationRemoteSource {
         profilePicture: dto.profilePicture,
       );
       return const Success();
-    } catch (e, stack) {
+    } on Exception catch (e, stack) {
       debugPrint('Could not update User Profile.\nReason: $e\nStack: $stack');
       throw ApiException(Errors.somethingWentWrong);
     }

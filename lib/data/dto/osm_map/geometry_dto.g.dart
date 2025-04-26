@@ -6,10 +6,10 @@ part of 'geometry_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GeometryDtoImpl _$$GeometryDtoImplFromJson(Map<String, dynamic> json) => _$GeometryDtoImpl(
+_GeometryDto _$GeometryDtoFromJson(Map<String, dynamic> json) => _GeometryDto(
       coordinates: (json['coordinates'] as List<dynamic>).map((e) => (e as num).toDouble()).toList(),
     );
 
-Map<String, dynamic> _$$GeometryDtoImplToJson(_$GeometryDtoImpl instance) => <String, dynamic>{
+Map<String, dynamic> _$GeometryDtoToJson(_GeometryDto instance) => <String, dynamic>{
       'coordinates': instance.coordinates,
     };

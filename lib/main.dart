@@ -6,9 +6,12 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:trip_tally/firebase_options.dart';
 import 'package:trip_tally/injectable/injectable.dart';
 import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart';
+import 'package:trip_tally/presentation/pages/bloc/app_state.dart';
 import 'package:trip_tally/presentation/theme/theme_manager.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/router/app_router.dart';
 import 'package:trip_tally/presentation/utils/translation/generated/l10n.dart';
+import 'package:trip_tally/presentation/widgets/custom_circular_progress_indicator.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/text_scale_wrapper.dart';
 
 Future<void> main() async {
@@ -36,15 +39,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<AppBloc>()..add(const OnInitializeAppEvent()),
-      child: BlocListener<AppBloc, AppState>(
-        listener: (context, state) => state.whenOrNull(
-          initial: () => getIt<AppRouter>().replaceAll([AuthenticationRoute()]),
-          success: () => getIt<AppRouter>().replaceAll([const HomeRoute()]),
-          toLoginPage: () => getIt<AppRouter>().replaceAll([AuthenticationRoute()]),
-          loading: () => const Center(
-            child: CircularProgressIndicator(),
-          ),
-        ),
+      child: BlocListener<AppBloc, BasicState<void>>(
+        listener: (context, state) => switch (state) {
+          LoadedState(data: final _) => getIt<AppRouter>().replaceAll([AuthenticationRoute()]),
+          SuccessState() => getIt<AppRouter>().replaceAll([const HomeRoute()]),
+          ToLoginPage() => getIt<AppRouter>().replaceAll([AuthenticationRoute()]),
+          LoadingState() => const CustomCircularProgressIndicator(),
+          _ => null,
+        },
         child: TextScaleWrapper(
           child: MaterialApp.router(
             routerConfig: getIt<AppRouter>().config(),

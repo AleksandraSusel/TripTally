@@ -1,10 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart';
 import 'package:trip_tally/presentation/pages/welcome_page/welcome_page.dart';
+import 'package:trip_tally/presentation/utils/basic_state.dart';
 import 'package:trip_tally/presentation/utils/enums/errors.dart';
-import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart';
 import 'package:trip_tally/presentation/widgets/custom_text_field.dart';
 import 'package:trip_tally/presentation/widgets/m3_widgets/avatar_picker.dart';
 
@@ -20,14 +19,15 @@ void main() {
   });
 
   setUp(() {
-    when(mockPermissionsBloc.state).thenAnswer((_) => const PermissionsState.loaded(PermissionStatus.granted));
+    when(mockPermissionsBloc.state).thenAnswer((_) => const LoadedState(data: PermissionStatus.granted));
     when(mockPermissionsBloc.close()).thenAnswer((_) async {});
-    when(mockPermissionsBloc.stream)
-        .thenAnswer((_) => Stream.value(const PermissionsState.loaded(PermissionStatus.granted)));
+    when(mockPermissionsBloc.stream).thenAnswer(
+      (_) => Stream.value(const LoadedState(data: PermissionStatus.granted)),
+    );
 
-    when(mockUpdateUserProfileBloc.state).thenAnswer((_) => const UpdateUserProfileState.initial());
+    when(mockUpdateUserProfileBloc.state).thenAnswer((_) => const LoadedState(data: null));
     when(mockUpdateUserProfileBloc.close()).thenAnswer((_) async {});
-    when(mockUpdateUserProfileBloc.stream).thenAnswer((_) => Stream.value(const UpdateUserProfileState.initial()));
+    when(mockUpdateUserProfileBloc.stream).thenAnswer((_) => Stream.value(const LoadedState(data: null)));
   });
 
   WelcomePage buildPage() => WelcomePage(
@@ -84,9 +84,7 @@ void main() {
     'WelcomePage - Bloc error',
     builder: () {
       when(mockPermissionsBloc.stream).thenAnswer(
-        (_) => Stream.value(
-          const PermissionsState.error(Errors.somethingWrongPermissions),
-        ),
+        (_) => Stream.value(const FailureState(Errors.somethingWrongPermissions)),
       );
       return buildPage();
     },

@@ -4,11 +4,10 @@ import 'package:trip_tally/data/dto/location/location_dto.dart';
 import 'package:trip_tally/data/dto/price/price_dto.dart';
 
 part 'trip_dto.freezed.dart';
-
 part 'trip_dto.g.dart';
 
 @freezed
-class TripDto with _$TripDto {
+abstract class TripDto with _$TripDto {
   const factory TripDto({
     required String id,
     required String status,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,88 +10,69 @@ part of 'create_account_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CreateAccountEntity {
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
+  String get email;
+  String get password;
 
-  @JsonKey(ignore: true)
-  $CreateAccountEntityCopyWith<CreateAccountEntity> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CreateAccountEntityCopyWith<$Res> {
-  factory $CreateAccountEntityCopyWith(CreateAccountEntity value, $Res Function(CreateAccountEntity) then) =
-      _$CreateAccountEntityCopyWithImpl<$Res, CreateAccountEntity>;
-  @useResult
-  $Res call({String email, String password});
-}
-
-/// @nodoc
-class _$CreateAccountEntityCopyWithImpl<$Res, $Val extends CreateAccountEntity>
-    implements $CreateAccountEntityCopyWith<$Res> {
-  _$CreateAccountEntityCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of CreateAccountEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $CreateAccountEntityCopyWith<CreateAccountEntity> get copyWith =>
+      _$CreateAccountEntityCopyWithImpl<CreateAccountEntity>(this as CreateAccountEntity, _$identity);
+
   @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CreateAccountEntity &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) || other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email, password);
+
+  @override
+  String toString() {
+    return 'CreateAccountEntity(email: $email, password: $password)';
   }
 }
 
 /// @nodoc
-abstract class _$$CreateAccountEntityImplCopyWith<$Res> implements $CreateAccountEntityCopyWith<$Res> {
-  factory _$$CreateAccountEntityImplCopyWith(
-          _$CreateAccountEntityImpl value, $Res Function(_$CreateAccountEntityImpl) then) =
-      __$$CreateAccountEntityImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $CreateAccountEntityCopyWith<$Res> {
+  factory $CreateAccountEntityCopyWith(CreateAccountEntity value, $Res Function(CreateAccountEntity) _then) =
+      _$CreateAccountEntityCopyWithImpl;
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class __$$CreateAccountEntityImplCopyWithImpl<$Res>
-    extends _$CreateAccountEntityCopyWithImpl<$Res, _$CreateAccountEntityImpl>
-    implements _$$CreateAccountEntityImplCopyWith<$Res> {
-  __$$CreateAccountEntityImplCopyWithImpl(
-      _$CreateAccountEntityImpl _value, $Res Function(_$CreateAccountEntityImpl) _then)
-      : super(_value, _then);
+class _$CreateAccountEntityCopyWithImpl<$Res> implements $CreateAccountEntityCopyWith<$Res> {
+  _$CreateAccountEntityCopyWithImpl(this._self, this._then);
 
+  final CreateAccountEntity _self;
+  final $Res Function(CreateAccountEntity) _then;
+
+  /// Create a copy of CreateAccountEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? email = null,
     Object? password = null,
   }) {
-    return _then(_$CreateAccountEntityImpl(
+    return _then(_self.copyWith(
       email: null == email
-          ? _value.email
+          ? _self.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
-          ? _value.password
+          ? _self.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -99,24 +81,27 @@ class __$$CreateAccountEntityImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CreateAccountEntityImpl implements _CreateAccountEntity {
-  const _$CreateAccountEntityImpl({required this.email, required this.password});
+class _CreateAccountEntity implements CreateAccountEntity {
+  const _CreateAccountEntity({required this.email, required this.password});
 
   @override
   final String email;
   @override
   final String password;
 
+  /// Create a copy of CreateAccountEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'CreateAccountEntity(email: $email, password: $password)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CreateAccountEntityCopyWith<_CreateAccountEntity> get copyWith =>
+      __$CreateAccountEntityCopyWithImpl<_CreateAccountEntity>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateAccountEntityImpl &&
+            other is _CreateAccountEntity &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) || other.password == password));
   }
@@ -124,22 +109,47 @@ class _$CreateAccountEntityImpl implements _CreateAccountEntity {
   @override
   int get hashCode => Object.hash(runtimeType, email, password);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'CreateAccountEntity(email: $email, password: $password)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$CreateAccountEntityCopyWith<$Res> implements $CreateAccountEntityCopyWith<$Res> {
+  factory _$CreateAccountEntityCopyWith(_CreateAccountEntity value, $Res Function(_CreateAccountEntity) _then) =
+      __$CreateAccountEntityCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String email, String password});
+}
+
+/// @nodoc
+class __$CreateAccountEntityCopyWithImpl<$Res> implements _$CreateAccountEntityCopyWith<$Res> {
+  __$CreateAccountEntityCopyWithImpl(this._self, this._then);
+
+  final _CreateAccountEntity _self;
+  final $Res Function(_CreateAccountEntity) _then;
+
+  /// Create a copy of CreateAccountEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateAccountEntityImplCopyWith<_$CreateAccountEntityImpl> get copyWith =>
-      __$$CreateAccountEntityImplCopyWithImpl<_$CreateAccountEntityImpl>(this, _$identity);
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+  }) {
+    return _then(_CreateAccountEntity(
+      email: null == email
+          ? _self.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-abstract class _CreateAccountEntity implements CreateAccountEntity {
-  const factory _CreateAccountEntity({required final String email, required final String password}) =
-      _$CreateAccountEntityImpl;
-
-  @override
-  String get email;
-  @override
-  String get password;
-  @override
-  @JsonKey(ignore: true)
-  _$$CreateAccountEntityImplCopyWith<_$CreateAccountEntityImpl> get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

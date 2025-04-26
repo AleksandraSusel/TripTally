@@ -1,10 +1,12 @@
-// ignore_for_file: avoid_print
-
 import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 
 void main(List<String> arguments) {
   if (arguments.length < 3) {
-    print('Usage: dart generate.dart <file_name> <entity_name> <dto_name>');
+    debugPrint(
+      'Usage: dart generate.dart <file_name> <entity_name> <dto_name>',
+    );
     return;
   }
   const appName = 'trip_tally';
@@ -92,7 +94,7 @@ class ${pascalFileName}UseCase implements UseCase<$pascalEntityName, String> {
   createFile(repositoryPath, repositoryContent);
   createFile(useCasePath, useCaseContent);
 
-  print('Files generated successfully!');
+  debugPrint('Files generated successfully!');
 }
 
 String toPascalCase(String input) {

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,84 +10,68 @@ part of 'login_entity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LoginEntity {
-  String get email => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
+  String get email;
+  String get password;
 
-  @JsonKey(ignore: true)
-  $LoginEntityCopyWith<LoginEntity> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LoginEntityCopyWith<$Res> {
-  factory $LoginEntityCopyWith(LoginEntity value, $Res Function(LoginEntity) then) =
-      _$LoginEntityCopyWithImpl<$Res, LoginEntity>;
-  @useResult
-  $Res call({String email, String password});
-}
-
-/// @nodoc
-class _$LoginEntityCopyWithImpl<$Res, $Val extends LoginEntity> implements $LoginEntityCopyWith<$Res> {
-  _$LoginEntityCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of LoginEntity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $LoginEntityCopyWith<LoginEntity> get copyWith =>
+      _$LoginEntityCopyWithImpl<LoginEntity>(this as LoginEntity, _$identity);
+
   @override
-  $Res call({
-    Object? email = null,
-    Object? password = null,
-  }) {
-    return _then(_value.copyWith(
-      email: null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LoginEntity &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) || other.password == password));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, email, password);
+
+  @override
+  String toString() {
+    return 'LoginEntity(email: $email, password: $password)';
   }
 }
 
 /// @nodoc
-abstract class _$$LoginEntityImplCopyWith<$Res> implements $LoginEntityCopyWith<$Res> {
-  factory _$$LoginEntityImplCopyWith(_$LoginEntityImpl value, $Res Function(_$LoginEntityImpl) then) =
-      __$$LoginEntityImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LoginEntityCopyWith<$Res> {
+  factory $LoginEntityCopyWith(LoginEntity value, $Res Function(LoginEntity) _then) = _$LoginEntityCopyWithImpl;
   @useResult
   $Res call({String email, String password});
 }
 
 /// @nodoc
-class __$$LoginEntityImplCopyWithImpl<$Res> extends _$LoginEntityCopyWithImpl<$Res, _$LoginEntityImpl>
-    implements _$$LoginEntityImplCopyWith<$Res> {
-  __$$LoginEntityImplCopyWithImpl(_$LoginEntityImpl _value, $Res Function(_$LoginEntityImpl) _then)
-      : super(_value, _then);
+class _$LoginEntityCopyWithImpl<$Res> implements $LoginEntityCopyWith<$Res> {
+  _$LoginEntityCopyWithImpl(this._self, this._then);
 
+  final LoginEntity _self;
+  final $Res Function(LoginEntity) _then;
+
+  /// Create a copy of LoginEntity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? email = null,
     Object? password = null,
   }) {
-    return _then(_$LoginEntityImpl(
+    return _then(_self.copyWith(
       email: null == email
-          ? _value.email
+          ? _self.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
       password: null == password
-          ? _value.password
+          ? _self.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -95,24 +80,26 @@ class __$$LoginEntityImplCopyWithImpl<$Res> extends _$LoginEntityCopyWithImpl<$R
 
 /// @nodoc
 
-class _$LoginEntityImpl implements _LoginEntity {
-  const _$LoginEntityImpl({required this.email, required this.password});
+class _LoginEntity implements LoginEntity {
+  const _LoginEntity({required this.email, required this.password});
 
   @override
   final String email;
   @override
   final String password;
 
+  /// Create a copy of LoginEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'LoginEntity(email: $email, password: $password)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LoginEntityCopyWith<_LoginEntity> get copyWith => __$LoginEntityCopyWithImpl<_LoginEntity>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoginEntityImpl &&
+            other is _LoginEntity &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) || other.password == password));
   }
@@ -120,21 +107,46 @@ class _$LoginEntityImpl implements _LoginEntity {
   @override
   int get hashCode => Object.hash(runtimeType, email, password);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'LoginEntity(email: $email, password: $password)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$LoginEntityCopyWith<$Res> implements $LoginEntityCopyWith<$Res> {
+  factory _$LoginEntityCopyWith(_LoginEntity value, $Res Function(_LoginEntity) _then) = __$LoginEntityCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String email, String password});
+}
+
+/// @nodoc
+class __$LoginEntityCopyWithImpl<$Res> implements _$LoginEntityCopyWith<$Res> {
+  __$LoginEntityCopyWithImpl(this._self, this._then);
+
+  final _LoginEntity _self;
+  final $Res Function(_LoginEntity) _then;
+
+  /// Create a copy of LoginEntity
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$LoginEntityImplCopyWith<_$LoginEntityImpl> get copyWith =>
-      __$$LoginEntityImplCopyWithImpl<_$LoginEntityImpl>(this, _$identity);
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+  }) {
+    return _then(_LoginEntity(
+      email: null == email
+          ? _self.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _self.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-abstract class _LoginEntity implements LoginEntity {
-  const factory _LoginEntity({required final String email, required final String password}) = _$LoginEntityImpl;
-
-  @override
-  String get email;
-  @override
-  String get password;
-  @override
-  @JsonKey(ignore: true)
-  _$$LoginEntityImplCopyWith<_$LoginEntityImpl> get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

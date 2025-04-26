@@ -24,7 +24,7 @@ class TripsRepoImpl implements TripsRepo {
       return Right(TripEntity.fromDto(result));
     } on ApiException catch (e) {
       return Left(Failure(error: e.failure));
-    } catch (e) {
+    } on Exception catch (_) {
       return const Left(Failure(error: Errors.unknownError));
     }
   }

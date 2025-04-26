@@ -1,11 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'place_address_dto.freezed.dart';
-
 part 'place_address_dto.g.dart';
 
 @freezed
-class PlaceAddressDto with _$PlaceAddressDto {
+abstract class PlaceAddressDto with _$PlaceAddressDto {
   const factory PlaceAddressDto({
     required String country,
     required String countryCode,

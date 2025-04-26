@@ -5,11 +5,10 @@ import 'package:trip_tally/data/dto/price/price_dto.dart';
 import 'package:trip_tally/domain/entities/trips/create_trip_entity.dart';
 
 part 'create_trip_dto.freezed.dart';
-
 part 'create_trip_dto.g.dart';
 
 @freezed
-class CreateTripDto with _$CreateTripDto {
+abstract class CreateTripDto with _$CreateTripDto {
   const factory CreateTripDto({
     required String transportType,
     required CreateLocationDto location,

@@ -4,7 +4,7 @@ import 'package:trip_tally/data/dto/expenses/expense_category_dto.dart';
 part 'expense_category_entity.freezed.dart';
 
 @freezed
-class ExpenseCategoryEntity with _$ExpenseCategoryEntity {
+abstract class ExpenseCategoryEntity with _$ExpenseCategoryEntity {
   const factory ExpenseCategoryEntity({
     required String id,
     required String name,
