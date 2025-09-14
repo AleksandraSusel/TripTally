@@ -1,7 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -1664,6 +1663,186 @@ class Translation {
     return Intl.message(
       'Retry',
       name: 'errorWidget_button',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your profile`
+  String get userProfilePage_yourProfile {
+    return Intl.message(
+      'Your profile',
+      name: 'userProfilePage_yourProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Followers`
+  String get userProfilePage_followers {
+    return Intl.message(
+      'Followers',
+      name: 'userProfilePage_followers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Finished Trips`
+  String get userProfilePage_finishedTrips {
+    return Intl.message(
+      'Finished Trips',
+      name: 'userProfilePage_finishedTrips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Spend on trips`
+  String get userProfilePage_tripsSpend {
+    return Intl.message(
+      'Spend on trips',
+      name: 'userProfilePage_tripsSpend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Setting`
+  String get userProfilePage_settings {
+    return Intl.message(
+      'Setting',
+      name: 'userProfilePage_settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get userProfilePage_logout {
+    return Intl.message(
+      'Logout',
+      name: 'userProfilePage_logout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remove your account`
+  String get userProfilePage_deleteAccount {
+    return Intl.message(
+      'Remove your account',
+      name: 'userProfilePage_deleteAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Click to remove your account`
+  String get userProfilePage_deleteAccountDesc {
+    return Intl.message(
+      'Click to remove your account',
+      name: 'userProfilePage_deleteAccountDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete your account?`
+  String get userProfilePage_deleteAccountDialog {
+    return Intl.message(
+      'Are you sure you want to delete your account?',
+      name: 'userProfilePage_deleteAccountDialog',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This action is irreversible`
+  String get userProfilePage_deleteAccountDialogDesc {
+    return Intl.message(
+      'This action is irreversible',
+      name: 'userProfilePage_deleteAccountDialogDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Click to logout from your account`
+  String get userProfilePage_logoutDesc {
+    return Intl.message(
+      'Click to logout from your account',
+      name: 'userProfilePage_logoutDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change your name`
+  String get userProfilePage_changeName {
+    return Intl.message(
+      'Change your name',
+      name: 'userProfilePage_changeName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your new name`
+  String get userProfilePage_changeNameDialog {
+    return Intl.message(
+      'Enter your new name',
+      name: 'userProfilePage_changeNameDialog',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change your email`
+  String get userProfilePage_changeEmail {
+    return Intl.message(
+      'Change your email',
+      name: 'userProfilePage_changeEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your new email address`
+  String get userProfilePage_changeEmailDialogNewEmail {
+    return Intl.message(
+      'Enter your new email address',
+      name: 'userProfilePage_changeEmailDialogNewEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your password`
+  String get userProfilePage_changeEmailDialogPassword {
+    return Intl.message(
+      'Enter your password',
+      name: 'userProfilePage_changeEmailDialogPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change your password`
+  String get userProfilePage_changePassword {
+    return Intl.message(
+      'Change your password',
+      name: 'userProfilePage_changePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We will send you an email with a link to change your password`
+  String get userProfilePage_changePasswordDesc {
+    return Intl.message(
+      'We will send you an email with a link to change your password',
+      name: 'userProfilePage_changePasswordDesc',
       desc: '',
       args: [],
     );

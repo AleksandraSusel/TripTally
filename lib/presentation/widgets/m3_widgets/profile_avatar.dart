@@ -19,7 +19,7 @@ class ProfileAvatar extends StatelessWidget {
       width: AppDimensions.d56 * size,
       decoration: BoxDecoration(
         border: Border.all(width: 2.5),
-        borderRadius: BorderRadius.circular(AppDimensions.d32),
+        borderRadius: BorderRadius.circular(AppDimensions.d32 * size),
       ),
       duration: 400.ms,
       curve: Curves.easeInOut,

@@ -15,6 +15,7 @@ import 'package:trip_tally/presentation/pages/planned_trips_page/planned_trips_p
 import 'package:trip_tally/presentation/pages/test_m3_page/test_m3_page.dart';
 import 'package:trip_tally/presentation/pages/trip_panel_page/trip_panel_page.dart';
 import 'package:trip_tally/presentation/pages/trips_history_page/trips_history_page.dart';
+import 'package:trip_tally/presentation/pages/user_profile/user_profile_page.dart';
 import 'package:trip_tally/presentation/pages/welcome_page/bloc/update_user_profile_bloc.dart';
 import 'package:trip_tally/presentation/pages/welcome_page/welcome_page.dart';
 import 'package:trip_tally/presentation/utils/permissions/bloc/permissions_bloc.dart';
@@ -43,5 +44,6 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: PlannedTripsRoute.page),
         AutoRoute(page: CreateExpensesRoute.page),
         AutoRoute(page: TripPanelRoute.page),
+        AutoRoute(page: UserProfileRoute.page),
       ];
 }

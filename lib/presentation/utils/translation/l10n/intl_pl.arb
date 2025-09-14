@@ -1,4 +1,5 @@
 {
+  "@@locale": "pl",
   "appName": "Trip Tally",
   "appDescription": "Your personal trip assistant",
   "authPage_singInToAcc": "Sign in to your account",
@@ -169,5 +170,23 @@
       }
     }
   },
-  "errorWidget_button": "Retry"
+  "errorWidget_button": "Retry",
+  "userProfilePage_yourProfile": "Your profile",
+  "userProfilePage_followers": "Followers",
+  "userProfilePage_finishedTrips": "Finished Trips",
+  "userProfilePage_tripsSpend": "Spend on trips",
+  "userProfilePage_settings": "Setting",
+  "userProfilePage_logout": "Logout",
+  "userProfilePage_deleteAccount": "Remove your account",
+  "userProfilePage_deleteAccountDesc": "Click to remove your account",
+  "userProfilePage_deleteAccountDialog": "Are you sure you want to delete your account?",
+  "userProfilePage_deleteAccountDialogDesc": "This action is irreversible",
+  "userProfilePage_logoutDesc": "Click to logout from your account",
+  "userProfilePage_changeName": "Change your name",
+  "userProfilePage_changeNameDialog": "Enter your new name",
+  "userProfilePage_changeEmail": "Change your email",
+  "userProfilePage_changeEmailDialogNewEmail": "Enter your new email address",
+  "userProfilePage_changeEmailDialogPassword": "Enter your password",
+  "userProfilePage_changePassword": "Change your password",
+  "userProfilePage_changePasswordDesc": "We will send you an email with a link to change your password"
 }

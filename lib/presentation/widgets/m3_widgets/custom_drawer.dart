@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_tally/presentation/theme/app_dimensions.dart';
 import 'package:trip_tally/presentation/utils/enums/context_extensions.dart';
+import 'package:trip_tally/presentation/utils/router/app_router.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -26,9 +28,12 @@ class CustomDrawer extends StatelessWidget {
             leading: Icon(Icons.message),
             title: Text('Messages'),
           ),
-          const ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text('Profile'),
+          ListTile(
+            leading: const Icon(Icons.account_circle),
+            title: Text(context.tr.userProfilePage_yourProfile),
+            onTap: () => context.router.push(
+              const UserProfileRoute(),
+            ),
           ),
           const ListTile(
             leading: Icon(Icons.settings),
