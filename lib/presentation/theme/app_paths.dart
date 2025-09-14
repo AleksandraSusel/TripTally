@@ -45,6 +45,10 @@ class AppPaths {
   static const String beach = '$pngPath/auth_bg.png';
   static const String appleLogo = '$pngPath/apple_logo.png';
   static const String googleLogo = '$pngPath/google_logo.png';
+  static const String starPng = '$pngPath/star.png';
+  static const String timeIcon = '$pngPath/time.png';
+  static const String spendIcon = '$pngPath/spend.png';
+  static const String starIcon = '$pngPath/star.png';
 
   // M3 SVG
   static const String carM3 = '$m3SvgPath/car.svg';
@@ -73,4 +77,6 @@ class AppPaths {
   static const String errorSign = '$svgPath/error_sign.svg';
   static const String warningSign = '$svgPath/warning_sign.svg';
   static const String successCheck = '$svgPath/success_check.svg';
+  static const String locationPinIcon = '$m3SvgPath/location_pin.svg';
+  static const String settingsIcon = '$m3SvgPath/settings.svg';
 }
