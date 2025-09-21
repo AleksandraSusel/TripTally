@@ -184,7 +184,7 @@ class ThemeManager {
     ),
   );
 
-  final _themeM3Data = const MaterialTheme(
+  final ThemeData _themeM3Data = const MaterialTheme(
     TextTheme(
       /// [display] used for BOLD roboto fonts -> size: 22/16/14
       displayLarge: TextStyle(

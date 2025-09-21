@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import 'package:trip_tally/injectable/injectable.config.dart';
 
-final getIt = GetIt.instance;
+final GetIt getIt = GetIt.instance;
 
 @InjectableInit()
 Future<void> configureDependencies() async => getIt.init();

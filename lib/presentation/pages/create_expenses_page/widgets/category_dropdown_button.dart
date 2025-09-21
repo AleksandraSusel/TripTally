@@ -1,3 +1,4 @@
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_categories_entity.dart';
@@ -24,9 +25,12 @@ class _CategoryDropdownButtonState extends State<CategoryDropdownButton> {
   Widget build(BuildContext context) {
     return BlocBuilder<GetExpenseCategoriesBloc, BasicState<ExpenseCategoriesEntity>>(
       builder: (context, state) => DropdownSearchButton<ExpenseCategoryEntity>(
-        items: switch (state) {
-          LoadedState(data: final data) => data.categories,
-          _ => const [],
+        dropdownKey: widget.key,
+        items: (String filter, LoadProps? loadProps) async {
+          return switch (state) {
+            LoadedState(data: final data) => data.categories,
+            _ => const [],
+          };
         },
         selectedItem: _selectedCategory,
         itemAsString: (category) => category?.name ?? '',

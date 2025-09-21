@@ -15,9 +15,11 @@ class RectangularCountryFlag extends StatelessWidget {
   Widget build(BuildContext context) {
     return CountryFlag.fromCountryCode(
       countryCode,
-      shape: const RoundedRectangle(2.5),
-      height: AppDimensions.d20,
-      width: AppDimensions.d26,
+      theme: const ImageTheme(
+        shape: RoundedRectangle(2.5),
+        height: AppDimensions.d20,
+        width: AppDimensions.d26,
+      ),
     );
   }
 }

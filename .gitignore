@@ -49,5 +49,5 @@ app.*.map.json
 .fvm/
 .fvmrc
 
-# VS Code settings
+.cursor/
 .vscode/

@@ -40,18 +40,13 @@ dependencies:
   injectable: ^2.3.2
 
   # internationalization and localization
-  intl: ^0.19.0
+  intl: ^0.20.2
   intl_utils: ^2.8.7
   flutter_localizations:
     sdk: flutter
 
-  # ephemeral state
-  flutter_hooks: ^0.21.2
-
   # ui
   flutter_svg: ^2.0.9
-
-
 
   # functional programming
   dartz: ^0.10.1
@@ -63,12 +58,11 @@ dependencies:
   mockito: ^5.4.4
   bloc_test: ^10.0.0
   equatable: ^2.0.5
-  golden_toolkit: ^0.15.0
-  alchemist: ^0.11.0
-  firebase_core: ^3.1.0
-  firebase_auth: ^5.1.0
+  alchemist: ^0.12.1
+  firebase_core: ^4.1.0
+  firebase_auth: ^6.0.2
   file: ^7.0.0
-  country_flags: ^3.0.0
+  country_flags: ^4.0.0
   shared_preferences: ^2.2.3
   auto_size_text: ^3.0.0
   flutter_animate: ^4.5.0
@@ -76,7 +70,7 @@ dependencies:
   country_picker: ^2.0.26
   world_countries: ^3.4.0
   image_picker: ^1.1.2
-  permission_handler: ^11.3.1
+  permission_handler: ^12.0.1
   flutter_typeahead: ^5.2.0
   table_calendar: ^3.1.2
   latlong2: ^0.9.1
@@ -84,9 +78,9 @@ dependencies:
   flutter_map_location_marker: ^10.0.0
   flutter_map_cancellable_tile_provider: ^3.0.0
   material_floating_search_bar_2: ^0.5.0
-  geolocator: ^13.0.4
+  geolocator: ^14.0.2
   path: ^1.9.0
-  dropdown_search: ^5.0.6
+  dropdown_search: ^6.0.2
 
 dev_dependencies:
   flutter_test:
@@ -98,7 +92,7 @@ dev_dependencies:
   injectable_generator: ^2.4.1
   build_runner: ^2.4.9
   analyzer: ^7.3.0
-  very_good_analysis: ^7.0.0
+  very_good_analysis: ^8.0.0
 
 flutter:
   uses-material-design: true

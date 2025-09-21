@@ -1,6 +1,9 @@
+import 'package:dropdown_search/dropdown_search.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:trip_tally/domain/entities/expenses/expense_categories_entity.dart';
+import 'package:trip_tally/domain/entities/expenses/expense_category_entity.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/create_expenses_page.dart';
@@ -49,6 +52,7 @@ void main() {
 
   runGoldenTest(
     'CreateExpensesPage - Categories list',
+    closeDropdowns: true,
     whilePerforming: (tester) async {
       await tester.pumpAndSettle();
       await tester.enterText(
@@ -59,8 +63,10 @@ void main() {
         find.byKey(WidgetsKeys.addExpenseFormBudgetExpense),
         '10',
       );
-      await tester.tap(find.byKey(WidgetsKeys.addExpenseFormCategoryExpense));
+      await tester.tap(find.byType(DropdownSearch<ExpenseCategoryEntity>));
       await tester.pumpAndSettle();
+      await tester.pump(const Duration(milliseconds: 1000));
+      expect(find.byType(Dialog), findsOneWidget);
       return;
     },
     builder: buildPage,
@@ -78,7 +84,7 @@ void main() {
         find.byKey(WidgetsKeys.addExpenseFormBudgetExpense),
         '10',
       );
-      await tester.tap(find.byKey(WidgetsKeys.addExpenseFormCategoryExpense));
+      await tester.tap(find.byType(DropdownSearch<ExpenseCategoryEntity>));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Food'));
       await tester.pumpAndSettle();

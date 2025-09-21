@@ -44,6 +44,7 @@ Future<void> runGoldenTest(
   Interaction? whilePerforming,
   BoxConstraints constrains = defaultConstraints,
   double textScaleFactor = 1.0,
+  bool closeDropdowns = false,
 }) async {
   final navigatorObserver = LocalizationObserver(
     locale: const Locale('en'),
@@ -78,6 +79,18 @@ Future<void> runGoldenTest(
     whilePerforming: (tester) async {
       await whilePerforming?.call(tester);
       await tester.pumpAndSettle();
+
+      // Close dropdowns if requested to prevent disposal issues
+      if (closeDropdowns) {
+        try {
+          // Try to close any open dropdowns by tapping outside
+          await tester.tapAt(const Offset(50, 50));
+          await tester.pumpAndSettle();
+        } on Object catch (_) {
+          // Ignore errors when closing dropdowns
+        }
+      }
+
       return;
     },
   );

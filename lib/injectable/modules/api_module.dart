@@ -12,9 +12,10 @@ abstract class ApiModule {
           /// Ignore the baseUrl warning
           // ignore: avoid_redundant_argument_values
           baseUrl: EnvConfig.apiUrl,
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          connectTimeout: const Duration(seconds: 30),
+          receiveTimeout: const Duration(seconds: 30),
+          sendTimeout: const Duration(seconds: 30),
+          contentType: 'application/json',
         ),
       )..interceptors.addAll(
           [
