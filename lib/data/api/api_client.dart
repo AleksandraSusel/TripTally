@@ -29,6 +29,9 @@ abstract class ApiClient {
   @GET('trips/{id}')
   Future<TripDto> getTripById(@Path('id') String tripId);
 
+  @GET('trips/today')
+  Future<TripDto> getTodayTrips();
+
   ///Post
   @POST('users/log_in')
   Future<String> login(@Queries() LoginDto dto);

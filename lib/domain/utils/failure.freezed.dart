@@ -20,7 +20,8 @@ mixin _$Failure {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  $FailureCopyWith<Failure> get copyWith => _$FailureCopyWithImpl<Failure>(this as Failure, _$identity);
+  $FailureCopyWith<Failure> get copyWith =>
+      _$FailureCopyWithImpl<Failure>(this as Failure, _$identity);
 
   @override
   bool operator ==(Object other) {
@@ -41,7 +42,8 @@ mixin _$Failure {
 
 /// @nodoc
 abstract mixin class $FailureCopyWith<$Res> {
-  factory $FailureCopyWith(Failure value, $Res Function(Failure) _then) = _$FailureCopyWithImpl;
+  factory $FailureCopyWith(Failure value, $Res Function(Failure) _then) =
+      _$FailureCopyWithImpl;
   @useResult
   $Res call({Errors error});
 }
@@ -239,7 +241,8 @@ class _Failure implements Failure {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$FailureCopyWith<_Failure> get copyWith => __$FailureCopyWithImpl<_Failure>(this, _$identity);
+  _$FailureCopyWith<_Failure> get copyWith =>
+      __$FailureCopyWithImpl<_Failure>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
@@ -260,7 +263,8 @@ class _Failure implements Failure {
 
 /// @nodoc
 abstract mixin class _$FailureCopyWith<$Res> implements $FailureCopyWith<$Res> {
-  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) _then) = __$FailureCopyWithImpl;
+  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) _then) =
+      __$FailureCopyWithImpl;
   @override
   @useResult
   $Res call({Errors error});

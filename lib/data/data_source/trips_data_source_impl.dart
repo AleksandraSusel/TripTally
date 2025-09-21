@@ -36,6 +36,16 @@ class TripsDataSourceImpl implements TripsDataSource {
   }
 
   @override
+  Future<TripDto?> getTodayTrips() async {
+    try {
+      return await client.getTodayTrips();
+    } on Exception catch (e, stack) {
+      debugPrint('Could not fetch today trips.\nReason: $e\nStack: $stack');
+      throw ApiException(Errors.unknownError);
+    }
+  }
+
+  @override
   Future<Success> deleteTrip(String id) async {
     try {
       await client.deleteTrip(id);

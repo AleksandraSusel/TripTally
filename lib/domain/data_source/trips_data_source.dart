@@ -7,6 +7,8 @@ abstract class TripsDataSource {
 
   Future<List<TripDto>> getAllUserTrips();
 
+  Future<TripDto?> getTodayTrips();
+
   Future<TripDto> getTripById(String id);
 
   Future<Success> deleteTrip(String id);

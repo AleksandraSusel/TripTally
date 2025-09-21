@@ -142,4 +142,43 @@ void main() {
     verify(mockedTripsDataSource.updateTrip(any, any)).called(1);
     verifyNoMoreInteractions(mockedTripsDataSource);
   });
+
+  test('getTodayTrips should return a trip on success', () async {
+    when(mockedTripsDataSource.getTodayTrips()).thenAnswer((_) async => mockedTripDtoV1);
+
+    final result = await repo.getTodayTrips();
+
+    TripEntity? tripEntity;
+    result.fold((l) => null, (r) => tripEntity = r);
+
+    expect(tripEntity, TripEntity.fromDto(mockedTripDtoV1));
+    verify(mockedTripsDataSource.getTodayTrips()).called(1);
+    verifyNoMoreInteractions(mockedTripsDataSource);
+  });
+
+  test('getTodayTrips should return null when no trip today', () async {
+    when(mockedTripsDataSource.getTodayTrips()).thenAnswer((_) async => null);
+
+    final result = await repo.getTodayTrips();
+
+    TripEntity? tripEntity;
+    result.fold((l) => null, (r) => tripEntity = r);
+
+    expect(tripEntity, null);
+    verify(mockedTripsDataSource.getTodayTrips()).called(1);
+    verifyNoMoreInteractions(mockedTripsDataSource);
+  });
+
+  test('getTodayTrips should return a Failure when an exception is thrown', () async {
+    when(mockedTripsDataSource.getTodayTrips()).thenThrow(ApiException(Errors.somethingWentWrong));
+
+    final result = await repo.getTodayTrips();
+
+    Errors? error;
+    result.fold((l) => error = l.error, (r) => null);
+
+    expect(error, Errors.somethingWentWrong);
+    verify(mockedTripsDataSource.getTodayTrips()).called(1);
+    verifyNoMoreInteractions(mockedTripsDataSource);
+  });
 }

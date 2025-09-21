@@ -36,7 +36,7 @@ class AuthenticationPage extends StatelessWidget {
             listener: (context, state) => switch (state) {
               FailureState(error: final error) => showSnackBar(context, error.errorText(context)),
               Registered() => context.router.replaceAll([WelcomeRoute()]),
-              Logged() => context.router.replaceAll([const HomeRoute()]),
+              Logged() => context.router.replaceAll([HomeRoute()]),
               _ => null,
             },
             child: const _Body(),

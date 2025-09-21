@@ -16,7 +16,7 @@ analyzer:
     - lib/**/*.g.dart
     - lib/**/*.gr.dart
     - lib/**/*.freezed.dart
-    - lib/**/generated/
+    - /**/generated/
     - lib/*/*/*/generated/intl/*.dart
     - lib/**/injectable.config.dart
     - test/generate_mocks.mocks.dart

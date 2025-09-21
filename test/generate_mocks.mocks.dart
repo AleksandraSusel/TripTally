@@ -47,6 +47,7 @@ import 'package:trip_tally/domain/use_case/create_expense_use_case.dart' as _i51
 import 'package:trip_tally/domain/use_case/create_trip_use_case.dart' as _i37;
 import 'package:trip_tally/domain/use_case/delete_trip_use_case.dart' as _i62;
 import 'package:trip_tally/domain/use_case/get_all_user_trips_use_case.dart' as _i60;
+import 'package:trip_tally/domain/use_case/get_today_trips_use_case.dart' as _i66;
 import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart' as _i41;
 import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i22;
 import 'package:trip_tally/domain/use_case/sign_out_use_case.dart' as _i65;
@@ -61,6 +62,7 @@ import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_e
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_event.dart' as _i56;
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart' as _i58;
 import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart' as _i57;
+import 'package:trip_tally/presentation/pages/home_page/bloc/get_today_trips_bloc.dart' as _i67;
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/delete_trip_bloc.dart' as _i61;
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/get_all_user_trips_bloc.dart' as _i59;
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/update_trip_bloc.dart' as _i64;
@@ -556,6 +558,21 @@ class MockApiClient extends _i1.Mock implements _i25.ApiClient {
       ) as _i13.Future<_i7.TripDto>);
 
   @override
+  _i13.Future<_i7.TripDto> getTodayTrips() => (super.noSuchMethod(
+        Invocation.method(
+          #getTodayTrips,
+          [],
+        ),
+        returnValue: _i13.Future<_i7.TripDto>.value(_FakeTripDto_5(
+          this,
+          Invocation.method(
+            #getTodayTrips,
+            [],
+          ),
+        )),
+      ) as _i13.Future<_i7.TripDto>);
+
+  @override
   _i13.Future<String> login(_i19.LoginDto? dto) => (super.noSuchMethod(
         Invocation.method(
           #login,
@@ -931,6 +948,15 @@ class MockTripsDataSource extends _i1.Mock implements _i32.TripsDataSource {
       ) as _i13.Future<List<_i7.TripDto>>);
 
   @override
+  _i13.Future<_i7.TripDto?> getTodayTrips() => (super.noSuchMethod(
+        Invocation.method(
+          #getTodayTrips,
+          [],
+        ),
+        returnValue: _i13.Future<_i7.TripDto?>.value(),
+      ) as _i13.Future<_i7.TripDto?>);
+
+  @override
   _i13.Future<_i7.TripDto> getTripById(String? id) => (super.noSuchMethod(
         Invocation.method(
           #getTripById,
@@ -1188,6 +1214,22 @@ class MockTripsRepo extends _i1.Mock implements _i34.TripsRepo {
           ),
         )),
       ) as _i13.Future<_i2.Either<_i14.Failure, List<_i35.TripEntity>>>);
+
+  @override
+  _i13.Future<_i2.Either<_i14.Failure, _i35.TripEntity?>> getTodayTrips() => (super.noSuchMethod(
+        Invocation.method(
+          #getTodayTrips,
+          [],
+        ),
+        returnValue:
+            _i13.Future<_i2.Either<_i14.Failure, _i35.TripEntity?>>.value(_FakeEither_0<_i14.Failure, _i35.TripEntity?>(
+          this,
+          Invocation.method(
+            #getTodayTrips,
+            [],
+          ),
+        )),
+      ) as _i13.Future<_i2.Either<_i14.Failure, _i35.TripEntity?>>);
 
   @override
   _i13.Future<_i2.Either<_i14.Failure, _i35.TripEntity>> getTripById(String? id) => (super.noSuchMethod(
@@ -2802,4 +2844,161 @@ class MockSignOutUseCase extends _i1.Mock implements _i65.SignOutUseCase {
           ),
         )),
       ) as _i13.Future<_i2.Either<_i14.Failure, _i3.Success>>);
+}
+
+/// A class which mocks [GetTodayTripsUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetTodayTripsUseCase extends _i1.Mock implements _i66.GetTodayTripsUseCase {
+  MockGetTodayTripsUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i13.Future<_i2.Either<_i14.Failure, _i35.TripEntity?>> call() => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+        ),
+        returnValue:
+            _i13.Future<_i2.Either<_i14.Failure, _i35.TripEntity?>>.value(_FakeEither_0<_i14.Failure, _i35.TripEntity?>(
+          this,
+          Invocation.method(
+            #call,
+            [],
+          ),
+        )),
+      ) as _i13.Future<_i2.Either<_i14.Failure, _i35.TripEntity?>>);
+}
+
+/// A class which mocks [GetTodayTripsBloc].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGetTodayTripsBloc extends _i1.Mock implements _i67.GetTodayTripsBloc {
+  MockGetTodayTripsBloc() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.BasicState<_i35.TripEntity?> get state => (super.noSuchMethod(
+        Invocation.getter(#state),
+        returnValue: _FakeBasicState_2<_i35.TripEntity?>(
+          this,
+          Invocation.getter(#state),
+        ),
+      ) as _i4.BasicState<_i35.TripEntity?>);
+
+  @override
+  _i13.Stream<_i4.BasicState<_i35.TripEntity?>> get stream => (super.noSuchMethod(
+        Invocation.getter(#stream),
+        returnValue: _i13.Stream<_i4.BasicState<_i35.TripEntity?>>.empty(),
+      ) as _i13.Stream<_i4.BasicState<_i35.TripEntity?>>);
+
+  @override
+  bool get isClosed => (super.noSuchMethod(
+        Invocation.getter(#isClosed),
+        returnValue: false,
+      ) as bool);
+
+  @override
+  void add(_i67.GetTodayTripsEvent? event) => super.noSuchMethod(
+        Invocation.method(
+          #add,
+          [event],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void onEvent(_i67.GetTodayTripsEvent? event) => super.noSuchMethod(
+        Invocation.method(
+          #onEvent,
+          [event],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void emit(_i4.BasicState<_i35.TripEntity?>? state) => super.noSuchMethod(
+        Invocation.method(
+          #emit,
+          [state],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void on<E extends _i67.GetTodayTripsEvent>(
+    _i24.EventHandler<E, _i4.BasicState<_i35.TripEntity?>>? handler, {
+    _i24.EventTransformer<E>? transformer,
+  }) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #on,
+          [handler],
+          {#transformer: transformer},
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void onTransition(_i24.Transition<_i67.GetTodayTripsEvent, _i4.BasicState<_i35.TripEntity?>>? transition) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #onTransition,
+          [transition],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i13.Future<void> close() => (super.noSuchMethod(
+        Invocation.method(
+          #close,
+          [],
+        ),
+        returnValue: _i13.Future<void>.value(),
+        returnValueForMissingStub: _i13.Future<void>.value(),
+      ) as _i13.Future<void>);
+
+  @override
+  void onChange(_i24.Change<_i4.BasicState<_i35.TripEntity?>>? change) => super.noSuchMethod(
+        Invocation.method(
+          #onChange,
+          [change],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void addError(
+    Object? error, [
+    StackTrace? stackTrace,
+  ]) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #addError,
+          [
+            error,
+            stackTrace,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void onError(
+    Object? error,
+    StackTrace? stackTrace,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #onError,
+          [
+            error,
+            stackTrace,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
 }

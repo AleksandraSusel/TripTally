@@ -17,6 +17,7 @@ import 'package:trip_tally/domain/use_case/create_expense_use_case.dart';
 import 'package:trip_tally/domain/use_case/create_trip_use_case.dart';
 import 'package:trip_tally/domain/use_case/delete_trip_use_case.dart';
 import 'package:trip_tally/domain/use_case/get_all_user_trips_use_case.dart';
+import 'package:trip_tally/domain/use_case/get_today_trips_use_case.dart';
 import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart';
 import 'package:trip_tally/domain/use_case/login_use_case.dart';
 import 'package:trip_tally/domain/use_case/sign_out_use_case.dart';
@@ -28,6 +29,7 @@ import 'package:trip_tally/presentation/pages/authentication_page/bloc/authentic
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart';
 import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart';
+import 'package:trip_tally/presentation/pages/home_page/bloc/get_today_trips_bloc.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/delete_trip_bloc.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/get_all_user_trips_bloc.dart';
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/update_trip_bloc.dart';
@@ -71,6 +73,8 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_sug
   UpdateTripUseCase,
   UpdateTripBloc,
   SignOutUseCase,
+  GetTodayTripsUseCase,
+  GetTodayTripsBloc,
 ])
 void main() {}
 

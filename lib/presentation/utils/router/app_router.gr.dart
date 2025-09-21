@@ -108,7 +108,8 @@ class CreateExpensesRouteArgs {
 
 /// generated route for
 /// [CreateTripBasicInfoPage]
-class CreateTripBasicInfoRoute extends PageRouteInfo<CreateTripBasicInfoRouteArgs> {
+class CreateTripBasicInfoRoute
+    extends PageRouteInfo<CreateTripBasicInfoRouteArgs> {
   CreateTripBasicInfoRoute({
     CreateTripBloc? createTripBloc,
     Key? key,
@@ -183,22 +184,61 @@ class CreateTripBasicInfoRouteArgs {
   }
 
   @override
-  int get hashCode => createTripBloc.hashCode ^ key.hashCode ^ cubit.hashCode ^ trip.hashCode ^ updateTripBloc.hashCode;
+  int get hashCode =>
+      createTripBloc.hashCode ^
+      key.hashCode ^
+      cubit.hashCode ^
+      trip.hashCode ^
+      updateTripBloc.hashCode;
 }
 
 /// generated route for
 /// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute({List<PageRouteInfo>? children}) : super(HomeRoute.name, initialChildren: children);
+class HomeRoute extends PageRouteInfo<HomeRouteArgs> {
+  HomeRoute({
+    GetTodayTripsBloc? getTodayTripsBloc,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          HomeRoute.name,
+          args: HomeRouteArgs(getTodayTripsBloc: getTodayTripsBloc, key: key),
+          initialChildren: children,
+        );
 
   static const String name = 'HomeRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const HomePage();
+      final args = data.argsAs<HomeRouteArgs>(
+        orElse: () => const HomeRouteArgs(),
+      );
+      return HomePage(getTodayTripsBloc: args.getTodayTripsBloc, key: args.key);
     },
   );
+}
+
+class HomeRouteArgs {
+  const HomeRouteArgs({this.getTodayTripsBloc, this.key});
+
+  final GetTodayTripsBloc? getTodayTripsBloc;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'HomeRouteArgs{getTodayTripsBloc: $getTodayTripsBloc, key: $key}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! HomeRouteArgs) return false;
+    return getTodayTripsBloc == other.getTodayTripsBloc && key == other.key;
+  }
+
+  @override
+  int get hashCode => getTodayTripsBloc.hashCode ^ key.hashCode;
 }
 
 /// generated route for
@@ -264,13 +304,15 @@ class PlannedTripsRouteArgs {
   }
 
   @override
-  int get hashCode => key.hashCode ^ getAllUserTripsBloc.hashCode ^ deleteTripBloc.hashCode;
+  int get hashCode =>
+      key.hashCode ^ getAllUserTripsBloc.hashCode ^ deleteTripBloc.hashCode;
 }
 
 /// generated route for
 /// [TestM3Page]
 class TestM3Route extends PageRouteInfo<void> {
-  const TestM3Route({List<PageRouteInfo>? children}) : super(TestM3Route.name, initialChildren: children);
+  const TestM3Route({List<PageRouteInfo>? children})
+      : super(TestM3Route.name, initialChildren: children);
 
   static const String name = 'TestM3Route';
 
@@ -285,7 +327,8 @@ class TestM3Route extends PageRouteInfo<void> {
 /// generated route for
 /// [TripPanelPage]
 class TripPanelRoute extends PageRouteInfo<void> {
-  const TripPanelRoute({List<PageRouteInfo>? children}) : super(TripPanelRoute.name, initialChildren: children);
+  const TripPanelRoute({List<PageRouteInfo>? children})
+      : super(TripPanelRoute.name, initialChildren: children);
 
   static const String name = 'TripPanelRoute';
 
@@ -300,7 +343,8 @@ class TripPanelRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [TripsHistoryPage]
 class TripsHistoryRoute extends PageRouteInfo<void> {
-  const TripsHistoryRoute({List<PageRouteInfo>? children}) : super(TripsHistoryRoute.name, initialChildren: children);
+  const TripsHistoryRoute({List<PageRouteInfo>? children})
+      : super(TripsHistoryRoute.name, initialChildren: children);
 
   static const String name = 'TripsHistoryRoute';
 
@@ -315,7 +359,8 @@ class TripsHistoryRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [UserProfilePage]
 class UserProfileRoute extends PageRouteInfo<void> {
-  const UserProfileRoute({List<PageRouteInfo>? children}) : super(UserProfileRoute.name, initialChildren: children);
+  const UserProfileRoute({List<PageRouteInfo>? children})
+      : super(UserProfileRoute.name, initialChildren: children);
 
   static const String name = 'UserProfileRoute';
 
@@ -390,5 +435,6 @@ class WelcomeRouteArgs {
   }
 
   @override
-  int get hashCode => key.hashCode ^ permissionsBloc.hashCode ^ updateUserProfileBloc.hashCode;
+  int get hashCode =>
+      key.hashCode ^ permissionsBloc.hashCode ^ updateUserProfileBloc.hashCode;
 }
