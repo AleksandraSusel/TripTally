@@ -40,6 +40,16 @@ class TripsRepoImpl implements TripsRepo {
   }
 
   @override
+  Future<Either<Failure, TripEntity?>> getTodayTrips() async {
+    try {
+      final result = await _dataSource.getTodayTrips();
+      return Right(result != null ? TripEntity.fromDto(result) : null);
+    } on ApiException catch (e) {
+      return Left(Failure(error: e.failure));
+    }
+  }
+
+  @override
   Future<Either<Failure, Success>> deleteTrip(String id) async {
     try {
       final result = await _dataSource.deleteTrip(id);

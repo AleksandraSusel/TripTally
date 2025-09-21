@@ -38,6 +38,7 @@ import 'package:trip_tally/domain/use_case/create_trip_use_case.dart' as _i684;
 import 'package:trip_tally/domain/use_case/delete_trip_use_case.dart' as _i1055;
 import 'package:trip_tally/domain/use_case/get_all_user_trips_use_case.dart' as _i571;
 import 'package:trip_tally/domain/use_case/get_expense_categories_use_case.dart' as _i434;
+import 'package:trip_tally/domain/use_case/get_today_trips_use_case.dart' as _i795;
 import 'package:trip_tally/domain/use_case/get_trip_use_case.dart' as _i277;
 import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart' as _i740;
 import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i258;
@@ -55,6 +56,7 @@ import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart' as _i67;
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/create_expenses_bloc.dart' as _i868;
 import 'package:trip_tally/presentation/pages/create_expenses_page/bloc/get_expense_categories_bloc.dart' as _i40;
 import 'package:trip_tally/presentation/pages/create_trip_page/bloc/create_trip_bloc.dart' as _i191;
+import 'package:trip_tally/presentation/pages/home_page/bloc/get_today_trips_bloc.dart' as _i287;
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/delete_trip_bloc.dart' as _i576;
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/get_all_user_trips_bloc.dart' as _i447;
 import 'package:trip_tally/presentation/pages/planned_trips_page/bloc/update_trip_bloc.dart' as _i810;
@@ -125,6 +127,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i571.GetAllUserTripsUseCase>(() => _i571.GetAllUserTripsUseCase(gh<_i128.TripsRepo>()));
     gh.factory<_i277.GetTripUseCase>(() => _i277.GetTripUseCase(gh<_i128.TripsRepo>()));
     gh.factory<_i533.UpdateTripUseCase>(() => _i533.UpdateTripUseCase(gh<_i128.TripsRepo>()));
+    gh.factory<_i795.GetTodayTripsUseCase>(() => _i795.GetTodayTripsUseCase(gh<_i128.TripsRepo>()));
     gh.factory<_i376.AuthenticationBloc>(() => _i376.AuthenticationBloc(
           gh<_i258.LoginUseCase>(),
           gh<_i205.CreateAccountUseCase>(),
@@ -138,6 +141,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i576.DeleteTripBloc>(() => _i576.DeleteTripBloc(gh<_i1055.DeleteTripUseCase>()));
     gh.factory<_i447.GetAllUserTripsBloc>(() => _i447.GetAllUserTripsBloc(gh<_i571.GetAllUserTripsUseCase>()));
     gh.factory<_i740.LocationSuggestionsUseCase>(() => _i740.LocationSuggestionsUseCase(gh<_i270.OsmMapRepository>()));
+    gh.factory<_i287.GetTodayTripsBloc>(() => _i287.GetTodayTripsBloc(gh<_i795.GetTodayTripsUseCase>()));
     gh.factory<_i810.UpdateTripBloc>(() => _i810.UpdateTripBloc(gh<_i533.UpdateTripUseCase>()));
     gh.factory<_i250.OsmSuggestionsCubit>(() => _i250.OsmSuggestionsCubit(gh<_i740.LocationSuggestionsUseCase>()));
     return this;

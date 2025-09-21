@@ -43,7 +43,7 @@ class WelcomePage extends StatelessWidget {
         create: (context) => updateUserProfileBloc ?? getIt<UpdateUserProfileBloc>(),
         child: BlocListener<UpdateUserProfileBloc, BasicState<void>>(
           listener: (context, state) => switch (state) {
-            SuccessState() => context.router.replace(const HomeRoute()),
+            SuccessState() => context.router.replace(HomeRoute()),
             FailureState(error: final error) => showSnackBar(context, error.errorText(context)),
             _ => null,
           },

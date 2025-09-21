@@ -9,6 +9,8 @@ abstract class TripsRepo {
 
   Future<Either<Failure, List<TripEntity>>> getAllUserTrips();
 
+  Future<Either<Failure, TripEntity?>> getTodayTrips();
+
   Future<Either<Failure, TripEntity>> getTripById(String id);
 
   Future<Either<Failure, Success>> deleteTrip(String id);

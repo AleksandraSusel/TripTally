@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       child: BlocListener<AppBloc, BasicState<void>>(
         listener: (context, state) => switch (state) {
           LoadedState(data: final _) => getIt<AppRouter>().replaceAll([AuthenticationRoute()]),
-          SuccessState() => getIt<AppRouter>().replaceAll([const HomeRoute()]),
+          SuccessState() => getIt<AppRouter>().replaceAll([HomeRoute()]),
           ToLoginPage() => getIt<AppRouter>().replaceAll([AuthenticationRoute()]),
           LoadingState() => const CustomCircularProgressIndicator(),
           _ => null,

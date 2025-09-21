@@ -135,4 +135,27 @@ void main() {
     verify(mockApiClient.updateTrip(any, any));
     verifyNoMoreInteractions(mockApiClient);
   });
+
+  test('GetTodayTrips to get today trips, success', () async {
+    when(mockApiClient.getTodayTrips()).thenAnswer((_) async => mockedTripDtoV1);
+
+    final result = await tripsDataSource.getTodayTrips();
+    expect(result, mockedTripDtoV1);
+    verify(mockApiClient.getTodayTrips()).called(1);
+    verifyNoMoreInteractions(mockApiClient);
+  });
+
+  test('GetTodayTrips throws ApiException on catch', () async {
+    when(mockApiClient.getTodayTrips()).thenThrow(Exception());
+
+    await expectLater(
+      tripsDataSource.getTodayTrips(),
+      throwsA(
+        isA<ApiException>().having((e) => e.failure, 'Unknown error', Errors.unknownError),
+      ),
+    );
+
+    verify(mockApiClient.getTodayTrips());
+    verifyNoMoreInteractions(mockApiClient);
+  });
 }
