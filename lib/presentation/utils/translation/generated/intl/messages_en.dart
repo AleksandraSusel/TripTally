@@ -30,176 +30,396 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "appDescription": MessageLookupByLibrary.simpleMessage("Your personal trip assistant"),
+        "appDescription": MessageLookupByLibrary.simpleMessage(
+          "Your personal trip assistant",
+        ),
         "appName": MessageLookupByLibrary.simpleMessage("Trip Tally"),
         "authPage_singIn": MessageLookupByLibrary.simpleMessage("Sign in"),
-        "authPage_singInApple": MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
-        "authPage_singInGoogle": MessageLookupByLibrary.simpleMessage("Sign in with Google"),
-        "authPage_singInToAcc": MessageLookupByLibrary.simpleMessage("Sign in to your account"),
+        "authPage_singInApple": MessageLookupByLibrary.simpleMessage(
+          "Sign in with Apple",
+        ),
+        "authPage_singInGoogle": MessageLookupByLibrary.simpleMessage(
+          "Sign in with Google",
+        ),
+        "authPage_singInToAcc": MessageLookupByLibrary.simpleMessage(
+          "Sign in to your account",
+        ),
         "authPage_singUp": MessageLookupByLibrary.simpleMessage("Sing up"),
-        "authPage_singUpApple": MessageLookupByLibrary.simpleMessage("Sign up with Apple"),
-        "authPage_singUpGoogle": MessageLookupByLibrary.simpleMessage("Sign up with Google"),
-        "authPage_singUpToAcc": MessageLookupByLibrary.simpleMessage("Sign up to your account"),
-        "bottomNavBarItem_community": MessageLookupByLibrary.simpleMessage("Community"),
-        "bottomNavBarItem_dashboard": MessageLookupByLibrary.simpleMessage("Dashboard"),
-        "bottomNavBarItem_expenses": MessageLookupByLibrary.simpleMessage("Expenses"),
+        "authPage_singUpApple": MessageLookupByLibrary.simpleMessage(
+          "Sign up with Apple",
+        ),
+        "authPage_singUpGoogle": MessageLookupByLibrary.simpleMessage(
+          "Sign up with Google",
+        ),
+        "authPage_singUpToAcc": MessageLookupByLibrary.simpleMessage(
+          "Sign up to your account",
+        ),
+        "bottomNavBarItem_community": MessageLookupByLibrary.simpleMessage(
+          "Community",
+        ),
+        "bottomNavBarItem_dashboard": MessageLookupByLibrary.simpleMessage(
+          "Dashboard",
+        ),
+        "bottomNavBarItem_expenses": MessageLookupByLibrary.simpleMessage(
+          "Expenses",
+        ),
         "bottomNavBarItem_places": MessageLookupByLibrary.simpleMessage("Places"),
-        "bottomNavBarItem_statistic": MessageLookupByLibrary.simpleMessage("Statistic"),
+        "bottomNavBarItem_statistic": MessageLookupByLibrary.simpleMessage(
+          "Statistic",
+        ),
         "bottomNavBarItem_trips": MessageLookupByLibrary.simpleMessage("Trips"),
-        "createExpensesPage_addExpense": MessageLookupByLibrary.simpleMessage("Add expense"),
-        "createExpensesPage_category": MessageLookupByLibrary.simpleMessage("Category"),
+        "createExpensesPage_addExpense": MessageLookupByLibrary.simpleMessage(
+          "Add expense",
+        ),
+        "createExpensesPage_category": MessageLookupByLibrary.simpleMessage(
+          "Category",
+        ),
         "createExpensesPage_cost": MessageLookupByLibrary.simpleMessage("Cost"),
-        "createExpensesPage_currency": MessageLookupByLibrary.simpleMessage("Currency"),
-        "createExpensesPage_expenseCategory": MessageLookupByLibrary.simpleMessage("Expense category"),
-        "createExpensesPage_expenseCost": MessageLookupByLibrary.simpleMessage("Cost of the expense"),
-        "createExpensesPage_expenseCurrency": MessageLookupByLibrary.simpleMessage("Expense currency"),
+        "createExpensesPage_currency": MessageLookupByLibrary.simpleMessage(
+          "Currency",
+        ),
+        "createExpensesPage_expenseCategory": MessageLookupByLibrary.simpleMessage(
+          "Expense category",
+        ),
+        "createExpensesPage_expenseCost": MessageLookupByLibrary.simpleMessage(
+          "Cost of the expense",
+        ),
+        "createExpensesPage_expenseCurrency": MessageLookupByLibrary.simpleMessage(
+          "Expense currency",
+        ),
         "createExpensesPage_finish": MessageLookupByLibrary.simpleMessage("Finish"),
         "createExpensesPage_name": MessageLookupByLibrary.simpleMessage("Name"),
-        "createExpensesPage_nameExpense": MessageLookupByLibrary.simpleMessage("Name the expense"),
-        "createExpensesPage_submitExpenses": MessageLookupByLibrary.simpleMessage("Submit expenses"),
+        "createExpensesPage_nameExpense": MessageLookupByLibrary.simpleMessage(
+          "Name the expense",
+        ),
+        "createExpensesPage_submitExpenses": MessageLookupByLibrary.simpleMessage(
+          "Submit expenses",
+        ),
         "createExpensesPage_successMessage": m0,
         "createExpensesPage_transportType": m1,
         "createTripBasicInfoPage_dateNotSelected": MessageLookupByLibrary.simpleMessage("Date not selected"),
-        "createTripBudgetHelper": MessageLookupByLibrary.simpleMessage("Your planned budget"),
+        "createTripBudgetHelper": MessageLookupByLibrary.simpleMessage(
+          "Your planned budget",
+        ),
         "createTripBudgetHint": MessageLookupByLibrary.simpleMessage("Budget"),
-        "createTripCurrencyHelper": MessageLookupByLibrary.simpleMessage("The currency you will use"),
+        "createTripCurrencyHelper": MessageLookupByLibrary.simpleMessage(
+          "The currency you will use",
+        ),
         "createTripCurrencyHint": MessageLookupByLibrary.simpleMessage("Currency"),
-        "createTripPage_currencyError": MessageLookupByLibrary.simpleMessage("Please select a currency"),
-        "createTripPage_currencyLabel": MessageLookupByLibrary.simpleMessage("Currency"),
+        "createTripPage_currencyError": MessageLookupByLibrary.simpleMessage(
+          "Please select a currency",
+        ),
+        "createTripPage_currencyLabel": MessageLookupByLibrary.simpleMessage(
+          "Currency",
+        ),
         "createTripPage_successMessage": m2,
-        "createTripPage_titleBasicInfo": MessageLookupByLibrary.simpleMessage("Create new trip"),
-        "createTripPage_updateTrip": MessageLookupByLibrary.simpleMessage("Update trip"),
-        "createTripPage_updateTripSuccess": MessageLookupByLibrary.simpleMessage("Trip updated successfully!"),
+        "createTripPage_titleBasicInfo": MessageLookupByLibrary.simpleMessage(
+          "Create new trip",
+        ),
+        "createTripPage_updateTrip": MessageLookupByLibrary.simpleMessage(
+          "Update trip",
+        ),
+        "createTripPage_updateTripSuccess": MessageLookupByLibrary.simpleMessage(
+          "Trip updated successfully!",
+        ),
         "createTripSearchHint": MessageLookupByLibrary.simpleMessage("Destination"),
-        "currentTripInformation_youAreIn": MessageLookupByLibrary.simpleMessage("You are in:"),
-        "editCurrentTrip_changeACity": MessageLookupByLibrary.simpleMessage("Change a city"),
-        "editCurrentTrip_changeADate": MessageLookupByLibrary.simpleMessage("Change a date"),
-        "editCurrentTrip_changeYourTransport": MessageLookupByLibrary.simpleMessage("change your transport"),
-        "editCurrentTrip_editYourTrip": MessageLookupByLibrary.simpleMessage("Edit your trip"),
+        "currentTripInformation_youAreIn": MessageLookupByLibrary.simpleMessage(
+          "You are in:",
+        ),
+        "drawer_logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "drawer_logoutDialogCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "drawer_logoutDialogConfirm": MessageLookupByLibrary.simpleMessage(
+          "Logout",
+        ),
+        "drawer_logoutDialogMessage": MessageLookupByLibrary.simpleMessage(
+          "Are you sure you want to logout?",
+        ),
+        "drawer_logoutDialogTitle": MessageLookupByLibrary.simpleMessage("Logout"),
+        "drawer_messages": MessageLookupByLibrary.simpleMessage("Messages"),
+        "drawer_settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "editCurrentTrip_changeACity": MessageLookupByLibrary.simpleMessage(
+          "Change a city",
+        ),
+        "editCurrentTrip_changeADate": MessageLookupByLibrary.simpleMessage(
+          "Change a date",
+        ),
+        "editCurrentTrip_changeYourTransport": MessageLookupByLibrary.simpleMessage(
+          "change your transport",
+        ),
+        "editCurrentTrip_editYourTrip": MessageLookupByLibrary.simpleMessage(
+          "Edit your trip",
+        ),
         "editCurrentTrip_submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "email": MessageLookupByLibrary.simpleMessage("E-mail"),
         "errorWidget_button": MessageLookupByLibrary.simpleMessage("Retry"),
         "errorWidget_subtitle": m3,
-        "errorWidget_title": MessageLookupByLibrary.simpleMessage("Ups! Something went wrong"),
+        "errorWidget_title": MessageLookupByLibrary.simpleMessage(
+          "Ups! Something went wrong",
+        ),
         "errors_emailInUse": MessageLookupByLibrary.simpleMessage("Email in use"),
-        "errors_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
-        "errors_fieldCantBeEmpty": MessageLookupByLibrary.simpleMessage("Field cant be empty"),
-        "errors_invalidEmail": MessageLookupByLibrary.simpleMessage("Invalid email"),
-        "errors_noImageSelected": MessageLookupByLibrary.simpleMessage("Ups! You didn\'t choose any picture"),
-        "errors_operationNotAllowed": MessageLookupByLibrary.simpleMessage("Operation not allowed"),
-        "errors_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
-        "errors_somethingWentWrong": MessageLookupByLibrary.simpleMessage("Something went wrong"),
-        "errors_somethingWrongPermissions":
-            MessageLookupByLibrary.simpleMessage("Oh no! Something is wrong with your permissions"),
-        "errors_unknownError": MessageLookupByLibrary.simpleMessage("Unknown error"),
-        "errors_userDisabled": MessageLookupByLibrary.simpleMessage("User disabled"),
-        "errors_userNotFound": MessageLookupByLibrary.simpleMessage("User not found:"),
-        "errors_weakPassword": MessageLookupByLibrary.simpleMessage("Weak password"),
-        "errors_wrongPassword": MessageLookupByLibrary.simpleMessage("Wrong password"),
-        "filterListSegmentedButton_longest": MessageLookupByLibrary.simpleMessage("Longest"),
+        "errors_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
+          "Field can\'t be empty",
+        ),
+        "errors_fieldCantBeEmpty": MessageLookupByLibrary.simpleMessage(
+          "Field cant be empty",
+        ),
+        "errors_invalidEmail": MessageLookupByLibrary.simpleMessage(
+          "Invalid email",
+        ),
+        "errors_noImageSelected": MessageLookupByLibrary.simpleMessage(
+          "Ups! You didn\'t choose any picture",
+        ),
+        "errors_operationNotAllowed": MessageLookupByLibrary.simpleMessage(
+          "Operation not allowed",
+        ),
+        "errors_passwordDontMatch": MessageLookupByLibrary.simpleMessage(
+          "Password don\'t match",
+        ),
+        "errors_somethingWentWrong": MessageLookupByLibrary.simpleMessage(
+          "Something went wrong",
+        ),
+        "errors_somethingWrongPermissions": MessageLookupByLibrary.simpleMessage(
+          "Oh no! Something is wrong with your permissions",
+        ),
+        "errors_unknownError": MessageLookupByLibrary.simpleMessage(
+          "Unknown error",
+        ),
+        "errors_userDisabled": MessageLookupByLibrary.simpleMessage(
+          "User disabled",
+        ),
+        "errors_userNotFound": MessageLookupByLibrary.simpleMessage(
+          "User not found:",
+        ),
+        "errors_weakPassword": MessageLookupByLibrary.simpleMessage(
+          "Weak password",
+        ),
+        "errors_wrongPassword": MessageLookupByLibrary.simpleMessage(
+          "Wrong password",
+        ),
+        "filterListSegmentedButton_longest": MessageLookupByLibrary.simpleMessage(
+          "Longest",
+        ),
         "filterListSegmentedButton_mostExpensive": MessageLookupByLibrary.simpleMessage("Most expensive"),
-        "filterListSegmentedButton_shortest": MessageLookupByLibrary.simpleMessage("Shortest"),
+        "filterListSegmentedButton_shortest": MessageLookupByLibrary.simpleMessage(
+          "Shortest",
+        ),
         "generic_camera": MessageLookupByLibrary.simpleMessage("Camera"),
         "generic_cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "generic_confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "generic_continue": MessageLookupByLibrary.simpleMessage("Continue"),
         "generic_gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
-        "generic_permissionDenied": MessageLookupByLibrary.simpleMessage("Permission Denied"),
+        "generic_permissionDenied": MessageLookupByLibrary.simpleMessage(
+          "Permission Denied",
+        ),
         "generic_permissionDeniedDesc": MessageLookupByLibrary.simpleMessage(
-            "The permission is permanently denied. Please go to settings to enable it."),
+          "The permission is permanently denied. Please go to settings to enable it.",
+        ),
         "generic_search": MessageLookupByLibrary.simpleMessage("Search"),
         "generic_settings": MessageLookupByLibrary.simpleMessage("Go to settings"),
         "generic_skip": MessageLookupByLibrary.simpleMessage("Skip"),
-        "hiTravellerSubtitle_addNewJourney": MessageLookupByLibrary.simpleMessage("Add new journey"),
-        "hiTravellerSubtitle_planNewJourney": MessageLookupByLibrary.simpleMessage("Plan a new journey"),
+        "hiTravellerSubtitle_addNewJourney": MessageLookupByLibrary.simpleMessage(
+          "Add new journey",
+        ),
+        "hiTravellerSubtitle_planNewJourney": MessageLookupByLibrary.simpleMessage(
+          "Plan a new journey",
+        ),
         "hiTravellerSubtitle_yourProfileSettings": MessageLookupByLibrary.simpleMessage("Your profile settings"),
         "hiTravellerText_hi": MessageLookupByLibrary.simpleMessage("Hi "),
-        "hiTravellerText_traveller": MessageLookupByLibrary.simpleMessage("traveller"),
-        "homePage_addNewTrip": MessageLookupByLibrary.simpleMessage("Add a new trip"),
-        "homePage_goToYourTrip": MessageLookupByLibrary.simpleMessage("Go to your trip"),
-        "homePage_planNewTrip": MessageLookupByLibrary.simpleMessage("Plan a new trip"),
-        "homePage_youAreCurrentlyOnATrip": MessageLookupByLibrary.simpleMessage("You are currently on a trip"),
-        "homePage_yourPlannedTrips": MessageLookupByLibrary.simpleMessage("Your planned trips:"),
+        "hiTravellerText_traveller": MessageLookupByLibrary.simpleMessage(
+          "traveller",
+        ),
+        "homePage_addNewTrip": MessageLookupByLibrary.simpleMessage(
+          "Add a new trip",
+        ),
+        "homePage_goToYourTrip": MessageLookupByLibrary.simpleMessage(
+          "Go to your trip",
+        ),
+        "homePage_planNewTrip": MessageLookupByLibrary.simpleMessage(
+          "Plan a new trip",
+        ),
+        "homePage_youAreCurrentlyOnATrip": MessageLookupByLibrary.simpleMessage(
+          "You are currently on a trip",
+        ),
+        "homePage_yourPlannedTrips": MessageLookupByLibrary.simpleMessage(
+          "Your planned trips:",
+        ),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
-        "manageTripsPage_currentlyOnTrip": MessageLookupByLibrary.simpleMessage("You are currently on a trip!"),
-        "manageTripsPage_editTrips": MessageLookupByLibrary.simpleMessage("Edit your trips"),
-        "manageTripsPage_editTripsSubtitle": MessageLookupByLibrary.simpleMessage("Keep your journeys in check!"),
+        "manageTripsPage_currentlyOnTrip": MessageLookupByLibrary.simpleMessage(
+          "You are currently on a trip!",
+        ),
+        "manageTripsPage_editTrips": MessageLookupByLibrary.simpleMessage(
+          "Edit your trips",
+        ),
+        "manageTripsPage_editTripsSubtitle": MessageLookupByLibrary.simpleMessage(
+          "Keep your journeys in check!",
+        ),
         "manageTripsPage_history": MessageLookupByLibrary.simpleMessage("History"),
-        "manageTripsPage_historySubtitle": MessageLookupByLibrary.simpleMessage("Relive your epic travels!"),
-        "manageTripsPage_manageTrips": MessageLookupByLibrary.simpleMessage("Manage your trips"),
+        "manageTripsPage_historySubtitle": MessageLookupByLibrary.simpleMessage(
+          "Relive your epic travels!",
+        ),
+        "manageTripsPage_manageTrips": MessageLookupByLibrary.simpleMessage(
+          "Manage your trips",
+        ),
         "manageTripsPage_planNew": MessageLookupByLibrary.simpleMessage("Plan new"),
-        "manageTripsPage_planNewSubtitle": MessageLookupByLibrary.simpleMessage("Your next adventure awaits!"),
-        "newTripPage_PickTheEndDate": MessageLookupByLibrary.simpleMessage("Pick the end date"),
-        "newTripPage_PickTheStartDate": MessageLookupByLibrary.simpleMessage("Pick the start date"),
-        "newTripPage_selectDates": MessageLookupByLibrary.simpleMessage("Select dates"),
-        "newTripPage_selectYourTransport": MessageLookupByLibrary.simpleMessage("Select your transport"),
+        "manageTripsPage_planNewSubtitle": MessageLookupByLibrary.simpleMessage(
+          "Your next adventure awaits!",
+        ),
+        "newTripPage_PickTheEndDate": MessageLookupByLibrary.simpleMessage(
+          "Pick the end date",
+        ),
+        "newTripPage_PickTheStartDate": MessageLookupByLibrary.simpleMessage(
+          "Pick the start date",
+        ),
+        "newTripPage_selectDates": MessageLookupByLibrary.simpleMessage(
+          "Select dates",
+        ),
+        "newTripPage_selectYourTransport": MessageLookupByLibrary.simpleMessage(
+          "Select your transport",
+        ),
         "newTripPage_submit": MessageLookupByLibrary.simpleMessage("Submit!"),
-        "newTripPage_whereAreYouGoing": MessageLookupByLibrary.simpleMessage("Where are you going"),
+        "newTripPage_whereAreYouGoing": MessageLookupByLibrary.simpleMessage(
+          "Where are you going",
+        ),
         "or": MessageLookupByLibrary.simpleMessage("or"),
-        "outlinedTripCardButton_addExpense": MessageLookupByLibrary.simpleMessage("Add expense"),
-        "outlinedTripCardButton_endTheTrip": MessageLookupByLibrary.simpleMessage("End the trip"),
+        "outlinedTripCardButton_addExpense": MessageLookupByLibrary.simpleMessage(
+          "Add expense",
+        ),
+        "outlinedTripCardButton_endTheTrip": MessageLookupByLibrary.simpleMessage(
+          "End the trip",
+        ),
         "outlinedTripCardButton_totalExpenses": MessageLookupByLibrary.simpleMessage("Total expenses:"),
         "outlinedTripCardButton_transportType": MessageLookupByLibrary.simpleMessage("Transport type:"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
-        "planExpensesPage_choseIcon": MessageLookupByLibrary.simpleMessage("Chose a icon"),
-        "planExpensesPage_howMuch": MessageLookupByLibrary.simpleMessage("How much?"),
-        "planExpensesPage_nameTheExpense": MessageLookupByLibrary.simpleMessage("Name the expense"),
-        "planExpensesPage_planExpenses": MessageLookupByLibrary.simpleMessage("Plan expenses"),
+        "planExpensesPage_choseIcon": MessageLookupByLibrary.simpleMessage(
+          "Chose a icon",
+        ),
+        "planExpensesPage_howMuch": MessageLookupByLibrary.simpleMessage(
+          "How much?",
+        ),
+        "planExpensesPage_nameTheExpense": MessageLookupByLibrary.simpleMessage(
+          "Name the expense",
+        ),
+        "planExpensesPage_planExpenses": MessageLookupByLibrary.simpleMessage(
+          "Plan expenses",
+        ),
         "planExpensesPage_safe": MessageLookupByLibrary.simpleMessage("Safe!"),
         "planNewTripPage_next": MessageLookupByLibrary.simpleMessage("Next"),
-        "plannedTripsPage_confirmationDeleteTrip":
-            MessageLookupByLibrary.simpleMessage("Are you sure to delete this trip?"),
-        "plannedTripsPage_deleteTrip": MessageLookupByLibrary.simpleMessage("Delete trip"),
-        "plannedTripsPage_successDelete": MessageLookupByLibrary.simpleMessage("Successfully deleted the trip"),
-        "plannedTripsPage_yourPlannedTrips": MessageLookupByLibrary.simpleMessage("Your planned trips"),
-        "plannedTripsPage_yourTrips": MessageLookupByLibrary.simpleMessage("Your trips"),
+        "plannedTripsPage_confirmationDeleteTrip": MessageLookupByLibrary.simpleMessage(
+          "Are you sure to delete this trip?",
+        ),
+        "plannedTripsPage_deleteTrip": MessageLookupByLibrary.simpleMessage(
+          "Delete trip",
+        ),
+        "plannedTripsPage_successDelete": MessageLookupByLibrary.simpleMessage(
+          "Successfully deleted the trip",
+        ),
+        "plannedTripsPage_yourPlannedTrips": MessageLookupByLibrary.simpleMessage(
+          "Your planned trips",
+        ),
+        "plannedTripsPage_yourTrips": MessageLookupByLibrary.simpleMessage(
+          "Your trips",
+        ),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
-        "removeCurrentTripPage_deleteTheTrip": MessageLookupByLibrary.simpleMessage("Delete"),
+        "removeCurrentTripPage_deleteTheTrip": MessageLookupByLibrary.simpleMessage(
+          "Delete",
+        ),
         "removeCurrentTripPage_doYouWantToRemoveThisTrip":
             MessageLookupByLibrary.simpleMessage("Do you want to remove the trip?"),
         "removeCurrentTripPage_removeYourTrip": MessageLookupByLibrary.simpleMessage("Remove your trip"),
         "repeatPassword": MessageLookupByLibrary.simpleMessage("Repeat password"),
-        "resumeOfTripExpenses_YouDontHaveAnyTrips":
-            MessageLookupByLibrary.simpleMessage("You don\\\'t have any trips yet!"),
-        "resumeOfTripPage_YouHavePlanned": MessageLookupByLibrary.simpleMessage("You have planned:"),
-        "settingsPage_ChangeYourEmail": MessageLookupByLibrary.simpleMessage("Change your email"),
-        "settingsPage_ChangeYourPassword": MessageLookupByLibrary.simpleMessage("Change your password"),
-        "settingsPage_DeleteYourAccount": MessageLookupByLibrary.simpleMessage("Delete your account"),
-        "settingsPage_HistoryOfYourTrips": MessageLookupByLibrary.simpleMessage("History of your trips"),
-        "summaryAfterClosingPage_close": MessageLookupByLibrary.simpleMessage("Close"),
-        "summaryAfterClosingPage_congrats": MessageLookupByLibrary.simpleMessage("Congrats"),
+        "resumeOfTripExpenses_YouDontHaveAnyTrips": MessageLookupByLibrary.simpleMessage(
+          "You don\\\'t have any trips yet!",
+        ),
+        "resumeOfTripPage_YouHavePlanned": MessageLookupByLibrary.simpleMessage(
+          "You have planned:",
+        ),
+        "settingsPage_ChangeYourEmail": MessageLookupByLibrary.simpleMessage(
+          "Change your email",
+        ),
+        "settingsPage_ChangeYourPassword": MessageLookupByLibrary.simpleMessage(
+          "Change your password",
+        ),
+        "settingsPage_DeleteYourAccount": MessageLookupByLibrary.simpleMessage(
+          "Delete your account",
+        ),
+        "settingsPage_HistoryOfYourTrips": MessageLookupByLibrary.simpleMessage(
+          "History of your trips",
+        ),
+        "summaryAfterClosingPage_close": MessageLookupByLibrary.simpleMessage(
+          "Close",
+        ),
+        "summaryAfterClosingPage_congrats": MessageLookupByLibrary.simpleMessage(
+          "Congrats",
+        ),
         "summaryAfterClosingPage_totalCostOfTheTrip": MessageLookupByLibrary.simpleMessage("Total cost of the trip"),
-        "summaryAfterClosingPage_youHaveSpentGreatMomentsIn":
-            MessageLookupByLibrary.simpleMessage("You have spent great moments in:"),
+        "summaryAfterClosingPage_youHaveSpentGreatMomentsIn": MessageLookupByLibrary.simpleMessage(
+          "You have spent great moments in:",
+        ),
         "summaryRectangle_youAreStillInYourBudget":
             MessageLookupByLibrary.simpleMessage("You are still in your budget: "),
-        "summaryRectangle_youHaveSpent": MessageLookupByLibrary.simpleMessage("You have spent: "),
-        "tripsHistoryPage_historyOfTrips": MessageLookupByLibrary.simpleMessage("History of your trips"),
-        "tripsHistoryPage_searchTrip": MessageLookupByLibrary.simpleMessage("Search a trip"),
-        "validators_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage("Field can\'t be empty"),
-        "validators_passwordDontMatch": MessageLookupByLibrary.simpleMessage("Password don\'t match"),
-        "validators_yourEmailIsIncorrect": MessageLookupByLibrary.simpleMessage("Your email is incorrect"),
-        "viewOfCurrentExpenses_youHaveSpent": MessageLookupByLibrary.simpleMessage("You have spent"),
+        "summaryRectangle_youHaveSpent": MessageLookupByLibrary.simpleMessage(
+          "You have spent: ",
+        ),
+        "tripsHistoryPage_historyOfTrips": MessageLookupByLibrary.simpleMessage(
+          "History of your trips",
+        ),
+        "tripsHistoryPage_searchTrip": MessageLookupByLibrary.simpleMessage(
+          "Search a trip",
+        ),
+        "validators_fieldCanNotBeEmpty": MessageLookupByLibrary.simpleMessage(
+          "Field can\'t be empty",
+        ),
+        "validators_passwordDontMatch": MessageLookupByLibrary.simpleMessage(
+          "Password don\'t match",
+        ),
+        "validators_yourEmailIsIncorrect": MessageLookupByLibrary.simpleMessage(
+          "Your email is incorrect",
+        ),
+        "viewOfCurrentExpenses_youHaveSpent": MessageLookupByLibrary.simpleMessage(
+          "You have spent",
+        ),
         "viewOfCurrentExpenses_yourCurrentExpenses": MessageLookupByLibrary.simpleMessage("Your current expenses"),
         "welcomePage_WelcomeTo": MessageLookupByLibrary.simpleMessage("Welcome to"),
-        "welcomePage_countryFieldError":
-            MessageLookupByLibrary.simpleMessage("We need to know your home country to tailor your travel experience!"),
-        "welcomePage_countryFieldHint": MessageLookupByLibrary.simpleMessage("Where\'s your home base?"),
-        "welcomePage_currencyFieldError":
-            MessageLookupByLibrary.simpleMessage("Setting a default currency helps keep your travel budget in check!"),
-        "welcomePage_currencyFieldHint": MessageLookupByLibrary.simpleMessage("Your travel currency?"),
-        "welcomePage_nameFieldError":
-            MessageLookupByLibrary.simpleMessage("We need your name to tag along on your journeys!"),
-        "welcomePage_nameFieldHint": MessageLookupByLibrary.simpleMessage("Traveler, your name?"),
-        "welcomeSubtitle_theAppForReportingAllExpenses":
-            MessageLookupByLibrary.simpleMessage("The app for reporting all expenses"),
-        "welcomeSubtitle_whileTravelling": MessageLookupByLibrary.simpleMessage("while travelling"),
+        "welcomePage_countryFieldError": MessageLookupByLibrary.simpleMessage(
+          "We need to know your home country to tailor your travel experience!",
+        ),
+        "welcomePage_countryFieldHint": MessageLookupByLibrary.simpleMessage(
+          "Where\'s your home base?",
+        ),
+        "welcomePage_currencyFieldError": MessageLookupByLibrary.simpleMessage(
+          "Setting a default currency helps keep your travel budget in check!",
+        ),
+        "welcomePage_currencyFieldHint": MessageLookupByLibrary.simpleMessage(
+          "Your travel currency?",
+        ),
+        "welcomePage_nameFieldError": MessageLookupByLibrary.simpleMessage(
+          "We need your name to tag along on your journeys!",
+        ),
+        "welcomePage_nameFieldHint": MessageLookupByLibrary.simpleMessage(
+          "Traveler, your name?",
+        ),
+        "welcomeSubtitle_theAppForReportingAllExpenses": MessageLookupByLibrary.simpleMessage(
+          "The app for reporting all expenses",
+        ),
+        "welcomeSubtitle_whileTravelling": MessageLookupByLibrary.simpleMessage(
+          "while travelling",
+        ),
         "welcomeText_tally": MessageLookupByLibrary.simpleMessage("Tally!"),
         "welcomeText_trip": MessageLookupByLibrary.simpleMessage("Trip"),
-        "welcomeText_welcomeIn": MessageLookupByLibrary.simpleMessage("Welcome in \n"),
-        "yourCurrentTripPage_addExpense": MessageLookupByLibrary.simpleMessage("Add expense"),
-        "yourCurrentTripPage_closeTheTrip": MessageLookupByLibrary.simpleMessage("Close the trip"),
-        "yourCurrentTripPage_editTheTrip": MessageLookupByLibrary.simpleMessage("Edit the trip"),
-        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage("Your current trip")
+        "welcomeText_welcomeIn": MessageLookupByLibrary.simpleMessage(
+          "Welcome in \n",
+        ),
+        "yourCurrentTripPage_addExpense": MessageLookupByLibrary.simpleMessage(
+          "Add expense",
+        ),
+        "yourCurrentTripPage_closeTheTrip": MessageLookupByLibrary.simpleMessage(
+          "Close the trip",
+        ),
+        "yourCurrentTripPage_editTheTrip": MessageLookupByLibrary.simpleMessage(
+          "Edit the trip",
+        ),
+        "yourCurrentTripPage_yourCurrentTrip": MessageLookupByLibrary.simpleMessage(
+          "Your current trip",
+        ),
       };
 }

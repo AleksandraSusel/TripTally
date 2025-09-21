@@ -1,6 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:trip_tally/domain/utils/success.dart';
 import 'package:trip_tally/presentation/pages/bloc/app_bloc.dart';
 import 'package:trip_tally/presentation/pages/bloc/app_state.dart';
 import 'package:trip_tally/presentation/utils/basic_state.dart';
@@ -10,11 +12,13 @@ import '../../../mocked_data.dart';
 
 void main() {
   late MockSharedPrefsUtils mockSharedPrefs;
+  late MockSignOutUseCase mockSignOutUseCase;
   setUpAll(() {
     mockSharedPrefs = MockSharedPrefsUtils();
+    mockSignOutUseCase = MockSignOutUseCase();
   });
 
-  AppBloc createBloc() => AppBloc(mockSharedPrefs);
+  AppBloc createBloc() => AppBloc(mockSharedPrefs, mockSignOutUseCase);
 
   blocTest<AppBloc, BasicState<void>>(
     'InitializeAppEvent emit SuccessState() when there is a token',
@@ -38,5 +42,13 @@ void main() {
       verifyNoMoreInteractions(mockSharedPrefs);
     },
     expect: () => [const ToLoginPage()],
+  );
+
+  blocTest<AppBloc, BasicState<void>>(
+    'OnLogoutEvent emit ToLoginPage() when the logout is successful',
+    setUp: () => when(mockSignOutUseCase()).thenAnswer((_) async => const Right(Success())),
+    build: createBloc,
+    act: (bloc) => bloc.add(const OnLogoutEvent()),
+    expect: () => [const LoadingState<void>(), const ToLoginPage()],
   );
 }

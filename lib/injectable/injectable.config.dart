@@ -97,7 +97,6 @@ extension GetItInjectableX on _i174.GetIt {
       () => osmModule.client,
       instanceName: 'OsmDio',
     );
-    gh.factory<_i67.AppBloc>(() => _i67.AppBloc(gh<_i746.SharedPrefsUtils>()));
     gh.factory<_i276.ApiClient>(() => _i276.ApiClient(gh<_i361.Dio>()));
     gh.factory<_i0.PermissionsBloc>(() => _i0.PermissionsBloc(gh<_i400.PermissionsService>()));
     gh.factory<_i586.ExpensesRemoteSource>(() => _i505.ExpensesRemoteSourceImpl(gh<_i276.ApiClient>()));
@@ -131,6 +130,10 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i205.CreateAccountUseCase>(),
         ));
     gh.factory<_i705.UpdateUserProfileBloc>(() => _i705.UpdateUserProfileBloc(gh<_i523.UpdateUserProfileUseCase>()));
+    gh.factory<_i67.AppBloc>(() => _i67.AppBloc(
+          gh<_i746.SharedPrefsUtils>(),
+          gh<_i985.SignOutUseCase>(),
+        ));
     gh.factory<_i191.CreateTripBloc>(() => _i191.CreateTripBloc(gh<_i684.CreateTripUseCase>()));
     gh.factory<_i576.DeleteTripBloc>(() => _i576.DeleteTripBloc(gh<_i1055.DeleteTripUseCase>()));
     gh.factory<_i447.GetAllUserTripsBloc>(() => _i447.GetAllUserTripsBloc(gh<_i571.GetAllUserTripsUseCase>()));

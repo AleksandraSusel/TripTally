@@ -19,6 +19,7 @@ import 'package:trip_tally/domain/use_case/delete_trip_use_case.dart';
 import 'package:trip_tally/domain/use_case/get_all_user_trips_use_case.dart';
 import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart';
 import 'package:trip_tally/domain/use_case/login_use_case.dart';
+import 'package:trip_tally/domain/use_case/sign_out_use_case.dart';
 import 'package:trip_tally/domain/use_case/update_trip_use_case.dart';
 import 'package:trip_tally/domain/use_case/update_user_profile_use_case.dart';
 import 'package:trip_tally/domain/utils/shared_prefs_utils.dart';
@@ -69,6 +70,7 @@ import 'package:trip_tally/presentation/widgets/m3_widgets/maps/osm_bloc/osm_sug
   DeleteTripUseCase,
   UpdateTripUseCase,
   UpdateTripBloc,
+  SignOutUseCase,
 ])
 void main() {}
 
