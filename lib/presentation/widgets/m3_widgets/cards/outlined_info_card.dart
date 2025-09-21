@@ -76,9 +76,11 @@ class OutlinedInfoCard extends StatelessWidget {
                     fit: OverflowBoxFit.deferToChild,
                     child: CountryFlag.fromCountryCode(
                       countryCode,
-                      shape: const RoundedRectangle(2.5),
-                      height: AppDimensions.d16,
-                      width: AppDimensions.d22,
+                      theme: const ImageTheme(
+                        shape: RoundedRectangle(2.5),
+                        height: AppDimensions.d16,
+                        width: AppDimensions.d22,
+                      ),
                     ),
                   ),
                 ],

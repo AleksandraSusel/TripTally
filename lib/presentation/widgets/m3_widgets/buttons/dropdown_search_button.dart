@@ -18,7 +18,7 @@ class DropdownSearchButton<T> extends StatefulWidget {
   });
 
   final ValueSetter<T> onChanged;
-  final List<T> items;
+  final DropdownSearchOnFind<T> items;
   final String labelText;
   final String helperText;
   final String searchLabelText;
@@ -42,6 +42,7 @@ class DropdownSearchButtonState<T> extends State<DropdownSearchButton<T>> {
   @override
   Widget build(BuildContext context) {
     return DropdownSearch<T>(
+      compareFn: (item, value) => item == value,
       itemAsString: widget.itemAsString,
       items: widget.items,
       popupProps: PopupProps.dialog(
@@ -106,8 +107,8 @@ class DropdownSearchButtonState<T> extends State<DropdownSearchButton<T>> {
           ),
         ),
       ),
-      dropdownDecoratorProps: DropDownDecoratorProps(
-        dropdownSearchDecoration: InputDecoration(
+      decoratorProps: DropDownDecoratorProps(
+        decoration: InputDecoration(
           labelText: widget.labelText,
           labelStyle: context.tht.titleSmall,
           helperText: widget.helperText,

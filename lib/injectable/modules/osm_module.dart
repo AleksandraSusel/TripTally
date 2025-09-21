@@ -12,6 +12,10 @@ abstract class OsmModule {
           /// Ignore the baseUrl warning
           // ignore: avoid_redundant_argument_values
           baseUrl: EnvConfig.osmUrl,
+          connectTimeout: const Duration(seconds: 30),
+          receiveTimeout: const Duration(seconds: 30),
+          sendTimeout: const Duration(seconds: 30),
+          contentType: 'application/json',
         ),
       )..interceptors.add(
           PrettyDioLogger(

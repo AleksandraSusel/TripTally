@@ -23,7 +23,9 @@ class OutlinedCircleCountryFlag extends StatelessWidget {
       ),
       child: CountryFlag.fromCountryCode(
         countryCode,
-        shape: const Circle(),
+        theme: const ImageTheme(
+          shape: Circle(),
+        ),
       ),
     );
   }
