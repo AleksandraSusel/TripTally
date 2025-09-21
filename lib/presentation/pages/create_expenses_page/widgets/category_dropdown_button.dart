@@ -25,6 +25,7 @@ class _CategoryDropdownButtonState extends State<CategoryDropdownButton> {
   Widget build(BuildContext context) {
     return BlocBuilder<GetExpenseCategoriesBloc, BasicState<ExpenseCategoriesEntity>>(
       builder: (context, state) => DropdownSearchButton<ExpenseCategoryEntity>(
+        dropdownKey: widget.key,
         items: (String filter, LoadProps? loadProps) async {
           return switch (state) {
             LoadedState(data: final data) => data.categories,

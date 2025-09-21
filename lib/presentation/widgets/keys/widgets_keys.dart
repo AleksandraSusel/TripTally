@@ -9,7 +9,7 @@ class WidgetsKeys {
 
   static Key get addExpenseFormBudgetExpense => const Key('addExpenseFormBudgetExpense');
 
-  static Key get addExpenseFormCategoryExpense => const Key('addExpenseFormCategoryExpense');
-
   static Key get addExpenseFormAddExpenseButton => const Key('addExpenseFormAddExpenseButton');
+
+  static Key get addExpenseFormCategoryExpense => const Key('addExpenseFormCategoryExpense');
 }

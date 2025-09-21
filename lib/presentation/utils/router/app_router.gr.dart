@@ -47,6 +47,16 @@ class AuthenticationRouteArgs {
   String toString() {
     return 'AuthenticationRouteArgs{key: $key, bloc: $bloc}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! AuthenticationRouteArgs) return false;
+    return key == other.key && bloc == other.bloc;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ bloc.hashCode;
 }
 
 /// generated route for
@@ -84,6 +94,16 @@ class CreateExpensesRouteArgs {
   String toString() {
     return 'CreateExpensesRouteArgs{trip: $trip, key: $key}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! CreateExpensesRouteArgs) return false;
+    return trip == other.trip && key == other.key;
+  }
+
+  @override
+  int get hashCode => trip.hashCode ^ key.hashCode;
 }
 
 /// generated route for
@@ -150,6 +170,20 @@ class CreateTripBasicInfoRouteArgs {
   String toString() {
     return 'CreateTripBasicInfoRouteArgs{createTripBloc: $createTripBloc, key: $key, cubit: $cubit, trip: $trip, updateTripBloc: $updateTripBloc}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! CreateTripBasicInfoRouteArgs) return false;
+    return createTripBloc == other.createTripBloc &&
+        key == other.key &&
+        cubit == other.cubit &&
+        trip == other.trip &&
+        updateTripBloc == other.updateTripBloc;
+  }
+
+  @override
+  int get hashCode => createTripBloc.hashCode ^ key.hashCode ^ cubit.hashCode ^ trip.hashCode ^ updateTripBloc.hashCode;
 }
 
 /// generated route for
@@ -219,6 +253,18 @@ class PlannedTripsRouteArgs {
   String toString() {
     return 'PlannedTripsRouteArgs{key: $key, getAllUserTripsBloc: $getAllUserTripsBloc, deleteTripBloc: $deleteTripBloc}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! PlannedTripsRouteArgs) return false;
+    return key == other.key &&
+        getAllUserTripsBloc == other.getAllUserTripsBloc &&
+        deleteTripBloc == other.deleteTripBloc;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ getAllUserTripsBloc.hashCode ^ deleteTripBloc.hashCode;
 }
 
 /// generated route for
@@ -318,4 +364,16 @@ class WelcomeRouteArgs {
   String toString() {
     return 'WelcomeRouteArgs{key: $key, permissionsBloc: $permissionsBloc, updateUserProfileBloc: $updateUserProfileBloc}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! WelcomeRouteArgs) return false;
+    return key == other.key &&
+        permissionsBloc == other.permissionsBloc &&
+        updateUserProfileBloc == other.updateUserProfileBloc;
+  }
+
+  @override
+  int get hashCode => key.hashCode ^ permissionsBloc.hashCode ^ updateUserProfileBloc.hashCode;
 }

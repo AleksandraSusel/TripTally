@@ -58,8 +58,7 @@ dependencies:
   mockito: ^5.4.4
   bloc_test: ^10.0.0
   equatable: ^2.0.5
-  golden_toolkit: ^0.15.0
-  alchemist: ^0.11.0
+  alchemist: ^0.12.1
   firebase_core: ^4.1.0
   firebase_auth: ^6.0.2
   file: ^7.0.0
