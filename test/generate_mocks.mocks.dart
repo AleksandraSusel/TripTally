@@ -49,6 +49,7 @@ import 'package:trip_tally/domain/use_case/delete_trip_use_case.dart' as _i62;
 import 'package:trip_tally/domain/use_case/get_all_user_trips_use_case.dart' as _i60;
 import 'package:trip_tally/domain/use_case/location_suggestions_use_case.dart' as _i41;
 import 'package:trip_tally/domain/use_case/login_use_case.dart' as _i22;
+import 'package:trip_tally/domain/use_case/sign_out_use_case.dart' as _i65;
 import 'package:trip_tally/domain/use_case/update_trip_use_case.dart' as _i63;
 import 'package:trip_tally/domain/use_case/update_user_profile_use_case.dart' as _i47;
 import 'package:trip_tally/domain/utils/failure.dart' as _i14;
@@ -2777,4 +2778,28 @@ class MockUpdateTripBloc extends _i1.Mock implements _i64.UpdateTripBloc {
         ),
         returnValueForMissingStub: null,
       );
+}
+
+/// A class which mocks [SignOutUseCase].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockSignOutUseCase extends _i1.Mock implements _i65.SignOutUseCase {
+  MockSignOutUseCase() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i13.Future<_i2.Either<_i14.Failure, _i3.Success>> call() => (super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [],
+        ),
+        returnValue: _i13.Future<_i2.Either<_i14.Failure, _i3.Success>>.value(_FakeEither_0<_i14.Failure, _i3.Success>(
+          this,
+          Invocation.method(
+            #call,
+            [],
+          ),
+        )),
+      ) as _i13.Future<_i2.Either<_i14.Failure, _i3.Success>>);
 }

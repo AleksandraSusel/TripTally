@@ -12,8 +12,17 @@ fvm dart fix --apply
 # Regexp for grep to only choose some file extensions for formatting
 exts="\.\(dart\)$"
 echo "Pre-commit: formatting changed files"
-# Format staged files
+# Format staged files, excluding generated files
 for file in $(git diff --cached --name-only --diff-filter=ACMR | grep $exts); do
+    # Skip generated files
+    if [[ "$file" == *.freezed.dart ]] || \
+       [[ "$file" == *.g.dart ]] || \
+       [[ "$file" == *.gr.dart ]] || \
+       [[ "$file" == *"/generated/"* ]]; then
+        echo "Skipping generated file: $file"
+        continue
+    fi
+    
     echo "Formatting $file"
     fvm dart format --line-length=120 "$file"
     git add "$file"

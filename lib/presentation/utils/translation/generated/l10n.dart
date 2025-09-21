@@ -18,8 +18,10 @@ class Translation {
   static Translation? _current;
 
   static Translation get current {
-    assert(_current != null,
-        'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.');
+    assert(
+      _current != null,
+      'No instance of Translation was loaded. Try to initialize the Translation delegate before accessing Translation.current.',
+    );
     return _current!;
   }
 
@@ -39,8 +41,10 @@ class Translation {
 
   static Translation of(BuildContext context) {
     final instance = Translation.maybeOf(context);
-    assert(instance != null,
-        'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of Translation present in the widget tree. Did you add Translation.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -50,12 +54,7 @@ class Translation {
 
   /// `Trip Tally`
   String get appName {
-    return Intl.message(
-      'Trip Tally',
-      name: 'appName',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Trip Tally', name: 'appName', desc: '', args: []);
   }
 
   /// `Your personal trip assistant`
@@ -130,22 +129,12 @@ class Translation {
 
   /// `Sign in`
   String get authPage_singIn {
-    return Intl.message(
-      'Sign in',
-      name: 'authPage_singIn',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Sign in', name: 'authPage_singIn', desc: '', args: []);
   }
 
   /// `Sing up`
   String get authPage_singUp {
-    return Intl.message(
-      'Sing up',
-      name: 'authPage_singUp',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Sing up', name: 'authPage_singUp', desc: '', args: []);
   }
 
   /// `Welcome to`
@@ -310,12 +299,7 @@ class Translation {
 
   /// `Skip`
   String get generic_skip {
-    return Intl.message(
-      'Skip',
-      name: 'generic_skip',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Skip', name: 'generic_skip', desc: '', args: []);
   }
 
   /// `Continue`
@@ -330,32 +314,17 @@ class Translation {
 
   /// `Confirm`
   String get generic_confirm {
-    return Intl.message(
-      'Confirm',
-      name: 'generic_confirm',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Confirm', name: 'generic_confirm', desc: '', args: []);
   }
 
   /// `Camera`
   String get generic_camera {
-    return Intl.message(
-      'Camera',
-      name: 'generic_camera',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Camera', name: 'generic_camera', desc: '', args: []);
   }
 
   /// `Gallery`
   String get generic_gallery {
-    return Intl.message(
-      'Gallery',
-      name: 'generic_gallery',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Gallery', name: 'generic_gallery', desc: '', args: []);
   }
 
   /// `Permission Denied`
@@ -380,12 +349,7 @@ class Translation {
 
   /// `Cancel`
   String get generic_cancel {
-    return Intl.message(
-      'Cancel',
-      name: 'generic_cancel',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Cancel', name: 'generic_cancel', desc: '', args: []);
   }
 
   /// `Go to settings`
@@ -400,12 +364,7 @@ class Translation {
 
   /// `Search`
   String get generic_search {
-    return Intl.message(
-      'Search',
-      name: 'generic_search',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Search', name: 'generic_search', desc: '', args: []);
   }
 
   /// `You are currently on a trip!`
@@ -500,12 +459,7 @@ class Translation {
 
   /// `Trip`
   String get welcomeText_trip {
-    return Intl.message(
-      'Trip',
-      name: 'welcomeText_trip',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Trip', name: 'welcomeText_trip', desc: '', args: []);
   }
 
   /// `Tally!`
@@ -590,12 +544,7 @@ class Translation {
 
   /// `Login`
   String get login {
-    return Intl.message(
-      'Login',
-      name: 'login',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Login', name: 'login', desc: '', args: []);
   }
 
   /// `Registration`
@@ -610,22 +559,12 @@ class Translation {
 
   /// `E-mail`
   String get email {
-    return Intl.message(
-      'E-mail',
-      name: 'email',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('E-mail', name: 'email', desc: '', args: []);
   }
 
   /// `Password`
   String get password {
-    return Intl.message(
-      'Password',
-      name: 'password',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Password', name: 'password', desc: '', args: []);
   }
 
   /// `Repeat password`
@@ -640,12 +579,7 @@ class Translation {
 
   /// `or`
   String get or {
-    return Intl.message(
-      'or',
-      name: 'or',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('or', name: 'or', desc: '', args: []);
   }
 
   /// `Unknown error`
@@ -900,12 +834,7 @@ class Translation {
 
   /// `Hi `
   String get hiTravellerText_hi {
-    return Intl.message(
-      'Hi ',
-      name: 'hiTravellerText_hi',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Hi ', name: 'hiTravellerText_hi', desc: '', args: []);
   }
 
   /// `traveller`
@@ -1843,6 +1772,71 @@ class Translation {
     return Intl.message(
       'We will send you an email with a link to change your password',
       name: 'userProfilePage_changePasswordDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wyloguj`
+  String get drawer_logout {
+    return Intl.message('Wyloguj', name: 'drawer_logout', desc: '', args: []);
+  }
+
+  /// `Wyloguj`
+  String get drawer_logoutDialogTitle {
+    return Intl.message(
+      'Wyloguj',
+      name: 'drawer_logoutDialogTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Czy na pewno chcesz się wylogować?`
+  String get drawer_logoutDialogMessage {
+    return Intl.message(
+      'Czy na pewno chcesz się wylogować?',
+      name: 'drawer_logoutDialogMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wyloguj`
+  String get drawer_logoutDialogConfirm {
+    return Intl.message(
+      'Wyloguj',
+      name: 'drawer_logoutDialogConfirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Anuluj`
+  String get drawer_logoutDialogCancel {
+    return Intl.message(
+      'Anuluj',
+      name: 'drawer_logoutDialogCancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wiadomości`
+  String get drawer_messages {
+    return Intl.message(
+      'Wiadomości',
+      name: 'drawer_messages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ustawienia`
+  String get drawer_settings {
+    return Intl.message(
+      'Ustawienia',
+      name: 'drawer_settings',
       desc: '',
       args: [],
     );

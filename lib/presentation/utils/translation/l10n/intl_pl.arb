@@ -188,5 +188,12 @@
   "userProfilePage_changeEmailDialogNewEmail": "Enter your new email address",
   "userProfilePage_changeEmailDialogPassword": "Enter your password",
   "userProfilePage_changePassword": "Change your password",
-  "userProfilePage_changePasswordDesc": "We will send you an email with a link to change your password"
+  "userProfilePage_changePasswordDesc": "We will send you an email with a link to change your password",
+  "drawer_logout": "Wyloguj",
+  "drawer_logoutDialogTitle": "Wyloguj",
+  "drawer_logoutDialogMessage": "Czy na pewno chcesz się wylogować?",
+  "drawer_logoutDialogConfirm": "Wyloguj",
+  "drawer_logoutDialogCancel": "Anuluj",
+  "drawer_messages": "Wiadomości",
+  "drawer_settings": "Ustawienia"
 }

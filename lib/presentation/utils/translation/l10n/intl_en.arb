@@ -167,5 +167,12 @@
       }
     }
   },
-  "errorWidget_button": "Retry"
+  "errorWidget_button": "Retry",
+  "drawer_logout": "Logout",
+  "drawer_logoutDialogTitle": "Logout",
+  "drawer_logoutDialogMessage": "Are you sure you want to logout?",
+  "drawer_logoutDialogConfirm": "Logout",
+  "drawer_logoutDialogCancel": "Cancel",
+  "drawer_messages": "Messages",
+  "drawer_settings": "Settings"
 }
